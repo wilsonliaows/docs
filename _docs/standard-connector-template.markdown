@@ -5,9 +5,12 @@ date: 2017-02-16 06:15:00 Z
 
 # [CONNECTOR-NAME]
 
-## Supported versions and editions
+## Connector information
+### API version
+### Supported editions and versions
 
 ## How to connect to [CONNECTOR-NAME] on Workato
+### [CONNECTOR-NAME] connection
 ### Roles and permissions required to connect
 
 ## Working with the [CONNECTOR-NAME] connector
