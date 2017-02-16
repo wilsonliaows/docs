@@ -19,21 +19,27 @@ The JIRA connector works only with JIRA cloud instances. These instances can be 
 The JIRA connector uses basic authentication to authenticate with JIRA.
 ![Configured JIRA connection](/_uploads/configured_jira_connection.png)
 - Connection name
+
   Give this JIRA connection a unique name that identifies which JIRA instance it's connected to.
 
 - On-prem secure agent
+
   If your JIRA instance is on-premise, you need to set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on your Workato plan.
 
 - Host name
+
   Complete your JIRA instance URL, which is the URL you use to login to JIRA.
 
 - Username
+
   Provide your username to connect to JIRA.
 
 - Password
+
   Provide your password to connect to JIRA.
 
 - Enable firewall-friendly IP
+
   Relevant for organizations with IP whitelisting. Select *yes* if you wish to have all requests from Workato originate from a consistent, known IP address.
 
 ### Roles and permissions required to connect
