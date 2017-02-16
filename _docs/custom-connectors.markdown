@@ -3,7 +3,7 @@ title: Custom connectors
 date: 2017-02-16 06:15:00 Z
 ---
 
-Basics
+# Basics
 
 ## Making requests
 
@@ -162,7 +162,7 @@ The optional connection `fields` use the [schema](#schema---describing-inputoutp
 
 use the [schema](#schema---describing-inputoutput) notation to describe the connection's properties, shown wherever the connection configuration is displayed, for example in the recipe's connection tab:
 
-![connection_settings.png](/api/v2/sites/58a536461deaab0afae13590/source/_uploads/connection_settings.png?download)
+![connection_settings.png](/_uploads/connection_settings.png)
 
 ## Authorization
 
@@ -211,7 +211,7 @@ Continuing with our "get customer by ID" action example:
             ]
           end,
 
-![input_form.png](/api/v2/sites/58a536461deaab0afae13590/source/_uploads/input_form.png?download)
+![input_form.png](/_uploads/input_form.png)
 
 ## Output tree
 
@@ -235,7 +235,7 @@ Using the same [schema](#schema---describing-inputoutput) notation, `output_fiel
             ]
           end,
 
-![output_tree.png](/api/v2/sites/58a536461deaab0afae13590/source/_uploads/output_tree.png?download)
+![output_tree.png](/_uploads/output_tree.png)
 
 ## `execute`
 
