@@ -13,34 +13,42 @@ In parts of the adapter that need to make requests, the HTTP verbs (GET, POST et
 
 `GET https://api.my-app.com/v1/customers.json?id=1234&api_token=xyz`
 
-    {
-      "customer": {
-        "id": 1234,
-        "name": "John Smith",
-        "email": "john.smith@email.com",
-        "address": {
-          "street": "123 Main St",
-          "city": "Anytown",
-          "state": "CA",
-          "zip": "94321",
-          "country": "USA"
-        }
-      }
+```javascript
+{
+  "customer": {
+    "id": 1234,
+    "name": "John Smith",
+    "email": "john.smith@email.com",
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "94321",
+      "country": "USA"
     }
+  }
+}
+```
 
 A request to do the above could be written in a custom adapter as:
 
-    get('https://api.my-app.com/v1/customers.json?id=1234&api_token=xyz')['customer']
+```ruby
+get('https://api.my-app.com/v1/customers.json?id=1234&api_token=xyz')['customer']
+```
 
 or
 
-    get('https://api.my-app.com/v1/customers.json').params(id: 1234, api_token: 'xyz')['customer']
+```ruby
+get('https://api.my-app.com/v1/customers.json').params(id: 1234, api_token: 'xyz')['customer']
+```
 
 ## Request execution
 
 Let's dissect the different parts of the second form of the request above:
 
-    get('https://api.my-app.com/v1/customers.json').params(id: 1234, api_token: 'xyz')['customer']
+```ruby
+get('https://api.my-app.com/v1/customers.json').params(id: 1234, api_token: 'xyz')['customer']
+```
 
 This chains three method calls:
 
@@ -54,7 +62,9 @@ This chains three method calls:
 
 `GET https://api.my-app.com/v1/customers.json`
 
-    get('https://api.my-app.com/v1/customers.json')
+```ruby
+get('https://api.my-app.com/v1/customers.json')
+```
 
 No request has been made yet: The result so far is the cued-up request for the base URL, and with the request and expected response format set to the default, JSON.
 
@@ -62,7 +72,9 @@ No request has been made yet: The result so far is the cued-up request for the b
 
 `id=1234&api_token=xyz`
 
-    params(id: 1234, api_token: 'xyz')
+```ruby
+params(id: 1234, api_token: 'xyz')
+```
 
 `params` is one of the methods available on the request object, adding URL parameters, which are passed as a hash object.  More methods can be similarly chained to mix in other aspects of the request that is to be made:
 
@@ -84,81 +96,92 @@ No request has been made yet: The result so far is the cued-up request for the b
 
 ### Execute request and process the response
 
-    ['customer']
-
+```ruby
+['customer']
+```
 By calling any method (`[]` here) that is not a request option, the adapter signals that it is time to make the request so that we can process the API response.  In this JSON default case, the response is parsed into a ruby hash:
 
-    {
-      "customer" => {
-        "id" => 1234,
-        "name" => "John Smith",
-        "email" => "john.smith@email.com",
-        "address" => {
-          "street" => "123 Main St",
-          "city" => "Anytown",
-          "state" => "CA",
-          "zip" => "94321",
-          "country" => "USA"
-        }
-      }
+```ruby
+{
+  "customer" => {
+    "id" => 1234,
+    "name" => "John Smith",
+    "email" => "john.smith@email.com",
+    "address" => {
+      "street" => "123 Main St",
+      "city" => "Anytown",
+      "state" => "CA",
+      "zip" => "94321",
+      "country" => "USA"
     }
+  }
+}
+ ```
 
 Which then has the `['customer']` method evaluated on it, peeling off the `customer` envelope and resulting in the action's output:
 
-    {
-      "id" => 1234,
-      "name" => "John Smith",
-      "email" => "john.smith@email.com",
-        "address" => {
-          "street" => "123 Main St",
-          "city" => "Anytown",
-          "state" => "CA",
-          "zip" => "94321",
-          "country" => "USA"
-        }
+```ruby
+{
+  "id" => 1234,
+  "name" => "John Smith",
+  "email" => "john.smith@email.com",
+    "address" => {
+      "street" => "123 Main St",
+      "city" => "Anytown",
+      "state" => "CA",
+      "zip" => "94321",
+      "country" => "USA"
     }
+}
+```
 
 ## Schema - describing input/output
 
 There are several components where the adapter needs to describe the expected fields for input, output or configuration.  This is done using schema notation:
 
-    [
-      { name: "id", type: :integer },
-      { name: "name" },
-      { name: "email" },
-      {
-        name: "address",
-        type: :object,
-        properties: [
-          { name: "street" },
-          { name: "city" },
-          { name: "zip" },
-          { name: "country" }
-        ]
-      }
+```ruby
+[
+  { name: "id", type: :integer },
+  { name: "name" },
+  { name: "email" },
+  {
+    name: "address",
+    type: :object,
+    properties: [
+      { name: "street" },
+      { name: "city" },
+      { name: "zip" },
+      { name: "country" }
     ]
+  }
+]
+```
 
 # Adapter components
 
 With these basics out of the way, we can now walk through an example adapter, and show how its various parts relate to how users will edit and run recipes.
 
+```ruby
     {
       title: 'My sample adapter',
     
       connection: {
+```
 
 ## Connection fields
 
 The optional connection `fields` use the [schema](#schema---describing-inputoutput) notation to describe the connection configuration fields, if any are needed.  Using the example API above that requires an `api_token` URL parameter, this might be:
 
-        fields: [
-          {
-            name: 'api_token',
-            label: 'API token',
-            optional: false,
-            hint: 'You can find your MyApp API token under "Account Settings"'
-          }
-        ],
+```ruby
+fields: [
+  {
+    name: 'api_token',
+    label: 'API token',
+    optional: false,
+    hint: 'You can find your MyApp API token under "Account Settings"'
+  }
+],
+```
 
 use the [schema](#schema---describing-inputoutput) notation to describe the connection's properties, shown wherever the connection configuration is displayed, for example in the recipe's connection tab:
 
@@ -168,25 +191,31 @@ use the [schema](#schema---describing-inputoutput) notation to describe the conn
 
 `connection` can optionally also contain an `authorization` component to consolidate the API's authorization logic.  `authorization` can contain several components, its most important one being `apply`, which lets us define [request options](#mix-in-request-options) that will be added to any API request made by the adapter:
 
-        authorization: {
-          apply: lambda do |connection|
-            params(api_token: connection['api_token'])
-          end
-        },
+```ruby
+authorization: {
+  apply: lambda do |connection|
+    params(api_token: connection['api_token'])
+  end
+},
+```
 
 This way our [requests](#request-execution) don't need to repeat the authorization options:
 
-    get('https://api.my-app.com/v1/customers.json').params(id: 1234)['customer']
+```ruby
+get('https://api.my-app.com/v1/customers.json').params(id: 1234)['customer']
+```
 
 ## Connection test
 
 Back outside `connection`, the `test` component lets the connection be tested, e.g. to make sure the credentials, like `api_token` in this example, are still valid.
 
-      },
-    
-      test: lambda do |connection|
-        get('https://api.my-app.com/v1/customers.json').params(limit: 1)
-      end,
+```ruby
+},
+
+test: lambda do |connection|
+    get('https://api.my-app.com/v1/customers.json').params(limit: 1)
+end,
+```
 
 As long as the lambda does not raise an exception, the connection is considered live.  It is invoked:
 
