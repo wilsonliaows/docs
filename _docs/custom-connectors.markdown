@@ -173,14 +173,14 @@ With these basics out of the way, we can now walk through an example adapter, an
 The optional connection `fields` use the [schema](#schema---describing-inputoutput) notation to describe the connection configuration fields, if any are needed.  Using the example API above that requires an `api_token` URL parameter, this might be:
 
 ```ruby
-fields: [
-  {
-    name: 'api_token',
-    label: 'API token',
-    optional: false,
-    hint: 'You can find your MyApp API token under "Account Settings"'
-  }
-],
+        fields: [
+          {
+            name: 'api_token',
+            label: 'API token',
+            optional: false,
+            hint: 'You can find your MyApp API token under "Account Settings"'
+          }
+        ],
 ```
 
 use the [schema](#schema---describing-inputoutput) notation to describe the connection's properties, shown wherever the connection configuration is displayed, for example in the recipe's connection tab:
@@ -192,11 +192,11 @@ use the [schema](#schema---describing-inputoutput) notation to describe the conn
 `connection` can optionally also contain an `authorization` component to consolidate the API's authorization logic.  `authorization` can contain several components, its most important one being `apply`, which lets us define [request options](#mix-in-request-options) that will be added to any API request made by the adapter:
 
 ```ruby
-authorization: {
-  apply: lambda do |connection|
-    params(api_token: connection['api_token'])
-  end
-},
+        authorization: {
+          apply: lambda do |connection|
+            params(api_token: connection['api_token'])
+          end
+        },
 ```
 
 This way our [requests](#request-execution) don't need to repeat the authorization options:
@@ -210,11 +210,11 @@ get('https://api.my-app.com/v1/customers.json').params(id: 1234)['customer']
 Back outside `connection`, the `test` component lets the connection be tested, e.g. to make sure the credentials, like `api_token` in this example, are still valid.
 
 ```ruby
-},
+    },
 
-test: lambda do |connection|
-    get('https://api.my-app.com/v1/customers.json').params(limit: 1)
-end,
+    test: lambda do |connection|
+        get('https://api.my-app.com/v1/customers.json').params(limit: 1)
+    end,
 ```
 
 As long as the lambda does not raise an exception, the connection is considered live.  It is invoked:
@@ -225,20 +225,23 @@ As long as the lambda does not raise an exception, the connection is considered 
 
 # Actions
 
-      actions: {
-        get_customer_by_id: {
-
+```ruby
+    actions: {
+      get_customer_by_id: {
+```
 ## Input form
 
 When one of the adapter's actions is used in a recipe, its input form is based on its `input_fields` lambda, which also uses the [schema](#schema---describing-inputoutput) notation.
 
 Continuing with our "get customer by ID" action example:
 
-          input_fields: lambda do
-            [
-              { name: 'id', type: :integer, optional: false }
-            ]
-          end,
+```ruby
+        input_fields: lambda do
+          [
+            { name: 'id', type: :integer, optional: false }
+          ]
+        end,
+```
 
 ![input_form.png](/_uploads/input_form.png)
 
@@ -246,23 +249,25 @@ Continuing with our "get customer by ID" action example:
 
 Using the same [schema](#schema---describing-inputoutput) notation, `output_fields` describes the action's output that will appear downstream in the recipe job data:
 
-          output_fields: lambda do
-            [
-              { name: "id", type: :integer },
-              { name: "name" },
-              { name: "email" },
-              {
-                name: "address",
-                type: :object,
-                properties: [
-                  { name: "street" },
-                  { name: "city" },
-                  { name: "zip" },
-                  { name: "country" }
-                ]
-              }
-            ]
-          end,
+```ruby
+        output_fields: lambda do
+          [
+            { name: "id", type: :integer },
+            { name: "name" },
+            { name: "email" },
+            {
+              name: "address",
+              type: :object,
+              properties: [
+                { name: "street" },
+                { name: "city" },
+                { name: "zip" },
+                { name: "country" }
+              ]
+            }
+          ]
+        end,
+```
 
 ![output_tree.png](/_uploads/output_tree.png)
 
@@ -276,12 +281,14 @@ At runtime, when the job reaches a recipe line that uses this action, its `execu
 
 As discussed earlier, the `execute` lambda [makes the request](#request-execution).  The result, lazy-evaluated either within the lambda or right after it returns, is expected to contain the specified [output fields](#output-tree).
 
-          execute: lambda do |connection, input|
-            get('https://api.my-app.com/v1/customers.json').params(id: input['id'])['customer']
-          end
-    
-        } # get_customer_by_id
-      }, # actions:
+```ruby
+        execute: lambda do |connection, input|
+          get('https://api.my-app.com/v1/customers.json').params(id: input['id'])['customer']
+        end
+
+      } # get_customer_by_id
+    }, # actions:
+```
 
 # Triggers
 
