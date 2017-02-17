@@ -6,13 +6,12 @@ date: 2017-02-16 06:15:00 Z
 # Amazon S3
 
 ## Connector information
+
 ### API version
 The S3 connector uses [Amazon S3 REST API, version 2006-03-01](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html).
 
-### Supported editions and versions
-
-
 ## How to connect to Amazon S3 on Workato
+
 ### Amazon S3 connection
 The S3 connector uses the [AWS Signature Version 4](http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) to authenticate to Amazon S3.
 
@@ -21,7 +20,7 @@ To enable programmatic access to S3 via Workato, the authenticated user needs to
 
 ## Working with the S3 connector
 
-### Terminology
+### [S3 Terminology](http://docs.aws.amazon.com/AmazonS3/latest/gsg/AmazonS3Basics.html)
 
 * **Buckets**
 
