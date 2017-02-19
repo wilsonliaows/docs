@@ -25,9 +25,11 @@ Batch triggers are similar to polling triggers in fetching the same records. How
 
 ## Batch trigger example
 The Salesforce batch trigger has a default value of 100. In this case, each trigger event will contain a list of maximum 100 account records.
+
 ![Batch trigger](/_uploads/triggers-docs/batch_trigger_config.png)
 
 The job details for each trigger event will contain the specific details of only the first and last record in the list.
+
 [![https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef](https://i.gyazo.com/1813107b9965a759a4ab7ba92cad18ef.gif)](https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef)
 
 As the batch trigger polls at a regular basis, each poll may fetch more or less than the batch size defined in the trigger. For example, when the following recipe was first started, 843 records were fetched from 1 Jan 2015, midnight PST. These records were broken up into 8 trigger events of 100 records each, and 1 trigger event of 43 records. The next poll, 5 minutes later, fetched only 2 new account records created.
@@ -35,6 +37,7 @@ As the batch trigger polls at a regular basis, each poll may fetch more or less 
 
 # Scheduled triggers
 Scheduled triggers are executed at defined days and times, either hourly, daily, or monthly.
+
 ![Salesforce scheduled trigger schedules](/_uploads/triggers-docs/scheduled_trigger_schedules.png)
 
 When executed, records matching the search criteria will be returned, irrespective of whether the trigger had already picked it up in previous polls. These records will be returned in batches, with a user-defined maximum batch size.
@@ -48,13 +51,16 @@ However, not all triggers have the **Since/From** parameter. For such triggers, 
 - A day before recipe is first started.
 
 This offset is usually communicated in the trigger hint.
+
 ![Google Calendar since parameter](/_uploads/triggers-docs/google_calendar_since_param.png)
 
 ## Since/From parameter example
 In the following case, we're setting the **From** date as 1 Jan 2017, midnight PST, and then setting the object as Accounts.
+
 [![https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4](https://i.gyazo.com/fef272317b761f9caee93d6fe81cd8b4.gif)](https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4)
 
 When the recipe is started, only Salesforce accounts created after 1 Jan 2017, midnight PST will be picked up, as viewed from the created date column on the job report.
+
 ![Since parameter](/_uploads/triggers-docs/since_param_ran_recipe.png)
 
 Similarly, if the trigger was **New/updated Salesforce object** with the Account object selected, only Salesforce accounts created or updated after 1 Jan 2017, midnight PST will be picked up.
@@ -66,13 +72,17 @@ However, not all triggers have trigger conditions. For such triggers, there is n
 
 ## Trigger conditions example
 To add a trigger condition, check the **Trigger IF** checkbox. The trigger datatree will appear, displaying the variables available to be filtered by.
+
 [![https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345](https://i.gyazo.com/7af54cb19e2f2c3d417cdbd830d25345.gif)](https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345)
 
 Define the trigger condition. The following ensures that only accounts with a **Warm** rating value will be picked up by the trigger.
+
 [![https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5](https://i.gyazo.com/5d62320895ef3628b581aa1fd60e79d5.gif)](https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5)
 
 To add an additional trigger conditions, select from the OR or AND in the picklist. The selected operator will define how all additional trigger conditions will be added.
+
 [![https://gyazo.com/1a43c84e1783091a15947f4256b02ae6](https://i.gyazo.com/1a43c84e1783091a15947f4256b02ae6.gif)](https://gyazo.com/1a43c84e1783091a15947f4256b02ae6)
 
 Define the additional trigger condition. The following ensures that accounts with a **Hot** rating value will also be picked up by the trigger. Notice that from the third trigger condition onwards, trigger conditions will be combined with the previously selected operator (OR or AND).
+
 [![https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50](https://i.gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50.gif)](https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50)
