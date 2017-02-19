@@ -30,7 +30,7 @@ The Salesforce connector uses basic authentication to authenticate with JIRA.
 
   Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
-Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/_uploads/Salesforce-docs-img/Salesforce authentication.PNG | width=100)
+Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/_uploads/Salesforce-docs-img/Salesforce authentication.PNG)
 
 * **Username**
 
@@ -42,10 +42,25 @@ Once you have filled up the above fields, click on connect a Salesforce connecti
   
 
 ### Roles and permissions required to connect
-JIRA users who can login to JIRA can connect to JIRA from Workato. The user will have the same [project permissions](https://confluence.atlassian.com/adminjiracloud/managing-project-permissions-776636362.html) on Workato as in JIRA, and will be able to read and write to the same projects and issues.
+JIRA users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same [permissions](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/admin_userperms.htm) on Workato as in Salesforce, and will be able to read and write to the same projects and issues.
 
-To use JIRA real-time triggers (which [registers a JIRA webhook via the API](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-Registeringawebhook)), the authenticated user needs to have the **JIRA Administrators global permission**. To set up real-time triggers without requiring the **JIRA Administrators global permission**, use the HTTP connector to [set up a JIRA webhook trigger via the JIRA admin console](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-jiraadmin).
+To use Salesforce real-time triggers, the authenticated user needs to be on the **Workato Enteprise Plan**
 
 ## Working with the JIRA connector
 ### Using real-time triggers
-To use JIRA real-time triggers (which [registers a JIRA webhook via the API](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-Registeringawebhook)), the authenticated user needs to have the **JIRA Administrators global permission**. To set up real-time triggers without requiring the **JIRA Administrators global permission**, use the HTTP connector to [set up a JIRA webhook trigger via the JIRA admin console](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-jiraadmin).
+
+What versions and editions we work with or don't work with
+
+## Working with generic triggers in Salesforce
+
+## Working with generic create/update/search actions in Salesforce
+
+## Working with attachments in Salesforce
+
+## Working with SOQL in Salesforce
+
+## Articles on how to use additional special actions, such as get related objects, etc.
+
+## Best practices in working with the connector
+
+## Troubleshooting
