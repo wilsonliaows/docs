@@ -2,12 +2,16 @@
 
 ## Connector information
 
-### API version
-The JIRA connector uses [JIRA Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
+
 
 ### Supported editions and versions
-The JIRA connector works only with JIRA cloud instances. These instances can be hosted on cloud or on-premise.
+The QuickBooks connector works with all versions of QuickBooks Online. Workato does not support QuickBooks Desktop/Enterprise currently. 
 
-## How to connect to JIRA on Workato
+## How to connect to QuickBooks on Workato
 
-### JIRA connection 
+### QuickBooks connection 
+
+
+* **Connection name**
+
+  Give this JIRA connection a unique name that identifies which JIRA inst
