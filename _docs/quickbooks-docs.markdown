@@ -20,10 +20,10 @@ The QuickBooks connector works with all versions of **QuickBooks Online**. Worka
   
   ![QBO connect2](/_uploads/QBO connect2.JPG)
   
-* **Username**
+* **Username & Password**
 
-  Login with your QuickBooks credentials.
+  Login with your QuickBooks credentials and allow Workato to access your QuickBooks account. 
 
-* **Password**
-
-  Login with your QuickBooks credentials.
+## Connecting to Multiple Companies on QuickBooks
+If you have multiple Companies on your QuickBooks account, you can connect them to Workato using the same QuickBooks authentication. Simply create new connections for each Company.
+However, if you have multiple Workato accounts and try to connect to the same Company, the earlier connection will be disconnected. Hence, we recommend that only 1 Workato account is used to connect to 1 Company to prevent any disruption to your recipes. 
