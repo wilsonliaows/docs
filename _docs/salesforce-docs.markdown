@@ -17,7 +17,7 @@ The Salesforce connector works with all Salesforce cloud instances.
 
 ### Salesforce connection
 The Salesforce connector uses basic authentication to authenticate with JIRA.
-![Configured Salesforce connection](/_uploads/jira-docs/configured_jira_connection.png)
+![Configured Salesforce connection](/_uploads/Salesforce New connection.PNG)
 * **Connection name**
 
   Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
@@ -30,7 +30,7 @@ The Salesforce connector uses basic authentication to authenticate with JIRA.
 
   Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
-Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials
+Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![GitHub Logo](docs/_docs/Salesforce authentication.PNG)
 
 * **Username**
 
