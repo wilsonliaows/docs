@@ -16,7 +16,9 @@ The QuickBooks connector works with all versions of **QuickBooks Online**. Worka
 
 * **Connection name**
 
-  Give this QuickBooks Connection a unique name which identifies the QuickBooks account you are connected to.
+  Give this QuickBooks Connection a unique name which identifies the QuickBooks account you are connected to and click 'Connect'. A pop-up will appear.
+  
+  ![QBO connect2](/_uploads/QBO connect2.JPG)
   
 * **Username**
 
