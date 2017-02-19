@@ -6,13 +6,14 @@
 
 
 ### Supported editions and versions
-The QuickBooks connector works with all versions of **QuickBooks Online**. Workato currently does not support QuickBooks Desktop/Enterprise versions. 
+The QuickBooks connector works with all versions of **QuickBooks Online-** QuickBooks Self-Employed, QuickBooks Simple Start, QuickBooks Essentials, as well as QuickBooks Plus.
+
+Workato currently does not support QuickBooks Desktop/Enterprise versions. 
 
 ## How to connect to QuickBooks on Workato
 
 ### QuickBooks connection 
 ![QBO connect1](/_uploads/QBO connect1.JPG)
-
 
 * **Connection name**
 
@@ -28,3 +29,12 @@ The QuickBooks connector works with all versions of **QuickBooks Online**. Worka
 If you have multiple Companies on your QuickBooks account, you can connect them to Workato using the same QuickBooks authentication. Simply create new connections for each Company.
 
 However, if you have multiple Workato accounts and try to connect to the same Company, the earlier connection will be disconnected. Hence, we recommend that only 1 Workato account is used to connect to 1 Company to prevent any disruption to your recipes. 
+
+## Working with QuickBooks Triggers
+The following triggers are currently available for the QuickBooks Connector: 
+
+**NEW:** Account, Bank Deposit, Bill Payment, Credit Note, Customer, Employee, Estimate, Invoice, Item, Payment, Sales Receipt, Vendor
+
+**NEW/UPDATED:** Account, Tax Code, Tax Rate
+
+**UPDATED:** Bill, Credit Note, Customer, Employee, Estimate, Invoice, Item, Purchase, Vendor 
