@@ -8,23 +8,23 @@ date: 2017-02-19 06:15:00 Z
 ## Connector information
 
 ### API version
-The JIRA connector uses [JIRA Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
+The Salesforce connector uses [JIRA Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
 
 ### Supported editions and versions
-The JIRA connector works only with JIRA cloud instances. These instances can be hosted on cloud or on-premise.
+The Salesforce connector works only with Salesforce cloud instances. 
 
-## How to connect to JIRA on Workato
+## How to connect to Salesforce on Workato
 
-### JIRA connection
-The JIRA connector uses basic authentication to authenticate with JIRA.
-![Configured JIRA connection](/_uploads/jira-docs/configured_jira_connection.png)
+### Salesforce connection
+The Salesforce connector uses basic authentication to authenticate with JIRA.
+![Configured Salesforce connection](/_uploads/jira-docs/configured_jira_connection.png)
 * **Connection name**
 
-  Give this JIRA connection a unique name that identifies which JIRA instance it is connected to.
+  Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
 
-* **On-prem secure agent**
+* **Sandbox**
 
-  To connect to on-premise JIRA instances, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
+  To connect to a Salesforce Sandbox instance, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
 
 * **Host name**
 
