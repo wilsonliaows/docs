@@ -16,7 +16,7 @@ The Salesforce connector works with all Salesforce cloud instances.
 ## How to connect to Salesforce on Workato
 
 ### Salesforce connection
-The Salesforce connector uses basic authentication to authenticate with JIRA.
+The Salesforce connector uses basic authentication to authenticate with Salesforce.
 ![Configured Salesforce connection](/_uploads/Salesforce-docs-img/Salesforce New connection.PNG)
 * **Connection name**
 
@@ -46,10 +46,11 @@ JIRA users who can login to Salesforce can connect to Salesforce from Workato. T
 
 To use Salesforce real-time triggers, the authenticated user needs to be on the **Workato Enteprise Plan**
 
-## Working with the JIRA connector
-### Using real-time triggers
+## Working with the Salesforce connector
 
-What versions and editions we work with or don't work with
+## What versions and editions we work with or don't work with
+
+## Using real-time triggers
 
 ## Working with generic triggers in Salesforce
 
