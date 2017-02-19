@@ -11,7 +11,7 @@ The QuickBooks connector works with all versions of **QuickBooks Online**. Worka
 ## How to connect to QuickBooks on Workato
 
 ### QuickBooks connection 
-docs/_uploads/QBO connect1.JPG
+![QBO connect1](docs/_uploads/QBO connect1.JPG)
 
 
 * **Connection name**
