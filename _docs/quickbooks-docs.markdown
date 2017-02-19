@@ -2,6 +2,7 @@
 
 ## Connector information
 
+### API version
 
 
 ### Supported editions and versions
