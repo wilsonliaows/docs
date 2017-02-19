@@ -38,3 +38,5 @@ The following triggers are currently available for the QuickBooks Connector:
 **NEW/UPDATED:** Account, Tax Code, Tax Rate
 
 **UPDATED:** Bill, Credit Note, Customer, Employee, Estimate, Invoice, Item, Purchase, Vendor 
+
+If you wish to submit a request for a new Trigger not currently available, please visit: 
