@@ -8,10 +8,10 @@ date: 2017-02-19 06:15:00 Z
 ## Connector information
 
 ### API version
-The Salesforce connector uses [JIRA Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
+The Salesforce connector uses [Salesforce REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
 
 ### Supported editions and versions
-The Salesforce connector works only with Salesforce cloud instances. 
+The Salesforce connector works with all Salesforce cloud instances. 
 
 ## How to connect to Salesforce on Workato
 
@@ -26,21 +26,20 @@ The Salesforce connector uses basic authentication to authenticate with JIRA.
 
   To connect to a Salesforce Sandbox instance, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
 
-* **Host name**
+* **Enable restricted IP**
 
-  Complete JIRA instance URL used to login to JIRA.
+  Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
+
+Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials
 
 * **Username**
 
-  Username to connect to JIRA.
+  Username to connect to Salesforce.
 
 * **Password**
 
-  Password to connect to JIRA.
-
-* **Enable firewall-friendly IP**
-
-  Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
+  Password to connect to Salesforce.
+  
 
 ### Roles and permissions required to connect
 JIRA users who can login to JIRA can connect to JIRA from Workato. The user will have the same [project permissions](https://confluence.atlassian.com/adminjiracloud/managing-project-permissions-776636362.html) on Workato as in JIRA, and will be able to read and write to the same projects and issues.
