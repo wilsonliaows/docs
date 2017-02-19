@@ -14,4 +14,4 @@ The QuickBooks connector works with all versions of QuickBooks Online. Workato d
 
 * **Connection name**
 
-  Give this JIRA connection a unique name that identifies which JIRA inst
+  Give this QuickBooks Connection a unique name which identifies the QuickBooks account you are connected to.
