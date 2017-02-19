@@ -33,7 +33,7 @@ The job details for each trigger event will contain the specific details of only
 [![https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef](https://i.gyazo.com/1813107b9965a759a4ab7ba92cad18ef.gif)](https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef)
 
 As the batch trigger polls at a regular basis, each poll may fetch more or less than the batch size defined in the trigger. For example, when the following recipe was first started, 843 records were fetched from 1 Jan 2015, midnight PST. These records were broken up into 8 trigger events of 100 records each, and 1 trigger event of 43 records. The next poll, 5 minutes later, fetched only 2 new account records created.
-![Batch trigger](/_uploads/triggers-docs/batch_trigger_config.png)
+![Batch trigger](/_uploads/triggers-docs/batch_trigger_job_report.png)
 
 # Scheduled triggers
 Scheduled triggers are executed at defined days and times, either hourly, daily, or monthly.
@@ -75,7 +75,7 @@ To add a trigger condition, check the **Trigger IF** checkbox. The trigger datat
 
 [![https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345](https://i.gyazo.com/7af54cb19e2f2c3d417cdbd830d25345.gif)](https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345)
 
-Define the trigger condition. The following ensures that only accounts with a **Warm** rating value will be picked up by the trigger.
+Define the trigger condition. The following ensures that only accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
 
 [![https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5](https://i.gyazo.com/5d62320895ef3628b581aa1fd60e79d5.gif)](https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5)
 
@@ -83,6 +83,6 @@ To add an additional trigger conditions, select from the OR or AND in the pickli
 
 [![https://gyazo.com/1a43c84e1783091a15947f4256b02ae6](https://i.gyazo.com/1a43c84e1783091a15947f4256b02ae6.gif)](https://gyazo.com/1a43c84e1783091a15947f4256b02ae6)
 
-Define the additional trigger condition. The following ensures that accounts with a **Hot** rating value will also be picked up by the trigger. Notice that from the third trigger condition onwards, trigger conditions will be combined with the previously selected operator (OR or AND).
+Define the additional trigger condition. Values are case sensitive and should be exact. The following ensures that accounts with a **Hot** rating value will also be picked up by the trigger. Notice that from the third trigger condition onwards, trigger conditions will be combined with the previously selected operator (OR or AND).
 
 [![https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50](https://i.gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50.gif)](https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50)
