@@ -51,7 +51,7 @@ Box users who can login to Box can connect to Box from Workato. The user will ha
 You have to add action Create shared link for file in Box in order to make a file/folder sharable. In the example below, you can use the ID pill from the trigger step to identify the new file when creating shared URL link and post the URL in the schema(below) to your Slack Workbot. 
 
 ![Box Shared Link 1](/_uploads/box_shared_link_1.png)
-![Box Shared Link 2](/_uploads/box_shared_link_2.PNG)
+![Box Shared Link 2](/_uploads/box_shared_link_2.png)
 
 ## Best practices in working with the Box connector
 
