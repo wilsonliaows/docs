@@ -9,7 +9,7 @@ There are various types of recipe steps that can be added to recipes, each with 
 ![Available steps](/_uploads/steps-docs/available_steps.png)
 
 ## Action
-Actions carry out an operation in your target app, usually a create, update, or search operation. Each action usually have a set of input fields and an output datatree.
+Actions carry out an operation in your target app, usually a create, update, or search operation. Each action usually has a set of input fields and an output datatree.
 
 ### Action step example
 The following step carries out a **Search organizations** action in Zendesk. The input fields on the left shows the available fields to search for a Zendesk organization by:
@@ -23,7 +23,7 @@ In the following case, the **Search organization** action is carried out by name
 ![Action step input fields](/_uploads/steps-docs/action_step_input.png)
 [Example recipe](https://www.workato.com/recipes/480358)
 
-When the **Search organizations** action has been carried out, Zendesk will return data about the organizations found, if any. The output datatree in subsequent steps will display available fields for mapping.
+When the **Search organizations** action has been carried out, Zendesk returns data about the organizations found, if any. The output datatree displays available fields for mapping in subsequent steps.
 
 In the following case, the **Update organization** step uses the ID field from the **Search organizations** step to identify which Zendesk organization to update (ID field as highlighted).
 
@@ -44,10 +44,37 @@ The following recipe has two conditional steps:
 Any job ran by this recipe can only proceed through either one of the conditional step, as the Zendesk organization must have either been found or not.
 
 ## Repeat action
-The repeat action works with lists to carry out a series of actions on every item in that list. Actions indented within a repeat block will be carried out for all items in the list.
+The repeat step works with lists to carry out a series of actions on every item in that list. Actions indented within a repeat block will be carried out for all items in the list.
+
+First, select the list to iterate through. In order to use the values from each element of the list, all data fields must be from the **Foreach** datatree.
+
+### Repeat step example
+Refer to the example scenario of syncing Salesforce accounts (using the batch trigger) to Zendesk as organizations.
+
+![Foreach step example scenario](/_uploads/steps-docs/foreach_example_scenario.png)
+[Example recipe](https://www.workato.com/recipes/480695)
+
+As the batch trigger returns a list of newly created Salesforce accounts, all records in this list have to be moved into Zendesk. However, as the Zendesk API does not have a batch write funtionality, the repeat action is required to iterate through this list of Salesforce accounts and repeat the action of creating the corresponding Zendesk organization for each Salesforce account.
+
+The list datapill has to be passed into the repeat step. When the input list field is selected, only list type datapills are usable in the datatree, as portrayed in the GIF. List type pills can also be identified via the stack icon.
+
+[![https://gyazo.com/ab9b65d39dcd957f99fe134c31081fc8](https://i.gyazo.com/ab9b65d39dcd957f99fe134c31081fc8.gif)](https://gyazo.com/ab9b65d39dcd957f99fe134c31081fc8)
+[Example recipe](https://www.workato.com/recipes/480695)
+
+Map datapills from the **Foreach** output datatree. This ensures that the values from each list item are used when the action is repeated. For example, if two Salesforce accounts were fetched by the trigger, using pills from the **Foreach** datatree ensures that the **Create organization** action creates a Zendesk organization with the data from the first Salesforce account on its first iteration, then with the data from the second Salesforce account on its second iteration.
+
+[![https://gyazo.com/1e351e4f54856488381a5b49677d58b9](https://i.gyazo.com/1e351e4f54856488381a5b49677d58b9.gif)](https://gyazo.com/1e351e4f54856488381a5b49677d58b9)
+[Example recipe](https://www.workato.com/recipes/480695)
+
+The following displays the mapping from the **Foreach** datatree.
+
+![Foreach step example](/_uploads/steps-docs/foreach_example.png)
+[Example recipe](https://www.workato.com/recipes/480695)
 
 ## Call recipe
 Call recipe will run another recipe (named a callable recipe). Callable recipes are usually built to extract a set of common steps, which multiple recipes use, into a separate recipe that all main recipes can use. This reduces the complexity of individual recipes.
+
+Callable recipes are an advanced feature in Workato that you can read more about [here](/callable_recipes.markdown).
 
 ## Stop
 The stop step ends a single job from being processed any further. It is usually used in cases whereby there are no recipe errors (i.e. no error is thrown in the job), but where there may be business errors and no data should be processed.
