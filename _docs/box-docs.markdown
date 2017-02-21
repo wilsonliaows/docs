@@ -31,7 +31,7 @@ The Box connector uses OAuth2 authentication to authenticate with Box.
   Password to connect to Box.
   
 * **SSO**
-## (Need to fill in content)
+#(Need to fill in content)
   
 
 ### Roles and permissions required to connect
