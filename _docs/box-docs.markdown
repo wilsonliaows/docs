@@ -51,7 +51,7 @@ Box users who can login to Box can connect to Box from Workato. The user will ha
 
 ## More Generation Information on Box
 
-### Box Role Privelleges
+### [Box Role Privelleges] (https://support.workato.com/support/solutions/articles/1000236807-box-collaborator-roles-and-permissions)
 When using Box with Workato, you will only be able to perform the actions that are allowed by the level of access of the Box account used to make the connection on Workato. The list below showcases the available Box role privelleges.
 
 1. Uploader
