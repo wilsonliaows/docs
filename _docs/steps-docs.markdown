@@ -20,14 +20,14 @@ The following step carries out a **Search organizations** action in Zendesk. The
 
 In the following case, the **Search organization** action is carried out by name.
 
-![Action step input fields](/_uploads/steps-docs/action_step_input.png)
+[![https://gyazo.com/fb1ceed821c308692032f1b2044a5c8d](https://i.gyazo.com/fb1ceed821c308692032f1b2044a5c8d.gif)](https://gyazo.com/fb1ceed821c308692032f1b2044a5c8d)
 [Example recipe](https://www.workato.com/recipes/480358)
 
 When the **Search organizations** action has been carried out, Zendesk returns data about the organizations found, if any. The output datatree displays available fields for mapping in subsequent steps.
 
-In the following case, the **Update organization** step uses the ID field from the **Search organizations** step to identify which Zendesk organization to update (ID field as highlighted).
+In the following case, the **Update organization** action uses the ID field from the **Search organizations** action to identify which Zendesk organization to update (ID field as highlighted).
 
-![Action step output fields](/_uploads/steps-docs/action_step_output.png)
+[![https://gyazo.com/60d727866dfea675bb1e61f94634e54a](https://i.gyazo.com/60d727866dfea675bb1e61f94634e54a.gif)](https://gyazo.com/60d727866dfea675bb1e61f94634e54a)
 [Example recipe](https://www.workato.com/recipes/480358)
 
 ## Conditional action
@@ -56,12 +56,12 @@ Refer to the example scenario of syncing Salesforce accounts (using the batch tr
 
 As the batch trigger returns a list of newly created Salesforce accounts, all records in this list have to be moved into Zendesk. However, as the Zendesk API does not have a batch write funtionality, the repeat action is required to iterate through this list of Salesforce accounts and repeat the action of creating the corresponding Zendesk organization for each Salesforce account.
 
-The list datapill has to be passed into the repeat step. When the input list field is selected, only list type datapills are usable in the datatree, as portrayed in the GIF. List type pills can also be identified via the stack icon.
+The list datapill has to be passed into the repeat step. When the input list field is selected, only list type datapills are usable in the datatree, as portrayed in the GIF. List type pills can also be identified via their stack icon.
 
 [![https://gyazo.com/ab9b65d39dcd957f99fe134c31081fc8](https://i.gyazo.com/ab9b65d39dcd957f99fe134c31081fc8.gif)](https://gyazo.com/ab9b65d39dcd957f99fe134c31081fc8)
 [Example recipe](https://www.workato.com/recipes/480695)
 
-Map datapills from the **Foreach** output datatree. This ensures that the values from each list item are used when the action is repeated. For example, if two Salesforce accounts were fetched by the trigger, using pills from the **Foreach** datatree ensures that the **Create organization** action creates a Zendesk organization with the data from the first Salesforce account on its first iteration, then with the data from the second Salesforce account on its second iteration.
+Datapills from the **Foreach** output datatree should be mapped to ensure that values from each list item are used when the action is repeated. For example, if two Salesforce accounts were fetched by the trigger, using pills from the **Foreach** datatree ensures that the **Create organization** action creates a Zendesk organization with the data from the first Salesforce account on its first iteration, then with the data from the second Salesforce account on its second iteration.
 
 [![https://gyazo.com/1e351e4f54856488381a5b49677d58b9](https://i.gyazo.com/1e351e4f54856488381a5b49677d58b9.gif)](https://gyazo.com/1e351e4f54856488381a5b49677d58b9)
 [Example recipe](https://www.workato.com/recipes/480695)
@@ -85,7 +85,7 @@ The stop step can be configured to mark the job as a failed job or a successful 
 [Example recipe](https://www.workato.com/recipes/480360)
 
 ### Stop step example
-The following recipe expects all Salesforce accounts to be present in Zendesk as organizations. In cases whereby no matching Zendesk organization is found, no recipe error is thrown as the search simply returns an empty list. However, the recipe will send an email to the recipe owner before ending the job.
+The following recipe expects all Salesforce accounts to be present in Zendesk as organizations. In cases whereby no matching Zendesk organization is found, no recipe error is thrown as the search simply returns an empty list. In this case, the recipe will send an email to the recipe owner before ending the job.
 
 ![Stop step example](/_uploads/steps-docs/stop_step_example.png)
 [Example recipe](https://www.workato.com/recipes/480360)
