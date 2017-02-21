@@ -54,7 +54,7 @@ Box users who can login to Box can connect to Box from Workato. The user will ha
 ### Box Role Privelleges
 
 1. Uploader
-  Can only upload content and see names of items in the folder. Cannot view or download any content.
+* Can only upload content and see names of items in the folder. Cannot view or download any content.
 2. Previewer
   Can only preview items in the folder. Cannot upload, edit, delete, or share any content.
 3. Viewer
