@@ -51,7 +51,7 @@ Box users who can login to Box can connect to Box from Workato. The user will ha
 
 ## More Generation Information on Box
 
-### [Box Role Privelleges] (https://support.workato.com/support/solutions/articles/1000236807-box-collaborator-roles-and-permissions)
+### [Box Role Privelleges](https://support.workato.com/support/solutions/articles/1000236807-box-collaborator-roles-and-permissions)
 When using Box with Workato, you will only be able to perform the actions that are allowed by the level of access of the Box account used to make the connection on Workato. The list below showcases the available Box role privelleges.
 
 1. Uploader
@@ -70,5 +70,15 @@ When using Box with Workato, you will only be able to perform the actions that a
   * Has all permissions of an editor. Can also manage users in the folder: add new collaborators, change access levels of collaborators, remove collaborators.
 8. Owner
   * Full access. 
+
+### [Shared Link Permissions](https://support.workato.com/support/solutions/articles/1000236812-box-access-levels-for-shared-links)
+When creating a shared link for a file or folder in Box, you can choose from four different options for access levels:
+
+| Levels  | Access |
+| ------------- | ------------- |
+| Open  | Anyone with the link can access the file or folder. A Box account is not required.  |
+| Company  | Only Box users with a validated email address matching your company's domain can access the file or folder via the shared link.  |
+| Collaborators | Only Box users invited to the folder or file (collaborators) can access the file or folder via the shared link.  |
+| Default  | This option follows whatever the default setting for your account is. You can view and change this in your Box account settings under Content and Sharing.  |
 
 ## Troubleshooting
