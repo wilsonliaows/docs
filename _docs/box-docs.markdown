@@ -54,6 +54,17 @@ Box users who can login to Box can connect to Box from Workato. The user will ha
 ### [Box Role Privelleges](https://support.workato.com/support/solutions/articles/1000236807-box-collaborator-roles-and-permissions)
 When using Box with Workato, you will only be able to perform the actions that are allowed by the level of access of the Box account used to make the connection on Workato. The list below showcases the available Box role privelleges.
 
+| Levels  | Access |
+| ------------- | ------------- |
+| Uploader  | Can only upload content and see names of items in the folder. Cannot view or download any content.  |
+| Previewer | Can only preview items in the folder. Cannot upload, edit, delete, or share any content.  |
+| Viewer | Can preview/download content, make comments, and generate shared links. Cannot add tags, invite new collaborators, edit shared links, or upload/edit/delete items in the folder.|
+| Previewer uploader  | Can preview content, add comments, add tasks, and upload content to the folder. Cannot add tags, generate shared links, invite new collaborators, or edit/delete items in the folder.|
+| Viewer uploader| Can preview content, download content, add comments, generate shared links, and upload content to the folder. Cannot add tags, invite new collaborators, or delete items in the folder. Can still download, edit, and re-upload files under the same name manually or using Box Edit. |
+| Editor  |  Can view, download, upload, edit, delete, copy, move, and rename content. Can also generate/edit shared links, make comments, assign tasks, create tags, and invite/remove collaborators. Cannot delete or move root level folders.|
+| Co-owner | Has all permissions of an editor. Can also manage users in the folder: add new collaborators, change access levels of collaborators, remove collaborators. |
+| Owner  | Full access.|
+
 1. Uploader
   * Can only upload content and see names of items in the folder. Cannot view or download any content.
 2. Previewer
