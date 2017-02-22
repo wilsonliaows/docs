@@ -1,3 +1,8 @@
+---
+title: Workato connectors - Salesforce
+date: 2017-02-19 06:15:00 Z
+---
+
 # Salesforce
 
 ## Connector information
@@ -6,7 +11,7 @@
 The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
 
 ### Supported editions and versions
-The Salesforce connector works with all Salesforce cloud instances. 
+The Salesforce connector works with all Salesforce cloud instances.
 
 ## How to connect to Salesforce on Workato
 

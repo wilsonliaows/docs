@@ -1,3 +1,8 @@
+---
+title: Workato connectors - QuickBooks Online
+date: 2017-02-16 06:15:00 Z
+---
+
 # QuickBooks Online
 
 ## Connector information
