@@ -3,7 +3,7 @@
 ## Connector information
 
 ### API version
-The Salesforce connector uses [Salesforce REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
+The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
 
 ### Supported editions and versions
 The Salesforce connector works with all Salesforce cloud instances. 
@@ -75,7 +75,7 @@ Check out the list of Triggers available on Workato below:
   Execute SOQL query on specified schedule and returns results as list of objects
 
 ## Working with generic create/update/search actions in Salesforce
-
+When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields on your salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose **Lead** you will see fields like contact number, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the searh action. 
 
 
 ## Working with attachments in Salesforce
@@ -85,16 +85,16 @@ Check out the list of Triggers available on Workato below:
 To upload an attachemnet to Salesforce using Workato, you can use the **Create Object** Action, and select **Attachement** under the **Object** field. 
 
 ### Downloading
-To download an attachment from Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previos step, usually from the get object details step. 
+To download an attachment from Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previos step, usually from the get object details step. Once that step is properly set up, you will be able to use the attachment as a pill in other steps of the recipe, for example, you can use the **Upload file** action in the **box** connector. 
 
 ## Working with SOQL in Salesforce
 
 ## Articles on how to use additional special actions, such as get related objects, etc.
 
 ## Best practices in working with the connector
-
+When starting to use Workato with your salesforce account, we reccomend that you either do it on a developers account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone
 ## Troubleshooting
-
+Here is a list of common erros that you may encounter, and how to rectify them.
 ### 400 Bad Request
 
 ####  errorCode: MALFORMED_ID. Wrong Field is mapped
