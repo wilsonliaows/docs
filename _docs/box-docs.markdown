@@ -18,9 +18,13 @@ The Box connector works with all Box Plans - Individual, Business, Platform.
 ### Box connection
 The Box connector uses OAuth2 authentication to authenticate with Box. 
 
+![Box Permission 1](/_uploads/box-docs/box_connection_1.png)
+
 * **Connection name**
 
   Give this Box connection a unique name that identifies which Box instance it is connected to.
+
+Click on connect and a Box dialog box will pop-up, requesting your Box Account credentials, and granting access to Workato.
 
 * **Email**
 
@@ -31,8 +35,7 @@ The Box connector uses OAuth2 authentication to authenticate with Box.
   Password to connect to Box.
   
 * **SSO**
-(Need to fill in content)
-  
+  Single-sign on login to Box.
 
 ### Roles and permissions required to connect
 Box users who can login to Box can connect to Box from Workato. The user will have the same [permissions](https://community.box.com/t5/Collaboration-and-Sharing/What-Are-The-Different-Access-Levels-For-Collaborators/ta-p/144) on Workato as in Box. This means that they will have the same capabilities to view, share, upload and download to those files and folders as per their respective permissions on the Box platform.
