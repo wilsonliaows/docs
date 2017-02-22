@@ -49,7 +49,7 @@ Docusgn users who can login to Docusign can connect to Docusign from Workato. Th
 
 ## Articles on how to use additional special actions
 
-## Best practices in working with the Doucusign connector
+## Best practices in working with the Docusign connector
 
 ## More Generation Information on Docusign
 
