@@ -47,11 +47,14 @@ If you wish to submit a request for a new Trigger not currently available, pleas
 In Quickbooks, the display name is used as a unique identifier across Customer (also known as Donor, Tenants etc.), Employee and Vendor. 
 
 As such, trying to add another record with the same display name which already exist in any of the three types will give you an error: Another tenant, vendor or employee is already using this name. Please use a different name.
+
 ![QBO error1](/_uploads/QBO_docs/QBO error1.png)
 
 On Workato, you will receive a Duplicate Name Exists Error.
+
 ![QBO error2](/_uploads/QBO_docs/QBO error2.png)
 
 One solution to this is to add a Prefix or Suffix before or after the Display name of the Customer, Employee or Vendor.
+
 ![QBO error3](/_uploads/QBO_docs/QBO error3.png)
 
