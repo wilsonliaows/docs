@@ -18,7 +18,7 @@ The Docusign connector works with all Docusign plans - Personal, Standard, Busin
 ### Docusign connection
 The Docusign connector uses HTTP Header authentication to authenticate to Docusign. Learn more about it [here](https://www.docusign.com/p/APIGuide/Content/Introduction+Changes/Authentication.htm).
 
-To connect, simply fill up the fields as shown in the image. 
+To connect, simply fill up the fields the given fields. 
 ![Docusign Permission](/_uploads/docusign_permission.png)
 
 
