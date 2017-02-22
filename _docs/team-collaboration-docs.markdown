@@ -4,6 +4,48 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # Team collaboration
-
 Team feature enables multiple users to work on the same Workato account. It is enabled only for certain plans, check [here](https://www.workato.com/pricing?audience=general) to find out more.
+
+# Team owner
+Team owners will see the team option on their account menu. In this screen, team owners can view current collaborators on their team, view pending invitations to collaborators, as well as invite collaborators.
+
+Collaborator roles can also be changed by the team owner.
+![Team option](/_uploads/team-collaboration-docs/team_option.png)
+
+# Team roles
+The default roles for teams are:
+- Admin
+- Analyst
+- Operator
+
+The following table details the specific set of permissions each role has.
+![Roles table](/_uploads/team-collaboration-docs/roles_table.png)
+
+## Admin role
+Admins have almost equivalent permissions as the team owner. They are able to add, edit and delete recipes, connections, SDK, API keys and on-prem agents. In addition, admins have administrative rights over the team and are able to invite collaborators or edit collaborators' roles.
+
+The admin role is typically given to users managing the Workato team account.
+
+## Analyst role
+Analysts have no access to team administration nor API keys. They are able to add and edit recipes, connections, SDK, as well as start and stop the on-prem agents.
+
+The analyst role is typically given to users building and testing recipes or custom connectors on Workato.
+
+## Operator role
+Operators only have access to view recipes and jobs, as well as start and stop recipes and rerun jobs.
+
+The operator role is typically given to users maintaining the recipe and ensuring the recipes are running well.
+
+# Invite collaborators
+To invite collaborators, provide the full name of the collaborator and their email.
+
+[![https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2](https://i.gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2.gif)](https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2)
+
+Existing Workato users will be prompted to login to Workato and accept the team invite.
+
+Non-Workato users will be prompted to sign up for a Workato account.
+
+# Switching between personal accounts and team accounts
+Team members will be able to view the teams they are collaborating on in their account menu, as well as their roles in the team. Members can toggle to these teams by clicking on the team.
+![Team member view](/_uploads/team-collaboration-docs/team_member_view.png)
 
