@@ -43,7 +43,16 @@ Box users who can login to Box can connect to Box from Workato. The user will ha
 
 ## Working with generic create/update/search actions in Box
 
-## Working with attachments in Box
+## [Working with attachments in Box](https://support.workato.com/support/solutions/articles/1000236818-box-working-with-attachments-in-box
+
+### Upload file content
+Plain text file content can be uploaded using this action. Enter the text for your file in the File Content field. You will also need to select the folder you want to upload to in Box and enter a name for your file (including the extension you want to give it).
+![Box Attachment 1](/_uploads/box_attachment_1.png)
+
+### Upload file from URL
+
+### Upload file content
+
 
 ## Articles on how to use additional special actions, such as get shared link, etc.
 
