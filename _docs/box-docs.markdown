@@ -37,6 +37,7 @@ Click on connect and a Box dialog box will pop-up, requesting your Box Account c
   Password to connect to Box.
   
 * **SSO**
+
   Single-sign on login to Box.
 
 ### Roles and permissions required to connect
