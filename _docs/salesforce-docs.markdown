@@ -48,15 +48,32 @@ To use Salesforce real-time triggers, the authenticated user needs to be on the 
 
 ## Working with the Salesforce connector
 
+### Can I connect more that one Salesforce account in a single recipe?
+
 ## What versions and editions we work with or don't work with
+
+
 
 ## Using real-time triggers
 
+
+
 ## Working with generic triggers in Salesforce
+
+
 
 ## Working with generic create/update/search actions in Salesforce
 
+
+
 ## Working with attachments in Salesforce
+
+### Uploading
+
+To upload an attachemnet to Salesforce using Workato, you can use the **Create Object** Action, and select **Attachement** under the **Object** field. 
+
+### Downloading
+To download an attachment from Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previos step, usually from the get object details step. 
 
 ## Working with SOQL in Salesforce
 
