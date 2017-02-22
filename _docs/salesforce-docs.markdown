@@ -65,3 +65,23 @@ To use Salesforce real-time triggers, the authenticated user needs to be on the 
 ## Best practices in working with the connector
 
 ## Troubleshooting
+
+### 400 Bad Request
+
+####  errorCode: MALFORMED_ID. Wrong Field is mapped
+
+####  Invalid Cross-Reference Key
+
+####  CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY
+
+####  No such column 
+
+### 401 Unauthorised: Invalid Session ID
+
+### 404 Resource not found 
+
+### Custom field not present. 
+
+### Entered email ID is not valid, Incorrect format, input data too big
+
+### Input required for field or required field missing
