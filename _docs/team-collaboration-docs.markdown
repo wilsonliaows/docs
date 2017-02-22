@@ -7,11 +7,16 @@ date: 2017-02-16 06:15:00 Z
 Team feature enables multiple users to work on the same Workato account. It is enabled only for certain plans, check [here](https://www.workato.com/pricing?audience=general) to find out more.
 
 # Team owner
-Team owners will see the team option on their account menu. In this screen, team owners can view current collaborators on their team, view pending invitations to collaborators, as well as invite collaborators.
+Team owners will see the team option on their account menu.
+
+![Team option](/_uploads/team-collaboration-docs/team_option.png)
+
+In this screen, team owners can view current collaborators on their team, view pending invitations to collaborators, as well as invite collaborators.
 
 Collaborator roles can also be changed by the team owner.
 
-![Team option](/_uploads/team-collaboration-docs/team_option.png)
+[![https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2](https://i.gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2.gif)](https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2)
+
 
 # Team roles
 The default roles for teams are:
@@ -41,7 +46,7 @@ The operator role is typically given to users maintaining the recipe and ensurin
 # Invite collaborators
 To invite collaborators, provide the full name of the collaborator and their email.
 
-[![https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2](https://i.gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2.gif)](https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2)
+[![https://gyazo.com/6fe635f951ea2a67e622e5b90bcb9975](https://i.gyazo.com/6fe635f951ea2a67e622e5b90bcb9975.gif)](https://gyazo.com/6fe635f951ea2a67e622e5b90bcb9975)
 
 Existing Workato users will be prompted to login to Workato and accept the team invite.
 
