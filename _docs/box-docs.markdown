@@ -43,16 +43,19 @@ Box users who can login to Box can connect to Box from Workato. The user will ha
 
 ## Working with generic create/update/search actions in Box
 
-## [Working with attachments in Box](https://support.workato.com/support/solutions/articles/1000236818-box-working-with-attachments-in-box
+## [Working with attachments in Box](https://support.workato.com/support/solutions/articles/1000236818-box-working-with-attachments-in-box)
 
 ### Upload file content
 Plain text file content can be uploaded using this action. Enter the text for your file in the File Content field. You will also need to select the folder you want to upload to in Box and enter a name for your file (including the extension you want to give it).
 ![Box Attachment 1](/_uploads/box_attachment_1.png)
 
 ### Upload file from URL
+This action can be used to upload a file directly from a URL rather than through entering text content. This allows you to upload non-text files such as images. In the Source URL field, enter the URL for the file you want to upload. Attachment URLs will typically end with the file extension for the file (in the example below, .jpg). You will also need to select the folder you want to upload to. Entering a file name is optional as the name of the file will be obtained from the URL by default.
+![Box Attachment 2](/_uploads/box_attachment_2.png)
 
 ### Upload file content
-
+These actions allow you to create a direct link to a file or folder in Box. First, you will need to enter the File ID/Folder ID for the file/folder you want to create a shared link for. Next, select an access level for the link (Open, Company, Collaborators, or Default). This will set restrictions on who can view your file/folder via the shared link. If you have a Premium Box subscription, you can also enter a password that link users will need to enter before they can access your file/folder.
+![Box Attachment 3](/_uploads/box_attachment_3.png)
 
 ## Articles on how to use additional special actions, such as get shared link, etc.
 
