@@ -18,13 +18,15 @@ The Box connector works with all Box Plans - Individual, Business, Platform.
 ### Box connection
 The Box connector uses OAuth2 authentication to authenticate with Box. 
 
-![Box Permission 1](/_uploads/box-docs/box_connection_1.png)
+![Box Connection 1](/_uploads/box-docs/box_connection_1.png)
 
 * **Connection name**
 
   Give this Box connection a unique name that identifies which Box instance it is connected to.
 
 Click on connect and a Box dialog box will pop-up, requesting your Box Account credentials, and granting access to Workato.
+
+![Box Connection 2](/_uploads/box-docs/box_connection_2.png)
 
 * **Email**
 
