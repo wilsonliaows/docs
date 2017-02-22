@@ -10,6 +10,7 @@ Team feature enables multiple users to work on the same Workato account. It is e
 Team owners will see the team option on their account menu. In this screen, team owners can view current collaborators on their team, view pending invitations to collaborators, as well as invite collaborators.
 
 Collaborator roles can also be changed by the team owner.
+
 ![Team option](/_uploads/team-collaboration-docs/team_option.png)
 
 # Team roles
@@ -19,6 +20,7 @@ The default roles for teams are:
 - Operator
 
 The following table details the specific set of permissions each role has.
+
 ![Roles table](/_uploads/team-collaboration-docs/roles_table.png)
 
 ## Admin role
@@ -47,5 +49,6 @@ Non-Workato users will be prompted to sign up for a Workato account.
 
 # Switching between personal accounts and team accounts
 Team members will be able to view the teams they are collaborating on in their account menu, as well as their roles in the team. Members can toggle to these teams by clicking on the team.
+
 ![Team member view](/_uploads/team-collaboration-docs/team_member_view.png)
 
