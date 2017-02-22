@@ -26,9 +26,7 @@ The Box connector uses OAuth2 authentication to authenticate with Box.
 
 Click on connect and a Box dialog box will pop-up, requesting your Box Account credentials, and granting access to Workato.
 
-<div style="text-align:center">
 ![Box Connection 2](/_uploads/box-docs/box_connection_2.png)
-</div>
 
 * **Email**
 
