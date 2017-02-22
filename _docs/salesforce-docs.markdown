@@ -1,8 +1,3 @@
----
-title: Workato connectors
-date: 2017-02-19 06:15:00 Z
----
-
 # Salesforce
 
 ## Connector information
@@ -59,8 +54,25 @@ To use Salesforce real-time triggers, the authenticated user needs to be on the 
 
 
 ## Working with generic triggers in Salesforce
+In workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created. 
 
-
+Check out the list of Triggers available on Workato below:
+1. Bulk object created
+  Bulk query for new objects once a threshold is met
+2. Deleted object
+  Triggers when selected Salesforce object, e.g. lead, is deleted 
+3. New object 
+  Trigger when selected Salesforce object, e.g. lead, is created
+4. New object (Real Time) 
+  Trigger immediately when selected Salesforce object, e.g. lead, is created
+5. New object batch created
+  Retrieves a list of objects created since the last time recipe triggered
+6. New/updated object
+  Triggers when selected Salesforce object, e.g.lead, is created/updated
+7. New/updated object (Real time)
+  Triggers immediately when selected Salesforce object, e.g.lead, is created/updated
+8. Scheduled object search using SOQL
+  Execute SOQL query on specified schedule and returns results as list of objects
 
 ## Working with generic create/update/search actions in Salesforce
 
