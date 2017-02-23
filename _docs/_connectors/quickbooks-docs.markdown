@@ -63,3 +63,24 @@ One solution to this is to add a Prefix or Suffix before or after the Display na
 
 ![QBO error3](/_uploads/QBO_docs/QBO error3.png)
 
+Do note however that QuickBooks does not allow for certain special characters in the Display Name including colon (:).
+
+Here is a list of accepted characters:
+
+Alpha-numeric (A-Z, a-z, 0-9)
+Comma (,)
+Dot or period (.)
+Question mark (?)
+At symbol (@)
+Ampersand (&)
+Exclamation point (!)
+Number/pound sign (#)
+Single quote (')
+Tilde (~)
+Asterisk (*)
+Space ( )
+Underscore (_)
+Minus sign/hyphen (-)
+Semi-colon (;)
+Plus sign (+)
+Brackets (())
