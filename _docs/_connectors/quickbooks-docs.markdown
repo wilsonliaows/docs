@@ -118,9 +118,26 @@ You get this error when you are trying to create a record in QuickBooks Online a
 If you receive the following error, there is someone else in your company who is already connected to Workato. Contact your colleague to delete their Workato connection to resolve this error.
 
 ### Object Not found. Error while accessing QuickBooks API
+
+![QBO errorobjnotfound1](/_uploads/QBO_docs/QBO errorobjnotfound1.png)
 What does this mean : This usually happens when you tried to get an object based on an ID in QuickBooks and that object does not exist. For example,
+![QBO errorobjnotfound3](/_uploads/QBO_docs/QBO errorobjnotfound3.png)
 The recipe tries to get the item from QuickBooks based on the ID, unfortunately that object does not exist in your Quickbooks account. You would want to check again in your QuickBooks.
-You can know the ID of your object in the URL. It would usually shown up with an ID=6 where 6 is the ID of your object. You can always re-run the job again once it has been ensured, or you may have to change your recipe to make sure that the workflow is correct. 
+
+You can find the ID of your object in the URL. It would usually shown up with an ID=6 where 6 is the ID of your object. 
+![QBO errorobjnotfound2](/_uploads/QBO_docs/QBO errorobjnotfound2.png)
+
+You can always re-run the job again once it has been ensured, or you may have to change your recipe to make sure that the workflow is correct. 
+
+### 784 QuickBooks API not responding
+
+This usually happens when there is an API outage on QuickBooks side, or it has some intermittent issues
+Keep watch of http://status.developer.intuit.com, and try re-running the same job after a while
+
+### 403 Forbidden Error
+
+This error could mean that there were some connectivity issues with the app connection.
+Disconnect your app by going to the connections tab at the bottom of your recipe page, and reconnect it again.
 
 
 
