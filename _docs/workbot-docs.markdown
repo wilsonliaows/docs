@@ -21,7 +21,7 @@ The Slack Workbot connector uses #(KIV).
 To connect, simply fill up the fields the given fields. 
 
 ### Roles and permissions required to connect
-Users who can login to Slac can connect to Slack Workbot from Workato. 
+Users who can login to Slack can connect to Slack Workbot from Workato. 
 
 ## Working with the Slack Workbot Connector
 
