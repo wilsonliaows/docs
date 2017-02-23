@@ -131,6 +131,7 @@ You can always re-run the job again once it has been ensured, or you may have to
 
 ### 784 QuickBooks API not responding
 
+![QBO APIerror](/_uploads/QBO_docs/QBO APIerror.png)
 This usually happens when there is an API outage on QuickBooks side, or it has some intermittent issues
 Keep watch of http://status.developer.intuit.com, and try re-running the same job after a while
 
@@ -138,6 +139,9 @@ Keep watch of http://status.developer.intuit.com, and try re-running the same jo
 
 This error could mean that there were some connectivity issues with the app connection.
 Disconnect your app by going to the connections tab at the bottom of your recipe page, and reconnect it again.
+![QBO connect3](/_uploads
+/QBO_docs/QBO connect3.png)
+
 
 
 
