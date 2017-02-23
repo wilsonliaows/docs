@@ -146,7 +146,9 @@ For additional hlp, see Salesforce documentation
 ## Articles on how to use additional special actions, such as get related objects, etc.
 
 ## Best practices in working with the connector
-When starting to use Workato with your salesforce account, we reccomend that you either do it on a developers account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone
+When starting to use Workato with your salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. 
+### Working with Sandbox on Workato
+Salesforce Sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don’t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see [Sandbox Setup Tips and Considerations](https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&language=en_US).
 ## Troubleshooting
 Here is a list of common erros that you may encounter, and how to rectify them.
 ### 400 Bad Request
