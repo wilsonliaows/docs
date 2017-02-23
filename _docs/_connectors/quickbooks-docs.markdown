@@ -69,10 +69,13 @@ or
 
 2) Creating an invoice with line items. The line items detail will be pulled dynamically from a list data pill. You can learn more about it here.
 
-** When to use which? ** 
+**When do I use 'Create with 1 line item'?** 
 
 Creating a single invoice with only line items are great for Single sync ups, where details of the transactional items are minimal. Example of this is creating an invoice for an opportunity, or creating a Sales Receipt for donations. Subsequently, adding on line items to an invoice can be done in another recipe when new items are added for an existing invoice, giving you the flexibility of structuring your invoices.
 
+In all other cases, you should use 'Create with line items' and simply place the list of items where required. 
+
+[screenshot]
 
 
 ## Different Labels between profit and non-profit versions
