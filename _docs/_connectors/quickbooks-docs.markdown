@@ -77,6 +77,26 @@ In all other cases, you should use 'Create with line items' and simply place the
 
 ![QBO mulltiline](/_uploads/QBO_docs/QBO mulltiline.png)
 
+A 'list' type pill is marked with the list logo as can be seen above in red.
+
+### Exchange Rate
+
+QuickBooks Online provides international trades to be done in multiple currencies. 
+Workato adapts your business needs and supports all necessary changes needed to automate your business.
+
+QuickBooks Online allows you to support multiple currencies. To do so, you may enable it in your Accounts and Settings section. Do note that enabling multiple currency may incur setting changes. Please do seek consultation with QuickBooks Online support.
+
+![QBO currency](/_uploads/QBO_docs/QBO currency.png)
+
+Exchange Rate field allows you to specify the exchange rate to your home currency from the specified currency. If no Currency is specified, the exchange rate will be defaulted to 1 in respect of the home currency.
+
+For dependent transaction documents such as Credit memo, the applied currency will depends on its parent transactions document, such as payment, or bank deposit.
+
+An Example:
+![QBO currency2](/_uploads/QBO_docs/QBO currency2.png)
+
+This field means that it will take 1.5239475 to exchange for 1 unit of the specified currency of the transaction document
+
 
 ## Different Labels between profit and non-profit versions
 
