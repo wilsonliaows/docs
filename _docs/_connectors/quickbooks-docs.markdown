@@ -35,7 +35,7 @@ If you have multiple Companies on your QuickBooks account, you can connect them 
 
 However, if you have multiple Workato accounts and try to connect to the same Company, the earlier connection will be disconnected. Hence, we recommend that only 1 Workato account is used to connect to 1 Company to prevent any disruption to your recipes. 
 
-## Working with QuickBooks Triggers
+## QuickBooks Triggers
 The following triggers are currently available for the QuickBooks Connector: 
 
 **NEW:** Account, Bank Deposit, Bill Payment, Credit Note, Customer, Employee, Estimate, Invoice, Item, Payment, Sales Receipt, Vendor
@@ -91,8 +91,32 @@ Here is a list of accepted characters:
 * Tilde (~)
 * Asterisk (*)
 * Space ( )
-Underscore (_)
-Minus sign/hyphen (-)
-Semi-colon (;)
-Plus sign (+)
-Brackets (())
+* Underscore (_)
+* Minus sign/hyphen (-)
+* Semi-colon (;)
+* Plus sign (+)
+* Brackets (())
+
+### Account period closed, cannot update through API
+
+Error 6210: Account period closed, cannot update through API
+
+This error means that in QuickBooks you have set a closing date, and it will not let you create/update transactions within that period. To remedy it, you have to take out the closed date. 
+
+Refer to this article below to see how. 
+https://support.quickbooks.intuit.com/support/Articles/HOW12993
+ 
+### Malformed Website Address format
+
+QuickBooks fault: {"Error"=>[{"Message"=>"Malformed Web Site Address format", "Detail"=>"Web Site URL does not have correct format. Supplied value:example.com", "code"=>"2200", "element"=>"WebAddr"}], "type"=>"ValidationFault"}
+
+You get this error when you are trying to create a record in QuickBooks Online and you have mapped a field that requires a website address. Quickbooks API requires a well formed web address of the form http://example.com, but if your input does not have the **http:// or https://** at the beginning then the recipe fails.
+
+### App Already Purchased
+
+If you receive the following error, there is someone else in your company who is already connected to Workato. Contact your colleague to delete their Workato connection to resolve this error.
+
+### Object Not found. Error while accessing QuickBooks API
+
+
+
