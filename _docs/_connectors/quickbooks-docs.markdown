@@ -91,50 +91,55 @@ The available fields for a Bank Deposits are :
 
 * Txn Date
   * Date of the transaction object
+
 * Total amount
   * The total amount that the bank deposit should amount to. Note that this value cannot be negative.
+
 * Cash back
   * Specify an account that should return a certain amount back to for this deposit
-* Account
-* Amount
-* Memo
+    * Account
+    * Amount
+    * Memo
+
 * Deposit To Account Reference
   * Specify an account that this bank deposit should be targeted to. Note that you cannot specify Undeposited Funds as the Deposit To Account here.
-* Account
-  * Account specified here must be of Bank or Other Current Asset Account type.
-Transaction tax detail
-Tax Code
-Total Tax
-Line
-Line Source list
-Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
-Description
-For each of the line item, specify its Description
-Amount
-For each of the line item, specify its Amount
-Linked Transaction
-If there are existing transactions that needs to be related, specify details here to record a deposit for an existing transaction. 
-Linked transaction source list
-Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
-Transaction ID
+  * Account
+    * Account specified here must be of Bank or Other Current Asset Account type.
 
-Transaction Type
-Possible types of transactions that can be linked to a Deposit include: Transfer, Payment (for Cash, CreditCard, and Check payment method types), SalesReceipt,RefundReceipt, JournalEntry.
+* Transaction tax detail
+  * Tax Code
+  * Total Tax
 
-Transaction Line ID
-Deposit Line Detail
-Entity Name
-Reference to a customer Display Name from which deposit was received
-Type
-Specify if it is a Customer or Vendor
-Value
-Reference to a customer ID from which deposit was received
-Class reference
-Class Ref
-Reference to the Class associated with the transaction
-Account Reference
-Account
-Account where the funds are deposited
+* Line
+  * Line Source list
+    * Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
+  * Description
+    * For each of the line item, specify its Description
+  * Amount
+    * For each of the line items, specify its Amount
+
+* Linked Transaction
+  * If there are existing transactions that needs to be related, specify details here to record a deposit for an existing transaction. 
+  * Linked transaction source list
+    * Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
+  * Transaction ID
+  * Transaction Type
+    * Possible types of transactions that can be linked to a Deposit include: `Transfer`, `Payment` (for Cash, CreditCard, and Check payment method types), `SalesReceipt`,`RefundReceipt`, `JournalEntry`.
+  * Transaction Line ID
+
+* Deposit Line Detail
+  * Entity Name
+    * Reference to a customer Display Name from which deposit was received
+  * Type
+    * Specify if it is a Customer or Vendor
+  * Value
+    * Reference to a customer ID from which deposit was received
+
+* Class reference
+  * Reference to the Class associated with the transaction
+
+* Account Reference
+  * Account where the funds are deposited
 Payment method reference
 Payment method
 Check num
