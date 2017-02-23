@@ -58,6 +58,21 @@ As the name suggests, user is required to key in some of the details regarding t
 When user wants to include only the description of the items, he/she would choose this option.  
 As such, "Description only" is a subset of "Sales Item Detail", if the user wants to include more details in the invoice, he/she should choose "Sales Item Detail".
 
+## Different Labels between profit and non-profit versions
+
+If you are using the non-profit version of QuickBooks, do note that on Workato, certain terms may be labelled differently from what appears in your QuickBooks account. Refer to the table below to know which triggers and actions to use:
+
+| For Profit  | Non-Profit |
+| ------------- | ------------- |
+| Invoice | Pledge |
+| Sales Receipt  | Donations (Sales) |
+| Expenses | Expenditure |
+| Profit & Loss | Statement of Activity |
+| Balance Sheet | Statement of Financial Positions | 
+
+For more info on non-profit organization in QuickBooks, you can click here.
+
+
 ## Common Errors & Troubleshooting
 
 ### Duplicate Name Exists
@@ -139,8 +154,8 @@ Keep watch of http://status.developer.intuit.com, and try re-running the same jo
 
 This error could mean that there were some connectivity issues with the app connection.
 Disconnect your app by going to the connections tab at the bottom of your recipe page, and reconnect it again.
-![QBO connect3](/_uploads
-/QBO_docs/QBO connect3.png)
+
+![QBO connect3](/_uploads/QBO_docs/QBO connect3.png)
 
 
 
