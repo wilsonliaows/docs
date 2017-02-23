@@ -37,16 +37,16 @@ Once you have filled up the above fields, click on connect a Salesforce connecti
   
 
 ### Roles and permissions required to connect
-JIRA users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same [permissions](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/admin_userperms.htm) on Workato as in Salesforce, and will be able to read and write to the same projects and issues.
+Salesforce users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same projects and issues.
 
 To use Salesforce real-time triggers, the authenticated user needs to be on the **Workato Enteprise Plan**
 
 ## Working with the Salesforce connector
 
 ### Can I connect more that one Salesforce account in a single recipe?
-
+Salesforce Secondary
 ### What versions and editions we work with or don't work with
-
+Workato works with all versions of Salesforce including Force.com apps, witht he excpetion of SalesforceIQ? 
 
 
 ### Using real-time triggers
@@ -87,11 +87,11 @@ When working with Salesforce Actions on Workato, you should find it extremely ea
 
 ### Working with attachments in Salesforce
 
-### Uploading
+#### Uploading
 
 To upload an attachement to Salesforce using Workato, you can use the **Create Object** Action, and select **Attachement** under the **Object** field. Before that however, you need to have a step that downloads an the file to be uploaded to saleforce. You may use the **box** action **get file download URL**, followed by using the  **utilities** tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  
 
-### Downloading
+#### Downloading
 To download an attachment from Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previos step, usually from the get object details step. Once that step is properly set up, you will be able to use the attachment as a pill in oth#er steps of the recipe, for example, you can use the **Upload file** action in the **box** connector. 
 
 ## Working with SOQL in Salesforce
