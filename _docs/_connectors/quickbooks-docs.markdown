@@ -114,9 +114,13 @@ You get this error when you are trying to create a record in QuickBooks Online a
 
 ### App Already Purchased
 
+![QBO purchased](/_uploads/QBO_docs/QBO purchased.png)
 If you receive the following error, there is someone else in your company who is already connected to Workato. Contact your colleague to delete their Workato connection to resolve this error.
 
 ### Object Not found. Error while accessing QuickBooks API
+What does this mean : This usually happens when you tried to get an object based on an ID in QuickBooks and that object does not exist. For example,
+The recipe tries to get the item from QuickBooks based on the ID, unfortunately that object does not exist in your Quickbooks account. You would want to check again in your QuickBooks.
+You can know the ID of your object in the URL. It would usually shown up with an ID=6 where 6 is the ID of your object. You can always re-run the job again once it has been ensured, or you may have to change your recipe to make sure that the workflow is correct. 
 
 
 
