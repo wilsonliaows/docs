@@ -140,20 +140,23 @@ The available fields for a Bank Deposits are :
 
 * Account Reference
   * Account where the funds are deposited
-Payment method reference
-Payment method
-Check num
-Check number for the desposit.
-Tax reference
-Tax code
-Sales/Purchase tax code associated with the Line. For Non US Companies only
-Tax applicable on
-Private Note
-Currency Reference
-Value
-Name
-Transaction source
-A field used internally to specify originating source of a credit card transaction.
+  
+* Payment method reference
+  * Payment method
+
+* Check num
+  * Check number for the desposit.
+
+* Tax reference
+  * Tax code
+    * Sales/Purchase tax code associated with the Line. For Non US Companies only
+  * Tax applicable on
+* Private Note
+* Currency Reference
+  * Value
+  * Name
+* Transaction source
+  * A field used internally to specify originating source of a credit card transaction.
 
 ## Exchange Rate
 
