@@ -75,7 +75,7 @@ Creating a single invoice with only line items are great for Single sync ups, wh
 
 In all other cases, you should use 'Create with line items' and simply place the list of items where required. 
 
-[screenshot]
+![QBO mulltiline](/_uploads/QBO_docs/QBO mulltiline.png)
 
 
 ## Different Labels between profit and non-profit versions
