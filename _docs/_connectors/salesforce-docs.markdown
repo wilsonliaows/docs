@@ -59,18 +59,25 @@ In workato, a Trigger refers to a condition that is set to start off a recipe. A
 Check out the list of Triggers available on Workato below:
 1. Bulk object created
   Bulk query for new objects once a threshold is met
+
 2. Deleted object
   Triggers when selected Salesforce object, e.g. lead, is deleted 
+
 3. New object 
   Trigger when selected Salesforce object, e.g. lead, is created
+
 4. New object (Real Time) 
   Trigger immediately when selected Salesforce object, e.g. lead, is created
+
 5. New object batch created
   Retrieves a list of objects created since the last time recipe triggered
+
 6. New/updated object
   Triggers when selected Salesforce object, e.g.lead, is created/updated
+
 7. New/updated object (Real time)
   Triggers immediately when selected Salesforce object, e.g.lead, is created/updated
+
 8. Scheduled object search using SOQL
   Execute SOQL query on specified schedule and returns results as list of objects
 
@@ -88,7 +95,47 @@ To upload an attachement to Salesforce using Workato, you can use the **Create O
 To download an attachment from Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previos step, usually from the get object details step. Once that step is properly set up, you will be able to use the attachment as a pill in oth#er steps of the recipe, for example, you can use the **Upload file** action in the **box** connector. 
 
 ## Working with SOQL in Salesforce
+Salesforce Object Query Language (SOQL) is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
+In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting). You could also use JOIN to merge two tables with at least one similar column. 
 
+The recipe will automatically handle the SELECT FROM portion of your query. It will SELECT all fields FROM the object you choose from the pick list. For optional clauses, the trigger currently only supports WHERE conditions.
+For a list of standard fields for major Salesforce objects, see: Salesforce Fields Reference
+
+Using Join 
+It is also possible to join two tables with at least one similar column. For example, let's take a look at the query below: 
+
+SELECT Id, Name, Account.Name, Account.Parent.Name FROM Contact WHERE Account.Name = '1-800 Flowers'
+
+This example shows objects under account such as Id and Account Name join with the Contact which the common column is the  Account.Name='1-800 Flowers'. Contact object is therefore linked to Account object and Account object is also linked to another Account object, which is the parent of current Account.
+
+It is important to take note that the query function is case sensitive, all inputs have to be exactly the same as it is in the original form.
+Inputting SOQL WHERE Conditions (Syntax):
+The WHERE clause follows field expression syntax. A fieldExpression is defined as follows: fieldName comparisonOperator value.
+Comparison operators:
+Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
+ 
+For detailed information on how to use each comparison operator, see: Comparison Operators
+Logical operators:
+Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
+fieldExpressionX AND fieldExpressionY
+fieldExpressionX OR fieldExpressionY
+NOT fieldExpressionX
+Here is an example showing two fieldExpressions joined by a logical operator:
+
+For more information on logical operators, see: Logical Operators
+Date Formats and Date Literals:
+To filter on date fields in a query, you must use Date only format. The syntax for this is: YYYY-MM-DD.
+To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:
+YYYY-MM-DDThh:mm:ss+hh:mm
+YYYY-MM-DDThh:mm:ss-hh:mm
+YYYY-MM-DDThh:mm:ssZ
+In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values.
+For date fields, add ‘.to_date’ to the end of your date formula to convert your date or timestamp to the correct format.
+
+
+For dateTime fields, the third syntax format is the simplest to use. After entering the formula to get your desired timestamp (eg: now, 2.weeks.ago.beginning_of_day, etc.), add ‘.strftime("%Y-%m-%dT%H:%M:%S%z")’ to the end of it.
+
+For more information on date formats and date literals, see: Date Formats and Date Literals
 ## Articles on how to use additional special actions, such as get related objects, etc.
 
 ## Best practices in working with the connector
