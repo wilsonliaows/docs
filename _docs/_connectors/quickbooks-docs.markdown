@@ -79,7 +79,78 @@ In all other cases, you should use 'Create with line items' and simply place the
 
 A 'list' type pill is marked with the list logo as can be seen above in red.
 
-### Exchange Rate
+## Bank Deposit
+
+Workato has several QuickBooks actions that are related to a Bank Deposit object : 
+  
+  * Create bank deposits
+  * Search bank deposits
+  * Update bank deposits
+
+The available fields for a Bank Deposits are : 
+
+* Txn Date
+  Date of the transaction object
+* Total amount
+  The total amount that the bank deposit should amount to. Note that this value cannot be negative.
+* Cash back
+  Specify an account that should return a certain amount back to for this deposit
+* Account
+* Amount
+* Memo
+Deposit To Account Reference
+Specify an account that this bank deposit should be targeted to. Note that you cannot specify Undeposited Funds as the Deposit To Account here.
+Account
+Account specified here must be of Bank or Other Current Asset Account type.
+Transaction tax detail
+Tax Code
+Total Tax
+Line
+Line Source list
+Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
+Description
+For each of the line item, specify its Description
+Amount
+For each of the line item, specify its Amount
+Linked Transaction
+If there are existing transactions that needs to be related, specify details here to record a deposit for an existing transaction. 
+Linked transaction source list
+Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
+Transaction ID
+
+Transaction Type
+Possible types of transactions that can be linked to a Deposit include: Transfer, Payment (for Cash, CreditCard, and Check payment method types), SalesReceipt,RefundReceipt, JournalEntry.
+
+Transaction Line ID
+Deposit Line Detail
+Entity Name
+Reference to a customer Display Name from which deposit was received
+Type
+Specify if it is a Customer or Vendor
+Value
+Reference to a customer ID from which deposit was received
+Class reference
+Class Ref
+Reference to the Class associated with the transaction
+Account Reference
+Account
+Account where the funds are deposited
+Payment method reference
+Payment method
+Check num
+Check number for the desposit.
+Tax reference
+Tax code
+Sales/Purchase tax code associated with the Line. For Non US Companies only
+Tax applicable on
+Private Note
+Currency Reference
+Value
+Name
+Transaction source
+A field used internally to specify originating source of a credit card transaction.
+
+## Exchange Rate
 
 QuickBooks Online provides international trades to be done in multiple currencies. 
 Workato adapts your business needs and supports all necessary changes needed to automate your business.
