@@ -46,6 +46,18 @@ The following triggers are currently available for the QuickBooks Connector:
 
 If you wish to submit a request for a new Trigger not currently available, please visit: 
 
+## Action: Add Line to Invoice
+### Sales Item Detail vs. Discount Line Detail vs. Description only
+
+##### Sales Item Detail
+As the name suggests, user is required to key in some of the details regarding the sales item. This includes Item ID, Total Amount, Unit Price/Quantity and also the Description. 
+
+##### Discount Line Detail
+
+##### Description Only
+When user wants to include only the description of the items, he/she would choose this option.  
+As such, "Description only" is a subset of "Sales Item Detail", if the user wants to include more details in the invoice, he/she should choose "Sales Item Detail".
+
 ## Common Errors & Troubleshooting
 
 ### Duplicate Name Exists
