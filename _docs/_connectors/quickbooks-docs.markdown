@@ -90,18 +90,18 @@ Workato has several QuickBooks actions that are related to a Bank Deposit object
 The available fields for a Bank Deposits are : 
 
 * Txn Date
-  Date of the transaction object
+  * Date of the transaction object
 * Total amount
-  The total amount that the bank deposit should amount to. Note that this value cannot be negative.
+  * The total amount that the bank deposit should amount to. Note that this value cannot be negative.
 * Cash back
-  Specify an account that should return a certain amount back to for this deposit
+  * Specify an account that should return a certain amount back to for this deposit
 * Account
 * Amount
 * Memo
-Deposit To Account Reference
-Specify an account that this bank deposit should be targeted to. Note that you cannot specify Undeposited Funds as the Deposit To Account here.
-Account
-Account specified here must be of Bank or Other Current Asset Account type.
+* Deposit To Account Reference
+  * Specify an account that this bank deposit should be targeted to. Note that you cannot specify Undeposited Funds as the Deposit To Account here.
+* Account
+  * Account specified here must be of Bank or Other Current Asset Account type.
 Transaction tax detail
 Tax Code
 Total Tax
