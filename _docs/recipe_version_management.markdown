@@ -8,7 +8,7 @@ Previous versions of recipes can be restored at any time. Recipe versions can be
 
 In the version history view, each version is attributed to the user who made the change (relevant for multi-user team accounts), with a timestamp when the version was saved, as well as the change type associated with that version.
 
-![Restored version](/_uploads/recipe-version-management-docs/restored_version.png)
+![Recipe versions](/_uploads/team-collaboration-docs/recipe_versions.png)
 
 The are 2 general change types:
 - Recipe change
