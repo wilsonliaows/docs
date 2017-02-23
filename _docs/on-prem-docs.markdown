@@ -15,12 +15,12 @@ The following is a conceptual model of Workato's on-premise agent and connector 
 
 ![On-prem model](/_uploads/on-prem-docs/on_prem_conceptual_model.png)
 
-The on-prem agent is a lightweight module to be installed behind the company's firewall. The agent utilizes a secure tunnel over TLS to facilitate interaction between Workato and on-prem applications. These on-prem application should have REST endpoints to be compatible with the on-prem agent.
+The on-prem agent is a lightweight module to be installed behind the company's firewall. The agent utilizes a secure tunnel over TLS to facilitate interaction between Workato and on-prem applications. These on-prem applications should have REST endpoints to be compatible with the on-prem agent.
 
 The on-prem connector is an additional module which should be installed in order to interact with databases behind the firewall.
 
 # Supported operating systems
-The on-prem connector works with Mindows, macOS as well as Linux.
+The on-prem connector works with Windows, macOS and Linux.
 
 # Setting up on-prem access
 On the **On-prem access** page, there is the option to create a new agent. Once created, detailed setup instructions can be found within the **How to use** tab.
