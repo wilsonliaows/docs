@@ -93,6 +93,7 @@ Exchange Rate field allows you to specify the exchange rate to your home currenc
 For dependent transaction documents such as Credit memo, the applied currency will depends on its parent transactions document, such as payment, or bank deposit.
 
 An Example:
+
 ![QBO currency2](/_uploads/QBO_docs/QBO currency2.png)
 
 This field means that it will take 1.5239475 to exchange for 1 unit of the specified currency of the transaction document
