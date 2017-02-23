@@ -58,6 +58,23 @@ As the name suggests, user is required to key in some of the details regarding t
 When user wants to include only the description of the items, he/she would choose this option.  
 As such, "Description only" is a subset of "Sales Item Detail", if the user wants to include more details in the invoice, he/she should choose "Sales Item Detail".
 
+### Difference between Create with 1 line item and Create with Line items
+
+#### Creating Transactional Objects with line items
+Workato QuickBooks actions for creating Transactional objects (Invoice, Sales receipt, Bill, Credit Memo, etc) generally has two ways for populating them : 
+
+1) Creating first an invoice with a single line item (as mandatory by QuickBooks Online to have at least one line item), and use Add Line Item to X action for any further addition
+
+or 
+
+2) Creating an invoice with line items. The line items detail will be pulled dynamically from a list data pill. You can learn more about it here.
+
+** When to use which? ** 
+
+Creating a single invoice with only line items are great for Single sync ups, where details of the transactional items are minimal. Example of this is creating an invoice for an opportunity, or creating a Sales Receipt for donations. Subsequently, adding on line items to an invoice can be done in another recipe when new items are added for an existing invoice, giving you the flexibility of structuring your invoices.
+
+
+
 ## Different Labels between profit and non-profit versions
 
 If you are using the non-profit version of QuickBooks, do note that on Workato, certain terms may be labelled differently from what appears in your QuickBooks account. Refer to the table below to know which triggers and actions to use:
@@ -70,8 +87,7 @@ If you are using the non-profit version of QuickBooks, do note that on Workato, 
 | Profit & Loss | Statement of Activity |
 | Balance Sheet | Statement of Financial Positions | 
 
-For more info on non-profit organization in QuickBooks, you can click here.
-
+For more info on non-profit organization in QuickBooks, you can click [here](https://community.intuit.com/articles/1145585-quickbooks-online-for-nonprofits).
 
 ## Common Errors & Troubleshooting
 
