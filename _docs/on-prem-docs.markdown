@@ -4,7 +4,7 @@ date: 2017-02-22 12:00:00 Z
 ---
 
 # On-premise access
-Workato is a hybrid integration platform that connects to both cloud applications as well on-premises applications behind the firewall. On-premise access is enabled only for certain plans, check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+Workato is a hybrid integration platform that connects to both cloud applications as well on-premises applications behind the firewall. On-premise access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 For Workato accounts with on-prem access, team owners are able to view the on-prem option on their account menu.
 
@@ -75,3 +75,8 @@ If connecting to on-prem databases fail, check that:
 - Selected connector is active
 - Credentials provided in the connection profile are correct
 - Database name and type provided in the connection profile is correct
+
+# Example recipes
+[Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
+<!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
+[Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
