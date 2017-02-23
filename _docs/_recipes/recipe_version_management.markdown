@@ -17,7 +17,7 @@ Recipe logic changes, e.g. adding or removing steps and changing field mappings,
 
 - Schema change
 
-Carrying out a schema refresh (e.g. updating Workato when fields were added or removedin connected apps) will create a new version of the recipe automatically.
+Carrying out a schema refresh (e.g. updating Workato when fields were added or removed in connected apps) will create a new version of the recipe automatically.
 
 # Restoring versions
 To restore previous versions of the recipe, switch to the **Versions** tab. Whenever a recipe is saved, a new version of the saved recipe will be created. Recipe versions can be first previewed before being restored.
