@@ -4,19 +4,16 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # Team collaboration
-Team feature enables multiple users to work on the same Workato account. It is enabled only for certain plans, check [here](https://www.workato.com/pricing?audience=general) to find out more.
+Team feature enables multiple users to work on the same Workato account. Team feature is enabled only for certain plans, check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
 # Team owner
-Team owners will see the team option on their account menu.
+Team owners are able to view the team option on their account menu.
 
 ![Team option](/_uploads/team-collaboration-docs/team_option.png)
 
-In this screen, team owners can view current collaborators on their team, view pending invitations to collaborators, as well as invite collaborators.
-
-Collaborator roles can also be changed by the team owner.
+In the team admin screen, team owners can view current collaborators on their team, view pending invitations to collaborators, as well as invite collaborators. Collaborator roles can also be changed by the team owner.
 
 [![https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2](https://i.gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2.gif)](https://gyazo.com/8c002bf0ddbc8610dbdb1ad0eaba61c2)
-
 
 # Team roles
 The default roles for teams are:
@@ -55,5 +52,9 @@ Non-Workato users will be prompted to sign up for a Workato account.
 # Switching between personal accounts and team accounts
 Team members will be able to view the teams they are collaborating on in their account menu, as well as their roles in the team. Members can toggle to these teams by clicking on the team.
 
-![Team member view](/_uploads/team-collaboration-docs/team_member_view.png)
+[![https://gyazo.com/e3ab4949a64b8753537c8517243525bb](https://i.gyazo.com/e3ab4949a64b8753537c8517243525bb.gif)](https://gyazo.com/e3ab4949a64b8753537c8517243525bb)
 
+# Audit logs
+Recipe changes are logged under **Versions** tab and attributed to the collaborator who made the change. Older versions of the recipe can be restored by users with admin or analyst roles.
+
+![Recipe versions](/_uploads/team-collaboration-docs/recipe_versions.png)
