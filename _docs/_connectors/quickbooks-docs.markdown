@@ -137,16 +137,12 @@ The available fields for a Bank Deposits are :
 
 * Class reference
   * Reference to the Class associated with the transaction
-
 * Account Reference
   * Account where the funds are deposited
-  
 * Payment method reference
   * Payment method
-
 * Check num
   * Check number for the desposit.
-
 * Tax reference
   * Tax code
     * Sales/Purchase tax code associated with the Line. For Non US Companies only
