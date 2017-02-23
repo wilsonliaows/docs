@@ -6,7 +6,7 @@ date: 2017-02-22 20:30:00 Z
 # Workflow (People Task)
 The people task feature enables the addition of a human approval step within the recipe. Complex tasks requiring human judgement can be directed to an approver, then subsequently redirected based on whether the task was approved or rejected.
 
-# Using People Task as the admin
+# Using People Task as an admin
 
 ## People Task setup
 People Task feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
@@ -46,36 +46,37 @@ In the People Task step, there are several fields to take note of.
 
 [![https://gyazo.com/c50c783b5fb40dcf9ae1f2d1ce282cfd](https://i.gyazo.com/c50c783b5fb40dcf9ae1f2d1ce282cfd.gif)](https://gyazo.com/c50c783b5fb40dcf9ae1f2d1ce282cfd)
 
-![Peopletask fields 1](/_uploads/peopletask-docs/peopletask_fields1.png)
+The following are stills of the same fields:
 
+![Peopletask fields 1](/_uploads/peopletask-docs/peopletask_fields1.png)
 ![Peopletask fields 2](/_uploads/peopletask-docs/peopletask_fields2.png)
 
 Fields:
-- Task title
+- **Task title**
 
 Title of the task, as viewed from the summary list of tasks.
 
-- Task document
+- **Task document**
 
 Presented as a table of relevant data for the approver in deciding whether or approve or reject the task.
 
-- Requester
+- **Requester**
 
 Select the user sending the task from a list of users.
 
-- Approver
+- **Approver**
 
 Select the user approving the task from a list of users.
 
-- Decision by
+- **Decision by**
 
 Select the number of days the approver has to make a decision.
 
-- Requester comments
+- **Requester comments**
 
 Optional notes from the requester to the approver.
 
-- User data fields
+- **User data fields**
 
 Optionally used when the requester wishes the approver to provide additional data. Fields to collect should be defined in the following format.
 
@@ -91,11 +92,10 @@ Optionally used when the requester wishes the approver to provide additional dat
 From the approver's view, these fields will show up in the task as follows.
 
 ![Pending Peopletask example 1](/_uploads/peopletask-docs/pending_peopletask_example1.png)
-
 ![Pending Peopletask example 2](/_uploads/peopletask-docs/pending_peopletask_example2.png)
 
 
-## Using People Task as the approver
+## Using People Task as an approver
 
 ### Approver view
 The approver has to login to the People Task portal to view the tasks pending their approval.
