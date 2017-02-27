@@ -16,14 +16,14 @@ We will take a look at the different type of standard actions available using Sa
 # App Data/Data Pills 
 Data Fields (also known as Data Pills) are data from previous steps that you can drag and drop (or simply click on the pill while an input field is highlighted) to place into inputs fields on the left. Doing so simply maps the Data Fields into the Input Fields. These Data Fields can usually be found on the right side of the recipe within Data Trees. 
 
-[data_pill_1](/_uploads/data_pill_1.png)
+![data_pill_1](/_uploads/data_pill_1.png)
 
 This is a data pill ^
 
 When you click on any steps, the Data Trees will appear on the right.
-[appdata_gif](/_uploads/appdata_gif.gif)
+![appdata_gif](/_uploads/appdata_gif.gif)
 
-[data_pill_2](/_uploads/data_pill_2.png)
+![data_pill_2](/_uploads/data_pill_2.png)
 In this image directly above, you can see the data tree output which displays all of the information from the Salesforce Object Created/Output step. The information is organized in the form of data pills. The small icons on the left of the data pill is an indication of the data type. The light-grey text on the right of the data pill is known as sample output - it pulls an arbitrary record from the application to give you a sense of what data the pill might contain. 
 
 ## Data Type 
