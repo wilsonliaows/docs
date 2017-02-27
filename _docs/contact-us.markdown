@@ -21,5 +21,11 @@ If you are looking for recipe support, this is the information we need:
 
 # App or enhancement request (forums)
 
+To request for the Workato platform to support new cloud applications or enhance the current capabilities of any supported application, simply create a post on our forum. These are several key folders where you could help share your ideas and suggestions:
+- [New Application](https://support.workato.com/discussions/forums/1000228696)
+- [Application Enhancements](https://support.workato.com/discussions/forums/1000228697)
+- [Core Product Features](https://support.workato.com/discussions/forums/1000228698)
+- [Other Ideas](https://support.workato.com/discussions/forums/1000228699)
 
 # Update our documentation 
+If you would like to contribute to our documentation repository, for example by including write-up information of the API of your custom-app to promote connectivity through Workato, simply submit a pull request and our documentations team will perform a review for approval.
