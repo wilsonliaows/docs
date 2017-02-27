@@ -47,6 +47,7 @@ This is a date field. It can be used for date comparisons.
 
 - A outlined and solid-filled circle  
 ![data_type_4](/_uploads/data_type_4.png)
+
 This is a boolean field. It stores the value true or false.
 
 ## Metadata
@@ -66,9 +67,11 @@ The basics of Field Mapping in Workato begins with understanding what you are tr
 Taking the right data pill is just as important as setting up the right logic, when you choose the wrong data pill to work with, you are bounded to fall into errors. Here are some common pitfalls with regards to field mapping.
 
 - Empty Data pills on Required Fields
+
 Required fields must always have a value. To ensure that, you will always need to make sure that the field is filled up, either    with a data pill that always have a value, or using formula mode. Check out how you can use formula mode to choose a second data pill as a second choice here.
 
 - Data pills from the wrong branch of logic
+
 When you used the recipe from the wrong branch of logic, you will definitely be meeting a data pill with empty value. This is because that data pill may come from a step that may never had been executed at all. To learn more about how to identify these issues, check out this video on how you can do so.
 
 
