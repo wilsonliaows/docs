@@ -89,11 +89,11 @@ Taking the right data pill is just as important as setting up the right logic, w
 
 - Empty Data pills on Required Fields
 
-  Required fields must always have a value. To ensure that, you will always need to make sure that the field is filled up, either    with a data pill that always have a value, or using formula mode. Check out how you can use formula mode to choose a second data pill as a second choice here.
+  Required fields must always have a value. To ensure that, you will always need to make sure that the field is filled up, either    with a data pill that always have a value, or using formula mode. 
 
 - Data pills from the wrong branch of logic
 
-  When you used the recipe from the wrong branch of logic, you will definitely be meeting a data pill with empty value. This is because that data pill may come from a step that may never had been executed at all. To learn more about how to identify these issues, check out this video on how you can do so.
+  When you used the recipe from the wrong branch of logic, you will definitely be meeting a data pill with empty value. This is because that data pill may come from a step that may never had been executed at all. 
 
 # Formula Mode
 
