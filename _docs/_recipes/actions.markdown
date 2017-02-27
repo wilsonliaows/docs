@@ -32,14 +32,17 @@ There are various types of data types, as shown:
 
 - A-Z    
 ![data_type_1](/_uploads/data_type_1.png)
+
 This is a normal text field, otherwise known as a string field. It can contain a mix of alphabetical and numerical characters. A String field cannot be used for arithmetic computation or Date comparison. 
 
 - 123    
 ![data_type_2](/_uploads/data_type_2.png)
+
 This is a numerical field. It stores only numerical values. These values are not texts, and can be used for numerical computation.
 
 - Calendar Symbol  
 ![data_type_3](/_uploads/data_type_3.png)
+
 This is a date field. It can be used for date comparisons.
 
 - A outlined and solid-filled circle  
