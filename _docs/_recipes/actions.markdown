@@ -63,7 +63,7 @@ The basics of Field Mapping in Workato begins with understanding what you are tr
 (KIV Needs Example)
 
 
-##Common Pitfalls
+##Common Pitfalls when mapping fields
 Taking the right data pill is just as important as setting up the right logic, when you choose the wrong data pill to work with, you are bounded to fall into errors. Here are some common pitfalls with regards to field mapping.
 
 - Empty Data pills on Required Fields
@@ -75,6 +75,6 @@ Taking the right data pill is just as important as setting up the right logic, w
   When you used the recipe from the wrong branch of logic, you will definitely be meeting a data pill with empty value. This is because that data pill may come from a step that may never had been executed at all. To learn more about how to identify these issues, check out this video on how you can do so.
 
 
-## Formula 
+# Formula Mode
 
 
