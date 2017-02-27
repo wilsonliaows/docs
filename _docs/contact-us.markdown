@@ -27,5 +27,8 @@ To request for the Workato platform to support new cloud applications or enhance
 - [Core Product Features](https://support.workato.com/discussions/forums/1000228698)
 - [Other Ideas](https://support.workato.com/discussions/forums/1000228699)
 
+![forum](/_uploads/workato_forum.png)
+
+
 # Update our documentation 
 If you would like to contribute to our documentation repository, for example by including write-up information of the API of your custom-app to promote connectivity through Workato, simply submit a pull request and our documentations team will perform a review for approval.
