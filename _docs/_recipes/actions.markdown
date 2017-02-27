@@ -21,7 +21,7 @@ Data Fields (also known as Data Pills) are data from previous steps that you can
 This is a data pill ^
 
 When you click on any steps, the Data Trees will appear on the right.
-[appdata_gif](/_uploads/appata_gif.gif)
+[appdata_gif](/_uploads/appdata_gif.gif)
 
 [data_pill_2](/_uploads/data_pill_2.png)
 In this image directly above, you can see the data tree output which displays all of the information from the Salesforce Object Created/Output step. The information is organized in the form of data pills. The small icons on the left of the data pill is an indication of the data type. The light-grey text on the right of the data pill is known as sample output - it pulls an arbitrary record from the application to give you a sense of what data the pill might contain. 
