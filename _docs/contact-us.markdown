@@ -8,14 +8,16 @@ If you have encountered a bug or recipe issue and are unable to resolve it, plea
 
 
 If you are looking for recipe support, this is the information we need:
-*Adapter (App Name)
-*Trigger / Action
-*Recipe ID
-*Job ID
-*Error Message
-*Recipe URL: (E.g. https://www.workato.com/recipes/7943)
-*Screenshots that show the problem/job report are recommended as they allow our team to visualize the issue better.
-*You may also be required to grant our support team administrator access to your account if we require some in depth analysis. You may do this through the ticket submission portal.
+- Adapter (App Name)
+- Trigger / Action
+- Recipe ID
+- Job ID
+- Error Message
+- Recipe URL: (E.g. https://www.workato.com/recipes/7943)
+- Screenshots that show the problem/job report are recommended as they allow our team to visualize the issue better.
+- You may also be required to grant our support team administrator access to your account if we require some in depth analysis. You may do this through the ticket submission portal.
+
+![allow_access](/_uploads/workato_allow_access.png)
 
 # App or enhancement request (forums)
 
