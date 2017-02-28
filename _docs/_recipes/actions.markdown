@@ -51,7 +51,7 @@ This image above is an example of a Data Pill.
 When you click on any steps in a recipe, the App Data section, which contain all of the Data Pills, will appear on the right.
 ![appdata_gif](/_uploads/appdata_gif.gif)
 
-![data_pill_2](/_uploads/action-docs/data_pill_2.png)
+![data_pill_2](/_uploads/data_pill_2.png)
 In this image directly above, you can see the App Data output which displays all of the information from the Salesforce Object Created/Output step in the form of data pills. The small icons on the left of the data pill is an indication of the data type while the light-grey text on the right of the data pill is known as meta-data. The meta data allows you to take a peek at what kind of data does the field stores. We will provide elaboration on both points below
 
 ## Data Types
@@ -88,7 +88,7 @@ If you've read the previous section on Data pills, you are now ready to map them
 
 ##Example of field mapping
 The basics of Field Mapping in Workato begins with understanding what you are trying to map in a recipe. In the gif shown below, we map the Account Name data pill from the Salesforce Step into the Message input field in the email action. 
-![mapping_gif](/_uploads/mapping_gif.gif)
+![mapping_gif](/_uploads/action-docs/mapping_gif.gif)
 
 
 ##Types of Field mapping
