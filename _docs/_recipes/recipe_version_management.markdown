@@ -4,7 +4,7 @@ date: 2017-02-22 05:15:00 Z
 ---
 
 # Recipe version management
-Previous versions of recipes can be restored at any time. Recipe versions can be viewed in the **Versions** tab and are denoted by their version number.
+Every time a recipe is saved, a version of the recipe is saved. Previous versions of a recipe can be restored at any time. Recipe versions can be viewed in the **Versions** tab and are denoted by their version number.
 
 In the version history view, each version is attributed to the user who made the change (relevant for multi-user team accounts), with a timestamp when the version was saved, as well as the change type associated with that version.
 

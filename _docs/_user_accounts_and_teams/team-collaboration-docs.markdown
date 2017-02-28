@@ -4,9 +4,11 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # Team collaboration
-Team feature enables multiple users to work on the same Workato account. Team feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Team feature enables multiple users to work on the same Workato account and collaborate on recipes in a shared workspace. User roles and permission sets can be assigned to ensure that different users have access to the features they need.
 
-# Team owner
+Team feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+
+# Team owner permissions
 For Workato accounts with team access, team owners are able to view the team option on their account menu.
 
 ![Team option](/_uploads/team-collaboration-docs/team_option.png)
