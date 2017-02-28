@@ -8,6 +8,7 @@ There are a variety of standard actions available on Workato such as Create, upd
 
 ## Create
 The Create Object action allows you to create any standard or custom object. In Salesforce, creating an account requires at least an Account Name to be stated. 
+[!create](/_uploads/action-docs/action_1.png)
  
 ## Update
 The Update Object action allows you to make changes and edits on any existing standard or custom object. In order to pinpoint on which object you will be updating, you would have to minimally input in the Object ID. Updating a Salesforce account will mean having to input in the Account ID. 
