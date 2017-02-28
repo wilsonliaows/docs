@@ -51,7 +51,7 @@ This image above is an example of a Data Pill.
 When you click on any steps in a recipe, the App Data section, which contain all of the Data Pills, will appear on the right.
 ![appdata_gif](/_uploads/appdata_gif.gif)
 
-![data_pill_2](/_uploads/data_pill_2.png)
+![data_pill_2](/_uploads/action-docs/data_pill_2.png)
 In this image directly above, you can see the App Data output which displays all of the information from the Salesforce Object Created/Output step in the form of data pills. The small icons on the left of the data pill is an indication of the data type while the light-grey text on the right of the data pill is known as meta-data. The meta data allows you to take a peek at what kind of data does the field stores. We will provide elaboration on both points below
 
 ## Data Types
@@ -108,7 +108,6 @@ There are 4 different types of field mapping methods - Static, Dynamic, Combinat
 
 4. Formula
   Formula field mapping type occurs when a formula is used to create a input into the field.This could be used to manipulate the value from a data pill. It could be used in a variety of ways, such as when users wish to split a string or apply an operator on a numerical values.
-  (Need image below)
 
 ##Common Pitfalls when mapping fields
 Taking the right data pill is just as important as setting up the right logic, when you choose the wrong data pill to work with, you are bounded to fall into errors. Here are some common pitfalls with regards to field mapping.
@@ -122,5 +121,4 @@ Taking the right data pill is just as important as setting up the right logic, w
   When you used the recipe from the wrong branch of logic, you will definitely be meeting a data pill with empty value. This is because that data pill may come from a step that may never had been executed at all. 
 
 # Formula Mode
-
 
