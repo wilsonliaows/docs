@@ -88,7 +88,7 @@ If you've read the previous section on Data pills, you are now ready to map them
 
 ##Example of field mapping
 The basics of Field Mapping in Workato begins with understanding what you are trying to map in a recipe. In the gif shown below, we map the Account Name data pill from the Salesforce Step into the Message input field in the email action. 
-![mapping_gif](/_uploads/action-docs/mapping_gif.gif)
+![mapping_gif](/_uploads/actions-docs/mapping_gif.gif)
 
 
 ##Types of Field mapping
