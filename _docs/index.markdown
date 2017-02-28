@@ -11,13 +11,12 @@
     - App or enhancement request
     - Update our documentation
 
-
 - User accounts and teams
   - SSO
   - Team collaboration
   - Role-based access
   - Audit logs
-  
+
 - Recipes
   - Building recipes
     - Triggers
@@ -66,10 +65,11 @@
   - Handling JSON
   - Handling XML
   - Recipe Ops
+  - Account properties
 - On premise
 - Workflow (people task)
-- Workbot 
-- API gateway 
+- Workbot
+- API gateway
 - Connectors documentation
   - Overview
   - Salesforce
@@ -108,4 +108,5 @@
   - Model/diagram of the RDLC
   - Sandbox-Production
 - Security and compliance
+- Data retention
 - Scalability and performance
