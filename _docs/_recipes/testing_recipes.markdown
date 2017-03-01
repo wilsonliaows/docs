@@ -12,7 +12,7 @@ After building a recipe
 
 ### Reading the Job Report
 
-###
+
 
 
 ## Using the Scheduler as a tool for testing
@@ -22,5 +22,4 @@ After building a recipe
 
 ![QBO connect1](/_uploads/QBO connect1.JPG)
 
-## Using Utilities for testing
 
