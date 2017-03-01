@@ -4,23 +4,33 @@ Workato's Utilities connector is useful for performing all sorts of tasks
 Here are the list of actions you can perform using 
 
 Get linked object
+
 Compose CSV
+
 Crete list
+
 Download file from URL
+
 Generate column chart
+
 Generate pie chart
+
 Link two objects
+
 Log message
+
 Merge name components
+
 Parse CSV
+
 Parse JSON doc
+
 Parse XML doc
 
 Get linked object
--
 
 ## Compose CSV
--
+
 ## Create list
 In workato, to use the repeat action requires a List item to be present. However there may be some instances where you may want to repeat an action a specific number of times. To do so, you can use the  **Create list** action to create a list with a predetermined size (up to 500) to use the repeat action. 
 First, create the **create list** action, and determine the size you want to use 
