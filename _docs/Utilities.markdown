@@ -29,7 +29,7 @@ Next, you can create a repeat action any time after the **Create list** action. 
 
 ## Download file from URL
 
-Downloading a file in a recipe allows you to use that file later in the recipe, usually to upload onto another app. However, downloaded text content can be used directly into the recipe. Download a file **does not mean** that you will see that file on your computer. It is merely download for use in a recipe. Take note the maximum file size you can download is **25MB**. 
+Downloading a file in a recipe allows you to use that file later in the recipe, usually to upload onto another app. However, downloaded text content can be used directly into the recipe. Downloading a file **does not mean** that you will see that file on your computer. It is merely download for use in a recipe. Take note the maximum file size you can download is **25MB**. 
 
 In the Download file from URL section, you can provide a static URL if you intend to upload the same file to multiple places, (e.g. as an attachment to all Accounts in Salesforce) or provide a dynamic URL by using a URL pill obtained from a previous step output. You may also choose if you want your download file content to be encoded using base64. 
 
