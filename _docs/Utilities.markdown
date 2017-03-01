@@ -1,8 +1,8 @@
-# Utilities
+# Utilities ![utilities icon](/_uploads/Utilities/Utilities Icon.png)
 Workato's Utilities connector is useful for performing all sorts of tasks
 Here are the list of actions you can perform using 
 
-Get linked object
+** Get linked object
 Compose CSV
 Crete list
 Download file from URL
@@ -13,7 +13,7 @@ Log message
 Merge name components
 Parse CSV
 Parse JSON doc
-Parse XML doc
+Parse XML doc **
 
 Get linked object
 -
