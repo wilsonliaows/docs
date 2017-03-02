@@ -29,4 +29,19 @@ Next, create your set of actions for the recipe. For this example you would crea
 
 **Step 2: Call recipe**
 
-Create a recipe that requires the logic from the callable recipe we created earlier. Next, create the 
+Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and when created the actions you need. When you need to call the callable recipe, simply click on Add a new step, select **call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go! 
+
+
+## Calling Recipes from Other Apps with REST API
+
+Enabling a REST endpoint for recipes makes it available to be called by any application, internal or external, as long as they have the API token to do so. The token ensures the security of your API. Choosing to build simple web and mobile apps using Workato and a REST Endpoint takes out a majority of the custom coding that would be involved and ensures a fast turnaround. There are two ways you can use a REST Endpoint:
+
+1. Bring Information Into An App
+
+  You can connect any app that has an API available with a REST Endpoint even if Workato doesn’t have a connector for that app. For example, if you want to bring in information from Zillow.com so you know how much a real estate property is worth, you can create a REST Endpoint that will populate your fields in QuickBase every time an employee run the recipe.You can also create a button that will start the REST Endpoint recipe. You can place the button wherever you would like, for example inside of Salesforce, so employees can tell the recipe to run without logging into Workato.
+
+2. Send Information Out Of An App
+
+  Another scenario where this is useful is monitoring a supply chain – you could have a business partner call upon the REST endpoint you created to track shipping or generate a report via a link on your internal website. You can embed this anywhere you want.
+
+To manage the REST endpoints and the API tokens, go to “Service Catalog” under your username on the right hand corner of the screen. Here, you can easily test your REST endpoints and find the specific URL used to call the REST API. These screenshots will show you a more detailed view of REST API management:
