@@ -27,4 +27,6 @@ Lastly, you may choose to enable REST endpoint for your recipe. This defaults to
 
 Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication stpes, Run a search, and if search gives no results, create a customer, if exisiting customer found, update customer. For a sample recipe, click here https://www.workato.com/recipes/485991
 
+**Step 2: Call recipe**
 
+Create a recipe that requires the logic from the callable recipe we created earlier. Next, create the 
