@@ -10,7 +10,7 @@ If the application used provides sandbox accounts, they are recommended for test
 
 ### Adding 'Stops' to prevent unwanted actions from happening
 Add a 'Stop' to the recipe when testing if the actions that follow are not needed. Click the '+' button below the last step in the recipe and drag it to the correct place.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![stop recipe](/_uploads/testing-recipes/Stoprecipe.JPG)
 
 For example, if the last step in the recipe updates a record in the application that is not needed, adding a Stop above it will prevent this. This saves time in correcting the data that has changed in the applications.
 ![QBO connect1](/_uploads/QBO connect1.JPG)
