@@ -1,4 +1,4 @@
-![utilities icon](/_uploads/Utilities/Utilities Icon.png)
+![utilities icon](/_uploads/_features/Utilities/Utilities Icon.png)
 # Utilities 
 Workato's Utilities connector is useful for performing all sorts of tasks
 Here are the list of actions you can perform using 
