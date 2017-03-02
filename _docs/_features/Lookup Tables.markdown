@@ -21,11 +21,14 @@ Note: Lookup tables are immutable and the existing entries cannot be modified or
 
 ### Importing an existing CSV file
 The GIF below walks you through the process of creating a lookup table and loading it with data imported from a CSV file.
-lookup-tables-3.gif
+![Lookup1](_uploads/_features/Lookup Tables/lookup tables 1.gif)
 
- 
 You can also manually enter additional rows from the UI.
+![Lookup2](_uploads/_features/Lookup Tables/lookup tables 2.png)
+![Lookup3](_uploads/_features/Lookup Tables/lookup tables 3.png)
+
 You can select what columns you choose to view. At present we support only 5 columns.
+![Lookup4](_uploads/_features/Lookup Tables/lookup tables 4.png)
 
 ### Adding new entries via a recipe
 There is a special connector called ‘Lookup table’ that allows you to work with your tables. This connectors support these actions
@@ -35,13 +38,13 @@ There is a special connector called ‘Lookup table’ that allows you to work w
 
 #### 1. Lookup entry
 As the name suggests, data is typically organized like in a database table columns and rows of data. You can then lookup any row by one or more columns. You can lookup an entry within the specified lookup table by using
-Any column
-Multiple columns
+* Any column
+* Multiple columns
 In the example below, all 4 available columns are displayed. It returns the first entry based on the column value provide. 
-
+![Lookup5](_uploads/_features/Lookup Tables/lookup tables 5.png)
 
 This GIF walks you through the entire flow:
-lookup-tables-recipe-4.gif
+![Lookup6](_uploads/_features/Lookup Tables/lookup tables 6.gif)
 
 
 #### 2. Search entries
@@ -49,3 +52,4 @@ Works similar to lookup, except that it will return all matched entries. It retu
 
 #### 3. Add entry
 Add a new entry to an existing lookup table. Great for reading a data source and creating a lookup table based on it. E.g. read titles from your HR apps and create a title lookup table.
+![Lookup7](_uploads/_features/Lookup Tables/lookup tables 7.gif)
