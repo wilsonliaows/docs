@@ -48,7 +48,7 @@ For testing, it is recommended that this is set to at least half an hour or an h
 #### Input Custom Value
 
 If there is a more specific date and time that Workato should begin picking up trigger events from, click on the the dropdown arrow next to 'From' to change the input method.
-![Entercustomvalue](/_uploads/testing-recipes/Entercustomvalue.JPG)
+![Entercustomvalue](/_uploads/testing-recipes/Entercustomvalue.png)
 
 Choose 'Enter custom value' and click on the Calendar icon to choose a date and time.
 ![calendar](/_uploads/testing-recipes/calendar.JPG)
