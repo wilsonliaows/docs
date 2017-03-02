@@ -13,7 +13,6 @@ Add a 'Stop' to the recipe when testing if the actions that follow are not neede
 ![stop recipe](/_uploads/testing-recipes/Stoprecipe.JPG)
 
 For example, if the last step in the recipe updates a record in the application that is not needed, adding a Stop above it will prevent this. This saves time in correcting the data that has changed in the applications.
-![QBO connect1](/_uploads/QBO connect1.JPG)
 
 ### Test with all possible scenarios
 Recipes often come with multiple lines of conditional logic (i.e. IF this then that). 
@@ -26,15 +25,15 @@ Recipes built on Workato can vary greatly in complexity. Building and running a 
 ### Having a Trigger Event
 A trigger event is what Workato is looking out for in the application specified in the trigger. For example, if the trigger is "New invoice in QuickBooks", as shown below, there has to be invoices in the QuickBooks account for the test to work. Trigger events should be created prior to testing the recipe, and not when the 'Test Recipe' button is clicked. 
 
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![Triggerevent](/_uploads/testing-recipes/Triggerevent.JPG)
 
 ### Changing the 'From' parameter for testing
 Changing the 'From' parameter is critical to testing. If test events have already been created in the application, the 'From' parameter has to be adjusted to allow the recipe to pick up jobs from the correct time. 
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![fromdate](/_uploads/testing-recipes/fromdate.JPG)
 
 Triggers for applications do not have the 'From' parameter. In applications like these, jobs will be picked up from the time the recipe is started.
 
-** The 'From' parameter cannot be changed once the recipe has been tested or started. Copy the recipe by clicking on the 'Copy' button below the recipe name and change the 'From' parameter.
+**Note:** The 'From' parameter cannot be changed once the recipe has been tested or started. Copy the recipe by clicking on the 'Copy' button below the recipe name and change the 'From' parameter.
 ![QBO connect1](/_uploads/QBO connect1.JPG)
 
 There are 2 ways to change the 'From' parameter. 
@@ -49,7 +48,7 @@ For testing, it is recommended that this is set to at least half an hour or an h
 #### Input Custom Value
 
 If there is a more specific date and time that Workato should begin picking up trigger events from, click on the the dropdown arrow next to 'From' to change the input method.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![Entercustomvalue](/_uploads/testing-recipes/Entercustomvalue.JPG)
 
 Choose 'Enter custom value' and click on the Calendar icon to choose a date and time.
 ![QBO connect1](/_uploads/QBO connect1.JPG)
