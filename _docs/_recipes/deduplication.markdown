@@ -29,6 +29,7 @@ If a customer is found, the Customer ID will be present. In this case, we want t
 
 In step 4, if a Customer is not found, we want to create a new customer record using existing information from Salesforce.
 
-## 4. Bi-directional Syncing
+
+
 
 
