@@ -28,4 +28,4 @@ Starting a stopped recipe will pick up jobs from where it last stopped.
 
 For example, if I stopped my recipe on January 1st, 10:30pm, and start it again on January 10th, 7pm, it will begin picking up jobs from January 1st, 10:31pm onwards. 
 
-If you wish for the recipe to only start picking up new jobs from January 10th onwards, copy the recipe and change the Since date. 
+If you wish for the recipe to only start picking up new jobs from January 10th onwards, copy the recipe and change the 'From' date. 
