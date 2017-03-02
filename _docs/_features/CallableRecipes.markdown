@@ -33,6 +33,9 @@ Next, create your set of actions for the recipe. For this example you would crea
 
 Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and when created the actions you need. When you need to call the callable recipe, simply click on Add a new step, select **call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go! 
 
+![CallableRecipeTrigger0](/_uploads/_features/Callable Recipes/Call Recipe Action.png)
+
+
 
 ## Calling Recipes from Other Apps with REST API
 
