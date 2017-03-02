@@ -18,4 +18,6 @@ Let’s take a look at an example to see how this works. Say you want to automat
 
 Step 1. Create a new recipe
 
-Create a recipe as you normally would, and for the trigger, select **Callable Recipe** under the application picklist. Fill in a Name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about it in this ![Link](https://support.workato.com/support/solutions/articles/1000234879-schema-definition) here.
+Create a recipe as you normally would, and for the trigger, select **Callable Recipe** under the application picklist. Fill in a Name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about JSON in this link (https://support.workato.com/support/solutions/articles/1000234879-schema-definition) here. 
+In simple terms, the input schema determines what fields will be displayed when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data. 
+
