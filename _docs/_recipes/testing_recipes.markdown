@@ -41,7 +41,7 @@ There are 2 ways to change the 'From' parameter.
 #### List Values
 
 Some values are provided in the dropdown: Recipe start, Half an hour ago, An hour ago, Yesterday, Last week, Last month and Beginning of time. 
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![fromdate](/_uploads/testing-recipes/fromdate.JPG)
 
 For testing, it is recommended that this is set to at least half an hour or an hour ago to ensure there are jobs for testing. 
 
@@ -51,7 +51,7 @@ If there is a more specific date and time that Workato should begin picking up t
 ![Entercustomvalue](/_uploads/testing-recipes/Entercustomvalue.JPG)
 
 Choose 'Enter custom value' and click on the Calendar icon to choose a date and time.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![calendar](/_uploads/testing-recipes/calendar.JPG)
 
 ### Test Recipe vs. Start Recipe
 
