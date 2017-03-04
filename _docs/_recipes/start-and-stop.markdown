@@ -21,7 +21,7 @@ There are 2 reasons for this:
 
   1. You have reached your monthly transaction limit. Recipes are automatically stopped when the transaction limit is hit. Contact our Customer Success team to add more transactions.
   
-  2. There are more than 60 consecutive trigger errors. When you receive this error message on your recipe, it means 
+  2. There are more than 60 consecutive trigger errors. When you receive this error message on your recipe, it means the recipe failed to trigger for more than 60 jobs. In this case, view the error message provided and fix the errors before starting the recipe again.
   
 ## What happens when I start a stopped recipe?
 Starting a stopped recipe will pick up jobs from where it last stopped. 
