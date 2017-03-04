@@ -1,4 +1,4 @@
-# Starting and Stopping Recipes
+# Starting & Stopping Recipes
 
 ## Starting Recipes
 
