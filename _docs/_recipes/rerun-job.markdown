@@ -2,23 +2,31 @@
 
 ## When do I need to rerun a job? 
 
+Re-running a job will cause the trigger event to be passed through the recipe again, and this feature is useful in the cases below:
+
+**Note:** Duplicates may occur when jobs are rerun, so be sure to check and remove duplicates (if present) before re-running the job.
+
 ### Testing a new recipe
 
-During the testing phase, rerunning jobs is commonly used to fix the errors encountered in recipes. Rather than creating new trigger events, rerunning the same job will allow you to fix the errors 1 step at a time with the same event.
+Many times, during testing, people incrementally build and test a recipe with the same job. During the testing phase, rerunning jobs is commonly used to fix the errors encountered in recipes. 
+
+Rather than creating new trigger events, rerunning the same job will allow you to fix the errors 1 step at a time with the same event.
 
 ### Errors
 
-When an error is detected in your recipes, an email will be sent to the Notifications email address specified in the Account Settings.
+When an error is detected in your recipes, an email will be sent to the Notifications email address specified in the Account Settings. The job will be incomplete and data may be missing from the application as certain steps in the recipe were not completed. 
+
+Thus, rerunning the job is necessary to ensure the job runs to completion as specified in the recipe.
 
 #### No fixing of the recipe is required
  
  If you face the following errors, rerun your job and the job should complete: 
 
-  * 
+  * Connection errors: These are intermittent issues that result from connection issues with the applications connected to the recipe. 
 
 #### Errors that need fixing
 
-When the error has a different code from the ones listed above, or if rerunning the jobs do not work, the recipe or data from the application needs to be fixed.
+When the error is different from the ones listed above, or if rerunning the jobs do not work, the recipe or data from the application needs to be fixed.
 
 In the job report, look at the error code provided and make the changes accordingly. 
 
@@ -41,10 +49,3 @@ The rerun job button is located on the top right hand corner of the job report p
 
 #### Rerun History
 All rerun jobs have a history log at the bottom of the job report. Click on each line to view the previously run jobs. 
-
-
-
-
-
-
-
