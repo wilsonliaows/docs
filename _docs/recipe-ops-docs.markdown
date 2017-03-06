@@ -16,7 +16,9 @@ Stopped recipes and failed jobs can have automated responses and notifications t
 - Build recipe reports of recipes for an overview of automations, connected apps, etc. in the company
 
 ## Connection
-When establishing the connection, select from **My account** or **Someone else's account**. No further authentication information is needed for the option **My account**. The account email and API key has to be provided to manage a different account for the option **Someone else's account**.
+When establishing the connection, select from **My account** or **Someone else's account**.
+- For **My account**, no further authentication information is needed
+- For **Someone else's account**, the account email and API key has to be provided
 
 The following shows the different fields required for the available connection options.
 
