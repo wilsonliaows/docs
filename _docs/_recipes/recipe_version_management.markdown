@@ -10,7 +10,7 @@ In the version history view, each version is attributed to the user who made the
 
 ![Recipe versions](/_uploads/team-collaboration-docs/recipe_versions.png)
 
-*Recipe versions as viewed from the **Versions** tab*
+*Recipe versions as viewed from the Versions tab*
 
 The are 2 general change types:
 - Recipe change
