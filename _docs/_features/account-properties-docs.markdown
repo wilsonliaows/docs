@@ -12,16 +12,24 @@ For Workato accounts with account properties feature, users are able to view the
 
 ![Account properties option](/_uploads/_features/_account_properties/account_properties_option.png)
 
+*Account properties menu option*
+
 # Add and edit account properties
 In order to use account properties in recipes, create them in the properties table.
 
 [![https://gyazo.com/23296ffd5cf798f63381e88d8ed7be32](https://i.gyazo.com/23296ffd5cf798f63381e88d8ed7be32.gif)](https://gyazo.com/23296ffd5cf798f63381e88d8ed7be32)
 
+*Adding and saving a new account property*
+
 Manage account properties in the same table with edit and delete functions.
 
 [![https://gyazo.com/281ea4129927d446ff6710b388f435c9](https://i.gyazo.com/281ea4129927d446ff6710b388f435c9.gif)](https://gyazo.com/281ea4129927d446ff6710b388f435c9)
+
+*Editing or deleting an account property*
 
 # Use account properties
 Account properties show up in all recipes within the Workato account, under the *Properties* table, with the values as defined in the properties table.
 
 ![Account properties datatree](/_uploads/_features/_account_properties/account_properties_datatree.png)
+
+*Using account properties from the datatree*
