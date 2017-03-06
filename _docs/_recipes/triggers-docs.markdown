@@ -27,24 +27,7 @@ Real-time triggers supported by Workato (this excludes HTTP real-time triggers) 
 ## Batch triggers
 Batch triggers are similar to polling triggers in fetching the same records. However, where polling triggers have trigger events corresponding to a single record, batch triggers have trigger events corresponding to a list of records. Maximum batch size can usually be defined in the trigger configuration.
 
-### Batch trigger example
-The Salesforce batch trigger has a default value of 100. In this case, each trigger event will contain a list of maximum 100 account records.
-
-![Batch trigger](/_uploads/triggers-docs/batch_trigger_config.png)
-
-*Batch trigger with a batch size of 100*
-
-The job details for each trigger event will contain the specific details of only the first and last record in the list.
-
-[![https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef](https://i.gyazo.com/1813107b9965a759a4ab7ba92cad18ef.gif)](https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef)
-
-*Job details - trigger output for a batch of new accounts in Salesforce*
-
-As the batch trigger polls at a regular basis, each poll may fetch more or less than the batch size defined in the trigger. For example, when the following recipe was first started, 843 records were fetched from 1 Jan 2015, midnight PST. These records were broken up into 8 trigger events of 100 records each, and 1 trigger event of 43 records. The next poll, 5 minutes later, fetched only 2 new account records created.
-
-![Batch trigger](/_uploads/triggers-docs/batch_trigger_job_report.png)
-
-*Custom job report displaying account batches' details - names of first and last accounts in the batch, as well as batch size*
+For further details about batch triggers, refer to the Batch processing article [here](/_docs/_features/batch-processing-docs.markdown).
 
 ## Scheduled triggers
 Scheduled triggers are executed at defined days and times, either hourly, daily, or monthly.
@@ -85,6 +68,8 @@ When the recipe is started, only Salesforce accounts created after 1 Jan 2017, m
 Similarly, if the trigger was **New/updated Salesforce object** with the Account object selected, only Salesforce accounts created or updated after 1 Jan 2017, midnight PST will be picked up.
 
 ## Trigger conditions
+Trigger conditions are client-side filters that enable users to define the trigger events they wish to be processed by the recipe. This means that the connected app still retrieves and passes all trigger events to Workato, but the Workato trigger will filter for only events the user wants.
+
 Adding conditions to triggers will filter for only relevant trigger events to process, and reduce transaction counts. Trigger conditions can be combined using ORs only, or ANDs only.
 
 However, not all triggers have trigger conditions. For such triggers, there is no way to filter for relevant trigger events.
@@ -96,7 +81,7 @@ To add a trigger condition, check the **Trigger IF** checkbox. The trigger datat
 
 *Checking the Trigger IF checkbox brings up trigger condition fields to be configured*
 
-Define the trigger condition. The following ensures that only accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
+Define the trigger condition. The following ensures that only Salesforce accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
 
 [![https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5](https://i.gyazo.com/5d62320895ef3628b581aa1fd60e79d5.gif)](https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5)
 
