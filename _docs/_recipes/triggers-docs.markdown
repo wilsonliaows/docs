@@ -15,6 +15,8 @@ A Workato account on the Business plan has a 5-minute polling interval, as displ
 
 ![Polling intervals](/_uploads/triggers-docs/polling_intervals.png)
 
+*Trigger hint regarding the specific polling interval*
+
 The recipe polls every 5 minutes for new accounts created in Salesforce, and fetches any new accounts as trigger events. If the recipe is stopped on 1 Feb 2017, midnight PST, it will cease to fetch trigger events. However, if the recipe is started again on 1 March 2017, midnight PST, it will fetch all Salesforce accounts created since 1 Feb 2017, midnight PST.
 
 ## Real-time triggers
@@ -30,17 +32,26 @@ The Salesforce batch trigger has a default value of 100. In this case, each trig
 
 ![Batch trigger](/_uploads/triggers-docs/batch_trigger_config.png)
 
+*Batch trigger with a batch size of 100*
+
 The job details for each trigger event will contain the specific details of only the first and last record in the list.
 
 [![https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef](https://i.gyazo.com/1813107b9965a759a4ab7ba92cad18ef.gif)](https://gyazo.com/1813107b9965a759a4ab7ba92cad18ef)
 
+*Job details - trigger output for a batch of new accounts in Salesforce*
+
 As the batch trigger polls at a regular basis, each poll may fetch more or less than the batch size defined in the trigger. For example, when the following recipe was first started, 843 records were fetched from 1 Jan 2015, midnight PST. These records were broken up into 8 trigger events of 100 records each, and 1 trigger event of 43 records. The next poll, 5 minutes later, fetched only 2 new account records created.
+
 ![Batch trigger](/_uploads/triggers-docs/batch_trigger_job_report.png)
+
+*Custom job report displaying account batches' details - names of first and last accounts in the batch, as well as batch size*
 
 ## Scheduled triggers
 Scheduled triggers are executed at defined days and times, either hourly, daily, or monthly.
 
 ![Salesforce scheduled trigger schedules](/_uploads/triggers-docs/scheduled_trigger_schedules.png)
+
+*Various schedule options for Salesforce scheduled search trigger*
 
 When executed, records matching the search criteria will be returned, irrespective of whether the trigger had already picked it up in previous polls. These records will be returned in batches, with a user-defined maximum batch size.
 
@@ -56,14 +67,20 @@ This offset is usually communicated in the trigger hint.
 
 ![Google Calendar since parameter](/_uploads/triggers-docs/google_calendar_since_param.png)
 
+*Trigger hint regarding the default offset of 1 hour ago for Google Calendar*
+
 ### Since/From parameter example
 In the following case, we're setting the **From** date as 1 Jan 2017, midnight PST, and then setting the object as Accounts.
 
 [![https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4](https://i.gyazo.com/fef272317b761f9caee93d6fe81cd8b4.gif)](https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4)
 
+*Setting the Since date for the trigger. Trigger will only pick up new accounts created since midnight of Jan 1, 2017*
+
 When the recipe is started, only Salesforce accounts created after 1 Jan 2017, midnight PST will be picked up, as viewed from the created date column on the job report.
 
 ![Since parameter](/_uploads/triggers-docs/since_param_ran_recipe.png)
+
+*Custom job report showing that Salesforce accounts picked up were created after Jan 1, 2017*
 
 Similarly, if the trigger was **New/updated Salesforce object** with the Account object selected, only Salesforce accounts created or updated after 1 Jan 2017, midnight PST will be picked up.
 
@@ -77,14 +94,22 @@ To add a trigger condition, check the **Trigger IF** checkbox. The trigger datat
 
 [![https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345](https://i.gyazo.com/7af54cb19e2f2c3d417cdbd830d25345.gif)](https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345)
 
+*Checking the Trigger IF checkbox brings up trigger condition fields to be configured*
+
 Define the trigger condition. The following ensures that only accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
 
 [![https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5](https://i.gyazo.com/5d62320895ef3628b581aa1fd60e79d5.gif)](https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5)
+
+*Define the trigger condition*
 
 To add an additional trigger conditions, select from the OR or AND in the picklist. The selected operator will define how all additional trigger conditions will be added.
 
 [![https://gyazo.com/1a43c84e1783091a15947f4256b02ae6](https://i.gyazo.com/1a43c84e1783091a15947f4256b02ae6.gif)](https://gyazo.com/1a43c84e1783091a15947f4256b02ae6)
 
+*Adding another trigger condition with the OR operator*
+
 Define the additional trigger condition. Values are case sensitive and should be exact. The following ensures that accounts with a **Hot** rating value will also be picked up by the trigger. Notice that from the third trigger condition onwards, trigger conditions will be combined with the previously selected operator (OR or AND).
 
 [![https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50](https://i.gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50.gif)](https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50)
+
+*Define the additional trigger condition. Subsequent trigger conditions has to use the same AND operator*
