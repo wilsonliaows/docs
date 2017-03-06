@@ -82,7 +82,7 @@ The following displays the mapping from the **Foreach** datatree.
 ## Call recipe
 Call recipe will run another recipe (named a callable recipe). Callable recipes are usually built to extract a set of common steps, which multiple recipes use, into a separate recipe that all main recipes can use. This reduces the complexity of individual recipes.
 
-Callable recipes are an advanced feature in Workato that you can read more about [here](/CallableRecipes.markdown).
+Callable recipes are an advanced feature in Workato that you can read more about [here](/_docs/_features/CallableRecipes.markdown).
 
 ## Stop
 The stop step ends a single job from being processed any further. It is usually used in cases whereby there are no recipe errors (i.e. no error is thrown in the job), but where there may be business errors and no data should be processed.
