@@ -18,6 +18,7 @@
   - Audit logs
 
 - Recipes
+  - Connections
   - Building recipes
     - Triggers
       - Polling triggers
