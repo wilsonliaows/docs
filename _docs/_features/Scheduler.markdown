@@ -33,3 +33,5 @@ This can be used to get the time at which a certain step was performed, and can 
 
 ### Wait
 The wait action enables a recipe wait for a set amount of time between steps. This is especially useful to ensure a recipe is using the most updated data in your mapping. 
+
+** ADD HOW TO TEST RECIPES**
