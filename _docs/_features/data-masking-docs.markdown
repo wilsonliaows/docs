@@ -14,14 +14,17 @@ Data can be masked for individual recipe steps, and both input and output data d
 The following shows enabled data masking for the **Salesforce new account** trigger.
 
 [![https://gyazo.com/5833f02f98a3c6627e19fad3cbe4187b](https://i.gyazo.com/5833f02f98a3c6627e19fad3cbe4187b.gif)](https://gyazo.com/5833f02f98a3c6627e19fad3cbe4187b)
+
 [Example recipe with data masking](https://www.workato.com/recipes/480360)
 
 The following shows job history before data masking.
 
 [![https://gyazo.com/7473c74f2b0437d3576662c0c71135fb](https://i.gyazo.com/7473c74f2b0437d3576662c0c71135fb.gif)](https://gyazo.com/7473c74f2b0437d3576662c0c71135fb)
+
 [Example recipe with data masking](https://www.workato.com/recipes/480360)
 
 The following shows job history after data masking.
 
 [![https://gyazo.com/125aff46f05db794788004afb7def8a0](https://i.gyazo.com/125aff46f05db794788004afb7def8a0.gif)](https://gyazo.com/125aff46f05db794788004afb7def8a0)
+
 [Example recipe with data masking](https://www.workato.com/recipes/480360)
