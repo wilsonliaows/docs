@@ -10,6 +10,8 @@ In the version history view, each version is attributed to the user who made the
 
 ![Recipe versions](/_uploads/team-collaboration-docs/recipe_versions.png)
 
+*Recipe versions as viewed from the **Versions** tab*
+
 The are 2 general change types:
 - Recipe change
 
@@ -24,6 +26,10 @@ To restore previous versions of the recipe, switch to the **Versions** tab. When
 
 [![https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb](https://i.gyazo.com/45711334ec05ed2e08fb6a3aa23232bb.gif)](https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb)
 
+*Previewing and restoring a previous version of the recipe*
+
 Restored versions will be created as a new version. In the following case, the recipe had 3 versions initially. When version 2 of the recipe was restored, the restored version was created as Version 4.
 
 ![Restored version](/_uploads/recipe-version-management-docs/restored_version.png)
+
+*Restoring version 2 of the recipe creates that copy as version 4*
