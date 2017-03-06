@@ -25,7 +25,7 @@ The following recipe parses new CSV files in Box and uses the data parsed to cre
 
 ![Example recipe - CSV file parsing](/_uploads/_features/_files_and_attachments/csv-file-parsing-recipe.png)
 
-[Example recipe](https://www.workato.com/recipes/485023)
+*Recipe that parses CSV files to retrieve data for use in datatree* [Example recipe](https://www.workato.com/recipes/485023)
 
 When using **Box new CSV file** trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato will build the trigger output datatree for use in subsequent actions.
 
@@ -72,7 +72,7 @@ Let's take the scenario where we move new files in Dropbox into Box. This is how
 
 ![Example recipe - moving files via URL](/_uploads/_features/_files_and_attachments/file-url-recipe.png)
 
-[Example recipe](https://www.workato.com/recipes/485735)
+*Recipe that moves files from Dropbox to Box via public URLs* [Example recipe](https://www.workato.com/recipes/485735)
 
 The **Obtain a direct URL to file** field in the **New file** trigger should be marked, so as to generate a public URL for the new file. The recipe then verifies that the file does not already exist in Box before uploading the file into Box via URL.
 
