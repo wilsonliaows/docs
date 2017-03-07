@@ -46,7 +46,7 @@ Learn more about the Post Notification Step here
 
 
 
-## Bot Customization
+## Command Customization
 You can customize the existing commands or notifications by just changing the script for the bot, or you could create new commands or notifications.
 
 
@@ -58,18 +58,7 @@ Creating your own Workbot functions require a minimum required understanding of 
 Multi-App Bots
 Creating a completely new command with all your own vocabulary is as easy, and while you are at it, with Workato Recipes you can have your Workbot command to combine data from multiple apps.Here's an example. As a Project manager you may be introduced to new users that work in the same project, and you may need create new them in QuickBooks as new customers. You would then need an automation that create a customer in QuickBooks from a Salesforce Account. 
 
-
-
-
-With Workato recipe, I can now create my own Workbot command that does the sync on demand.  You can specify the command, the App itself, and the values needed to perform the action. In this case, the application will be QBO, my customer as cust and the action as copyfromsf. The work to be done: 
-lookup the customer in QuickBooks, 
-if not there lookup the account in salesforce and then 
-copy the data to create a customer
-
-With the below configuration, calling command copyfromsf cust name:UnitedSF on Slack will now perform the above integration, and creates a new Account in Salesforce only when necessary.
-Let's watch how the bot looks and how the command works from Slack.
-Here are all the fields available in the **Workbot - New Command** Action
-
+When working witht he Workbot Trigger, you are basically determining what will start off the command, i.e. what you information you need to send to workbot to get your decided task done. Below are all the fields available, and what they are for:
 
 |Field   |Explanation   |
 |---|---|
@@ -78,6 +67,8 @@ Here are all the fields available in the **Workbot - New Command** Action
 |Document   |Document associated witht he command (Account, Invoice, Lead)   |
 |Hint|Displayed as help in Slack|
 |Command input |Commands can take input parameters. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
+
+The following table shows what you get for the command reply action, which you can use to notify you that a set task has been completed based on the information that was provided, and can also show you information on that task (e.g. when an object is created, what does it look like, URL of the object, URL of a search result)
 
 |Field   |Explanation   |
 |---|---|
