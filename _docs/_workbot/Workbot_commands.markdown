@@ -75,9 +75,6 @@ Let's watch how the bot looks and how the command works from Slack.
 |Target application   |App you want Workbot to work with (e.g. Saleseforce, QuickBooks)   |   |
 |Document   |Document associated witht he command (Account, Invoice, Lead)   |   |
 |Hint|Displayed as help in Slack|   |
-|Command input |Commands can take input parameters. The format for specifying input is
-parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John]
-E.g. customer_id hint:customer ID sample:12789
-Specify one parameter per line. No spaces allowed in parameter name.
+|Command input |Commands can take input parameters. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name.
 
 
