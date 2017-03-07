@@ -30,8 +30,9 @@ When the error is different from the ones listed above, or if rerunning the jobs
 
 In the job report, look at the error code provided and make the changes accordingly. 
 
-## What does re-running a job do? 
+## What does rerunning a job do? 
 
+Essentially, rerunning  
 
 ## How to rerun a job
 
@@ -48,4 +49,4 @@ Check the boxes on the left of each line and click 'Rerun'. You can rerun 10 job
 The rerun job button is located on the top right hand corner of the job report page. Click on this to rerun the job and you will be re-directed to the 'Jobs' tab.
 
 #### Rerun History
-All rerun jobs have a history log at the bottom of the job report. Click on each line to view the previously run jobs. 
+All rerun jobs have a history log at the bottom of the job details page. Click on each line to view the previously run jobs. 
