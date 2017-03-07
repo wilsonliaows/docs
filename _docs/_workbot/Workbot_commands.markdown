@@ -68,13 +68,27 @@ copy the data to create a customer
 
 With the below configuration, calling command copyfromsf cust name:UnitedSF on Slack will now perform the above integration, and creates a new Account in Salesforce only when necessary.
 Let's watch how the bot looks and how the command works from Slack.
-
+Here are all the fields available in the **Workbot - New Command** Action
 |Field   |Explanation   |   |
 |---|---|---|
 |Command   |Name of the action you want Workbot to perform (e.g. Show, List, Create)   |   |
 |Target application   |App you want Workbot to work with (e.g. Saleseforce, QuickBooks)   |   |
 |Document   |Document associated witht he command (Account, Invoice, Lead)   |   |
 |Hint|Displayed as help in Slack|   |
-|Command input |Commands can take input parameters. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name.
+|Command input |Commands can take input parameters. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
+
+|Field   |Explanation   |
+|---|---|
+|Application|Use the **Application** Pill from the Workato Trigger output for this|
+|Reply Channel|Use the **Reply channel** Field from the Workato Trigger output|
+|Message|The message that will be displayed|
+|Title|Title as seen in Slack message|
+|Title Link|Titles can be clickable. Provide URL of a page to view on click|
+|Description|Detailed message|
+|Buttons|Array of JSON objects. (e.g.\[{"title":"button title", "command":"button command"}])|
+|Message Type|Choose a display time for your message (Good=Green, Warning=Amber, Danger=Red)|
+|Fields|Fields to display in a grid. One name-value pair per line (e.g. Name:John)
+|Image URL|URL of an image that will be displayed below the message
+|Related documents|Commands can be linked to other commands via the document they operate on. Workbot uses this to recommend commands in a conversation. Specify links using this format: document name identifier_1:"App data from data tree" identifier_2:"App data from data tree" E.g. ticket id:"[data tree pill]" Specify one parameter per line. No spaces allowed in document name.
 
 
