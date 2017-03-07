@@ -27,4 +27,5 @@ For jobs to be picked up immediately, Webhooks have to be used instead. Some app
 ![real time](/_uploads/polling-cycle/real time.JPG)
 
 Webhooks have to be configured and set-up before use.
+It is also possible to build a webhooks connection with the HTTP application.
 

@@ -16,7 +16,7 @@ For example, if the last step in the recipe updates a record in the application 
 
 ### Test with all possible scenarios
 Recipes often come with multiple lines of conditional logic (i.e. IF this then that). 
-![QBO connect1](/_uploads/QBO connect1.JPG)
+
 In these situations, test the recipe with all possible scenarios to ensure the pills are properly mapped and logic properly defined in the recipe. Doing these tests will save time fixing erroneous data after starting your recipe.
 
 ## Recipe Testing Basics
@@ -34,7 +34,7 @@ Changing the 'From' parameter is critical to testing. If test events have alread
 Triggers for applications do not have the 'From' parameter. In applications like these, jobs will be picked up from the time the recipe is started.
 
 **Note:** The 'From' parameter cannot be changed once the recipe has been tested or started. Copy the recipe by clicking on the 'Copy' button below the recipe name and change the 'From' parameter.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![copyrecipe](/_uploads/testing-recipes/copyrecipe.png)
 
 There are 2 ways to change the 'From' parameter. 
 
@@ -56,7 +56,7 @@ Choose 'Enter custom value' and click on the Calendar icon to choose a date and 
 ### Test Recipe vs. Start Recipe
 
 The 'Test Recipe' button is the default button when the recipe has not been run. The 'Start Recipe' button can be accessed via the dropdown as shown below:
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![Teststart](/_uploads/testing-recipes/Teststart.JPG)
 
 The 'Test Recipe' button is highly recommended, especially if there are many trigger events in the application. Test Recipe picks up **only the first trigger job** that it finds and run through it. Once that has been processed, the recipe will stop. Then, check what has been done for this specific record in the 'Jobs' tab. 
 
@@ -65,17 +65,23 @@ The 'Test Recipe' button is highly recommended, especially if there are many tri
 ### Understanding the Job Report
 After clicking on 'Test recipe', check the 'Jobs' tab to see what has run. Any errors that have occurred during the tests will show up in the job report with a red warning logo. Click on the job to see a detailed breakdown of the error.
 
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![Teststart](/_uploads/testing-recipes/Teststart.JPG)
 
 If there is no red logo, the job is successful. During the testing phase, click on the description to see if the job has completed as expected because the job may have stopped at a conditional stop action as shown below. There might be other steps that were expected to complete. If so, there may be an error in the logic of the recipe that needs fixing.
 
 #### Finding the Error
 The step where the error occurred is highlighted with a red line. Click on the step with the error to see the error details.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![errorinline](/_uploads/testing-recipes/errorinline.png)
+
+In this case, the error occurs in step 12. Click on the 'Error' tab to see the error details.
+
+![errorinline2](/_uploads/testing-recipes/errorinline2.png) 
+
+Head back to the recipe to fix the incorrect step or to the application to see if there is incorrect data in the fields involved.
 
 #### Fixing the Error
 Re-running jobs are the easiest way to test the recipe after fixing the errors. Check the box next to the job to be rerun and click on the rerun button.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![rerunfailed](/_uploads/testing-recipes/rerunfailed.JPG)
 
 ### Starting the recipe
 After testing and ensuring the recipe works, start the recipe. The recipe will now run in the background and consistently check for trigger events. In case of an error, an email will be sent to the address specified in the Account Settings.
