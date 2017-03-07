@@ -4,7 +4,7 @@
 
 From the recipe, navigate to the 'Jobs' tab and click on the job you wish to see a detailed report of. 
 
-![report3](/_uploads/job-details/report3.JPG)
+![jobs](/_uploads/job-details/jobs.JPG)
 
 Each line of the report gives the details of 1 job. A job is shown in this report every time the recipe is triggered, whether complete, pending or with error. Each **completed** job is counted as 1 transaction. 
 
