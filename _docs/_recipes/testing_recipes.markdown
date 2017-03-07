@@ -16,7 +16,7 @@ For example, if the last step in the recipe updates a record in the application 
 
 ### Test with all possible scenarios
 Recipes often come with multiple lines of conditional logic (i.e. IF this then that). 
-![QBO connect1](/_uploads/QBO connect1.JPG)
+
 In these situations, test the recipe with all possible scenarios to ensure the pills are properly mapped and logic properly defined in the recipe. Doing these tests will save time fixing erroneous data after starting your recipe.
 
 ## Recipe Testing Basics
@@ -65,17 +65,17 @@ The 'Test Recipe' button is highly recommended, especially if there are many tri
 ### Understanding the Job Report
 After clicking on 'Test recipe', check the 'Jobs' tab to see what has run. Any errors that have occurred during the tests will show up in the job report with a red warning logo. Click on the job to see a detailed breakdown of the error.
 
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![Teststart](/_uploads/testing-recipes/Teststart.JPG)
 
 If there is no red logo, the job is successful. During the testing phase, click on the description to see if the job has completed as expected because the job may have stopped at a conditional stop action as shown below. There might be other steps that were expected to complete. If so, there may be an error in the logic of the recipe that needs fixing.
 
 #### Finding the Error
 The step where the error occurred is highlighted with a red line. Click on the step with the error to see the error details.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![errorinline](/_uploads/testing-recipes/errorinline.png)
 
 #### Fixing the Error
 Re-running jobs are the easiest way to test the recipe after fixing the errors. Check the box next to the job to be rerun and click on the rerun button.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![rerunfailed](/_uploads/testing-recipes/rerunfailed.JPG)
 
 ### Starting the recipe
 After testing and ensuring the recipe works, start the recipe. The recipe will now run in the background and consistently check for trigger events. In case of an error, an email will be sent to the address specified in the Account Settings.
