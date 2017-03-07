@@ -1,7 +1,7 @@
 # Deduplication
 
 ## Why should I ensure steps are taken for deduplication in my recipes?
-Deduplication ensures only 1 unique instance is stored in each of your applications. 
+Deduplication ensures only 1 unique instance is stored in each of your applications. Ensuring that the steps below are taken in every recipe will prevent unwanted duplicates of the same record which can make data in your business applications very messy.
 
 ## Step-by-Step Guide
 View this recipe to see an example of how deduplication can be done with Workato in a few simple steps: https://www.workato.com/recipes/486082
