@@ -1,7 +1,7 @@
 # Deduplication
 
-## What is Deduplication
-Deduplication ensures that only 1 unique instance is stored in each of your applications.
+## Why should I ensure steps are taken for deduplication in my recipes?
+Deduplication ensures only 1 unique instance is stored in each of your applications. 
 
 ## Step-by-Step Guide
 View this recipe to see an example of how deduplication can be done with Workato in a few simple steps: https://www.workato.com/recipes/486082
@@ -9,8 +9,10 @@ View this recipe to see an example of how deduplication can be done with Workato
 ### 1. Trigger
 In this recipe, the trigger event is a New or Updated Contact in Salesforce. This means that whenever a Contact is created or updated in Salesforce, the recipe runs.
 
+![trigger](/_uploads/deduplication/trigger.JPG)
+
 ### 2. Search
-The search action searches the QuickBooks for the Display name which corresponds to the Contact's name in Salesforce. 
+The search action searches the QuickBooks for the Display name which corresponds to the Contact's full name in Salesforce. 
 
 #### Unique Identifiers in Applications
 To ensure that there is only 1 unique instance in each application when performing searches, use a unique identifer. In QuickBooks, the Display Name is one of them (ie. Display Names are unique in QuickBooks and no 2 customers can have the same display name). 
