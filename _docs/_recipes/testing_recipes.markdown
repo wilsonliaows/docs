@@ -34,7 +34,7 @@ Changing the 'From' parameter is critical to testing. If test events have alread
 Triggers for applications do not have the 'From' parameter. In applications like these, jobs will be picked up from the time the recipe is started.
 
 **Note:** The 'From' parameter cannot be changed once the recipe has been tested or started. Copy the recipe by clicking on the 'Copy' button below the recipe name and change the 'From' parameter.
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![copyrecipe](/_uploads/testing-recipes/copyrecipe.png)
 
 There are 2 ways to change the 'From' parameter. 
 
@@ -56,7 +56,7 @@ Choose 'Enter custom value' and click on the Calendar icon to choose a date and 
 ### Test Recipe vs. Start Recipe
 
 The 'Test Recipe' button is the default button when the recipe has not been run. The 'Start Recipe' button can be accessed via the dropdown as shown below:
-![QBO connect1](/_uploads/QBO connect1.JPG)
+![Teststart](/_uploads/testing-recipes/Teststart.JPG)
 
 The 'Test Recipe' button is highly recommended, especially if there are many trigger events in the application. Test Recipe picks up **only the first trigger job** that it finds and run through it. Once that has been processed, the recipe will stop. Then, check what has been done for this specific record in the 'Jobs' tab. 
 
