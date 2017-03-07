@@ -40,7 +40,7 @@ The input is the data used as specified on the action in the recipe.
 
 For example, in this search step, which uses the specific string **"Xero Invoice + `Invoice Number`** to search for an order title, the input contains the string and the number of the invoice used in this job.  
 
-![receipevsreport](/_uploads/job-details/receipevsreport.png)
+![recipevsreport](/_uploads/job-details/recipevsreport.png)
 
 ### Output
 
