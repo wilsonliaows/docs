@@ -4,6 +4,13 @@
 
 From the recipe, navigate to the 'Jobs' tab and click on the job you wish to see a detailed report of. 
 
+Each line
+
+## Configuring the Job Report
+
+
+
+
 ## When do I need to check the job details? 
 
   1. When there are errors 
