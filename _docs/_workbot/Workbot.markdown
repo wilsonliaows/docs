@@ -107,3 +107,13 @@ Workbot will confirm that it has turned notifications off
 image
 
 
+Things To Note
+
+1. Treat workbot like an actual person, he deserves some respect (:
+2. Make sure that workbot is always in the channel to run commands, you can do this by inviting workbot to the channel
+3. Just like talking to a real person, always use @workbot because you want him to be alerted
+4. When you talk to workbot in its direct message channel, you do not need to use @workbot because he knows you are talking to him
+5. When you invite workbot into the channel, ANYONE in that channel can tell Workbot to do the assigned commands
+6. In the event you want workbot to do something that he is unable to do, feel free to post your request here and our team can take a look at it 
+7. The integration app connection will pick up the LATEST connection that you have made to the app
+
