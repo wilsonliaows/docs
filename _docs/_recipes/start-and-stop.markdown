@@ -24,7 +24,7 @@ Go to the 'Contact' tab to change the Notifications Email.
 
 ### When do I stop my recipes?
 
-![stopbutton](/_uploads/startstop/startbutton.JPG)
+![stopbutton](/_uploads/startstop/stopbutton.JPG)
 
 Stop the recipes when they are no longer relevant. You can only delete recipes after they have been stopped. 
 
