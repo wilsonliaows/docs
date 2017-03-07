@@ -75,7 +75,9 @@ The step where the error occurred is highlighted with a red line. Click on the s
 
 In this case, the error occurs in step 12. Click on the 'Error' tab to see the error details.
 
-![errorinline2](/_uploads/testing-recipes/errorinline2.png)
+![errorinline2](/_uploads/testing-recipes/errorinline2.png) 
+
+Head back to the recipe to fix the incorrect step or to the application to see if there is incorrect data in the fields involved.
 
 #### Fixing the Error
 Re-running jobs are the easiest way to test the recipe after fixing the errors. Check the box next to the job to be rerun and click on the rerun button.
