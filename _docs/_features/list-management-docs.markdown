@@ -8,7 +8,7 @@ App integrations often work with lists, e.g. syncing sales invoices involves mov
 
 Workato is able to read from and write to lists in various ways.
 
-# List setup
+# Example list setup
 Various examples will be provided in this article on list management. The following sample CSV file will be used as the example list.
 
 ```
@@ -179,7 +179,9 @@ Fields can be added or edited within custom lists anytime.
 
 The custom list can also be edited via its JSON representation.
 
-![JSON definition gif](docs/_uploads/_features/list-management/json-definition-gif.gif)
+[![https://gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c](https://i.gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c.gif)](https://gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c)
+
+*Editing the custom list's JSON representation*
 
 ## Example recipes that use accumulator, list input and Repeat step
 Let's take the scenario whereby closed won Salesforce opportunities with a list of opportunity products need to be moved into NetSuite as sales orders with a similar list of line items.
