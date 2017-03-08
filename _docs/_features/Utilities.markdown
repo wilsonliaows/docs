@@ -17,20 +17,6 @@ Generate pie chart
 
 Link two objects
 
-Log message
-
-Merge name components
-
-Parse CSV
-
-Parse JSON doc
-
-Parse XML doc
-
-Get linked object
-
-## Compose CSV
-
 ## Create list
 In workato, to use the repeat action requires a List item to be present. However there may be some instances where you may want to repeat an action a specific number of times. To do so, you can use the  **Create list** action to create a list with a predetermined size (up to 500) to use the repeat action. 
 First, create the **create list** action, and determine the size you want to use 
@@ -45,19 +31,10 @@ In the Download file from URL section, you can provide a static URL if you inten
 
 ## Generate column chart 
 Using this action allows you to use data from two columns in a list to create a column chart to help visualize and analyze data better. 
+
 ## Generate pie chart
+Using this action allows you to use data from two columns (name and values) in a list to create a pie chart to help visualize and analyze data better. 
 
 ## Link two objects
 Linking two objects allows you to associate an object from one app with another, and allows you to cme back to this connection in another recipe. Some simple coonnections includes a salesforce account ID with a Zendesk ticket ID, for easy tracking.
-## Log message 
 
-## Merge name components
-
-## Parse CSV
--
-
-## Parse JSON doc
--
-
-## Parse XML doc
--
