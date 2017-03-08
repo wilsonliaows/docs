@@ -3,7 +3,7 @@ title: Workato Formula Mode
 date: 2017-03-07 05:00:00 Z
 ---
 
-# Formula
+# Formulas
 Formula mode is a toggled mode for almost any input field in Workato, allowing you to make use of special formulas to transform and manpiulate data according to your exact needs.
 When you are defining the input for a field, you can be in Text mode or Formula mode, indicated by the box at the right of the field. 
 You can toggle between the two modes by hovering your cursor over the top right hand corner of a field and simply clicking on the button.
@@ -25,6 +25,8 @@ Formula mode accepts operators and methods to transform the data in the input fi
 
 ![formula_list](/_uploads/formula-docs/formula_list.png)
 
+## Ternary Syntax in Formula Mode
 
-
-
+## Glossary of formulas
+You will find that there are formulas that can be used on data pills of different data type - String, Dates, Numbers, Boolean Others. 
+That will be the manner which we shall group and elaborate on the list of available formulas. Do note that the glossary list below is in constant update as we frequently add more formulas to accomodate the needs of our users. 
