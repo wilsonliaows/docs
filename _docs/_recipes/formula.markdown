@@ -25,7 +25,7 @@ Formula mode accepts operators and methods to transform the data in the input fi
 
 ![formula_list](/_uploads/formula-docs/formula_list.png)
 
-## Ternary Syntax in Formula Mode
+## Ruby Ternary Syntax in Formula Mode
 
 ## Glossary of formulas
 You will find that there are formulas that can be used on data pills of different data type - String, Dates, Numbers, Boolean Others. 
