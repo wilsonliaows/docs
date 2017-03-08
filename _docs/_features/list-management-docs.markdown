@@ -171,9 +171,15 @@ After configuring the fields in the custom list, ensure that the list is within 
 
 *Configured and mapped accumulator*
 
-Fields within custom lists can be reconfigured anytime.
+Fields can be added or edited within custom lists anytime.
 
-[![https://gyazo.com/b03dfa1ce1077ab4c27033fc090b90cd](https://i.gyazo.com/b03dfa1ce1077ab4c27033fc090b90cd.gif)](https://gyazo.com/b03dfa1ce1077ab4c27033fc090b90cd)
+![Accumulator example](/_uploads/_features/list-management/accumulator-example.png)
+
+*Fields can be added or edited in custom lists*
+
+The custom list can also be edited via its JSON representation.
+
+![JSON definition gif](/_uploads/_features/list-management/json-definition-gif.mp4)
 
 ## Example recipes that use accumulator, list input and Repeat step
 Let's take the scenario whereby closed won Salesforce opportunities with a list of opportunity products need to be moved into NetSuite as sales orders with a similar list of line items.
