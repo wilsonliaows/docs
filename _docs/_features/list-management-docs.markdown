@@ -145,6 +145,36 @@ As discussed [here](#using-datapills-from-lists), using pills directly from the 
 ## List connector (Accumulator)
 The list connector is a Workato utility built for users to create custom lists and store data in the list for the duration of a job, to be used in the same job. It is usually used for users to prepare a list to write to an action with a list input.
 
+## Using the accumulator action to create a custom list
+
+### Defining the list fields
+A custom list has to be created before data can be accumulated and stored within it. To create the list, select the **List** connector and its default action **
+Append item to list**.
+
+![Empty accumulator](/_uploads/_features/list-management/empty-accumulator.png)
+
+*Accumulator with no fields configured*
+
+Define the fields in the custom list by configuring field name, type and hint.
+
+![Adding string field to accumulator](/_uploads/_features/list-management/add-string-to-accumulator.png)
+
+*Adding a string field to the accumulator list*
+
+![Adding date field to accumulator](/_uploads/_features/list-management/add-date-to-accumulator.png)
+
+*Adding a date field to the accumulator list*
+
+After configuring the fields in the custom list, ensure that the list is within a Repeat step and that the datapills are mapped from the Repeat step's output datatree. This ensures that the iterated list items' values are mapped into the custom list accordingly, and that values are not being duplicated within the list because the wrong pills from the main datatree (as opposed to the Repeat step's datatree) were mapped as shown [above](#common-mistake-when-using-repeat-step).
+
+![Accumulator example](/_uploads/_features/list-management/accumulator-example.png)
+
+*Configured and mapped accumulator*
+
+Fields within custom lists can be reconfigured anytime.
+
+[![https://gyazo.com/b03dfa1ce1077ab4c27033fc090b90cd](https://i.gyazo.com/b03dfa1ce1077ab4c27033fc090b90cd.gif)](https://gyazo.com/b03dfa1ce1077ab4c27033fc090b90cd)
+
 ## Example recipes that use accumulator, list input and Repeat step
 Let's take the scenario whereby closed won Salesforce opportunities with a list of opportunity products need to be moved into NetSuite as sales orders with a similar list of line items.
 
