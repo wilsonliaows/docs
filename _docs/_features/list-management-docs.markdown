@@ -179,7 +179,7 @@ Fields can be added or edited within custom lists anytime.
 
 The custom list can also be edited via its JSON representation.
 
-![JSON definition gif](/_uploads/_features/list-management/json-definition-gif.gif)
+![JSON definition gif](docs/_uploads/_features/list-management/json-definition-gif.gif)
 
 ## Example recipes that use accumulator, list input and Repeat step
 Let's take the scenario whereby closed won Salesforce opportunities with a list of opportunity products need to be moved into NetSuite as sales orders with a similar list of line items.
