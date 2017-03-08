@@ -4,8 +4,8 @@
 
 Re-running a job will cause the trigger event to be passed through the recipe again, and this feature is useful in the cases below:
 
-  1.  Testing a new recipe
-  2.  When there are errors encountered
+  * Testing a new recipe
+  * When there are errors encountered
 
 **Note:** Duplicates may occur when jobs are rerun, so be sure to check and remove duplicates (if present) before re-running the job.
 
