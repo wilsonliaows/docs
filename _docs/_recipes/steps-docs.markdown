@@ -47,7 +47,7 @@ The following recipe has two conditional steps:
 
 Any job ran by this recipe can only proceed through either one of the conditional step, as the Zendesk organization must have either been found or not.
 
-## Repeat action
+## Repeat step
 The repeat step works with lists to carry out a series of actions on every item in that list. Actions indented within a repeat block will be carried out for all items in the list.
 
 First, select the list to iterate through. In order to use the values from each element of the list, all data fields must be from the **Foreach** datatree.
@@ -78,6 +78,8 @@ The following displays the mapping from the **Foreach** datatree.
 ![Foreach step example](/_uploads/steps-docs/foreach_example.png)
 
 *Datapills are mapped from the Repeat step's datatree* [Example recipe](https://www.workato.com/recipes/480695)
+
+For further Repeat step examples or more info about list processing, refer to [this article on list processing](/_docs/_features/list-management-docs.markdown).
 
 ## Call recipe
 Call recipe will run another recipe (named a callable recipe). Callable recipes are usually built to extract a set of common steps, which multiple recipes use, into a separate recipe that all main recipes can use. This reduces the complexity of individual recipes.
