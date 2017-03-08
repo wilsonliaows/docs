@@ -1,5 +1,5 @@
 ---
-title: Workato action steps
+title: Workato Formula Mode
 date: 2017-03-07 05:00:00 Z
 ---
 
