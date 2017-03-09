@@ -31,14 +31,14 @@ To visualize how each field needs to be filled up, take a look at the example be
 
 A recipe is set up in order to fill up a google sheets for basic order taking (2 columns, Name and Quantity ordered) based on commands coming in to workbot. 
 This is how to set up the fields
+
 |Field|Data|
 |---|---|
 |Cammand|Create|
 |Target Application|Google Sheets|
 |Document|New Row|
 |Hint|Input data for new row|
-|Command input|Name  hint:Name sample:John
-Quantity hint:Quantity sample:12|
+|Command input|Name  hint:Name sample:John <br> Quantity hint:Quantity sample:12|
 
 Once a command is sent to workbot, he follows a set of actions - such as search for a product, or create a new lead. If you want data to come back to you through workbot, you will have to [set up a **Workbot Command Reply** action]
 
