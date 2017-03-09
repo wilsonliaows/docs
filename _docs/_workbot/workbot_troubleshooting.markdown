@@ -5,3 +5,30 @@ Sometimes when using workbot, you may face some issues. Here is a list of things
 Sometimes, you may find that despite having an active recipe or connection, Workbot goes offline. In order to solve this problem, you can try to reconnect your Slack Workbot connection. Users can do this by clicking on "Connection" under the drop-down menu on the top-right hand corner. Then click on Slack Workbot and click on "Edit". Then click on "Disconnect" then click on "Connect".
 
 Sometimes however, workbot may be under maintainence, but do give it a while and it will come back online again!
+
+##  Duplicate reply
+Possible scenario
+
+Two person in Slack team installed Workbot at the same time
+When you encounter this issue, this usually means that your team has two instances of Workbot installed by two separate members of your team. To stop this, check with your team and make sure that only one account is used to install Workbot. The other account's Workbot should be deactivated. 
+
+Checking on the duplicated installed Workbot
+
+1) Go into Apps & Integrations of your Slack team
+You can access this by clicking onto your Slack team and click on app & integrations
+rUhCNplPWFfukZJUINJavhe6V8YzINSKwQ.png
+
+
+
+
+
+2) Go to Manage Integrations section and find Workbot
+It will bring you to Slack's marketplace. On the top right corner, look for Manage. Then, you will be able to see Workbot
+u0zCbYa8H4rEbnpl0iqbWBhqYfQ05JfKZw.png
+JefZoBkYhEOSLDwEF7TsrK-nzNo9saesag.png
+
+
+
+
+3) Identify and Remove duplicated Workbot
+You will be able to identify the users who installed Workbots. After this, you should then contact them and remove Workbot from there.
