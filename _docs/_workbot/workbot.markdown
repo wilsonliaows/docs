@@ -44,7 +44,7 @@ Once turned on, the apps will show up with the button as ON. You can click on th
 
 Activated Apps and list of available commands
 
-![Workbot16](/_uploads/Workbot/Workbot/Workbot 16.png)
+![Workbot16](/_uploads/Workbot/workbot/Workbot 16.png)
 
 Now you are ready to start chatting with Workbot
 Note that Direct messages or DM are private exchanges with Workbot and won’t be seen by others
