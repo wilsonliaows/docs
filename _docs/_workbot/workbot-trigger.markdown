@@ -1,53 +1,39 @@
 # Workbot Triggers
 You can use Workbot for Slack to send commands to your apps to do things, such as show details for a product or account, show list of opportunities or invoices or tickets, or to create or update existing objects. You are aso able to customise these commands for other apps as well.
 
-In order to do this, you will need to build a workbot trigger to configure the command that you will send to workbot. This section 
-
-## How does Workbot Work
+In order to do this, you will need to build a workbot trigger to configure the command that you will send to workbot. This section. There are currently 2 triggers available for workbot recipes
+* New Command
+* New URL Mention
 
 Every command in workbot is processed using a Workato Recipe. This recipes help determine what Workbot is to do when a certain command is sent to it. That means that you can create your own custom workflows that correspond to a predetermined command.
 
 
-## Bot Commands
+## New Commands
+When you require workbot to process particular object for you, you will need to send it a command. This trigger allows you to customize your desired command (e.g. the information you need to provide, what app you will be using) by allowing you to configure what workbot is to do with data that comes in. 
+
 There are 4 elements in the command that workbot is looking out for:
 * Addressed to an **Application** (e.g. Salesforce, QuickBooks) 
 * A specific **document** type to be processed (e.g. Account, Lead, Invoice)
 * a certain **command** to execute - (e.g. Show, Create, Update)
 * One or more **parameters**
 
-## Workbot Trigger
+When you create a new recipe with **New Commands** as the trigger, you will see these fields listed in the table below:
 
-When working with the Workbot Trigger, you are determining what will start off the command, i.e. what you information you need to send to workbot to get your decided task done. Below are all the fields available, and what they are for:
-
-|Field   |Explanation   |
+|Field   |What they are for   |
 |---|---|
 |Command   |Name of the action you want Workbot to perform (e.g. Show, List, Create)|
 |Target application   |App you want Workbot to work with (e.g. Saleseforce, QuickBooks)|
 |Document   |Document associated witht he command (Account, Invoice, Lead)   |
 |Hint|Displayed as help in Slack|
-|Command input |Commands can take input parameters. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
+|Command input |This is how you configure your expected command input. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
 
-Once the bot is activated, it follows a set of actions - such as search for a product, lookup the price book for it, and then it posts the response to the Slack channel it came from.
-
-Insert GIF
+Once a command is sent to workbot, he follows a set of actions - such as search for a product, or create a new lead. If you want data to come back to you through workbot, you will have to [set up a **Workbot Command Reply** action]
 
 These are all the fields available in a Post Command reply action. We will get into the details of each field means in the later part of the section.
 
 
 Here is what the Post Command Reply action's output will look like in Slack : 
 Tvr30tfHqlfCwUHweB2nuuLAszLoY_gvrg.png
-
-
-## Bot Notifications
-Bots can also listen for activity inside an app (e.g. Salesforce, Quickbooks) and notify you of events of interest. For example in the example below, it is looking for Closed/Won notifications and sending it to the channel. It will send it to the channel from where the notifications were enabled. You can create our own notifications or modify existing ones to suit your needs.
-
-
-
-
-And the End result of a Post Notification Action in Slack :
-s7uLKOhJxqrh3xH8uMyo7sTrxucJ75leMw.png
-
-Learn more about the Post Notification Step here
 
 
 
@@ -81,4 +67,6 @@ The following table shows what you get for the command reply action, which you c
 |Image URL|URL of an image that will be displayed below the message
 |Related documents|Commands can be linked to other commands via the document they operate on. Workbot uses this to recommend commands in a conversation. Specify links using this format: document name identifier_1:"App data from data tree" identifier_2:"App data from data tree" E.g. ticket id:"[data tree pill]" Specify one parameter per line. No spaces allowed in document name.|
 
+### New URL mention
 
+New URL mention allows you to
