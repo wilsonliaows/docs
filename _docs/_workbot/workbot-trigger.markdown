@@ -1,12 +1,7 @@
-# Customize or Create Your Own Workbot commands
+# Workbot Triggers
 You can use Workbot for Slack to send commands to your apps to do things, such as show details for a product or account, show list of opportunities or invoices or tickets, or to create or update existing objects. You are aso able to customise these commands for other apps as well.
 
-
-First let's understand how a bot handles commands, and then
-How it handles Notifications, next see
-How to customize a bot, and last
-Create one that responds to custom command and interacts with multiple apps
-
+In order to do this, you will need to build a workbot trigger to configure the command that you will send to workbot. This section 
 
 ## How does Workbot Work
 
