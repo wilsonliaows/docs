@@ -93,7 +93,7 @@ You can also turn off notifications
 
 Workbot will confirm that it has turned notifications off
 
-![Workbot15](/_uploads/Workbot/workbot/Workbot 15.png)
+![Workbot15](/_uploads/Workbot/Workbot/Workbot 15.png)
 
 ### Things To Note
 
