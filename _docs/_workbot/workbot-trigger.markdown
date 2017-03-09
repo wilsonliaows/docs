@@ -1,7 +1,7 @@
 # Workbot Triggers
-You can use Workbot for Slack to send commands to your apps to do things, such as show details for a product or account, show list of opportunities or invoices or tickets, or to create or update existing objects. You are aso able to customise these commands for other apps as well.
+Workbot for Slack allows you to send commands to your apps to do things, such as show details for a product or account, show list of opportunities or invoices or tickets, or to create/update existing objects. 
 
-In order to do this, you will need to build a workbot trigger to configure the command that you will send to workbot. This section. There are currently 2 triggers available for workbot recipes
+In order to do this, you will need to build a workbot trigger to configure the command that you will send to workbot. There are currently 2 triggers available for workbot recipes
 * New Command
 * New URL Mention
 
@@ -25,7 +25,7 @@ When you create a new recipe with **New Commands** as the trigger, you will see 
 |Target application   |App you want Workbot to work with (e.g. Saleseforce, QuickBooks)|
 |Document   |Document associated witht he command (Account, Invoice, Lead)   |
 |Hint|Displayed as help in Slack|
-|Command input |This is how you configure your expected command input. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
+|Command input |This is how you configure your expected command input (parameters). The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
 
 To visualize how each field needs to be filled up, take a look at the example below
 
@@ -42,7 +42,7 @@ This is how to set up the fields
 
 Once you have confirgured the trigger as above, you will need to set up the google sheets action **Add New Row** actions. You can also add in an extra (optional) step to notify you when the row is created. Simply add a Workbot **Post Command Reply** action and set up the first 2 fields as instructed and your message in the 3rd field.
 
-In this case, there are 2 pieces of data that need to be provided as shown in the **Command Input** field, namely Name and Quantity. Thus, the command in this case would be **Google Sheets** > **Create New Row** > **\<Name>** > **\<Quantity>** 
+In this case, there are 2 parameters that need to be provided as shown in the **Command Input** field, namely Name and Quantity. Thus, the command in this case would be **Google Sheets** > **Create New Row** > **\<Name>** > **\<Quantity>** 
 Take a look at the GIF below for a better understanding of how to use the command.
 
 ![command-example](/_uploads/Workbot/workbot-trigger/workbot-trigger-example.gif)
