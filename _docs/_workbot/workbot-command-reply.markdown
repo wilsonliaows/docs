@@ -1,14 +1,26 @@
 ## Command Reply
-This action usually works hand in hand with The New Command Trigger. However, it is just as important for us to have a good overview regarding what each field means, and what values does it expect. For this exercise, we are going to use a sample recipe for a more elaborate and relevant explanation.
+You can use Workbot for Slack to send commands to your apps to do things, such as show details for a product or account, show list of opportunities or invoices or tickets, or to create or update existing objects. You are aso able to customise these commands for other apps as well.
 
-Command Q&A
+
+First let's understand how a bot handles commands, and then
+How it handles Notifications, next see
+How to customize a bot, and last
+Create one that responds to custom command and interacts with multiple apps
 
 How does this differs from 'Post Notification'?
 Post notifications action is a broadcast action, and that means Workbot will post a status on all channels where Workbot notification is turned on. However, the Workbot **Post command reply** works together with New Command Trigger, giving the user the ability to reply an earlier command with a new command.
 
+## How does Workbot Work
 
-I would like to receive responses that come with this command, and perform certain action with it. How do I do that?
-While you are not able to halt the recipe at runtime to receive a second response from the user, you can, however use Buttons as Call-To-Actions for the user.
+Every command in workbot is processed using a Workato Recipe. This recipes help determine what Workbot is to do when a certain command is sent to it. That means that you can create your own custom workflows that correspond to a predetermined command.
+
+
+### Bot Commands
+There are 4 elements in the command that workbot is looking out for:
+* Addressed to an **Application** (e.g. Salesforce, QuickBooks) 
+* A specific **document** type to be processed (e.g. Account, Lead, Invoice)
+* a certain **command** to execute - (e.g. Show, Create, Update)
+* One or more **parameters**
 
 The Fields
 Here are a list of all Available input fields for a post command reply Action : 
