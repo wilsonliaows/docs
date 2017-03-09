@@ -4,6 +4,9 @@
 
 Re-running a job will cause the trigger event to be passed through the recipe again, and this feature is useful in the cases below:
 
+  * Testing a new recipe
+  * When there are errors encountered
+
 **Note:** Duplicates may occur when jobs are rerun, so be sure to check and remove duplicates (if present) before re-running the job.
 
 ### Testing a new recipe
@@ -32,7 +35,9 @@ In the job report, look at the error code provided and make the changes accordin
 
 ## What does rerunning a job do? 
 
-Essentially, rerunning  
+Essentially, rerunning a job uses the same trigger event and runs the job from start to finish. 
+
+**Note:** As a previously run job may have run through steps that have created objects in the applications, rerunning the job may cause errors as these objects already exist. Thus, ensure that objects created by previously run jobs have been deleted before rerunning.
 
 ## How to rerun a job
 
@@ -43,10 +48,16 @@ Completed jobs are those that have successfully run through the recipe while fai
 
 Check the boxes on the left of each line and click 'Rerun'. You can rerun 10 jobs (1 page of jobs) at a time. 
 
+![Rerunjobs](/_uploads/rerun-jobs/Rerunjobs.JPG)
+
 
 ### Job Report
 
 The rerun job button is located on the top right hand corner of the job report page. Click on this to rerun the job and you will be re-directed to the 'Jobs' tab.
 
+![rerunjobbutton](/_uploads/rerun-jobs/rerunjobbutton.JPG)
+
 #### Rerun History
 All rerun jobs have a history log at the bottom of the job details page. Click on each line to view the previously run jobs. 
+
+![rerunhistory](/_uploads/rerun-jobs/rerunhistory.JPG)

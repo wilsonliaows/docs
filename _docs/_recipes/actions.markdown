@@ -107,7 +107,9 @@ There are 4 different types of field mapping methods - Static, Dynamic, Combinat
 ![mapping_type_3](/_uploads/mapping_type_3.png)
 
 4. Formula
-  Formula field mapping type occurs when a formula is used to create a input into the field.This could be used to manipulate the value from a data pill. It could be used in a variety of ways, such as when users wish to split a string or apply an operator on a numerical values.
+  Formula field mapping type occurs when a formula is used to create a input into the field.This could be used to manipulate the value from a data pill. It could be used in a variety of ways, such as when users wish to split a string or apply an operator on a numerical values. In this example, formula mode is used to check on whether the data pill "Full Name" contains a value. If it does use that value, else use the value within the "First Name" data pill instead.
+  
+![mapping_type_4](/_uploads/actions-docs/mapping_type_4.png)
 
 ##Common Pitfalls when mapping fields
 Taking the right data pill is just as important as setting up the right logic, when you choose the wrong data pill to work with, you are bounded to fall into errors. Here are some common pitfalls with regards to field mapping.
@@ -119,6 +121,3 @@ Taking the right data pill is just as important as setting up the right logic, w
 - Data pills from the wrong branch of logic
 
   When you used the recipe from the wrong branch of logic, you will definitely be meeting a data pill with empty value. This is because that data pill may come from a step that may never had been executed at all. 
-
-# Formula Mode
-
