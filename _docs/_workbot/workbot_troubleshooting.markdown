@@ -1,6 +1,11 @@
 # Troubleshooting Workbot
 Sometimes when using workbot, you may face some issues. Here is a list of things to do whenever you encounter an problem while on Workbot. 
 
+## Recipe Execution Error
+When a recipe that invovles workbot encounters an error, you will see this message: 
+"Got a recipe execution error that I don't know how to handle. Please try again later"
+together with a message detailing the error. In order to fix this error, you will have to go to the recipe and look for the problem there. Check out this link on what to do when you encounter recipe errors (insert link here). 
+
 ## Workbot Offline
 Sometimes, you may find that despite having an active recipe or connection, Workbot goes offline. In order to solve this problem, you can try to reconnect your Slack Workbot connection. Users can do this by clicking on "Connection" under the drop-down menu on the top-right hand corner. Then click on Slack Workbot and click on "Edit". Then click on "Disconnect" then click on "Connect".
 
