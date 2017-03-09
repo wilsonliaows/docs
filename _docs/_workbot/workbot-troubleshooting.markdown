@@ -3,6 +3,9 @@ Sometimes when using workbot, you may face some issues. Here is a list of things
 
 ## Recipe Execution Error
 When a recipe that invovles workbot encounters an error, you will see this message: 
+
+![workbot recipe execution](docs/_uploads/Workbot/workbot-custom-commands/workbot-cc-1.png)
+
 "Got a recipe execution error that I don't know how to handle. Please try again later"
 together with a message detailing the error. In order to fix this error, you will have to go to the recipe and look for the problem there. Check out this link on what to do when you encounter recipe errors (insert link here). 
 
@@ -21,16 +24,14 @@ Checking on the duplicated installed Workbot
 
 1) Go into Apps & Integrations of your Slack team
 You can access this by clicking onto your Slack team and click on app & integrations
-rUhCNplPWFfukZJUINJavhe6V8YzINSKwQ.png
 
-
-
+![workbot duplicate 1](docs/_uploads/Workbot/workbot-custom-commands/workbot-cc-2.png)
 
 
 2) Go to Manage Integrations section and find Workbot
 It will bring you to Slack's marketplace. On the top right corner, look for Manage. Then, you will be able to see Workbot
-u0zCbYa8H4rEbnpl0iqbWBhqYfQ05JfKZw.png
-JefZoBkYhEOSLDwEF7TsrK-nzNo9saesag.png
+![workbot duplicate 2](docs/_uploads/Workbot/workbot-custom-commands/workbot-cc-3.png)
+![workbot duplicate 3](docs/_uploads/Workbot/workbot-custom-commands/workbot-cc-4.png)
 
 
 
