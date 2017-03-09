@@ -27,7 +27,7 @@ Real-time triggers supported by Workato (this excludes HTTP real-time triggers) 
 ## Batch triggers
 Batch triggers are similar to polling triggers in fetching the same records. However, where polling triggers have trigger events corresponding to a single record, batch triggers have trigger events corresponding to a list of records. Maximum batch size can usually be defined in the trigger configuration.
 
-For further details about batch triggers, refer to the Batch processing article [here](/_docs/_features/batch-processing-docs.markdown).
+For further details about batch triggers, refer to the Batch processing article here.
 
 ## Scheduled triggers
 Scheduled triggers are executed at defined days and times, either hourly, daily, or monthly.
