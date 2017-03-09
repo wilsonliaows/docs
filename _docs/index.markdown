@@ -12,28 +12,28 @@
     - Update our documentation
 
 - User accounts and teams
-  - [Single Sign-On](/_docs/_user_accounts_and_teams/sso.markdown)
-  - [Team collaboration](/_docs/_user_accounts_and_teams/team-collaboration.markdown)
+  - Single Sign-On
+  - Team collaboration
   - Role-based access
   - Audit logs
 
 - Recipes
-  - [Connections](/_docs/_recipes/connections.markdown)
+  - Connections
   - Building recipes
-    - [Triggers](/_docs/_recipes/triggers.markdown)
+    - Triggers
       - Polling triggers
       - Real-time triggers
       - Batch triggers
       - Since
       - Trigger conditions
-    - [Steps](/_docs/_recipes/steps.markdown)
+    - Steps
       - Action
       - Conditional action
       - Repeat action
       - Call recipe
       - Stop
       - Action with error handler
-    - [Actions](/_docs/_recipes/actions.markdown)
+    - Actions
       - Creates
       - Updates
       - Upserts
@@ -43,32 +43,32 @@
     - Data types
     - Mapping
     - Formula
-    - [Recipe version management](/_docs/_recipes/recipe-version-management.markdown)
+    - Recipe version management
     - Best practices
   - Running recipes
     - Test recipe
     - Start and stop
     - Polling intervals
     - Rerun job
-  - [Recipe Ops](/_docs/recipe-ops.markdown)
+  - Recipe Ops
 
 - Features
-  - [List management](/_docs/_features/list-management.markdown)
+  - List management
   - Scheduler
   - Utility
   - Secondary connectors
-  - [Batch processing](/_docs/_features/batch-processing.markdown)
+  - Batch processing
   - Lookup tables
   - Linked objects
   - Callable recipes
-  - [Handling CSV files](/_docs/_features/handling-csv-files.markdown)
-  - [Handling files and attachments](/_docs/_features/handling-files-and-attachments.markdown)
+  - Handling CSV files
+  - Handling files and attachments
   - Handling JSON
   - Handling XML
-  - [Recipe Ops](/_docs/recipe-ops.markdown)
-  - [Account properties](/_docs/account-properties.markdown)
-- [On premise](/_docs/on-prem.markdown)
-- [Workflow (people task)](/_docs/workflow.markdown)
+  - Recipe Ops
+  - Account properties
+- On premise
+- Workflow
 - Workbot
 - API gateway
 - Connectors documentation
@@ -100,14 +100,14 @@
   - Deduplication
   - Rate limiting
 - Developer
-  - [Conceptual model](/_docs/_developer/_sdk/conceptual-model-docs.markdown)
+  - Conceptual model
   - Flowchart of when someone should use the HTTP VS SDK
-  - [HTTP](/_docs/_developer/http.markdown)
-  - [SDK](/_docs/_developer/_sdk/sdk-docs.markdown)
+  - HTTP
+  - SDK
   - Platform API
 - Recipe Development Life Cycle
   - Model/diagram of the RDLC
   - Sandbox-Production
-- Security and compliance
-- [Data retention](/_docs/data-retention.markdown)
+- [Security and compliance](https://www.workato.com/security)
+- Data retention
 - Scalability and performance
