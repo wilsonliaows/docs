@@ -29,10 +29,9 @@ You can access this by clicking onto your Slack team and click on app & integrat
 
 
 2) Go to Manage Integrations section and find Workbot
-It will bring you to Slack's marketplace. On the top right corner, look for Manage. Then, you will be able to see Workbot
-![workbot duplicate 2](/_uploads/Workbot/troubleshooting-workbot/troubleshooting-workbot-3.png)
+It will bring you to Slack's marketplace. On the top right corner, look for Manage. Then, you will be able to see Workbot. If there are 2 or more configurations under workbot, this means that you have more than one workbot connected. 
 ![workbot duplicate 3](/_uploads/Workbot/troubleshooting-workbot/troubleshooting-workbot-4.png)
-
+![workbot duplicate gif](/_uploads/Workbot/troubleshooting-workbot/troubleshooting-workbot-1.gif)
 
 
 
