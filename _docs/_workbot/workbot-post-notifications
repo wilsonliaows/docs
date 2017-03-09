@@ -1,0 +1,13 @@
+# Post Notifications
+When you're building your own recipe, you can choose to have workbot send notifications to channels to notify your team when a certain event has occured.
+
+To set a notification, simply create a *Workbot > Post Notification* action in a recipe. In the example below, we have a recipe with the trigger set to *New Salesforce Opportunity*, which means the recipe will start every time a new opportunity is created. 
+
+![]()
+
+From there, simply set the *Post Notification* action to display what you want to see on slack! 
+
+Heres what a sample message looks like, based on the fields available to fill in in the action: 
+
+![]()
+

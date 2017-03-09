@@ -44,7 +44,7 @@ Once turned on, the apps will show up with the button as ON. You can click on th
 
 Activated Apps and list of available commands
 
-![Workbot16](/_uploads/Workbot/Workbot/Workbot 16.png)
+![Workbot16](/_uploads/Workbot/workbot/Workbot 16.png)
 
 Now you are ready to start chatting with Workbot
 Note that Direct messages or DM are private exchanges with Workbot and won’t be seen by others
@@ -77,7 +77,7 @@ Now Workbot is part of the channel. To check what tofications are available, sim
 To turn on notifications, you just need to say "@workbot notifications [appname] on"
 If the App is not connected it will not be able to turn it on
 
-![Workbot15](/_uploads/Workbot/Workbot/Workbot 17.png)
+![Workbot15](/_uploads/Workbot/workbot/Workbot 17.png)
 
 But if it is connected, it will confirm that it turned it on
 
