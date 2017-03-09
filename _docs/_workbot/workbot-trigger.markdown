@@ -49,6 +49,13 @@ Take a look at the GIF below for a better understanding of how to use the comman
 
 With this simple example, you should now be able to build your own workbot command recipe. 
 
+### Command Input tips
+You can configure the command input tips to have buttons that let you click on predetermined options instead of having to type them out. For example, you want to change the status of a lead, and there are just a handful of options. you can configure the parameter as such: 
+
+lead_status options: Open - Not Contacted, Working - Contacted, Closed - Converted, Closed - Not Converted
+
+as you can see, its given in the format 'Parameter name \<space> options: \<space> option 1,\<space> option 2, \<space> option 3'
+
 ## New URL mention
 
 Click on this link to learn about workbot actions
