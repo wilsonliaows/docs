@@ -18,7 +18,7 @@ These are all the fields available in a Post Command reply action. We will get i
 |Title Link|Allows you to embed a link in the title|URL of a page you want to be brought to|
 |Description|Detailed message|Whatever you want. Slack Emojis are supported too|
 |Buttons|Buttons will be shown on the message, and you can click them in lieu of typing out another command|Array of JSON objects. (e.g.\[{"title":"button title", "command":"button command"}])|
-|Message Type|a colour will be displayed on the message to indicate what type of message is being sent|(Good = Green <br>Warning = Amber <br>Danger = Red)|
+|Message Type|a colour will be displayed on the message to indicate what type of message is being sent|Good = Green <br>Warning = Amber <br>Danger = Red|
 |Fields|Fields to display in a grid|One name-value pair per line (e.g. <br>Name:John<br>Address:[address pill])
 |Image URL|Attach a picture to the message|URL of an image that will be displayed below the message
 |Related documents|Commands can be linked to other commands via the document they operate on. Workbot uses this to recommend commands in a conversation|Specify links using this format: document name identifier_1:"App data from data tree" identifier_2:"App data from data tree" E.g. ticket id:"[data tree pill]" Specify one parameter per line. No spaces allowed in document name.|
