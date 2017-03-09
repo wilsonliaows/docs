@@ -34,11 +34,20 @@ This is how to set up the fields
 
 |Field|Data|
 |---|---|
-|Cammand|Create|
+|Command|Create|
 |Target Application|Google Sheets|
 |Document|New Row|
 |Hint|Input data for new row|
 |Command input|Name  hint:Name sample:John <br> Quantity hint:Quantity sample:12|
+
+Once you have confirgured the trigger as above, you will need to set up the google sheets action **Add New Row** actions. You can also add in an extra (optional) step to notify you when the row is created. Simply add a Workbot **Post Command Reply** action and set up the first 2 fields as instructed and your message in the 3rd field.
+
+In this case, there are 2 pieces of data that need to be provided as shown in the **Command Input** field, namely Name and Quantity. Thus, the command in this case would be **Google Sheets** > **Create New Row** > **\<Name>** > **\<Quantity>** 
+Take a look at the GIF below for a better understanding of how to use the command.
+
+![command-example](/_uploads/Workbot/workbot-trigger/workbot-trigger-example.gif)
+
+As seen above, after configuring the
 
 Once a command is sent to workbot, he follows a set of actions - such as search for a product, or create a new lead. If you want data to come back to you through workbot, you will have to [set up a **Workbot Command Reply** action]
 
