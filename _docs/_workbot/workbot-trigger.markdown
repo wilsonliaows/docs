@@ -20,7 +20,17 @@ There are 4 elements in the command that workbot is looking out for:
 * a certain **command** to execute - (e.g. Show, Create, Update)
 * One or more **parameters**
 
+## Workbot Trigger
 
+When working with the Workbot Trigger, you are determining what will start off the command, i.e. what you information you need to send to workbot to get your decided task done. Below are all the fields available, and what they are for:
+
+|Field   |Explanation   |
+|---|---|
+|Command   |Name of the action you want Workbot to perform (e.g. Show, List, Create)|
+|Target application   |App you want Workbot to work with (e.g. Saleseforce, QuickBooks)|
+|Document   |Document associated witht he command (Account, Invoice, Lead)   |
+|Hint|Displayed as help in Slack|
+|Command input |Commands can take input parameters. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
 
 Once the bot is activated, it follows a set of actions - such as search for a product, lookup the price book for it, and then it posts the response to the Slack channel it came from.
 
@@ -58,15 +68,7 @@ Creating your own Workbot functions require a minimum required understanding of 
 Multi-App Bots
 Creating a completely new command with all your own vocabulary is as easy, and while you are at it, with Workato Recipes you can have your Workbot command to combine data from multiple apps.Here's an example. As a Project manager you may be introduced to new users that work in the same project, and you may need create new them in QuickBooks as new customers. You would then need an automation that create a customer in QuickBooks from a Salesforce Account. 
 
-When working witht he Workbot Trigger, you are basically determining what will start off the command, i.e. what you information you need to send to workbot to get your decided task done. Below are all the fields available, and what they are for:
 
-|Field   |Explanation   |
-|---|---|
-|Command   |Name of the action you want Workbot to perform (e.g. Show, List, Create)|
-|Target application   |App you want Workbot to work with (e.g. Saleseforce, QuickBooks)|
-|Document   |Document associated witht he command (Account, Invoice, Lead)   |
-|Hint|Displayed as help in Slack|
-|Command input |Commands can take input parameters. The format for specifying input is parameter name \[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John] E.g. customer_id hint:customer ID sample:12789. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step|
 
 The following table shows what you get for the command reply action, which you can use to notify you that a set task has been completed based on the information that was provided, and can also show you information on that task (e.g. when an object is created, what does it look like, URL of the object, URL of a search result)
 
