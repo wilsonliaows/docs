@@ -10,4 +10,4 @@ Currently, Workato offers the following secondary connectors
 
 To use a secondary connector, simply build a recipe and look for the secondary connectors when created a new action. You will be able to use all the features of a primary connector, just that the tasks will be performed in the instance used to make the secondary connection. 
 
-**Note** :using a secondary connector counts as a serparate connection.  
+**Note**: using a secondary connector counts as a serparate connection.  
