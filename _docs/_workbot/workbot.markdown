@@ -77,7 +77,7 @@ Now Workbot is part of the channel. To check what tofications are available, sim
 To turn on notifications, you just need to say "@workbot notifications [appname] on"
 If the App is not connected it will not be able to turn it on
 
-![Workbot15](/_uploads/Workbot/Workbot/Workbot 17.png)
+![Workbot15](/_uploads/Workbot/workbot/Workbot 17.png)
 
 But if it is connected, it will confirm that it turned it on
 
@@ -93,7 +93,7 @@ You can also turn off notifications
 
 Workbot will confirm that it has turned notifications off
 
-![Workbot15](/_uploads/Workbot/Workbot/Workbot 15.png)
+![Workbot15](/_uploads/Workbot/workbot/Workbot 15.png)
 
 ### Things To Note
 
