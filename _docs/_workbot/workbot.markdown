@@ -72,11 +72,7 @@ Commands are one way to interact with Workbot. At the same time, you can also as
 
 3. Send a command to workbot to trun on notifications
   The command should follow this format: @workbot appname start notifications name:\[document] [event]
-  If the recipe is not connected it will not be able to turn it on
-
-  ![Workbot15](/_uploads/Workbot/workbot/Workbot 17.png)
-
-  But if it is connected, it will confirm that it turned it on
+  If the recipe is no started, you will not be able to turn on notifications. But if it is connected, it will confirm that notifications is turned on.
 
   ![Workbot12](/_uploads/Workbot/Workbot/Workbot 12.png)
 
@@ -84,10 +80,7 @@ Commands are one way to interact with Workbot. At the same time, you can also as
 
   ![Workbot13](/_uploads/Workbot/Workbot/Workbot 13.png)
 
-  You can also turn off notifications
-
-  ![Workbot14](/_uploads/Workbot/Workbot/Workbot 14.png)
-
+  You can also turn off notifications, by using this format: @workbot appname stop notifications name:\[document] [event]
   Workbot will confirm that it has turned notifications off
 
   ![Workbot15](/_uploads/Workbot/Workbot/Workbot 15.png)
