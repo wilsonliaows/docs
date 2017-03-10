@@ -64,6 +64,9 @@ as you can see, its given in the format:
 Parameter name \<space> options: \<space> option 1,\<space> option 2, \<space> option 3
 
 ## New URL mention
+**This action is currently only compatible with Github and Salesforce**
+
+New URL mention allows you to send workbot a URL of a certain object and allows workbot to work with the data in that object based on how your recipe is set up. Usually, URL mention is used to give you details of an object and display them in slack for easy reference. 
 
 Click on this link to learn about workbot actions
 
