@@ -31,7 +31,11 @@ Creating a completely new command with all your own vocabulary is as easy, and w
 
 
 
-The following table shows what you get for the command reply action, which you can use to notify you that a set task has been completed based on the information that was provided, and can also show you information on that task (e.g. when an object is created, what does it look like, URL of the object, URL of a search result)
+The following table shows what you get for the command reply action, which you can use to notify you that a set task has been completed based on the information that was provided, and can also show you information on that task (e.g. when an object is created, what does it look like, URL of the object, URL of a search result) 
+
+You can also configure the command reply to include buttons for you to continue to process another command based on the data in the first command's reply. 
 
 ## Post Notifications
-This action allows you to configure a notification that workbot will send out (KIV)
+This action allows you to configure a notification that workbot will send out to channels where notifications for that recipe are turned on, including the administrator's private channel with workbot. The fields available are very simillar to that of the **Post command reply** action, with all the typical fields you see in a slack message. However, there is the addition of the field **Notification Filter** 
+
+This field allows you to set parameters for filters, which acts like a trigger filter for sending out notifications (i.e. the notification will only get sent when the set criteria is met)
