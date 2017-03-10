@@ -60,3 +60,9 @@ Now that you have a lookup table set up, you need to configure your recipe to ob
 
 lookup(`table name`,`column name for search`: `data pill`)[`column name for result`]
 
+For an example you can take a look at the gif below. 
+
+![lookup formula](/_uploads/_features/Lookup Tables/Lookup formula.gif)
+
+Alternatively, you can use the **Lookup table** connector and use either the **lookup entry** action to get a single entry or the **Search entries** action to get an array of results. This would allow you to use data from all the columns in your table for mapping in subsequent steps.
+
