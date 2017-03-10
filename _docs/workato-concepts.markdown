@@ -3,7 +3,7 @@ title: Workato core concepts
 date: 2017-03-08 18:00:00 Z
 ---
 
-# Workato concepts
+# Workato core concepts
 There are some Workato terminology that you might hear being punted around all the time. The core concepts and basic building blocks of Workato you'd need to know in order to understand most of the following documentation are covered briefly in this section.
 
 # Recipes
