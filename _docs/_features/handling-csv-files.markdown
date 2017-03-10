@@ -25,7 +25,7 @@ If the above CSV file is the only CSV file in the selected Box folder in the tri
 ## CSV file parsing example
 The following recipe parses new CSV files in Box and uses the data parsed to create new NetSuite inventory items.
 
-![Example recipe - CSV file parsing](/_uploads/_features/_files_and_attachments/csv-file-parsing-recipe.png)
+![Example recipe - CSV file parsing](/_uploads/_features/files-and-attachments/csv-file-parsing-recipe.png)
 
 *Recipe that parses CSV files to retrieve data for use in datatree* [Example recipe](https://www.workato.com/recipes/485023)
 
