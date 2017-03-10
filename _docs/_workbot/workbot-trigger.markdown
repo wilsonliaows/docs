@@ -68,7 +68,7 @@ Parameter name \<space> options: \<space> option 1,\<space> option 2, \<space> o
 
 New URL mention allows Workbot to pull data from a URL sent into a channel where Workbot is in. For example, when someone in a channel sends a URL of a Salesforce lead or a Github issue, workbot can generate a message reply to immediately provide you with context of the contents of the link. 
 
-![workbot url](_uploads/Workbot/workbot-trigger/workbot-URL.gif)
+![workbot url](/_uploads/Workbot/workbot-trigger/workbot-URL.gif)
 
 By default, simply by having workbot installed, workbot will prompt you the first time you send a URL in a chat where workbot is in to ask if you want to get the object data. 
 
