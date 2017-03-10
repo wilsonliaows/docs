@@ -68,7 +68,7 @@ Commands are one way to interact with Workbot. At the same time, you can also as
 
 2. Inviting Workbot to the Channel
 
-  ![Workbot10](/_uploads/Workbot/Workbot/workbot-adding-channel.gif)
+  ![Workbot10](/_uploads/Workbot/workbot/workbot-adding-channel.gif)
 
 3. Send a command to workbot to trun on notifications
   
