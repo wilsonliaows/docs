@@ -86,7 +86,7 @@ Commands are one way to interact with Workbot. At the same time, you can also as
 
   You can also turn off notifications, by using this format: 
   
-  **@workbot appname stop notifications name:\[document] [event]
+  **@workbot appname stop notifications name:\[document] [event]**
   
   Workbot will confirm that it has turned notifications off
 
