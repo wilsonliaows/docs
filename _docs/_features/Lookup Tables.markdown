@@ -56,4 +56,7 @@ Add a new entry to an existing lookup table. Great for reading a data source and
 
 
 ## How to use Lookup Table Formulas
-Now that you have a lookup table set up, you need to configure your recipe to obtain data from one column of the table when data from another column is fed in. To do so, simply use the `lookup` formula. Simply set any field to formula mode, and enter the formula in this format: `Formula help lookup(lookup_table_id_or_name, lookup_by_key_name_value)`
+Now that you have a lookup table set up, you need to configure your recipe to obtain data from one column of the table when data from another column is fed in. To do so, simply use the `lookup` formula. Simply set any field to formula mode, and enter the formula in this format: 
+
+lookup(`table name`,`column name for search`: `data pill`)[`column name for result`]
+
