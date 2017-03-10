@@ -53,3 +53,7 @@ Works similar to lookup, except that it will return all matched entries. It retu
 #### 3. Add entry
 Add a new entry to an existing lookup table. Great for reading a data source and creating a lookup table based on it. E.g. read titles from your HR apps and create a title lookup table.
 ![Lookup7](/_uploads/_features/Lookup Tables/lookup tables 7.gif)
+
+
+## How to use Lookup Table Formulas
+Now that you have a lookup table set up, you need to configure your recipe to obtain data from one column of the table when data from another column is fed in. To do so, simply use the `lookup` formula. Simply set any field to formula mode, and enter the formula in this format: `Formula help lookup(lookup_table_id_or_name, lookup_by_key_name_value)`
