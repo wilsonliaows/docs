@@ -1,5 +1,5 @@
 #Scheduler ![Scheduler Icon](/_uploads/_features/Scheduler/Scheduler Icon.png)
-Workato's Scheduler trigger is convenient for scheduling repeated tasks, and can be used tohelp perform time related commands. 
+Workato's Scheduler trigger is convenient for scheduling repeated tasks, and can be used tohelp perform time related commands.
 
 Two types of Scheduler triggers are provided:
 * New Scheduled event: happens every X intervals (5 minutes, 30 days, etc.)

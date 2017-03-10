@@ -12,7 +12,7 @@
     - Update our documentation
 
 - User accounts and teams
-  - SSO
+  - Single Sign-On
   - Team collaboration
   - Role-based access
   - Audit logs
@@ -68,7 +68,7 @@
   - Recipe Ops
   - Account properties
 - On premise
-- Workflow (people task)
+- Workflow
 - Workbot
 - API gateway
 - Connectors documentation
@@ -108,6 +108,6 @@
 - Recipe Development Life Cycle
   - Model/diagram of the RDLC
   - Sandbox-Production
-- Security and compliance
+- [Security and compliance](https://www.workato.com/security)
 - Data retention
 - Scalability and performance
