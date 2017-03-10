@@ -60,40 +60,37 @@ As shown from above, Workbot will check to see if the **Account** already exists
 
 
 ## Setting Up Notifications
-Commands are one way to interact with Workbot. At the same time, you can also ask it to listen for important stuff and notify you about them. You can invite workbot to any channel and configure the notifications to go to that channel. Here we are creating a new channel to get salesforce notifications and Inviting Workbot to the channel
+Commands are one way to interact with Workbot. At the same time, you can also ask it to listen for important stuff and notify you about them. You can invite workbot to any channel and configure the notifications to go to that channel. Follow the steps below to set up notifications in your channel for specific recipes
 
-Selecting the Channel for Workbot
+1. Selecting the Channel for Workbot
 
-![Workbot9](/_uploads/Workbot/Workbot/Workbot 9.png)
+  ![Workbot9](/_uploads/Workbot/Workbot/Workbot 9.png)
 
-Inviting Workbot to the Channel
+2. Inviting Workbot to the Channel
 
-![Workbot10](/_uploads/Workbot/Workbot/Workbot 10.png)
+  ![Workbot10](/_uploads/Workbot/Workbot/Workbot 10.png)
 
-Now Workbot is part of the channel. To check what tofications are available, simply send workbot this "@workbot notifications"
+3. Send a command to workbot to trun on notifications
+  The command should follow this format: @workbot appname start notifications name:\[document] [event]
+  If the recipe is not connected it will not be able to turn it on
 
-![Workbot12](/_uploads/Workbot/Workbot/Workbot 11.png)
+  ![Workbot15](/_uploads/Workbot/workbot/Workbot 17.png)
 
-To turn on notifications, you just need to say "@workbot notifications [appname] on"
-If the App is not connected it will not be able to turn it on
+  But if it is connected, it will confirm that it turned it on
 
-![Workbot15](/_uploads/Workbot/workbot/Workbot 17.png)
+  ![Workbot12](/_uploads/Workbot/Workbot/Workbot 12.png)
 
-But if it is connected, it will confirm that it turned it on
+  And send you the notifications on this channel
 
-![Workbot12](/_uploads/Workbot/Workbot/Workbot 12.png)
+  ![Workbot13](/_uploads/Workbot/Workbot/Workbot 13.png)
 
-And send you the notifications on this channel
+  You can also turn off notifications
 
-![Workbot13](/_uploads/Workbot/Workbot/Workbot 13.png)
+  ![Workbot14](/_uploads/Workbot/Workbot/Workbot 14.png)
 
-You can also turn off notifications
+  Workbot will confirm that it has turned notifications off
 
-![Workbot14](/_uploads/Workbot/Workbot/Workbot 14.png)
-
-Workbot will confirm that it has turned notifications off
-
-![Workbot15](/_uploads/Workbot/Workbot/Workbot 15.png)
+  ![Workbot15](/_uploads/Workbot/Workbot/Workbot 15.png)
 
 ### Things To Note
 
