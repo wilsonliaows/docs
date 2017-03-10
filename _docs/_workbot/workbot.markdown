@@ -64,33 +64,33 @@ Commands are one way to interact with Workbot. At the same time, you can also as
 
 1. Selecting the Channel for Workbot
 
-  ![Workbot9](/_uploads/Workbot/Workbot/Workbot 9.png)
+![Workbot9](/_uploads/Workbot/Workbot/Workbot 9.png)
 
 2. Inviting Workbot to the Channel
 
-  ![Workbot10](/_uploads/Workbot/workbot/workbot-adding-channel.gif)
+![Workbot10](/_uploads/Workbot/workbot/workbot-adding-channel.gif)
 
 3. Send a command to workbot to trun on notifications
   
-  The command should follow this format: 
+The command should follow this format: 
   
-  **@workbot appname start notifications name:\[document] [event]**
+**@workbot appname start notifications name:\[document] [event]**
   
-  If the recipe is not started, you will not be able to turn on notifications. But if it is connected, it will confirm that notifications is turned on.
+If the recipe is not started, you will not be able to turn on notifications. But if it is connected, it will confirm that notifications is turned on.
 
-  ![Workbot12](/_uploads/Workbot/Workbot/Workbot 12.png)
+![Workbot12](/_uploads/Workbot/Workbot/Workbot 12.png)
 
-  And send you the notifications on this channel
+And send you the notifications on this channel
 
-  ![Workbot13](/_uploads/Workbot/Workbot/Workbot 13.png)
+![Workbot13](/_uploads/Workbot/Workbot/Workbot 13.png)
 
- 4. You can also turn off notifications, by using this format: 
+4. You can also turn off notifications, by using this format: 
   
-  **@workbot appname stop notifications name:\[document] [event]**
+**@workbot appname stop notifications name:\[document] [event]**
   
-  Workbot will confirm that it has turned notifications off
+Workbot will confirm that it has turned notifications off
 
-  ![Workbot15](/_uploads/Workbot/Workbot/Workbot 15.png)
+![Workbot15](/_uploads/Workbot/Workbot/Workbot 15.png)
 
 ### Things To Note
 
