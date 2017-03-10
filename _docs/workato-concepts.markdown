@@ -7,14 +7,22 @@ date: 2017-03-08 18:00:00 Z
 There are some Workato terminology that you might hear being punted around all the time. The core concepts and basic building blocks of Workato you'd need to know in order to understand most of the following documentation are covered briefly in this section.
 
 # Recipes
-Recipes are automated workflows built by users that can span across multiple apps, e.g. moving new Salesforce accounts into Zendesk as new organizations. Each recipe comprises of a trigger and one or more actions that are carried out when a trigger event comes in.
+Recipes are automated workflows built by users that can span across multiple apps, e.g. moving new Salesforce accounts into Zendesk as new organizations. Each recipe comprises of a trigger and one or more actions that are carried out when a trigger event is picked up.
 
-When recipes are started and become active, they will run automatically in the background to listen to trigger events and carry out recipe actions. When they are stopped and become inactive, they will not listen to trigger events anymore.
+When recipes are started and become active, they will run automatically in the background to listen to trigger events and carry out recipe actions. When they are stopped and become inactive, they will cease listening to trigger events.
+
+However, when a recipe is started again, it usually picks up all the trigger events it had not processed, from since the recipe was stopped till when the recipe was started again. Hence, any recipe restarted from a stopped state will resume from the point in time it was stopped.
+
+All recipes have a unique ID that identifies it.
+
+![Recipe ID](/_uploads/workato-concepts/recipe-id.png)
+
+*Recipe IDs can be viewed from the URL on the recipe page*
 
 ## Example of a recipe
-The following is a simple recipe with one trigger and one action. The scenario is to move new Salesforce customers (known in Salesforce as account) into Zendesk as customers (known as organization).
+The following is a simple recipe with one trigger and one action. The scenario is to move new Salesforce customers (known in Salesforce as accounts) into Zendesk as customers (known in Zendesk as organizations).
 
-The trigger is **New Salesforce account** - meaning that the recipe will trigger whenever a new Salesforce account is created within the connected Salesforce organization. The action is **Create Zendesk organization**, meaning that a Zendesk organization will be created whenever a trigger event occurs (when a new account is created in Salesforce).
+The trigger is **New Salesforce account** - this means that the recipe will trigger whenever a new Salesforce account is created within the connected Salesforce organization. The action is **Create Zendesk organization** - this means that a Zendesk organization will be created whenever a trigger event occurs (when a new account is created in Salesforce).
 
 ![Example recipe](/_uploads/workato-concepts/example-recipe.png)
 
@@ -79,7 +87,7 @@ The following is an expanded view of the **Create Zendesk organization** action.
 *Input fields for the action Create Zendesk organization*
 
 ### Mapping variables
-The variable **Account name** has been mapped to the **Name** input field. This means that for every new Salesforce account that is created, the account name of this Salesforce account will be used as the organization name of the Zendesk organization that will be created. For example, a new Salesforce account named **Sattei Winery** will in turn create a Zendesk organizatio named **Sattei Winery**.
+The variable **Account name** has been mapped to the **Name** input field. This means that for every new Salesforce account that is created, the account name of this Salesforce account will be used as the organization name of the Zendesk organization that will be created. For example, a new Salesforce account named **Sattei Winery** will in turn create a Zendesk organization named **Sattei Winery**.
 
 ![Input field with variable mapping](/_uploads/workato-concepts/input-field-with-variable.png)
 
@@ -99,7 +107,11 @@ Here's an example of the new Zendesk organization created via the above mapping:
 *Newly created Zendesk organization Sattei Winery*
 
 # Connections
-For a recipe to communicate with your apps to read or write to them, it has to be connected to these apps. Custom data from the apps like custom fields and sample data may not be visible if a connection has not been established. Connections are not tied to a recipe - a single connection can be used by multiple recipes.
+For a recipe to communicate with apps to read or write to them, it has to be connected to these apps. Custom data from the apps like custom fields and sample data in the datatree may not be visible if a connection has not been established. Connections are not tied to a recipe - a single connection can be used by multiple recipes.
+
+![Connections](/_uploads/workato-concepts/connections.png)
+
+*Salesforce and Zendesk connections from the recipe view*
 
 # Jobs history
 The job history gives a high-level summary of the trigger events processed by the recipe. The entire flow of each trigger event through the recipe is called a job.
@@ -111,7 +123,7 @@ Information such as date and time processed and job IDs, can be found here. From
 *Jobs history summary page*
 
 # Job details page
-The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe.
+The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe. This page is useful for troubleshooting recipes as users are able to view the data passed into each step and the resultant output returned after each step was executed.
 
 [![https://gyazo.com/743ba03c8314a319bb15dba0bdeff35c](https://i.gyazo.com/743ba03c8314a319bb15dba0bdeff35c.gif)](https://gyazo.com/743ba03c8314a319bb15dba0bdeff35c)
 
