@@ -84,7 +84,7 @@ Commands are one way to interact with Workbot. At the same time, you can also as
 
   ![Workbot13](/_uploads/Workbot/Workbot/Workbot 13.png)
 
-  4. You can also turn off notifications, by using this format: 
+ 4. You can also turn off notifications, by using this format: 
   
   **@workbot appname stop notifications name:\[document] [event]**
   
