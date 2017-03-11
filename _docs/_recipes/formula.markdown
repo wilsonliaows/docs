@@ -53,7 +53,7 @@ In the examples below, we will look at some of the methods that can be used to m
 | lstrip | This function (left strip) removes the white space at the beginning of the input string. | 'Jean Marie'.lstrip | "Jean Marie" | 
 | rstrip | This function (right strip) removes the white space at the end of the input string. | 'Jean Marie'.rstrip | " Jean Marie" |
 | strip | This function removes the white space at the beginning and the end of the input string. | 'Jean Marie'.strip | "Jean Marie" |
-| strip | strip is equivalent to using both right and left strip on an input string. | 'Jean Marie'.rstrip.lstrip | "Jean Marie" |
+| strip | strip is also equivalent to using both right and left strip on an input string. | 'Jean Marie'.rstrip.lstrip | "Jean Marie" |
 | length | This function returns the number of characters within an input string, including the white-spaces. | 'Jean Marie'.length | 11 |
 | reverse | This function inverts a string, reordering the characters in a backward manner. | 'Jean Marie'.reverse | "eiraM naeJ" |
 | gsub | This function replaces all occurrence of the first input value, with the second input value, within the string. | 'Jean Marie'.gsub('J', 'M') | "Mean Marie" |
