@@ -38,7 +38,7 @@ In the examples below, we will look at some of the methods that can be used to m
 
 
 | Formula | Description | Sample Usage | Sample Output 
-| ------------- | ------------- | ------------- | ------------- |
+| ------------- | -------------------- | ------------- | ------------- |
 | blank? | This function checks the input string and returns true if it does not contain any value. |'Jean Marie'.blank? | false | 
 
 include? 
