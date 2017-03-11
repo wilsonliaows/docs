@@ -34,7 +34,7 @@ This can be used to get the time at which a certain step was performed, and can 
 ### Wait
 The wait action enables a recipe wait for a set amount of time between steps. This is especially useful to ensure a recipe is using the most updated data in your mapping. 
 
-## How to use Scheduler to test recipe
+## How to use Scheduler to test recipes
 
-You can use scheduler to test recipe actions. This is useful when you want to determine which action in a recipe is causing problems as you don't need to keep repeating a trigger event. Simply create a recipe with the trigger as scheduler, and set up the action(s) that you want to test!
+You can use scheduler to test recipe by using it as a dummy trigger or dummy action. This is useful when you want to determine which action in a recipe is causing problems as you don't need to keep repeating a trigger event (e.g. creating a new salesforce lead over and over). Simply create a recipe with the trigger as scheduler, and set up the action(s) that you want to test. Alternatively, if you need to test if a trigger is working properly, you can use scheduler as a dummy action so that the recipe can be started.
 
