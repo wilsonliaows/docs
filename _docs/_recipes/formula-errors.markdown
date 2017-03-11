@@ -29,7 +29,7 @@ Formula runtime error is slightly trickier to troubleshoot. In these cases, the 
 #### Example 1: Formula received a nil value
 
 ##### Identifying the Error  
-  Formula runtime errors are not as straightforward to identify as compilation errors. Instead, they are discovered to be present when a recipe error is encountered and when looking through the job report. 
+- Formula runtime errors are not as straightforward to identify as compilation errors. Instead, they are discovered to be present when a recipe error is encountered and when looking through the job report. 
 
 ![Formula Runtime Error](/_uploads/formula-errors/formula_error_gif_1.gif)
 Taking a look at the GIF above, the identified error is:
