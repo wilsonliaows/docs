@@ -36,10 +36,10 @@ That will be the manner which we shall group and elaborate on the list of availa
 Workato formula mode supports many String functions. These are very useful for advanced users, especially when used in conjunction with each other.
 In the examples below, we will look at some of the methods that can be used to manipulate a string of text, which in this case the input string is 'Jean Marie'.
 
-blank? 
-This function checks the input string and returns true if it does not contain any value.
-'Jean Marie'.blank? 
-=> false
+
+| Formula | Description | Sample Usage | Sample Output 
+| ------------- | ------------- | ------------- | ------------- |
+| blank? | This function checks the input string and returns true if it does not contain any value. | 'Jean Marie'.blank? | false | 
 
 include? 
 This function checks the input string and returns true if it contains the stated keyword.
