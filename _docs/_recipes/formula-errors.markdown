@@ -26,10 +26,8 @@ In some cases, you might have accidentally turned on the formula mode field with
 ### Formula Runtime Error
 Formula runtime error is slightly trickier to troubleshoot. In these cases, the formula functions in the field are spelt correctly, but have most likely been used in an incorrect manner. We will look look at two examples below. 
 
-#### Example 1: Formula received a nil value
-
-##### Identifying the Error  
-- Formula runtime errors are not as straightforward to identify as compilation errors. Instead, they are discovered to be present when a recipe error is encountered and when looking through the job report. 
+#### Identifying the Error (Example 1: Formula received a nil value)
+Formula runtime errors are not as straightforward to identify as compilation errors. Instead, they are discovered to be present when a recipe error is encountered and when looking through the job report. 
 
 ![Formula Runtime Error](/_uploads/formula-errors/formula_error_gif_1.gif)
 Taking a look at the GIF above, the identified error is:
@@ -37,7 +35,7 @@ Taking a look at the GIF above, the identified error is:
 
 YOu can see that the error description suggests the Formula function has failed because it receives an unexpected value. In other words, it implies that in one of the step's field, there lies a wrong use of a formula function that has caused the recipe to fail.
 
-##### Troubleshooting the Error
+#### Troubleshooting the Error
 
 When heading the recipe step, the recipe field shows two data pills concatenated between two strings. By taking a look at the data pills, it suggests that both data pills are empty for this particular record, and caused the formula mode to fail.
 
@@ -47,9 +45,7 @@ To fix this case, we need to ensure that the formula field always return a value
 
 In short, the most important thing would be to figure out if the formula function is used correctly.
 
-#### Example 2: No Method Error
-
-##### Identifying the Error  
+##### Identifying the Error (Example 2: No Method Error)
 Again, looking through the job report will allow you to take a look at the recipe error. The no method error is another obvious keyword that highlights a formula error. 
 
 ![Formula Error 3](/_uploads/formula-errors/formula_error_3.png)
