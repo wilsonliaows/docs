@@ -17,7 +17,7 @@ Your recipe may be in an infinite loop if:
   
   * You find that your recipe is triggered when there are **no new trigger events** in your applications
   
-  * There are many **duplicates** of a similar object in your application that was created by a recipe
+  * There are many **duplicates** of an object in your application that was created by a recipe
 
 ## How to prevent infinite loops
 
