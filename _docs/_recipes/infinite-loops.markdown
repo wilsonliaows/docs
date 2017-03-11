@@ -1,6 +1,8 @@
 # Infinite Loops
 
 ## What are infinite loops and when do they occur? 
+Infinite loops are logic errors that cause a recipe to run continuously because an action in the recipe is also triggering the recipe again.
+
 Infinite loops occur most commonly when the recipe is performing a **bi-directional** sync (ie. when there is more than 1 application and data moves from Application A to Application B and back to A) 
 
 The example below shows how an infinite loop may occur: 
