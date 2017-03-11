@@ -45,7 +45,7 @@ To fix this case, we need to ensure that the formula field always return a value
 
 In short, the most important thing would be to figure out if the formula function is used correctly.
 
-##### Identifying the Error (Example 2: No Method Error)
+#### Identifying the Error (Example 2: No Method Error)
 Again, looking through the job report will allow you to take a look at the recipe error. The no method error is another obvious keyword that highlights a formula error. 
 
 ![Formula Error 3](/_uploads/formula-errors/formula_error_3.png)
@@ -53,7 +53,7 @@ Again, looking through the job report will allow you to take a look at the recip
 Taking a look at the GIF above, the identified error is:
 <b> NoMethodError: undefined method `include?' for 2:Fixnum</b>
 
-##### Troubleshooting the Error
+#### Troubleshooting the Error
 
 To be able to solve this error, we need to learn more about the .include? formula function. There actually exists such a method in the Workato platform. .include? is useful to determine if a certain data pill contains a certain text. 
 
