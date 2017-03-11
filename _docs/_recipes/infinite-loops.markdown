@@ -13,9 +13,11 @@ Infinite loops may also occur if you have **multiple recipes** running at once a
 
 Your recipe may be in an infinite loop if:
 
-  * You notice an unexpectedly high transaction count that you cannot account for
-  * You find that your recipe is triggered when there are no new trigger events in your applications
-  * There are many duplicates of a similar object in your application that was created by a recipe
+  * You notice an **unexpectedly high transaction count** that you cannot account for
+  
+  * You find that your recipe is triggered when there are **no new trigger events** in your applications
+  
+  * There are many **duplicates** of a similar object in your application that was created by a recipe
 
 ## How to prevent infinite loops
 
