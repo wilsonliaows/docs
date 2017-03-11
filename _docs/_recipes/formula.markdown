@@ -40,12 +40,7 @@ In the examples below, we will look at some of the methods that can be used to m
 | Formula | Description | Example | Sample Output |
 | ------------- | ------------- | ------------- | ------------- |
 | blank? | This function checks the input string and returns true if it does not contain any value. |'Jean Marie'.blank? | false | 
-
-include? 
-This function checks the input string and returns true if it contains the stated keyword.
-'Jean Marie'.include?('Jean') 
-=> true
-
+| include? | This function checks the input string and returns true if it contains the stated keyword. | 'Jean Marie'.include?('Jean') |true |
 exclude? 
 This function acts in an opposite manner from include?. It will return true only if the input string does NOT contain the stated keyword.
 'Jean Marie'.exclude?('Jean') 
