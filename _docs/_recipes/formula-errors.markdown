@@ -14,7 +14,7 @@ There are two types of formula errors - Formula Compilation Error and Formula Ru
 Formula compilation error occurs when you have used formula mode within one of your fields in a recipe, but have most likely mispelled the formula function.
 
 #### Identifying the Error  
-You will identify that formula compilation error has occured when trying to to test or start the recipe. Workato prevents you from doing so and instead indicates that there is a formula error, and mentions which line in the recipe the error originates from. 
+  You will identify that formula compilation error has occured when trying to to test or start the recipe. Workato prevents you from doing so and instead indicates that there is a formula error, and mentions which line in the recipe the error originates from. 
 In the example below, there is no such formula function as <b>.nosuchformula</b>, and the recipe is prevented from being started. 
 
 ![Formula Compilation Error](/_uploads/formula-errors/compilation_formula_error.png)
