@@ -31,10 +31,15 @@ Formula runtime errors are not as straightforward to identify as compilation err
 
 ![Formula Runtime Error](/_uploads/formula-errors/formula_error_gif_1.gif)
 Taking a look at the GIF above, the identified error is:
+<b> Error calculating input for field 'title': Formula received a nil value: undefined method '+' for nil:NilClass</b>
 
-Exception: Error calculating input for field 'title': Formula received a nil value: undefined method '+' for nil:NilClass
+YOu can see that the error description suggests the Formula function has failed because it receives an unexpected value.
 
-What this implies is that in one of the step's field, there lies a formula mode value that has caused the recipe to fail. Most of the time this happens when you tried to have normal strings and selective data pills (This OR that) together.
-
+In other words, it implie that in one of the step's field, there lies a formula mode value that has caused the recipe to fail. Most of the time this happens when you tried to have normal strings and selective data pills (This OR that) together.
 
 #### Troubleshooting the Error
+
+
+When I go the step, I see that I am using a two data pills concatenated between two strings (A string is a normal sentence that is embodied within a double or single quotes in formula mode. Strings cannot be used for value, date, or boolean comparison, but can only be treated literary). By taking a look at the data pills, it may be that both data pills are empty for this particular record, and causes the formula mode to fail.
+
+
