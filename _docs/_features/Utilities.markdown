@@ -37,8 +37,13 @@ Using this action allows you to use data from two columns in a list to create a 
 ## Generate pie chart
 Using this action allows you to use data from two columns (name and values) in a list to create a pie chart to help visualize and analyze data better. 
 
-![piechart](uploads/_features/Utilities/utilities-piechart.png)
+![piechart](/_uploads/_features/Utilities/utilities-piechart.png)
 
 ## Link two objects
-Linking two objects allows you to associate an object from one app with another, and allows you to cme back to this connection in another recipe. Some simple coonnections includes a salesforce account ID with a Zendesk ticket ID, for easy tracking.
+Linking two objects allows you to associate one object to another, and allows you to cme back to this connection in another recipe. Some simple coonnections includes a Salesforce account ID with a Zendesk ticket ID, for easy tracking. 
 
+![linkobject](/_uploads/_features/Utilities/utilities-linkobject.png)
+
+To come back to this connection in another recipe, use the **Get linked object** action under **Utilities**, select the object which exists in some part of the new recipe, and select which linked object you need. 
+
+![linkobject](/_uploads/_features/Utilities/utilities-getlinkobject.png)
