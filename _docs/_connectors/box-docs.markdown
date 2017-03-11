@@ -8,7 +8,7 @@ date: 2017-02-21 12:00:00 Z
 ## Connector information
 
 ### API version
-The Box connector uses #(KIV). 
+The Box connector uses [Box Rest API](https://docs.box.com/reference#cors). 
 
 ### Supported editions and versions
 The Box connector works with all Box Plans - Individual, Business, Platform. 
