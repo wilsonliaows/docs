@@ -30,10 +30,14 @@ Downloading a file in a recipe allows you to use that file later in the recipe, 
 In the Download file from URL section, you can provide a static URL if you intend to upload the same file to multiple places, (e.g. as an attachment to all Accounts in Salesforce) or provide a dynamic URL by using a URL pill obtained from a previous step output. You may also choose if you want your download file content to be encoded using base64. 
 
 ## Generate column chart 
-Using this action allows you to use data from two columns in a list to create a column chart to help visualize and analyze data better. 
+Using this action allows you to use data from two columns in a list to create a column chart to help visualize and analyze data better. Select a list from your recipe's app data, followed by 2 columns from the list. The X-axis should contain the independant value, while the Y axis contains the dependant value. 
+
+![chart](/_uploads/_features/Utilities/utilities-chart.png)
 
 ## Generate pie chart
 Using this action allows you to use data from two columns (name and values) in a list to create a pie chart to help visualize and analyze data better. 
+
+![piechart](uploads/_features/Utilities/utilities-piechart.png)
 
 ## Link two objects
 Linking two objects allows you to associate an object from one app with another, and allows you to cme back to this connection in another recipe. Some simple coonnections includes a salesforce account ID with a Zendesk ticket ID, for easy tracking.
