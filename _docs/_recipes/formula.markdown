@@ -37,7 +37,7 @@ Workato formula mode supports many String functions. These are very useful for a
 In the examples below, we will look at some of the methods that can be used to manipulate a string of text, which in this case the input string is 'Jean Marie'.
 
 
-| Formula | Description | Sample Usage | Sample Output |
+| Formula | Description | Example | Sample Output |
 | ------------- | ------------- | ------------- | ------------- |
 | blank? | This function checks the input string and returns true if it does not contain any value. |'Jean Marie'.blank? | false | 
 
