@@ -4,8 +4,16 @@
 Infinite loops occur most commonly when the recipe is performing a **bi-directional** sync (ie. when there is more than 1 application and data moves from Application A to Application B and back to A) 
 
 The example below shows how an infinite loop may occur: 
+
 [image]
-The trigger picks up any New or Updated information in Salesforce.
+
+The trigger picks up any New or Updated information in Salesforce. 
+
+In the final step, the recipe is configured to update the same object with information from QuickBooks.
+[image]
+
+Because of this update step, 
+
 
 Infinite loops may also occur if you have **multiple recipes** running at once and a similar issue occurs where one recipe is updating another that is triggered by an update in an object.
 
