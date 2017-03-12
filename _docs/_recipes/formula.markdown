@@ -160,3 +160,15 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 
 ### Others
 
+#### Processing Lists 
+When you have a List (a type of Array) returned to you, you may only want specific sets of information. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. 
+
+(Array Image)
+
+Formulas to manipulate Lists/Arrays:
+If you would like to retrieve the account records based on a specific filter condition (e.g. only those which are Active), you can use the where function on the (Accounts) list pill. 
+If you would like to extract certain field values from each account record (e.g. only the Name pills from the list of account records), you can use the pluck function on the (Accounts) list pill. 
+
+Formatting the Results:
+Do note that using the where or pluck function on the (Accounts) list pill will still return the results in the form of an Array. However, arrays cannot usually be used directly in text fields. You can use additional formulas that convert Arrays into Strings to format the results correctly. Some formulas you can use to do this are: join, smart_join, and to_s. See list of common formulas for help using these functions.
+
