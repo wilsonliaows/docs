@@ -57,7 +57,7 @@ First, got to the recipe page and look under the Description tab. Under the tab,
  Click on a version that you would like to revert to or just take a look at, and you see a page with the details of that version of the recipe.
    ![version_control_3](/_uploads/building-best-practices/version_control_3.png)
    
- Once you are satisfied that this is the version that you want to revert to, click on the ![restore_version](/_uploads/building-best-practices/restore_button.png)button and voila! You have reverted your recipe to a previous version!
+ Once you are satisfied that this is the version that you want to revert to, click on the ![restore_version](/_uploads/building-best-practices/restore_button.png) button and voila! You have reverted your recipe to a previous version!
  
  
  
