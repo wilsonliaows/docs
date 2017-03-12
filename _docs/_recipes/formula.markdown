@@ -137,7 +137,7 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 | to_f | This function can be used on a number to retain its decimal values. | 45.67.to_f | 45.67 |
 | to_s | This function converts a number into a string. | 45.67.to_f | "45.67" |
 | round | This function will round up or down a number to the nearest integer. | 45,67.round | 46 |
-| By adding brackets with a number within it, it will round the number to a float with that number of decimal places. | 45.6789.round(2) | 45.68 | 
+| round | By adding brackets with a number within it, it will round the number to a float with that number of decimal places. | 45.6789.round(2) | 45.68 | 
 | to_currency | This function converts a number into a currency string. | 456789.123.to_currency | $456,789.12 |
 | to_currency | By adding a parameter with a precision: number within it, it will round the number to a currency string with the stated number of decimal places. | 456789.123.to_currency(Precision: 3) | $456,789.123 | 
 | to_currency | By adding a parameter with a locale and country code, it will add the appropriate currency symbol. | 456789.123.to_currency(locale: fr) | 456,789.12 € |
