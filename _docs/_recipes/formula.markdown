@@ -70,6 +70,7 @@ Dates are quite common elements in data structures. Sometimes the date may not b
 | present? | Check to see if a date is present | '2015/04/20'.to_date.present? | true | 
 | blank? | Check to see if date field is blank | '2015/04/20'.to_date.blank? | false | 
 
+#### Date Arithmetics
 We can also make use of certain keywords such as <b> days, months and years </b> to perform date arithmetics to manipulate dates. The table below shows some exmaples of manipulating dates. 
 
 | Date Arithmetic | Output |
