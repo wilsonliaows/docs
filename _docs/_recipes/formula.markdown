@@ -25,7 +25,18 @@ Formula mode accepts operators and methods to transform the data in the input fi
 
 ![formula_list](/_uploads/formula-docs/formula_list.png)
 
-## Ruby Ternary Syntax in Formula Mode
+## Using Ruby ternary syntax in Formula mode
+When we are mapping data, sometimes we find that some data may not be available and it can lead to the recipe failing. In the example below the invoice date is mapped from a field called 'Date' and the value for Date is not always guaranteed to be there. To take care of this, you go into formula mode, by clicking on fx and key in something like the inputs below.. 
+
+![ternary syntax](/_uploads/formula-docs/check_input_date.png)
+
+What is it doing?
+
+1. "Date.blank?" is checking to see if the Date is blank.
+2. The next ? represents the result of the check. If it is true, or false
+3. The next step 'Job created at' : 'Date' specifies what to do if the result was true or false. 
+    For example if it is blank, use 'Job created at' for the value, and if it is not blank use 'Date'
+Note: If the data in the pill used after ? is also blank (in the above example [Job created at]), you will get an error as well. 
 
 
 ## Glossary of formulas
@@ -67,7 +78,7 @@ Dates are quite common elements in data structures. Sometimes the date may not b
 | now | puts todays date and current time | - | - |
 | today | puts todays date | - | - | 
 | to_date | Converts a string to date | '2015/04/20'.to_date | Mon, 20 Apr 2015 |
-| to_date(format:'MM/DD/YYYY') | Converts a formatted string to date in the stated format. Refer to [this](http://apidock.com/ruby/DateTime/strftime) for more formats | '04/20/2015'.to_date(format: 'MM/DD/YYYY') | 04/20/2015 |
+| to_date(format:'MM/DD/YYYY') | Converts a formatted string to date in the stated format. Refer [here](http://apidock.com/ruby/DateTime/strftime) for more date formats | '04/20/2015'.to_date(format: 'MM/DD/YYYY') | 04/20/2015 |
 | present? | Check to see if a date is present | '2015/04/20'.to_date.present? | true | 
 | blank? | Check to see if date field is blank | '2015/04/20'.to_date.blank? | false | 
 
@@ -123,8 +134,6 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 | * | Multiplication - Multiplies values on either side of the operator | Amount * Qty | 225 |
 | / |Division - Divides left hand operand by right hand operand | Amount / Qty | 9 |
 | % |Modulus - Divides left hand operand by right hand operand and returns remainder | Amount % Qty | 0 |
-
-
 
 #### Formulas used on Numbers
 
