@@ -73,4 +73,25 @@ Click on start to start the recipe. You are done. If there are any errors you wi
 ### 7. Monitor 
 If you want to you can monitor the recipe periodically to see if there are any errors that you had not taken care of. You can do this on the 'My recipes page' that shows the active recipes and the failed and successful job counts.
  
- 
+## Adding Descriptions and Comments on your Recipes
+We like recipe builders to describe their recipes well. This is because we built Workato as a community for building and sharing recipes and we want to make the recipes easy for sharing. When someone else is looking at your recipe, they will see the definition on top and decide if they want to look further down or not. We suggest the following format for describing the recipes, with a real example. The ### indicates that it is a Header 3, a ##### will be a header 5 and so on. The description text supports markdown, which allows for better display formatting, details can be found by clicking on this link.
+
+Recipe description
+Eventbrite manages your event tickets for you and Salesforce manages your contacts and accounts. When a new registrant signs up in Eventbrite, send the contact over to Salesforce and if there is an associated account attach a note to it.
+
+### How it works
+ Trigger: When registration in Eventbrite
+
+ Actions:
+ - Create contact in Salesforce
+
+### Customization Options
+ You can send emails out. You can check to see if the contact already exist.
+
+### What you need to use this recipe
+ No special setup or customization is required to run this recipe. You should have an Eventbrite and a Salesforce account that is enabled for API. Add your credentials in the connections section if you are not already connected to the apps.
+
+Comments:
+We also recommend adding comments to your recipe steps, especially if the steps are not obvious. To attach comments, you click on the comment button, that is the first button on the right hand set of buttons/icons. If you click on it, a Comment window opens up underneath.
+
+How to Add a Description or Comment: 
