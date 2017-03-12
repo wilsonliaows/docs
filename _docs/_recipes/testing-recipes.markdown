@@ -1,4 +1,4 @@
-# Testing recipes
+# Testing Recipes
 
 ## Why is testing recipes necessary?
 Testing recipes is a good practice. Workato is moving data and information from one business app to the other via the workflow described in recipes. Testing these workflows is critical to ensure that the information entered into the apps by Workato is accurate and does not include bad data. 
