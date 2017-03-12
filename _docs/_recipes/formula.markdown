@@ -28,7 +28,7 @@ Formula mode accepts operators and methods to transform the data in the input fi
 ## Using Ruby ternary syntax in Formula mode to perform conditional statements
 When your field is toggled into formula mode, you can make use of ternary syntax from Ruby to perform conditional (if-else) statements. This allows you to use certain data pills under a certain condition, else use a different data pill.
 
-In the example below the invoice date is mapped from a field called 'Date' and is involved in a conditional statement written in ternary syntax. For more guidance on what ternary syntax in Ruby is, click [here](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
+In the example below the invoice date is mapped from a field called 'Date' and is involved in a conditional statement written in ternary syntax. For more information on what ternary syntax in Ruby is, click [here](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
 
 ![ternary syntax](/_uploads/formula-docs/check_input_date.png)
 
