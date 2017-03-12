@@ -87,11 +87,18 @@ Now, if the data pill "Company" does not have any value, it will use the value t
 To find information on the errors you are facing, simply run a search on our helpdesk with keywords of the error such as the source and details. If you don't find anything, you can simply ping us on livechat and we will do our best to assist you.
 
 # Trigger Warnings
-## What are Trigger Warnings? 
+## What are Trigger Warnings?
+
+  ![consecerror](/_uploads/startstop/consecerror.png)
 
 ## What is the difference between a job error and a trigger warning? 
 
 ## How to resolve trigger warnings
+
+Resolving trigger warnings depend on the type of error in the warning. The most common trigger warnings are as follows:
+
+1.   ![consecerror](/_uploads/startstop/consecerror.png)
+
 
 # Mapping Errors
 
