@@ -59,6 +59,28 @@ In the examples below, we will look at some of the methods that can be used to m
 | gsub | This function replaces all occurrence of the first input value, with the second input value, within the string. | 'Jean Marie'.gsub('J', 'M') | "Mean Marie" |
 
 ### Date Formulas
+Dates are quite common elements in data structures. Sometimes the date may not be in the right format, for example it may be sent as a string. Here are some common operators or functions to manipulate dates
+
+| Formula | Description | Example | Sample Output |
+| ------------- | ------------- | ------------- | ------------- |
+| now | puts todays date and current time | - | - |
+| today | puts todays date | - | - | 
+| to_date | Converts a string to date | '2015/04/20'.to_date | Mon, 20 Apr 2015 |
+| to_date(format:'MM/DD/YYYY') | Converts a formatted string to date in the stated format | '04/20/2015'.to_date(format: 'MM/DD/YYYY') | 04/20/2015 |
+| present? | Check to see if a date is present | '2015/04/20'.to_date.present? | true | 
+| blank? | Check to see if date field is blank | '2015/04/20'.to_date.blank? | false | 
+
+We can also make use of certain keywords such as <b> days, months and years </b> to perform date arithmetics to manipulate dates. The table below shows some exmaples of manipulating dates. 
+
+| Date Arithmetic | Output | 
+| '2015/04/20'.to_date + 2.days | Wed, 22 Apr 2015 |
+| '2015/04/20'.to_date - 2.days | Sat, 18 Apr 2015 |
+| '2015/04/20'.to_date + 2.weeks | Mon, 04 May 2015 |
+| '2015/04/20'.to_date - 2.weeks | Mon, 06 Apr 2015 |
+| '2015/04/20'.to_date + 2.months | Sat, 20 Jun 2015 |
+| '2015/04/20'.to_date - 2.months | Fri, 20 Feb 2015 |
+| '2015/04/20'.to_date + 2.years | Thu, 20 Apr 2017 |
+| '2015/04/20'.to_date - 2.years | Sat, 20 Apr 2013 |
 
 ### Number Formulas
 
