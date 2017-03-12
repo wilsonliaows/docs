@@ -25,19 +25,20 @@ Formula mode accepts operators and methods to transform the data in the input fi
 
 ![formula_list](/_uploads/formula-docs/formula_list.png)
 
-## Using Ruby ternary syntax in Formula mode
-When we are mapping data, sometimes we find that some data may not be available and it can lead to the recipe failing. In the example below the invoice date is mapped from a field called 'Date' and the value for Date is not always guaranteed to be there. To take care of this, you go into formula mode, by clicking on fx and key in something like the inputs below.. 
+## Using Ruby ternary syntax in Formula mode to perform conditional statements
+When your field is toggled into formula mode, you can make use of ternary syntax from Ruby to perform conditional (if-else) statements. This allows you to use certain data pills under a certain condition, else use a different data pill.
+
+In the example below the invoice date is mapped from a field called 'Date' and is involved in a conditional statement written in ternary syntax. For more guidance on what ternary syntax in Ruby is, click [here](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
 
 ![ternary syntax](/_uploads/formula-docs/check_input_date.png)
 
-What is it doing?
+<u>What is it doing?</u>
 
 1. "Date.blank?" is checking to see if the Date is blank.
 2. The next ? represents the result of the check. If it is true, or false
 3. The next step 'Job created at' : 'Date' specifies what to do if the result was true or false. 
     For example if it is blank, use 'Job created at' for the value, and if it is not blank use 'Date'
 Note: If the data in the pill used after ? is also blank (in the above example [Job created at]), you will get an error as well. 
-
 
 ## Glossary of formulas
 You will find that there are formulas that can be used on data pills of different data type - String, Dates, Numbers, Others. 
