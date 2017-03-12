@@ -84,6 +84,10 @@ We can also make use of certain keywords such as <b> days, months and years </b>
 | '2015/04/20'.to_date + 2.years | Thu, 20 Apr 2017 |
 | '2015/04/20'.to_date - 2.years | Sat, 20 Apr 2013 |
 
+Note: You may also do the same for minutes and seconds. 
+
+#### Getting First/Last days of the month
+
 ### Number Formulas
 
 ### OThers
