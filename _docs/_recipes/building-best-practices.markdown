@@ -16,5 +16,12 @@ When attempting to build a rather complicated recipe, we recommend building it i
   - Should it be based on created/updated, or just created?
 
  I start the recipe with nothing but the trigger followed by a clock action. The clock action is just a dummy action. When I test this recipe, it will get a current time. This way, I can check whether the tested output is the desired result that I wish. I am able to do all this without updating records in any of my connected apps.
+ 
+ ![iterative_tip_1](/_uploads/building-best-practices/iterative_tip_1.png)
 
-
+ 2. Check your conditional actions
+ You can now add a few more steps to make sure which condition would be the best choice, I use clock, email, or Slack in place of the real actions to capture the data mappings that will eventually be there..The reason for adding these notification steps here is that conditional steps do not show up in the log, hence we need to add different actions for different conditions to know if the conditions are correct.
+ 
+ ![iterative_tip_2](/_uploads/building-best-practices/iterative_tip_2..png)
+ 
+ 
