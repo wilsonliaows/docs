@@ -5,7 +5,7 @@ Workato recipes call the applications you have connected at fixed intervals of t
 
 ## Polling Cycles Explained
 
-For recipes on a polling cycle, Workato uses two date/time fields (i.e. **Created Date** and **Last Modified** ) in your record to determine if the record was newly created or updated.
+For recipes on a polling cycle, Workato uses two date/time fields (i.e. **Created Date** and **Last Modified** ) in the object records to determine if the record was newly created or updated.
 
 When checking for **newly created** records, recipes are triggered if two conditions are met:
   * The record was created since the time you specified. Is the "created date" since the "since" parameter?
