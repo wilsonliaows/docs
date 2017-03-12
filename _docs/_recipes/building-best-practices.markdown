@@ -75,10 +75,10 @@ If you want to you can monitor the recipe periodically to see if there are any e
  
 ## Adding Descriptions and Comments on your Recipes
 
-<u>Recipe Descriptions</u>
+### Recipe Descriptions
 We like recipe builders to describe their recipes well. This is because we built Workato as a community for building and sharing recipes and we want to make the recipes easy for sharing. When someone else is looking at your recipe, they will see the definition on top and decide if they want to look further down or not. 
 
-<u>Comments</u>
+### Comments
 We also recommend adding comments to your recipe steps, especially if the steps are not obvious. To attach comments, you click on the comment button, that is the first button on the right hand set of buttons/icons. If you click on it, a Comment window opens up underneath.
 
 To learn how to add comments and descriptions to your recipes, watch this [video](https://youtu.be/gxZoS6foeHw?list=PLC6AmOSfz6sw54nPCW-Gmtb-bNlqDVEz2).
