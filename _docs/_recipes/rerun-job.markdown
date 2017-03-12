@@ -21,6 +21,10 @@ When an error is detected in your recipes, an email will be sent to the Notifica
 
 Thus, rerunning the job is necessary to ensure the job runs to completion as specified in the recipe.
 
+You can view all the errors in the 'Jobs' tab and filtering the report. 
+![actionerror2](/_uploads/_recipes/_actionerror/actionerror-2.gif)
+
+
 #### No fixing of the recipe is required
  
  If you face the following errors, rerun your job and the job should complete: 
