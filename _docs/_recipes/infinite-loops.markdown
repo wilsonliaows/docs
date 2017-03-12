@@ -23,7 +23,7 @@ Infinite loops may also occur if you have **multiple recipes** running at once a
 
 Your recipe may be in an infinite loop if:
 
-  * You notice an **unexpectedly high transaction count** that you cannot account for
+  * You see an **unexpectedly high transaction count** that you cannot account for
   
   * You find that your recipe is triggered when there are **no new trigger events** in your applications
   
@@ -32,7 +32,21 @@ Your recipe may be in an infinite loop if:
 ## How to prevent infinite loops
 
 ### Trigger Filters
+In order to stop the re-triggering of recipes, implement filters in the trigger. An example of how this can be done is as follows:
 
-### Conditional Stops
+
+From the image above, we can see that the action is updating the 'Opportunity' object in Salesforce with the QuickBooks Invoice ID and URL. This update is made to the field:. 
+
+Thus, in the trigger, we want to filter out the jobs that already have an entry in this field. This prevents the job from running again as every job that has been succesfully synced by Workato will populate the field with data. 
+
+The update will be picked up by Workato but not processed as it is filtered out by the trigger filter.
+
 
 ### Best Practices
+
+#### Creating Custom Fields
+Create fields in your application that are meant for identifying jobs synced by Workato. Referring to the above example in 'Trigger Filters', the Next Step field in the Salesforce Opportunity should **always** be empty so that Workato will identify that as a job to be synced over.
+
+Thus, it is not advisable to use a commonly used field like 'Description' for these purposes, as they may be filled in by mistake and cause that job to be filtered out in the trigger. 
+
+Use specific labels like: "Synced by Workato" or "QuickBooks Invoice URL" to prevent mistakes like these from happening.
