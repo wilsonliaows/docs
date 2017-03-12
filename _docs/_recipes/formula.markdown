@@ -123,6 +123,8 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 | / |Division - Divides left hand operand by right hand operand | Amount / Qty | 9 |
 | % |Modulus - Divides left hand operand by right hand operand and returns remainder | Amount % Qty | 0 |
 
+
+
 #### Formulas used on Numbers
 
 | Formula | Description | Example | Sample Output |
