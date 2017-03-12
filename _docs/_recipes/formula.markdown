@@ -27,6 +27,7 @@ Formula mode accepts operators and methods to transform the data in the input fi
 
 ## Ruby Ternary Syntax in Formula Mode
 
+
 ## Glossary of formulas
 You will find that there are formulas that can be used on data pills of different data type - String, Dates, Numbers, Others. 
 That will be the manner which we shall group and elaborate on the list of available formulas. Do note that the glossary list below is in constant update as we frequently add more formulas to accomodate the needs of our users. 
@@ -66,7 +67,7 @@ Dates are quite common elements in data structures. Sometimes the date may not b
 | now | puts todays date and current time | - | - |
 | today | puts todays date | - | - | 
 | to_date | Converts a string to date | '2015/04/20'.to_date | Mon, 20 Apr 2015 |
-| to_date(format:'MM/DD/YYYY') | Converts a formatted string to date in the stated format | '04/20/2015'.to_date(format: 'MM/DD/YYYY') | 04/20/2015 |
+| to_date(format:'MM/DD/YYYY') | Converts a formatted string to date in the stated format. Refer to [this](http://apidock.com/ruby/DateTime/strftime) for more formats | '04/20/2015'.to_date(format: 'MM/DD/YYYY') | 04/20/2015 |
 | present? | Check to see if a date is present | '2015/04/20'.to_date.present? | true | 
 | blank? | Check to see if date field is blank | '2015/04/20'.to_date.blank? | false | 
 
@@ -147,4 +148,5 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 | to_phone | By adding a parameter with extension: number, the formatted phone number will be appended with x number at the end. | 1235551234.to_phone(extension: 555) | 123-555-1234 x 555 |
 | to_phone | By adding a parameter with country_code: number, the formatted phone number will be appending with + number at the beginning. |1235551234.to_phone(country_code: 1) |  +1-123-555-1234 |
 
-### OThers
+### Others
+
