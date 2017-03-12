@@ -7,7 +7,7 @@ date: 2017-02-25 18:00:00 Z
 This section contains additional tips and highlights of best practices for recipe building, 
 
 ## Building your recipe iteratively
-When attempting to build a rather complicated recipe, we recommend building it iteratively, or go by phases Here are a few tips:
+When attempting to build a rather complicated recipe, we recommend building it iteratively, or go by phases Here are 7 tips to follow in sequence:
 
 ### 1. Make sure your trigger works as expected
  Things to check when using a trigger :
