@@ -58,6 +58,19 @@ First, got to the recipe page and look under the Description tab. Under the tab,
    ![version_control_3](/_uploads/building-best-practices/version_control_3.png)
    
  Once you are satisfied that this is the version that you want to revert to, click on the ![restore_version](/_uploads/building-best-practices/restore_button.png) button and voila! You have reverted your recipe to a previous version!
- 
+
+### 5. Cleaning up
+ I keep iteratively building up the recipe, until I get to my perfect recipe. After I am done, I go and cleanup all the temporary recipes I had built that I don't need any more. To delete, you click on the Delete Button underneath the 'Start Recipe' Button.
+![iterative_tip_5](/_uploads/building-best-practices/iterative_tip_5.png)
+
+### 6. Try out the new recipe. 
+At this point will connect to the production system by changing the App connection to point to the production app. I will try out the recipe by changing the since parameter to a very short interval, and add a new record and test it out. I may do this step iteratively too, by updating  the test system first and then change the connections to make the updates to the production system.
+
+The final step is to make a copy of the recipe and change the since parameter to the right interval. You will need to make a copy of the recipe as changing the since parameter to an earlier time does not trigger the recipe to go back before the latest trigger than was made. You may also need to change the connections to your production systems.
+
+Click on start to start the recipe. You are done. If there are any errors you will be notified by email. 
+
+### 7. Monitor 
+If you want to you can monitor the recipe periodically to see if there are any errors that you had not taken care of. You can do this on the 'My recipes page' that shows the active recipes and the failed and successful job counts.
  
  
