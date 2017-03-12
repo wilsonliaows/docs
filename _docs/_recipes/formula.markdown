@@ -84,9 +84,29 @@ We can also make use of certain keywords such as <b> days, months and years </b>
 | '2015/04/20'.to_date + 2.years | Thu, 20 Apr 2017 |
 | '2015/04/20'.to_date - 2.years | Sat, 20 Apr 2013 |
 
-Note: You may also do the same for minutes and seconds. 
+Note: You may also do the same for <b>minutes</b> and <b>seconds</b> 
 
-#### Getting First/Last days of the month
+#### Getting First/Last days of the current and next month
+Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of the current and next months.
+
+##### Beginning of Current Month
+Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.
+![beginning of current month](/_uploads/formula-docs/beginning_of_current_month.png)
+
+##### Beginning of Next Month
+To retrieve a date for the beginning of the next month, we simply need to add a month to the input date, and use the previously mentioned function get the beginning of the month.
+![beginning of next month](/_uploads/formula-docs/beginning_of_next_month.png)
+
+##### End of Current or Next Month
+While the beginning_of_month function will always give you the 1st day of the month, retrieving the end of the month is a little trickier because some months have 31 days while others have less.
+
+Instead, we can apply some simple arithmetic to obtain the last date of the month. 
+
+To retrieve the last date of the current month :        
+![last date of current month](/_uploads/formula-docs/last_date_current_month.png)
+
+To retrieve the last date of the next month:        
+![last date of next month](/_uploads/formula-docs/last_date_next_month.png)
 
 ### Number Formulas
 
