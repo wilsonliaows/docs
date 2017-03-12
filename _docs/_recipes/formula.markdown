@@ -143,8 +143,7 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 | to_currency | By adding a parameter with a locale and country code, it will add the appropriate currency symbol. | 456789.123.to_currency(locale: fr) | 456,789.12 € |
 | to_phone | This function converts a number into a formatted phone number. | 1235551234.to_phone | 123-555-1234 |
 | to_phone | By adding a parameter with area code: true, the first three numbers will be enclosed in brackets, representing the area.| 1235551234.to_phone(area_code: true) | (123) 555-1234 |
-| to_phone | By adding a parameter with delimiter: string, the formatted phone number will be separated with the input string. | 
-1235551234.to_phone(delimiter: " ") | 123 555 1234 |
+| to_phone | By adding a parameter with delimiter: string, the formatted phone number will be separated with the input string. | 1235551234.to_phone(delimiter: " ") | 123 555 1234 |
 | to_phone | By adding a parameter with extension: number, the formatted phone number will be appended with x number at the end. | 
 1235551234.to_phone(extension: 555) | 123-555-1234 x 555 |
 | to_phone | By adding a parameter with country_code: number, the formatted phone number will be appending with + number at the beginning. |1235551234.to_phone(country_code: 1) |  +1-123-555-1234 |
