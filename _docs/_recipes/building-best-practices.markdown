@@ -25,13 +25,13 @@ When attempting to build a rather complicated recipe, we recommend building it i
  ![iterative_tip_2](/_uploads/building-best-practices/iterative_tip_2.png)
  Best if you have both sides to know which is the better course to take.
  
- ### 3. Pay Attention to indentation
+### 3. Pay Attention to indentation
  Make sure that your actions are all nested correctly. For Conditional actions and repeated actions, actions that you want to be processed under those criteria have to be nested under the first action. If an action is supposed to be activated under a certain condition, make sure that it is nested under the same scope. If it isn't, it will be processed regardless of the condition.
  
   ![iterative_tip_3](/_uploads/building-best-practices/iterative_tip_3.png)
  This is wrong because Step 2 is not indented. Note how Step 4 is on a different level from the rest. Step 4 is indented under Step 3.
  
- ### 4. Cloning and Version Control
+### 4. Cloning and Version Control
   I use cloning and modifying to create the next version of the recipe. Cloning recipe allows me to push changes to the original recipe whenever I want to. This allows you to create a "test" and "production" recipes. The cloned recipe will be a production recipe, and you can make changes on the original/test recipe. 
   
     ![iterative_tip_4_1](/_uploads/building-best-practices/iterative_tip_4_1.png)
