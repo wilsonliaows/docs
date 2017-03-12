@@ -72,7 +72,19 @@ Click on start to start the recipe. You are done. If there are any errors you wi
 
 ### 7. Monitor 
 If you want to you can monitor the recipe periodically to see if there are any errors that you had not taken care of. You can do this on the 'My recipes page' that shows the active recipes and the failed and successful job counts.
- 
+
+## Naming Your Recipes
+When we are in a rush to get our recipe up and running it seems like a chore to pay attention to the name or description for the recipe, but giving it a proper name and describing it properly goes a long way when you have many recipes. Different people have different styles, and we will mention some that we follow
+
+Naming: Using the name of the main apps in the recipe name. I used to name them as [SFDC+QBO] New account in Salesforce... I still use this sometime so I can quickly spot them or sort them when I am dealing with them outside the system. I keep a separate log of my recipes in a spreadsheet for my own cataloging purposes and naming it this way sometimes helps
+Naming: Some people put in their name in front or some other prefix like [RD] New customer from Salesforce.... or [Prod] New customer from Salesforce etc.
+Naming: To use the 'New recipe' prefix or not. Some people use the New recipe prefix while they are building the recipe, and when they have a successful recipe, change that to the intended name and delete the trial ones. They can easily track and delete the trial ones because of the 'New recipe' pre-fix.
+Clones: If you clone a recipe from some other user, your recipe gets the same name as the original. Keep in mind that when the original changes you don't get notified or updated.
+Copies: When you copy your own recipe, you will get a name that starts with 'Copy of' .... This is to avoid having duplicate names, however it does not really matter to the system because the unique identifier for a recipe is the recipe number. You can see the recipe number in the recipe link. For example, the recipe number for the recipe displayed below is 13582. You can always get to a recipe by keying in the address as www.workato.com/recipes/[recipe number here]. This works for all public recipes, but not for private recipes.
+
+![naming](/_uploads/building-best-practices/naming_1.png)
+*The URL to search for this recipe would be: www.workato.com/recipes/13582
+
 ## Adding Descriptions and Comments on your Recipes
 
 ### Recipe Descriptions
