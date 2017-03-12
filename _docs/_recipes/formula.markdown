@@ -160,7 +160,7 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 
 ### Others
 
-#### Processing Lists 
+#### Processing Arrays/Lists 
 When you have a List (a type of Array) returned to you, you may only want specific sets of information. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the  ![array symbol](/_uploads/formula-docs/array_symbol.png) symbol.
 
 !![pluck_where_1](/_uploads/formula-docs/pluck_where_1.png)
