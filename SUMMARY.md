@@ -13,8 +13,6 @@
         * App or enhancement request
         * Update our documentation
         
----
-
 * User accounts and teams
     * Single Sign-On
     * Team collaboration
@@ -24,39 +22,39 @@
 ---
 
 * [Recipes](_docs/_recipes/recipes.md)
-* [Connections](_docs/_recipes/connections.markdown)
-* [Building recipes](_docs/_recipes/building-recipes.md)
-    * [Triggers](_docs/_recipes/triggers.md)
-        * Polling triggers
-        * Real-time triggers
-        * Batch triggers
-        * Since
-        * Trigger conditions
-    * Steps
-        * Action
-        * Conditional action
-        * Repeat action
-        * Call recipe
-        * Stop
-        * Action with error handler
-    * Actions
-        * Creates
-        * Updates
-        * Upserts
-        * Searches
-        * Get
-        * Delete
-    * Data types
-    * Mapping
-    * Formula
-    * Recipe version management
-    * Best practices
-    * Running recipes
-        * Test recipe
-        * Start and stop
-        * Polling intervals
-        * Rerun job
-* Recipe Ops
+    * [Connections](_docs/_recipes/connections.markdown)
+    * [Building recipes](_docs/_recipes/building-recipes.md)
+        * [Triggers](_docs/_recipes/triggers.md)
+            * Polling triggers
+            * Real-time triggers
+            * Batch triggers
+            * Since
+            * Trigger conditions
+        * Steps
+            * Action
+            * Conditional action
+            * Repeat action
+            * Call recipe
+            * Stop
+            * Action with error handler
+        * Actions
+            * Creates
+            * Updates
+            * Upserts
+            * Searches
+            * Get
+            * Delete
+        * Data types
+        * Mapping
+        * Formula
+        * Recipe version management
+        * Best practices
+        * Running recipes
+            * Test recipe
+            * Start and stop
+            * Polling intervals
+            * Rerun job
+    * Recipe Ops
 
 ---
 
