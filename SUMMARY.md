@@ -1,8 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
-* Getting started
-* Integration and iPaaS
+* [Getting started](getting-started.md)
+* [Integration and iPaaS](integration-and-ipaas.md)
 * What is Workato?
 * Workato concepts
 * How Workato works
@@ -14,20 +14,22 @@
 * App or enhancement request
 * Update our documentation
 
------
+---
+
 * User accounts and teams
 * Single Sign-On
 * Team collaboration
-* Role*based access
+* Role\*based access
 * Audit logs
 
------
-* Recipes
+---
+
+* [Recipes](_docs/_recipes/recipes.md)
 * [Connections](_docs/_recipes/connections.markdown)
 * Building recipes
 * Triggers
 * Polling triggers
-* Real*time triggers
+* Real\*time triggers
 * Batch triggers
 * Since
 * Trigger conditions
@@ -57,7 +59,8 @@
 * Rerun job
 * Recipe Ops
 
------
+---
+
 * Features
 * List management
 * Scheduler
@@ -113,7 +116,8 @@
 * Platform API
 * Recipe Development Life Cycle
 * Model/diagram of the RDLC
-* Sandbox*Production
+* Sandbox\*Production
 * [Security and compliance](https://www.workato.com/security)
 * Data retention
 * Scalability and performance
+
