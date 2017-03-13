@@ -11,15 +11,12 @@
     * Contact us
         * Bug reporting
         * App or enhancement request
-        * Update our documentation
-        
+        * Update our documentation        
 * User accounts and teams
     * Single Sign-On
     * Team collaboration
     * Role based access
     * Audit logs
-    
-
 * [Recipes](_docs/_recipes/recipes.md)
     * [Connections](_docs/_recipes/connections.markdown)
     * [Building recipes](_docs/_recipes/building-recipes.md)
@@ -54,9 +51,6 @@
         * Polling intervals
         * Rerun job
     * Recipe Ops
-
-
-
 * Features
     * List management
     * Scheduler
@@ -115,6 +109,3 @@
 * [Security and compliance](https://www.workato.com/security)
 * Data retention
 * Scalability and performance
-
-
-
