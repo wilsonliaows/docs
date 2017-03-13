@@ -19,7 +19,6 @@
     * Role based access
     * Audit logs
     
----
 
 * [Recipes](_docs/_recipes/recipes.md)
     * [Connections](_docs/_recipes/connections.markdown)
@@ -49,14 +48,14 @@
         * Formula
         * Recipe version management
         * Best practices
-        * Running recipes
-            * Test recipe
-            * Start and stop
-            * Polling intervals
-            * Rerun job
+    * Running recipes
+        * Test recipe
+        * Start and stop
+        * Polling intervals
+        * Rerun job
     * Recipe Ops
 
----
+
 
 * Features
     * List management
