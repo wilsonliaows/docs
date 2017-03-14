@@ -19,15 +19,15 @@ Because of this update step,
 
 Infinite loops may also occur if you have **multiple recipes** running at once and a similar issue occurs where one recipe is updating another that is triggered by an update in an object.
 
-## How will I know that my recipe is in an infinite loop?
+## Signs the recipe is in an infinite loop
 
-Your recipe may be in an infinite loop if:
+Recipes may be in an infinite loop if:
 
-  * You see an **unexpectedly high transaction count** that you cannot account for
+  * There is an **unexpectedly high transaction count** 
   
-  * You find that your recipe is triggered when there are **no new trigger events** in your applications
+  * The recipe is triggered when there are **no new trigger events** in the applications
   
-  * There are many **duplicates** of an object in your application that was created by a recipe
+  * There are many **duplicates** of an object in applications that was created by a recipe
 
 ## How to prevent infinite loops
 
@@ -37,7 +37,7 @@ In order to stop the re-triggering of recipes, implement filters in the trigger.
 
 From the image above, we can see that the action is updating the 'Opportunity' object in Salesforce with the QuickBooks Invoice ID and URL. This update is made to the field:. 
 
-Thus, in the trigger, we want to filter out the jobs that already have an entry in this field. This prevents the job from running again as every job that has been succesfully synced by Workato will populate the field with data. 
+Thus, in the trigger, filter out the jobs that already have an entry in this field. This prevents the job from running again as every job that has been succesfully synced by Workato will populate the field with data. 
 
 The update will be picked up by Workato but not processed as it is filtered out by the trigger filter.
 
@@ -45,7 +45,7 @@ The update will be picked up by Workato but not processed as it is filtered out 
 ### Best Practices
 
 #### Creating Custom Fields
-Create fields in your application that are meant for identifying jobs synced by Workato. Referring to the above example in 'Trigger Filters', the Next Step field in the Salesforce Opportunity should **always** be empty so that Workato will identify that as a job to be synced over.
+Create fields in the connected applications that are meant for identifying jobs synced by Workato. Referring to the above example in 'Trigger Filters', the Next Step field in the Salesforce Opportunity should **always** be empty so that Workato will identify that as a job to be synced over.
 
 Thus, it is not advisable to use a commonly used field like 'Description' for these purposes, as they may be filled in by mistake and cause that job to be filtered out in the trigger. 
 
