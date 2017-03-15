@@ -89,13 +89,13 @@ To find information on the errors you are facing, simply run a search on our hel
 # Trigger Warnings
 ## What are trigger warnings?
 
-Trigger warnings are messages that appear at the top of a recipe upon attempting to start it. Warnings look similar to this:
+Trigger warnings are messages that appear at the top of a recipe upon starting it. Warnings look similar to this:
 
 ![consecerror](/_uploads/startstop/consecerror.png)
 
-A recipe cannot be started as long as there is a trigger warning.
-
 ## What is the difference between a job error and a trigger warning? 
+
+
 
 
 
@@ -103,14 +103,9 @@ A recipe cannot be started as long as there is a trigger warning.
 
 Resolving trigger warnings depend on the type of error in the warning. The most common trigger warnings are as follows:
 
+### API limit Errors
+  
+### Schema Errors
 
-# Mapping Errors
-## What are mapping errors? 
-
-## How will I know if I have made mapping errors? 
-
-## Finding mapping errors
-
-## Fixing mapping errors
 
 
