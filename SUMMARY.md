@@ -1,43 +1,43 @@
 # Summary
 
 * [Getting started](getting-started.md)
-    * [What is Workato?](what-is-workato.md)
-    * [Workato concepts](workato-concepts.md)
+    * [What is Workato?](_docs/what-is-workato.md)
+    * [Workato concepts](_docs/workato-concepts.md)
     * How do I start?
         * Recipe building guide: Salesforce to Zendesk
         * Conceptual model/flowchart of the thinking process behind building a recipe
-    * [Contact us](contact-us.md)
-        * Bug reporting
-        * App or enhancement request
-        * Update our documentation
+    * [Contact us](_docs/contact-us.md)
+        * [Bug reporting](_docs/contact-us.md#bug-reporting-tickets)
+        * [App or enhancement request](_docs/contact-us.md#app-or-enhancement-request-forums)
+        * [Update our documentation](_docs/contact-us.md#update-our-documentation)
 * User accounts and teams
     * [Single Sign-On](_docs/_user_accounts_and_teams/sso.md)
     * [Team collaboration](_docs/_user_accounts_and_teams/team-collaboration.md)
-    * Role based access
-    * Audit logs
+    * [Role based access](_docs/_user_accounts_and_teams/team-collaboration.md#team-roles)
+    * [Audit logs](_docs/_user_accounts_and_teams/team-collaboration.md#audit-logs)
 * [Recipes](_docs/_recipes/recipes.md)
     * [Connections](_docs/_recipes/connections.md)
     * [Building recipes]
         * [Triggers](_docs/_recipes/triggers.md)
-            * Polling triggers
-            * Real-time triggers
-            * Batch triggers
-            * Since
-            * Trigger conditions
+            * [Polling triggers](_docs/_recipes/triggers.md#polling-triggers)
+            * [Real-time triggers](_docs/_recipes/triggers.md#real-time-triggers)
+            * [Batch triggers](_docs/_recipes/triggers.md#batch-triggers)
+            * [Since/From parameter](_docs/_recipes/triggers.md#sincefrom)
+            * [Trigger conditions](_docs/_recipes/triggers.md#trigger-conditions)
         * [Steps](_docs/_recipes/steps.md)
-            * Action
-            * Conditional action
-            * Repeat action
-            * Call recipe
-            * Stop
-            * Action with error handler
+            * [Action](_docs/_recipes/steps.md#action)
+            * [Conditional action](_docs/_recipes/steps.md#conditional-action)
+            * [Repeat step](_docs/_recipes/steps.md#repeat-step)
+            * [Call recipe](_docs/_recipes/steps.md#call-recipe)
+            * [Stop](_docs/_recipes/steps.md#stop)
+            * [Action with error handler](_docs/_recipes/steps.md#action-with-error-handler)
         * [Actions](_docs/_recipes/actions.md)
-            * Create
-            * Update
-            * Upsert
-            * Searche
-            * Get
-            * Delete
+            * [Create](_docs/_recipes/actions.md#create)
+            * [Update](_docs/_recipes/actions.md#update)
+            * [Upsert](_docs/_recipes/actions.md#upsert)
+            * [Search](_docs/_recipes/actions.md#search)
+            * [Get](_docs/_recipes/actions.md#get)
+            * [Delete](_docs/_recipes/actions.md#delete)
         * Data types
         * Mapping
         * [Formula](_docs/_recipes/formula.md)
@@ -49,7 +49,7 @@
         * [Start and stop](_docs/_recipes/start-and-stop.md)
         * [Polling intervals](_docs/_recipes/polling-intervals.md)
         * [Rerun job](_docs/_recipes/rerun-job.md)
-    * [Recipe Ops](recipe-ops.md)
+    * [Recipe Ops](_docs/recipe-ops.md)
 * Features
     * [List management](_docs/_features/list-management.md)
     * [Scheduler](_docs/_features/scheduler.md)
@@ -61,14 +61,13 @@
     * [Callable recipes](_docs/_features/callable-recipes.md)
     * [Handling CSV files](_docs/_features/handling-csv-files.md)
     * [Handling files and attachments](_docs/_features/handling-files-and-attachments.md)
-    * [Handling JSON]
-    * [Handling XML]
+    * [Handling JSON]()
+    * [Handling XML]()
     * [Account properties](_docs/_features/account-properties.md)
     * [Data masking](_docs/_features/data-masking.md)
-* [On premise](on-prem.md)
-* [Workflow](workflow.md)
-* Workbot
-    * [Workbot](_docs/_workbot/workbot.md)
+* [On premise](_docs/on-prem.md)
+* [Workflow](_docs/workflow.md)
+* [Workbot](_docs/_workbot/workbot.md)
     * [Workbot triggers](_docs/_workbot/workbot-triggers.md)
     * [Workbot actions](_docs/_workbot/workbot-actions.md)
     * [Workbot troubleshooting](_docs/_workbot/workbot-troubleshooting.md)
@@ -102,7 +101,7 @@
     * Trigger warnings
     * [Action errors](_docs/_recipes/action-errors.md)
     * [Formula errors](_docs/_recipes/formula-errors.md)
-    * [Mapping errors]
+    * Mapping errors
     * [Infinite loops](_docs/_recipes/infinite-loops.md)
     * [Deduplication](_docs/_recipes/deduplication.md)
     * Rate limiting
@@ -118,5 +117,5 @@
     * Model/diagram of the RDLC
     * Sandbox\*Production
 * [Security and compliance](https://www.workato.com/security)
-* [Data retention](data-retention.md)
+* [Data retention](_docs/data-retention.md)
 * Scalability and performance
