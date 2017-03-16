@@ -104,10 +104,10 @@
     * Mapping errors
     * [Infinite loops](_docs/_recipes/infinite-loops.md)
     * [Deduplication](_docs/_recipes/deduplication.md)
-    * Rate limiting
+    * [Rate limiting](_docs/_recipes/rate-limiting.md)
 * Developer
     * Conceptual model
-    * [Flowchart of when someone should use the HTTP VS SDK](_docs/_developer/http-vs-sdk.md)
+    * [Comparison of HTTP VS SDK](_docs/_developer/http-vs-sdk.md)
     * [HTTP](_docs/_developer/http.md)
     * SDK
         * [Conceptual model](_docs/_developer/_sdk/sdk-conceptual-model.md)
