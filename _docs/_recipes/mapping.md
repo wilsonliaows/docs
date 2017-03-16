@@ -7,12 +7,12 @@ date: 2017-03-16 10:00:00 Z
 If you've read the previous section on Data pills, you are now ready to map them into Input Fields through this process we call Field Mapping. Field Mapping is one of the strongest ability that Workato users possess. With the ability to retrieve, modify and store values in any fields, including custom fields, you can now move data across your applications with better control and stronger data pipelines.
 
 
-##Example of field mapping
+## Example of field mapping
 The basics of Field Mapping in Workato begins with understanding what you are trying to map in a recipe. In the gif shown below, we map the Account Name data pill from the Salesforce Step into the Message input field in the email action. 
 ![mapping_gif](/_uploads/actions-docs/mapping_gif.gif)
 
 
-##Types of Field mapping
+## Types of Field mapping
 There are 4 different types of field mapping methods - Static, Dynamic, Combination and Formula.
 
 1. Static 
@@ -32,7 +32,7 @@ There are 4 different types of field mapping methods - Static, Dynamic, Combinat
   
 ![mapping_type_4](/_uploads/actions-docs/mapping_type_4.png)
 
-##Common Pitfalls when mapping fields
+## Common Pitfalls when mapping fields
 Taking the right data pill is just as important as setting up the right logic, when you choose the wrong data pill to work with, you are bounded to fall into errors. Here are some common pitfalls with regards to field mapping.
 
 - Empty Data pills on Required Fields
