@@ -95,3 +95,7 @@
 .w-footer__help-link-description {
   display: block;
 }
+
+.gitbook-link {
+    display: none !important;
+}
