@@ -1,20 +1,20 @@
 # Summary
 
-* Getting started
+* [Getting started](_docs/getting-started.md)
   * [What is Workato?](_docs/what-is-workato.md)
   * [Workato concepts](_docs/workato-concepts.md)
   * How do I start?
     * Recipe building guide: Salesforce to Zendesk
     * Conceptual model/flowchart of the thinking process behind building a recipe
   * [Contact us](_docs/contact-us.md)
-* User accounts and teams
+* [User accounts and teams](_docs/user-accounts-and-teams.md)
   * [Single Sign-On](_docs/_user_accounts_and_teams/sso.md)
   * [Team collaboration](_docs/_user_accounts_and_teams/team-collaboration.md)
   * [Role based access](_docs/_user_accounts_and_teams/team-collaboration.md#team-roles)
   * [Audit logs](_docs/_user_accounts_and_teams/team-collaboration.md#audit-logs)
-* Recipes
+* [Recipes](_docs/recipes.md)
   * [Connections](_docs/_recipes/connections.md)
-  * Building recipes
+  * [Building recipes](_docs/_recipes/building-recipes.md)
     * [Triggers](_docs/_recipes/triggers.md)
     * [Steps](_docs/_recipes/steps.md)
     * [Actions](_docs/_recipes/actions.md)
@@ -23,14 +23,14 @@
     * [Formula](_docs/_recipes/formula.md)
     * [Recipe version management](_docs/_recipes/recipe-version-management.md)
     * [Best practices](_docs/_recipes/building-best-practices.md)
-  * Running recipes
+  * [Running recipes](_docs/_recipes/running-recipes.md)
     * [Job details](_docs/_recipes/job-details.md)
     * [Test recipe](_docs/_recipes/testing-recipes.md)
     * [Start and stop](_docs/_recipes/start-and-stop.md)
     * [Polling intervals](_docs/_recipes/polling-intervals.md)
     * [Rerun job](_docs/_recipes/rerun-job.md)
   * [Recipe Ops](_docs/recipe-ops.md)
-* Features
+* [Features](_docs/features.md)
   * [List management](_docs/_features/list-management.md)
   * [Scheduler](_docs/_features/scheduler.md)
   * [Utility](_docs/_features/utilities.md)
@@ -52,7 +52,7 @@
   * [Workbot actions](_docs/_workbot/workbot-actions.md)
   * [Workbot troubleshooting](_docs/_workbot/workbot-troubleshooting.md)
 * API gateway
-* Connectors documentation
+* [Connectors documentation](_docs/connectors.md)
   * Overview
   * [Amazon S3](_docs/_connectors/s3.md)
   * [Box](_docs/_connectors/box.md)
@@ -77,7 +77,7 @@
   * Slack
   * MySQL
   * SQL Server
-* Troubleshooting
+* [Troubleshooting](_docs/troubleshooting.md)
   * Trigger warnings
   * [Action errors](_docs/_recipes/action-errors.md)
   * [Formula errors](_docs/_recipes/formula-errors.md)
@@ -85,7 +85,7 @@
   * [Infinite loops](_docs/_recipes/infinite-loops.md)
   * [Deduplication](_docs/_recipes/deduplication.md)
   * [Rate limiting](_docs/_recipes/rate-limiting.md)
-* Developer
+* [Developer](_docs/developer.md)
   * Conceptual model
   * [Comparison of HTTP VS SDK](_docs/_developer/http-vs-sdk.md)
   * [HTTP](_docs/_developer/http.md)
