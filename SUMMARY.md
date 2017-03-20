@@ -1,46 +1,23 @@
 # Summary
 
-## TEST
-
-* [Introduction](README.md)
-* [Getting started](getting-started.md)
+* Getting started
   * [What is Workato?](_docs/what-is-workato.md)
   * [Workato concepts](_docs/workato-concepts.md)
   * How do I start?
     * Recipe building guide: Salesforce to Zendesk
     * Conceptual model/flowchart of the thinking process behind building a recipe
   * [Contact us](_docs/contact-us.md)
-    * [Bug reporting](_docs/contact-us.md#bug-reporting-tickets)
-    * [App or enhancement request](_docs/contact-us.md#app-or-enhancement-request-forums)
-    * [Update our documentation](_docs/contact-us.md#update-our-documentation)
 * User accounts and teams
   * [Single Sign-On](_docs/_user_accounts_and_teams/sso.md)
   * [Team collaboration](_docs/_user_accounts_and_teams/team-collaboration.md)
   * [Role based access](_docs/_user_accounts_and_teams/team-collaboration.md#team-roles)
   * [Audit logs](_docs/_user_accounts_and_teams/team-collaboration.md#audit-logs)
-* [Recipes](_docs/_recipes/recipes.md)
+* Recipes
   * [Connections](_docs/_recipes/connections.md)
-  * \[Building recipes\]
+  * Building recipes
     * [Triggers](_docs/_recipes/triggers.md)
-      * [Polling triggers](_docs/_recipes/triggers.md#polling-triggers)
-      * [Real-time triggers](_docs/_recipes/triggers.md#real-time-triggers)
-      * [Batch triggers](_docs/_recipes/triggers.md#batch-triggers)
-      * [Since/From parameter](_docs/_recipes/triggers.md#sincefrom)
-      * [Trigger conditions](_docs/_recipes/triggers.md#trigger-conditions)
     * [Steps](_docs/_recipes/steps.md)
-      * [Action](_docs/_recipes/steps.md#action)
-      * [Conditional action](_docs/_recipes/steps.md#conditional-action)
-      * [Repeat step](_docs/_recipes/steps.md#repeat-step)
-      * [Call recipe](_docs/_recipes/steps.md#call-recipe)
-      * [Stop](_docs/_recipes/steps.md#stop)
-      * [Action with error handler](_docs/_recipes/steps.md#action-with-error-handler)
     * [Actions](_docs/_recipes/actions.md)
-      * [Create](_docs/_recipes/actions.md#create)
-      * [Update](_docs/_recipes/actions.md#update)
-      * [Upsert](_docs/_recipes/actions.md#upsert)
-      * [Search](_docs/_recipes/actions.md#search)
-      * [Get](_docs/_recipes/actions.md#get)
-      * [Delete](_docs/_recipes/actions.md#delete)
     * Data types
     * Mapping
     * [Formula](_docs/_recipes/formula.md)
@@ -122,6 +99,3 @@
 * [Security and compliance](https://www.workato.com/security)
 * [Data retention](_docs/data-retention.md)
 * Scalability and performance
-
-## Test
-
