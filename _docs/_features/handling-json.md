@@ -6,7 +6,7 @@ JSON is mostly hidden from regular Workato users because we expose data as Input
 
 ## HTTP connector
 
-The HTTP connector is the most straightforward way to handle raw data from APIs.
+The HTTP connector is the most straightforward way to handle raw data from APIs. Refer to our [HTTP connector course](http://resources.workato.com/http-connector/#/?_k=1szm77) for a detailed guide and examples on building HTTP triggers and actions to handle JSON data.
 
 ## Workato SDK
 
