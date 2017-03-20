@@ -1,0 +1,26 @@
+{
+    "plugins": [
+      "edit-link",
+      "-sharing",
+      "favicon",
+      "collapsible-menu"
+    ],
+
+    "pluginsConfig": {
+      "edit-link": {
+        "base": "https://github.com/workato/docs/edit/master/",
+        "label": "Edit This Page",
+        "multilingual": false
+      },
+
+      "favicon": {
+        "shortcut": "favicon/favicon.ico",
+        "bookmark": "favicon/favicon.ico",
+        "appleTouch": "favicon/android-chrome-36x36.png"
+      }
+    },
+
+    "styles": {
+      "workato": "styles/workato.css"
+    }
+}
