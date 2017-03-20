@@ -38,7 +38,7 @@ Workato addresses these issues with an enterprise-class integration tool that ca
 The Workato platform has a powerful feature set to handle real-world problems, including the integration of applications, data and people. Both cloud-based and on-premise systems are supported. The runtime system is designed for security, robustness, reliability and high performance.
 
 ## Self-Service User Interface
-Workato’s user interface is designed to be easy to use for non-technical users and enables rapid deployment of integration solutions. At the same time, it enables users with more  technical and application expertise to deeply extend and customize the platform.
+Workato’s user interface is designed to be easy to use for non-technical users and enables rapid deployment of integration solutions. At the same time, it enables users with more technical and application expertise to deeply extend and customize the platform.
 
 ## Conversational Integration with Apps
 Workbots enable control of, and notifications from, business applications from within personal productivity apps, on both mobile and desktop devices. Workbots build a bridge between Systems of Engagement (SoE) and Systems of Reference (SoR) for business users.
