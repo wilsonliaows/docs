@@ -85,7 +85,6 @@
   * [Infinite loops](recipes/infinite-loops.md)
   * [Deduplication](recipes/deduplication.md)
   * [Rate limiting](recipes/rate-limiting.md)
-----------------
 * [Developer](developer.md)
   * Conceptual model
   * [Comparison of HTTP VS SDK](developer/http-vs-sdk.md)
@@ -94,7 +93,6 @@
     * [Conceptual model](developer/sdk/sdk-conceptual-model.md)
     * [SDK documentation](developer/sdk/sdk-docs.md)
   * Platform API
-----------------
 * Recipe Development Life Cycle
   * Model/diagram of the RDLC
   * Sandbox\*Production
