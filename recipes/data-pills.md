@@ -1,46 +1,56 @@
 ---
-title: Data Pills
+title: Data pills
 date: 2017-03-16 10:00:00 Z
 ---
 
-# Data Pills
-## What is a Data Pill?
-Data Pills are data from previous steps that you can drag and drop (or simply click on the pill while an input field is highlighted) to place into Inputs Fields on the left. Doing so simply maps the Data Pills into the Input Fields. These Data Pills can usually be found on the right side of the recipe within the App Data section. 
+# Data pills
+Data pills are variables that you use to build recipes, and contain values from previous recipe steps that you can use in your recipe. Data pills are used during design-time (when you're building your recipe, as opposed to when you're running it) to create a template that tells relevant data where to go.
 
-![data_pill_1](/assets/images/actions-docs/data_pill_1.png)
-This image above is an example of a Data Pill.
+Data pills are usually found within datatrees, within the **App Data** section.
 
-## Where can i find these Data Pills?
-When you click on any steps in a recipe, the App Data section, which contain all of the Data Pills, will appear on the right.
-![appdata_gif](/assets/images/actions-docs/appdata_gif.gif)
+![Datatree](/docs/assets/images/recipes/data-pills/datatree-example.png)
 
-![data_pill_2](/assets/images/actions-docs/data_pill_2.png)
-In this image directly above, you can see the App Data output which displays all of the information from the Salesforce Object Created/Output step in the form of data pills. The small icons on the left of the data pill is an indication of the data type while the light-grey text on the right of the data pill is known as meta-data. The meta data allows you to take a peek at what kind of data does the field stores. We will provide elaboration on both points below
+*Datatree within a recipe step*
 
-## Data Types
-There are various types of data types, as shown:
+When you're configuring a recipe step, all data from previous steps will be available for use in the fields mapping of that step.
 
-- A-Z    
-![data_type_1](/assets/images/actions-docs/data_type_1.png)
+![Multiple datatrees](/docs/assets/images/recipes/data-pills/multiple-datatrees.png)
 
-This is a normal text field, otherwise known as a string field. It can contain a mix of alphabetical and numerical characters. A String field cannot be used for arithmetic computation or Date comparison. 
+*Multiple datatrees available when configuring a recipe step*
 
-- 123    
-![data_type_2](/assets/images/actions-docs/data_type_2.png)
+## Data pills example
+For instance, let's take the scenario where we wish to send out a simple welcome email to every new Salesforce lead who has signed up for our mailing list. The following is that recipe.
 
-This is a numerical field. It stores only numerical values. These values are not texts, and can be used for numerical computation.
+![Recipe that sends a welcome email to new Salesforce leads](/docs/assets/images/recipes/data-pills/salesforce-lead-welcome-email-recipe.png)
 
-- Calendar Symbol  
-![data_type_3](/assets/images/actions-docs/data_type_3.png)
+*Recipe that sends a welcome email to new Salesforce leads* [Example recipe](https://www.workato.com/recipes/496603)
 
-This is a date field. It can be used for date comparisons.
+In the **Send email** action, pills from the **New Salesforce lead** datatree have been mapped into the input fields.
 
-- A outlined and solid-filled circle  
-![data_type_4](/assets/images/actions-docs/data_type_4.png)
+![Data pill mapping](/docs/assets/images/recipes/data-pills/data-pills-example.png)
 
-This is a boolean field. It stores the value true or false.
+*Example of data pills being mapped into an action step*
 
-## Metadata
-![metadata](/assets/images/actions-docs/metadata.png)
+As these pills are variables, they will only have a value when a trigger event is picked up by the recipe - in this case, when a new lead is created in Salesforce. For example, if a new lead called Madison Diaz with the email address madisondiaz82@gmail.com is created, the recipe will pick it up and promptly send an email to the address madisondiaz82@gmail.com with the message:
 
-MetaData are the grey values beside your app data's data pill. When you have your application connected to Workato, It will provide a preview of the available data on each of the data pill. Those data are actual data from your app's credentials for you to verify. This is very important in determining which data pill you would wish to use, especially if you are choosing a data pill to represent a unique identifier.
+```
+Hi Madison,
+
+Thanks for joining our mailing list! We're excited to have you!
+```
+
+# Sample schema
+When your app is connected to Workato, sample schema pulled from it will show up in the datatree next to the data pills, to provide examples how what this data is in your app.
+
+![Output datatree](/docs/assets/images/workato-concepts/output-datatree.png)
+
+*Output datatree for New Salesforce account trigger*
+
+# Data types
+Workato supports various data types:
+- String
+- Integer
+- Number
+- Date
+- Datetime
+- Boolean

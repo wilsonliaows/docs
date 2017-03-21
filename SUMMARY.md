@@ -3,9 +3,6 @@
 * [Getting started](getting-started.md)
   * [What is Workato?](what-is-workato.md)
   * [Workato concepts](workato-concepts.md)
-  * How do I start?
-    * Recipe building guide: Salesforce to Zendesk
-    * Conceptual model/flowchart of the thinking process behind building a recipe
   * [Contact us](contact-us.md)
 * [User accounts and teams](user-accounts-and-teams.md)
   * [Single Sign-On](user-accounts-and-teams/sso.md)
@@ -18,8 +15,8 @@
     * [Triggers](recipes/triggers.md)
     * [Steps](recipes/steps.md)
     * [Actions](recipes/actions.md)
-    * Data types
-    * Mapping
+    * [Data types](recipes/data-pils.md)
+    * [Mapping](recipes/mapping.md)
     * [Formula](recipes/formula.md)
     * [Recipe version management](recipes/recipe-version-management.md)
     * [Best practices](recipes/building-best-practices.md)
@@ -37,12 +34,11 @@
   * [Secondary connectors](features/secondary-connectors.md)
   * [Batch processing](features/batch-processing.md)
   * [Lookup tables](features/lookup-tables.md)
-  * Linked objects
   * [Callable recipes](features/callable-recipes.md)
   * [Handling CSV files](features/handling-csv-files.md)
   * [Handling files and attachments](features/handling-files-and-attachments.md)
-  * Handling JSON
-  * Handling XML
+  * [Handling JSON](features/handling-json.md)
+  * [Handling XML](handling-xml.md)
   * [Account properties](features/account-properties.md)
   * [Data masking](features/data-masking.md)
 * [On premise](on-prem.md)
@@ -51,7 +47,6 @@
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
-* API gateway
 * [Connectors documentation](connectors.md)
   * Overview
   * [Amazon S3](connectors/s3.md)

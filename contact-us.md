@@ -1,34 +1,38 @@
 ---
-title: Workato triggers
+title: Contact us
 date: 2017-02-16 22:15:00 Z
 ---
 
-# Bug Reporting (Tickets)
-If you have encountered a bug or recipe issue and are unable to resolve it, please [submit a ticket](https://support.workato.com/support/tickets/new) and our team will do our best to address the issue!
+# Bug reports
+If you encounter bugs while building recipes, or if your triggers and actions are behaving unexpectedly, you can [submit a ticket](https://support.workato.com/support/tickets/new) and our team will look into it.
 
-
-If you are looking for recipe support, this is the information we need:
-- Adapter (App Name)
-- Trigger / Action
+If you are looking for recipe building and troubleshooting support, this is the information we need:
+- Connector
+- Trigger/action
 - Recipe ID
 - Job ID
-- Error Message
-- Recipe URL: (E.g. https://www.workato.com/recipes/7943)
-- Screenshots that show the problem/job report are recommended as they allow our team to visualize the issue better.
-- You may also be required to grant our support team administrator access to your account if we require some in depth analysis. You may do this through the ticket submission portal.
+- Error ID and error message
+- Recipe URL (e.g. https://www.workato.com/recipes/7943)
+- Screenshots of the problem/job report are recommended to provide more context
 
-![allow_access](/assets/images/contact-us/workato_allow_access.png)
+To provide swifter troubleshooting, you can grant our support team administrative access to your account via the ticket submission portal.
 
-# App or enhancement request (forums)
+# App or enhancement requests
+If you're missing a certain app, trigger or action that's needed to build your recipe, or if you'd really just like to see a particular feature on Workato, we'd love to hear from you! You can post enhancement requests on our [community forum](https://support.workato.com/discussions).
 
-To request for the Workato platform to support new cloud applications or enhance the current capabilities of any supported application, simply create a post on [Workato's Community Forum](https://support.workato.com/discussions). These are several key folders where you could help share your ideas and suggestions:
+You can also browse our forums and upvote the ideas and suggestions you'd like to see!
 - [New Application](https://support.workato.com/discussions/forums/1000228696)
 - [Application Enhancements](https://support.workato.com/discussions/forums/1000228697)
 - [Core Product Features](https://support.workato.com/discussions/forums/1000228698)
 - [Other Ideas](https://support.workato.com/discussions/forums/1000228699)
 
-![forum](/assets/images/contact-us/workato_forum.png)
+To hop into the forums from Workato, click on **Help** on the top navigation bar, and on **Forums** in the **Workato Success Center**.
 
+![forum](/_uploads/contact-us/workato_forum.png)
 
-# Update our documentation 
-If you would like to contribute to our documentation repository, for example by including write-up information of the API of your custom-app to promote connectivity through Workato, simply submit a pull request and our documentations team will perform a review for approval.
+# Update our documentation
+Our documentation is on Github. If you spot something missing, or if you have additional information you'd like to add to our documentation, you can reach out to us via:
+
+1) Filing a Github issue and providing us with the information in that issue.
+
+2) Make an edit to the documentation and submit a pull request! Our team will review and merge your pull requests.
