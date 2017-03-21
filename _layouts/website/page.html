@@ -1,50 +1,94 @@
 {% extends template.self %}
 
+{# Moving search input to header #}
+{% block search_input %}{% endblock %}
+
+{# Removing navigation arrows #}
+{% block book_navigation %}{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <script type='text/javascript'>
+    var _vwo_code=(function(){
+    var account_id=330499,
+    settings_tolerance=2000,
+    library_tolerance=2500,
+    use_existing_jquery=false,
+    /* DO NOT EDIT BELOW THIS LINE */
+    f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+  </script>
+  <!-- End Visual Website Optimizer Asynchronous Code -->
+{% endblock %}
+
+{% block javascript %}
+  {{ super() }}
+  <script src="/assets/scripts/main.js"></script>
+  <style>.async-hide { opacity: 0 !important} </style>
+  <!-- Google Analytics -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104783574-1', 'auto');
+
+      ga('send', 'pageview');
+    });
+  </script>
+{% endblock %}
+
 {% block body %}
-    <header class="w-header">
+  <header class="w-header">
+    <div class="w-header__row w-header__row_logo">
       <a href="{{ site.baseurl }}/">
-        <img src="/assets/images/layout/workato-logo.svg" alt="Workato docs" width="184" height="30">
+        <img class="w-header__logo" src="/assets/images/layout/workato-logo.svg" alt="Workato docs">
       </a>
-      <a href="//workato.com" class="w-header__return">Return to workato.com</a>
-    </header>
-
-    {{ super() }}
-
-    <footer class="w-footer">
-      <div class="w-footer__title">Didn’t find what you are looking for?</div>
-      <div class="w-footer__help-links">
-        <a href="//support.workato.com/support/home" class="w-footer__help-link">
-          <span class="w-footer__help-link-title">Search our resource library</span>
-          <span class="w-footer__help-link-description">View getting started guides, tutorials, training videos, webinars and FAQ</span>
-        </a>
-        <a href="//support.workato.com/support/discussions" class="w-footer__help-link">
-          <span class="w-footer__help-link-title">Ask our community</span>
-          <span class="w-footer__help-link-description">View questions and answers from other users and Workato experts.</span>
-        </a>
-        <a href="//support.workato.com/support/tickets/new" class="w-footer__help-link">
-          <span class="w-footer__help-link-title">File a support ticket</span>
-          <span class="w-footer__help-link-description">File a support ticket for critical issues that require a higher level of support.</span>
-        </a>
+      <a href="https://workato.com" class="w-header__return">Return to Workato</a>
+    </div>
+    <div class="w-header__row w-header__row_toolbar">
+      <div id="book-search-input" role="search">
+        <i class="fa fa-search book-search-input-icon"></i>
+        <input type="text" placeholder="Type to search Workato docs"/>
       </div>
-      <nav class="w-footer__copy">
-        <a href="//workato.com/privacy" class="w-footer__copy-item w-footer__copy-item_link">Privacy</a>
-        <a href="//workato.com/terms" class="w-footer__copy-item w-footer__copy-item_link">Terms</a>
-        <a href="tel:+18444696752" class="w-footer__copy-item w-footer__copy-item_link">(844) 469-6752</a>
-        <span class="w-footer__copy-item">Workato 2017</span>
-      </nav>
-      <div class="w-footer__social">
-        <a class="w-footer__social-item" href="mailto:info@workato.com" title="Email">
-          <img src="/assets/images/layout/email-icon.svg" alt="Email">
-        </a>
-        <a class="w-footer__social-item" href="//facebook.com/workato" target="_blank" title="Facebook">
-          <img src="/assets/images/layout/facebook-icon.svg" alt="Facebook">
-        </a>
-        <a class="w-footer__social-item" href="//twitter.com/workato" target="_blank" title="Twitter">
-          <img src="/assets/images/layout/twitter-icon.svg" alt="Twitter">
-        </a>
-        <a class="w-footer__social-item" href="//linkedin.com/company/workato" target="_blank" title="LinkedIn">
-          <img src="/assets/images/layout/linkedin-icon.svg" alt="LinkedIn">
-        </a>
+      <div class="book-header" role="navigation">
+        {% if glossary.path %}
+          <a href="{{ ('/' + glossary.path) | resolveFile }}" class="btn pull-left" aria-label="{{ "GLOSSARY_OPEN"|t }}"><i class="fa fa-sort-alpha-asc"></i></a>
+        {% endif %}
+
+        <!-- Title -->
+        <h1>
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+          <a href="{{ "/" | resolveFile }}">{{ page.title }}</a>
+        </h1>
       </div>
-    </footer>
+    </div>
+  </header>
+
+  {{ super() }}
+{% endblock %}
+
+{% block book_inner %}
+  {{ super() }}
+
+  <div class="ask">
+    <div class="ask__title">Didn’t find what you are looking for?</div>
+    <div class="ask__links">
+      <a href="http://resources.workato.com/content-library/" class="ask__link">
+        <span class="ask__link-title">Search our resource library</span>
+        <span class="ask__link-description">View getting started guides, tutorials, training videos, webinars and FAQ</span>
+      </a>
+      <a href="https://support.workato.com/support/discussions" class="ask__link">
+        <span class="ask__link-title">Ask our community</span>
+        <span class="ask__link-description">View questions and answers from other users and Workato experts.</span>
+      </a>
+      <a href="https://support.workato.com/support/tickets/new" class="ask__link">
+        <span class="ask__link-title">File a support ticket</span>
+        <span class="ask__link-description">File a support ticket for critical issues that require a higher level of support.</span>
+      </a>
+    </div>
+  </div>
+
+  {% include "./footer.html" %}
 {% endblock %}

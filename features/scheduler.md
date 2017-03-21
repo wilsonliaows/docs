@@ -1,21 +1,31 @@
-#Scheduler ![Scheduler Icon](/assets/images/features/Scheduler/Scheduler Icon.png)
-Workato's Scheduler trigger is convenient for scheduling repeated tasks, and can be used tohelp perform time related commands.
+---
+title: Scheduler
+date: 2017-02-23 15:15:00 Z
+---
 
-Two types of Scheduler triggers are provided:
-* New Scheduled event: happens every X intervals (5 minutes, 30 days, etc.)
-* New Scheduled event (Advanced): happens at specified timings (1:15pm every Monday and Tuesday)
-There are also 2 Scheduler actions provided:
-* Get current time - provides the time when the action was performed,
-* Wait - set recipe to wait for a  certain amount of time between steps
+# Scheduler
+There are scenarios where a workflow needs to occur at a specific time, or at a specific frequency e.g. generate a report every Monday morning at 9am, check for new CSV files uploaded in your FTP server every 6 hours. The scheduler connector (AKA clock connector) supports such scenarios.
 
 ## Triggers
+Scheduler triggers allows you to schedule when exactly your recipe will run. There are two triggers:
 
-### New Scheduled Events
+- New scheduled event
 
-**New Scheduled Events**  are triggered at regular intervals. Simply select the intervals at which you wish for the recipe to run. This is usually best for monitoring-related use cases, such as checking how whether or not your customer service messages are being processed quickly enough (are there more than X unattended conversations in the last hour?). You can also set the time you want the recipe to start running using "Start at".
+This trigger allows you to specify the time the recipe should first trigger, and subsequently, the time intervals to continue triggering on.
 
-### Scheduled tasks 
-**Scheduled tasks** are triggered at specific times. For instance, we might like our recipe to be triggered at 1:15pm every Monday and Tuesday. First, select the "Scheduled task" trigger, and then add the "Hour" optional field.
+![Basic scheduler trigger](/assets/images/recipes/triggers/basic-scheduler-trigger.png)
+*Basic scheduler trigger that triggers the first time when recipe is started, then subsequently every hour after that*
+
+- New scheduled event (advanced)
+
+This trigger allows you to specify the days of the week the recipe should trigger on, as well as the times it should trigger on. If you specify only the minutes, e.g. 30, the recipe will trigger 24 times in a day, every 30 minutes past the hour. If both hour and minute inpur fields are filled, the recipe will trigger once a day.
+
+![Advanced scheduler trigger](/assets/images/recipes/triggers/advanced-scheduler-trigger.gif) *Advanced scheduler trigger that triggers every Monday at midnight 0000*
+
+Note that all times set using Scheduler are in the user's time zone, which can be viewed and edited in the user's account settings.
+
+### Example of configuring new scheduler event (advanced) trigger
+For instance, we might want to specify the trigger to run at 1:15pm every Monday and Tuesday. First, select the "Scheduled task" trigger, and then add the "Hour" optional field.
 
 * In the "Hour" field, fill in 13.
 * In the "Minute" field, fill in 15.
@@ -23,18 +33,13 @@ There are also 2 Scheduler actions provided:
 * Choose "yes" for Monday and Tuesday, and "no" for the rest.
 Now, the recipe will run at 1:15pm every Monday and Tuesday.
 
-**What happens if I don't fill in the "Hour" field?**
-In that case, your recipe will run at MM minutes, every hour of every day specified. In this example, on Monday and Tuesday, the recipe would be triggered at 0015, 0115, etc.
-
 ## Actions
+The following 2 actions are also supported:
 
-### Get current time
-This can be used to get the time at which a certain step was performed, and can be useful when you need to input a time stamp of a task 
+- Get current time
 
-### Wait
-The wait action enables a recipe wait for a set amount of time between steps. This is especially useful to ensure a recipe is using the most updated data in your mapping. 
+This action returns the specific date and time when this step is executed in a job. This date and time is expressed in UTC, e.g. `2017-01-30T05:30:33.479446+00:00`.
 
-## How to use Scheduler to test recipes
+- Wait
 
-You can use scheduler to test recipe by using it as a dummy trigger or dummy action. This is useful when you want to determine which action in a recipe is causing problems as you don't need to keep repeating a trigger event (e.g. creating a new salesforce lead over and over). Simply create a recipe with the trigger as scheduler, and set up the action(s) that you want to test. Alternatively, if you need to test if a trigger is working properly, you can use scheduler as a dummy action so that the recipe can be started.
-
+The job waits for the specified amount of time before executing the next step in the recipe.

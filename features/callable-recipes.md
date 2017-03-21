@@ -1,37 +1,53 @@
-# Callable Recipes
-Callable Recipes are Workato integration recipes that wait for you to call upon them instead of running in the background. A regular recipe begins doing work when the trigger, an external force, occurs. The Callable Recipe only begins work if it is called by another recipe or a Rest API. They make recipe building less complex and help developers create simple apps faster. There are two kinds of Callable Recipes:
+---
+title: Callable recipes
+date: 2017-04-05 14:00:00 Z
+---
 
-1. Callable Recipes for Recipe Building
-You can create and save snippets of business logic as a callable recipe, then insert them into a new recipe. These snippets could be the workflow for error handling, approval workflows, or any set of steps in a recipe you use often. It will keep the complexity of your recipes low and only require you to make changes in one place.
-2. REST Endpoint
-You can provide a REST API endpoint to an outside party so they can activate the start of a recipe without logging into Workato or use a REST endpoint to bring data from an outside API into an application.
+# Callable recipes
+Callable recipes are a type of recipe that can be called from another recipe. It's a way to decompose your recipes into smaller recipes, to help simplify as well as enable reuse (i.e. callable recipe can be called from multiple recipes)
 
-There are certain steps in a recipe that are often repeated in other recipes, such as the logic for error handling. Now, instead of building out the same 5 steps in each of your recipes, you can save time and make recipe creation easier with a Callable Recipe for Recipe Building. Think of callable recipes like a library of recipe sections that you can grab and insert into a recipe whenever you want to.
+Unlike other recipes that are started by a trigger event, callable recipe steps are executed when the recipe is called from another recipe.
 
-Some common recipe sections that make useful Callable Recipes include expense approval, auto-provisioning accounts in your apps, the notification process when things are not working correctly, and error handling to name a few. Making these recipe sections pre-made and readily available to insert into recipes not only makes recipe building faster, but ensures consistency in your business processes while reducing complexity in your recipes.
+Callable recipes can also be accessed via REST API.
 
-## How to create a callable recipe
+Advantages of using callable recipes
+- Easier to test
+By using a single block/loop in a separate recipe instead of repeating the single block/loop multiple times within a recipe, you just have to change the code in one place and test it instead of multiple places in the recipe.
 
-Let’s take a look at an example to see how this works. Say you want to automate the process of creating an invoice in Quickbooks Online (QBO) when an opportunity is closed-won in Salesforce. In order to create a QBO invoice, you’ll need to create a new customer if the customer does not already exist in QBO. Now, this snippet of logic: “creating a customer in QBO when they don’t already exist,” is a process that is necessary not only with your Salesforce to QBO integrations, but also when you have Point Of Sale (POS) transactions flowing into QBO, invoices you receive from your vendors and more. Instead of recreating the logic for “creating a customer in QBO when they don’t already exist,” you can make this snippet of logic into a Callable Recipe.
+- Making recipes more readable
+Instead of having really long recipes, break it out into smaller recipes that can be called
+
+- Sharing across recipes
+If you have a standard error notification policy, you can create a recipe and then have all recipes call this recipe for error notification
+
+- Sharing across accounts and with business partners
+You can expose REST APIs to your business partners. e.g. a REST API that provides inventory status to your suppliers.
+
+## Using callable recipes
+
+Let’s take a look at an example to see how this works. Say you want to automate the process of creating an invoice in Quickbooks Online (QBO) when an opportunity is closed-won in Salesforce. The recipe logic would be
+Create a new customer if customer does not exist
+
+In order to create a QBO invoice, you’ll need to create a new customer if the customer does not already exist in QBO. Now, this snippet of logic: “creating a customer in QBO when they don’t already exist,” is a process that is necessary not only with your Salesforce to QBO integrations, but also when you have Point Of Sale (POS) transactions flowing into QBO, invoices you receive from your vendors and more. Instead of recreating the logic for “creating a customer in QBO when they don’t already exist,” you can make this snippet of logic into a Callable Recipe.
 
 **Step 1. Create a new recipe**
 
-Create a recipe as you normally would, and for the trigger, select **Callable Recipe** under the application picklist. 
+Create a recipe as you normally would, and for the trigger, select **Callable Recipe** under the application picklist.
+
 ![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Callable Recipe Trigger 0.png)
+*Select callable recipe connector and call recipe action*
 
-Fill in a Name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about JSON in this link (https://support.workato.com/support/solutions/articles/1000234879-schema-definition) here. 
+Fill in a Name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about JSON [here](https://support.workato.com/support/solutions/articles/1000234879-schema-definition).
 ![CallableRecipeTrigger1](/assets/images/features/Callable Recipes/Callable Recipe Trigger 1.png)
-In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data. 
+In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
-Lastly, you may choose to enable REST endpoint for your recipe. This defaults to No
+Lastly, you may choose to enable REST endpoint for your recipe. This defaults to No.
 
-[
-
-Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication stpes, Run a search, and if search gives no results, create a customer, if exisiting customer found, update customer. For a sample recipe, click here https://www.workato.com/recipes/485991
+Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication steps, run a search, and if the search gives no results, create a customer. If an existing customer is found, update customer.
 
 **Step 2: Call recipe**
 
-Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and when created the actions you need. When you need to call the callable recipe, simply click on Add a new step, select **call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go! 
+Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and when created the actions you need. When you need to call the callable recipe, simply click on Add a new step, select **call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go!
 
 ![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Call Recipe Action.png)
 

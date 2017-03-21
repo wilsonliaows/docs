@@ -1,13 +1,15 @@
 # Secondary connectors
-When you are building a recipe, you will notice that you can only connect one instance of your app. Howeverm there are some instances where you may have to move data from one instance of an app to another. For example, you may want to move all your leads from one salesforce instance to another. In order to do so, you will need to use a **Secondary Connector**
+There are use cases where you are required to move data between two different instances of the same app, e.g. an organization located in two different states might have two different salesforce accounts, but would have to sync the data between the two states.
 
-Currently, Workato offers the following secondary connectors
-* JIRA Secondary
-* QuickBase Secondary
-* Salesforce Secondary
-* ServiceNow Secondary
-* Slack Secondary
+To automate such use cases in Workato, we support the notion of a **secondary connector**. In the example above, you would connect the primary Salesforce connector to the corporate instance and the secondary Salesforce instance to the subsidiary.
 
-To use a secondary connector, simply build a recipe and look for the secondary connectors when created a new action. You will be able to use all the features of a primary connector, just that the tasks will be performed in the instance used to make the secondary connection. 
+At present Workato supports secondary connectors for the following apps
+* [JIRA](https://www.workato.com/integrations/jira)
+* [QuickBase](https://www.workato.com/integrations/quickbase) 
+* [Salesforce](https://www.workato.com/integrations/salesforce)
+* [ServiceNow](https://www.workato.com/integrations/service_now)
+* [Slack](https://www.workato.com/integrations/slack) 
 
-**Note**: using a secondary connector counts as a serparate connection.  
+To use a secondary connector, select the secondary connector from the app picklist when choosing a trigger or action. The secondary connector has the same set of triggers and actions as the primary.
+
+**Note**: using a secondary connector counts as a separate connection.

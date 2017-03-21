@@ -1,104 +1,122 @@
-![Workbot1](/assets/images/Workbot/Workbot/Workbot 1.png)
+---
+title: Workbot for Slack
+date: 2017-03-30 05:00:00 Z
+---
 
-# Workbot 
+# Workbot for Slack
+Workbot for Slack is a Workato chatbot that helps you monitor and interact with your business apps from within Slack.
 
-Workbot from Workato helps you work with your business apps from within Slack. You can chat with your apps to access information or ask the the app to create or update business data. To cut down on traffic, apps can now send you smart notifications based on user specified filters.
+Your team can configure Workbot to post notifications to Slack channels when important events happen, such as when a key customer files a ticket, a lead from a Fortune 500 company fills in a form on your website, or when a DevOps alert is created.
 
-We will cover four areas in this document to help you get started!
-* Adding Workbot to Slack
-* Connecting Workbot to Apps
-* Sending commands to the Apps
-* Setting up Workbot for Smart Notifications
+You can also retrieve information from your apps and post it to Slack, or create and update business data from within Slack. To cut down on notifications volume, apps can now send you smart notifications based on user-specified filters.
 
-## Adding Workbot to Slack
-To add Workbot to your Slack, [click here](https://www.workato.com/workbot-slack) or enter www.workato.com/workbot-slack in the address bar
-Workato will bring up the screen that will help you set up Workbot for Slack
-Note: If you do not want to not make Workbot available to all your team members, or if you are doing your own testing, you can create a new Slack team and use that team to set up Workbot.
+![Workbot1](/assets/images/workbot/workbot/workbot-1.png)
 
-Click on the Add to Slack button. This will bring up a pop-up that shows you which slack channel you are connected to and ask you to authorize
-![Workbot2](/assets/images/Workbot/Workbot/Workbot 2.png)
+By default, Workbot comes with a set of pre-built recipes that allows you to interact with your applications and enable notifications with minimal setup.
 
-Authorize access to Slack
+## Slack connector VS Workbot for Slack connector
+Workato supports both the Slack connector and the Workbot for Slack connector.
 
-![Workbot3](/assets/images/Workbot/Workbot/Workbot 3.png)
+The Slack connector allows you to authorize to your Slack team as a team member, and immediately post messages onto channels, send direct messages to Slack team members, and manage channels and groups. It does not require any app installation onto your Slack team. Recipes built on the Slack connector allows you to respond to message buttons and menus.
 
-Once you authorize, you will get a confirmation screen. From here you just have two more steps get going
+The Workbot for Slack connector enables you to build additional recipes on top of Workbot, which is an app that needs to be installed onto your Slack team, and comes with pre-built recipes. Messages posted in Slack via this connector will show up as being posted by **Workbot**. Recipes built on top of the Workbot connector has the ability to facilitate more complex interactions and communicate with Workbot to read or write data to other connected apps.
 
+A detailed comparison table for both the Slack connector and the Workbot for Slack connector is below.
 
-Clicking on Got it! will add Workbot to your Slackand show you the list of pre-built apps
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Features</th>
+            <th>Slack connector</th>
+            <th>Slack for Workbot connector</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-attachments">Attachments</a>
+            </td>
+            <td>
+              <a href="/connectors/slack.html#example-message-with-attachment">Yes</a>
+            </td>
+            <td>
+              <a href="/workbot/workbot-actions.html#post-command-reply">Yes</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-buttons">Message buttons</a>
+            </td>
+            <td>
+              <a href="/connectors/slack.html#using-slack-message-buttons">Yes</a>
+            </td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-menus">Message menus</a>
+            </td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-threading">Threads</a>
+            </td>
+            <td>
+              <a href="/connectors/slack.html#using-slack-threads">Yes</a>
+            </td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Need to install into Slack team?</td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Post as user customization</td>
+            <td>
+              <a href="/connectors/slack.html#example-message-with-attachment-customized-app-name-and-images">Yes</a>
+            </td>
+            <td>No, always post as Workbot.</td>
+        </tr>
+        <tr>
+            <td>Pre-built recipes/commands?</td>
+            <td>No</td>
+            <td>
+              <a href="https://www.workato.com/workbot-slack">Yes</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Notifications need to be set up?</td>
+            <td>
+              No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel.
+            </td>
+            <td>
+              No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel.
+            </td>
+        </tr>
+        <tr>
+            <td>Verified user access?</td>
+            <td>No</td>
+            <td>
+              <a href="/workbot/workbot-latebinding.html">Yes</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              Pass data (parameters) to subsequent messages/recipes
+            </td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
 
-![Workbot4](/assets/images/Workbot/Workbot/Workbot 4.png)
+## Notes
 
-Workbot Added to Slack
-                                           
-## Connecting Workbot to apps                                        
-You can turn on the access to the apps you need simply by toggling the switches shown below.
-
-![Workbot5](/assets/images/Workbot/Workbot/Workbot 5.png)
-
-If you turn on an App, such as Salesforce, a connection screen will pop up and guide you to connect to the right App instance
-
-![Workbot6](/assets/images/Workbot/Workbot/Workbot 6.png)
-
-Once turned on, the apps will show up with the button as ON. You can click on the Commands link to see the list of available commands
-
-Activated Apps and list of available commands
-
-![Workbot16](/assets/images/Workbot/workbot/Workbot 16.png)
-
-Now you are ready to start chatting with Workbot
-Note that Direct messages or DM are private exchanges with Workbot and won’t be seen by others
-
-
-## Sending Commands to the app
-To send a command in workbot, you can simply use on of the default commands from the app, or you can build your own recipes and customize a command! For example,  Let’s ask workbot to **"show details for a customer"** from quickbooks
-
-![Workbot7](/assets/images/Workbot/Workbot/Workbot 7.png)
-Workbot then shows us the result and asks us if we want to create a corresponding account in Salesforce. if we want to do that, all we need to do is say "@workbot Yes" 
-![Workbot8](/assets/images/Workbot/Workbot/Workbot 8.png)
-As shown from above, Workbot will check to see if the **Account** already exists, and if it does, will notify you on the chat. If it does not exisit yet, the Account will be created and details will be shown. 
-
-
-## Setting Up Notifications
-Commands are one way to interact with Workbot. At the same time, you can also ask it to listen for important stuff and notify you about them. You can invite workbot to any channel and configure the notifications to go to that channel. Follow the steps below to set up notifications in your channel for specific recipes
-
-1. Selecting the Channel for Workbot
-
-![Workbot9](/assets/images/Workbot/Workbot/Workbot 9.png)
-
-2. Inviting Workbot to the Channel
-
-![Workbot10](/assets/images/Workbot/workbot/workbot-adding-channel.gif)
-
-3. Send a command to workbot to trun on notifications
-  
-The command should follow this format: 
-  
-**@workbot appname start notifications name:\[document] [event]**
-  
-If the recipe is not started, you will not be able to turn on notifications. But if it is connected, it will confirm that notifications is turned on.
-
-![Workbot12](/assets/images/Workbot/Workbot/Workbot 12.png)
-
-And send you the notifications on this channel
-
-![Workbot13](/assets/images/Workbot/Workbot/Workbot 13.png)
-
-4. You can also turn off notifications, by using this format: 
-  
-**@workbot appname stop notifications name:\[document] [event]**
-  
-Workbot will confirm that it has turned notifications off
-
-![Workbot15](/assets/images/Workbot/Workbot/Workbot 15.png)
-
-### Things To Note
-
-1. Treat workbot like an actual person, he deserves some respect (:
-2. Make sure that workbot is always in the channel to run commands, you can do this by inviting workbot to the channel
-3. Just like talking to a real person, always use @workbot because you want him to be alerted
-4. When you talk to workbot in its direct message channel, you do not need to use @workbot because he knows you are talking to him
-5. When you invite workbot into the channel, ANYONE in that channel can tell Workbot to do the assigned commands
-6. In the event you want workbot to do something that he is unable to do, feel free to post your request here and our team can take a look at it 
-7. The integration app connection will pick up the LATEST connection that you have made to the app
-
+1. Make sure that Workbot is always in the channel to run commands. Do this by inviting it to the channel.
+2. Just like talking to a real person, always use @workbot because you want it to be alerted.
+3. When you talk to Workbot in his direct message channel, you do not need to use @workbot because it knows you are talking to it.
+4. When you invite Workbot into the channel, **anyone** in that channel can interact with Workbot via commands.
+5. When first installing Workbot into your Slack team, Workbot will detect the **latest** app connections you have made in your Workato account and automatically connect to them.

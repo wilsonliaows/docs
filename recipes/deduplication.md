@@ -1,3 +1,8 @@
+---
+title: Deduplication
+date: 2017-03-23 14:00:00 Z
+---
+
 # Deduplication
 
 ## Why should I ensure steps are taken for deduplication in my recipes?
@@ -36,6 +41,3 @@ If a customer is found, the Customer ID will be present. In this case, we want t
 In step 4, if a Customer is not found, we want to create a new customer record using existing information from Salesforce.
 
 ![conditional2](/assets/images/deduplication/conditional2.JPG)
-
-
-

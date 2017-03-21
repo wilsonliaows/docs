@@ -1,5 +1,5 @@
 ---
-title: Building Best Practices
+title: Best practices for building recipes
 date: 2017-02-25 18:00:00 Z
 ---
 
@@ -34,13 +34,13 @@ When attempting to build a rather complicated recipe, we recommend building it i
 ### 4. Cloning and Version Control
   I use cloning and modifying to create the next version of the recipe. Cloning recipe allows me to push changes to the original recipe whenever I want to. This allows you to create a "test" and "production" recipes. The cloned recipe will be a production recipe, and you can make changes on the original/test recipe. 
   
-    ![iterative_tip_4_1](/assets/images/building-best-practices/iterative_tip_4_1.png)
+  ![iterative_tip_4_1](/assets/images/building-best-practices/iterative_tip_4_1.png)
     
-    When you edit the original recipe, the cloned recipe will show that changes are available to be pushed.
+  When you edit the original recipe, the cloned recipe will show that changes are available to be pushed.
     
-    ![iterative_tip_4_2](/assets/images/building-best-practices/iterative_tip_4_2.png)
+  ![iterative_tip_4_2](/assets/images/building-best-practices/iterative_tip_4_2.png)
     
-    Simply click on install to copy the changes from test recipe to production recipe
+  Simply click on install to copy the changes from test recipe to production recipe
 
  Once you are satisfied with the changes, going to the cloned recipe, you should be able to see a note that a new version is available. This allows you to push any changes made on the test recipe to the production recipe. 
  

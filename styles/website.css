@@ -1,10 +1,154 @@
+body {
+  color: #525252;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 120px;
+}
+
+/* Layout */
+.book, .book-body .body-inner {
+  height: calc(100vh - 120px);
+}
+
+.book-summary {
+  position: fixed;
+  top: 120px;
+}
+
+.book-body {
+  padding: 0;
+  position: static;
+  transition: margin-left 250ms ease;
+}
+
+.book.with-summary .book-body {
+  margin-left: 300px;
+}
+
+.book-body .body-inner {
+  position: static;
+  overflow: auto;
+}
+
+/* Markdown document */
+.markdown-section {
+  font-size: 16px;
+  line-height: 1.625;
+  overflow: visible;
+}
+
+/* Sections */
+.markdown-section h1 {
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 26px;
+  line-height: 1.38;
+  margin: 30px 0;
+  padding-bottom: 15px;
+}
+
+.markdown-section h2 {
+  font-size: 18px;
+  margin: 30px 0 15px;
+}
+
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5 {
+  font-size: 16px;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3 {
+  font-weight: bold;
+}
+
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5 {
+  line-height: 1.44;
+}
+
+.heading_linkable {
+  position: relative;
+}
+
+.heading__anchor {
+  box-sizing: border-box;
+  font-size: 65%;
+  left: -1.4em;
+  padding: .4em 1em 0 0;
+  position: absolute;
+}
+
+.heading__anchor,
+.heading__anchor:link,
+.heading__anchor:visited,
+.heading__anchor:hover,
+.heading__anchor:active {
+  color: #525252;
+}
+
+.heading_linkable .heading__anchor {
+  display: none;
+}
+
+.heading_linkable:hover .heading__anchor {
+  display: block;
+}
+
+/* Images */
+.markdown-section img {
+  border: 1px solid #dedede;
+  display: block;
+  margin: 30px auto 10px;
+}
+
+/* Image captions */
+.markdown-section p > img + em:last-child,
+.markdown-section p > a + em:last-child {
+  color: #a8a8a8;
+  display: block;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 17px;
+  margin: 10px auto 40px;
+  text-align: center;
+}
+
+/* Header */
 .w-header {
   background: #fff;
-  border-bottom: 1px solid #e7e7e7;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, .1);
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.w-header__row {
+  align-items: center;
   display: flex;
+  height: 70px;
+  padding: 0 15px;
+}
+
+.w-header__row_logo {
+  border-bottom: 1px solid #e7e7e7;
   justify-content: space-between;
-  height: 60px;
-  padding: 15px;
+}
+
+.w-header__logo {
+  height: 30px;
+  width: 184px;
+}
+
+.w-header__row_toolbar {
+  height: 50px;
+  padding-right: 0;
 }
 
 .w-header__return {
@@ -12,90 +156,285 @@
   border-radius: 2px;
   color: #27989f;
   font-weight: 700;
-  text-decoration: none;
   padding: 5px 15px;
-}
-
-.w-footer {
-  background: #27989f;
-  color: #fff;
-  padding: 50px 15px;
-}
-
-.w-footer__social {
-  text-align: center;
-}
-
-.w-footer__social-item {
-  display: inline-block;
-  margin: 0 5px;
-  transition: opacity ease .25s;
-}
-
-.w-footer__social-item:hover {
-  opacity: .85;
-}
-
-.w-footer__copy {
-  line-height: 1;
-  margin: 0 0 20px;
-  text-align: center;
-}
-
-.w-footer__copy-item {
-  padding: 0 12px 0 10px;
-  border-right: 1px solid #fff;
-}
-
-.w-footer__copy-item:last-child {
-  border: none;
-}
-
-.w-footer__copy-item_link {
-  color: #fff;
   text-decoration: none;
 }
 
-.w-footer__copy-item_link:hover {
-  text-decoration: underline;
+/* Hiding page title in toolbar */
+/* Can't remove it from the template because it's needed by the script that appends toolbar buttons */
+.book-header h1 {
+  display: none;
 }
 
-.w-footer__title {
+/* Toolbar buttons */
+.book-header {
+  align-items: center;
+  align-self: stretch;
+  background: #fafafa;
+  display: flex;
+  flex: 1;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  height: auto;
+}
+
+.book-header .btn {
+  color: #525252;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.book-header .btn:hover {
+  color: #525252;
+}
+
+.btn_menu::after {
+  content: " Menu";
+}
+
+.btn_edit::after {
+  content: " Edit this page";
+}
+
+/* Search bar*/
+#book-search-input {
+  align-items: center;
+  align-self: stretch;
+  border: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 285px;
+}
+
+#book-search-input input {
+  height: 100%;
+}
+
+/* Book summary*/
+.book-summary {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+.book-summary ul.summary li {
+  position: relative;
+}
+
+.book-summary ul.summary li a,
+.book-summary ul.summary li span {
+  color: #525252;
+}
+
+.book-summary ul.summary li.active > a {
+  color: #27989f;
+}
+
+.book-summary ul.summary > .chapter {
+  border-bottom: 1px solid #f1f1f1;
+  padding: 10px 15px;
+}
+
+.book-summary ul.summary > .chapter:last-child {
+  border-bottom: none;
+}
+
+.book-summary ul.summary > .chapter.active {
+  background: #fff;
+}
+
+.chapter__toggle {
+  left: 3px;
+  position: absolute;
+  top: 12px;
+}
+
+.summary > .chapter > .chapter__toggle {
+  left: 12px;
+  top: 22px;
+}
+
+/* "Didn't find..." block */
+.ask {
+  background: #27989f;
+  border-top: 1px solid #dedede;
+  padding: 50px 50px 60px;
+}
+
+.ask__title {
+  color: #fff;
   font-size: 18px;
-  font-weight: 700;
-  margin: 0 0 50px;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
-.w-footer__help-links {
-  border: solid #fff;
-  border-width: 1px 0;
+.ask__links {
   display: flex;
   justify-content: space-between;
-  line-height: 1.6;
-  margin: 0 0 50px;
-  padding: 50px 0;
 }
 
-.w-footer__help-link {
+.ask__link {
+  border: 1px solid #e3e3e3;
+  background: #fff;
+  border-radius: 2px;
+  color: #525252;
+  display: block;
+  flex: 0 0 32%;
+  font-size: 14px;
+  padding: 15px;
+  transition: color .3s ease, box-shadow .3s ease;
+}
+
+.ask__link:hover,
+.ask__link:focus,
+.ask__link:active {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, .2);
+  color: #27989f;
+}
+
+.ask__link-title,
+.ask__link-description {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  text-align: center;
+}
+
+.ask__link-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+  background: #27989f;
+  border-top: 1px solid #fff;
   color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  padding: 40px 50px;
+}
+
+.footer__terms-link,
+.footer__terms-link:link,
+.footer__terms-link:visited,
+.footer__terms-link:active,
+.footer__terms-link:hover,
+.footer__terms-link:focus {
+  color: inherit;
+  font-size: 14px;
+}
+
+.footer__terms {
+  margin: 0 0 15px;
+  text-align: center;
+}
+
+.footer__terms-item {
+  margin: 0 5px 0 0;
+  font-weight: bold;
+}
+
+.footer__terms-item:not(:first-child)::before {
+  content: "|";
+  margin-right: 5px;
   text-decoration: none;
-  width: 30%;
 }
 
-.w-footer__help-link:hover .w-footer__help-link-title {
-  text-decoration: underline;
+.footer__social {
+  text-align: center;
 }
 
-.w-footer__help-link-title {
-  font-weight: 700;
-  display: block;
-  margin: 0 0 10px;
+.footer__social-icon {
+  border: 2px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 15px;
+  height: 30px;
+  line-height: 1.6;
+  margin-left: 15px;
+  text-align: center;
+  transition: color 150ms ease-in, border-color 150ms ease-in;
+  width: 30px;
 }
 
-.w-footer__help-link-description {
-  display: block;
+.footer__social-icon:link,
+.footer__social-icon:visited,
+.footer__social-icon:active {
+  color: #fff;
 }
 
-.gitbook-link {
-    display: none !important;
+.footer__social-icon:hover,
+.footer__social-icon:focus {
+  border-color: #e8e8e8;
+  color: #e8e8e8;
+}
+
+@media (max-width: 768px) {
+  .book-body {
+    transition: none;
+  }
+
+  .heading_linkable:hover .heading__anchor {
+    display: none;
+  }
+
+  .footer__terms {
+    text-align: center;
+  }
+
+  .footer__social {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .book.with-summary .book-body {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .w-header__logo {
+    height: 30px;
+    width: 160px;
+  }
+
+  .w-header__return {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  #book-search-input {
+    font-size: 12px;
+  }
+
+  .book-header .btn {
+    font-size: 11px;
+    padding: 0 6px;
+  }
+
+  .btn_edit::after {
+    content: " Edit";
+  }
+
+  .ask {
+    padding: 45px 30px 50px;
+  }
+
+  .ask__links {
+    display: block;
+  }
+
+  .ask__link {
+    margin-bottom: 20px;
+  }
+
+  .ask__link:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer {
+    padding: 35px 30px;
+  }
 }
