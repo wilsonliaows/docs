@@ -1,44 +1,79 @@
 ---
-title: Field mapping
+title: Fields mapping
 date: 2017-03-16 10:00:00 Z
 ---
 
-# Field Mapping
-If you've read the previous section on Data pills, you are now ready to map them into Input Fields through this process we call Field Mapping. Field Mapping is one of the strongest ability that Workato users possess. With the ability to retrieve, modify and store values in any fields, including custom fields, you can now move data across your applications with better control and stronger data pipelines.
+# Fields mapping
+Fields mapping is what we call inserting variables (datapills) or constants into input fields. This gives you control over what data moves from an app to another app.
 
+Fields mapping is usually more relevant for actions as opposed to triggers, as we define data flows from the triggers or from previous steps into subsequent steps. In every step, we have to get data pills (variables) from the previous steps' datatrees and map them into the step's input fields. In this way, we're crafting a template that determines data flow in your recipe.
 
-## Example of field mapping
-The basics of Field Mapping in Workato begins with understanding what you are trying to map in a recipe. In the gif shown below, we map the Account Name data pill from the Salesforce Step into the Message input field in the email action. 
+## Fields mapping example
+In the following example, we map the **Account Name** data pill from the Salesforce **New account** trigger into the **Message** input field in the **Send email** action.
+
 ![mapping_gif](/assets/images/actions-docs/mapping_gif.gif)
 
+*Mapping the account name data pill into the message input field*
 
-## Types of Field mapping
-There are 4 different types of field mapping methods - Static, Dynamic, Combination and Formula.
+# Mapping constants VS mapping variables
+Workato supports mapping of both constants and variables.
 
-1. Static 
-  This would mean that a fixed value is being placed into the Input field without the consideration of any Data Pills. This would be the cause for error when users realize that their results are the same despite running the recipe on different records. An example of static mapping can be seen in the "Email" field below, where the email would always be sent to aa@gmail.com. 
-![mapping_type_1](/assets/images/actions-docs/mapping_type_1.png)
+## Mapping variables
+The variable **Account name** has been mapped to the **Name** input field. This means that for every new Salesforce account that is created, the account name of this Salesforce account will be used as the organization name of the Zendesk organization that will be created. For example, a new Salesforce account named **Sattei Winery** will in turn create a Zendesk organization named **Sattei Winery**.
 
-2. Dynamic
-  Dynamic field mapping occurs when Data Pills are chosen as inputs. This means that the value passed into the field would vary accordingly to the object/record retrieved. The "First Name" data pill that was passed into the "Display name" field is an example of a dynamic field mapping.
-![mapping_type_2](/assets/images/actions-docs/mapping_type_2.png)
+![Input field with variable mapping](/assets/images/workato-concepts/input-field-with-variable.png)
 
-3. Combination
-  Combination field mapping type occurs when static and dynamic field types are being used concurrently. A common example would be to add a fixed value to a dynamic field type, such as adding a number to a dynamic numeric value. The example below shows how a static string is added to a dynamic string value called "Invoice Number".
-![mapping_type_3](/assets/images/actions-docs/mapping_type_3.png)
+*Input field with variable mapping*
 
-4. Formula
-  Formula field mapping type occurs when a formula is used to create a input into the field.This could be used to manipulate the value from a data pill. It could be used in a variety of ways, such as when users wish to split a string or apply an operator on a numerical values. In this example, formula mode is used to check on whether the data pill "Full Name" contains a value. If it does use that value, else use the value within the "First Name" data pill instead.
-  
+## Mapping constants
+On the other hand, the input field **Notes** has a constant mapped to it - the words "Synced over from Salesforce." This means that all newly created Zendesk organizations created via Workato will have the words "Synced over from Salesforce." in its **Notes** field.
+
+![Input field with constant mapping](/assets/images/workato-concepts/input-field-with-constant.png)
+
+*Input field with constant mapping*
+
+Here's an example of the new Zendesk organization created via the above mapping:
+
+![Newly created Zendesk organization](/assets/images/workato-concepts/zendesk-organization.png)
+
+*Newly created Zendesk organization Sattei Winery*
+
+## Mapping both constants and variables
+Of course, you can also combine constants and variables in the input fields for the data you wish to have.
+
+# Data transformation
+The data that an app holds doesn't always transfer easily to another app, for example:
+- your sales app stores names by *full name*, but your marketing app requires *first name*, *middle name* and *last name*
+- your ecommerce app stores addresses as individual fields, e.g. *address line 1*, *address line 2*, *city*, *state*, but your accounting app simply requires a single *billing address* and *shipping address* field
+- the priority levels in your ticketing app may be *low*, *medium*, *high*, but in your sales system they're *low*, *normal*, *urgent*
+
+In such cases, you need to work with the data from the source app and transform it into a suitable format for the target app. Workato supports data transformation via its [formulas](/docs/formulas.md).
+
+## Data transformation via formula example
+In the following example, we're using a ternary formula in formula mode to decide what value to pass into the input field **Message**. The formula is in this format:
+
+`[condition] ? [do this if true] : [do this if false]`
+
+Therefore, we're checking to see if there is any value in the **Full name** pill. If yes, we pass in **Full name** into the input field. If not, we pass in **First name** into the input field.
+
 ![mapping_type_4](/assets/images/actions-docs/mapping_type_4.png)
 
-## Common Pitfalls when mapping fields
-Taking the right data pill is just as important as setting up the right logic, when you choose the wrong data pill to work with, you are bounded to fall into errors. Here are some common pitfalls with regards to field mapping.
+# Common issues when mapping fields
+Here are some of the common errors we've experienced when it comes to fields mapping
 
-- Empty Data pills on Required Fields
+- Data pills with no values at run-time for required fields
 
-  Required fields must always have a value. To ensure that, you will always need to make sure that the field is filled up, either    with a data pill that always have a value, or using formula mode. 
+At design-time (when we're building the recipe), all required fields are supposed to be mapped. The recipe will refuse to start and throw an error if a required field is left empty.
 
-- Data pills from the wrong branch of logic
+However, even if an input field has been mapped at design-time, it might not actually have a value at run-time (when a trigger event comes in and a job is being processed). In such a case, that specific job will throw an error and fail.
 
-  When you used the recipe from the wrong branch of logic, you will definitely be meeting a data pill with empty value. This is because that data pill may come from a step that may never had been executed at all. 
+You would need to decide how to handle such cases whereby a required field might not receive a value at run-time. If that is rightly a business logic error which needs to be resolved, e.g. the recipe tries to move a new lead from a sales app to a marketing app, but finds that it's missing an email address for the lead, the answer might be to let the job fail and flag the employee who had created the lead record.
+
+- Data pills from the wrong datatree
+
+When mapping input fields with data pills, it is common to find pills with the same names in the datatrees, e.g. if you're moving customers from an app to another, customer datatrees tend to hold address information. Hence you might find yourself using a pill with the right name, e.g. **City**, **State**, **Country**, but from the wrong datatree.
+
+- Data pills from the wrong part of the recipe
+If your recipe has conditional steps, e.g. if customer is present, update customer record, and if customer is not present, create customer record, then for each job that's processed, there will be steps that are not carried out. In such cases, the values in the datatree for these steps will most likely be blank.
+
+If you're using data pills from these steps, you need to recognize the potential of these pills being null, and handle that scenario.
