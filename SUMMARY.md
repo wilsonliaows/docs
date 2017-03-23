@@ -8,17 +8,23 @@
   * [Steps](recipes/steps.md)
   * [Actions](recipes/actions.md)
   * [Data types](recipes/data-types.md)
-  * Mapping
-  * [Formula](recipes/formula.md)
+  * [Mapping](recipes/mapping.md)
   * [Recipe version management](recipes/recipe-version-management.md)
   * [Best practices](recipes/building-best-practices.md)
+* [Formula](recipes/formula.md)
 * [Running recipes](recipes/running-recipes.md)
-  * [Job details](recipes/job-details.md)
-  * [Test recipe](recipes/testing-recipes.md)
+  * Jobs
   * [Start and stop](recipes/start-and-stop.md)
-  * [Polling intervals](recipes/polling-intervals.md)
+  * [Test recipe](recipes/testing-recipes.md)
+  * Jobs report
   * [Rerun job](recipes/rerun-job.md)
-* [Recipe Ops](recipe-ops.md)
+  * [Recipe Ops](recipe-ops.md)
+* Recipe management and monitoring
+  * Error notifications
+  * Notifications
+  * Delegated administrator
+  * [Workato Admin connector](recipe-ops.md)
+  * [Rerun job](recipes/rerun-job.md)
 * [Features](features.md)
   * [List management](features/list-management.md)
   * [Scheduler](features/scheduler.md)
@@ -26,14 +32,13 @@
   * [Secondary connectors](features/secondary-connectors.md)
   * [Batch processing](features/batch-processing.md)
   * [Lookup tables](features/lookup-tables.md)
-  * Linked objects
   * [Callable recipes](features/callable-recipes.md)
   * [Handling CSV files](features/handling-csv-files.md)
-  * [Handling files and attachments](features/handling-files-and-attachments.md)
-  * Handling JSON
-  * Handling XML
+  * [Handling JSON](features/handling-json.md)
+  * [Handling XML](handling-xml.md)
   * [Account properties](features/account-properties.md)
   * [Data masking](features/data-masking.md)
+* [Handling files and attachments](features/handling-files-and-attachments.md)
 * [Working with teams](user-accounts-and-teams.md)
   * [Collaboration](user-accounts-and-teams/team-collaboration.md)
   * [Role-based access](user-accounts-and-teams/team-collaboration.md#team-roles)
@@ -46,7 +51,6 @@
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
 * [On premise](on-prem.md)
-* API gateway
 * [Connectors documentation](connectors.md)
   * Overview
   * [Amazon S3](connectors/s3.md)
@@ -80,19 +84,13 @@
   * [Infinite loops](recipes/infinite-loops.md)
   * [Deduplication](recipes/deduplication.md)
   * [Rate limiting](recipes/rate-limiting.md)
-* [Developer](developer.md)
-  * Conceptual model
+* [Developing connectors](developer.md)
   * [Comparison of HTTP VS SDK](developer/http-vs-sdk.md)
   * [HTTP](developer/http.md)
   * SDK
     * [Conceptual model](developer/sdk/sdk-conceptual-model.md)
     * [SDK documentation](developer/sdk/sdk-docs.md)
   * Platform API
-* Recipe Development Life Cycle
-  * Model/diagram of the RDLC
-  * Sandbox\*Production
 * [Security and compliance](https://www.workato.com/security)
 * [Data retention](data-retention.md)
-* Scalability and performance
 * [Contact us](contact-us.md)
-
