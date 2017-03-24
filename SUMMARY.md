@@ -14,9 +14,9 @@
 * [Formula](recipes/formula.md)
 * [Running recipes](recipes/running-recipes.md)
   * [Jobs](recipes/jobs.md)
+  * [Jobs report](recipes/jobs-report.md)
   * [Start and stop](recipes/start-and-stop.md)
   * [Test recipe](recipes/testing-recipes.md)
-  * [Jobs report](recipes/jobs-report.md)
   * [Rerun job](recipes/rerun-job.md)
   * [Recipe Ops](recipe-ops.md)
 * Recipe management and monitoring
