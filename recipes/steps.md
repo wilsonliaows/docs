@@ -1,5 +1,5 @@
 ---
-title: Workato action steps
+title: Steps
 date: 2017-02-20 13:00:00 Z
 ---
 

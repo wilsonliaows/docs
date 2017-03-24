@@ -1,5 +1,5 @@
 ---
-title: Formula Errors 
+title: Formula errors 
 date: 2017-03-12 12:30:00 Z
 ---
 

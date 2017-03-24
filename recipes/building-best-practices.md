@@ -1,5 +1,5 @@
 ---
-title: Building Best Practices
+title: Best practices for building recipes
 date: 2017-02-25 18:00:00 Z
 ---
 

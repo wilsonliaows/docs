@@ -1,4 +1,12 @@
-#Scheduler ![Scheduler Icon](/assets/images/features/Scheduler/Scheduler Icon.png)
+---
+title: Scheduler
+date: 2017-02-23 15:15:00 Z
+---
+
+#Scheduler
+
+![Scheduler Icon](/assets/images/features/Scheduler/Scheduler Icon.png)
+
 Workato's Scheduler trigger is convenient for scheduling repeated tasks, and can be used tohelp perform time related commands.
 
 Two types of Scheduler triggers are provided:
