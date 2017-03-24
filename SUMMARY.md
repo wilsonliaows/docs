@@ -43,7 +43,7 @@
   * [Collaboration](user-accounts-and-teams/team-collaboration.md)
   * [Role-based access](user-accounts-and-teams/team-collaboration.md#team-roles)
   * [Audit logs](user-accounts-and-teams/team-collaboration.md#audit-logs)
-* [Workflow](workflow.md)
+* [People Task](workflow.md)
 * [Signing up](on-prem/signing-up.md)
   * [Single Sign-On \(SSO\)](on-prem/signing-up/s.md)
 * [Workbot](workbot/workbot.md)
@@ -51,31 +51,6 @@
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
 * [On premise](on-prem.md)
-* [Connectors documentation](connectors.md)
-  * Overview
-  * [Amazon S3](connectors/s3.md)
-  * [Box](connectors/box.md)
-  * [DocuSign](connectors/docusign.md)
-  * [JIRA](connectors/jira.md)
-  * [QuickBooks Online](connectors/quickbooks.md)
-  * [Salesforce](connectors/salesforce.md)
-  * [ServiceNow](connectors/servicenow.md)
-  * [SurveyMonkey](connectors/surveymonkey.md)
-  * Google Sheets
-  * Netsuite
-  * Google Mail
-  * Clock
-  * Utility
-  * Email
-  * Eventbrite
-  * Outlook
-  * Google Calendar
-  * Quickbase
-  * Xero
-  * Intacct
-  * Slack
-  * MySQL
-  * SQL Server
 * [Troubleshooting](troubleshooting.md)
   * Trigger warnings
   * [Action errors](recipes/action-errors.md)
