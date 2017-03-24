@@ -11,7 +11,7 @@
   * [Mapping](recipes/mapping.md)
   * [Recipe version management](recipes/recipe-version-management.md)
   * [Best practices](recipes/building-best-practices.md)
-* [Formula](recipes/formula.md)
+* [Formula](formula.md)
 * [Running recipes](recipes/running-recipes.md)
   * [Jobs](recipes/jobs.md)
   * [Jobs report](recipes/jobs-report.md)
