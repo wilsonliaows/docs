@@ -47,7 +47,7 @@ The data that an app holds doesn't always transfer easily to another app, for ex
 - your ecommerce app stores addresses as individual fields, e.g. *address line 1*, *address line 2*, *city*, *state*, but your accounting app simply requires a single *billing address* and *shipping address* field
 - the priority levels in your ticketing app may be *low*, *medium*, *high*, but in your sales system they're *low*, *normal*, *urgent*
 
-In such cases, you need to work with the data from the source app and transform it into a suitable format for the target app. Workato supports data transformation via its [formulas](/docs/formulas.md).
+In such cases, you need to work with the data from the source app and transform it into a suitable format for the target app. Workato supports data transformation via its [formulas](/formulas.md).
 
 ## Data transformation via formula example
 In the following example, we're using a ternary formula in formula mode to decide what value to pass into the input field **Message**. The formula is in this format:

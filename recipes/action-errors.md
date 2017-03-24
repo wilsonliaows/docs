@@ -1,3 +1,8 @@
+---
+title: Action errors
+date: 2017-03-23 14:00:00 Z
+---
+
 # Action Errors
 When working on Workato, you will occasionally encounter errors. Errors arise when something has gone wrong with the recipe, like when a recipe wasn't configured properly, or the app you are trying to connect with is experiencing downtime. Job Failures and how to deal with them
 

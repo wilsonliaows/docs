@@ -1,3 +1,8 @@
+---
+title: Testing recipes
+date: 2017-02-18 22:15:00 Z
+---
+
 # Testing Recipes
 
 ## Why is testing recipes necessary?
