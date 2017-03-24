@@ -8,26 +8,26 @@ Data pills are variables that you use to build recipes, and contain values from 
 
 Data pills are usually found within datatrees, within the **App Data** section.
 
-![Datatree](/docs/assets/images/recipes/data-pills/datatree-example.png)
+![Datatree](/assets/images/recipes/data-pills/datatree-example.png)
 
 *Datatree within a recipe step*
 
 When you're configuring a recipe step, all data from previous steps will be available for use in the fields mapping of that step.
 
-![Multiple datatrees](/docs/assets/images/recipes/data-pills/multiple-datatrees.png)
+![Multiple datatrees](/assets/images/recipes/data-pills/multiple-datatrees.png)
 
 *Multiple datatrees available when configuring a recipe step*
 
 ## Data pills example
 For instance, let's take the scenario where we wish to send out a simple welcome email to every new Salesforce lead who has signed up for our mailing list. The following is that recipe.
 
-![Recipe that sends a welcome email to new Salesforce leads](/docs/assets/images/recipes/data-pills/salesforce-lead-welcome-email-recipe.png)
+![Recipe that sends a welcome email to new Salesforce leads](/assets/images/recipes/data-pills/salesforce-lead-welcome-email-recipe.png)
 
 *Recipe that sends a welcome email to new Salesforce leads* [Example recipe](https://www.workato.com/recipes/496603)
 
 In the **Send email** action, pills from the **New Salesforce lead** datatree have been mapped into the input fields.
 
-![Data pill mapping](/docs/assets/images/recipes/data-pills/data-pills-example.png)
+![Data pill mapping](/assets/images/recipes/data-pills/data-pills-example.png)
 
 *Example of data pills being mapped into an action step*
 
@@ -42,7 +42,7 @@ Thanks for joining our mailing list! We're excited to have you!
 # Sample schema
 When your app is connected to Workato, sample schema pulled from it will show up in the datatree next to the data pills, to provide examples how what this data is in your app.
 
-![Output datatree](/docs/assets/images/workato-concepts/output-datatree.png)
+![Output datatree](/assets/images/workato-concepts/output-datatree.png)
 
 *Output datatree for New Salesforce account trigger*
 

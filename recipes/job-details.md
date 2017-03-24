@@ -1,3 +1,8 @@
+---
+title: Job details
+date: 2017-02-18 22:15:00 Z
+---
+
 # Job Details
 
 ## How do I check the job details? 
