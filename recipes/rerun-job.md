@@ -70,3 +70,6 @@ The rerun job button is located on the top right hand corner of the job report p
 All rerun jobs have a history log at the bottom of the job details page. Click on each line to view the previously run jobs. 
 
 ![rerunhistory](/assets/images/rerun-jobs/rerunhistory.JPG)
+
+## Data retention policy
+Data retention applies to processed trigger events. This means that older jobs might not be able to be reran. Find out how the data retention policy affects job reruns [here](data-retention.md).
