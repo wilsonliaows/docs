@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [Introduction](introduction.md)
 * [Concepts](workato-concepts.md)
 * [Connections](recipes/connections.md)
 * [Building recipes](recipes/building-recipes.md)
@@ -11,7 +11,7 @@
   * [Mapping](recipes/mapping.md)
   * [Recipe version management](recipes/recipe-version-management.md)
   * [Best practices](recipes/building-best-practices.md)
-* [Formula](recipes/formula.md)
+* [Formula](formula.md)
 * [Running recipes](recipes/running-recipes.md)
   * [Jobs](recipes/jobs.md)
   * [Jobs report](recipes/jobs-report.md)
@@ -19,7 +19,7 @@
   * [Test recipe](recipes/testing-recipes.md)
   * [Rerun job](recipes/rerun-job.md)
   * [Recipe Ops](recipe-ops.md)
-* Recipe management and monitoring
+* [Recipe management and monitoring](recipe-monitoring.md)
   * Error notifications
   * Notifications
   * Delegated administrator
@@ -44,8 +44,8 @@
   * [Role-based access](user-accounts-and-teams/team-collaboration.md#team-roles)
   * [Audit logs](user-accounts-and-teams/team-collaboration.md#audit-logs)
 * [People Task](workflow.md)
-* [Signing up](on-prem/signing-up.md)
-  * [Single Sign-On \(SSO\)](on-prem/signing-up/s.md)
+* [Signing up](signing-up.md)
+  * [Single Sign-On \(SSO\)](signing-up/sso.md)
 * [Workbot](workbot/workbot.md)
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
