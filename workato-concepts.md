@@ -118,7 +118,7 @@ For a recipe to communicate with apps to read or write to them, it has to be con
 ## Jobs report
 The job report gives a high-level summary of the trigger events processed by the recipe. The entire flow of each trigger event through the recipe is called a job.
 
-Information such as date and time processed and job IDs, can be found here. From this jobs history page, users can view more detailed information about a job by clicking on it.
+Information such as date, time processed and job IDs, can be found here. From this jobs history page, users can view more detailed information about a job by clicking on it.
 
 You can read more about job reports [here](/recipes/jobs-report.md).
 
