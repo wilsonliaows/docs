@@ -13,10 +13,10 @@
   * [Best practices](recipes/building-best-practices.md)
 * [Formula](recipes/formula.md)
 * [Running recipes](recipes/running-recipes.md)
-  * Jobs
+  * [Jobs](recipes/jobs.md)
   * [Start and stop](recipes/start-and-stop.md)
   * [Test recipe](recipes/testing-recipes.md)
-  * Jobs report
+  * [Jobs report](recipes/jobs-report.md)
   * [Rerun job](recipes/rerun-job.md)
   * [Recipe Ops](recipe-ops.md)
 * Recipe management and monitoring
@@ -79,18 +79,17 @@
 * [Troubleshooting](troubleshooting.md)
   * Trigger warnings
   * [Action errors](recipes/action-errors.md)
-  * [Formula errors](recipes/formula-errors.md)
   * Mapping errors
+  * [Formula errors](recipes/formula-errors.md)
   * [Infinite loops](recipes/infinite-loops.md)
   * [Deduplication](recipes/deduplication.md)
   * [Rate limiting](recipes/rate-limiting.md)
-* [Developing connectors](developer.md)
+* [Developing connectors](developing-connectors.md)
   * [Comparison of HTTP VS SDK](developer/http-vs-sdk.md)
   * [HTTP](developer/http.md)
   * SDK
     * [Conceptual model](developer/sdk/sdk-conceptual-model.md)
     * [SDK documentation](developer/sdk/sdk-docs.md)
-  * Platform API
 * [Security and compliance](https://www.workato.com/security)
 * [Data retention](data-retention.md)
 * [Contact us](contact-us.md)
