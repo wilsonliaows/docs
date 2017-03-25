@@ -1,5 +1,5 @@
 ---
-title: Data pills
+title: Data pills and types
 date: 2017-03-16 10:00:00 Z
 ---
 
