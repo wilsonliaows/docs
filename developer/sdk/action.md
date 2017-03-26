@@ -32,7 +32,7 @@ actions: {
 
 A very simple action looks like this. A get request to the Close.io leads endpoint. In this case, the particular lead’s details is appended in the endpoint.
 
-## Parameter / Payload
+## Body
 
 Other endpoints require parameters to access certain details, instead of accessing a particular resource route.
 
@@ -66,10 +66,10 @@ execute: lambda do |connection, input|
   post("https://api.pushbullet.com/v2/pushes").
     payload(
       email: input["email"],
-      title: input["title"],
+      title: input["title"]
       body: input["body"]
     )
 end
 ```
 
-See [Methods](/docs/developer/sdk/methods.md) section for list of methods available for use in your custom conenctor actions.
+See [Methods](/docs/developer/sdk/methods.md) section for list of methods available for use in your custom connector actions.
