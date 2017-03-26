@@ -32,7 +32,7 @@ Authorization Bearer ---
 
 Request body:
 ```
-"{"roomId":"Y2lzY29zcGFyazovL3VzL1JPT00vN2I0N2UxMjAtMmNlNS0xMWU2LTgwNmEtODcxN2MxNDgxM2Zm","text":"testing"}"
+{"roomId":"Y2lzY29zcGFyazovL3VzL1JPT00vN2I0N2UxMjAtMmNlNS0xMWU2LTgwNmEtODcxN2MxNDgxM2Zm","text":"testing"}
 ```
 
 ### Response
@@ -41,5 +41,5 @@ Status: `200 OK`
 
 Response body:
 ```
-"{"id":"Y2lzY29zcGFyazovL3VzL01FU1NBR0UvMTUyYzVjMzAtMTIyOC0xMWU3LTgxYzctNWYyZmJlNmUxZmYw","roomId":"Y2lzY29zcGFyazovL3VzL1JPT00vN2I0N2UxMjAtMmNlNS0xMWU2LTgwNmEtODcxN2MxNDgxM2Zm","roomType":"group","text":"testing","personId":"Y2lzY29zcGFyazovL3VzL1BFT1BMRS9mMmM2Y2NiNi0xYTc4LTQ3NzQtYjZjNC04OWI2YWE0ZTcxOWE","personEmail":"eeshan@workato.com","created":"2017-03-26T13:28:22.131Z"}"
+{"id":"Y2lzY29zcGFyazovL3VzL01FU1NBR0UvMTUyYzVjMzAtMTIyOC0xMWU3LTgxYzctNWYyZmJlNmUxZmYw","roomId":"Y2lzY29zcGFyazovL3VzL1JPT00vN2I0N2UxMjAtMmNlNS0xMWU2LTgwNmEtODcxN2MxNDgxM2Zm","roomType":"group","text":"testing","personId":"Y2lzY29zcGFyazovL3VzL1BFT1BMRS9mMmM2Y2NiNi0xYTc4LTQ3NzQtYjZjNC04OWI2YWE0ZTcxOWE","personEmail":"eeshan@workato.com","created":"2017-03-26T13:28:22.131Z"}
 ```

@@ -77,5 +77,3 @@ select: the data field will be a pick list (make sure to include the pick_list p
 
 Other supported types:
 timestamp, checkbox, phone, email, text, number, text-area
-
-
