@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](introduction.md)
 * [Concepts](workato-concepts.md)
 * [Connections](connections.md)
 * [Building recipes](recipes/building-recipes.md)
