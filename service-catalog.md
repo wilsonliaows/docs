@@ -12,7 +12,7 @@ Workato allows for callable recipes to be turned into an API endpoint. This mean
 
 The service catalog is available from the account menu.
 
-![Service catalog option](/docs/assets/images/service-catalog/service-catalog-option.png)
+![Service catalog option](/assets/images/service-catalog/service-catalog-option.png)
 
 *Service catalog menu option*
 
@@ -34,7 +34,7 @@ Currently, giving someone an API token essentially provides that person access t
 
 The following screenshot is the guest view of the service catalog, viewed by the person whom the service catalog owner has shared the link with.
 
-![Shared service catalog](/docs/assets/images/service-catalog/shared-service-catalog.png)
+![Shared service catalog](/assets/images/service-catalog/shared-service-catalog.png)
 
 *Non-owner view of service catalog*
 
@@ -60,7 +60,7 @@ Additional fields will be generated for you to configure your endpoint. Determin
 
 Once you've done that, you should be able to see the new endpoint appear in your service catalog.
 
-![Inactive endpoint in the service catalog](/docs/assets/images/service-catalog/service-catalog-inactive-endpoint.png)
+![Inactive endpoint in the service catalog](/assets/images/service-catalog/service-catalog-inactive-endpoint.png)
 
 *Inactive endpoint in the service catalog*
 
@@ -69,13 +69,13 @@ Active recipes correspond to active endpoints in your service catalog, while ina
 
 To activate a service catalog endpoint, start the corresponding recipe and the endpoint will be registered in the catalog as active.
 
-![Active endpoint in the service catalog](/docs/assets/images/service-catalog/service-catalog-active-endpoint.png)
+![Active endpoint in the service catalog](/assets/images/service-catalog/service-catalog-active-endpoint.png)
 
 *Active endpoint in the service catalog*
 
 Similarly, stop the corresponding callable recipe and the endpoint will be registered in the catalog as inactive.
 
-![Inactive endpoint in the service catalog](/docs/assets/images/service-catalog/service-catalog-inactive-endpoint.png)
+![Inactive endpoint in the service catalog](/assets/images/service-catalog/service-catalog-inactive-endpoint.png)
 
 *Inactive endpoint in the service catalog*
 

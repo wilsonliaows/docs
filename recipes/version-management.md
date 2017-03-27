@@ -1,5 +1,5 @@
 ---
-title: Recipe version management
+title: Version management
 date: 2017-02-22 05:15:00 Z
 ---
 

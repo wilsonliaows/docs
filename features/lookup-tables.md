@@ -1,4 +1,9 @@
-# Lookup Tables
+---
+title: Lookup tables
+date: 2017-02-23 15:15:00 Z
+---
+
+# Lookup tables
 The primary reason for lookup tables (also termed as cross reference tables) is to enable fast and easy lookup of frequently used data that are static and immutable. 
 
 Some of examples of such data include:

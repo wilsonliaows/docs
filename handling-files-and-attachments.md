@@ -10,12 +10,10 @@ Workato allows uploading of files into cloud or on-premise FTP servers and appli
 Text files refers to files which can be opened with any text editor and is generally human-readable. Workato can act as the intermediary to move files from one app to another, as well as extract data from text files and parse it for use in Workato. For example, a recipe can retrieve CSV file content and parse it immediately as data to be written to another app.
 
 ### Examples of text file extensions
-Some examples of text files as [provided by Nayuki](https://www.nayuki.io/page/what-are-binary-and-text-files) are:
-- Web standards, e.g. html, xml, css, svg, json
-- Source code, e.g. c, cpp, h, cs, js, py, java, rb, pl, php, sh
-- Documents, e.g. txt, tex, markdown, asciidoc, rtf, ps
-- Configuration, e.g. ini, cfg, rc, reg
-- Tabular data, e.g. csv, tsv, etc.
+Some examples of text files commonly worked with:
+- Tabular data: csv
+- Documents: txt, rtf
+- Web standards: html, xml, json
 
 ### Example of moving text files between apps
 There is no difference between moving text files and moving binary files between apps. Refer to [this section](#moving-textbinary-files-between-apps).
@@ -43,14 +41,9 @@ The columns defined in the **Box new CSV file** trigger shows up as usable varia
 Binary files usually refer to any file which is not human readable. Workato can act as the intermediary to move entire files and attachments from one system to another, but content text within binary files cannot be parsed for use in Workato, e.g. Workato cannot read the text or images in your PDFs and move it into Salesforce, but it can upload the entire PDF into Salesforce as an attachment.
 
 ### Examples of binary file extensions
-Some examples of binary files as [provided by Nayuki](https://www.nayuki.io/page/what-are-binary-and-text-files):
-Images, e.g. jpg, png, gif, bmp, tiff, psd
-Videos, e.g. mp4, mkv, avi, mov, mpg, vob
-Audio, e.g. mp3, aac, wav, flac, ogg, mka, wma
-Documents, e.g. pdf, doc, xls, ppt, docx, odt
-Archive, e.g. zip, rar, 7z, tar, iso
-Database, e.g. mdb, accde, frm, sqlite
-Executable, e.g. exe, dll, so, class
+Some examples of binary files commonly worked with:
+- Images: jpg, png, gif, bmp, psd
+- Documents: pdf, doc, docx, ppt, xls, odt
 
 ### Example of moving binary files between apps
 There is no difference between moving text files and moving binary files between apps. Refer to [this section](#moving-textbinary-files-between-apps).
