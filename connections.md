@@ -4,9 +4,9 @@ date: 2017-03-04 18:00:00 Z
 ---
 
 # App connections
-In order to interact with apps, recipes needs to be authorized to communicate with the apps (typically via API) on behalf of the user. This authorization is referred to as a ****connection**
+In order to interact with apps, recipes need to be authorized to communicate with the apps (typically via API) on behalf of the user. This authorization is referred to as a **connection**.
 
-Recipes may require a valid connection before triggers and actions can be configured, as they may need to interact with app to retrieve custom objects and fields, picklist values and other information that helps with recipe construction.
+Recipes may require a valid connection before triggers and actions can be configured, as they may need to interact with the apps to retrieve custom objects and fields, picklist values and other information that helps with recipe construction.
 
 ![Unconnected Salesforce action](/assets/images/recipes/connections/unconnected-salesforce-action.png)
 
@@ -19,9 +19,9 @@ Authentication (or authorization) usually occur the following standard ways, alt
 - OAuth2
 - OAuth1 (and variations)
 - Basic authentication
-- API keys or secret
+- API key or secret
 
-In each of the highlighted authentication flows, an app user has to authorize that Workato has permission to access app data. The exact permissions Workato will get to read from and write to the app usually corresponds with the permissions of the connected app user.
+In each of the highlighted authentication flows, an app user has to authorize Workato with the permission to access app data. The exact permissions Workato will get to read from and write to the app usually corresponds with the permissions of the connected app user.
 
 For more information on connecting to a specific app, refer to the specific app connector documentation.
 

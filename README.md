@@ -4,7 +4,7 @@ date: 2017-02-22 12:00:00 Z
 ---
 
 # What is Workato?
-Workato helps you automate manual workflows involving cloud apps, on-premise apps and people. Workato combines an enterprise-grade integration platform with the ease of use associated with consumer apps. This enables biz users and IT easily build, deploy and manage complex integrations.
+Workato helps you automate manual workflows involving cloud apps, on-premise apps and people. Workato combines an enterprise-grade integration platform with the ease of use associated with consumer apps. This enables biz users and IT to easily build, deploy and manage complex integrations.
 
 # The integration problem
 The average enterprise uses over 1000 different apps. These frequently include both cloud-based and on-premise applications. In addition, personal and business productivity applications such as chat, social media, calendering, and the like are a key part of daily work and data from these is often unintegrated with other business data.
@@ -34,10 +34,10 @@ Workato addresses these issues with an enterprise-class integration tool that ca
 The Workato platform has a powerful feature set to handle real-world problems, including the integration of applications, data and people. Both cloud-based and on-premise systems are supported. The runtime system is designed for security, robustness, reliability and high performance.
 
 ## Citizen integrators
-Workato is the only integration platform that was built from the ground up to support a single design interface for developer/IT and citizen integrators ensuring that citizens and IT have access to the same ease of use driven productivity improvements, and at at same time offering citizens the same power and capability available to IT.
+Workato is the only integration platform that was built from the ground up to support a single design interface for developer/IT and citizen integrators, ensuring that citizens and IT have access to the same ease-of-use driven productivity improvements, and at at same time offering citizens the same power and capability available to IT.
 
 ## Conversational integration
-Workato provides a chat based (Slack, Microsoft Teams, Cisco Spark, IBM Workspace, etc.) bot building platform for building compelling UX’s centered around integrations and workflows.
+Workato provides a chat based (Slack, Microsoft Teams, Cisco Spark, IBM Workspace, etc.) bot building platform for building compelling UX centered around integrations and workflows.
 
 ## IT Governance
 Governance is a key requirement for any platform that allows business users to work with corporate data. Workato Aegis is a management tool that provides cross-enterprise visibility into users/usage, integration processes and the applications they connect. Workato Aegis supports assigning differing levels of responsibility and visibility within the platform, and enables collaboration between business and IT users. It enables implementation and enforcement of policies to improve security and governance across all Workato users within an enterprise.
