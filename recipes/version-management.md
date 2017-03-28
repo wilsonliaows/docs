@@ -3,7 +3,7 @@ title: Version management
 date: 2017-02-22 05:15:00 Z
 ---
 
-# Recipe version management
+# Version management
 Every time a recipe is saved, a version of the recipe is saved. Previous versions of a recipe can be restored at any time. Recipe versions can be viewed in the **Versions** tab and are denoted by their version number.
 
 In the version history view, each version is attributed to the user who made the change (relevant for multi-user team accounts), with a timestamp when the version was saved, as well as the change type associated with that version.
@@ -12,17 +12,19 @@ In the version history view, each version is attributed to the user who made the
 
 *Recipe versions as viewed from the Versions tab*
 
-The are 2 general change types:
-- Recipe change
+The are 2 types of changes:
+- Logic change
 
-Recipe logic changes, e.g. adding or removing steps and changing field mappings, will create a new version of the recipe when the recipe is saved.
+These changes driven by user actively changing the recipe. e.g. adding or removing steps and changing field mappings, will create a new version of the recipe when the recipe is saved.
 
 - Schema change
 
-Carrying out a schema refresh (e.g. updating Workato when fields were added or removed in connected apps) will create a new version of the recipe automatically.
+These changes are driven by Workato when it notices that the underlying schema of objects in the recipe has changed. e.g. when using a Salesforce custom object has a new field added. 
+
+ Such schema refreshes will auto create a new version of the recipe.
 
 # Restoring versions
-To restore previous versions of the recipe, switch to the **Versions** tab. Whenever a recipe is saved, a new version of the saved recipe will be created. Recipe versions can be first previewed before being restored.
+To restore previous versions of the recipe, switch to the **Versions** tab to view all available versions. Recipe versions can be first previewed before being restored.
 
 [![https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb](https://i.gyazo.com/45711334ec05ed2e08fb6a3aa23232bb.gif)](https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb)
 

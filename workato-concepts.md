@@ -4,14 +4,17 @@ date: 2017-03-08 18:00:00 Z
 ---
 
 # Concepts
-There are some Workato terminology that you might hear being punted around all the time. The core concepts and basic building blocks of Workato you'd need to know in order to understand most of the following documentation are covered briefly in this section.
+
+Here are the core concepts and terminology that you'd need to know in order to use Workato.
 
 ## Recipes
-Recipes are automated workflows built by users that can span across multiple apps, e.g. moving new Salesforce accounts into Zendesk as new organizations. Each recipe comprises of a trigger and one or more actions that are carried out when a trigger event is picked up.
+Recipes are automated workflows built by users that can span multiple apps, e.g. moving new Salesforce accounts into Zendesk as new organizations. Each recipe comprises of a trigger and one or more actions that are carried out when a trigger event is picked up.
 
 When recipes are started and become active, they will run automatically in the background to listen to trigger events and carry out recipe actions. When they are stopped and become inactive, they will cease listening to trigger events.
 
-However, when a recipe is started again, it usually picks up all the trigger events it had not processed, from since the recipe was stopped till when the recipe was started again. Hence, any recipe restarted from a stopped state will resume from the point in time it was stopped.
+However, when a recipe is started again, it will pick up all the trigger events that occurred since the recipe was stopped. i.e. stop functions like pause.
+
+You can set recipe visibility to be public or private. When they are set to be public, any Workato member can see this recipe, and make a copy for their own use.
 
 All recipes have a unique ID that identifies them.
 
@@ -19,41 +22,29 @@ All recipes have a unique ID that identifies them.
 
 *Recipe IDs can be viewed from the URL on the recipe page*
 
-### Example of a recipe
-The following is a simple recipe with one trigger and one action. The scenario is to move new Salesforce customers (known in Salesforce as accounts) into Zendesk as customers (known in Zendesk as organizations).
-
-The trigger is **New Salesforce account** - this means that the recipe will trigger whenever a new Salesforce account is created within the connected Salesforce organization. The action is **Create Zendesk organization** - this means that a Zendesk organization will be created whenever a trigger event occurs (when a new account is created in Salesforce).
-
-![Example recipe](/assets/images/workato-concepts/example-recipe.png)
-
-*Example of a recipe that moves new Salesforce accounts into Zendesk as organizations*
+The recipe above has a trigger and just one action. The trigger is **New Salesforce account** - this trigger will fire whenever a new account is created in Salesforce. The action **Create Zendesk organization** will create an organization in Zendesk each time the trigger event occurs (i.e. when a new account is created in Salesforce).
 
 ## Triggers
-Triggers are part of a recipe, and all recipes need a single trigger. Triggers determine what event to listen to in order to kick off the recipe flow. You can read more about triggers [here](/recipes/triggers.md).
+Triggers determine what event to listen to in order to execute the actions described in a recipe
 
-In the following example recipe, the trigger is **New Salesforce account**.
+Trigger events can occur in apps (e.g. Salesforce, Jira, etc.), can be a timer driven (fires at a certain time or interval), occur when a new line is added in a file, etc.
 
-![Example recipe](/assets/images/workato-concepts/example-recipe.png)
-
-*Example of a recipe that moves new Salesforce accounts into Zendesk as organizations*
+Depending on the available API, Workato can receive trigger events in real-time, or check for the occurence of an event periodically (i.e. polled).
 
 ## Steps and actions
-All recipes need a minimum of one step. The most basic step for a recipe is an action, which carries out operations automatically whenever a trigger event occurs to kicks off the recipe flow.
+Recipe steps are executed every time the trigger event occurs. Recipes are required to have at least one step. The most basic step for a recipe is an action e.g. an action to create an organization in Zendesk.
+
+Workato steps can be actions, conditional actions, list actions, actions that call other recipes, try/catch, etc.
 
 You can read more about recipe steps [here](/recipes/steps.md) and actions [here](/recipes/actions.md).
 
-In the following example recipe, the action is **Create Zendesk organization**.
+## Block
 
-![Example recipe](/assets/images/workato-concepts/example-recipe.png)
+## Data tree and pills
+Every step including triggers brings data into the recipe. e.g. a new employee in Workday trigger would bring in employee data. This data is made available in the recipe via the 'data tree'. 
 
-*Example of a recipe that moves new Salesforce accounts into Zendesk as organizations*
+The individual data fields are called data pills. You can use the data pills in subsequent steps. You can read more about data pills [here](/recipes/data-pills.md).
 
-## Output datatree and data pills
-Almost all triggers and actions have an output datatree. These datatree contains all the variables available for use after the trigger event has happened and after the action has been carried out. These variables are typically called data pills. You can read more about data pills [here](/recipes/data-pills.md).
-
-On the right of these data pills, there are samples of real data retrieved from the connected app, to display what the data looks like within the app.
-
-### Example of an output datatree and data pills
 The following is the output datatree for the trigger **New Salesforce account**. This datatree contains all the variables known to us and available for use whenever a trigger event occurs.
 
 ![Output datatree](/assets/images/workato-concepts/output-datatree.png)
@@ -77,26 +68,25 @@ etc.
 These values can be used in subsequent steps of the recipe by being passed into input fields, as covered next.
 
 ## Input fields and fields mapping
-Almost all triggers and actions have input fields. Input fields are how triggers and actions are designed to carry out customized workflows, and they can take in variables (datapills) or constants.
+Triggers and actions have input fields. Input fields are how triggers and actions are designed to carry out customized workflows, and they can take in variables (datapills) or constants.
 
 When we insert variables (datapills) or constants into input fields, that's called fields mapping. You can read more about fields mapping [here](/recipes/mapping.md).
 
-### Example of input fields
 The following is an expanded view of the **Create Zendesk organization** action. In this view, we can see two input fields: **Name** and **Notes**.
 
 ![Input fields](/assets/images/workato-concepts/input-fields.png)
 
 *Input fields for the action Create Zendesk organization*
 
-#### Mapping variables
+## Mapping variables
 The variable **Account name** has been mapped to the **Name** input field. This means that for every new Salesforce account that is created, the account name of this Salesforce account will be used as the organization name of the Zendesk organization that will be created. For example, a new Salesforce account named **Sattei Winery** will in turn create a Zendesk organization named **Sattei Winery**.
 
 ![Input field with variable mapping](/assets/images/workato-concepts/input-field-with-variable.png)
 
 *Input field with variable mapping*
 
-#### Mapping constants
-On the other hand, the input field **Notes** has a constant mapped to it - the words "Synced over from Salesforce." This means that all newly created Zendesk organizations created via Workato will have the words "Synced over from Salesforce." in its **Notes** field.
+## Mapping constants
+On the other hand, the input field **Notes** has a constant mapped to it - the words "Synced over from Salesforce." This means that all newly created Zendesk organizations created via Workato will always have the words "Synced over from Salesforce." in its **Notes** field.
 
 ![Input field with constant mapping](/assets/images/workato-concepts/input-field-with-constant.png)
 
@@ -109,14 +99,17 @@ Here's an example of the new Zendesk organization created via the above mapping:
 *Newly created Zendesk organization Sattei Winery*
 
 ## Connections
-For a recipe to communicate with apps to read or write to them, it has to be connected to these apps. Custom data from the apps like custom fields and sample data in the datatree may not be visible if a connection has not been established. Connections are not tied to a recipe - a single connection can be used by multiple recipes. You can read more about connections [here](/connections.md).
+For a recipe to communicate with apps via actions and triggers, it has to be authorized to interact with apps. This authorization is referred to as a **connection**. Connections are not tied to a recipe - a single connection can be used by multiple recipes. You can read more about connections [here](/connections.md).
 
 ![Connections](/assets/images/workato-concepts/connections.png)
 
 *Salesforce and Zendesk connections from the recipe view*
 
+## Jobs
+Each time there is a trigger event, the actions in the recipe are executed. The entire flow of each trigger event through the recipe is called a **job**. Jobs can be successful (when actions are executed successfully), or have errors (when an action results in an error). When an error is encountered, further actions are not executed. 
+
 ## Jobs report
-The job report gives a high-level summary of the trigger events processed by the recipe. The entire flow of each trigger event through the recipe is called a job.
+The job report gives a high-level summary of the all the trigger events processed by the recipe. The entire flow of each trigger event through the recipe is called a job.
 
 Information such as date, time processed and job IDs, can be found here. From this jobs history page, users can view more detailed information about a job by clicking on it.
 
@@ -126,7 +119,7 @@ You can read more about job reports [here](/recipes/jobs-report.md).
 
 *Jobs report page*
 
-## Job details page
+## Job details
 The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe. This page is useful for troubleshooting recipes as users are able to view the data passed into each step and the resultant output returned after each step was executed. You can read more about jobs and job details [here](recipes/jobs.md).
 
 [![https://gyazo.com/743ba03c8314a319bb15dba0bdeff35c](https://i.gyazo.com/743ba03c8314a319bb15dba0bdeff35c.gif)](https://gyazo.com/743ba03c8314a319bb15dba0bdeff35c)

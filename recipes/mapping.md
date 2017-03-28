@@ -4,19 +4,21 @@ date: 2017-03-16 10:00:00 Z
 ---
 
 # Fields mapping
-Fields mapping is what we call inserting variables (datapills) or constants into input fields. This gives you control over what data moves from an app to another app.
+Fields mapping is defined as the assignment of data pills (variables) or absolute values (constants) into action or trigger input fields. This controls the flow of data between apps.
 
-Fields mapping is usually more relevant for actions as opposed to triggers, as we define data flows from the triggers or from previous steps into subsequent steps. In every step, we have to get data pills (variables) from the previous steps' datatrees and map them into the step's input fields. In this way, we're crafting a template that determines data flow in your recipe.
+By mapping fields from a Salesforce account (from a trigger) to a Zendesk create organization action, you can ensure that the Zendesk organization and Salesforce account have the same data.
 
-## Fields mapping example
+In every recipe step, you have access to data pills from all the previous steps' and can be used in configuring input fields of current step. In this way, we're crafting a template that determines data flow in your recipe.
+
+##Example
 In the following example, we map the **Account Name** data pill from the Salesforce **New account** trigger into the **Message** input field in the **Send email** action.
 
 ![mapping_gif](/assets/images/actions-docs/mapping_gif.gif)
 
 *Mapping the account name data pill into the message input field*
 
-# Mapping constants VS mapping variables
-Workato supports mapping of both constants and variables.
+# Mapping constants vs mapping variables
+Workato input fields can be assigned variables (data pills) or constants (absolute values).
 
 ## Mapping variables
 The variable **Account name** has been mapped to the **Name** input field. This means that for every new Salesforce account that is created, the account name of this Salesforce account will be used as the organization name of the Zendesk organization that will be created. For example, a new Salesforce account named **Sattei Winery** will in turn create a Zendesk organization named **Sattei Winery**.
@@ -39,24 +41,29 @@ Here's an example of the new Zendesk organization created via the above mapping:
 *Newly created Zendesk organization Sattei Winery*
 
 ## Mapping both constants and variables
-Of course, you can also combine constants and variables in the input fields for the data you wish to have.
+You can also combine constants and variables in the input fields for the data you wish to have.
 
 # Data transformation
-The data that an app holds doesn't always transfer easily to another app, for example:
-- your sales app stores names by *full name*, but your marketing app requires *first name*, *middle name* and *last name*
-- your ecommerce app stores addresses as individual fields, e.g. *address line 1*, *address line 2*, *city*, *state*, but your accounting app simply requires a single *billing address* and *shipping address* field
+Data fields from one app may not directly map into a data field for a different apps. For example:
+- your sales app stores names in a single field *full name*, but your marketing app uses two fields *first name* and *last name*
+- your ecommerce app stores addresses as individual fields, e.g. *address line 1*, *address line 2*, *city*, *state*, but your accounting app simply requires a single *billing address* field
 - the priority levels in your ticketing app may be *low*, *medium*, *high*, but in your sales system they're *low*, *normal*, *urgent*
 
-In such cases, you need to work with the data from the source app and transform it into a suitable format for the target app. Workato supports data transformation via its [formulas](/formulas.md).
+In such cases, you can take advantage of Workato's data transformation capabilities by using [formulas](/formulas.md).
 
-## Data transformation via formula example
-In the following example, we're using a ternary formula in formula mode to decide what value to pass into the input field **Message**. The formula is in this format:
+## Example
+To use formulas, you will need to select 'Formula' toggle. This changes the input field to formula mode. 
 
-`[condition] ? [do this if true] : [do this if false]`
-
-Therefore, we're checking to see if there is any value in the **Full name** pill. If yes, we pass in **Full name** into the input field. If not, we pass in **First name** into the input field.
+In this example, we use a ternary formula in formula mode to decide what value to pass into the input field **Message**. 
 
 ![mapping_type_4](/assets/images/actions-docs/mapping_type_4.png)
+
+
+The formula is in this format:
+
+`[condition] ? [assign this if condition is true] : [assign this if false]`
+
+Therefore, the formula checks to see **Full name** has a value present. If yes, we assign **Full name** to the input field, otherwise, we assign **First name** to the input field.
 
 # Common issues when mapping fields
 Here are some of the common errors we've experienced when it comes to fields mapping
