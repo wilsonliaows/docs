@@ -29,7 +29,6 @@ Aborted is a rare state that a job gets into if it had been pending when the rec
 Every recipe has a jobs report that shows a high-level view of processed jobs. Clicking on a single job brings you into a detailed job history that shows step-level execution data flows.
 
 ![Jobs history](/assets/images/workato-concepts/jobs-history.png)
-
 *Jobs report page*
 
 You can find out more about jobs reports [here](/recipes/jobs-report.md).

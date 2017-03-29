@@ -35,7 +35,6 @@ Note - even if you have CSV files with other schema and different header lines i
 The following recipe parses new CSV files in Box and uses the data parsed to create new NetSuite inventory items.
 
 ![Example recipe - CSV file parsing](/assets/images/features/files-and-attachments/csv-file-parsing-recipe.png)
-
 *Recipe that parses CSV files to retrieve data for use in datatree* [Example recipe](https://www.workato.com/recipes/485023)
 
 When using **Box new CSV file** trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato will build the trigger output datatree for use in subsequent actions.
@@ -70,7 +69,6 @@ In the following recipe, Dropbox files triggered upon are not being parsed in th
 In the **Parse CSV** action, provide the file content to the CSV body input field, and specify the header line.
 
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-utilities-step.png)
-
 *Field mapping for the Parse CSV action*
 
 The header line specified tells Workato how your CSV file's data looks. In this case, we can parse the following line into the proper variables datapill, such that "Sierra Gardening" corresponds to "Manufacturer", "MS-322" corresponds to "Model", etc.
@@ -82,11 +80,9 @@ Sierra Gardening, MS-322, Gardening supplies, Cherry wood potting bench, MS-322,
 The **Parse CSV** action's datatree returns a list of CSV lines.
 
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-output-datatree.png)
-
 *Output datatree for Parse CSV action showing the variables defined in the header line*
 
 In order to iterate through this list of CSV lines, we have to use a Repeat step. The following shows the mapping from the Repeat step's foreach datatree to the input fields of the **Create Netsuite inventory item** action.
 
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-mapping.png)
-
 *Mapping of datapills from the Repeat step datatree to the action*

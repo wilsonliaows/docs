@@ -14,7 +14,6 @@ In every recipe step, you have access to data pills from all the previous steps'
 In the following example, we map the **Account Name** data pill from the Salesforce **New account** trigger into the **Message** input field in the **Send email** action.
 
 ![mapping_gif](/assets/images/actions-docs/mapping_gif.gif)
-
 *Mapping the account name data pill into the message input field*
 
 # Mapping constants vs mapping variables
@@ -24,20 +23,17 @@ Workato input fields can be assigned variables (data pills) or constants (absolu
 The variable **Account name** has been mapped to the **Name** input field. This means that for every new Salesforce account that is created, the account name of this Salesforce account will be used as the organization name of the Zendesk organization that will be created. For example, a new Salesforce account named **Sattei Winery** will in turn create a Zendesk organization named **Sattei Winery**.
 
 ![Input field with variable mapping](/assets/images/workato-concepts/input-field-with-variable.png)
-
 *Input field with variable mapping*
 
 ## Mapping constants
 On the other hand, the input field **Notes** has a constant mapped to it - the words "Synced over from Salesforce." This means that all newly created Zendesk organizations created via Workato will have the words "Synced over from Salesforce." in its **Notes** field.
 
 ![Input field with constant mapping](/assets/images/workato-concepts/input-field-with-constant.png)
-
 *Input field with constant mapping*
 
 Here's an example of the new Zendesk organization created via the above mapping:
 
 ![Newly created Zendesk organization](/assets/images/workato-concepts/zendesk-organization.png)
-
 *Newly created Zendesk organization Sattei Winery*
 
 ## Mapping both constants and variables

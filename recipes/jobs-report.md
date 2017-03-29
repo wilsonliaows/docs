@@ -9,14 +9,12 @@ Every recipe has a jobs report that shows a high-level view of processed jobs. T
 Information such as date, time processed and job IDs, can be found here. The following shows the default jobs report page.
 
 ![Default jobs report](/assets/images/job-details/default-jobs-report.png)
-
 *Non-customized, default jobs report page*
 
 # Customized jobs report
 Jobs report can be further customized to show the relevant information for the jobs processed, as seen in the following.
 
 ![Custom jobs report](/assets/images/job-details/custom-jobs-report.png)
-
 *Customized jobs report page*
 
 To cuztomize your jobs report, go to the Jobs tab and click on 'Customize report' next to the Rerun and Refresh buttons.

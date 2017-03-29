@@ -1,3 +1,66 @@
+body {
+  color: #525252;
+  font-family: "Lato", sans-serif;
+}
+
+/* Markdown document */
+.markdown-section {
+  font-size: 16px;
+  line-height: 1.625;
+}
+
+/* Sections */
+.markdown-section h1 {
+  font-size: 26px;
+  line-height: 1.38;
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 15px;
+  margin: 30px 0;
+}
+
+.markdown-section h2 {
+  font-size: 18px;
+  margin: 30px 0 15px;
+}
+
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5 {
+  font-size: 16px;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3 {
+  font-weight: bold;
+}
+
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5 {
+  line-height: 1.44;
+}
+
+/* Images */
+.markdown-section img {
+  display: block;
+  margin: 30px auto 10px;
+  border: 1px solid #dedede;
+}
+
+/* Image captions */
+.markdown-section p > img + em:last-child,
+.markdown-section p > a + em:last-child {
+  color: #a8a8a8;
+  font-size: 14px;
+  font-style: normal;
+  text-align: center;
+  line-height: 17px;
+  display: block;
+  margin: 10px auto 40px;
+}
+
 .w-header {
   background: #fff;
   border-bottom: 1px solid #e7e7e7;
@@ -97,5 +160,5 @@
 }
 
 .gitbook-link {
-    display: none !important;
+  display: none !important;
 }

@@ -2,6 +2,7 @@
     "plugins": [
       "edit-link",
       "-sharing",
+      "-fontsettings",
       "favicon",
       "collapsible-menu"
     ],
