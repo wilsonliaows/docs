@@ -1,6 +1,7 @@
 body {
   color: #525252;
   font-family: "Lato", sans-serif;
+  padding-top: 140px;
 }
 
 /* Markdown document */
@@ -61,13 +62,27 @@ body {
   margin: 10px auto 40px;
 }
 
+/* Header */
 .w-header {
   background: #fff;
-  border-bottom: 1px solid #e7e7e7;
+  position: fixed;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, .1);
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.w-header__row {
+  padding: 0 15px;
   display: flex;
+  height: 70px;
+  align-items: center;
+}
+
+.w-header__row_logo {
+  border-bottom: 1px solid #e7e7e7;
   justify-content: space-between;
-  height: 60px;
-  padding: 15px;
 }
 
 .w-header__return {
@@ -77,6 +92,32 @@ body {
   font-weight: 700;
   text-decoration: none;
   padding: 5px 15px;
+}
+
+/* Hiding page title in toolbar */
+/* Can't remove it from the template because it's needed by the script that appends toolbar buttons */
+.book-header h1 {
+  display: none;
+}
+
+/* Toolbar buttons */
+.book-header .btn {
+  text-transform: none;
+}
+
+/* Search bar*/
+#book-search-input {
+  margin: 0;
+  border: none;
+  padding: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  width: 285px;
+}
+
+#book-search-input input {
+  height: 100%;
 }
 
 .w-footer {
