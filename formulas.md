@@ -4,41 +4,45 @@ date: 2017-03-07 05:00:00 Z
 ---
 
 # Formulas
-Formula mode is a toggled mode for almost any input field in Workato, allowing you to make use of special formulas to transform and manpiulate data according to your exact needs.
-When you are defining the input for a field, you can be in Text mode or Formula mode, indicated by the box at the right of the field. 
-You can toggle between the two modes by hovering your cursor over the top right hand corner of a field and simply clicking on the button.
+Most of the action/trigger input fields support the formula mode. You will need to click on the formula mode switch button. You will know you are in formula mode when you see the icon "fx" on the left.
+
+The formula mode provides a set of standard formulas for data transformation/manipulation.
 
 ![what_is_formula](/assets/images/formula-docs/what_is_formula_gif.gif)
 
-## Text Mode VS Formula Mode
+## Text vs Formula mode
 
-The default is text mode. In text mode you can assign plain text or map any field from the input data you have available to you, and it will appear as the input. In text mode you can add more than one field too, for example you can put first name, and last name next to each other.
+The default mode for any action/trigger input field is text. In text mode you can assign plain text or map any field from the data tree. In text mode you can add more than one field too, for example you can put first name, and last name next to each other.
 
 ![text_mode](/assets/images/formula-docs/text_mode.png)
 
-Formula Mode on the other hand, allows you to manipulate the data from each field (pill) into a desired format. When you toggle to formula mode, you see a slightly different view of the input field, with some of your text being colored. You will also see the smbol "fx" on the left, to indicate that you are in formula mode. Formula mode allows you to manipulate data within data pills, depending on the command that you have put in. In the example below, we have a command that sends a message to a customer's email to notify them to check their SMS inbox, but only shows the last 4 digits of their phone number by using the ".slice" command. Simply put, we have used a formula mode command to extract the last 4 digits of the data from the pill "Phone" 
+Formula mode on the other hand, allows you to transform the data from each data tree field (pill) into a specific format by using formulas. 
+
+In the example below, we have an action that sends a message to a customer's email to notify them to check their SMS inbox, but only shows the last 4 digits of their phone number by using the ".slice" formula. 
  
 ![formula_mode](/assets/images/formula-docs/formula_mode.png)
 
-## Dynamic list of formulas
-Formula mode accepts operators and methods to transform the data in the input field. You can bring up a simple list of commonly used formula methods by appending a period to the end of your data. The choices will dynamically show up below, and is dependent on the type of the data - number, text, date etc. It also contains a description of what the formula does, with example input and output with regards to the highlighted formula. 
+## Formula list
+You can bring up a simple list of commonly used formula methods by appending a period to the end of your data. The available formulas will show up as a picklist. This list is based on the type (e.g. data, number, etc) of the data pill.
 
 ![formula_list](/assets/images/formula-docs/formula_list.png)
 
-## Using Ruby ternary syntax in Formula mode to perform conditional statements
-When your field is toggled into formula mode, you can make use of ternary syntax from Ruby to perform conditional (if-else) statements. This allows you to use certain data pills under a certain condition, else use a different data pill.
+## Conditionals
+You can conditionally (if-else) execute formulas using Ruby's ternary syntax. 
 
-In the example below the invoice date is mapped from a field called 'Date' and is involved in a conditional statement written in ternary syntax. For more information on what ternary syntax in Ruby is, click [here](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
+In the example below the invoice date is conditionally mapped from a field called 'Date'. 
 
 ![ternary syntax](/assets/images/formula-docs/check_input_date.png)
 
 <u>What is it doing?</u>
 
-1. "Date.blank?" is checking to see if the Date is blank.
-2. The next ? represents the result of the check. If it is true, or false
+1. "Date.blank?" is checking to see if the Date field is empty.
+2. The ? represents the result of the check. If it is true, or false
 3. The next step 'Job created at' : 'Date' specifies what to do if the result was true or false. 
     For example if it is blank, use 'Job created at' for the value, and if it is not blank use 'Date'
 Note: If the data in the pill used after ? is also blank (in the above example [Job created at]), you will get an error as well. 
+
+For more information on Ruby's ternary syntax, click [here](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
 
 ## Glossary of formulas
 You will find that there are formulas that can be used on data pills of different data type - String, Dates, Numbers, Others. 
