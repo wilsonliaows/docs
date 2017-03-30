@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Test recipe · GitBook</title>
+        <title>Data pills and fields mapping · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="rerun-job.html" />
+    <link rel="next" href="version-management.html" />
     
     
-    <link rel="prev" href="start-and-stop.html" />
+    <link rel="prev" href="actions.html" />
     
 
     
@@ -203,7 +203,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="data-pills-and-mapping.html">
+        <li class="chapter active" data-level="1.4.4" data-path="data-pills-and-mapping.html">
             
                 <a href="data-pills-and-mapping.html">
             
@@ -313,7 +313,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.4" data-path="testing-recipes.html">
+        <li class="chapter " data-level="1.6.4" data-path="testing-recipes.html">
             
                 <a href="testing-recipes.html">
             
@@ -1331,7 +1331,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Test recipe</a>
+        <a href=".." >Data pills and fields mapping</a>
     </h1>
 </div>
 
@@ -1346,60 +1346,91 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="testing-recipes">Testing Recipes</h1>
-<h2 id="why-is-testing-recipes-necessary">Why is testing recipes necessary?</h2>
-<p>Testing recipes is a good practice. Workato is moving data and information from one business app to the other via the workflow described in recipes. Testing these workflows is critical to ensure that the information entered into the apps by Workato is accurate and does not include bad data. </p>
-<h2 id="good-practices">Good Practices</h2>
-<h3 id="using-sandbox-instances">Using Sandbox Instances</h3>
-<p>If the application used provides sandbox accounts, they are recommended for testing recipes. This is to ensure no bad data is entered into the Production accounts until the recipe is properly configured and tested.</p>
-<h3 id="adding-stops-to-prevent-unwanted-actions-from-happening">Adding &apos;Stops&apos; to prevent unwanted actions from happening</h3>
-<p>Add a &apos;Stop&apos; to the recipe when testing if the actions that follow are not needed. Click the &apos;+&apos; button below the last step in the recipe and drag it to the correct place.
-<img src="../assets/images/testing-recipes/Stoprecipe.JPG" alt="stop recipe"></p>
-<p>For example, if the last step in the recipe updates a record in the application that is not needed, adding a Stop above it will prevent this. This saves time in correcting the data that has changed in the applications.</p>
-<h3 id="test-with-all-possible-scenarios">Test with all possible scenarios</h3>
-<p>Recipes often come with multiple lines of conditional logic (i.e. IF this then that). </p>
-<p>In these situations, test the recipe with all possible scenarios to ensure the pills are properly mapped and logic properly defined in the recipe. Doing these tests will save time fixing erroneous data after starting your recipe.</p>
-<h2 id="recipe-testing-basics">Recipe Testing Basics</h2>
-<p>Recipes built on Workato can vary greatly in complexity. Building and running a 1-line recipe may be simple and straightforward, but as the recipe grows more intricate, understanding how to test and ensure the recipe is built correctly is vital.</p>
-<h3 id="having-a-trigger-event">Having a Trigger Event</h3>
-<p>A trigger event is what Workato is looking out for in the application specified in the trigger. For example, if the trigger is &quot;New invoice in QuickBooks&quot;, as shown below, there has to be invoices in the QuickBooks account for the test to work. Trigger events should be created prior to testing the recipe, and not when the &apos;Test Recipe&apos; button is clicked. </p>
-<p><img src="../assets/images/testing-recipes/Triggerevent.JPG" alt="Triggerevent"></p>
-<h3 id="changing-the-from-parameter-for-testing">Changing the &apos;From&apos; parameter for testing</h3>
-<p>Changing the &apos;From&apos; parameter is critical to testing. If test events have already been created in the application, the &apos;From&apos; parameter has to be adjusted to allow the recipe to pick up jobs from the correct time. 
-<img src="../assets/images/testing-recipes/fromdate.JPG" alt="fromdate"></p>
-<p>Triggers for applications do not have the &apos;From&apos; parameter. In applications like these, jobs will be picked up from the time the recipe is started.</p>
-<p><strong>Note:</strong> The &apos;From&apos; parameter cannot be changed once the recipe has been tested or started. Copy the recipe by clicking on the &apos;Copy&apos; button below the recipe name and change the &apos;From&apos; parameter.
-<img src="../assets/images/testing-recipes/copyrecipe.png" alt="copyrecipe"></p>
-<p>There are 2 ways to change the &apos;From&apos; parameter. </p>
-<h4 id="list-values">List Values</h4>
-<p>Some values are provided in the dropdown: Recipe start, Half an hour ago, An hour ago, Yesterday, Last week, Last month and Beginning of time. 
-<img src="../assets/images/testing-recipes/fromdate.JPG" alt="fromdate"></p>
-<p>For testing, it is recommended that this is set to at least half an hour or an hour ago to ensure there are jobs for testing. </p>
-<h4 id="input-custom-value">Input Custom Value</h4>
-<p>If there is a more specific date and time that Workato should begin picking up trigger events from, click on the the dropdown arrow next to &apos;From&apos; to change the input method.
-<img src="../assets/images/testing-recipes/Entercustomvalue.png" alt="Entercustomvalue"></p>
-<p>Choose &apos;Enter custom value&apos; and click on the Calendar icon to choose a date and time.
-<img src="../assets/images/testing-recipes/calendar.JPG" alt="calendar"></p>
-<h3 id="test-recipe-vs-start-recipe">Test Recipe vs. Start Recipe</h3>
-<p>The &apos;Test Recipe&apos; button is the default button when the recipe has not been run. The &apos;Start Recipe&apos; button can be accessed via the dropdown as shown below:
-<img src="../assets/images/testing-recipes/Teststart.JPG" alt="Teststart"></p>
-<p>The &apos;Test Recipe&apos; button is highly recommended, especially if there are many trigger events in the application. Test Recipe picks up <strong>only the first trigger job</strong> that it finds and run through it. Once that has been processed, the recipe will stop. Then, check what has been done for this specific record in the &apos;Jobs&apos; tab. </p>
-<p>&apos;Start Recipe&apos; will find all these events that are applicable and start processing them. If there are many trigger events, they will be picked up and run. It is important to test the recipe first and ensure it is running correctly before clicking on &apos;Start recipe&apos;. </p>
-<h3 id="understanding-the-job-report">Understanding the Job Report</h3>
-<p>After clicking on &apos;Test recipe&apos;, check the &apos;Jobs&apos; tab to see what has run. Any errors that have occurred during the tests will show up in the job report with a red warning logo. Click on the job to see a detailed breakdown of the error.</p>
-<p><img src="../assets/images/testing-recipes/Teststart.JPG" alt="Teststart"></p>
-<p>If there is no red logo, the job is successful. During the testing phase, click on the description to see if the job has completed as expected because the job may have stopped at a conditional stop action as shown below. There might be other steps that were expected to complete. If so, there may be an error in the logic of the recipe that needs fixing.</p>
-<h4 id="finding-the-error">Finding the Error</h4>
-<p>The step where the error occurred is highlighted with a red line. Click on the step with the error to see the error details.
-<img src="../assets/images/testing-recipes/errorinline.png" alt="errorinline"></p>
-<p>In this case, the error occurs in step 12. Click on the &apos;Error&apos; tab to see the error details.</p>
-<p><img src="../assets/images/testing-recipes/errorinline2.png" alt="errorinline2"> </p>
-<p>Head back to the recipe to fix the incorrect step or to the application to see if there is incorrect data in the fields involved.</p>
-<h4 id="fixing-the-error">Fixing the Error</h4>
-<p>Re-running jobs are the easiest way to test the recipe after fixing the errors. Check the box next to the job to be rerun and click on the rerun button.
-<img src="../assets/images/testing-recipes/rerunfailed.JPG" alt="rerunfailed"></p>
-<h3 id="starting-the-recipe">Starting the recipe</h3>
-<p>After testing and ensuring the recipe works, start the recipe. The recipe will now run in the background and consistently check for trigger events. In case of an error, an email will be sent to the address specified in the Account Settings.</p>
+                                <h1 id="data-pills">Data pills</h1>
+<p>Data pills are output data from a trigger or an action step. They are variables that you can use in mapping business logic into recipe steps. e.g. to create an Zendesk organization from a Salesforce account you will assign data pills from Salesforce account to the Zendesk organization action input fields.</p>
+<p>Data pills are contained within datatrees, within the <strong>App Data</strong> section. At an recipe step, the <strong>App Data</strong> section contains the output from the trigger and every action preceeding this step.</p>
+<p><img src="../assets/images/recipes/data-pills/datatree-example.png" alt="Datatree"></p>
+<p><em>Datatree within a recipe step</em></p>
+<p>When you&apos;re configuring a recipe step, all data from the preceeding steps will be available for use in the fields mapping of that step.</p>
+<p><img src="../assets/images/recipes/data-pills/multiple-datatrees.png" alt="Multiple datatrees"></p>
+<p><em>Multiple datatrees available when configuring a recipe step</em></p>
+<h1 id="data-types">Data types</h1>
+<p>Data pills can be of the following data types</p>
+<ul>
+<li>String</li>
+<li>Integer</li>
+<li>Number</li>
+<li>Date</li>
+<li>Datetime</li>
+<li>Boolean
+When mapping (i.e. assigning data pill to an input field) it is important that they are &apos;type&apos; compatible. Workato will do default type conversions where it can be done with no ambioguity or loss of information.</li>
+</ul>
+<h1 id="todo">TODO</h1>
+<p>We should talk about type conversions</p>
+<h1 id="preview-data">Preview data</h1>
+<p>Workato will display sample data (fetched from your account) alongside data pills to help better understand the data in your app.</p>
+<p>In example below, you can see sample data in italics next to the data pills.</p>
+<p><img src="../assets/images/workato-concepts/output-datatree.png" alt="Output datatree"></p>
+<p><em>Output datatree for New Salesforce account trigger</em></p>
+<h1 id="fields-mapping">Fields mapping</h1>
+<p>Fields mapping is defined as the assignment of data pills (variables) or absolute values (constants) into action or trigger input fields. This controls the flow of data between apps.</p>
+<p>By mapping fields from a Salesforce account (from a trigger) to a Zendesk create organization action, you can ensure that the Zendesk organization and Salesforce account have the same data.</p>
+<p>In every recipe step, you have access to data pills from all the previous steps&apos; and can be used in configuring input fields of current step. In this way, we&apos;re crafting a template that determines data flow in your recipe.</p>
+<h2 id="example">Example</h2>
+<p>In the following example, we map the <strong>Account Name</strong> data pill from the Salesforce <strong>New account</strong> trigger into the <strong>Message</strong> input field in the <strong>Send email</strong> action.</p>
+<p><img src="../assets/images/actions-docs/mapping_gif.gif" alt="mapping_gif"></p>
+<p><em>Mapping the account name data pill into the message input field</em></p>
+<h1 id="mapping-constants-vs-mapping-variables">Mapping constants vs mapping variables</h1>
+<p>Workato input fields can be assigned variables (data pills) or constants (absolute values).</p>
+<h2 id="mapping-variables">Mapping variables</h2>
+<p>The variable <strong>Account name</strong> has been mapped to the <strong>Name</strong> input field. This means that for every new Salesforce account that is created, the account name of this Salesforce account will be used as the organization name of the Zendesk organization that will be created. For example, a new Salesforce account named <strong>Sattei Winery</strong> will in turn create a Zendesk organization named <strong>Sattei Winery</strong>.</p>
+<p><img src="../assets/images/workato-concepts/input-field-with-variable.png" alt="Input field with variable mapping"></p>
+<p><em>Input field with variable mapping</em></p>
+<h2 id="mapping-constants">Mapping constants</h2>
+<p>On the other hand, the input field <strong>Notes</strong> has a constant mapped to it - the words &quot;Synced over from Salesforce.&quot; This means that all newly created Zendesk organizations created via Workato will have the words &quot;Synced over from Salesforce.&quot; in its <strong>Notes</strong> field.</p>
+<p><img src="../assets/images/workato-concepts/input-field-with-constant.png" alt="Input field with constant mapping"></p>
+<p><em>Input field with constant mapping</em></p>
+<p>Here&apos;s an example of the new Zendesk organization created via the above mapping:</p>
+<p><img src="../assets/images/workato-concepts/zendesk-organization.png" alt="Newly created Zendesk organization"></p>
+<p><em>Newly created Zendesk organization Sattei Winery</em></p>
+<h2 id="mapping-both-constants-and-variables">Mapping both constants and variables</h2>
+<p>You can also combine constants and variables in the input fields for the data you wish to have.</p>
+<h1 id="example">Example</h1>
+<p>Let&apos;s take the scenario where we wish to send out a simple welcome email to every new Salesforce lead who has signed up. The recipe looks like</p>
+<p><img src="../assets/images/recipes/data-pills/salesforce-lead-welcome-email-recipe.png" alt="Recipe will send a welcome email to each new Salesforce lead"></p>
+<p><em>Recipe that sends a welcome email to new Salesforce leads</em> <a href="https://www.workato.com/recipes/496603" target="_blank">Example recipe</a></p>
+<p>In the <strong>Send email</strong> action, pills from the <strong>New Salesforce lead</strong> datatree have been mapped into the input fields.</p>
+<p><img src="../assets/images/recipes/data-pills/data-pills-example.png" alt="Data pill mapping"></p>
+<p><em>Example of data pills being mapped into an action step</em></p>
+<p>Since pills are variables, their value will depend on a specific trigger event, or action. In this example, the value assigned to the <em>To</em> input field, will depend on the value of <em>email</em> in each new lead. If a new lead called Madison Diaz with the email address madisondiaz82@gmail.com is created, the recipe will pick it up and promptly send an email to the address madisondiaz82@gmail.com with the message:</p>
+<pre><code>Hi Madison,
+
+Thanks for joining our mailing list! We&apos;re excited to have you!
+</code></pre><h1 id="data-transformation">Data transformation</h1>
+<p>Data fields from one app may not directly map into a data field for a different apps. For example:</p>
+<ul>
+<li>your sales app stores names in a single field <em>full name</em>, but your marketing app uses two fields <em>first name</em> and <em>last name</em></li>
+<li>your ecommerce app stores addresses as individual fields, e.g. <em>address line 1</em>, <em>address line 2</em>, <em>city</em>, <em>state</em>, but your accounting app simply requires a single <em>billing address</em> field</li>
+<li>the priority levels in your ticketing app may be <em>low</em>, <em>medium</em>, <em>high</em>, but in your sales system they&apos;re <em>low</em>, <em>normal</em>, <em>urgent</em></li>
+</ul>
+<p>In such cases, you can take advantage of Workato&apos;s data transformation capabilities by using <a href="../formulas.html">formulas</a>.</p>
+<h1 id="common-issues-when-mapping-fields">Common issues when mapping fields</h1>
+<p>Here are some of the common errors we&apos;ve experienced when it comes to fields mapping</p>
+<ul>
+<li>Data pills with no values at run-time for required fields</li>
+</ul>
+<p>At design-time (when we&apos;re building the recipe), all required fields are supposed to be mapped. The recipe will refuse to start and throw an error if a required field is left empty.</p>
+<p>However, even if an input field has been mapped at design-time, it might not actually have a value at run-time (when a trigger event comes in and a job is being processed). In such a case, that specific job will throw an error and fail.</p>
+<p>You would need to decide how to handle such cases whereby a required field might not receive a value at run-time. If that is rightly a business logic error which needs to be resolved, e.g. the recipe tries to move a new lead from a sales app to a marketing app, but finds that it&apos;s missing an email address for the lead, the answer might be to let the job fail and flag the employee who had created the lead record.</p>
+<ul>
+<li>Data pills from the wrong datatree</li>
+</ul>
+<p>When mapping input fields with data pills, it is common to find pills with the same names in the datatrees, e.g. if you&apos;re moving customers from an app to another, customer datatrees tend to hold address information. Hence you might find yourself using a pill with the right name, e.g. <strong>City</strong>, <strong>State</strong>, <strong>Country</strong>, but from the wrong datatree.</p>
+<ul>
+<li>Data pills from the wrong part of the recipe
+If your recipe has conditional steps, e.g. if customer is present, update customer record, and if customer is not present, create customer record, then for each job that&apos;s processed, there will be steps that are not carried out. In such cases, the values in the datatree for these steps will most likely be blank.</li>
+</ul>
+<p>If you&apos;re using data pills from these steps, you need to recognize the potential of these pills being null, and handle that scenario.</p>
 
                                 
                                 </section>
@@ -1427,12 +1458,12 @@
 
             
                 
-                <a href="start-and-stop.html" class="navigation navigation-prev " aria-label="Previous page: Start and stop">
+                <a href="actions.html" class="navigation navigation-prev " aria-label="Previous page: Actions">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="rerun-job.html" class="navigation navigation-next " aria-label="Next page: Rerun job">
+                <a href="version-management.html" class="navigation navigation-next " aria-label="Next page: Version management">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1443,7 +1474,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Test recipe","date":"2017-02-18T22:15:00.000Z","level":"1.6.4","depth":2,"next":{"title":"Rerun job","level":"1.6.5","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},"previous":{"title":"Start and stop","level":"1.6.3","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/testing-recipes.md","mtime":"2017-03-30T22:57:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T23:00:51.409Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Data pills and fields mapping","date":"2017-03-16T10:00:00.000Z","level":"1.4.4","depth":2,"next":{"title":"Version management","level":"1.4.5","depth":2,"path":"recipes/version-management.md","ref":"recipes/version-management.md","articles":[]},"previous":{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/data-pills-and-mapping.md","mtime":"2017-03-30T22:57:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T23:00:51.409Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

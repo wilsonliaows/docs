@@ -203,12 +203,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="recipes/data-pills.html">
+        <li class="chapter " data-level="1.4.4" data-path="recipes/data-pills-and-mapping.html">
             
-                <a href="recipes/data-pills.html">
+                <a href="recipes/data-pills-and-mapping.html">
             
                     
-                    Data pills and types
+                    Data pills and fields mapping
             
                 </a>
             
@@ -216,20 +216,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="recipes/mapping.html">
-            
-                <a href="recipes/mapping.html">
-            
-                    
-                    Data mapping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="recipes/version-management.html">
+        <li class="chapter " data-level="1.4.5" data-path="recipes/version-management.html">
             
                 <a href="recipes/version-management.html">
             
@@ -242,7 +229,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="recipes/building-best-practices.html">
+        <li class="chapter " data-level="1.4.6" data-path="recipes/building-best-practices.html">
             
                 <a href="recipes/building-best-practices.html">
             
@@ -1375,7 +1362,7 @@ You can toggle between the two modes by hovering your cursor over the top right 
 <h2 id="using-ruby-ternary-syntax-in-formula-mode-to-perform-conditional-statements">Using Ruby ternary syntax in Formula mode to perform conditional statements</h2>
 <p>When your field is toggled into formula mode, you can make use of ternary syntax from Ruby to perform conditional (if-else) statements. This allows you to use certain data pills under a certain condition, else use a different data pill.</p>
 <p>In the example below the invoice date is mapped from a field called &apos;Date&apos; and is involved in a conditional statement written in ternary syntax. For more information on what ternary syntax in Ruby is, click <a href="http://www.w3resource.com/ruby/ruby-ternary-operator.php" target="_blank">here</a>.</p>
-<p><img src="assets/images/formula-docs/check_input_date.png" alt="ternary syntax"></p>
+<p><img src="assets/images/formula-docs/ternary-formula.png" alt="mapping_type_4"></p>
 <p><u>What is it doing?</u></p>
 <ol>
 <li>&quot;Date.blank?&quot; is checking to see if the Date is blank.</li>
@@ -1784,7 +1771,7 @@ In the examples below, we will look at some of the functions that can be used to
 <h3 id="others">Others</h3>
 <h4 id="processing-arrayslists">Processing Arrays/Lists</h4>
 <p>When you have a List (a type of Array) returned to you, you may only want specific sets of information. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the  <img src="assets/images/formula-docs/array_symbol.png" alt="array symbol"> symbol.</p>
-<p>!<img src="assets/images/formula-docs/pluck_where_1.png" alt="pluck_where_1"></p>
+<p><img src="assets/images/formula-docs/list-datatree-icon.png" alt="List datatree icon"></p>
 <h5 id="formulas-to-manipulate-listsarrays">Formulas to manipulate Lists/Arrays</h5>
 <p>If you would like to retrieve the account records based on a specific filter condition (e.g. only those which are Active), you can use the where function on the &quot;Accounts&quot; list pill. 
 If you would like to extract certain field values from each account record (e.g. only the Name pills from the list of account records), you can use the pluck function on the &quot;Accounts&quot;&quot; list pill. </p>
@@ -1793,7 +1780,7 @@ If you would like to extract certain field values from each account record (e.g.
 <h4 id="pluck-function">Pluck Function</h4>
 <p>The pluck function allows you to pluck desired fields from an array of objects or hashes. This is useful in a few scenarios. The most common use will be described here.
 Sometimes a step in your recipe (e.g. a search action) may output a List containing many objects. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the <img src="assets/images/formula-docs/array_symbol.png" alt="array symbol"> symbol.</p>
-<p>!<img src="assets/images/formula-docs/pluck_where_1.png" alt="pluck_where_1"></p>
+<p><img src="assets/images/formula-docs/list-datatree-icon.png" alt="List datatree icon"></p>
 <p>When you have a List, you may want to extract the values of certain fields from each object within it. Continuing with the search accounts example, pretend you want to know the Name and Account Type for all of the Accounts returned by the search.
 First, click in the input field where you want to enter this information and turn on formula mode. This will make the List pillable so that you can select it and add it to your field. Now, you can &quot;pluck&quot; any available field from the List you selected and the function will return an array containing the value of that field for each object in the list.</p>
 <h5 id="finding-the-api-name">Finding the API Name</h5>
@@ -1808,7 +1795,7 @@ First, click in the input field where you want to enter this information and tur
 <p>The pluck function will return fields in the form of an array. However, arrays cannot usually be used directly in text fields. You can use additional formulas that convert Arrays into Strings to format the results correctly. Some formulas you can use to do this are: join, smart_join, and to_s. </p>
 <h4 id="where-function">Where Function</h4>
 <p>The where function can be used in combination with other functions (such as pluck) in order to filter information from a List (a type of Array). Since the where function returns an Array (the filtered List), any added function must be able to work with Arrays. The where function is useful when a step in your recipe (e.g. a search action) outputs a List containing many objects. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the <img src="assets/images/formula-docs/array_symbol.png" alt="array symbol"> symbol. </p>
-<p>!<img src="assets/images/formula-docs/pluck_where_1.png" alt="pluck_where_1"></p>
+<p><img src="assets/images/formula-docs/list-datatree-icon.png" alt="List datatree icon"></p>
 <p>When you have a List, you can work with it in many ways. For example, you may use the pluck function to extract the values of certain fields from each object within the List. However, in some cases you may want to narrow down the objects you want to work with before applying such a function. You can do this using the where function.</p>
 <h6 id="finding-the-api-name">Finding the API Name</h6>
 <p>Just as with the pluck function, you will need to find the correct API name for a field to use as a filter. The names displayed for the pills in the step output are not always the correct name to use, especially when the name contains more than one word. Typically, you can get the API name for multiple word fields by removing the spaces and capitalizing each word. For example, a field named &quot;Account type&quot; will typically have the API name &quot;AccountType&quot;. However, this is not always the case. To be sure, there are two places you can locate the API name for the field you want.</p>
@@ -1862,7 +1849,7 @@ First, click in the input field where you want to enter this information and tur
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Data mapping formulas","date":"2017-03-07T05:00:00.000Z","level":"1.5","depth":1,"next":{"title":"Running recipes","level":"1.6","depth":1,"path":"recipes/running-recipes.md","ref":"recipes/running-recipes.md","articles":[{"title":"Jobs","level":"1.6.1","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},{"title":"Jobs report","level":"1.6.2","depth":2,"path":"recipes/jobs-report.md","ref":"recipes/jobs-report.md","articles":[]},{"title":"Start and stop","level":"1.6.3","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},{"title":"Test recipe","level":"1.6.4","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},{"title":"Rerun job","level":"1.6.5","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},{"title":"Recipe Ops","level":"1.6.6","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]}]},"previous":{"title":"Best practices","level":"1.4.7","depth":2,"path":"recipes/building-best-practices.md","ref":"recipes/building-best-practices.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas.md","mtime":"2017-03-30T16:08:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T16:09:20.694Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Data mapping formulas","date":"2017-03-07T05:00:00.000Z","level":"1.5","depth":1,"next":{"title":"Running recipes","level":"1.6","depth":1,"path":"recipes/running-recipes.md","ref":"recipes/running-recipes.md","articles":[{"title":"Jobs","level":"1.6.1","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},{"title":"Jobs report","level":"1.6.2","depth":2,"path":"recipes/jobs-report.md","ref":"recipes/jobs-report.md","articles":[]},{"title":"Start and stop","level":"1.6.3","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},{"title":"Test recipe","level":"1.6.4","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},{"title":"Rerun job","level":"1.6.5","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},{"title":"Recipe Ops","level":"1.6.6","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]}]},"previous":{"title":"Best practices","level":"1.4.6","depth":2,"path":"recipes/building-best-practices.md","ref":"recipes/building-best-practices.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas.md","mtime":"2017-03-30T22:57:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T23:00:51.409Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
