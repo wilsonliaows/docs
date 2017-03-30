@@ -114,6 +114,11 @@ body {
   justify-content: space-between;
 }
 
+.w-header__logo {
+  height: 30px;
+  width: 184px;
+}
+
 .w-header__row_toolbar {
   padding-right: 0;
 }
@@ -147,10 +152,19 @@ body {
 .book-header .btn {
   color: #525252;
   text-transform: none;
+  white-space: nowrap;
 }
 
 .book-header .btn:hover {
   color: #525252;
+}
+
+.btn_menu::after {
+  content: " Menu";
+}
+
+.btn_edit::after {
+  content: " Edit this page";
 }
 
 /* Search bar*/
@@ -223,6 +237,7 @@ body {
   border: 1px solid #e3e3e3;
   border-radius: 2px;
   color: #525252;
+  display: block;
   flex: 0 0 32%;
   font-size: 14px;
   padding: 15px;
@@ -264,6 +279,7 @@ body {
 }
 
 .footer__side {
+  margin-left: 15px;
   width: 40%;
 }
 
@@ -358,6 +374,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .heading_linkable:hover .heading__anchor {
+    display: none;
+  }
+
   .footer__side {
     width: 100%;
   }
@@ -376,6 +396,41 @@ body {
 }
 
 @media (max-width: 480px) {
+  .w-header__logo {
+    height: 30px;
+    width: 160px;
+  }
+
+  .w-header__return {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  #book-search-input {
+    font-size: 12px;
+  }
+
+  .book-header .btn {
+    font-size: 11px;
+    padding: 0 6px;
+  }
+
+  .btn_edit::after {
+    content: " Edit";
+  }
+
+  .ask__links {
+    display: block;
+  }
+
+  .ask__link {
+    margin-bottom: 20px;
+  }
+
+  .ask__link:last-child {
+    margin-bottom: 0;
+  }
+
   .footer__menu {
     width: 50%;
   }
