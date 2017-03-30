@@ -30,7 +30,7 @@ When your field is toggled into formula mode, you can make use of ternary syntax
 
 In the example below the invoice date is mapped from a field called 'Date' and is involved in a conditional statement written in ternary syntax. For more information on what ternary syntax in Ruby is, click [here](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
 
-![ternary syntax](/assets/images/formula-docs/check_input_date.png)
+![mapping_type_4](/assets/images/formula-docs/ternary-formula.png)
 
 <u>What is it doing?</u>
 
@@ -163,7 +163,7 @@ If Amount pill's value is 45 and Qty pill's value is 5, the results will be as f
 #### Processing Arrays/Lists 
 When you have a List (a type of Array) returned to you, you may only want specific sets of information. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the  ![array symbol](/assets/images/formula-docs/array_symbol.png) symbol.
 
-!![pluck_where_1](/assets/images/formula-docs/pluck_where_1.png)
+![List datatree icon](/assets/images/formula-docs/list-datatree-icon.png)
 
 ##### Formulas to manipulate Lists/Arrays
 If you would like to retrieve the account records based on a specific filter condition (e.g. only those which are Active), you can use the where function on the "Accounts" list pill. 
@@ -176,7 +176,7 @@ Do note that using the where or pluck function on the (Accounts) list pill will 
 The pluck function allows you to pluck desired fields from an array of objects or hashes. This is useful in a few scenarios. The most common use will be described here.
 Sometimes a step in your recipe (e.g. a search action) may output a List containing many objects. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the ![array symbol](/assets/images/formula-docs/array_symbol.png) symbol.
 
-!![pluck_where_1](/assets/images/formula-docs/pluck_where_1.png)
+![List datatree icon](/assets/images/formula-docs/list-datatree-icon.png)
 
 When you have a List, you may want to extract the values of certain fields from each object within it. Continuing with the search accounts example, pretend you want to know the Name and Account Type for all of the Accounts returned by the search.
 First, click in the input field where you want to enter this information and turn on formula mode. This will make the List pillable so that you can select it and add it to your field. Now, you can "pluck" any available field from the List you selected and the function will return an array containing the value of that field for each object in the list.
@@ -201,7 +201,7 @@ The pluck function will return fields in the form of an array. However, arrays c
 #### Where Function
 The where function can be used in combination with other functions (such as pluck) in order to filter information from a List (a type of Array). Since the where function returns an Array (the filtered List), any added function must be able to work with Arrays. The where function is useful when a step in your recipe (e.g. a search action) outputs a List containing many objects. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the ![array symbol](/assets/images/formula-docs/array_symbol.png) symbol. 
 
-!![pluck_where_1](/assets/images/formula-docs/pluck_where_1.png)
+![List datatree icon](/assets/images/formula-docs/list-datatree-icon.png)
 
 When you have a List, you can work with it in many ways. For example, you may use the pluck function to extract the values of certain fields from each object within the List. However, in some cases you may want to narrow down the objects you want to work with before applying such a function. You can do this using the where function.
 
@@ -220,6 +220,3 @@ Once you know the API names for the fields you want, you can write your formula.
 !![where_3](/assets/images/formula-docs/where_3.png)
 
 Remember that the pluck function will return an array object, so you will typically need to add on another formula such as to_s that converts an Array to a String.
-
-
-
