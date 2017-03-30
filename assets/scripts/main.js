@@ -9,23 +9,16 @@ require(['gitbook', 'jquery'], function (gitbook, $) {
 
   function updateToolbarButtons() {
     // `Menu` button
-    $('.book-header .btn:has(.fa-align-justify)').addClass('btn_menu');
+    $('.book-header .btn:has(.fa-align-justify)')
+      .addClass('btn_menu');
 
     // `Edit This Page` button
-    var editPageBtn = $('.book-header .btn:has(.fa-edit)').addClass('btn_edit');
-
-    // Changing icon
-    editPageBtn.find('.fa-edit')
+    $('.book-header .btn:has(.fa-edit)')
+      .addClass('btn_edit')
+      // Changing icon
+      .find('.fa-edit')
       .removeClass('fa-edit')
       .addClass('fa-github');
-
-    // Removing title (it will be added in css)
-    editPageBtn.contents()
-      .filter(function () {
-        // Text nodes
-        return this.nodeType === 3;
-      })
-      .remove();
   }
 
   function addHeaderLinks() {

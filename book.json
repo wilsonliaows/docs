@@ -10,7 +10,7 @@
     "pluginsConfig": {
       "edit-link": {
         "base": "https://github.com/workato/docs/edit/master/",
-        "label": "Edit This Page",
+        "label": "",
         "multilingual": false
       },
 
