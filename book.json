@@ -1,24 +1,22 @@
 {
-    "gitbook": "3.2.2",
-    "plugins": [
-      "edit-link",
-      "-sharing",
-      "-fontsettings",
-      "favicon",
-      "collapsible-menu"
-    ],
-
-    "pluginsConfig": {
-      "edit-link": {
-        "base": "https://github.com/workato/docs/edit/master/",
-        "label": "",
-        "multilingual": false
-      },
-
-      "favicon": {
-        "shortcut": "assets/images/favicon/favicon.ico",
-        "bookmark": "assets/images/favicon/favicon.ico",
-        "appleTouch": "assets/images/favicon/android-chrome-36x36.png"
-      }
+  "gitbook": "3.2.2",
+  "plugins": [
+    "edit-link",
+    "-sharing",
+    "-fontsettings",
+    "favicon",
+    "collapsible-menu"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/workato/docs/edit/master/",
+      "label": "",
+      "multilingual": false
+    },
+    "favicon": {
+      "shortcut": "assets/images/favicon/favicon.ico",
+      "bookmark": "assets/images/favicon/favicon.ico",
+      "appleTouch": "assets/images/favicon/android-chrome-36x36.png"
     }
+  }
 }
