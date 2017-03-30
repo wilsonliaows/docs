@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](introduction.md)
+* [Introduction](README.md)
 * [Concepts](workato-concepts.md)
 * [Connections](connections.md)
 * [Building recipes](recipes/building-recipes.md)
@@ -11,7 +11,7 @@
   * [Data mapping](recipes/mapping.md)
   * [Version management](recipes/version-management.md)
   * [Best practices](recipes/building-best-practices.md)
-* [Data mapping formulas](formula.md)
+* [Data mapping formulas](formulas.md)
 * [Running recipes](recipes/running-recipes.md)
   * [Jobs](recipes/jobs.md)
   * [Jobs report](recipes/jobs-report.md)
@@ -44,8 +44,6 @@
   * [Role-based access](user-accounts-and-teams/team-collaboration.md#team-roles)
   * [Audit logs](user-accounts-and-teams/team-collaboration.md#audit-logs)
 * [People Task](workflow.md)
-* [Signing up](signing-up.md)
-  * [Single Sign-On \(SSO\)](signing-up/sso.md)
 * [Workbot](workbot/workbot.md)
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
@@ -85,6 +83,7 @@
     * [Configuration fields](developing-connectors/sdk/config_fields.md)
     * [Examples](developing-connectors/sdk/examples.md)
     * [Publishing process](developing-connectors/sdk/publishing-process.md)
+* [Single Sign-On \(SSO\)](signing-up/sso.md)
 * [Security and compliance](https://www.workato.com/security)
 * [Data retention](data-retention.md)
 * [Contact us](contact-us.md)
