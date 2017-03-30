@@ -8,15 +8,16 @@ body {
 .markdown-section {
   font-size: 16px;
   line-height: 1.625;
+  overflow: visible;
 }
 
 /* Sections */
 .markdown-section h1 {
+  border-bottom: 1px solid #d8d8d8;
   font-size: 26px;
   line-height: 1.38;
-  border-bottom: 1px solid #d8d8d8;
-  padding-bottom: 15px;
   margin: 30px 0;
+  padding-bottom: 15px;
 }
 
 .markdown-section h2 {
@@ -43,41 +44,69 @@ body {
   line-height: 1.44;
 }
 
+.heading_linkable {
+  position: relative;
+}
+
+.heading__anchor {
+  position: absolute;
+  left: -1.4em;
+  font-size: 65%;
+  padding: .4em 1em 0 0;
+  box-sizing: border-box;
+}
+
+.heading__anchor,
+.heading__anchor:link,
+.heading__anchor:visited,
+.heading__anchor:hover,
+.heading__anchor:active {
+  color: #525252;
+}
+
+.heading_linkable .heading__anchor {
+  display: none;
+}
+
+.heading_linkable:hover .heading__anchor {
+  display: block;
+}
+
 /* Images */
 .markdown-section img {
+  border: 1px solid #dedede;
   display: block;
   margin: 30px auto 10px;
-  border: 1px solid #dedede;
 }
 
 /* Image captions */
 .markdown-section p > img + em:last-child,
 .markdown-section p > a + em:last-child {
   color: #a8a8a8;
+  display: block;
   font-size: 14px;
   font-style: normal;
-  text-align: center;
   line-height: 17px;
-  display: block;
   margin: 10px auto 40px;
+  text-align: center;
 }
 
 /* Header */
 .w-header {
   background: #fff;
-  position: fixed;
   box-shadow: 0 1px 8px rgba(0, 0, 0, .1);
-  z-index: 10;
-  width: 100%;
-  top: 0;
   left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .w-header__row {
-  padding: 0 15px;
+  align-items: center;
   display: flex;
   height: 70px;
-  align-items: center;
+  padding: 0 15px;
 }
 
 .w-header__row_logo {
@@ -85,13 +114,17 @@ body {
   justify-content: space-between;
 }
 
+.w-header__row_toolbar {
+  padding-right: 0;
+}
+
 .w-header__return {
   border: 1px solid #27989f;
   border-radius: 2px;
   color: #27989f;
   font-weight: 700;
-  text-decoration: none;
   padding: 5px 15px;
+  text-decoration: none;
 }
 
 /* Hiding page title in toolbar */
@@ -101,18 +134,33 @@ body {
 }
 
 /* Toolbar buttons */
+.book-header {
+  align-items: center;
+  align-self: stretch;
+  background: #fafafa;
+  display: flex;
+  flex: 1;
+  font-family: "Lato", sans-serif;
+  height: auto;
+}
+
 .book-header .btn {
+  color: #525252;
   text-transform: none;
+}
+
+.book-header .btn:hover {
+  color: #525252;
 }
 
 /* Search bar*/
 #book-search-input {
-  margin: 0;
-  border: none;
-  padding: 0;
-  align-self: stretch;
-  display: flex;
   align-items: center;
+  align-self: stretch;
+  border: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
   width: 285px;
 }
 
@@ -148,8 +196,8 @@ body {
 }
 
 .chapter .chapter-toggle {
-  position: absolute;
   left: 12px;
+  position: absolute;
   top: 22px;
 }
 
@@ -180,8 +228,8 @@ body {
 }
 
 .w-footer__copy-item {
-  padding: 0 12px 0 10px;
   border-right: 1px solid #fff;
+  padding: 0 12px 0 10px;
 }
 
 .w-footer__copy-item:last-child {
@@ -224,8 +272,8 @@ body {
 }
 
 .w-footer__help-link-title {
-  font-weight: 700;
   display: block;
+  font-weight: 700;
   margin: 0 0 10px;
 }
 
