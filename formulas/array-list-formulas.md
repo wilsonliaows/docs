@@ -6,7 +6,7 @@ date: 2017-03-30 05:00:00 Z
 #### Processing Arrays/Lists 
 When you have a List (a type of Array) returned to you, you may only want specific sets of information. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the  ![array symbol](/assets/images/formula-docs/array_symbol.png) symbol.
 
-!![pluck_where_1](/assets/images/formula-docs/pluck_where_1.png)
+![List datatree icon](/assets/images/formula-docs/accounts-list-icon.png)
 
 ##### Formulas to manipulate Lists/Arrays
 If you would like to retrieve the account records based on a specific filter condition (e.g. only those which are Active), you can use the where function on the "Accounts" list pill. 
@@ -17,9 +17,9 @@ Do note that using the where or pluck function on the (Accounts) list pill will 
 
 #### Pluck Function
 The pluck function allows you to pluck desired fields from an array of objects or hashes. This is useful in a few scenarios. The most common use will be described here.
-Sometimes a step in your recipe (e.g. a search action) may output a List containing many objects. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the ![array symbol](/assets/images/formula-docs/array_symbol.png) symbol.
+Sometimes a step in your recipe (e.g. a search action) may output a List containing many objects. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the symbol.
 
-!![pluck_where_1](/assets/images/formula-docs/pluck_where_1.png)
+![List datatree icon](/assets/images/formula-docs/accounts-list-icon.png)
 
 When you have a List, you may want to extract the values of certain fields from each object within it. Continuing with the search accounts example, pretend you want to know the Name and Account Type for all of the Accounts returned by the search.
 First, click in the input field where you want to enter this information and turn on formula mode. This will make the List pillable so that you can select it and add it to your field. Now, you can "pluck" any available field from the List you selected and the function will return an array containing the value of that field for each object in the list.
@@ -44,7 +44,7 @@ The pluck function will return fields in the form of an array. However, arrays c
 #### Where Function
 The where function can be used in combination with other functions (such as pluck) in order to filter information from a List (a type of Array). Since the where function returns an Array (the filtered List), any added function must be able to work with Arrays. The where function is useful when a step in your recipe (e.g. a search action) outputs a List containing many objects. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. List fields are always marked with the ![array symbol](/assets/images/formula-docs/array_symbol.png) symbol. 
 
-!![pluck_where_1](/assets/images/formula-docs/pluck_where_1.png)
+![List datatree icon](/assets/images/formula-docs/accounts-list-icon.png)
 
 When you have a List, you can work with it in many ways. For example, you may use the pluck function to extract the values of certain fields from each object within the List. However, in some cases you may want to narrow down the objects you want to work with before applying such a function. You can do this using the where function.
 

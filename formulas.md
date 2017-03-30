@@ -39,7 +39,7 @@ You can conditionally (if-else) execute formulas using Ruby's ternary syntax.
 
 In the example below the invoice date is conditionally mapped from a field called 'Date'. 
 
-![ternary syntax](/assets/images/formula-docs/check_input_date.png)
+![mapping_type_4](/assets/images/formula-docs/ternary-formula.png)
 
 <u>What is it doing?</u>
 
@@ -54,6 +54,3 @@ For more information on Ruby's ternary syntax, click [here](http://www.w3resourc
 ## Glossary of formulas
 You will find that there are formulas that can be used on data pills of different data type - String, Dates, Numbers, Others. 
 That will be the manner which we shall group and elaborate on the list of available formulas. Do note that the glossary list below is in constant update as we frequently add more formulas to accomodate the needs of our users. 
-
-
-
