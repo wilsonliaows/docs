@@ -15,6 +15,7 @@ This function checks the input string and returns true if it does not contain an
 
 ### Example
 `"Jean Marie".blank?` evaluates to `false`
+
 `"".blank?` evaluates to `true`
 
 
