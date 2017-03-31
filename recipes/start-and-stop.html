@@ -63,7 +63,7 @@
     <link rel="next" href="testing-recipes.html" />
     
     
-    <link rel="prev" href="jobs-report.html" />
+    <link rel="prev" href="running-recipes.html" />
     
 
     
@@ -274,33 +274,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="jobs.html">
-            
-                <a href="jobs.html">
-            
-                    
-                    Jobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="jobs-report.html">
-            
-                <a href="jobs-report.html">
-            
-                    
-                    Jobs report
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6.3" data-path="start-and-stop.html">
+        <li class="chapter active" data-level="1.6.1" data-path="start-and-stop.html">
             
                 <a href="start-and-stop.html">
             
@@ -313,12 +287,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="testing-recipes.html">
+        <li class="chapter " data-level="1.6.2" data-path="testing-recipes.html">
             
                 <a href="testing-recipes.html">
             
                     
-                    Test recipe
+                    Test mode
             
                 </a>
             
@@ -326,7 +300,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="rerun-job.html">
+        <li class="chapter " data-level="1.6.3" data-path="jobs.html">
+            
+                <a href="jobs.html">
+            
+                    
+                    Jobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="rerun-job.html">
             
                 <a href="rerun-job.html">
             
@@ -339,7 +326,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="../recipe-ops.html">
+        <li class="chapter " data-level="1.6.5" data-path="../recipe-ops.html">
             
                 <a href="../recipe-ops.html">
             
@@ -1333,37 +1320,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="starting--stopping-recipes">Starting &amp; Stopping Recipes</h1>
-<h2 id="starting-recipes">Starting Recipes</h2>
-<p>After successfully testing your recipes, start running them to automate your workflows. Click on &apos;Start recipe&apos; and allow the recipe to run continually in the background. </p>
-<p>The &apos;Start recipe&apos; button should be available to you by default after you have run at least 1 test. If you wish to start the recipe before testing, the button is available in the dropdown beside &apos;Test recipe&apos;.</p>
+                                <h1 id="starting--stopping-recipes">Starting &amp; stopping recipes</h1>
+<h2 id="starting-recipes">Starting recipes</h2>
+<p>Click on &apos;Start recipe&apos; to activate the recipe i.e. look for trigger events to process.</p>
+<p>If you have already run your recipe in &apos;test&apos; mode, the &apos;Start recipe&apos; button should be displayed, otherwise, this button is available in the dropdown beside &apos;Test recipe&apos;.</p>
 <p><img src="../assets/images/testing-recipes/Teststart.JPG" alt="Teststart"></p>
-<p>After you have started the recipe, the recipe becomes an &apos;Active&apos; recipe. On your Home page, you can filter by active recipes to see all the recipes currently running.</p>
-<h3 id="configuring-the-administrator-email">Configuring the Administrator Email</h3>
-<p>When any errors that occur in the active recipes, an email will be sent to the Notifications Email you specify in the Account Settings. To add/change this email, click on your account name on the top right of your screen &gt; Settings. </p>
-<p><img src="../assets/images/startstop/settingsdropdown.JPG" alt="settingsdropdown"></p>
-<p>Go to the &apos;Contact&apos; tab to change the Notifications Email.</p>
-<p><img src="../assets/images/startstop/notemail.JPG" alt="notemail"></p>
-<h2 id="stopping-recipes">Stopping Recipes</h2>
-<h3 id="when-do-i-stop-my-recipes">When do I stop my recipes?</h3>
+<p>After you have started the recipe, the recipe becomes an &apos;Active&apos; recipe. On your home page, you can filter by active recipes to see all the active recipes.</p>
+<h2 id="stopping-recipes">Stopping recipes</h2>
+<p>Stop the recipes when they are no longer relevant, or to make changes. </p>
 <p><img src="../assets/images/startstop/stopbutton.JPG" alt="stopbutton"></p>
-<p>Stop the recipes when they are no longer relevant. You can only delete recipes after they have been stopped. </p>
-<p>You should also stop the recipes that are running into constant errors or if you notice incorrect data passing into your applications as a result of the recipe and fix these errors.</p>
+<p>When you start the recipe again, Workato remembers the last processed event, and will start processing from there so you do not miss any trigger events when your recipe was stopped.</p>
 <h3 id="why-are-my-recipes-automatically-stopped">Why are my recipes automatically stopped?</h3>
 <p>There are 2 reasons for this: </p>
 <ol>
-<li><p>You have reached your monthly transaction limit. Recipes are automatically stopped when the transaction limit is hit. Contact our Customer Success team to add more transactions. You may also wait till the start of the new cycle when the monthly transactions are restored.</p>
+<li><p>Recipes are automatically stopped when the monthly transaction limit is hit. Contact our customer success team to add more transactions. </p>
 </li>
-<li><p>There are more than 60 consecutive trigger errors. This error message appears on the top of the recipe when you try to start it.
-When you receive this error message on your recipe, it means the recipe failed to trigger for more than 60 jobs. In this case, view the error message provided and fix the errors before starting the recipe again.</p>
+<li><p>There are more than 60 consecutive errors in receiving trigger events. In this case, address the underlying cause (e.g. API password change, etc.) and restart the recipe.</p>
 <p><img src="../assets/images/startstop/consecerror.png" alt="consecerror"></p>
 </li>
 </ol>
-<h2 id="what-happens-when-i-start-a-stopped-recipe">What happens when I start a stopped recipe?</h2>
+<h2 id="restarting-recipes">Restarting recipes</h2>
 <p>Starting a stopped recipe will pick up jobs from where it last stopped. </p>
 <p>For example, if I stopped my recipe on January 1st, 10:30pm, and start it again on January 10th, 7pm, it will begin picking up jobs from January 1st, 10:31pm onwards. </p>
 <p>If you wish for the recipe to only start picking up new jobs from January 10th onwards, copy the recipe and change the &apos;From&apos; date. The &apos;copy&apos; button is below the recipe name. </p>
 <p><img src="../assets/images/startstop/copyrecipe.png" alt="copyrecipe"></p>
+<h3 id="notifications-email">Notifications email</h3>
+<p>Anytime there is an error when processing a recipe, an email is sent. By default, this email is sent to your Workato account login email. You can change this, or add additional recipients by setting your <strong>notifications email</strong> in your account settings. </p>
+<p><img src="../assets/images/startstop/settingsdropdown.JPG" alt="settingsdropdown"></p>
+<p><img src="../assets/images/startstop/notemail.JPG" alt="notemail"></p>
 
                                 
                                 </section>
@@ -1391,12 +1375,12 @@ When you receive this error message on your recipe, it means the recipe failed t
 
             
                 
-                <a href="jobs-report.html" class="navigation navigation-prev " aria-label="Previous page: Jobs report">
+                <a href="running-recipes.html" class="navigation navigation-prev " aria-label="Previous page: Running recipes">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="testing-recipes.html" class="navigation navigation-next " aria-label="Next page: Test recipe">
+                <a href="testing-recipes.html" class="navigation navigation-next " aria-label="Next page: Test mode">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1407,7 +1391,7 @@ When you receive this error message on your recipe, it means the recipe failed t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Start and stop","level":"1.6.3","depth":2,"next":{"title":"Test recipe","level":"1.6.4","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},"previous":{"title":"Jobs report","level":"1.6.2","depth":2,"path":"recipes/jobs-report.md","ref":"recipes/jobs-report.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/start-and-stop.md","mtime":"2017-03-31T07:33:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T07:34:51.421Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Start and stop","level":"1.6.1","depth":2,"next":{"title":"Test mode","level":"1.6.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},"previous":{"title":"Running recipes","level":"1.6","depth":1,"path":"recipes/running-recipes.md","ref":"recipes/running-recipes.md","articles":[{"title":"Start and stop","level":"1.6.1","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},{"title":"Test mode","level":"1.6.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},{"title":"Jobs","level":"1.6.3","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},{"title":"Rerun job","level":"1.6.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},{"title":"Recipe Ops","level":"1.6.5","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/start-and-stop.md","mtime":"2017-03-31T08:27:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T08:30:21.060Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

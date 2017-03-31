@@ -274,33 +274,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="jobs.html">
-            
-                <a href="jobs.html">
-            
-                    
-                    Jobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="jobs-report.html">
-            
-                <a href="jobs-report.html">
-            
-                    
-                    Jobs report
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="start-and-stop.html">
+        <li class="chapter " data-level="1.6.1" data-path="start-and-stop.html">
             
                 <a href="start-and-stop.html">
             
@@ -313,12 +287,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="testing-recipes.html">
+        <li class="chapter " data-level="1.6.2" data-path="testing-recipes.html">
             
                 <a href="testing-recipes.html">
             
                     
-                    Test recipe
+                    Test mode
             
                 </a>
             
@@ -326,7 +300,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="rerun-job.html">
+        <li class="chapter " data-level="1.6.3" data-path="jobs.html">
+            
+                <a href="jobs.html">
+            
+                    
+                    Jobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="rerun-job.html">
             
                 <a href="rerun-job.html">
             
@@ -339,7 +326,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="../recipe-ops.html">
+        <li class="chapter " data-level="1.6.5" data-path="../recipe-ops.html">
             
                 <a href="../recipe-ops.html">
             
@@ -1352,8 +1339,18 @@
 <li>Boolean
 When mapping (i.e. assigning data pill to an input field) it is important that they are &apos;type&apos; compatible. Workato will do default type conversions where it can be done with no ambioguity or loss of information.</li>
 </ul>
-<h1 id="todo">TODO</h1>
-<p>We should talk about type conversions</p>
+<h1 id="type-conversions">Type conversions</h1>
+<p>Certain data types can be converted from one to the other using <a href="formulas.md">formulas</a>. For example, if you wish to convert a text string of numbers into integer type so as to perform arithmetic on it, or if an app expresses a datetime as a string, but you wish to convert it into a proper datetime type.</p>
+<p>The list of available type conversion formulas are as follows:</p>
+<ul>
+<li>to_currency</li>
+<li>to_date</li>
+<li>to_f</li>
+<li>to_i</li>
+<li>to_s</li>
+<li>to_time</li>
+</ul>
+<p>Additional type conversions may be added from time to time - you can check out the formula editor to see if there is the formula you&apos;re looking for.</p>
 <h1 id="preview-data">Preview data</h1>
 <p>Workato will display sample data (fetched from your account) alongside data pills to help better understand the data in your app.</p>
 <p>In example below, you can see sample data in italics next to the data pills.</p>
@@ -1385,7 +1382,7 @@ When mapping (i.e. assigning data pill to an input field) it is important that t
 <h1 id="example">Example</h1>
 <p>Let&apos;s take the scenario where we wish to send out a simple welcome email to every new Salesforce lead who has signed up. The recipe looks like</p>
 <p><img src="../assets/images/recipes/data-pills/salesforce-lead-welcome-email-recipe.png" alt="Recipe will send a welcome email to each new Salesforce lead"></p>
-<p><em>Recipe that sends a welcome email to new Salesforce leads</em> <a href="https://www.workato.com/recipes/496603" target="_blank">Example recipe</a></p>
+<p><em>Recipe that sends a welcome email to new Salesforce leads</em> <a href="https://www.workato.com/recipes/504766" target="_blank">Example recipe</a></p>
 <p>In the <strong>Send email</strong> action, pills from the <strong>New Salesforce lead</strong> datatree have been mapped into the input fields.</p>
 <p><img src="../assets/images/recipes/data-pills/data-pills-example.png" alt="Data pill mapping"></p>
 <p><em>Example of data pills being mapped into an action step</em></p>
@@ -1461,7 +1458,7 @@ If your recipe has conditional steps, e.g. if customer is present, update custom
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Data pills and fields mapping","date":"2017-03-16T10:00:00.000Z","level":"1.4.4","depth":2,"next":{"title":"Version management","level":"1.4.5","depth":2,"path":"recipes/version-management.md","ref":"recipes/version-management.md","articles":[]},"previous":{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/data-pills-and-mapping.md","mtime":"2017-03-31T07:33:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T07:34:51.421Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Data pills and fields mapping","date":"2017-03-16T10:00:00.000Z","level":"1.4.4","depth":2,"next":{"title":"Version management","level":"1.4.5","depth":2,"path":"recipes/version-management.md","ref":"recipes/version-management.md","articles":[]},"previous":{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/data-pills-and-mapping.md","mtime":"2017-03-31T08:27:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T08:30:21.060Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

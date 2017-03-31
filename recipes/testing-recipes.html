@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Test recipe · GitBook</title>
+        <title>Test mode · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,7 +60,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="rerun-job.html" />
+    <link rel="next" href="jobs.html" />
     
     
     <link rel="prev" href="start-and-stop.html" />
@@ -274,33 +274,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="jobs.html">
-            
-                <a href="jobs.html">
-            
-                    
-                    Jobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="jobs-report.html">
-            
-                <a href="jobs-report.html">
-            
-                    
-                    Jobs report
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="start-and-stop.html">
+        <li class="chapter " data-level="1.6.1" data-path="start-and-stop.html">
             
                 <a href="start-and-stop.html">
             
@@ -313,12 +287,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.4" data-path="testing-recipes.html">
+        <li class="chapter active" data-level="1.6.2" data-path="testing-recipes.html">
             
                 <a href="testing-recipes.html">
             
                     
-                    Test recipe
+                    Test mode
             
                 </a>
             
@@ -326,7 +300,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="rerun-job.html">
+        <li class="chapter " data-level="1.6.3" data-path="jobs.html">
+            
+                <a href="jobs.html">
+            
+                    
+                    Jobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="rerun-job.html">
             
                 <a href="rerun-job.html">
             
@@ -339,7 +326,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="../recipe-ops.html">
+        <li class="chapter " data-level="1.6.5" data-path="../recipe-ops.html">
             
                 <a href="../recipe-ops.html">
             
@@ -1318,7 +1305,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Test recipe</a>
+        <a href=".." >Test mode</a>
     </h1>
 </div>
 
@@ -1333,10 +1320,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="testing-recipes">Testing Recipes</h1>
-<h2 id="why-is-testing-recipes-necessary">Why is testing recipes necessary?</h2>
-<p>Testing recipes is a good practice. Workato is moving data and information from one business app to the other via the workflow described in recipes. Testing these workflows is critical to ensure that the information entered into the apps by Workato is accurate and does not include bad data. </p>
-<h2 id="good-practices">Good Practices</h2>
+                                <h1 id="testing-recipes">Testing recipes</h1>
+<p>Testing recipes is a good practice, especially if you are automating complex workflows. Workflows involve moving data between apps, and errors can have serious side effects. Testing recipes ahead of broad usage can save a lot of time in the long run.</p>
+<h2 id="test-mode">Test mode</h2>
+<p>The &apos;Test Recipe&apos; button will start the recipe, process <strong>only the first trigger event</strong> and then stop. So even if there are a lot of trigger events, in the test mode, you can process one at a time. </p>
+<h2 id="set-up-trigger-event">Set up trigger event</h2>
+<p>When in test mode, you will have to make sure that there is a trigger event available for processing. For example, if the trigger is &quot;New invoice in QuickBooks&quot;, as shown below, there has to an new invoice ready for the tigger to pick up. </p>
+<p><img src="../assets/images/testing-recipes/Triggerevent.JPG" alt="Triggerevent"></p>
+<p>Trigger events should be created prior to testing the recipe, and not when the &apos;Test recipe&apos; button is clicked. </p>
+<h2 id="change-the-from-parameter-for-testing">Change the &apos;From&apos; parameter for testing</h2>
+<p>You may have to change the&apos;From&apos; parameter in your trigger to ensure that test events that have already been created, can be picked up in the test mode.</p>
+<p><img src="../assets/images/testing-recipes/fromdate.JPG" alt="fromdate"></p>
+<p>For triggers that do not have the &apos;From&apos; parameter, only tigger events created after the recipe start will be picked up.</p>
+<p><strong>Note:</strong> The &apos;From&apos; parameter cannot be changed once the recipe has been tested or started. To change the &apos;From&apos; parameter, simply copy the recipe and modify it in the new copy.</p>
+<p><img src="../assets/images/testing-recipes/copyrecipe.png" alt="copyrecipe"></p>
+<h2 id="test-results">Test results</h2>
+<p>After clicking on &apos;Test recipe&apos;, check the &apos;Jobs&apos; tab to see what has run. Any errors that have occurred during the tests will show up in the job report with a red warning logo. </p>
+<p><img src="../assets/images/testing-recipes/Teststart.JPG" alt="Teststart"></p>
+<p>If there is no red logo, the job is successful. During the testing phase, click on the description to see if the job has completed as expected because the job may have stopped at a conditional stop action as shown below. There might be other steps that were expected to complete. If so, there may be an error in the logic of the recipe that needs fixing.</p>
+<h2 id="finding-the-error">Finding the error</h2>
+<p>The step where the error occurred is highlighted with a red line. Click on the step with the error to see details.</p>
+<p><img src="../assets/images/testing-recipes/errorinline.png" alt="errorinline"></p>
+<p>In this case, the error occurs in step 12. Click on the &apos;Error&apos; tab to see the details.</p>
+<p><img src="../assets/images/testing-recipes/errorinline2.png" alt="errorinline2"> </p>
+<h2 id="rerun-error-jobs">Rerun error jobs</h2>
+<p>Re-running jobs are the easiest way to test the recipe after fixing the errors. Check the box next to the job to be rerun and click on the rerun button.
+<img src="../assets/images/testing-recipes/rerunfailed.JPG" alt="rerunfailed"></p>
+<h1 id="testing-tips">Testing tips</h1>
 <h3 id="using-sandbox-instances">Using Sandbox Instances</h3>
 <p>If the application used provides sandbox accounts, they are recommended for testing recipes. This is to ensure no bad data is entered into the Production accounts until the recipe is properly configured and tested.</p>
 <h3 id="adding-stops-to-prevent-unwanted-actions-from-happening">Adding &apos;Stops&apos; to prevent unwanted actions from happening</h3>
@@ -1346,47 +1356,6 @@
 <h3 id="test-with-all-possible-scenarios">Test with all possible scenarios</h3>
 <p>Recipes often come with multiple lines of conditional logic (i.e. IF this then that). </p>
 <p>In these situations, test the recipe with all possible scenarios to ensure the pills are properly mapped and logic properly defined in the recipe. Doing these tests will save time fixing erroneous data after starting your recipe.</p>
-<h2 id="recipe-testing-basics">Recipe Testing Basics</h2>
-<p>Recipes built on Workato can vary greatly in complexity. Building and running a 1-line recipe may be simple and straightforward, but as the recipe grows more intricate, understanding how to test and ensure the recipe is built correctly is vital.</p>
-<h3 id="having-a-trigger-event">Having a Trigger Event</h3>
-<p>A trigger event is what Workato is looking out for in the application specified in the trigger. For example, if the trigger is &quot;New invoice in QuickBooks&quot;, as shown below, there has to be invoices in the QuickBooks account for the test to work. Trigger events should be created prior to testing the recipe, and not when the &apos;Test Recipe&apos; button is clicked. </p>
-<p><img src="../assets/images/testing-recipes/Triggerevent.JPG" alt="Triggerevent"></p>
-<h3 id="changing-the-from-parameter-for-testing">Changing the &apos;From&apos; parameter for testing</h3>
-<p>Changing the &apos;From&apos; parameter is critical to testing. If test events have already been created in the application, the &apos;From&apos; parameter has to be adjusted to allow the recipe to pick up jobs from the correct time. 
-<img src="../assets/images/testing-recipes/fromdate.JPG" alt="fromdate"></p>
-<p>Triggers for applications do not have the &apos;From&apos; parameter. In applications like these, jobs will be picked up from the time the recipe is started.</p>
-<p><strong>Note:</strong> The &apos;From&apos; parameter cannot be changed once the recipe has been tested or started. Copy the recipe by clicking on the &apos;Copy&apos; button below the recipe name and change the &apos;From&apos; parameter.
-<img src="../assets/images/testing-recipes/copyrecipe.png" alt="copyrecipe"></p>
-<p>There are 2 ways to change the &apos;From&apos; parameter. </p>
-<h4 id="list-values">List Values</h4>
-<p>Some values are provided in the dropdown: Recipe start, Half an hour ago, An hour ago, Yesterday, Last week, Last month and Beginning of time. 
-<img src="../assets/images/testing-recipes/fromdate.JPG" alt="fromdate"></p>
-<p>For testing, it is recommended that this is set to at least half an hour or an hour ago to ensure there are jobs for testing. </p>
-<h4 id="input-custom-value">Input Custom Value</h4>
-<p>If there is a more specific date and time that Workato should begin picking up trigger events from, click on the the dropdown arrow next to &apos;From&apos; to change the input method.
-<img src="../assets/images/testing-recipes/Entercustomvalue.png" alt="Entercustomvalue"></p>
-<p>Choose &apos;Enter custom value&apos; and click on the Calendar icon to choose a date and time.
-<img src="../assets/images/testing-recipes/calendar.JPG" alt="calendar"></p>
-<h3 id="test-recipe-vs-start-recipe">Test Recipe vs. Start Recipe</h3>
-<p>The &apos;Test Recipe&apos; button is the default button when the recipe has not been run. The &apos;Start Recipe&apos; button can be accessed via the dropdown as shown below:
-<img src="../assets/images/testing-recipes/Teststart.JPG" alt="Teststart"></p>
-<p>The &apos;Test Recipe&apos; button is highly recommended, especially if there are many trigger events in the application. Test Recipe picks up <strong>only the first trigger job</strong> that it finds and run through it. Once that has been processed, the recipe will stop. Then, check what has been done for this specific record in the &apos;Jobs&apos; tab. </p>
-<p>&apos;Start Recipe&apos; will find all these events that are applicable and start processing them. If there are many trigger events, they will be picked up and run. It is important to test the recipe first and ensure it is running correctly before clicking on &apos;Start recipe&apos;. </p>
-<h3 id="understanding-the-job-report">Understanding the Job Report</h3>
-<p>After clicking on &apos;Test recipe&apos;, check the &apos;Jobs&apos; tab to see what has run. Any errors that have occurred during the tests will show up in the job report with a red warning logo. Click on the job to see a detailed breakdown of the error.</p>
-<p><img src="../assets/images/testing-recipes/Teststart.JPG" alt="Teststart"></p>
-<p>If there is no red logo, the job is successful. During the testing phase, click on the description to see if the job has completed as expected because the job may have stopped at a conditional stop action as shown below. There might be other steps that were expected to complete. If so, there may be an error in the logic of the recipe that needs fixing.</p>
-<h4 id="finding-the-error">Finding the Error</h4>
-<p>The step where the error occurred is highlighted with a red line. Click on the step with the error to see the error details.
-<img src="../assets/images/testing-recipes/errorinline.png" alt="errorinline"></p>
-<p>In this case, the error occurs in step 12. Click on the &apos;Error&apos; tab to see the error details.</p>
-<p><img src="../assets/images/testing-recipes/errorinline2.png" alt="errorinline2"> </p>
-<p>Head back to the recipe to fix the incorrect step or to the application to see if there is incorrect data in the fields involved.</p>
-<h4 id="fixing-the-error">Fixing the Error</h4>
-<p>Re-running jobs are the easiest way to test the recipe after fixing the errors. Check the box next to the job to be rerun and click on the rerun button.
-<img src="../assets/images/testing-recipes/rerunfailed.JPG" alt="rerunfailed"></p>
-<h3 id="starting-the-recipe">Starting the recipe</h3>
-<p>After testing and ensuring the recipe works, start the recipe. The recipe will now run in the background and consistently check for trigger events. In case of an error, an email will be sent to the address specified in the Account Settings.</p>
 
                                 
                                 </section>
@@ -1419,7 +1388,7 @@
                 </a>
                 
                 
-                <a href="rerun-job.html" class="navigation navigation-next " aria-label="Next page: Rerun job">
+                <a href="jobs.html" class="navigation navigation-next " aria-label="Next page: Jobs">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1430,7 +1399,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Test recipe","date":"2017-02-18T22:15:00.000Z","level":"1.6.4","depth":2,"next":{"title":"Rerun job","level":"1.6.5","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},"previous":{"title":"Start and stop","level":"1.6.3","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/testing-recipes.md","mtime":"2017-03-31T07:33:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T07:34:51.421Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Test mode","date":"2017-02-18T22:15:00.000Z","level":"1.6.2","depth":2,"next":{"title":"Jobs","level":"1.6.3","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},"previous":{"title":"Start and stop","level":"1.6.1","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/testing-recipes.md","mtime":"2017-03-31T08:27:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T08:30:21.060Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
