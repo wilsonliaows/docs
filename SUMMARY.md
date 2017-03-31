@@ -60,7 +60,6 @@
   * [HTTP](developing-connectors/http.md)
   * [SDK](developing-connectors/sdk.md)
     * [Conceptual model](developing-connectors/sdk/sdk-conceptual-model.md)
-    * [Introduction](developing-connectors/sdk/introduction.md)
     * [API requirements](developing-connectors/sdk/api-requirements.md)
     * [Authentication](developing-connectors/sdk/authentication.md)
       * [Basic auth](developing-connectors/sdk/authentication/basic-authentication.md)
