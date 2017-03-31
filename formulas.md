@@ -9,13 +9,40 @@ Users can use formulas to transform data using Workato. Formulas allow users to 
 # Formula mode
 To start using formulas, you need to be in formula mode. Formula mode needs to be switched on at the field level, and most input fields support formula mode. To toggle from text mode into formula mode, click on the text/formula mode switch button. This also changes the type icon of the input field into the "fx" icon.
 
-![what_is_formula](/assets/images/formula-docs/what_is_formula_gif.gif)
+![What is formula](/assets/images/formula-docs/what_is_formula_gif.gif)
 
 *When the input field is toggled into formula mode, the string type input field changes icon from String type to "fx" type*
 
-The formula mode provides a set of standard formulas for data transformation/manipulation.
+# Using the formula editor
+In formula mode, the formula editor provides the set of whitelisted formulas available for data transformation/manipulation, and provides additional help on how to use these formulas.
 
+## Filter formulas displayed by data type
+The formula editor should always display the type specific formulas for your data pills. Refer to [this article](/recipes/data-pills-and-mapping.md) for more on the different types of data pills.
 
+When a string type data pill, the pill *Full name* is inserted into an input field in formula mode, the formula editor prompts for a period (.) to be added behind the pill, as per Ruby syntax. Subsequently, the editor shows the list of formulas applicable to strings.
+
+![String formula list](/assets/images/formula-docs/string-formula-list.gif)
+
+*Formula editor showing the list of string formulas*
+
+Similarly, when a date type data pill is inserted into the input field in formula mode, the formula editor prompts for a period (.) to be added behind the pill, subsequently displaying the list of formulas applicable to dates.
+
+![Date formula list](/assets/images/formula-docs/date-formula-list.gif)
+
+*Formula editor showing the list of date formulas*
+
+When there is no data pill within the input field, however, the formula list displayed contains only formulas and operators which are independent of data pills or data pill types.
+
+![Default formula list](/assets/images/formula-docs/default-formula-list.gif)
+
+*Formula editor showing the list of default formulas*
+
+## Formula hints and syntax
+When a formula is selected to be used, it will be auto-completed in the input field. An explanation of the formula's function, as well as its syntax, will be provided.
+
+![Formula editor hint](/assets/images/formula-docs/formula-editor-hint.gif)
+
+*When the split formula is selected, it auto-populates into the input field, and detailed formula help is generated*
 
 ## Text vs Formula mode
 
