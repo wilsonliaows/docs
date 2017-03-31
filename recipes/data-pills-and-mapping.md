@@ -28,8 +28,18 @@ Data pills can be of the following data types
 - Boolean
 When mapping (i.e. assigning data pill to an input field) it is important that they are 'type' compatible. Workato will do default type conversions where it can be done with no ambioguity or loss of information.
 
-# TODO
-We should talk about type conversions
+# Type conversions
+Certain data types can be converted from one to the other using [formulas](formulas.md). For example, if you wish to convert a text string of numbers into integer type so as to perform arithmetic on it, or if an app expresses a datetime as a string, but you wish to convert it into a proper datetime type.
+
+The list of available type conversion formulas are as follows:
+- to_currency
+- to_date
+- to_f
+- to_i
+- to_s
+- to_time
+
+Additional type conversions may be added from time to time - you can check out the formula editor to see if there is the formula you're looking for.
 
 # Preview data
 Workato will display sample data (fetched from your account) alongside data pills to help better understand the data in your app.
