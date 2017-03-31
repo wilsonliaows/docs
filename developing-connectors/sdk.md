@@ -4,9 +4,15 @@
 
 Here you will find the documentation you need to build application adapters using our SDK.
 
+## Adapter
+
+An Adapter is a connector to an application. Each Adapter has one or more trigger and actions. When an action or trigger is executed, it performs it's respective function with the account instance connected to that application.
+
+Connectors built on the SDK are called **Custom Adapters**. These connectors have private scope. This means that they are only available to the connector owner.
+
 ## Recipe
 
-A Workato recipe is a set of predefined instructions to be executed. It is made up of a trigger and one or more actions.
+A Workato recipe is a set of predefined instructions to be executed. It is made up of a trigger and one or more actions to one or more adapters.
 
 It execute a variety of tasks to all the applications supported by the Workato platform.
 
@@ -31,9 +37,3 @@ There are 4 types of actions:
 4. **Stop**
   - Allows users to terminate a run of the recipe (a job). This is useful if you wish to stop performing any actions if a certain condition is met.
   - Optionally, you can define an error for this action. What this does is let you generate exceptions in certain scenarios. These jobs that stops with errors will show up in job history as errors
-
-## Adapter
-
-An Adapter is a connector to an application. Each Adapter has one or more trigger and actions. When an action or trigger is executed, it performs it's respective function with the account instance connected to that application.
-
-Connectors built on the SDK are called **Custom Adapters**. These connectors have private scope. This means that they are only available to the connector owner.
