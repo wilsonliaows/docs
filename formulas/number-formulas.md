@@ -73,22 +73,131 @@ Divides left hand operand by right hand operand and returns the remainder.
 
 # Other number formulas
 
-| Formula | Description | Example | Sample Output |
-| ------------- | ------------- | ------------- | ------------- |
-| abs | This function returns the absolute (positive) value of a number. | -45.67.abs | 45.67 |
-| blank? | This function checks the input number and returns true if it does not contain any value. | 45.67.blank? | false |
-| presence | This function will check the input number, returning its value if there is one present, else returning nil. | 45.67.presence | 45.67 |
-| present? | This function will check the input number, returning true if there is a value present, else returning false. | 45.67.present? | true |
-| to_i | This function can be used on a number to only take its integer value. | 45.67.to_i | 45 | 
-| to_f | This function can be used on a number to retain its decimal values. | 45.67.to_f | 45.67 |
-| to_s | This function converts a number into a string. | 45.67.to_f | "45.67" |
-| round | This function will round up or down a number to the nearest integer. | 45,67.round | 46 |
-| round | By adding brackets with a number within it, it will round the number to a float with that number of decimal places. | 45.6789.round(2) | 45.68 | 
-| to_currency | This function converts a number into a currency string. | 456789.123.to_currency | $456,789.12 |
-| to_currency | By adding a parameter with a precision: number within it, it will round the number to a currency string with the stated number of decimal places. | 456789.123.to_currency(Precision: 3) | $456,789.123 | 
-| to_currency | By adding a parameter with a locale and country code, it will add the appropriate currency symbol. | 456789.123.to_currency(locale: fr) | 456,789.12 € |
-| to_phone | This function converts a number into a formatted phone number. | 1235551234.to_phone | 123-555-1234 |
-| to_phone | By adding a parameter with area code: true, the first three numbers will be enclosed in brackets, representing the area.| 1235551234.to_phone(area_code: true) | (123) 555-1234 |
-| to_phone | By adding a parameter with delimiter: string, the formatted phone number will be separated with the input string. | 1235551234.to_phone(delimiter: " ") | 123 555 1234 |
-| to_phone | By adding a parameter with extension: number, the formatted phone number will be appended with x number at the end. | 1235551234.to_phone(extension: 555) | 123-555-1234 x 555 |
-| to_phone | By adding a parameter with country_code: number, the formatted phone number will be appending with + number at the beginning. |1235551234.to_phone(country_code: 1) |  +1-123-555-1234 |
+## abs
+This function returns the absolute (positive) value of a number.
+
+### Example
+| Example    | Result | Type   |
+|------------|--------|--------|
+| -45        | 45     | Fixnum |
+| 45         | 45     | Fixnum |
+| -45.0      | 45.0   | Float  |
+| -45.67.abs | 45.67  | Float  |
+
+## blank?
+This function checks the input and returns true if it is a null or an empty string.
+
+### Example
+| Example     | Result |
+|-------------|--------|
+| "".blank?   | true   |
+| null.blank? | true   |
+| -45.blank?  | false  |
+| 0.blank?    | false  |
+
+## presence
+This function will check the input number, returning its value if there is one present, else returning nil.
+
+### Example
+| Example        | Result | Type   |
+|----------------|--------|--------|
+| "".presence    | nil    | nil    |
+| null.presence  | nil    | nil    |
+| -45.presence   | -45    | Fixnum |
+| 0.presence     | 0      | Fixnum |
+| 45.0.presence  | 45.0   | Float  |
+| -45.0.presence | -45.0  | Float  |
+
+## present?
+This function will check the input number, returning true if there is a value present. If input is null or an empty string, formula returns false.
+
+### Example
+| Example       | Result |
+|---------------|--------|
+| "".present?   | false  |
+| null.present? | false  |
+| -45.present?  | true   |
+| 0.present?    | true   |
+| 45.0.present? | true   |
+
+## to_i
+This function can be used on a number to only take its integer value.
+
+### Example
+
+| Example     | Result | Type   |
+|-------------|--------|--------|
+| 45.67.to_i  | 45     | Fixnum |
+| -45.67.to_i | -45    | Fixnum |
+| 45.to_i     | 45     | Fixnum |
+| -45.to_i    | -45    | Fixnum |
+| 0.to_i      | 0      | Fixnum |
+
+## to_f
+This function can be used on a number to retain its decimal values.
+
+### Example
+| Example     | Result    | Type  |
+|-------------|-----------|-------|
+| 45.67.to_f  | 45.67     | Float |
+| -45.67.to_f | -45.67    | Float |
+| 45.to_f     | 45.0      | Float |
+| -45.to_f    | -45.0     | Float |
+| 0.to_f      | 0.0       | Float |
+
+## to_s
+This function converts a number into a string.
+
+### Example
+| Example     | Result      | Type   |
+|-------------|-------------|--------|
+| 45.67.to_s  | "45.67"     | String |
+| -45.67.to_s | "-45.67"    | String |
+| 45.to_s     | "45.0"      | String |
+| -45.to_s    | "-45.0"     | String |
+| 0.to_s      | "0.0"       | String |
+
+## round
+This function will round up or down a number by regular rounding rules. The number of decimal places to round to can be defined with an additional parameter.
+
+### Example
+| Example        | Result | Type   |
+|----------------|--------|--------|
+| 45.5.round     | 46     | Fixnum |
+| 45.49.round    | 45     | Fixnum |
+| -45.5.round    | -46    | Fixnum |
+| -45.49.round   | -45    | Fixnum |
+| 45.49.round(1) | 45.5   | Float  |
+| 45.49.round(2) | 45.49  | Float  |
+| 45.49.round(4) | 45.49  | Float  |
+
+## to_currency
+This function converts a number into a currency string. The number of decimal places to round to can be defined with an additional parameter.
+
+By adding a parameter with a locale and country code, it will add the appropriate currency symbol.
+
+### Example
+| Example                          | Result  | Type     |
+|----------------------------------|---------|----------|
+| 45.678.to_currency               | $45.68  | Currency |
+| 45.6789.to_currency(precision:3) | $45.678 | Currency |
+| 45.67.to_currency(locale: fr)    | 45.67 € | Currency |
+
+## to_phone
+This function converts a number into a formatted phone number. By default, the delimiter is a dash (-), but delimiters can be specified via a parameter.
+
+By adding a parameter with area code: true, the first three numbers will be enclosed in brackets, representing the area.
+
+By adding a parameter with extension: number, the formatted phone number will have the extension appended at the end.
+
+By adding a parameter with country_code: number, the formatted phone number will be prefixed with the country code.
+
+### Example
+| Example                                               | Result               |
+|-------------------------------------------------------|----------------------|
+| 1112223333.to_phone                                   | "111-222-3333"       |
+| 1112223333.to_phone(delimiter: " ")                   | "111 222 3333"       |
+| 1112223333.to_phone(area_code: true)                  | "(111) 222-3333"     |
+| 1112223333.to_phone(country_code: 1)                  | "+1-111-222-3333"    |
+| 1112223333.to_phone(area_code: true, country_code: 1) | "+1-(111) 222-3333"  |
+| 1112223333.to_phone(extension: 444)                   | "111-222-3333 x 444" |
