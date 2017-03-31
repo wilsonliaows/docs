@@ -44,40 +44,44 @@ When a formula is selected to be used, it will be auto-completed in the input fi
 
 *When the split formula is selected, it auto-populates into the input field, and detailed formula help is generated*
 
-## Text vs Formula mode
+## Text VS formula mode
+In text mode, text and pills can be inserted into the input fields easily, and they will show up as-is. On the other hand, text needs to be explicitly formatted when in formula mode.
 
-The default mode for any action/trigger input field is text. In text mode you can assign plain text or map any field from the data tree. In text mode you can add more than one field too, for example you can put first name, and last name next to each other.
+Let's take the case whereby we have a recipe that sends an email to new leads in Salesforce. If a new lead called Madison Diaz is created, we wish to send the following email:
 
-![text_mode](/assets/images/formula-docs/text_mode.png)
+```
+Hi Madison,
 
-Formula mode on the other hand, allows you to transform the data from each data tree field (pill) into a specific format by using formulas. 
+Thanks for joining our mailing list! We're excited to have you!
+```
 
-In the example below, we have an action that sends a message to a customer's email to notify them to check their SMS inbox, but only shows the last 4 digits of their phone number by using the ".slice" formula. 
- 
-![formula_mode](/assets/images/formula-docs/formula_mode.png)
+In text mode, the message will be as follows:
 
-## Formula list
-You can bring up a simple list of commonly used formula methods by appending a period to the end of your data. The available formulas will show up as a picklist. This list is based on the type (e.g. data, number, etc) of the data pill.
+![Welcome email in text mode](/assets/images/formula-docs/welcome-email-in-text.png)
 
-![formula_list](/assets/images/formula-docs/formula_list.png)
+*Email in text mode* [Example recipe](https://www.workato.com/recipes/504766)
+
+![Welcome email in formula mode](/assets/images/formula-docs/welcome-email-in-formula.png)
+
+*Email in formula mode* [Example recipe])(https://www.workato.com/recipes/496603)
 
 ## Conditionals
-You can conditionally (if-else) execute formulas using Ruby's ternary syntax. 
+You can conditionally (if-else) execute formulas using Ruby's ternary syntax. Ternary syntax are of the form:
 
-In the example below the invoice date is conditionally mapped from a field called 'Date'. 
+```
+[Condition to evaluate if true or false] ? [Execute if true] : [Execute if false]
+```
 
-![mapping_type_4](/assets/images/formula-docs/ternary-formula.png)
+### Conditional formula example
+In the following example, we conditionally pass in either the *Full name* or *First name* into the *Message* input field.
 
-<u>What is it doing?</u>
+![Ternary syntax](/assets/images/formula-docs/ternary-formula.png)
 
-1. "Date.blank?" is checking to see if the Date field is empty.
-2. The ? represents the result of the check. If it is true, or false
-3. The next step 'Job created at' : 'Date' specifies what to do if the result was true or false. 
-    For example if it is blank, use 'Job created at' for the value, and if it is not blank use 'Date'
-Note: If the data in the pill used after ? is also blank (in the above example [Job created at]), you will get an error as well. 
+Here is a detailed explanation of what the ternary formula does:
 
-For more information on Ruby's ternary syntax, click [here](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
+1. "[Full name].present?" will check if the *Full name* pill has a value. If it has a value, it evaluates to true. If it has no value, it evaluates to false.
+2. The second ? in the formula separates the condition to evaluate from the commands to execute.
+3. If there is a value in the *Full name* pill when the job is ran, the value for *Full name* will be used as the *Message*.
+4. If there is no value in the *Full name* pill when the job is ran, the value for *First name* will be used as the *Message*. Of course, if there's also no value in this *First name* pill, the job will fail at this step, as *Message* is a required field.
 
-## Glossary of formulas
-You will find that there are formulas that can be used on data pills of different data type - String, Dates, Numbers, Others. 
-That will be the manner which we shall group and elaborate on the list of available formulas. Do note that the glossary list below is in constant update as we frequently add more formulas to accomodate the needs of our users. 
+For more information on Ruby's ternary syntax, check out this [article](http://www.w3resource.com/ruby/ruby-ternary-operator.php).

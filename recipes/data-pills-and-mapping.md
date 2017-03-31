@@ -95,7 +95,7 @@ Let's take the scenario where we wish to send out a simple welcome email to ever
 
 ![Recipe will send a welcome email to each new Salesforce lead](/assets/images/recipes/data-pills/salesforce-lead-welcome-email-recipe.png)
 
-*Recipe that sends a welcome email to new Salesforce leads* [Example recipe](https://www.workato.com/recipes/496603)
+*Recipe that sends a welcome email to new Salesforce leads* [Example recipe](https://www.workato.com/recipes/504766)
 
 In the **Send email** action, pills from the **New Salesforce lead** datatree have been mapped into the input fields.
 

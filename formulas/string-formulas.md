@@ -3,9 +3,29 @@ title: String formulas
 date: 2017-03-30 05:00:00 Z
 ---
 
-### String Formulas
-Workato formula mode supports many String functions. These are very useful for advanced users, especially when used in conjunction with each other.
+# String formulas
+Workato supports a variety of string formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
+
+You can refer to the complete Ruby documentation for strings [here](https://ruby-doc.org/core-2.2.0/String.html).
+
 In the examples below, we will look at some of the methods that can be used to manipulate a string of text, which in this case the input string is 'Jean Marie'.
+
+## blank?
+This function checks the input string and returns true if it does not contain any value.
+
+### Example
+`"Jean Marie".blank?` evaluates to `false`
+`"".blank?` evaluates to `true`
+
+
+
+
+
+
+
+
+
+
 
 
 | Formula | Description | Example | Sample Output |
