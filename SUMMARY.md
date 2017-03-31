@@ -77,7 +77,7 @@
       * [XML](developing-connectors/sdk/data-format/xml-format.md)
     * [Methods](developing-connectors/sdk/methods.md)
     * [Pick list](developing-connectors/sdk/pick-list.md)
-    * [Configuration fields](developing-connectors/sdk/config_fields.md)
+    * [Configuration fields](developing-connectors/sdk/config-fields.md)
     * [Examples](developing-connectors/sdk/examples.md)
     * [Publishing process](developing-connectors/sdk/publishing-process.md)
 * [Single Sign-On \(SSO\)](signing-up/sso.md)
