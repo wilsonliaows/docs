@@ -31,7 +31,6 @@ When the recipe is stopped, polling triggers stop fetching events from the trigg
 A Workato account on the Business plan has a 5-minute polling interval, as displayed on their polling triggers.
 
 ![Polling intervals](/assets/images/recipes/triggers/polling_intervals.png)
-
 *Trigger hint regarding the specific polling interval*
 
 The recipe polls every 5 minutes for new accounts created in Salesforce, and fetches any new accounts. If there were multiple accounts created, each will result in a new job.
@@ -55,7 +54,6 @@ Real-time triggers supported by Workato (this excludes HTTP real-time triggers) 
 Scheduled triggers are executed at specified days and times, hourly, daily, monthly, etc.
 
 ![Salesforce scheduled trigger schedules](/assets/images/recipes/triggers/scheduled_trigger_schedules.png)
-
 *Various schedule options for Salesforce scheduled search trigger*
 
 At the scheduled time or interval, this trigger will fetch all events matching the specified criteria. Also, unlike other triggers, scheduled triggers will return events that have already been picked up previously.
@@ -71,13 +69,11 @@ The **Since** or **From** setting enables fetching of historical trigger events 
 In the example below, the **New Salesforce object** trigger has a **From** date as 1 Jan 2017, midnight PST and the 'accounts' object is selected.
 
 [![https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4](https://i.gyazo.com/fef272317b761f9caee93d6fe81cd8b4.gif)](https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4)
-
 *Setting the Since date for the trigger. Trigger will only pick up new accounts created since midnight of Jan 1, 2017*
 
 When the recipe is started, only Salesforce accounts created after 1 Jan 2017, midnight PST will be picked up, as viewed from the created date column on the job report.
 
 ![Since parameter](/assets/images/recipes/triggers/since_param_ran_recipe.png)
-
 *Job report shows that only Salesforce accounts created after Jan 1, 2017 were processed*
 
 If the trigger was **New/updated Salesforce object**, only Salesforce accounts created or updated after 1 Jan 2017, midnight PST will be picked up.
@@ -91,7 +87,6 @@ This offset is usually communicated in the trigger hint for the connector.
 The **Since/From** value can only be set once, and will be locked from further changing after the recipe has been started for the first time.
 
 ![Google Calendar since parameter](/assets/images/recipes/triggers/google_calendar_since_param.png)
-
 *Trigger hint regarding the default offset of 1 hour ago for Google Calendar*
 
 ## Trigger conditions
@@ -102,23 +97,19 @@ Trigger filters are evaluated by Workato i.e. Workato retrieves all trigger even
 To add a trigger condition, check the **Trigger IF** checkbox. The trigger datatree will appear, displaying the variables that can be used to formulate the trigger condition.
 
 [![https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345](https://i.gyazo.com/7af54cb19e2f2c3d417cdbd830d25345.gif)](https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345)
-
 *Checking the Trigger IF checkbox brings up trigger condition fields to be configured*
 
 Define the trigger condition. The following ensures that only Salesforce accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
 
 [![https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5](https://i.gyazo.com/5d62320895ef3628b581aa1fd60e79d5.gif)](https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5)
-
 *Define the trigger condition*
 
 To add an additional trigger conditions, select from the OR or AND in the picklist. The selected operator will define how all additional trigger conditions will be added.
 
 [![https://gyazo.com/1a43c84e1783091a15947f4256b02ae6](https://i.gyazo.com/1a43c84e1783091a15947f4256b02ae6.gif)](https://gyazo.com/1a43c84e1783091a15947f4256b02ae6)
-
 *Adding another trigger condition with the OR operator*
 
 Define the additional trigger condition. Values are case sensitive and should be exact. The following ensures that accounts with a **Hot** rating value will also be picked up by the trigger. Notice that from the third trigger condition onwards, trigger conditions will be combined with the previously selected operator (OR or AND).
 
 [![https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50](https://i.gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50.gif)](https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50)
-
 *Define the additional trigger condition. Subsequent trigger conditions has to use the same AND operator*

@@ -124,7 +124,6 @@ Workato supports the ability to encode or decode base64 content via formulas.
 To base64 encode binary content and upload it into such apps:
 
 ![Encode file content](/assets/images/features/files-and-attachments/encode-file.png)
-
 *Formula for encoding file content*
 
 To decode binary content from base64 content from such apps:

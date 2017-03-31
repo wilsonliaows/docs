@@ -7,7 +7,6 @@ date: 2017-02-20 13:00:00 Z
 Recipe steps can be actions, or control flow statements that help you describe business logic.
 
 ![Available steps](/assets/images/recipes/steps/available_steps.png)
-
 *Various recipe steps available in recipe editor*
 
 ## Action step
