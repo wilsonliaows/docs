@@ -4,32 +4,33 @@ date: 2017-02-28 10:00:00 Z
 ---
 
 # Account properties
-Account-level properties are also known as environment variables or configuration variables. They show up in all recipes as usable values under the *Properties* datatree. Acccount properties are useful for complex deployment models across connections and recipes.
+Properties allow you to store account wide recipe configuration parameters. They show up in all recipes as usable values under the *Properties* datatree.
 
-Account properties feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+Account-level properties are also known as environment variables or configuration variables.  Acccount properties are useful for complex deployment models across connections and recipes.
 
-For Workato accounts with account properties feature, users are able to view the account properties option on their account menu.
+For e.g. you can have a property that indicates where to send a notification email. All recipes can look this value up from the data tree (properties section) and send email to the same recipient. 
+
+Account properties feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or call us at +1 (844) 469-6752.
+
+You can create property values (name value pairs) by going to the account properties section on their account menu.
 
 ![Account properties option](/assets/images/features/account-properties/account_properties_option.png)
-
 *Account properties menu option*
 
-# Add and edit account properties
-In order to use account properties in recipes, create them in the properties table.
+## Create property
+In order to use account properties in recipes, create them in the properties table. A property is a name and its corresponding value.
 
 [![https://gyazo.com/23296ffd5cf798f63381e88d8ed7be32](https://i.gyazo.com/23296ffd5cf798f63381e88d8ed7be32.gif)](https://gyazo.com/23296ffd5cf798f63381e88d8ed7be32)
+*Create property*
 
-*Adding and saving a new account property*
-
-Manage account properties in the same table with edit and delete functions.
-
+## Update property
 [![https://gyazo.com/281ea4129927d446ff6710b388f435c9](https://i.gyazo.com/281ea4129927d446ff6710b388f435c9.gif)](https://gyazo.com/281ea4129927d446ff6710b388f435c9)
+*Updating or deleting an account property*
 
-*Editing or deleting an account property*
-
-# Use account properties
+## Using properties in recipes
 Account properties show up in all recipes within the Workato account, under the *Properties* table, with the values as defined in the properties table.
 
-![Account properties datatree](/assets/images/features/account-properties/account_properties_datatree.png)
+When a recipe is active, the value for the property is lookedup in account properties.
 
-*Using account properties from the datatree*
+![Account properties datatree](/assets/images/features/account-properties/account_properties_datatree.png)
+*Using properties in a recipe*

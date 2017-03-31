@@ -49,10 +49,10 @@ Re-running jobs are the easiest way to test the recipe after fixing the errors. 
 
 # Testing tips
 
-### Using Sandbox Instances
-If the application used provides sandbox accounts, they are recommended for testing recipes. This is to ensure no bad data is entered into the Production accounts until the recipe is properly configured and tested.
+## Use sandbox 
+If the connector supports sandbox accounts, they are recommended for testing recipes. This is to ensure no bad data is entered into the production accounts.
 
-### Adding 'Stops' to prevent unwanted actions from happening
+## Adding 'Stops' to prevent unwanted actions from happening
 Add a 'Stop' to the recipe when testing if the actions that follow are not needed. Click the '+' button below the last step in the recipe and drag it to the correct place.
 ![stop recipe](/assets/images/testing-recipes/Stoprecipe.JPG)
 

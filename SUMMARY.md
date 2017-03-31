@@ -17,13 +17,8 @@
   * [Test mode](recipes/testing-recipes.md)
   * [Jobs](recipes/jobs.md)
   * [Rerun job](recipes/rerun-job.md)
-  * [Recipe Ops](recipe-ops.md)
-* [Recipe management and monitoring](recipe-monitoring.md)
-  * Error notifications
-  * Notifications
-  * Delegated administrator
-  * [Workato Admin connector](recipe-ops.md)
-  * [Rerun job](recipes/rerun-job.md)
+* [Managing recipes management](recipe-monitoring.md)
+  * [Recips ops](recipe-ops.md)
 * [Features](features.md)
   * [List management](features/list-management.md)
   * [Scheduler](features/scheduler.md)
