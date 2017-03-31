@@ -9,13 +9,11 @@ Data pills are output data from a trigger or an action step. They are variables 
 Data pills are contained within datatrees, within the **App Data** section. At an recipe step, the **App Data** section contains the output from the trigger and every action preceeding this step.
 
 ![Datatree](/assets/images/recipes/data-pills/datatree-example.png)
-
 *Datatree within a recipe step*
 
 When you're configuring a recipe step, all data from the preceeding steps will be available for use in the fields mapping of that step.
 
 ![Multiple datatrees](/assets/images/recipes/data-pills/multiple-datatrees.png)
-
 *Multiple datatrees available when configuring a recipe step*
 
 # Data types
@@ -47,7 +45,6 @@ Workato will display sample data (fetched from your account) alongside data pill
 In example below, you can see sample data in italics next to the data pills.
 
 ![Output datatree](/assets/images/workato-concepts/output-datatree.png)
-
 *Output datatree for New Salesforce account trigger*
 
 # Fields mapping
@@ -96,7 +93,6 @@ Let's take the scenario where we wish to send out a simple welcome email to ever
 In the **Send email** action, pills from the **New Salesforce lead** datatree have been mapped into the input fields.
 
 ![Data pill mapping](/assets/images/recipes/data-pills/data-pills-example.png)
-
 *Example of data pills being mapped into an action step*
 
 Since pills are variables, their value will depend on a specific trigger event, or action. In this example, the value assigned to the *To* input field, will depend on the value of *email* in each new lead. If a new lead called Madison Diaz with the email address madisondiaz82@gmail.com is created, the recipe will pick it up and promptly send an email to the address madisondiaz82@gmail.com with the message:

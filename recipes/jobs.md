@@ -54,14 +54,12 @@ The jobs report is a record of all processed jobs. For each processed job, you c
 Information such as date, time processed and job IDs, can be found here. The following shows the default jobs report page.
 
 ![Default jobs report](/assets/images/job-details/default-jobs-report.png)
-
 *Non-customized, default jobs report page*
 
 # Custom report
 Jobs report can be further customized to show any data available in the recipe. e.g. if processing invoices, your job report can have Invoice ID, Invoice amount, etc.
 
 ![Custom jobs report](/assets/images/job-details/custom-jobs-report.png)
-
 *Customized jobs report page*
 
 To create a custom jobs report, click on 'Customize report' next to the Rerun and Refresh buttons.
