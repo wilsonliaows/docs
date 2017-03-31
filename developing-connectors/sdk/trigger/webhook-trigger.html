@@ -1174,9 +1174,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15.3.11" data-path="../config_fields.md">
+        <li class="chapter " data-level="1.15.3.11" data-path="../config-fields.html">
             
-                <span>
+                <a href="../config-fields.html">
             
                     
                     Configuration fields
@@ -1357,11 +1357,133 @@
 }
 </code></pre>
 <h2 id="webhooksubscribe">webhook_subscribe</h2>
-<p>This block is called when the recipe is being started to run necessery API calls to subscribe for further webhook notifications. The endpoint that supposed to be register is passed in <code>webhook_url</code> parameter with other data that could be useful while registering the webhook.</p>
+<p>When a recipe is started, a webhook subscription should be created. This webhook subscription should be given the &quot;callback url&quot; specific to the recipe to receive and process as jobs. This block is responsible for this subscription.</p>
+<p>This block is executed whenever a recipe is started. The block usually contains the necessary API requests to create a webhook subscription. This request is typically a <strong>POST</strong> request with a payload containing the relevant data for successful event notifications.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">webhook_subscribe:</span> lambda <span class="hljs-keyword">do</span> |webhook_url, connection, input, recipe_id|
+  post(<span class="hljs-string">&quot;https://api.ciscospark.com/v1/webhooks&quot;</span>,
+       <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Workato recipe <span class="hljs-subst">#{recipe_id}</span>&quot;</span>,
+       <span class="hljs-symbol">targetUrl:</span> webhook_url,
+       <span class="hljs-symbol">resource:</span> <span class="hljs-string">&quot;messages&quot;</span>,
+       <span class="hljs-symbol">event:</span> <span class="hljs-string">&quot;created&quot;</span>,
+       <span class="hljs-symbol">filter:</span> <span class="hljs-string">&quot;roomId=<span class="hljs-subst">#{input[<span class="hljs-string">&apos;id&apos;</span>]}</span>&quot;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="webhooksubscribe-arguments">webhook_subscribe Arguments</h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>webhook_url</td>
+<td>URL specific to the recipe. This URL is randomly generated and points to the recipe that uses this trigger. A second recipe that uses the same trigger will have a different unique URL. All webhook subscription will require this URL.</td>
+</tr>
+<tr>
+<td>connection</td>
+<td><code>connection</code> object, frequently used to access domain or subdomain information from the user.</td>
+</tr>
+<tr>
+<td>input</td>
+<td><code>input</code> object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from.</td>
+</tr>
+<tr>
+<td>recipe_id</td>
+<td>Recipe ID of the recipe using this trigger. This is useful to identify webhook-recipe pairs in the event of multiple pairs.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="output">Output</h3>
+<p>Output of the webhook_subscribe block is the response from the <strong>POST</strong> request in this example. It usually contains useful information about the webhook that is used in the future. This output will be stored and passed to the webhook_unsubscribe block as an argument.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;id&quot;</span> : <span class="hljs-string">&quot;96abc2aa-3dcc-11e5-a152-fe34819cdc9a&quot;</span>,
+  <span class="hljs-string">&quot;name&quot;</span> : <span class="hljs-string">&quot;My Awesome Webhook&quot;</span>,
+  <span class="hljs-string">&quot;targetUrl&quot;</span> : <span class="hljs-string">&quot;https://example.com/mywebhook&quot;</span>,
+  <span class="hljs-string">&quot;resource&quot;</span> : <span class="hljs-string">&quot;messages&quot;</span>,
+  <span class="hljs-string">&quot;event&quot;</span> : <span class="hljs-string">&quot;created&quot;</span>,
+  <span class="hljs-string">&quot;filter&quot;</span> : <span class="hljs-string">&quot;roomId=Y2lzY29zcGFyazovL3VzL1JPT00vYmJjZWIxYWQtNDNmMS0zYjU4LTkxNDctZjE0YmIwYzRkMTU0&quot;</span>,
+  <span class="hljs-string">&quot;secret&quot;</span> : <span class="hljs-string">&quot;86dacc007724d8ea666f88fc77d918dad9537a15&quot;</span>,
+  <span class="hljs-string">&quot;created&quot;</span> : <span class="hljs-string">&quot;2015-10-18T14:26:16+00:00&quot;</span>
+}
+</code></pre>
 <h2 id="webhookunsubscribe">webhook_unsubscribe</h2>
-<p>This block will be called after recipe start to unsubscribe from webhook notifications.</p>
+<p>This block will be called when a running recipe is stopped. It should contain an expression to unsubscribe from the existing webhook notifications.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">webhook_unsubscribe:</span> lambda <span class="hljs-keyword">do</span> |webhook, connection|
+  delete(<span class="hljs-string">&quot;https://api.ciscospark.com/v1/webhooks/<span class="hljs-subst">#{webhook[<span class="hljs-string">&apos;id&apos;</span>]}</span>&quot;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="webhookunsubscribe-arguments">webhook_unsubscribe Arguments</h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>webhook</td>
+<td>This will contain the output of the webhook_subscribe block. In this example, it will contain the JSON response shown above. For this particular API, making a DELETE request to the resource endpoint will unsubsribe the webhook from notifications and effectively stop the recipe from receive any new notifications.</td>
+</tr>
+<tr>
+<td>connection</td>
+<td><code>connection</code> object, frequently used to access domain or subdomain information from the user.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="webhooknotification">webhook_notification</h2>
-<p>POST/PUT HTTP requests can be used to notify about new trigger events. JSON-encoded payload is expected. This block is called to extract trigger output data from webhook notification payload (<code>payload</code> attribute). Original trigger input is also available in this block (<code>input</code> attribute)</p>
+<p>When the webhook trigger receives a webhook notification, the payload is processed through this block. Here, we can access the desired key that contains the webhook notification data.</p>
+<h3 id="webhooknotification-payload">webhook_notification payload</h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>input</td>
+<td><code>input</code> object: Data from trigger input fields. In this example, the input contains the Room ID to receive messages from.</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>original payload from the webhook POST/PUT notification.</td>
+</tr>
+</tbody>
+</table>
+<p>Extract from the CiscoSpark API documentation:</p>
+<blockquote>
+<p>&quot;When one of your webhooks is triggered, Spark will send an HTTP POST to your backend at the specified targetUrl. The body of the POST will look something like this:&quot;</p>
+</blockquote>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL1dFQkhPT0svZjRlNjA1NjAtNjYwMi00ZmIwLWEyNWEtOTQ5ODgxNjA5NDk3&quot;</span>,
+  <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;Guild Chat to http://requestb.in/1jw0w3x1&quot;</span>,
+  <span class="hljs-string">&quot;resource&quot;</span>:<span class="hljs-string">&quot;messages&quot;</span>,
+  <span class="hljs-string">&quot;event&quot;</span>:<span class="hljs-string">&quot;created&quot;</span>,
+  <span class="hljs-string">&quot;filter&quot;</span>:<span class="hljs-string">&quot;roomId=Y2lzY29zcGFyazovL3VzL1JPT00vY2RlMWRkNDAtMmYwZC0xMWU1LWJhOWMtN2I2NTU2ZDIyMDdi&quot;</span>,
+  <span class="hljs-string">&quot;orgId&quot;</span>: <span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi8xZWI2NWZkZi05NjQzLTQxN2YtOTk3NC1hZDcyY2FlMGUxMGY&quot;</span>,
+  <span class="hljs-string">&quot;createdBy&quot;</span>: <span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL1BFT1BMRS8xZjdkZTVjYi04NTYxLTQ2NzEtYmMwMy1iYzk3NDMxNDQ0MmQ&quot;</span>,
+  <span class="hljs-string">&quot;appId&quot;</span>: <span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL0FQUExJQ0FUSU9OL0MyNzljYjMwYzAyOTE4MGJiNGJkYWViYjA2MWI3OTY1Y2RhMzliNjAyOTdjODUwM2YyNjZhYmY2NmM5OTllYzFm&quot;</span>,
+  <span class="hljs-string">&quot;ownedBy&quot;</span>: <span class="hljs-string">&quot;creator&quot;</span>,
+  <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>,
+  <span class="hljs-string">&quot;actorId&quot;</span>: <span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL1BFT1BMRS8xZjdkZTVjYi04NTYxLTQ2NzEtYmMwMy1iYzk3NDMxNDQ0MmQ&quot;</span>,
+  <span class="hljs-string">&quot;data&quot;</span>:{
+    <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL01FU1NBR0UvMzIzZWUyZjAtOWFhZC0xMWU1LTg1YmYtMWRhZjhkNDJlZjlj&quot;</span>,
+    <span class="hljs-string">&quot;roomId&quot;</span>:<span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL1JPT00vY2RlMWRkNDAtMmYwZC0xMWU1LWJhOWMtN2I2NTU2ZDIyMDdi&quot;</span>,
+    <span class="hljs-string">&quot;personId&quot;</span>:<span class="hljs-string">&quot;Y2lzY29zcGFyazovL3VzL1BFT1BMRS9lM2EyNjA4OC1hNmRiLTQxZjgtOTliMC1hNTEyMzkyYzAwOTg&quot;</span>,
+    <span class="hljs-string">&quot;personEmail&quot;</span>:<span class="hljs-string">&quot;person@example.com&quot;</span>,
+    <span class="hljs-string">&quot;created&quot;</span>:<span class="hljs-string">&quot;2015-12-04T17:33:56.767Z&quot;</span>
+  }
+}
+</code></pre>
+<p>Looking at the sample payload, the main message data is bested in the &quot;data&quot; object. Hence, we just need to access and return this &quot;data&quot; object in the webhook_notification block output. This output is then processed in through the trigger into the recipe as a job.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">webhook_notification:</span> lambda <span class="hljs-keyword">do</span> |input, payload|
+  payload[<span class="hljs-string">&quot;data&quot;</span>]
+<span class="hljs-keyword">end</span>
+</code></pre>
 
                                 
                                 </section>
@@ -1405,7 +1527,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Webhook trigger","level":"1.15.3.6.2","depth":4,"next":{"title":"Object definition","level":"1.15.3.7","depth":3,"path":"developing-connectors/sdk/object-definition.md","ref":"developing-connectors/sdk/object-definition.md","articles":[]},"previous":{"title":"Poll trigger","level":"1.15.3.6.1","depth":4,"path":"developing-connectors/sdk/trigger/poll-trigger.md","ref":"developing-connectors/sdk/trigger/poll-trigger.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/trigger/webhook-trigger.md","mtime":"2017-03-31T08:27:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T08:30:21.060Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Webhook trigger","level":"1.15.3.6.2","depth":4,"next":{"title":"Object definition","level":"1.15.3.7","depth":3,"path":"developing-connectors/sdk/object-definition.md","ref":"developing-connectors/sdk/object-definition.md","articles":[]},"previous":{"title":"Poll trigger","level":"1.15.3.6.1","depth":4,"path":"developing-connectors/sdk/trigger/poll-trigger.md","ref":"developing-connectors/sdk/trigger/poll-trigger.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/trigger/webhook-trigger.md","mtime":"2017-03-31T08:40:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T08:42:28.900Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
