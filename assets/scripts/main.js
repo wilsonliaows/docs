@@ -5,6 +5,13 @@ require(['gitbook', 'jquery'], function (gitbook, $) {
 
     // Adding anchor icons next to markdown headers
     addHeaderLinks();
+
+    // Scrolling page to anchor or top, because theme script scrolls wrong element (`.body-inner`)
+    setTimeout(function () {
+      var scrollToElem = $(document.getElementById(location.hash.slice(1)));
+      var scrollTop = scrollToElem.length ? scrollToElem.position().top : 0;
+      $('body').scrollTop(scrollTop);
+    }, 0);
   });
 
   function updateToolbarButtons() {

@@ -2,7 +2,7 @@
   {% for article in _articles %}
     <li class="chapter {% if article.path == file.path and not article.anchor %}active{% endif %}" data-level="{{ article.level }}" {% if article.path %}data-path="{{ article.path|resolveFile }}"{% endif %}>
       {% if article.articles.length %}
-        <i class="fa fa-angle-right chapter-toggle"></i>
+        <i class="fa fa-angle-right chapter__toggle"></i>
       {% endif %}
 
       {% if article.path and getPageByPath(article.path) %}

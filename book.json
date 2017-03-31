@@ -5,7 +5,7 @@
     "-sharing",
     "-fontsettings",
     "favicon",
-    "collapsible-menu"
+    "toggle-chapters"
   ],
   "pluginsConfig": {
     "edit-link": {
@@ -14,9 +14,9 @@
       "multilingual": false
     },
     "favicon": {
-      "shortcut": "assets/images/favicon/favicon.ico",
-      "bookmark": "assets/images/favicon/favicon.ico",
-      "appleTouch": "assets/images/favicon/android-chrome-36x36.png"
+      "shortcut": "/assets/images/favicon/favicon.ico",
+      "bookmark": "/assets/images/favicon/favicon.ico",
+      "appleTouch": "/assets/images/favicon/android-chrome-36x36.png"
     }
   }
 }
