@@ -7,7 +7,6 @@ date: 2017-03-30 05:00:00 Z
 When you have a List (a type of Array) returned to you, you may only want specific sets of information. For example, the image below shows the step output for a search accounts action. Here, a List of Account objects is returned containing all of the fields displayed under it (Name, Sub account, etc.) for each Account object. Lists are identified with a unique icon in the datatree.
 
 ![List datatree icon](/assets/images/formula-docs/accounts-list-icon.png)
-
 *List icon as viewed in the datatree*
 
 ## Formulas to manipulate Lists/Arrays

@@ -123,7 +123,7 @@ end
 In some instances, a record needs to be proccessed as separate events. A typical scenario is updated records. To do this, append updated timestamp field to the dedup expression like so.
 ```ruby
 dedup: lambda do |ticket|
-  ticket["id"] + "@" + ticket["`updated_at"]
+  ticket["id"] + "@" + ticket["updated_at"]
 end
 ```
 With this, 2 occurence of a record with the same "ID" but with different "updated_at" values will be recorded as separate events.
@@ -217,7 +217,7 @@ A typical response looks like this.
 {
   "current": "https://api.sample.com/records?order=desc&from=2016-12-09T22%3A57%3A13Z&page=1",
   "next": "https://api.sample.com/records?order=desc&from=2016-12-09T22%3A57%3A13Z&page=2",
-  "data: [
+  "data": [
     {
       "checkid": 123,
       "time": "2016-12-13T19:09:01Z",
@@ -256,6 +256,6 @@ In addition to `document_id`, this block is used to define the field that is use
 
 ```ruby
 sort_by: lambda do |event|
-  eent["time"]
+  event["time"]
 end
 ```

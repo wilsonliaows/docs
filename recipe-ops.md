@@ -25,13 +25,11 @@ When establishing the connection, select from **My account** or **Someone else's
 The following shows the different fields required for the available connection options.
 
 [![https://gyazo.com/50d065e5bfaf95a7e844af59f80d8d21](https://i.gyazo.com/50d065e5bfaf95a7e844af59f80d8d21.gif)](https://gyazo.com/50d065e5bfaf95a7e844af59f80d8d21)
-
 *Establishing Workato Admin connection*
 
 The managed user has to retrieve the API key from their **Account settings > API key**.
 
 ![API key](/assets/images/recipe-ops/api-key.png)
-
 *Retrieve API key from Settings > API key*
 
 ## Triggers
@@ -42,13 +40,11 @@ The **New failed job** trigger is able to monitor all active recipes, or  select
 When monitoring selected recipes, provide the IDs of recipes to watch.
 
 [![https://gyazo.com/a3d820a6f5aa1da0518949f3b2f86509](https://i.gyazo.com/a3d820a6f5aa1da0518949f3b2f86509.gif)](https://gyazo.com/a3d820a6f5aa1da0518949f3b2f86509)
-
 *Specify recipes to monitor for failed jobs*
 
 Recipe IDs can be found in the recipe page URL as highlighted below.
 
 ![Recipe URL](/assets/images/recipe-ops/recipe-url.png)
-
 *Recipe IDs can be found in recipe URL*
 
 Similar to the error notification emails, this trigger will trigger only once an hour for the same error type. For example:
@@ -63,13 +59,11 @@ This trigger allows users to build ‘restart’ logic or other custom escalatio
 When monitoring selected recipes, provide the IDs of recipes to watch.
 
 [![https://gyazo.com/eaae22a773083b4206fe276d292ac4eb](https://i.gyazo.com/eaae22a773083b4206fe276d292ac4eb.gif)](https://gyazo.com/eaae22a773083b4206fe276d292ac4eb)
-
 *Specify recipes to monitor whether the recipes are stopped by Workato*
 
 Recipe IDs can be found in the recipe page URL as highlighted below.
 
 ![Recipe URL](/assets/images/recipe-ops/recipe-url.png)
-
 *Recipe IDs can be found in recipe URL*
 
 ## Actions
@@ -78,14 +72,12 @@ Recipe IDs can be found in the recipe page URL as highlighted below.
 Get information about the Workato account, such as subscription plan type, allotted and remaining transaction counts, recipe and connection counts.
 
 ![Get account details output datatree](/assets/images/recipe-ops/get-account-details.png)
-
 *Available account details datapills for use*
 
 ### Get recipe details action
 Get key information about recipe including status, job account, current version, etc. The following shows the available data from the **Get recipe details** action.
 
 [![https://gyazo.com/6f9634f39260533d92bf4c9dc0df960b](https://i.gyazo.com/6f9634f39260533d92bf4c9dc0df960b.gif)](https://gyazo.com/6f9634f39260533d92bf4c9dc0df960b)
-
 *Available recipe details datapills for use*
 
 ### List jobs created by recipe action
@@ -96,13 +88,11 @@ Action lists the last 100 jobs by default.
 The folowing lists the available fields to filter for jobs by.
 
 [![https://gyazo.com/83195f3f3f92f5f228e9c65800411c3a](https://i.gyazo.com/83195f3f3f92f5f228e9c65800411c3a.gif)](https://gyazo.com/83195f3f3f92f5f228e9c65800411c3a)
-
 *Filters to specify the jobs to retrieve*
 
 The **List jobs** action output datatree returns a list of jobs, with standard details about each job such as job ID and job status, as well as custom job report data.
 
 [![https://gyazo.com/bbc03f0ed63a428d8887c9e4b78b703b](https://i.gyazo.com/bbc03f0ed63a428d8887c9e4b78b703b.gif)](https://gyazo.com/bbc03f0ed63a428d8887c9e4b78b703b)
-
 *Available job details datapills for use*
 
 ### List recipes action
@@ -111,20 +101,17 @@ Retrieves a list of up to 100 recipes.
 The folowing lists the available fields to filter for jobs by.
 
 [![https://gyazo.com/97280acd8aafeeb99ea98bb5ed8d35f9](https://i.gyazo.com/97280acd8aafeeb99ea98bb5ed8d35f9.gif)](https://gyazo.com/97280acd8aafeeb99ea98bb5ed8d35f9)
-
 *Filters to specify the recipes to retrieve*
 
 The **List recipes** action output datatree returns a list of recipes, with standard details about each recipe such as recipe ID, recipe name and job counts.
 
 [![https://gyazo.com/7e4fb9d973a279143baeddb09b29acf5](https://i.gyazo.com/7e4fb9d973a279143baeddb09b29acf5.gif)](https://gyazo.com/7e4fb9d973a279143baeddb09b29acf5)
-
 *Available recipe details datapills for use*
 
 ### Start recipe action
 Action allows specified recipes to be started. A single recipe can be selected from a picklist. Alternatively, multiple recipes can be specified by ID.
 
 [![https://gyazo.com/f7b70c979815613c44efa9b39c48e60f](https://i.gyazo.com/f7b70c979815613c44efa9b39c48e60f.gif)](https://gyazo.com/f7b70c979815613c44efa9b39c48e60f)
-
 *Select recipe to start via picklist or recipe IDs*
 
 ### Stop recipe action
