@@ -17,15 +17,15 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
         
@@ -80,1213 +80,1410 @@
     </head>
     <body>
         
-    <header class="w-header">
+  <header class="w-header">
+    <div class="w-header__row w-header__row_logo">
       <a href="/">
-        <img src="/assets/images/layout/workato-logo.svg" alt="Workato docs" width="184" height="30">
+        <img class="w-header__logo" src="/assets/images/layout/workato-logo.svg" alt="Workato docs">
       </a>
-      <a href="//workato.com" class="w-header__return">Return to workato.com</a>
-    </header>
+      <a href="https://workato.com" class="w-header__return">Return to workato.com</a>
+    </div>
+    <div class="w-header__row w-header__row_toolbar">
+      <div id="book-search-input" role="search">
+        <i class="fa fa-search book-search-input-icon"></i>
+        <input type="text" placeholder="Type to search Workato docs"/>
+      </div>
+      <div class="book-header" role="navigation">
+        
 
-    
+        <!-- Title -->
+        <h1>
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+          <a href="..">Jobs</a>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  
 <div class="book">
     <div class="book-summary">
         
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
             
                 <nav role="navigation">
                 
 
 
 <ul class="summary">
-    
+  
+  
+
+  
+
+  
     
 
     
+  
+    <li class="chapter " data-level="1.1" data-path="../">
+      
 
-    
+      
+        <a href="../">
+      
         
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    Introduction
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../workato-concepts.html">
-            
-                <a href="../workato-concepts.html">
-            
-                    
-                    Concepts
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../connections.html">
-            
-                <a href="../connections.html">
-            
-                    
-                    Connections
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="building-recipes.html">
-            
-                <a href="building-recipes.html">
-            
-                    
-                    Building recipes
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="triggers.html">
-            
-                <a href="triggers.html">
-            
-                    
-                    Triggers
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="steps.html">
-            
-                <a href="steps.html">
-            
-                    
-                    Steps
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="actions.html">
-            
-                <a href="actions.html">
-            
-                    
-                    Actions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="data-pills-and-mapping.html">
-            
-                <a href="data-pills-and-mapping.html">
-            
-                    
-                    Data pills and fields mapping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="version-management.html">
-            
-                <a href="version-management.html">
-            
-                    
-                    Version management
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="building-best-practices.html">
-            
-                <a href="building-best-practices.html">
-            
-                    
-                    Best practices
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../formulas.html">
-            
-                <a href="../formulas.html">
-            
-                    
-                    Data mapping formulas
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="running-recipes.html">
-            
-                <a href="running-recipes.html">
-            
-                    
-                    Running recipes
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="start-and-stop.html">
-            
-                <a href="start-and-stop.html">
-            
-                    
-                    Start and stop
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="testing-recipes.html">
-            
-                <a href="testing-recipes.html">
-            
-                    
-                    Test mode
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6.3" data-path="jobs.html">
-            
-                <a href="jobs.html">
-            
-                    
-                    Jobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="rerun-job.html">
-            
-                <a href="rerun-job.html">
-            
-                    
-                    Rerun job
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../recipe-ops.html">
-            
-                <a href="../recipe-ops.html">
-            
-                    
-                    Recipe Ops
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../recipe-monitoring.html">
-            
-                <a href="../recipe-monitoring.html">
-            
-                    
-                    Recipe management and monitoring
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" >
-            
-                <span>
-            
-                    
-                    Error notifications
-            
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" >
-            
-                <span>
-            
-                    
-                    Notifications
-            
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" >
-            
-                <span>
-            
-                    
-                    Delegated administrator
-            
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../recipe-ops.html">
-            
-                <a href="../recipe-ops.html">
-            
-                    
-                    Workato Admin connector
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="rerun-job.html">
-            
-                <a href="rerun-job.html">
-            
-                    
-                    Rerun job
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../features.html">
-            
-                <a href="../features.html">
-            
-                    
-                    Features
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../features/list-management.html">
-            
-                <a href="../features/list-management.html">
-            
-                    
-                    List management
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../features/scheduler.html">
-            
-                <a href="../features/scheduler.html">
-            
-                    
-                    Scheduler
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../features/utilities.html">
-            
-                <a href="../features/utilities.html">
-            
-                    
-                    Utility
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../features/secondary-connectors.html">
-            
-                <a href="../features/secondary-connectors.html">
-            
-                    
-                    Secondary connectors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../features/batch-processing.html">
-            
-                <a href="../features/batch-processing.html">
-            
-                    
-                    Batch processing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../features/lookup-tables.html">
-            
-                <a href="../features/lookup-tables.html">
-            
-                    
-                    Lookup tables
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.7" data-path="../features/callable-recipes.html">
-            
-                <a href="../features/callable-recipes.html">
-            
-                    
-                    Callable recipes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.8" data-path="../features/handling-csv-files.html">
-            
-                <a href="../features/handling-csv-files.html">
-            
-                    
-                    Handling CSV files
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.9" data-path="../features/handling-json.html">
-            
-                <a href="../features/handling-json.html">
-            
-                    
-                    Handling JSON
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.10" data-path="../handling-xml.md">
-            
-                <span>
-            
-                    
-                    Handling XML
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.11" data-path="../features/account-properties.html">
-            
-                <a href="../features/account-properties.html">
-            
-                    
-                    Account properties
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.12" data-path="../features/data-masking.html">
-            
-                <a href="../features/data-masking.html">
-            
-                    
-                    Data masking
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../handling-files-and-attachments.html">
-            
-                <a href="../handling-files-and-attachments.html">
-            
-                    
-                    Handling files and attachments
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../user-accounts-and-teams.html">
-            
-                <a href="../user-accounts-and-teams.html">
-            
-                    
-                    Working with teams
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../user-accounts-and-teams/team-collaboration.html">
-            
-                <a href="../user-accounts-and-teams/team-collaboration.html">
-            
-                    
-                    Collaboration
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../user-accounts-and-teams/team-collaboration.html">
-            
-                <a href="../user-accounts-and-teams/team-collaboration.html#team-roles">
-            
-                    
-                    Role-based access
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../user-accounts-and-teams/team-collaboration.html">
-            
-                <a href="../user-accounts-and-teams/team-collaboration.html#audit-logs">
-            
-                    
-                    Audit logs
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../workflow.html">
-            
-                <a href="../workflow.html">
-            
-                    
-                    People Task
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="../workbot/workbot.html">
-            
-                <a href="../workbot/workbot.html">
-            
-                    
-                    Workbot
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.12.1" data-path="../workbot/workbot-actions.html">
-            
-                <a href="../workbot/workbot-actions.html">
-            
-                    
-                    Workbot actions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12.2" data-path="../workbot/workbot-triggers.md">
-            
-                <span>
-            
-                    
-                    Workbot triggers
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12.3" data-path="../workbot/workbot-troubleshooting.html">
-            
-                <a href="../workbot/workbot-troubleshooting.html">
-            
-                    
-                    Workbot troubleshooting
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13" data-path="../on-prem.html">
-            
-                <a href="../on-prem.html">
-            
-                    
-                    On premise
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14" data-path="../troubleshooting.html">
-            
-                <a href="../troubleshooting.html">
-            
-                    
-                    Troubleshooting
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.14.1" >
-            
-                <span>
-            
-                    
-                    Trigger warnings
-            
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14.2" data-path="action-errors.html">
-            
-                <a href="action-errors.html">
-            
-                    
-                    Action errors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14.3" >
-            
-                <span>
-            
-                    
-                    Mapping errors
-            
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14.4" data-path="formula-errors.html">
-            
-                <a href="formula-errors.html">
-            
-                    
-                    Formula errors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14.5" data-path="infinite-loops.html">
-            
-                <a href="infinite-loops.html">
-            
-                    
-                    Infinite loops
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14.6" data-path="deduplication.html">
-            
-                <a href="deduplication.html">
-            
-                    
-                    Deduplication
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14.7" data-path="rate-limiting.html">
-            
-                <a href="rate-limiting.html">
-            
-                    
-                    Rate limiting
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="../developing-connectors.html">
-            
-                <a href="../developing-connectors.html">
-            
-                    
-                    Developing connectors
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.1" data-path="../developing-connectors/http-vs-sdk.html">
-            
-                <a href="../developing-connectors/http-vs-sdk.html">
-            
-                    
-                    Comparison of HTTP VS SDK
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.2" data-path="../developing-connectors/http.html">
-            
-                <a href="../developing-connectors/http.html">
-            
-                    
-                    HTTP
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3" data-path="../developing-connectors/sdk.html">
-            
-                <a href="../developing-connectors/sdk.html">
-            
-                    
-                    SDK
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.3.1" data-path="../developing-connectors/sdk/sdk-conceptual-model.html">
-            
-                <a href="../developing-connectors/sdk/sdk-conceptual-model.html">
-            
-                    
-                    Conceptual model
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.2" data-path="../developing-connectors/sdk/api-requirements.html">
-            
-                <a href="../developing-connectors/sdk/api-requirements.html">
-            
-                    
-                    API requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.3" data-path="../developing-connectors/sdk/authentication.html">
-            
-                <a href="../developing-connectors/sdk/authentication.html">
-            
-                    
-                    Authentication
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.3.3.1" data-path="../developing-connectors/sdk/authentication/basic-authentication.html">
-            
-                <a href="../developing-connectors/sdk/authentication/basic-authentication.html">
-            
-                    
-                    Basic auth
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.3.2" data-path="../developing-connectors/sdk/authentication/oauth2-authentication.html">
-            
-                <a href="../developing-connectors/sdk/authentication/oauth2-authentication.html">
-            
-                    
-                    OAuth 2.0
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.3.3" data-path="../developing-connectors/sdk/authentication/custom-authentication.html">
-            
-                <a href="../developing-connectors/sdk/authentication/custom-authentication.html">
-            
-                    
-                    Custom auth
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.3.4" data-path="../developing-connectors/sdk/authentication/test.html">
-            
-                <a href="../developing-connectors/sdk/authentication/test.html">
-            
-                    
-                    Test
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.4" data-path="../developing-connectors/sdk/object-definition.html">
-            
-                <a href="../developing-connectors/sdk/object-definition.html">
-            
-                    
-                    Object definition
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.5" data-path="../developing-connectors/sdk/action.html">
-            
-                <a href="../developing-connectors/sdk/action.html">
-            
-                    
-                    Action
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.6" data-path="../developing-connectors/sdk/trigger.html">
-            
-                <a href="../developing-connectors/sdk/trigger.html">
-            
-                    
-                    Trigger
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.3.6.1" data-path="../developing-connectors/sdk/trigger/poll-trigger.html">
-            
-                <a href="../developing-connectors/sdk/trigger/poll-trigger.html">
-            
-                    
-                    Poll trigger
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.6.2" data-path="../developing-connectors/sdk/trigger/webhook-trigger.html">
-            
-                <a href="../developing-connectors/sdk/trigger/webhook-trigger.html">
-            
-                    
-                    Webhook trigger
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.7" data-path="../developing-connectors/sdk/object-definition.html">
-            
-                <a href="../developing-connectors/sdk/object-definition.html">
-            
-                    
-                    Object definition
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.8" data-path="../developing-connectors/sdk/data-format.html">
-            
-                <a href="../developing-connectors/sdk/data-format.html">
-            
-                    
-                    Data format
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.15.3.8.1" data-path="../developing-connectors/sdk/data-format/json-format.html">
-            
-                <a href="../developing-connectors/sdk/data-format/json-format.html">
-            
-                    
-                    JSON
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.8.2" data-path="../developing-connectors/sdk/data-format/xml-format.html">
-            
-                <a href="../developing-connectors/sdk/data-format/xml-format.html">
-            
-                    
-                    XML
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.9" data-path="../developing-connectors/sdk/methods.html">
-            
-                <a href="../developing-connectors/sdk/methods.html">
-            
-                    
-                    Methods
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.10" data-path="../developing-connectors/sdk/pick-list.html">
-            
-                <a href="../developing-connectors/sdk/pick-list.html">
-            
-                    
-                    Pick list
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.11" data-path="../developing-connectors/sdk/config-fields.html">
-            
-                <a href="../developing-connectors/sdk/config-fields.html">
-            
-                    
-                    Configuration fields
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.12" data-path="../developing-connectors/sdk/examples.html">
-            
-                <a href="../developing-connectors/sdk/examples.html">
-            
-                    
-                    Examples
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15.3.13" data-path="../developing-connectors/sdk/publishing-process.html">
-            
-                <a href="../developing-connectors/sdk/publishing-process.html">
-            
-                    
-                    Publishing process
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.16" data-path="../signing-up/sso.html">
-            
-                <a href="../signing-up/sso.html">
-            
-                    
-                    Single Sign-On (SSO)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.17" >
-            
-                <a target="_blank" href="https://www.workato.com/security">
-            
-                    
-                    Security and compliance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.18" data-path="../data-retention.html">
-            
-                <a href="../data-retention.html">
-            
-                    
-                    Data retention
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.19" data-path="../contact-us.html">
-            
-                <a href="../contact-us.html">
-            
-                    
-                    Contact us
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        Introduction
+      
         </a>
-    </li>
-</ul>
+      
 
+      
+    </li>
+  
+    <li class="chapter " data-level="1.2" data-path="../workato-concepts.html">
+      
+
+      
+        <a href="../workato-concepts.html">
+      
+        
+        Concepts
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.3" data-path="../connections.html">
+      
+
+      
+        <a href="../connections.html">
+      
+        
+        Connections
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4" data-path="building-recipes.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="building-recipes.html">
+      
+        
+        Building recipes
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.4.1" data-path="triggers.html">
+      
+
+      
+        <a href="triggers.html">
+      
+        
+        Triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.2" data-path="steps.html">
+      
+
+      
+        <a href="steps.html">
+      
+        
+        Steps
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.3" data-path="actions.html">
+      
+
+      
+        <a href="actions.html">
+      
+        
+        Actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.4" data-path="data-pills-and-mapping.html">
+      
+
+      
+        <a href="data-pills-and-mapping.html">
+      
+        
+        Data pills and fields mapping
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.5" data-path="version-management.html">
+      
+
+      
+        <a href="version-management.html">
+      
+        
+        Version management
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.6" data-path="building-best-practices.html">
+      
+
+      
+        <a href="building-best-practices.html">
+      
+        
+        Best practices
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5" data-path="../formulas.html">
+      
+
+      
+        <a href="../formulas.html">
+      
+        
+        Data mapping formulas
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6" data-path="running-recipes.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="running-recipes.html">
+      
+        
+        Running recipes
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.6.1" data-path="start-and-stop.html">
+      
+
+      
+        <a href="start-and-stop.html">
+      
+        
+        Start and stop
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.2" data-path="testing-recipes.html">
+      
+
+      
+        <a href="testing-recipes.html">
+      
+        
+        Test mode
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter active" data-level="1.6.3" data-path="jobs.html">
+      
+
+      
+        <a href="jobs.html">
+      
+        
+        Jobs
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4" data-path="rerun-job.html">
+      
+
+      
+        <a href="rerun-job.html">
+      
+        
+        Rerun job
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.5" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html">
+      
+        
+        Recipe Ops
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7" data-path="../recipe-monitoring.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipe-monitoring.html">
+      
+        
+        Recipe management and monitoring
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.7.1" >
+      
+
+      
+        <span>
+      
+        
+        Error notifications
+      
+        </span>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.2" >
+      
+
+      
+        <span>
+      
+        
+        Notifications
+      
+        </span>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.3" >
+      
+
+      
+        <span>
+      
+        
+        Delegated administrator
+      
+        </span>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.4" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html">
+      
+        
+        Workato Admin connector
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.5" data-path="rerun-job.html">
+      
+
+      
+        <a href="rerun-job.html">
+      
+        
+        Rerun job
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8" data-path="../features.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../features.html">
+      
+        
+        Features
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.8.1" data-path="../features/list-management.html">
+      
+
+      
+        <a href="../features/list-management.html">
+      
+        
+        List management
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.2" data-path="../features/scheduler.html">
+      
+
+      
+        <a href="../features/scheduler.html">
+      
+        
+        Scheduler
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.3" data-path="../features/utilities.html">
+      
+
+      
+        <a href="../features/utilities.html">
+      
+        
+        Utility
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.4" data-path="../features/secondary-connectors.html">
+      
+
+      
+        <a href="../features/secondary-connectors.html">
+      
+        
+        Secondary connectors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.5" data-path="../features/batch-processing.html">
+      
+
+      
+        <a href="../features/batch-processing.html">
+      
+        
+        Batch processing
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.6" data-path="../features/lookup-tables.html">
+      
+
+      
+        <a href="../features/lookup-tables.html">
+      
+        
+        Lookup tables
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.7" data-path="../features/callable-recipes.html">
+      
+
+      
+        <a href="../features/callable-recipes.html">
+      
+        
+        Callable recipes
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.8" data-path="../features/handling-csv-files.html">
+      
+
+      
+        <a href="../features/handling-csv-files.html">
+      
+        
+        Handling CSV files
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.9" data-path="../features/handling-json.html">
+      
+
+      
+        <a href="../features/handling-json.html">
+      
+        
+        Handling JSON
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.10" data-path="../handling-xml.md">
+      
+
+      
+        <span>
+      
+        
+        Handling XML
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.11" data-path="../features/account-properties.html">
+      
+
+      
+        <a href="../features/account-properties.html">
+      
+        
+        Account properties
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.12" data-path="../features/data-masking.html">
+      
+
+      
+        <a href="../features/data-masking.html">
+      
+        
+        Data masking
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.9" data-path="../handling-files-and-attachments.html">
+      
+
+      
+        <a href="../handling-files-and-attachments.html">
+      
+        
+        Handling files and attachments
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10" data-path="../user-accounts-and-teams.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../user-accounts-and-teams.html">
+      
+        
+        Working with teams
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.10.1" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html">
+      
+        
+        Collaboration
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.2" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#team-roles">
+      
+        
+        Role-based access
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.3" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#audit-logs">
+      
+        
+        Audit logs
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.11" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html">
+      
+        
+        People Task
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.12" data-path="../workbot/workbot.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../workbot/workbot.html">
+      
+        
+        Workbot
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.12.1" data-path="../workbot/workbot-actions.html">
+      
+
+      
+        <a href="../workbot/workbot-actions.html">
+      
+        
+        Workbot actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.12.2" data-path="../workbot/workbot-triggers.md">
+      
+
+      
+        <span>
+      
+        
+        Workbot triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.12.3" data-path="../workbot/workbot-troubleshooting.html">
+      
+
+      
+        <a href="../workbot/workbot-troubleshooting.html">
+      
+        
+        Workbot troubleshooting
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13" data-path="../on-prem.html">
+      
+
+      
+        <a href="../on-prem.html">
+      
+        
+        On premise
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14" data-path="../troubleshooting.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../troubleshooting.html">
+      
+        
+        Troubleshooting
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.14.1" >
+      
+
+      
+        <span>
+      
+        
+        Trigger warnings
+      
+        </span>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.2" data-path="action-errors.html">
+      
+
+      
+        <a href="action-errors.html">
+      
+        
+        Action errors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3" >
+      
+
+      
+        <span>
+      
+        
+        Mapping errors
+      
+        </span>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.4" data-path="formula-errors.html">
+      
+
+      
+        <a href="formula-errors.html">
+      
+        
+        Formula errors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.5" data-path="infinite-loops.html">
+      
+
+      
+        <a href="infinite-loops.html">
+      
+        
+        Infinite loops
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.6" data-path="deduplication.html">
+      
+
+      
+        <a href="deduplication.html">
+      
+        
+        Deduplication
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.7" data-path="rate-limiting.html">
+      
+
+      
+        <a href="rate-limiting.html">
+      
+        
+        Rate limiting
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15" data-path="../developing-connectors.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../developing-connectors.html">
+      
+        
+        Developing connectors
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.15.1" data-path="../developing-connectors/http-vs-sdk.html">
+      
+
+      
+        <a href="../developing-connectors/http-vs-sdk.html">
+      
+        
+        Comparison of HTTP VS SDK
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.2" data-path="../developing-connectors/http.html">
+      
+
+      
+        <a href="../developing-connectors/http.html">
+      
+        
+        HTTP
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3" data-path="../developing-connectors/sdk.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../developing-connectors/sdk.html">
+      
+        
+        SDK
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.15.3.1" data-path="../developing-connectors/sdk/sdk-conceptual-model.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/sdk-conceptual-model.html">
+      
+        
+        Conceptual model
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.2" data-path="../developing-connectors/sdk/api-requirements.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/api-requirements.html">
+      
+        
+        API requirements
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.3" data-path="../developing-connectors/sdk/authentication.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../developing-connectors/sdk/authentication.html">
+      
+        
+        Authentication
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.15.3.3.1" data-path="../developing-connectors/sdk/authentication/basic-authentication.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/authentication/basic-authentication.html">
+      
+        
+        Basic auth
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.3.2" data-path="../developing-connectors/sdk/authentication/oauth2-authentication.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/authentication/oauth2-authentication.html">
+      
+        
+        OAuth 2.0
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.3.3" data-path="../developing-connectors/sdk/authentication/custom-authentication.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/authentication/custom-authentication.html">
+      
+        
+        Custom auth
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.3.4" data-path="../developing-connectors/sdk/authentication/test.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/authentication/test.html">
+      
+        
+        Test
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.4" data-path="../developing-connectors/sdk/object-definition.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/object-definition.html">
+      
+        
+        Object definition
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.5" data-path="../developing-connectors/sdk/action.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/action.html">
+      
+        
+        Action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.6" data-path="../developing-connectors/sdk/trigger.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../developing-connectors/sdk/trigger.html">
+      
+        
+        Trigger
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.15.3.6.1" data-path="../developing-connectors/sdk/trigger/poll-trigger.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/trigger/poll-trigger.html">
+      
+        
+        Poll trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.6.2" data-path="../developing-connectors/sdk/trigger/webhook-trigger.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/trigger/webhook-trigger.html">
+      
+        
+        Webhook trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.7" data-path="../developing-connectors/sdk/object-definition.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/object-definition.html">
+      
+        
+        Object definition
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.8" data-path="../developing-connectors/sdk/data-format.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../developing-connectors/sdk/data-format.html">
+      
+        
+        Data format
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.15.3.8.1" data-path="../developing-connectors/sdk/data-format/json-format.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/data-format/json-format.html">
+      
+        
+        JSON
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.8.2" data-path="../developing-connectors/sdk/data-format/xml-format.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/data-format/xml-format.html">
+      
+        
+        XML
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.9" data-path="../developing-connectors/sdk/methods.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/methods.html">
+      
+        
+        Methods
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.10" data-path="../developing-connectors/sdk/pick-list.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/pick-list.html">
+      
+        
+        Pick list
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.11" data-path="../developing-connectors/sdk/config-fields.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/config-fields.html">
+      
+        
+        Configuration fields
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.12" data-path="../developing-connectors/sdk/examples.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/examples.html">
+      
+        
+        Examples
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3.13" data-path="../developing-connectors/sdk/publishing-process.html">
+      
+
+      
+        <a href="../developing-connectors/sdk/publishing-process.html">
+      
+        
+        Publishing process
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16" data-path="../signing-up/sso.html">
+      
+
+      
+        <a href="../signing-up/sso.html">
+      
+        
+        Single Sign-On (SSO)
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17" >
+      
+
+      
+        <a target="_blank" href="https://www.workato.com/security">
+      
+        
+        Security and compliance
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18" data-path="../data-retention.html">
+      
+
+      
+        <a href="../data-retention.html">
+      
+        
+        Data retention
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.19" data-path="../contact-us.html">
+      
+
+      
+        <a href="../contact-us.html">
+      
+        
+        Contact us
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+  
+</ul>
 
                 </nav>
             
@@ -1295,19 +1492,10 @@
 
     <div class="book-body">
         
+  
             <div class="body-inner">
                 
                     
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Jobs</a>
-    </h1>
-</div>
 
 
 
@@ -1347,8 +1535,8 @@ Aborted is a rare state that a job can get into if it has pending jobs and the r
 <p>ZZZZZZZZ</p>
 <h2 id="jobs-report">Jobs report</h2>
 <p>The jobs report is a record of all processed jobs. For each processed job, you can view complete details i.e. execution flow, data input/output from every step.</p>
-<p><img src="../assets/images/workato-concepts/jobs-history.png" alt="Jobs history"></p>
-<p><em>Jobs report page</em></p>
+<p><img src="../assets/images/workato-concepts/jobs-history.png" alt="Jobs history">
+<em>Jobs report page</em></p>
 <p>You can find out more about jobs reports <a href="jobs-report.md">here</a>.</p>
 <h2 id="rerun-jobs">Rerun jobs</h2>
 <p>Any job (completed, failed, etc.) can be rerun. Workato stores the trigger event, and will rerun a job using this copy of the trigger event. </p>
@@ -1358,12 +1546,12 @@ Aborted is a rare state that a job can get into if it has pending jobs and the r
 <h1 id="jobs-report">Jobs report</h1>
 <p>The jobs report is a record of all processed jobs. For each processed job, you can view complete details i.e. execution flow, data input/output from every step.</p>
 <p>Information such as date, time processed and job IDs, can be found here. The following shows the default jobs report page.</p>
-<p><img src="../assets/images/job-details/default-jobs-report.png" alt="Default jobs report"></p>
-<p><em>Non-customized, default jobs report page</em></p>
+<p><img src="../assets/images/job-details/default-jobs-report.png" alt="Default jobs report">
+<em>Non-customized, default jobs report page</em></p>
 <h1 id="custom-report">Custom report</h1>
 <p>Jobs report can be further customized to show any data available in the recipe. e.g. if processing invoices, your job report can have Invoice ID, Invoice amount, etc.</p>
-<p><img src="../assets/images/job-details/custom-jobs-report.png" alt="Custom jobs report"></p>
-<p><em>Customized jobs report page</em></p>
+<p><img src="../assets/images/job-details/custom-jobs-report.png" alt="Custom jobs report">
+<em>Customized jobs report page</em></p>
 <p>To create a custom jobs report, click on &apos;Customize report&apos; next to the Rerun and Refresh buttons.</p>
 <p><img src="../assets/images/job-details/customize-report.JPG" alt="customize report"></p>
 <p>You can use data pills from any data tree in your recipe for the column values. In the example below, the custom jobs report contains the Xero invoice ID, Infusionsoft invoice ID, as well as payment and contact information. </p>
@@ -1425,68 +1613,187 @@ If jobs fail, you can take a look at the run-time data to understand why the job
             </div>
 
             
-                
-                <a href="testing-recipes.html" class="navigation navigation-prev " aria-label="Previous page: Test mode">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="rerun-job.html" class="navigation navigation-next " aria-label="Next page: Rerun job">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
         
+
+  <div class="ask">
+    <div class="ask__title">Didn’t find what you are looking for?</div>
+    <div class="ask__links">
+      <a href="https://support.workato.com/support/home" class="ask__link">
+        <span class="ask__link-title">Search our resource library</span>
+        <span class="ask__link-description">View getting started guides, tutorials, training videos, webinars and FAQ</span>
+      </a>
+      <a href="https://support.workato.com/support/discussions" class="ask__link">
+        <span class="ask__link-title">Ask our community</span>
+        <span class="ask__link-description">View questions and answers from other users and Workato experts.</span>
+      </a>
+      <a href="https://support.workato.com/support/tickets/new" class="ask__link">
+        <span class="ask__link-title">File a support ticket</span>
+        <span class="ask__link-description">File a support ticket for critical issues that require a higher level of support.</span>
+      </a>
+    </div>
+  </div>
+
+  
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__navigation">
+      <div class="footer__menu">
+        <div class="footer__menu-title">
+          Apps
+        </div>
+        <ul class="footer__menu-list">
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/partners/atlassian">Atlassian</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/box">Box</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/eventbrite">Eventbrite</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/infusionsoft">Infusionsoft</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/intacct">Intacct</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/jira">JIRA</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/marketo">Marketo</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/quickbase">QuickBase</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/quickbooks">QuickBooks</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/salesforce">Salesforce</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/service_now">ServiceNow</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" data-mixpanel-link="footer_workbot_link"
+              href="https://www.workato.com/workbot-slack">Workbot</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/xero">Xero</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/integrations/zendesk">Zendesk</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__menu">
+        <div class="footer__menu-title">
+          About
+        </div>
+        <ul class="footer__menu-list">
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/features">Why Workato</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://resources.workato.com/how-it-works/">How it
+              works</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link footer__menu-link_pricing" href="https://www.workato.com/pricing"
+             >Pricing</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/partners">ISV Partners</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="http://resources.workato.com/partners/">Consulting
+              Partners</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/security">Security</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="http://resources.workato.com/content-library/">Solutions</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="http://blog.workato.com" target="_blank">Blog</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/about_us">Team</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__menu">
+        <div class="footer__menu-title">
+          Support
+        </div>
+        <ul class="footer__menu-list">
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://www.workato.com/support">Support plans</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://support.workato.com/support/home" target="_blank">Help
+              Center</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://resources.workato.com/webinars">Webinars</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="https://resources.workato.com/content-library/#lp-pom-text-278"
+             >Tutorials</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="http://developer.workato.com">Developer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__side">
+      <div class="footer__terms">
+        <span class="footer__terms-item">
+          <a class="footer__terms-link" href="https://www.workato.com/privacy">Privacy</a>
+        </span>
+        <span class="footer__terms-item">
+          <a class="footer__terms-link" href="https://www.workato.com/terms">Terms</a>
+        </span>
+        <span class="footer__terms-item">
+          <a class="footer__terms-link" href="tel:+18444696752">(844) 469-6752</a>
+        </span>
+        <span class="footer__terms-item">Workato 2017</span>
+      </div>
+      <div class="footer__social">
+        <a class="footer__social-icon" href="mailto:info@workato.com">
+          <span class="fa fa-envelope"></span>
+        </a>
+        <a class="footer__social-icon" href="https://facebook.com/workato" rel="noopener" target="_blank">
+          <span class="fa fa-facebook"></span>
+        </a>
+        <a class="footer__social-icon" href="https://twitter.com/workato" rel="noopener" target="_blank">
+          <span class="fa fa-twitter"></span>
+        </a>
+        <a class="footer__social-icon" href="https://linkedin.com/company/workato" rel="noopener" target="_blank">
+          <span class="fa fa-linkedin"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Jobs","date":"2017-03-23T14:00:00.000Z","level":"1.6.3","depth":2,"next":{"title":"Rerun job","level":"1.6.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},"previous":{"title":"Test mode","level":"1.6.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","-sharing","favicon","collapsible-menu"],"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"assets/images/favicon/favicon.ico","bookmark":"assets/images/favicon/favicon.ico","appleTouch":"assets/images/favicon/android-chrome-36x36.png"},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/jobs.md","mtime":"2017-03-31T08:40:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T08:42:28.900Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Jobs","date":"2017-03-23T14:00:00.000Z","level":"1.6.3","depth":2,"next":{"title":"Rerun job","level":"1.6.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},"previous":{"title":"Test mode","level":"1.6.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/jobs.md","mtime":"2017-03-31T15:53:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T15:54:57.169Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
 
 
-    <footer class="w-footer">
-      <div class="w-footer__title">Didn’t find what you are looking for?</div>
-      <div class="w-footer__help-links">
-        <a href="//support.workato.com/support/home" class="w-footer__help-link">
-          <span class="w-footer__help-link-title">Search our resource library</span>
-          <span class="w-footer__help-link-description">View getting started guides, tutorials, training videos, webinars and FAQ</span>
-        </a>
-        <a href="//support.workato.com/support/discussions" class="w-footer__help-link">
-          <span class="w-footer__help-link-title">Ask our community</span>
-          <span class="w-footer__help-link-description">View questions and answers from other users and Workato experts.</span>
-        </a>
-        <a href="//support.workato.com/support/tickets/new" class="w-footer__help-link">
-          <span class="w-footer__help-link-title">File a support ticket</span>
-          <span class="w-footer__help-link-description">File a support ticket for critical issues that require a higher level of support.</span>
-        </a>
-      </div>
-      <nav class="w-footer__copy">
-        <a href="//workato.com/privacy" class="w-footer__copy-item w-footer__copy-item_link">Privacy</a>
-        <a href="//workato.com/terms" class="w-footer__copy-item w-footer__copy-item_link">Terms</a>
-        <a href="tel:+18444696752" class="w-footer__copy-item w-footer__copy-item_link">(844) 469-6752</a>
-        <span class="w-footer__copy-item">Workato 2017</span>
-      </nav>
-      <div class="w-footer__social">
-        <a class="w-footer__social-item" href="mailto:info@workato.com" title="Email">
-          <img src="/assets/images/layout/email-icon.svg" alt="Email">
-        </a>
-        <a class="w-footer__social-item" href="//facebook.com/workato" target="_blank" title="Facebook">
-          <img src="/assets/images/layout/facebook-icon.svg" alt="Facebook">
-        </a>
-        <a class="w-footer__social-item" href="//twitter.com/workato" target="_blank" title="Twitter">
-          <img src="/assets/images/layout/twitter-icon.svg" alt="Twitter">
-        </a>
-        <a class="w-footer__social-item" href="//linkedin.com/company/workato" target="_blank" title="LinkedIn">
-          <img src="/assets/images/layout/linkedin-icon.svg" alt="LinkedIn">
-        </a>
-      </div>
-    </footer>
-
         
+  
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
     
@@ -1495,7 +1802,7 @@ If jobs fail, you can take a look at the run-time data to understand why the job
         
     
         
-        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
         
     
         
@@ -1514,10 +1821,8 @@ If jobs fail, you can take a look at the run-time data to understand why the job
         <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
     
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+
+  <script src="/assets/scripts/main.js"></script>
 
     </body>
 </html>
