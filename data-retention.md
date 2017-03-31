@@ -18,7 +18,6 @@ The following details the data which are subject to the data retention policy an
 Detailed job steps that shows information about the data passed into each step, as well as the data response received from each step.
 
 [![https://gyazo.com/3c7dbf8914444cea6cb5ef9da05619c7](https://i.gyazo.com/3c7dbf8914444cea6cb5ef9da05619c7.gif)](https://gyazo.com/3c7dbf8914444cea6cb5ef9da05619c7)
-
 *Step-by-step details showing input and output of each action.*
 
 After the retention period, detailed job logs will be erased. Job ID, job status and job timestamp will be retained.
@@ -27,13 +26,11 @@ After the retention period, detailed job logs will be erased. Job ID, job status
 Trigger event data is typically found in the job details section, within the trigger output tab as shown.
 
 [![https://gyazo.com/0b2ca21e534188107bbc745b87aededc](https://i.gyazo.com/0b2ca21e534188107bbc745b87aededc.gif)](https://gyazo.com/0b2ca21e534188107bbc745b87aededc)
-
 *Trigger data for new Salesforce account Myers Brewery can be found in the trigger output.*
 
 Trigger event data is typically reused to rerun a job without having to create a new trigger event.
 
 [![https://gyazo.com/3591903c23d64a894f381d7e797d37a8](https://i.gyazo.com/3591903c23d64a894f381d7e797d37a8.gif)](https://gyazo.com/3591903c23d64a894f381d7e797d37a8)
-
 *Rerunning the trigger event for new Salesforce account Myers Brewery without having to create a new Salesforce account called Myers Brewery.*
 
 After the retention period, reruns for these jobs will be disabled.
@@ -42,7 +39,6 @@ After the retention period, reruns for these jobs will be disabled.
 Job reports can be customized to show jobs summary data that shows up on the jobs history.
 
 ![Custom job report](/assets/images/data-retention/custom_job_report.png)
-
 *Custom job report showing the relevant data user defined*
 
 After the retention period, custom job reports will be erased. Job ID, job status and job timestamp will be retained.

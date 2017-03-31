@@ -9,7 +9,6 @@ In order to interact with apps, recipes need to be authorized to communicate wit
 Recipes may require a valid connection before triggers and actions can be configured, as they may need to interact with the apps to retrieve custom objects and fields, picklist values and other information that helps with recipe construction.
 
 ![Unconnected Salesforce action](/assets/images/recipes/connections/unconnected-salesforce-action.png)
-
 *Recipe prompts user to connect to their Salesforce organization. You will notice that the picklist is greyed out. This is because the recipe needs a valid connection to Salesforce to get the list of available Salesforce objects.*
 
 Connections are created when a user authenticates with the app via Workato, and gives permission to Workato to access the data. Each connection should correspond to one app instance, hence multiple recipes can and should utilize the same connection if working with the same app instance.
@@ -34,19 +33,16 @@ The following recipe requires both Salesforce and a Zendesk connections, which a
 The following shows the **Connections** tab. Zendesk has been connected, but the Salesforce connector has no connection established yet.
 
 ![Unconnected Salesforce](/assets/images/recipes/connections/unconnected-salesforce.png)
-
 *Recipe without a Salesforce connection established*
 
 Clicking on the **Connect** button generates a popup that requests for Salesforce login credentials. Because Salesforce utilizes the standard OAuth2 authentication flow, usernames and passwords are provided only to Salesforce. Providing these credentials assure Salesforce that the user is giving permission for Workato to access their Salesforce data.
 
 ![Salesforce connection popup](/assets/images/recipes/connections/salesforce-connection-popup.png)
-
 *OAuth2 authentication popup for Salesforce*
 
 After providing credentials, Salesforce will show up as connected. Now the recipe can use this connection for construction and running.
 
 ![Connected Salesforce](/assets/images/recipes/connections/connected-salesforce.png)
-
 *Recipe with Salesforce and Zendesk connections established*
 
 # Integration user
@@ -74,7 +70,6 @@ Here is an example where the same recipe works with two Saleforce instances i.e.
 The recipe requires two Salesforce connections.
 
 ![Secondary Salesforce connections](/assets/images/recipes/connections/secondary-app-connections.png)
-
 *Primary and secondary Salesforce connections*
 
 Refer to the Secondary connectors article to find out more.

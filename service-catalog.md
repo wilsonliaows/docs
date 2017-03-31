@@ -13,7 +13,6 @@ Workato allows for callable recipes to be turned into an API endpoint. This mean
 The service catalog is available from the account menu.
 
 ![Service catalog option](/assets/images/service-catalog/service-catalog-option.png)
-
 *Service catalog menu option*
 
 # API tokens
@@ -27,7 +26,6 @@ Every API token generated in Workato is unique. For best practice, it is recomme
 To create a new API token, simply give the API token a descriptive name (don't worry, you can always change it again later). Pass this token to someone to permit access to your service catalog.
 
 [![https://gyazo.com/4280b9728b492a9ba28fc366255e0040](https://i.gyazo.com/4280b9728b492a9ba28fc366255e0040.gif)](https://gyazo.com/4280b9728b492a9ba28fc366255e0040)
-
 *Creating an API token*
 
 Currently, giving someone an API token essentially provides that person access to your entire service catalog, so be careful who you give API tokens to!
@@ -35,7 +33,6 @@ Currently, giving someone an API token essentially provides that person access t
 The following screenshot is the guest view of the service catalog, viewed by the person whom the service catalog owner has shared the link with.
 
 ![Shared service catalog](/assets/images/service-catalog/shared-service-catalog.png)
-
 *Non-owner view of service catalog*
 
 ## Deactivating an API token
@@ -55,13 +52,11 @@ Endpoints will not show up on the service catalog if **Enable REST endpoint** is
 Additional fields will be generated for you to configure your endpoint. Determine the HTTP method of your endpoint as well as the endpoint URL. Endpoint URLs have to be unique across your account.
 
 [![https://gyazo.com/b3c2f75752ced1781888dec8734349c0](https://i.gyazo.com/b3c2f75752ced1781888dec8734349c0.gif)](https://gyazo.com/b3c2f75752ced1781888dec8734349c0)
-
 *Configuring the REST endpoint*
 
 Once you've done that, you should be able to see the new endpoint appear in your service catalog.
 
 ![Inactive endpoint in the service catalog](/assets/images/service-catalog/service-catalog-inactive-endpoint.png)
-
 *Inactive endpoint in the service catalog*
 
 ## Making an endpoint active or inactive
@@ -70,13 +65,11 @@ Active recipes correspond to active endpoints in your service catalog, while ina
 To activate a service catalog endpoint, start the corresponding recipe and the endpoint will be registered in the catalog as active.
 
 ![Active endpoint in the service catalog](/assets/images/service-catalog/service-catalog-active-endpoint.png)
-
 *Active endpoint in the service catalog*
 
 Similarly, stop the corresponding callable recipe and the endpoint will be registered in the catalog as inactive.
 
 ![Inactive endpoint in the service catalog](/assets/images/service-catalog/service-catalog-inactive-endpoint.png)
-
 *Inactive endpoint in the service catalog*
 
 ## Testing an endpoint

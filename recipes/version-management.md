@@ -9,7 +9,6 @@ Every time a recipe is saved, a version of the recipe is saved. Previous version
 In the version history view, each version is attributed to the user who made the change (relevant for multi-user team accounts), with a timestamp when the version was saved, as well as the change type associated with that version.
 
 ![Recipe versions](/assets/images/recipes/recipe-version-management/recipe-versions.png)
-
 *Recipe versions as viewed from the Versions tab*
 
 The are 2 types of changes:
@@ -27,11 +26,9 @@ These changes are driven by Workato when it notices that the underlying schema o
 To restore previous versions of the recipe, switch to the **Versions** tab to view all available versions. Recipe versions can be first previewed before being restored.
 
 [![https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb](https://i.gyazo.com/45711334ec05ed2e08fb6a3aa23232bb.gif)](https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb)
-
 *Previewing and restoring a previous version of the recipe*
 
 Restored versions will be created as a new version. In the following case, the recipe had 3 versions initially. When version 2 of the recipe was restored, the restored version was created as Version 4.
 
 ![Restored version](/assets/images/recipes/recipe-version-management/restored-version.png)
-
 *Restoring version 2 of the recipe creates that copy as version 4*
