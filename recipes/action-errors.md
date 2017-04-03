@@ -14,7 +14,7 @@ rJD7hmlUodRmH3X4krGRFqY-l3X8P14SLw.png
 
 
 
-This is a sample of a recipe. The red digit is the number of errors or failed jobs while the green count is the number of successful jobs. You can check out your failed jobs at the "Jobs" section after you click into a recipe. Cli 
+This is a sample of a recipe. The red digit is the number of errors or failed jobs while the green count is the number of successful jobs. You can check out your failed jobs at the "Jobs" section after you click into a recipe.
 
 ![actionerror1](/assets/images/recipes/_actionerror/actionerror-1.gif)
 

@@ -4,7 +4,7 @@ date: 2017-03-30 05:00:00 Z
 ---
 
 # Date formulas
-Workato supports a variety of date and datetime formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
+Workato supports a variety of date and datetime formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged. Take note that most formulas will return an error and stop the job if it tries to operate on nulls (expressed as `nil` in Ruby), except for `present?`, `presence` and `blank?`.
 
 You can refer to the complete Ruby documentation for Time [here](http://ruby-doc.org/core-2.3.3/Time.html).
 
@@ -14,9 +14,9 @@ Returns the current date and time that the action was carried out by Workato.
 ### Example
 In the following example, Workato carries out the action on on 2 April 2017, 12.30PM.
 
-| Example             | Result                             |
-|---------------------|------------------------------------|
-| now                 | 2017-04-02T12:30:30.462659-07:00   |
+| Example             | Result                               |
+|---------------------|--------------------------------------|
+| now                 | "2017-04-02T12:30:30.462659-07:00"   |
 
 ## today
 Returns the current date that the action was carried out by Workato.
@@ -24,9 +24,9 @@ Returns the current date that the action was carried out by Workato.
 ### Example
 In the following example, Workato carries out the action on on 2 April 2017, 12.30PM.
 
-| Example             | Result                             |
-|---------------------|------------------------------------|
-| today               | 2017-04-03                         |
+| Example             | Result                               |
+|---------------------|--------------------------------------|
+| today               | "2017-04-03"                         |
 
 ## to_date
 This function converts a value in another data type, e.g. time or string, into a date data type. By default, the format of the date returned will be YYYY-MM-DD.
@@ -34,11 +34,10 @@ This function converts a value in another data type, e.g. time or string, into a
 You can specify the format of the date returned via an additional parameter *format*.
 
 ### Example
-| Example                                    | Result                             |
-|--------------------------------------------|------------------------------------|
-| "2017-04-02".to_date                       | 2017-04-02                         |
-| "2017-04-02T12:30:30.462659-07:00".to_date | 2017-04-02                         |
-| "2017-04-02".to_date(format:'MM/DD/YYYY')  | 04/02/2017                         |
+| Example                                    | Result                               |
+|--------------------------------------------|--------------------------------------|
+| "2017-04-02".to_date                       | "2017-04-02"                         |
+| "2017-04-02T12:30:30.462659-07:00".to_date | "2017-04-02"                         |
 
 ## to_time
 This function converts a value in another data type, e.g. date or string, into a date data type. Dates will be represented in UTC offset (i.e. expressed in GMT timezone of +00:00).
@@ -46,43 +45,43 @@ This function converts a value in another data type, e.g. date or string, into a
 If a datetime is coverted using the to_time formula, it will be expressed in UTC offset. If a date is converted using the to_time formula, it will take the time of 00:00:00.000000 (i.e. midnight sharp), expressed in UTC offset.
 
 ### Example
-| Example                                    | Result                             |
-|--------------------------------------------|------------------------------------|
-| "2017-04-02T12:30:30.462659-07:00".to_time | 2017-04-02T19:30:30.462659+00:00   |
-| 2017-04-02.to_time                         | 2017-04-02T00:00:00.000000+00:00   |
+| Example                                      | Result                               |
+|----------------------------------------------|--------------------------------------|
+| "2017-04-02T12:30:30.462659-07:00".to_time   | "2017-04-02T19:30:30.462659+00:00"   |
+| "2017-04-02".to_time                         | "2017-04-02T00:00:00.000000+00:00"   |
 
 ## blank?
 This function checks the input string and returns true if it is an empty string or if it is null.
 
 ### Example
-| Example                                  | Result |
-|------------------------------------------|--------|
-| 2017-04-02T12:30:30.462659-07:00.blank?  | false  |
-| 2017-04-03.blank?                        | false  |
-| "".blank?                                | true   |
-| null.blank?                              | true   |
+| Example                                      | Result |
+|----------------------------------------------|--------|
+| "2017-04-02T12:30:30.462659-07:00".blank?    | false  |
+| "2017-04-03".blank?                          | false  |
+| "".blank?                                    | true   |
+| null.blank?                                  | true   |
 
 ## present?
 This function will check the input, returning true if there is a value present. If input is null or an empty string, formula returns false.
 
 ### Example
-| Example                                    | Result |
-|--------------------------------------------|--------|
-| 2017-04-02T12:30:30.462659-07:00.present?  | true   |
-| 2017-04-03.present?                        | true   |
-| "".present?                                | false  |
-| null.present?                              | false  |
+| Example                                      | Result |
+|----------------------------------------------|--------|
+| "2017-04-02T12:30:30.462659-07:00".present?  | true   |
+| "2017-04-03".present?                        | true   |
+| "".present?                                  | false  |
+| null.present?                                | false  |
 
 ## presence
 This function will check the input, returning its value if there is one present, else returning nil.
 
 ### Example
-| Example                                    | Result                             |
-|--------------------------------------------|------------------------------------|
-| 2017-04-02T12:30:30.462659-07:00.presence  | 2017-04-02T12:30:30.462659-07:00   |
-| 2017-04-03.presence                        | 2017-04-03                         |
-| "".presence                                | nil                                |
-| null.presence                              | nil                                |
+| Example                                      | Result                               |
+|----------------------------------------------|--------------------------------------|
+| "2017-04-02T12:30:30.462659-07:00".presence  | "2017-04-02T12:30:30.462659-07:00"   |
+| "2017-04-03".presence                        | "2017-04-03"                         |
+| "".presence                                  | nil                                  |
+| null.presence                                | nil                                  |
 
 # Date arithmetics
 We can make use of certain keywords such as **days**, **months**, **years**, **minutes** and **seconds** to perform date arithmetics to add or subtract days, months, years, minutes and seconds from dates and datetimes.

@@ -4,7 +4,7 @@ date: 2017-03-30 05:00:00 Z
 ---
 
 # Lists and hashes
-When you work with formulas and repeating structures, there are 2 key data structures you need to understand: arrays (lists) and hashes.
+When you work with formulas and repeating structures, there are 2 key data structures you need to understand: arrays (lists) and hashes. Take note that most formulas will return an error and stop the job if it tries to operate on nulls (expressed as `nil` in Ruby), except for `present?`, `presence` and `blank?`.
 
 You can refer to the complete Ruby documentation for arrays (lists) [here](https://ruby-doc.org/core-2.2.0/Array.html) as well as the Ruby documentation for hashes [here](https://docs.ruby-lang.org/en/2.0.0/Hash.html).
 
