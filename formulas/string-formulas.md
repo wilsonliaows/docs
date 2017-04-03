@@ -4,9 +4,11 @@ date: 2017-03-30 05:00:00 Z
 ---
 
 # String formulas
-Workato supports a variety of string formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
+In Ruby, strings refer to sequences of text and characters.
 
-You can refer to the complete Ruby documentation for strings [here](https://ruby-doc.org/core-2.2.0/String.html).
+Workato supports a variety of string formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged. Take note that most formulas will return an error and stop the job if it tries to operate on nulls (expressed as `nil` in Ruby), except for `present?`, `presence` and `blank?`.
+
+You can refer to the complete Ruby documentation for strings [here](https://ruby-doc.org/core-2.3.3/String.html).
 
 In the examples below, we will look at some of the methods that can be used to manipulate a string of text, which in this case the input string is 'Jean Marie'.
 
@@ -17,8 +19,28 @@ This function checks the input string and returns true if it is an empty string 
 | Example             | Result |
 |---------------------|--------|
 | "Jean Marie".blank? | false  |
-| "".blank?           | true   |
+| " ".blank?          | true   |
 | null.blank?         | true   |
+
+## present?
+This function will check the input, returning true if there is a value present. If input is null or an empty string, formula returns false.
+
+### Example
+| Example                | Result |
+|------------------------|--------|
+| " ".present?           | false  |
+| null.present?          | false  |
+| "Jean Marie".present?  | true   |
+
+## presence
+This function will check the input, returning its value if there is one present, else returning nil.
+
+### Example
+| Example                 | Result        |
+|-------------------------|---------------|
+| " ".presence            | nil           |
+| null.presence           | nil           |
+| "Jean Marie".presence   | Jean Marie    |
 
 ## include?
 This function checks the input string and returns true if it contains the stated keyword. This function is case-sensitive - make sure to downcase or upcase before comparison if you are not concerned about case sensitivity.
@@ -163,3 +185,18 @@ This function replaces all occurrence of the first input value, with the second 
 | "Jean Marie".gsub("j", "M")                | "Jean Marie" |
 | "Jean Marie".downcase.gsub("j", "M")       | "Mean marie" |
 | "Awesome".gsub(/[Ae]/, 'A'=>'E', 'e'=>'a') | "Ewasoma"    |
+
+# Converting other data types to strings
+To convert a value of other data types, e.g. number, date, into a string, use the to_s formula.
+
+## to_s
+Converts a value of another data type into a string data type.
+
+### Example
+| Example             | Result                             | Type conversion  |
+|---------------------|------------------------------------|------------------|
+| 123.to_s            | "123"                              | Fixnum -> String |
+| 123.0.to_s          | "123.0"                            | Float -> String  |
+| [date].to_s         | "2017-03-30T21:59:33.427684-07:00" | Date -> String   |
+| [date].to_s(:short) | "30 Mar 21:59"                     | Date -> String   |
+| [date].to_s(:long)  | "March 30, 2017 21:59"             | Date -> String   |
