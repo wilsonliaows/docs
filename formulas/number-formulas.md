@@ -79,12 +79,12 @@ Divides left hand operand by right hand operand and returns the remainder.
 This function returns the absolute (positive) value of a number.
 
 ### Example
-| Example    | Result | Type   |
-|------------|--------|--------|
-| -45        | 45     | Fixnum |
-| 45         | 45     | Fixnum |
-| -45.0      | 45.0   | Float  |
-| -45.67.abs | 45.67  | Float  |
+| Example        | Result | Type   |
+|----------------|--------|--------|
+| -45.abs        | 45     | Fixnum |
+| 45.abs         | 45     | Fixnum |
+| -45.0.abs      | 45.0   | Float  |
+| -45.67.abs     | 45.67  | Float  |
 
 ## blank?
 This function checks the input and returns true if it is a null or an empty string.
