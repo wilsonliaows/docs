@@ -209,7 +209,6 @@ Results are returned as a list of a list:
 Works on a list to concatenate values together as a string. The values are joined together via the parameter defined.
 
 ### Example
-
 | Example                                    | Result                  |
 |--------------------------------------------|-------------------------|
 | ["Joe", "Jill", "Joan", "Jack"].join(",")  | "Joe,Jill,Joan,Jack"    |
@@ -228,7 +227,6 @@ We can also chain .join behind any formula that returns a list, such as
 Reverses the order of a list.
 
 ### Example
-
 | Example                                   | Result                          |
 |-------------------------------------------|---------------------------------|
 | ["Joe", "Jill", "Joan", "Jack"].reverse   | ["Jack", "Joan", "Jill", "Joe"] |
@@ -262,7 +260,7 @@ Returns a list containing unique items i.e. remove duplicate items.
 |---------------------------------------------|------------------------|
 | ["joe", "jack", "jill", "joe", "jack"].uniq | ["joe","jack", "jill"] |
 | [1, 2, 3, 1, 1, 3].uniq                     | [1, 2, 3]              |
-| [1.0, 1.5, 1.0].uniq                        | [1.0, 1.5, 1.0]        |
+| [1.0, 1.5, 1.0].uniq                        | [1.0, 1.5]             |
 
 ## flatten
 Flattens a multi-dimensional array (i.e. array of arrays) to a single dimension array.
@@ -278,22 +276,21 @@ Flattens a multi-dimensional array (i.e. array of arrays) to a single dimension 
 Returns true if the given object is present, otherwise returns false.
 
 ### Example
-
 | Example                      | Result |
 |------------------------------|--------|
-| ["a", "b", "c"].include("b") | true   |
-| ["a", "b", "c"].include("z") | false  |
+| ["a", "b", "c"].include?("b") | true   |
+| ["a", "b", "c"].include?("z") | false  |
 
 ## length
 Returns the number of elements in self. May be zero.
 
 ### Example
-| Example                   | Result |
-|---------------------------|--------|
-| [ 1, 2, 3, 4, 5 ].length  | 5      |
-| [{..}, {..}, {..}].length | 3      |
-| ["", nil, "", nil].length | 4      |
-| [].length                 | 0      |
+| Example                    | Result |
+|----------------------------|--------|
+| [ 1, 2, 3, 4, 5 ].length   | 5      |
+| [{..}, {..}, {..}].length  | 3      |
+| [" ", nil, "", nil].length | 4      |
+| [].length                  | 0      |
 
 ## max
 Returns largest value in an array. When comparing numbers, the largest number is returned. When comparing strings, the string with the largest ASCII value is returned.
@@ -316,10 +313,28 @@ Returns smallest value in an array. When comparing numbers, the smallest number 
 | ["cat", "dog", "rat"].min  | "cat"   |
 
 ## present?
+This function will check the input, returning true if there is a value present. If input is null, an empty string. or an empty array, formula returns false.
+
 ### Example
+| Example                        | Result |
+|--------------------------------|--------|
+| ["", nil].present?             | true   |
+| " ".present?                   | false  |
+| [].present?                    | false  |
+| ["cat", "dog", "rat"].present? | true   |
+| [1, 2, 3.0].present?           | true   |
 
 ## presence
+This function will check the input, returning its value if there is one present, else returning nil.
+
 ### Example
+| Example                        | Result                  |
+|--------------------------------|-------------------------|
+| ["", nil].presence             | ["", nil]               |
+| " ".presence                   | nil                     |
+| [].presence                    | nil                     |
+| ["cat", "dog", "rat"].presence | ["cat", "dog", "rat"]   |
+| [1, 2, 3.0].presence           | [1, 2, 3.0]             |
 
 ## to_csv
 Generates CSV line from an array. This handles escaping. Nil values and empty strings will also be expressed within the csv line.

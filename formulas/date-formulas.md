@@ -58,7 +58,7 @@ This function checks the input string and returns true if it is an empty string 
 |----------------------------------------------|--------|
 | "2017-04-02T12:30:30.462659-07:00".blank?    | false  |
 | "2017-04-03".blank?                          | false  |
-| "".blank?                                    | true   |
+| " ".blank?                                   | true   |
 | null.blank?                                  | true   |
 
 ## present?
@@ -69,7 +69,7 @@ This function will check the input, returning true if there is a value present. 
 |----------------------------------------------|--------|
 | "2017-04-02T12:30:30.462659-07:00".present?  | true   |
 | "2017-04-03".present?                        | true   |
-| "".present?                                  | false  |
+| " ".present?                                 | false  |
 | null.present?                                | false  |
 
 ## presence
@@ -80,7 +80,7 @@ This function will check the input, returning its value if there is one present,
 |----------------------------------------------|--------------------------------------|
 | "2017-04-02T12:30:30.462659-07:00".presence  | "2017-04-02T12:30:30.462659-07:00"   |
 | "2017-04-03".presence                        | "2017-04-03"                         |
-| "".presence                                  | nil                                  |
+| " ".presence                                 | nil                                  |
 | null.presence                                | nil                                  |
 
 # Date arithmetics

@@ -19,7 +19,7 @@ This function checks the input string and returns true if it is an empty string 
 | Example             | Result |
 |---------------------|--------|
 | "Jean Marie".blank? | false  |
-| "".blank?           | true   |
+| " ".blank?          | true   |
 | null.blank?         | true   |
 
 ## present?
@@ -28,7 +28,7 @@ This function will check the input, returning true if there is a value present. 
 ### Example
 | Example                | Result |
 |------------------------|--------|
-| "".present?            | false  |
+| " ".present?           | false  |
 | null.present?          | false  |
 | "Jean Marie".present?  | true   |
 
@@ -38,7 +38,7 @@ This function will check the input, returning its value if there is one present,
 ### Example
 | Example                 | Result        |
 |-------------------------|---------------|
-| "".presence             | nil           |
+| " ".presence            | nil           |
 | null.presence           | nil           |
 | "Jean Marie".presence   | Jean Marie    |
 

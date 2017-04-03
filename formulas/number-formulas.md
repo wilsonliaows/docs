@@ -92,7 +92,7 @@ This function checks the input and returns true if it is a null or an empty stri
 ### Example
 | Example     | Result |
 |-------------|--------|
-| "".blank?   | true   |
+| " ".blank?  | true   |
 | null.blank? | true   |
 | -45.blank?  | false  |
 | 0.blank?    | false  |
@@ -101,22 +101,22 @@ This function checks the input and returns true if it is a null or an empty stri
 This function will check the input number, returning its value if there is one present, else returning nil.
 
 ### Example
-| Example        | Result | Type   |
-|----------------|--------|--------|
-| "".presence    | nil    | nil    |
-| null.presence  | nil    | nil    |
-| -45.presence   | -45    | Fixnum |
-| 0.presence     | 0      | Fixnum |
-| 45.0.presence  | 45.0   | Float  |
-| -45.0.presence | -45.0  | Float  |
+| Example         | Result | Type   |
+|-----------------|--------|--------|
+| " ".presence    | nil    | nil    |
+| null.presence   | nil    | nil    |
+| -45.presence    | -45    | Fixnum |
+| 0.presence      | 0      | Fixnum |
+| 45.0.presence   | 45.0   | Float  |
+| -45.0.presence  | -45.0  | Float  |
 
 ## present?
-This function will check the input number, returning true if there is a value present. If input is null or an empty string, formula returns false.
+This function will check the input, returning true if there is a value present. If input is null or an empty string, formula returns false.
 
 ### Example
 | Example       | Result |
 |---------------|--------|
-| "".present?   | false  |
+| " ".present?  | false  |
 | null.present? | false  |
 | -45.present?  | true   |
 | 0.present?    | true   |
@@ -126,7 +126,6 @@ This function will check the input number, returning true if there is a value pr
 This function can be used on a number to only take its integer value. Floats will be rounded down.
 
 ### Example
-
 | Example     | Result | Type   |
 |-------------|--------|--------|
 | 45.67.to_i  | 45     | Fixnum |
