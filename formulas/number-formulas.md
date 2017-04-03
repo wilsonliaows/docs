@@ -4,6 +4,8 @@ date: 2017-03-30 05:00:00 Z
 ---
 
 # Number formulas
+In Ruby, Fixnum refers to integers, e.g. 9, 10, 11, while Float refers to decimals, e.g. 1.75.
+
 Workato supports a variety of number formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
 
 You can refer to the complete Ruby documentation for Fixnum (integers) [here](http://ruby-doc.org/core-2.3.3/Fixnum.html) as well as the Ruby documentation for Float (decimals) [here](http://ruby-doc.org/core-2.3.3/Float.html).
@@ -121,7 +123,7 @@ This function will check the input number, returning true if there is a value pr
 | 45.0.present? | true   |
 
 ## to_i
-This function can be used on a number to only take its integer value.
+This function can be used on a number to only take its integer value. Floats will be rounded down.
 
 ### Example
 
@@ -134,7 +136,7 @@ This function can be used on a number to only take its integer value.
 | 0.to_i      | 0      | Fixnum |
 
 ## to_f
-This function can be used on a number to retain its decimal values.
+This function can be used on a number to retain its decimal values. When applied to an integer, it converts the data type from fixnum to float.
 
 ### Example
 | Example     | Result    | Type  |
@@ -143,7 +145,7 @@ This function can be used on a number to retain its decimal values.
 | -45.67.to_f | -45.67    | Float |
 | 45.to_f     | 45.0      | Float |
 | -45.to_f    | -45.0     | Float |
-| 0.to_f      | 0.0       | Float |
+| 0.to_f      | 0         | Float |
 
 ## to_s
 This function converts a number into a string.
@@ -153,9 +155,9 @@ This function converts a number into a string.
 |-------------|-------------|--------|
 | 45.67.to_s  | "45.67"     | String |
 | -45.67.to_s | "-45.67"    | String |
-| 45.to_s     | "45.0"      | String |
-| -45.to_s    | "-45.0"     | String |
-| 0.to_s      | "0.0"       | String |
+| 45.to_s     | "45"        | String |
+| -45.to_s    | "-45"       | String |
+| 0.to_s      | "0"         | String |
 
 ## round
 This function will round up or down a number by regular rounding rules. The number of decimal places to round to can be defined with an additional parameter.
@@ -201,3 +203,6 @@ By adding a parameter with country_code: number, the formatted phone number will
 | 1112223333.to_phone(country_code: 1)                  | "+1-111-222-3333"    |
 | 1112223333.to_phone(area_code: true, country_code: 1) | "+1-(111) 222-3333"  |
 | 1112223333.to_phone(extension: 444)                   | "111-222-3333 x 444" |
+
+# Converting other data types to numbers
+To convert a value of other data types, e.g. string, date, into an integer or a float, use the [to_i](#to_i) and the [to_f](#to_f) formulas respectively.
