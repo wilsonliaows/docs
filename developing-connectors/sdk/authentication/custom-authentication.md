@@ -128,7 +128,7 @@ The example here shows multiple ways that we can define "signals" to watch.
 - `401`: The response status code
 - `"Unauthorized"`: The exact string matching the whole body or title of response
 - `/Unauthorized/`: Regex matching the body or title of response
-- `/Invalid Ticket Id/`: The actual "message" to watch for
+- `/Invalid Ticket Id/`: The actual "message" to watch for in the case of the Zoho API
 
 ## detect_on
 
