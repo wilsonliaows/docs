@@ -196,7 +196,7 @@ By adding a parameter with country_code: number, the formatted phone number will
 ### Example
 | Example                                                 | Result               |
 |---------------------------------------------------------|----------------------|
-| `1112223333.to_phone                                    | "111-222-3333"       |
+| `1112223333.to_phone`                                   | "111-222-3333"       |
 | `1112223333.to_phone(delimiter: " ")`                   | "111 222 3333"       |
 | `1112223333.to_phone(area_code: true)`                  | "(111) 222-3333"     |
 | `1112223333.to_phone(country_code: 1)`                  | "+1-111-222-3333"    |
