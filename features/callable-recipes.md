@@ -23,9 +23,6 @@ You can expose REST APIs to your business partners. e.g. a REST API that provide
 Let’s take a look at an example to see how this works. Say you want to automate the process of creating an invoice in Quickbooks Online (QBO) when an opportunity is closed-won in Salesforce. The recipe logic would be
 Create a new customer if customer does not exist
 
-## Huilin lets use this
-https://docs.google.com/document/d/1kiDKFz_HAZYZtMDvKdzz59JAMHY58OrxZz-A4XvvdPA/edit#
-
 In order to create a QBO invoice, you’ll need to create a new customer if the customer does not already exist in QBO. Now, this snippet of logic: “creating a customer in QBO when they don’t already exist,” is a process that is necessary not only with your Salesforce to QBO integrations, but also when you have Point Of Sale (POS) transactions flowing into QBO, invoices you receive from your vendors and more. Instead of recreating the logic for “creating a customer in QBO when they don’t already exist,” you can make this snippet of logic into a Callable Recipe.
 
 **Step 1. Create a new recipe**
