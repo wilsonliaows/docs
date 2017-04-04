@@ -2,70 +2,41 @@
 title: Handling files and attachments
 date: 2017-02-22 12:00:00 Z
 ---
-
 # Working with files and attachments in Workato
-Workato allows uploading of files into cloud or on-premise FTP servers and applications. Workato also allows for temporary downloading of files (for the duration of the job), and stores the file content for use in subsequent steps of the job, e.g. to be uploaded into another app or parsed as data.
+Files and attachments are a key aspect of many integrations. e.g. Uploading  CSV files to Redshift, moving Salesforce attachments to Zendesk, etc. Workato supports working with file and attachments of different formats (i.e. JSON, XML, etc.) across different access/transport mechanism (e.g. FTP, file system, APIs, S3, etc.)
 
-## Working with text files
-Text files refers to files which can be opened with any text editor and is generally human-readable. Workato can act as the intermediary to move files from one app to another, as well as extract data from text files and parse it for use in Workato. For example, a recipe can retrieve CSV file content and parse it immediately as data to be written to another app.
+## Text files
+Text files refers to files which can be opened with any text editor and is generally human-readable. Workato can act as the intermediary to move files from one app to another, as well as extract data from text files and parse it for use in Workato. For example, a recipe can retrieve CSV file content, parse it and make it available within Workato so it can be transformed and moved to another app.
 
-### Examples of text file extensions
 Some examples of text files commonly worked with:
-- Tabular data: csv
+- Tabular data: CSV
 - Documents: txt, rtf
-- Web standards: html, xml, json
+- Web standards: html, XML, JSON
 
-### Example of moving text files between apps
-There is no difference between moving text files and moving binary files between apps. Refer to [this section](#moving-textbinary-files-between-apps).
+## Binary files
+Binary files refer to any file which is not human readable. Unlike text files where Workato parse the content to understand the structure of data, with binary files, Workato does not interpret the content. e.g. Workato cannot read and interpret an image file, but it can upload the entire file into Salesforce as an attachment.
 
-### Example of parsing text file data to be used in Workato recipes
-The following recipe parses new CSV files in Box and uses the data parsed to create new NetSuite inventory items.
-
-![Example recipe - CSV file parsing](/assets/images/features/files-and-attachments/csv-file-parsing-recipe.png)
-
-*Recipe that parses CSV files to retrieve data for use in datatree* [Example recipe](https://www.workato.com/recipes/485023)
-
-When using **Box new CSV file** trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato will build the trigger output datatree for use in subsequent actions.
-
-[![https://gyazo.com/52deab1efa9062c4b543f510734dace1](https://i.gyazo.com/52deab1efa9062c4b543f510734dace1.gif)](https://gyazo.com/52deab1efa9062c4b543f510734dace1)
-
-*Defining the expected columns in the CSV files that the recipe will pick up* [Example recipe](https://www.workato.com/recipes/485023)
-
-The columns defined in the **Box new CSV file** trigger shows up as usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.
-
-[![https://gyazo.com/dbab89736dd49284cc000d33c13fd096](https://i.gyazo.com/dbab89736dd49284cc000d33c13fd096.gif)](https://gyazo.com/dbab89736dd49284cc000d33c13fd096)
-
-*Using the variables created from the columns definition* [Example recipe](https://www.workato.com/recipes/485023)
-
-## Working with binary files
-Binary files usually refer to any file which is not human readable. Workato can act as the intermediary to move entire files and attachments from one system to another, but content text within binary files cannot be parsed for use in Workato, e.g. Workato cannot read the text or images in your PDFs and move it into Salesforce, but it can upload the entire PDF into Salesforce as an attachment.
-
-### Examples of binary file extensions
-Some examples of binary files commonly worked with:
+Some examples of binary files commonly used:
 - Images: jpg, png, gif, bmp, psd
 - Documents: pdf, doc, docx, ppt, xls, odt
 
-### Example of moving binary files between apps
-There is no difference between moving text files and moving binary files between apps. Refer to [this section](#moving-textbinary-files-between-apps).
+# Moving text/binary files as-is between apps
+When moving files across apps without interpreting the content, it works sames for text or binary files. Workato has 2 approaches
+- by passing on a URL to the destination app, so this data does not have to move through Workato. This URL will have to be publicly accessible and can disappear afer the job has completed.
+- by uploading content from app to Workato, and the downloading to the other app. This is not a great approach for working with very large files as all the data has to move into the recipe and across every recipe step and then to destination app
 
-# Moving text/binary files between apps
-Workato can move files (regardless of text or binary) from app to app. There are 2 ways of moving files:
-- Via moving actual file content from one app to the other
-- Via providing the destination app with a public URL to the file
-
-### Moving text/binary files via public URL
+## Moving text/binary files via public URL
 This is typically a 2-step process:
 
-1. Get the public URL of the file to move. Generally found in the datatree output of **New file** triggers.
+1. Get the public URL of the file to move. Generally found in the trigger or action output. e.g. **New file** trigger output contains a URL.
 
-2. Pass in this public URL to the destination app. Generally a **Upload file via URL** action.
+2. Pass in this public URL to the destination app. Generally an **Upload file via URL** action.
 
-### Example of moving text/binary files via public URL
-Let's take the scenario where we move new files in Dropbox into Box. This is how the recipe looks.
+### Example
+Let's take the scenario where we move new files from Dropbox to Box. This is how the recipe looks.
 
 ![Example recipe - moving files via URL](/assets/images/features/files-and-attachments/file-url-recipe.png)
-
-*Recipe that moves files from Dropbox to Box via public URLs* [Example recipe](https://www.workato.com/recipes/485735)
+*Recipe moves files from Dropbox to Box via public URLs* [Example recipe](https://www.workato.com/recipes/485735)
 
 The **Obtain a direct URL to file** field in the **New file** trigger should be marked, so as to generate a public URL for the new file. The recipe then verifies that the file does not already exist in Box before uploading the file into Box via URL.
 
@@ -83,27 +54,23 @@ This is typically a 2-step process:
 Let's take the scenario where Gmail email attachments need to be moved to Box. This is how the recipe looks.
 
 ![Example recipe - moving files between apps](/assets/images/features/files-and-attachments/moving-files-betwen-apps-recipe.png)
-
-*Recipe that moves Gmail attachments to Box* [Example recipe](https://www.workato.com/recipes/485773)
+*Recipe moves Gmail attachments to Box* [Example recipe](https://www.workato.com/recipes/485773)
 
 From the **New email** trigger output, each email event that comes in has potentially a list of attachments. Therefore, the conditional action checks if the email has attachments. If not, nothing is processed for that email. In this case, the datapill from the attachment list in **New email** trigger is used. As the pills within a list refer to the first list item in that list (e.g. the first attachment within the list of attachments) unless when used in a for each step or in an input array, this allows us to verify if there's at least one attachment in the list.
 
 [![https://gyazo.com/0b634d20aef35341badebee9a9b5e674](https://i.gyazo.com/0b634d20aef35341badebee9a9b5e674.gif)](https://gyazo.com/0b634d20aef35341badebee9a9b5e674)
-
 *Check if email contains at least one attachment* [Example recipe](https://www.workato.com/recipes/485773)
 
 In cases whereby the email event has one or more attachments, the for each step ensures that the recipe iterates through the list of attachments, and that for each attachment, the attachment content is downloaded from Gmail before being uploaded into Box.
 
 [![https://gyazo.com/4b4d87f395b652c25fb5348769f6e35e](https://i.gyazo.com/4b4d87f395b652c25fb5348769f6e35e.gif)](https://gyazo.com/4b4d87f395b652c25fb5348769f6e35e)
-
 *If email contains attachments, download each attachment from Gmail using attachment ID, and upload attachment content to Box* [Example recipe](https://www.workato.com/recipes/485773)
 
 In this case, file content is used as Gmail does not provide public URLs to attachments. For scenarios where the source app provides public URLs to files and the target app accepts URLs for file uploads, [moving of files via URLs](#moving-textbinary-files-via-public-URL) should be the preferred method for recipe efficiency.
 
-# Using Utilities connector for downloading files from public URL
-The **Utilities** connector has a **Download file from URL** action that retrieves file content, given a public URL to a file. In cases whereby the file source app provides only a public URL to the file, but the destination app requires file content to be provided, this action can be used.
+### Example of using Utilities to download file from public URL
+The **Utilities** connector has a **Download file from URL** action that retrieves file content, given a public URL to a file. In cases whereby the file source app provides only a public URL to the file, but the destination app requires the actual file content, this action can be used.
 
-## Example of using Utilities to download file from public URL
 Let's take the scenario where new files created in a shared Box folder needs to be uploaded and associated with a Salesforce account. This is how the recipe looks.
 
 ![Example recipe - using utilities to download file](/assets/images/features/files-and-attachments/utilities-download-file.png)
@@ -130,3 +97,22 @@ To decode binary content from base64 content from such apps:
 
 ![Decode file content](/assets/images/features/files-and-attachments/decode-file.png)
 *Formula for decoding file content*
+
+# Interpreting file content and moving to other apps
+When working with text files, Workato and interpret the content of the file and convert individual elements to the data tree pills to make it easier to transform and send to other apps.
+
+## Example
+The following recipe creates a NetSuite inventory object by using data from a CSV file.
+
+![Example recipe - CSV file parsing](/assets/images/features/files-and-attachments/csv-file-parsing-recipe.png)
+*Recipe reads CSV file* [Example recipe](https://www.workato.com/recipes/485023)
+
+When using **Box new CSV file** trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato builds the trigger output datatree.
+
+[![https://gyazo.com/52deab1efa9062c4b543f510734dace1](https://i.gyazo.com/52deab1efa9062c4b543f510734dace1.gif)](https://gyazo.com/52deab1efa9062c4b543f510734dace1)
+*Defining the expected columns in the CSV files that the recipe will pick up* [Example recipe](https://www.workato.com/recipes/485023)
+
+The columns defined in the **Box new CSV file** trigger shows up as usable data pills in the output datatree. These variables can be used to map into subsequent recipe steps.
+
+[![https://gyazo.com/dbab89736dd49284cc000d33c13fd096](https://i.gyazo.com/dbab89736dd49284cc000d33c13fd096.gif)](https://gyazo.com/dbab89736dd49284cc000d33c13fd096)
+*Using the variables created from the columns definition* [Example recipe](https://www.workato.com/recipes/485023)

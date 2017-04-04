@@ -3,7 +3,7 @@ title: List management
 date: 2017-03-06 16:00:00 Z
 ---
 
-# List management
+# Using Lists (aka arrays)
 App integrations often work with lists, e.g. syncing sales invoices involves moving of line items, syncing customer accounts involves moving of associated leads and contacts, etc.
 
 Workato is able to read from and write to lists in various ways.
