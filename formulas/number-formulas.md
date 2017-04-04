@@ -204,4 +204,4 @@ By adding a parameter with country_code: number, the formatted phone number will
 | 1112223333.to_phone(extension: 444)                   | "111-222-3333 x 444" |
 
 # Converting other data types to numbers
-To convert a value of other data types, e.g. string, date, into an integer or a float, use the [to_i](#to_i) and the [to_f](#to_f) formulas respectively.
+To convert a value of other data types, e.g. string, date, into an integer or a float, use the [to_i](#toi) and the [to_f](#tof) formulas respectively.

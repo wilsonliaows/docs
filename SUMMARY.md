@@ -48,9 +48,7 @@
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
 * [Troubleshooting](troubleshooting.md)
-  * Trigger warnings
   * [Action errors](recipes/action-errors.md)
-  * Mapping errors
   * [Formula errors](recipes/formula-errors.md)
   * [Infinite loops](recipes/infinite-loops.md)
   * [Deduplication](recipes/deduplication.md)

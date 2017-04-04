@@ -122,4 +122,4 @@ To retrieve the last date of the next month:
 ![last date of next month](/assets/images/formula-docs/last_date_next_month.png)
 
 # Converting other data types to strings
-To convert a date data type into a datetime data, or vice versa, use the to_date(#to_date) or to_time(#to_time) formulas.
+To convert a date data type into a datetime data, or vice versa, use the [to_date](#todate) or [to_time](#totime) formulas.
