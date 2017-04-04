@@ -1,4 +1,4 @@
-# Handling XML data format
+# XML data format
 
 XML (eXtensible Markup Language) is a syntax for storing and transferring data. It is a common data format in the world of APIs. XML data is store in a a systematic heirachy of tags. While JSON format has being incresingly preferred over XML format, XML is still used widely and provides some advantages over the former.
 

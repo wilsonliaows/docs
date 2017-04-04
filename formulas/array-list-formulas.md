@@ -19,39 +19,39 @@ number_list = [100, 101, 102, 103]
 
 As lists are ordered, we can use the following formula to get the values:
 
-| Example            | Result |
-|--------------------|--------|
-| number_list.first  | 100    |
-| number_list.second | 101    |
-| number_list.third  | 102    |
-| number_list.fourth | 103    |
-| number_list.last   | 103    |
+| Example              | Result |
+|----------------------|--------|
+| `number_list.first`  | 100    |
+| `number_list.second` | 101    |
+| `number_list.third`  | 102    |
+| `number_list.fourth` | 103    |
+| `number_list.last`   | 103    |
 
 We can also use indexes to get corresponding values. Remember, indexes start at 0:
 
-| Example        | Result |
-|----------------|--------|
-| number_list[0] | 100    |
-| number_list[1] | 101    |
-| number_list[2] | 102    |
-| number_list[3] | 103    |
+| Example          | Result |
+|------------------|--------|
+| `number_list[0]` | 100    |
+| `number_list[1]` | 101    |
+| `number_list[2]` | 102    |
+| `number_list[3]` | 103    |
 
 Lists in Ruby supports negative indexes.
 
-| Example         | Result |
-|-----------------|--------|
-| number_list[-1] | 103    |
-| number_list[-2] | 102    |
-| number_list[-3] | 101    |
-| number_list[-4] | 100    |
+| Example           | Result |
+|-------------------|--------|
+| `number_list[-1]` | 103    |
+| `number_list[-2]` | 102    |
+| `number_list[-3]` | 101    |
+| `number_list[-4]` | 100    |
 
 Lists also support ranges as indexes. This returns another list, instead of returning only a value.
 
-| Example             | Result          |
-|---------------------|-----------------|
-| number_list[0..2]   | [100, 101, 102] |
-| number_list[-3..-1] | [101, 102, 103] |
-| number_list[0..-2]  | [100, 101, 102] |
+| Example               | Result          |
+|-----------------------|-----------------|
+| `number_list[0..2]`   | [100, 101, 102] |
+| `number_list[-3..-1]` | [101, 102, 103] |
+| `number_list[0..-2]`  | [100, 101, 102] |
 
 # Hashes
 A hash is a dictionary-like collection of unique keys and their values. They are similar to Lists, but where a List uses integers as its index, a Hash allows you to use any object type. Hashes enumerate their values in the order that the corresponding keys were inserted.
@@ -62,10 +62,10 @@ Let's take the example of a hash with 2 values, with item_name as "Acme widgets"
 line_item = { item_name: “Acme widgets”, item_qty: 10 }
 ```
 
-| Example                | Result          |
-|------------------------|-----------------|
-| line_item[“item_name”] | "Acme widgets”  |
-| line_item[“item_qty”]  | 10              |
+| Example                  | Result          |
+|--------------------------|-----------------|
+| `line_item[“item_name”]` | "Acme widgets”  |
+| `line_item[“item_qty”]`  | 10              |
 
 # List of hashes
 In Workato, you will mostly run into lists of hashes. Let’s look at a Quickbooks invoice which has a number of line items. It will be represented as an list of hashes.
@@ -102,6 +102,7 @@ This is the Contacts list in a list of hashes form.
   {name:'Joan', email:’joan@nbc.com’, state:’MA’, company:’NBC’, company_rev:’1000’},
   {name:'Jack', email:’jack@hbo.com’, state:’CA’, company:’HBO’, company_rev:’1000’}
 ]
+```
 
 ## where
 Retrieves only the rows (hashes) which meet the WHERE condition specified.
@@ -227,10 +228,10 @@ We can also chain .join behind any formula that returns a list, such as
 Reverses the order of a list.
 
 ### Example
-| Example                                   | Result                          |
-|-------------------------------------------|---------------------------------|
-| ["Joe", "Jill", "Joan", "Jack"].reverse   | ["Jack", "Joan", "Jill", "Joe"] |
-| [100, 101, 102, 103].reverse              | [103, 102, 101, 100]            |
+| Example                                     | Result                          |
+|---------------------------------------------|---------------------------------|
+| `["Joe", "Jill", "Joan", "Jack"].reverse`   | ["Jack", "Joan", "Jill", "Joe"] |
+| `[100, 101, 102, 103].reverse`              | [103, 102, 101, 100]            |
 
 
 ## smart_join
@@ -246,101 +247,101 @@ Joins array elements into a string. Removes empty and nil values and trims any w
 For integers and decimals, the numbers will be added together and the total sum obtained. For strings, the strings will be concatenated together to form a longer string.
 
 ### Example
-| Example            | Result   |
-|--------------------|----------|
-| [1, 2, 3].sum      | 6        |
-| [1.5, 2.5, 3].sum  | 7.0      |
-| ["abc", "xyz"].sum | "abcxyz" |
+| Example              | Result   |
+|----------------------|----------|
+| `[1, 2, 3].sum`      | 6        |
+| `[1.5, 2.5, 3].sum`  | 7.0      |
+| `["abc", "xyz"].sum` | "abcxyz" |
 
 ## uniq
 Returns a list containing unique items i.e. remove duplicate items.
 
 ### Example
-| Example                                     | Result                 |
-|---------------------------------------------|------------------------|
-| ["joe", "jack", "jill", "joe", "jack"].uniq | ["joe","jack", "jill"] |
-| [1, 2, 3, 1, 1, 3].uniq                     | [1, 2, 3]              |
-| [1.0, 1.5, 1.0].uniq                        | [1.0, 1.5]             |
+| Example                                       | Result                 |
+|-----------------------------------------------|------------------------|
+| `["joe", "jack", "jill", "joe", "jack"].uniq` | ["joe","jack", "jill"] |
+| `[1, 2, 3, 1, 1, 3].uniq`                     | [1, 2, 3]              |
+| `[1.0, 1.5, 1.0].uniq`                        | [1.0, 1.5]             |
 
 ## flatten
 Flattens a multi-dimensional array (i.e. array of arrays) to a single dimension array.
 
 ### Example
-| Example                             | Result                |
-|-------------------------------------|-----------------------|
-| [[1, 2, 3], [4, 5, 6]].flatten      | [1, 2, 3, 4, 5, 6]    |
-| [[1, [2, 3], 3], [4, 5, 6]].flatten | [1, 2, 3, 3, 4, 5, 6] |
-| [[1, [2, 3], 9], [9, 8, 7]].flatten | [1, 2, 3, 9, 9, 8, 7] |
+| Example                               | Result                |
+|---------------------------------------|-----------------------|
+| `[[1, 2, 3], [4, 5, 6]].flatten`      | [1, 2, 3, 4, 5, 6]    |
+| `[[1, [2, 3], 3], [4, 5, 6]].flatten` | [1, 2, 3, 3, 4, 5, 6] |
+| `[[1, [2, 3], 9], [9, 8, 7]].flatten` | [1, 2, 3, 9, 9, 8, 7] |
 
 ## include?
 Returns true if the given object is present, otherwise returns false.
 
 ### Example
-| Example                      | Result |
-|------------------------------|--------|
-| ["a", "b", "c"].include?("b") | true   |
-| ["a", "b", "c"].include?("z") | false  |
+| Example                         | Result |
+|---------------------------------|--------|
+| `["a", "b", "c"].include?("b")` | true   |
+| `["a", "b", "c"].include?("z")` | false  |
 
 ## length
 Returns the number of elements in self. May be zero.
 
 ### Example
-| Example                    | Result |
-|----------------------------|--------|
-| [ 1, 2, 3, 4, 5 ].length   | 5      |
-| [{..}, {..}, {..}].length  | 3      |
-| [" ", nil, "", nil].length | 4      |
-| [].length                  | 0      |
+| Example                      | Result |
+|------------------------------|--------|
+| `[ 1, 2, 3, 4, 5 ].length`   | 5      |
+| `[{..}, {..}, {..}].length`  | 3      |
+| `[" ", nil, "", nil].length` | 4      |
+| `[].length`                  | 0      |
 
 ## max
 Returns largest value in an array. When comparing numbers, the largest number is returned. When comparing strings, the string with the largest ASCII value is returned.
 
 ### Example
-| Example                    | Result |
-|----------------------------|--------|
-| [-5, 0, 1, 2, 3, 4, 5].max | 5      |
-| [-1.5, 1.5, 2, 3, 3.5].max | 3.5    |
-| ["cat", "dog", "rat"].max  | "rat"  |
+| Example                      | Result |
+|------------------------------|--------|
+| `[-5, 0, 1, 2, 3, 4, 5].max` | 5      |
+| `[-1.5, 1.5, 2, 3, 3.5].max` | 3.5    |
+| `["cat", "dog", "rat"].max`  | "rat"  |
 
 ## min
 Returns smallest value in an array. When comparing numbers, the smallest number is returned. When comparing strings, the string with the smallest ASCII value is returned.
 
 ### Example
-| Example                    | Result  |
-|----------------------------|---------|
-| [-5, 0, 1, 2, 3, 4, 5].min | -5      |
-| [-1.5, 1.5, 2, 3, 3.5].min | -1.5    |
-| ["cat", "dog", "rat"].min  | "cat"   |
+| Example                      | Result  |
+|------------------------------|---------|
+| `[-5, 0, 1, 2, 3, 4, 5].min` | -5      |
+| `[-1.5, 1.5, 2, 3, 3.5].min` | -1.5    |
+| `["cat", "dog", "rat"].min`  | "cat"   |
 
 ## present?
 This function will check the input, returning true if there is a value present. If input is null, an empty string. or an empty array, formula returns false.
 
 ### Example
-| Example                        | Result |
-|--------------------------------|--------|
-| ["", nil].present?             | true   |
-| " ".present?                   | false  |
-| [].present?                    | false  |
-| ["cat", "dog", "rat"].present? | true   |
-| [1, 2, 3.0].present?           | true   |
+| Example                          | Result |
+|----------------------------------|--------|
+| `["", nil].present?`             | true   |
+| `" ".present?`                   | false  |
+| `[].present?`                    | false  |
+| `["cat", "dog", "rat"].present?` | true   |
+| `[1, 2, 3.0].present?`           | true   |
 
 ## presence
 This function will check the input, returning its value if there is one present, else returning nil.
 
 ### Example
-| Example                        | Result                  |
-|--------------------------------|-------------------------|
-| ["", nil].presence             | ["", nil]               |
-| " ".presence                   | nil                     |
-| [].presence                    | nil                     |
-| ["cat", "dog", "rat"].presence | ["cat", "dog", "rat"]   |
-| [1, 2, 3.0].presence           | [1, 2, 3.0]             |
+| Example                          | Result                  |
+|----------------------------------|-------------------------|
+| `["", nil].presence`             | ["", nil]               |
+| `" ".presence`                   | nil                     |
+| `[].presence`                    | nil                     |
+| `["cat", "dog", "rat"].presence` | ["cat", "dog", "rat"]   |
+| `[1, 2, 3.0].presence`           | [1, 2, 3.0]             |
 
 ## to_csv
 Generates CSV line from an array. This handles escaping. Nil values and empty strings will also be expressed within the csv line.
 
 ### Example
-| Example                                                 | Result                             |
-|---------------------------------------------------------|------------------------------------|
-| ["John Smith", "No-Email", " ", nil, "555-1212"].to_csv | "John Smith,No-Email, ,,555-1212 " |
-| ["John Smith", "No-Email", " ", nil, 1212].to_csv       | "John Smith,No-Email, ,,1212"      |
+| Example                                                   | Result                             |
+|-----------------------------------------------------------|------------------------------------|
+| `["John Smith", "No-Email", " ", nil, "555-1212"].to_csv` | "John Smith,No-Email, ,,555-1212 " |
+| `["John Smith", "No-Email", " ", nil, 1212].to_csv`       | "John Smith,No-Email, ,,1212"      |
