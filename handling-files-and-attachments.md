@@ -14,16 +14,16 @@ Some examples of text files commonly worked with:
 - Web standards: html, XML, JSON
 
 ## Binary files
-Binary files refer to any file which is not human readable. Unlike text files where Workato parse the content to understand the structure of data, with binary files, Workato does not interpret the content. e.g. Workato cannot read and interpret an image file, but it can upload the entire file into Salesforce as an attachment.
+Binary files refer to any file which is not human readable. Unlike text files where Workato parses the content to understand the structure of data, with binary files, Workato does not interpret the content, e.g. Workato cannot read and interpret an image file, but it can upload the entire file into Salesforce as an attachment.
 
 Some examples of binary files commonly used:
 - Images: jpg, png, gif, bmp, psd
 - Documents: pdf, doc, docx, ppt, xls, odt
 
 # Moving text/binary files as-is between apps
-When moving files across apps without interpreting the content, it works sames for text or binary files. Workato has 2 approaches
-- by passing on a URL to the destination app, so this data does not have to move through Workato. This URL will have to be publicly accessible and can disappear afer the job has completed.
-- by uploading content from app to Workato, and the downloading to the other app. This is not a great approach for working with very large files as all the data has to move into the recipe and across every recipe step and then to destination app
+When moving files across apps without interpreting the content, it works sames for text or binary files. Workato has 2 approaches:
+- By passing on a URL to the destination app, so this data does not have to move through Workato. This URL will have to be publicly accessible and can disappear afer the job has completed.
+- By uploading content from app to Workato, and then downloading to the other app. This is not a great approach for working with very large files, as all the data has to move into the recipe, across every recipe step and then to the destination app.
 
 ## Moving text/binary files via public URL
 This is typically a 2-step process:
