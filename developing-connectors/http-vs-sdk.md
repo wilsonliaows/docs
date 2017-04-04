@@ -42,5 +42,5 @@ APIs use a wide variety of authentication mechanisms. Some as simple as basic (u
 | Sharing | Yes | Yes |
 | Clone n Run Recipes | Yes | No |
 | Reusable (cross recipe) | No | Yes |
-| Manual webhook | Yes | Yes (soon) |
+| Manual webhook | Yes | Yes |
 | Auto webhook | Troublesome | Yes |

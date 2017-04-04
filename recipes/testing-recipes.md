@@ -62,9 +62,3 @@ For example, if the last step in the recipe updates a record in the application 
 Recipes often come with multiple lines of conditional logic (i.e. IF this then that). 
 
 In these situations, test the recipe with all possible scenarios to ensure the pills are properly mapped and logic properly defined in the recipe. Doing these tests will save time fixing erroneous data after starting your recipe.
-
-
-
-
-
-

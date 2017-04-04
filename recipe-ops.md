@@ -35,7 +35,7 @@ The managed user has to retrieve the API key from their **Account settings > API
 ## Triggers
 
 ### New failed job trigger
-The **New failed job** trigger is able to monitor all active recipes, or  selected recipes, for failed jobs. This is useful in ensuring that key recipes are monitored and corrective actions including notification can be automated.
+The **New failed job** trigger is able to monitor all active recipes, or  selected recipes, for failed jobs. This is useful in ensuring that key recipes are monitored and corrective actions, including notifications, can be automated.
 
 When monitoring selected recipes, provide the IDs of recipes to watch.
 
@@ -52,7 +52,7 @@ Similar to the error notification emails, this trigger will trigger only once an
 - If the monitored recipe encounters 5 failed jobs with different errors within a 2-hour timespane, the recipe will pick up 5 trigger events.
 
 ### Recipe stopped by Workato trigger
-Under certain error conditionas, Workato will stop an active recipe, e.g. when 60 cumulative authentication errors occur in the trigger. Generally, Workato stops recipes when they encounter non-recoverable errors, i.e. when Workato has attempted to carry out the trigger or action without success for a consecutive number of times.
+Under certain error conditions, Workato will stop an active recipe, e.g. when 60 cumulative authentication errors occur in the trigger. Generally, Workato stops recipes when they encounter non-recoverable errors, i.e. when Workato has attempted to carry out the trigger or action without success for a consecutive number of times.
 
 This trigger allows users to build ‘restart’ logic or other custom escalation policies for key recipes that should not be stopped.
 
