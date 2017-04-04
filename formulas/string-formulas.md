@@ -164,7 +164,7 @@ This function returns the number of characters within an input string, including
 | Example                 | Result |
 |-------------------------|--------|
 | `"Jean Marie".length`   | 10     |
-| `" jean marie ".upcase` | 12     |
+| `" jean marie ".length` | 12     |
 
 ## reverse
 This function inverts a string, reordering the characters in a backward manner. Case is preserved.
