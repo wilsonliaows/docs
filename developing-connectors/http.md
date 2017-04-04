@@ -12,7 +12,7 @@ There are 2 types of HTTP connectors:
 1. Standard auth and variations
 2. OAuth 2
 
-## Difference between HTTP and HTTP (Oauth2) connector
+## Difference between HTTP and HTTP (OAuth2) connector
 Apart from the authentication flow for the connection, the functionalities of both connectors are the same. The process of configuring webhook triggers, polling triggers and REST actions are identical.
 
 For non-OAuth2 connections, an additional test API request is required to ascertain that the connection is valid.
