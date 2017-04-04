@@ -102,6 +102,7 @@ This is the Contacts list in a list of hashes form.
   {name:'Joan', email:’joan@nbc.com’, state:’MA’, company:’NBC’, company_rev:’1000’},
   {name:'Jack', email:’jack@hbo.com’, state:’CA’, company:’HBO’, company_rev:’1000’}
 ]
+```
 
 ## where
 Retrieves only the rows (hashes) which meet the WHERE condition specified.

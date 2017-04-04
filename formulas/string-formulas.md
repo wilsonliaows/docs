@@ -20,7 +20,7 @@ This function checks the input string and returns true if it is an empty string 
 |-----------------------|--------|
 | `"Jean Marie".blank?` | false  |
 | `" ".blank?`          | true   |
-| `null.blank?`         | true   |
+| `nil.blank?`          | true   |
 
 ## present?
 This function will check the input, returning true if there is a value present. If input is null or an empty string, formula returns false.
@@ -29,18 +29,18 @@ This function will check the input, returning true if there is a value present. 
 | Example                  | Result |
 |--------------------------|--------|
 | `" ".present?`           | false  |
-| `null.present?`          | false  |
+| `nil.present?`           | false  |
 | `"Jean Marie".present?`  | true   |
 
 ## presence
 This function will check the input, returning its value if there is one present, else returning nil.
 
 ### Example
-| Example                   | Result        |
-|---------------------------|---------------|
-| `" ".presence`            | nil           |
-| `null.presence`           | nil           |
-| `"Jean Marie".presence`   | Jean Marie    |
+| Example                 | Result        |
+|-------------------------|---------------|
+| `" ".presence`          | nil           |
+| `nil.presence`          | nil           |
+| `"Jean Marie".presence` | Jean Marie    |
 
 ## include?
 This function checks the input string and returns true if it contains the stated keyword. This function is case-sensitive - make sure to downcase or upcase before comparison if you are not concerned about case sensitivity.
@@ -145,17 +145,17 @@ This function (left strip) removes the white space at the beginning of the input
 This function (right strip) removes the white space at the end of the input string.
 
 ### Example
-| Example                            | Result                    |
-|------------------------------------|---------------------------|
-| `"   Jean   Marie   ".rstrip`      | "   Jean   Marie"         |
+| Example                              | Result                    |
+|--------------------------------------|---------------------------|
+| `"   Jean   Marie   ".rstrip`        | "   Jean   Marie"         |
 
 ## strip
 This function removes the white space at the beginning and the end of the input string.
 
 ### Example
-| Example                            | Result                    |
-|------------------------------------|---------------------------|
-| `"   Jean   Marie   ".strip`       | "Jean   Marie"            |
+| Example                              | Result                    |
+|--------------------------------------|---------------------------|
+| `"   Jean   Marie   ".strip`         | "Jean   Marie"            |
 
 ## length
 This function returns the number of characters within an input string, including the white-spaces.
