@@ -1499,47 +1499,68 @@
 }
 </code></pre>
 <h2 id="components">Components</h2>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>The name of this field. For example <code>id</code> or <code>created_at</code></td>
-</tr>
-<tr>
-<td>type</td>
-<td>The data type of this field. Default value is string</td>
-</tr>
-<tr>
-<td>control_type</td>
-<td>The input field type to expose in a recipe.</td>
-</tr>
-<tr>
-<td>pick_list</td>
-<td>If control type is &apos;select&apos;, this component is  required. See more in <strong>Pick List</strong></td>
-</tr>
-<tr>
-<td>properties</td>
-<td>When defining nested objects, use the properties key to define the fields in the object. Remember to define the type as <code>:array</code> or <code>:object</code></td>
-</tr>
-</tbody>
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>name</td>
+            <td>The name of this field. For example <code>id</code> or <code>created_at</code>
+            </td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>
+              The data type of this field. Default value is <code>:string</code>. 
+              Should be given the symbol notation (prepend colon).
+              <ul>
+                <li><code>:string</code></li>
+                <li><code>:integer</code></li>
+                <li><code>:datetime</code></li>
+                <li><code>:date</code></li>
+                <li><code>:boolean</code></li>
+                <li><code>:object</code> Must be accompanied with <code>:properties</code></li>
+                <li><code>:array</code> Must be accompanied with <code>:properties</code></li>
+              <ul>
+            </ul></ul></td>
+        </tr>
+        <tr>
+            <td>control_type</td>
+            <td>
+              The input field type to expose in a recipe.
+              <ul>
+                <li><code>:text</code></li>
+                <li><code>:text-area</code></li>
+                <li><code>:number</code></li>
+                <li><code>:url</code></li>
+                <li><code>:select</code> Make sure to include the <code>:pick_list</code> property.</li>
+                <li><code>:timestamp</code></li>
+                <li><code>:checkbox</code></li>
+                <li><code>:phone</code></li>
+                <li><code>:email</code></li>
+              <ul>              
+            </ul></ul></td>
+        </tr>
+        <tr>
+            <td>pick_list</td>
+            <td>
+              If <code>control_type</code> is <code>:select</code>, this property is required. 
+              See more in <a href="pick-list.html">Pick List</a> chapter.
+            </td>
+        </tr>
+        <tr>
+            <td>properties</td>
+            <td>
+              When defining nested objects, use the <code>properties</code> key to define the fields in the object.
+              Remember to define the type as <code>:array</code> or <code>:object</code>
+            </td>
+        </tr>
+    </tbody>
 </table>
-<h3 id="type">type</h3>
-<p>It should be given the symbol notation (prepend colon)</p>
-<p>Supported types:
-<code>:string</code>, <code>:integer</code>, <code>:datetime</code>, <code>:date</code>, <code>:boolean</code>, <code>:object</code>, <code>:array</code></p>
-<p><code>:object</code>, and <code>:array</code> must be accompanied with properties</p>
-<h3 id="controltype">control_type</h3>
-<p>Some of the available values are
-url: the data field will show a link
-select: the data field will be a pick list (make sure to include the pick_list property</p>
-<p>Other supported types:
-timestamp, checkbox, phone, email, text, number, text-area</p>
 
                                 
                                 </section>
@@ -1739,7 +1760,7 @@ timestamp, checkbox, phone, email, text, number, text-area</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Object definition","level":"1.16.4","depth":2,"next":{"title":"Action","level":"1.16.5","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},"previous":{"title":"Test","level":"1.16.3.4","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/object-definition.md","mtime":"2017-04-04T17:09:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-04T17:10:58.581Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Object definition","level":"1.16.4","depth":2,"next":{"title":"Action","level":"1.16.5","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},"previous":{"title":"Test","level":"1.16.3.4","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/object-definition.md","mtime":"2017-04-04T18:05:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-04T18:06:50.105Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
