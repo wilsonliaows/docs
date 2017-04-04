@@ -22,56 +22,56 @@ For example:
 This operator allows the addition of operands on either side.
 
 ### Example
-| Example   | Result | Type   |
-|-----------|--------|--------|
-| 4 + 7     | 11     | Fixnum |
-| 4.0 + 7   | 11.0   | Float  |
-| 4.0 + 7.0 | 11.0   | Float  |
+| Example     | Result | Type   |
+|-------------|--------|--------|
+| `4 + 7`     | 11     | Fixnum |
+| `4.0 + 7`   | 11.0   | Float  |
+| `4.0 + 7.0` | 11.0   | Float  |
 
 ## -
 This operator subtracts the right hand operand from the left hand operand.
 
 ### Example
-| Example   | Result | Type   |
-|-----------|--------|--------|
-| 4 - 7     | -3     | Fixnum |
-| 4.0 - 7   | -3.0   | Float  |
-| 4.0 + 7.0 | -3.0   | Float  |
+| Example     | Result | Type   |
+|-------------|--------|--------|
+| `4 - 7`     | -3     | Fixnum |
+| `4.0 - 7`   | -3.0   | Float  |
+| `4.0 + 7.0` | -3.0   | Float  |
 
 ## *
 This operator multiplies the operands on either side.
 
 ### Example
-| Example   | Result | Type   |
-|-----------|--------|--------|
-| 4 * 7     | 28     | Fixnum |
-| 4.0 * 7   | 28.0   | Float  |
-| 4.0 * 7.0 | 28.0   | Float  |
+| Example     | Result | Type   |
+|-------------|--------|--------|
+| `4 * 7`     | 28     | Fixnum |
+| `4.0 * 7`   | 28.0   | Float  |
+| `4.0 * 7.0` | 28.0   | Float  |
 
 ## /
 Divides left hand operand by right hand operand.
 
 ### Example
-| Example   | Result      | Type   |
-|-----------|-------------|--------|
-| 4 / 7     | 0           | Fixnum |
-| 4.0 / 7   | 0.571428... | Float  |
-| 7 / 4     | 1           | Fixnum |
-| 7 / 4.0   | 1.75        | Float  |
-| 7.0 / 4   | 1.75        | Float  |
-| 7.0 / 4.0 | 1.75        | Float  |
+| Example     | Result      | Type   |
+|-------------|-------------|--------|
+| `4 / 7`     | 0           | Fixnum |
+| `4.0 / 7`   | 0.571428... | Float  |
+| `7 / 4`     | 1           | Fixnum |
+| `7 / 4.0`   | 1.75        | Float  |
+| `7.0 / 4`   | 1.75        | Float  |
+| `7.0 / 4.0` | 1.75        | Float  |
 
 ## %
 Divides left hand operand by right hand operand and returns the remainder.
 
 ### Example
-| Example   | Result | Type   |
-|-----------|--------|--------|
-| 4 % 7     | 4      | Fixnum |
-| 4.0 % 7   | 4.0    | Float  |
-| 4 % 7.0   | 4.0    | Float  |
-| 7 % 4     | 3      | Fixnum |
-| 7.0 % 4.0 | 3.0    | Float  |
+| Example     | Result | Type   |
+|-------------|--------|--------|
+| `4 % 7`     | 4      | Fixnum |
+| `4.0 % 7`   | 4.0    | Float  |
+| `4 % 7.0`   | 4.0    | Float  |
+| `7 % 4`     | 3      | Fixnum |
+| `7.0 % 4.0` | 3.0    | Float  |
 
 # Other number formulas
 
@@ -79,98 +79,98 @@ Divides left hand operand by right hand operand and returns the remainder.
 This function returns the absolute (positive) value of a number.
 
 ### Example
-| Example        | Result | Type   |
-|----------------|--------|--------|
-| -45.abs        | 45     | Fixnum |
-| 45.abs         | 45     | Fixnum |
-| -45.0.abs      | 45.0   | Float  |
-| -45.67.abs     | 45.67  | Float  |
+| Example          | Result | Type   |
+|------------------|--------|--------|
+| `-45.abs`        | 45     | Fixnum |
+| `45.abs`         | 45     | Fixnum |
+| `-45.0.abs`      | 45.0   | Float  |
+| `-45.67.abs`     | 45.67  | Float  |
 
 ## blank?
 This function checks the input and returns true if it is a null or an empty string.
 
 ### Example
-| Example     | Result |
-|-------------|--------|
-| " ".blank?  | true   |
-| null.blank? | true   |
-| -45.blank?  | false  |
-| 0.blank?    | false  |
+| Example       | Result |
+|---------------|--------|
+| `" ".blank?`  | true   |
+| `null.blank?` | true   |
+| `-45.blank?`  | false  |
+| `0.blank?`    | false  |
 
 ## presence
 This function will check the input number, returning its value if there is one present, else returning nil.
 
 ### Example
-| Example         | Result | Type   |
-|-----------------|--------|--------|
-| " ".presence    | nil    | nil    |
-| null.presence   | nil    | nil    |
-| -45.presence    | -45    | Fixnum |
-| 0.presence      | 0      | Fixnum |
-| 45.0.presence   | 45.0   | Float  |
-| -45.0.presence  | -45.0  | Float  |
+| Example           | Result | Type   |
+|-------------------|--------|--------|
+| `" ".presence`    | nil    | nil    |
+| `null.presence`   | nil    | nil    |
+| `-45.presence`    | -45    | Fixnum |
+| `0.presence`      | 0      | Fixnum |
+| `45.0.presence`   | 45.0   | Float  |
+| `-45.0.presence`  | -45.0  | Float  |
 
 ## present?
 This function will check the input, returning true if there is a value present. If input is null or an empty string, formula returns false.
 
 ### Example
-| Example       | Result |
-|---------------|--------|
-| " ".present?  | false  |
-| null.present? | false  |
-| -45.present?  | true   |
-| 0.present?    | true   |
-| 45.0.present? | true   |
+| Example         | Result |
+|-----------------|--------|
+| `" ".present?`  | false  |
+| `null.present?` | false  |
+| `-45.present?`  | true   |
+| `0.present?`    | true   |
+| `45.0.present?` | true   |
 
 ## to_i
 This function can be used on a number to only take its integer value. Floats will be rounded down.
 
 ### Example
-| Example     | Result | Type   |
-|-------------|--------|--------|
-| 45.67.to_i  | 45     | Fixnum |
-| -45.67.to_i | -45    | Fixnum |
-| 45.to_i     | 45     | Fixnum |
-| -45.to_i    | -45    | Fixnum |
-| 0.to_i      | 0      | Fixnum |
+| Example       | Result | Type   |
+|---------------|--------|--------|
+| `45.67.to_i`  | 45     | Fixnum |
+| `-45.67.to_i` | -45    | Fixnum |
+| `45.to_i`     | 45     | Fixnum |
+| `-45.to_i`    | -45    | Fixnum |
+| `0.to_i`      | 0      | Fixnum |
 
 ## to_f
 This function can be used on a number to retain its decimal values. When applied to an integer, it converts the data type from fixnum to float.
 
 ### Example
-| Example     | Result    | Type  |
-|-------------|-----------|-------|
-| 45.67.to_f  | 45.67     | Float |
-| -45.67.to_f | -45.67    | Float |
-| 45.to_f     | 45.0      | Float |
-| -45.to_f    | -45.0     | Float |
-| 0.to_f      | 0         | Float |
+| Example       | Result    | Type  |
+|---------------|-----------|-------|
+| `45.67.to_f`  | 45.67     | Float |
+| `-45.67.to_f` | -45.67    | Float |
+| `45.to_f`     | 45.0      | Float |
+| `-45.to_f`    | -45.0     | Float |
+| `0.to_f`      | 0         | Float |
 
 ## to_s
 This function converts a number into a string.
 
 ### Example
-| Example     | Result      | Type   |
-|-------------|-------------|--------|
-| 45.67.to_s  | "45.67"     | String |
-| -45.67.to_s | "-45.67"    | String |
-| 45.to_s     | "45"        | String |
-| -45.to_s    | "-45"       | String |
-| 0.to_s      | "0"         | String |
+| Example       | Result      | Type   |
+|---------------|-------------|--------|
+| `45.67.to_s`  | "45.67"     | String |
+| `-45.67.to_s` | "-45.67"    | String |
+| `45.to_s`     | "45"        | String |
+| `-45.to_s`    | "-45"       | String |
+| `0.to_s`      | "0"         | String |
 
 ## round
 This function will round up or down a number by regular rounding rules. The number of decimal places to round to can be defined with an additional parameter.
 
 ### Example
-| Example        | Result | Type   |
-|----------------|--------|--------|
-| 45.5.round     | 46     | Fixnum |
-| 45.49.round    | 45     | Fixnum |
-| -45.5.round    | -46    | Fixnum |
-| -45.49.round   | -45    | Fixnum |
-| 45.49.round(1) | 45.5   | Float  |
-| 45.49.round(2) | 45.49  | Float  |
-| 45.49.round(4) | 45.49  | Float  |
+| Example          | Result | Type   |
+|------------------|--------|--------|
+| `45.5.round`     | 46     | Fixnum |
+| `45.49.round`    | 45     | Fixnum |
+| `-45.5.round`    | -46    | Fixnum |
+| `-45.49.round`   | -45    | Fixnum |
+| `45.49.round(1)` | 45.5   | Float  |
+| `45.49.round(2)` | 45.49  | Float  |
+| `45.49.round(4)` | 45.49  | Float  |
 
 ## to_currency
 This function converts a number into a currency string. The number of decimal places to round to can be defined with an additional parameter.
@@ -178,11 +178,11 @@ This function converts a number into a currency string. The number of decimal pl
 By adding a parameter with a locale and country code, it will add the appropriate currency symbol.
 
 ### Example
-| Example                          | Result  | Type     |
-|----------------------------------|---------|----------|
-| 45.678.to_currency               | $45.68  | Currency |
-| 45.6789.to_currency(precision:3) | $45.678 | Currency |
-| 45.67.to_currency(locale: fr)    | 45.67 € | Currency |
+| Example                            | Result  | Type     |
+|------------------------------------|---------|----------|
+| `45.678.to_currency`               | $45.68  | Currency |
+| `45.6789.to_currency(precision:3)` | $45.678 | Currency |
+| `45.67.to_currency(locale: fr)`    | 45.67 € | Currency |
 
 ## to_phone
 This function converts a number into a formatted phone number. By default, the delimiter is a dash (-), but delimiters can be specified via a parameter.
@@ -194,14 +194,14 @@ By adding a parameter with extension: number, the formatted phone number will ha
 By adding a parameter with country_code: number, the formatted phone number will be prefixed with the country code.
 
 ### Example
-| Example                                               | Result               |
-|-------------------------------------------------------|----------------------|
-| 1112223333.to_phone                                   | "111-222-3333"       |
-| 1112223333.to_phone(delimiter: " ")                   | "111 222 3333"       |
-| 1112223333.to_phone(area_code: true)                  | "(111) 222-3333"     |
-| 1112223333.to_phone(country_code: 1)                  | "+1-111-222-3333"    |
-| 1112223333.to_phone(area_code: true, country_code: 1) | "+1-(111) 222-3333"  |
-| 1112223333.to_phone(extension: 444)                   | "111-222-3333 x 444" |
+| Example                                                 | Result               |
+|---------------------------------------------------------|----------------------|
+| `1112223333.to_phone                                    | "111-222-3333"       |
+| `1112223333.to_phone(delimiter: " ")`                   | "111 222 3333"       |
+| `1112223333.to_phone(area_code: true)`                  | "(111) 222-3333"     |
+| `1112223333.to_phone(country_code: 1)`                  | "+1-111-222-3333"    |
+| `1112223333.to_phone(area_code: true, country_code: 1)` | "+1-(111) 222-3333"  |
+| `1112223333.to_phone(extension: 444)`                   | "111-222-3333 x 444" |
 
 # Converting other data types to numbers
 To convert a value of other data types, e.g. string, date, into an integer or a float, use the [to_i](#to_i) and the [to_f](#to_f) formulas respectively.
