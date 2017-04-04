@@ -53,27 +53,65 @@ object_definitions: {
 
 ## Components
 
-Key | Definition
---- | ----------
-name | The name of this field. For example `id` or `created_at`
-type | The data type of this field. Default value is string
-control_type | The input field type to expose in a recipe.
-pick_list | If control type is 'select', this component is  required. See more in **Pick List**
-properties | When defining nested objects, use the properties key to define the fields in the object. Remember to define the type as `:array` or `:object`
-
-### type
-It should be given the symbol notation (prepend colon)
-
-Supported types:
-`:string`, `:integer`, `:datetime`, `:date`, `:boolean`, `:object`, `:array`
-
-`:object`, and `:array` must be accompanied with properties
-
-### control_type
-
-Some of the available values are
-url: the data field will show a link
-select: the data field will be a pick list (make sure to include the pick_list property
-
-Other supported types:
-timestamp, checkbox, phone, email, text, number, text-area
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>name</td>
+            <td>The name of this field. For example <code>id</code> or <code>created_at</code>
+            </td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>
+              The data type of this field. Default value is <code>:string</code>. 
+              Should be given the symbol notation (prepend colon).
+              <ul>
+                <li><code>:string</code></li>
+                <li><code>:integer</code></li>
+                <li><code>:datetime</code></li>
+                <li><code>:date</code></li>
+                <li><code>:boolean</code></li>
+                <li><code>:object</code> Must be accompanied with <code>:properties</code></li>
+                <li><code>:array</code> Must be accompanied with <code>:properties</code></li>
+              <ul>
+            </td>
+        </tr>
+        <tr>
+            <td>control_type</td>
+            <td>
+              The input field type to expose in a recipe.
+              <ul>
+                <li><code>:text</code></li>
+                <li><code>:text-area</code></li>
+                <li><code>:number</code></li>
+                <li><code>:url</code></li>
+                <li><code>:select</code> Make sure to include the <code>:pick_list</code> property.</li>
+                <li><code>:timestamp</code></li>
+                <li><code>:checkbox</code></li>
+                <li><code>:phone</code></li>
+                <li><code>:email</code></li>
+              <ul>              
+            </td>
+        </tr>
+        <tr>
+            <td>pick_list</td>
+            <td>
+              If <code>control_type</code> is <code>:select</code>, this property is required. 
+              See more in <a href="/developing-connectors/sdk/pick-list.html">Pick List</a> chapter.
+            </td>
+        </tr>
+        <tr>
+            <td>properties</td>
+            <td>
+              When defining nested objects, use the <code>properties</code> key to define the fields in the object.
+              Remember to define the type as <code>:array</code> or <code>:object</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
