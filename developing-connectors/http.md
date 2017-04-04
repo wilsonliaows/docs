@@ -8,7 +8,9 @@ date: 2017-02-22 23:00:00 Z
 # HTTP connector
 The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.
 
-There are 2 types of HTTP connectors 1. standard auth and variations 2. Oauth 2
+There are 2 types of HTTP connectors:
+1. Standard auth and variations
+2. OAuth 2
 
 ## Difference between HTTP and HTTP (Oauth2) connector
 Apart from the authentication flow for the connection, the functionalities of both connectors are the same. The process of configuring webhook triggers, polling triggers and REST actions are identical.
