@@ -20,7 +20,6 @@
   * [Jobs](recipes/jobs.md)
   * [Rerun job](recipes/rerun-job.md)
   * [Operations](recipe-ops.md)
-* [Data mapping formulas](formulas.md)
 * [Files and attachments](handling-files-and-attachments.md)
   * [CSV files](features/handling-csv-files.md)
   * [JSON content](features/handling-json.md)
