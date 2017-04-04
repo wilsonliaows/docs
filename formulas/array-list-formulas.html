@@ -1473,23 +1473,23 @@
 </thead>
 <tbody>
 <tr>
-<td>number_list.first</td>
+<td><code>number_list.first</code></td>
 <td>100</td>
 </tr>
 <tr>
-<td>number_list.second</td>
+<td><code>number_list.second</code></td>
 <td>101</td>
 </tr>
 <tr>
-<td>number_list.third</td>
+<td><code>number_list.third</code></td>
 <td>102</td>
 </tr>
 <tr>
-<td>number_list.fourth</td>
+<td><code>number_list.fourth</code></td>
 <td>103</td>
 </tr>
 <tr>
-<td>number_list.last</td>
+<td><code>number_list.last</code></td>
 <td>103</td>
 </tr>
 </tbody>
@@ -1504,19 +1504,19 @@
 </thead>
 <tbody>
 <tr>
-<td>number_list[0]</td>
+<td><code>number_list[0]</code></td>
 <td>100</td>
 </tr>
 <tr>
-<td>number_list[1]</td>
+<td><code>number_list[1]</code></td>
 <td>101</td>
 </tr>
 <tr>
-<td>number_list[2]</td>
+<td><code>number_list[2]</code></td>
 <td>102</td>
 </tr>
 <tr>
-<td>number_list[3]</td>
+<td><code>number_list[3]</code></td>
 <td>103</td>
 </tr>
 </tbody>
@@ -1531,19 +1531,19 @@
 </thead>
 <tbody>
 <tr>
-<td>number_list[-1]</td>
+<td><code>number_list[-1]</code></td>
 <td>103</td>
 </tr>
 <tr>
-<td>number_list[-2]</td>
+<td><code>number_list[-2]</code></td>
 <td>102</td>
 </tr>
 <tr>
-<td>number_list[-3]</td>
+<td><code>number_list[-3]</code></td>
 <td>101</td>
 </tr>
 <tr>
-<td>number_list[-4]</td>
+<td><code>number_list[-4]</code></td>
 <td>100</td>
 </tr>
 </tbody>
@@ -1558,15 +1558,15 @@
 </thead>
 <tbody>
 <tr>
-<td>number_list[0..2]</td>
+<td><code>number_list[0..2]</code></td>
 <td>[100, 101, 102]</td>
 </tr>
 <tr>
-<td>number_list[-3..-1]</td>
+<td><code>number_list[-3..-1]</code></td>
 <td>[101, 102, 103]</td>
 </tr>
 <tr>
-<td>number_list[0..-2]</td>
+<td><code>number_list[0..-2]</code></td>
 <td>[100, 101, 102]</td>
 </tr>
 </tbody>
@@ -1584,11 +1584,11 @@
 </thead>
 <tbody>
 <tr>
-<td>line_item[&#x201C;item_name&#x201D;]</td>
+<td><code>line_item[&#x201C;item_name&#x201D;]</code></td>
 <td>&quot;Acme widgets&#x201D;</td>
 </tr>
 <tr>
-<td>line_item[&#x201C;item_qty&#x201D;]</td>
+<td><code>line_item[&#x201C;item_qty&#x201D;]</code></td>
 <td>10</td>
 </tr>
 </tbody>
@@ -1653,111 +1653,235 @@
   {name:&apos;Joan&apos;, email:&#x2019;joan@nbc.com&#x2019;, state:&#x2019;MA&#x2019;, company:&#x2019;NBC&#x2019;, company_rev:&#x2019;1000&#x2019;},
   {name:&apos;Jack&apos;, email:&#x2019;jack@hbo.com&#x2019;, state:&#x2019;CA&#x2019;, company:&#x2019;HBO&#x2019;, company_rev:&#x2019;1000&#x2019;}
 ]
-
-## where
-Retrieves only the rows (hashes) which meet the WHERE condition specified.
-
-### Example of simple where formula
-`contacts.where(&quot;state ==&quot;: &quot;CA&quot;)` returns the following rows:
-
-| name            | email        | state | company | company_rev |
-|-----------------|--------------|-------|---------|-------------|
-| Joe             | joe@abc.om   | CA    | ABC     | 1000        |
-| Jack            | jack@hbo.com | CA    | HBO     | 30000       |
-
-These rows will be expressed as a list of hashes:
-</code></pre><p>[
+</code></pre><h2 id="where">where</h2>
+<p>Retrieves only the rows (hashes) which meet the WHERE condition specified.</p>
+<h3 id="example-of-simple-where-formula">Example of simple where formula</h3>
+<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;)</code> returns the following rows:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>email</th>
+<th>state</th>
+<th>company</th>
+<th>company_rev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Joe</td>
+<td>joe@abc.om</td>
+<td>CA</td>
+<td>ABC</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Jack</td>
+<td>jack@hbo.com</td>
+<td>CA</td>
+<td>HBO</td>
+<td>30000</td>
+</tr>
+</tbody>
+</table>
+<p>These rows will be expressed as a list of hashes:</p>
+<pre><code>[
   {name:&#x2019;Joe&#x2019;, email:&#x2019;joe@abc.com&#x2019;, state:&#x2019;CA&#x2019;, company:&#x2019;ABC&#x2019;, company_rev:&#x2019;1000&#x2019;},
   {name:&#x2019;Jack&#x2019;, email:&#x2019;jack@hbo.com&#x2019;, state:&#x2019;CA&#x2019;, company:&#x2019;HBO&#x2019;, company_rev:&#x2019;1000&#x2019;}
-]</p>
-<pre><code>
-### Example of compound where formula
-A compound where formula will retrieve only the rows that matches all the conditions.
-
-`contacts.where(&quot;state ==&quot;: &quot;CA&quot;, &quot;company_revenue &gt;=&quot;: (2000..10000))` returns the following rows:
-
-| name            | email        | state | company | company_rev |
-|-----------------|--------------|-------|---------|-------------|
-| Jack            | jack@hbo.com | CA    | HBO     | 30000       |
-
-These rows will be expressed as a list of hashes:
-</code></pre><p>[
+]
+</code></pre><h3 id="example-of-compound-where-formula">Example of compound where formula</h3>
+<p>A compound where formula will retrieve only the rows that matches all the conditions.</p>
+<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;, &quot;company_revenue &gt;=&quot;: (2000..10000))</code> returns the following rows:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>email</th>
+<th>state</th>
+<th>company</th>
+<th>company_rev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jack</td>
+<td>jack@hbo.com</td>
+<td>CA</td>
+<td>HBO</td>
+<td>30000</td>
+</tr>
+</tbody>
+</table>
+<p>These rows will be expressed as a list of hashes:</p>
+<pre><code>[
   {name:&#x2019;Jack&#x2019;, email:&#x2019;jack@hbo.com&#x2019;, state:&#x2019;CA&#x2019;, company:&#x2019;HBO&#x2019;, company_rev:&#x2019;1000&#x2019;}
-]</p>
-<pre><code>
-### Example of complex reduction
-If a series of where conditions are chained, the formula evaluates each where condition in series.
-
-`contacts.where(&quot;state ==&quot;: &quot;CA&quot;).where(&quot;company_revenue &gt;=&quot;: (2000..10000))` returns the following rows, which is the same as the compound where formula:
-
-| name            | email        | state | company | company_rev |
-|-----------------|--------------|-------|---------|-------------|
-| Jack            | jack@hbo.com | CA    | HBO     | 30000       |
-
-In this case, however, the chaining will result in an intermediary array:
-
-`contacts.where(&quot;state ==&quot;: &quot;CA&quot;)` first returns:
-
-| name            | email        | state | company | company_rev |
-|-----------------|--------------|-------|---------|-------------|
-| Joe             | joe@abc.om   | CA    | ABC     | 1000        |
-| Jack            | jack@hbo.com | CA    | HBO     | 30000       |
-
-And `.where(&quot;company_revenue &gt;=&quot;: (2000..10000))` filters this intermediary array further to return only:
-
-| name            | email        | state | company | company_rev |
-|-----------------|--------------|-------|---------|-------------|
-| Jack            | jack@hbo.com | CA    | HBO     | 30000       |
-
-Results will be expressed as a list of hashes:
-</code></pre><p>[
+]
+</code></pre><h3 id="example-of-complex-reduction">Example of complex reduction</h3>
+<p>If a series of where conditions are chained, the formula evaluates each where condition in series.</p>
+<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;).where(&quot;company_revenue &gt;=&quot;: (2000..10000))</code> returns the following rows, which is the same as the compound where formula:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>email</th>
+<th>state</th>
+<th>company</th>
+<th>company_rev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jack</td>
+<td>jack@hbo.com</td>
+<td>CA</td>
+<td>HBO</td>
+<td>30000</td>
+</tr>
+</tbody>
+</table>
+<p>In this case, however, the chaining will result in an intermediary array:</p>
+<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;)</code> first returns:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>email</th>
+<th>state</th>
+<th>company</th>
+<th>company_rev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Joe</td>
+<td>joe@abc.om</td>
+<td>CA</td>
+<td>ABC</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Jack</td>
+<td>jack@hbo.com</td>
+<td>CA</td>
+<td>HBO</td>
+<td>30000</td>
+</tr>
+</tbody>
+</table>
+<p>And <code>.where(&quot;company_revenue &gt;=&quot;: (2000..10000))</code> filters this intermediary array further to return only:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>email</th>
+<th>state</th>
+<th>company</th>
+<th>company_rev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jack</td>
+<td>jack@hbo.com</td>
+<td>CA</td>
+<td>HBO</td>
+<td>30000</td>
+</tr>
+</tbody>
+</table>
+<p>Results will be expressed as a list of hashes:</p>
+<pre><code>[
   {name:&#x2019;Jack&#x2019;, email:&#x2019;jack@hbo.com&#x2019;, state:&#x2019;CA&#x2019;, company:&#x2019;HBO&#x2019;, company_rev:&#x2019;1000&#x2019;}
-]</p>
-<pre><code>
-## pluck
-Retrieves only the columns which have been specified.
-
-### Example
-`contacts.pluck(&#x201C;email&#x201D;)` returns
-
-| email          |
-|----------------|
-| joe@abc.com    |
-| jill@nbc.com   |
-| joan@nbc.com   |
-| jack@hbo.com   |
-
-If a single column, results will be returned as an array:
-</code></pre><p>[joe@abc.com, jill@nbc.com, joan@nbc.com, jack@hbo.com]</p>
-<pre><code>
-`contacts.where(&#x201C;state ==&#x201D;: &#x201C;CA&#x201D;).pluck(&#x201C;email&#x201D;, &#x201C;company&#x201D;)` returns
-
-| email          | company |
-|----------------|---------|
-| joe@abc.com    | ABC     |
-| jill@nbc.com   | NBC     |
-| joan@nbc.com   | NBC     |
-| jack@hbo.com   | HBO     |
-
-Results are returned as a list of a list:
-</code></pre><p>[[&quot;joe@abc.com&quot;, &quot;ABC&quot;], [&quot;jill@nbc.com, &quot;NBC&quot;], [&quot;joan@nbc.com, &quot;NBC&quot;], [&quot;jack@hbo.com, &quot;HBO&quot;]]</p>
-<pre><code>
-## join
-Works on a list to concatenate values together as a string. The values are joined together via the parameter defined.
-
-### Example
-| Example                                    | Result                  |
-|--------------------------------------------|-------------------------|
-| [&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot;,&quot;)  | &quot;Joe,Jill,Joan,Jack&quot;    |
-| [&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot;, &quot;) | &quot;Joe, Jill, Joan, Jack&quot; |
-| [&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot;-&quot;)  | &quot;Joe-Jill-Joan-Jack&quot;    |
-| [&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot; &quot;)  | &quot;Joe Jill Joan Jack&quot;    |
-
-We can also chain .join behind any formula that returns a list, such as
-`contacts.where(&#x201C;state ==&#x201D;: &#x201C;CA&#x201D;).pluck(&#x201C;email&#x201D;).join(&#x201C;, &#x201D;)`. This returns
-</code></pre><p>&#x201C;joe@abc.com, jack@hbo.com&#x201D;
-```</p>
-<h2 id="reverse">reverse</h2>
+]
+</code></pre><h2 id="pluck">pluck</h2>
+<p>Retrieves only the columns which have been specified.</p>
+<h3 id="example">Example</h3>
+<p><code>contacts.pluck(&#x201C;email&#x201D;)</code> returns</p>
+<table>
+<thead>
+<tr>
+<th>email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>joe@abc.com</td>
+</tr>
+<tr>
+<td>jill@nbc.com</td>
+</tr>
+<tr>
+<td>joan@nbc.com</td>
+</tr>
+<tr>
+<td>jack@hbo.com</td>
+</tr>
+</tbody>
+</table>
+<p>If a single column, results will be returned as an array:</p>
+<pre><code>[joe@abc.com, jill@nbc.com, joan@nbc.com, jack@hbo.com]
+</code></pre><p><code>contacts.where(&#x201C;state ==&#x201D;: &#x201C;CA&#x201D;).pluck(&#x201C;email&#x201D;, &#x201C;company&#x201D;)</code> returns</p>
+<table>
+<thead>
+<tr>
+<th>email</th>
+<th>company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>joe@abc.com</td>
+<td>ABC</td>
+</tr>
+<tr>
+<td>jill@nbc.com</td>
+<td>NBC</td>
+</tr>
+<tr>
+<td>joan@nbc.com</td>
+<td>NBC</td>
+</tr>
+<tr>
+<td>jack@hbo.com</td>
+<td>HBO</td>
+</tr>
+</tbody>
+</table>
+<p>Results are returned as a list of a list:</p>
+<pre><code>[[&quot;joe@abc.com&quot;, &quot;ABC&quot;], [&quot;jill@nbc.com, &quot;NBC&quot;], [&quot;joan@nbc.com, &quot;NBC&quot;], [&quot;jack@hbo.com, &quot;HBO&quot;]]
+</code></pre><h2 id="join">join</h2>
+<p>Works on a list to concatenate values together as a string. The values are joined together via the parameter defined.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot;,&quot;)</td>
+<td>&quot;Joe,Jill,Joan,Jack&quot;</td>
+</tr>
+<tr>
+<td>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot;, &quot;)</td>
+<td>&quot;Joe, Jill, Joan, Jack&quot;</td>
+</tr>
+<tr>
+<td>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot;-&quot;)</td>
+<td>&quot;Joe-Jill-Joan-Jack&quot;</td>
+</tr>
+<tr>
+<td>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].join(&quot; &quot;)</td>
+<td>&quot;Joe Jill Joan Jack&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>We can also chain .join behind any formula that returns a list, such as
+<code>contacts.where(&#x201C;state ==&#x201D;: &#x201C;CA&#x201D;).pluck(&#x201C;email&#x201D;).join(&#x201C;, &#x201D;)</code>. This returns</p>
+<pre><code>&#x201C;joe@abc.com, jack@hbo.com&#x201D;
+</code></pre><h2 id="reverse">reverse</h2>
 <p>Reverses the order of a list.</p>
 <h3 id="example">Example</h3>
 <table>
@@ -1769,11 +1893,11 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].reverse</td>
+<td><code>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].reverse</code></td>
 <td>[&quot;Jack&quot;, &quot;Joan&quot;, &quot;Jill&quot;, &quot;Joe&quot;]</td>
 </tr>
 <tr>
-<td>[100, 101, 102, 103].reverse</td>
+<td><code>[100, 101, 102, 103].reverse</code></td>
 <td>[103, 102, 101, 100]</td>
 </tr>
 </tbody>
@@ -1811,15 +1935,15 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[1, 2, 3].sum</td>
+<td><code>[1, 2, 3].sum</code></td>
 <td>6</td>
 </tr>
 <tr>
-<td>[1.5, 2.5, 3].sum</td>
+<td><code>[1.5, 2.5, 3].sum</code></td>
 <td>7.0</td>
 </tr>
 <tr>
-<td>[&quot;abc&quot;, &quot;xyz&quot;].sum</td>
+<td><code>[&quot;abc&quot;, &quot;xyz&quot;].sum</code></td>
 <td>&quot;abcxyz&quot;</td>
 </tr>
 </tbody>
@@ -1836,15 +1960,15 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[&quot;joe&quot;, &quot;jack&quot;, &quot;jill&quot;, &quot;joe&quot;, &quot;jack&quot;].uniq</td>
+<td><code>[&quot;joe&quot;, &quot;jack&quot;, &quot;jill&quot;, &quot;joe&quot;, &quot;jack&quot;].uniq</code></td>
 <td>[&quot;joe&quot;,&quot;jack&quot;, &quot;jill&quot;]</td>
 </tr>
 <tr>
-<td>[1, 2, 3, 1, 1, 3].uniq</td>
+<td><code>[1, 2, 3, 1, 1, 3].uniq</code></td>
 <td>[1, 2, 3]</td>
 </tr>
 <tr>
-<td>[1.0, 1.5, 1.0].uniq</td>
+<td><code>[1.0, 1.5, 1.0].uniq</code></td>
 <td>[1.0, 1.5]</td>
 </tr>
 </tbody>
@@ -1861,15 +1985,15 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[[1, 2, 3], [4, 5, 6]].flatten</td>
+<td><code>[[1, 2, 3], [4, 5, 6]].flatten</code></td>
 <td>[1, 2, 3, 4, 5, 6]</td>
 </tr>
 <tr>
-<td>[[1, [2, 3], 3], [4, 5, 6]].flatten</td>
+<td><code>[[1, [2, 3], 3], [4, 5, 6]].flatten</code></td>
 <td>[1, 2, 3, 3, 4, 5, 6]</td>
 </tr>
 <tr>
-<td>[[1, [2, 3], 9], [9, 8, 7]].flatten</td>
+<td><code>[[1, [2, 3], 9], [9, 8, 7]].flatten</code></td>
 <td>[1, 2, 3, 9, 9, 8, 7]</td>
 </tr>
 </tbody>
@@ -1886,11 +2010,11 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;b&quot;)</td>
+<td><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;b&quot;)</code></td>
 <td>true</td>
 </tr>
 <tr>
-<td>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;z&quot;)</td>
+<td><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;z&quot;)</code></td>
 <td>false</td>
 </tr>
 </tbody>
@@ -1907,19 +2031,19 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[ 1, 2, 3, 4, 5 ].length</td>
+<td><code>[ 1, 2, 3, 4, 5 ].length</code></td>
 <td>5</td>
 </tr>
 <tr>
-<td>[{..}, {..}, {..}].length</td>
+<td><code>[{..}, {..}, {..}].length</code></td>
 <td>3</td>
 </tr>
 <tr>
-<td>[&quot; &quot;, nil, &quot;&quot;, nil].length</td>
+<td><code>[&quot; &quot;, nil, &quot;&quot;, nil].length</code></td>
 <td>4</td>
 </tr>
 <tr>
-<td>[].length</td>
+<td><code>[].length</code></td>
 <td>0</td>
 </tr>
 </tbody>
@@ -1936,15 +2060,15 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[-5, 0, 1, 2, 3, 4, 5].max</td>
+<td><code>[-5, 0, 1, 2, 3, 4, 5].max</code></td>
 <td>5</td>
 </tr>
 <tr>
-<td>[-1.5, 1.5, 2, 3, 3.5].max</td>
+<td><code>[-1.5, 1.5, 2, 3, 3.5].max</code></td>
 <td>3.5</td>
 </tr>
 <tr>
-<td>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].max</td>
+<td><code>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].max</code></td>
 <td>&quot;rat&quot;</td>
 </tr>
 </tbody>
@@ -1961,15 +2085,15 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[-5, 0, 1, 2, 3, 4, 5].min</td>
+<td><code>[-5, 0, 1, 2, 3, 4, 5].min</code></td>
 <td>-5</td>
 </tr>
 <tr>
-<td>[-1.5, 1.5, 2, 3, 3.5].min</td>
+<td><code>[-1.5, 1.5, 2, 3, 3.5].min</code></td>
 <td>-1.5</td>
 </tr>
 <tr>
-<td>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].min</td>
+<td><code>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].min</code></td>
 <td>&quot;cat&quot;</td>
 </tr>
 </tbody>
@@ -1986,23 +2110,23 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[&quot;&quot;, nil].present?</td>
+<td><code>[&quot;&quot;, nil].present?</code></td>
 <td>true</td>
 </tr>
 <tr>
-<td>&quot; &quot;.present?</td>
+<td><code>&quot; &quot;.present?</code></td>
 <td>false</td>
 </tr>
 <tr>
-<td>[].present?</td>
+<td><code>[].present?</code></td>
 <td>false</td>
 </tr>
 <tr>
-<td>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].present?</td>
+<td><code>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].present?</code></td>
 <td>true</td>
 </tr>
 <tr>
-<td>[1, 2, 3.0].present?</td>
+<td><code>[1, 2, 3.0].present?</code></td>
 <td>true</td>
 </tr>
 </tbody>
@@ -2019,23 +2143,23 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[&quot;&quot;, nil].presence</td>
+<td><code>[&quot;&quot;, nil].presence</code></td>
 <td>[&quot;&quot;, nil]</td>
 </tr>
 <tr>
-<td>&quot; &quot;.presence</td>
+<td><code>&quot; &quot;.presence</code></td>
 <td>nil</td>
 </tr>
 <tr>
-<td>[].presence</td>
+<td><code>[].presence</code></td>
 <td>nil</td>
 </tr>
 <tr>
-<td>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].presence</td>
+<td><code>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;].presence</code></td>
 <td>[&quot;cat&quot;, &quot;dog&quot;, &quot;rat&quot;]</td>
 </tr>
 <tr>
-<td>[1, 2, 3.0].presence</td>
+<td><code>[1, 2, 3.0].presence</code></td>
 <td>[1, 2, 3.0]</td>
 </tr>
 </tbody>
@@ -2052,11 +2176,11 @@ We can also chain .join behind any formula that returns a list, such as
 </thead>
 <tbody>
 <tr>
-<td>[&quot;John Smith&quot;, &quot;No-Email&quot;, &quot; &quot;, nil, &quot;555-1212&quot;].to_csv</td>
+<td><code>[&quot;John Smith&quot;, &quot;No-Email&quot;, &quot; &quot;, nil, &quot;555-1212&quot;].to_csv</code></td>
 <td>&quot;John Smith,No-Email, ,,555-1212 &quot;</td>
 </tr>
 <tr>
-<td>[&quot;John Smith&quot;, &quot;No-Email&quot;, &quot; &quot;, nil, 1212].to_csv</td>
+<td><code>[&quot;John Smith&quot;, &quot;No-Email&quot;, &quot; &quot;, nil, 1212].to_csv</code></td>
 <td>&quot;John Smith,No-Email, ,,1212&quot;</td>
 </tr>
 </tbody>
@@ -2260,7 +2384,7 @@ We can also chain .join behind any formula that returns a list, such as
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Array list formulas","date":"2017-03-30T05:00:00.000Z","level":"1.5.4","depth":2,"next":{"title":"Running recipes","level":"1.6","depth":1,"path":"recipes/running-recipes.md","ref":"recipes/running-recipes.md","articles":[{"title":"Start and stop","level":"1.6.1","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},{"title":"Test mode","level":"1.6.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},{"title":"Jobs","level":"1.6.3","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},{"title":"Rerun job","level":"1.6.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},{"title":"Operations","level":"1.6.5","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]}]},"previous":{"title":"Date formulas","level":"1.5.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/array-list-formulas.md","mtime":"2017-04-04T05:56:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-04T06:00:17.632Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Array list formulas","date":"2017-03-30T05:00:00.000Z","level":"1.5.4","depth":2,"next":{"title":"Running recipes","level":"1.6","depth":1,"path":"recipes/running-recipes.md","ref":"recipes/running-recipes.md","articles":[{"title":"Start and stop","level":"1.6.1","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},{"title":"Test mode","level":"1.6.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},{"title":"Jobs","level":"1.6.3","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},{"title":"Rerun job","level":"1.6.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},{"title":"Operations","level":"1.6.5","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]}]},"previous":{"title":"Date formulas","level":"1.5.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/array-list-formulas.md","mtime":"2017-04-04T05:59:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-04T06:01:10.523Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
