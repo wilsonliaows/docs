@@ -1,5 +1,5 @@
 # HTTP vs SDK
-Once you have decided to build a connector, you will find yourself deciding between using the HTTP connector or Workato SDK. Please note that the Workato SDK is for developers. If you are not a developer, HTTP connector is your best best.
+Once you have decided to build a connector, you will find yourself deciding between using the HTTP connector or Workato SDK. Please note that the Workato SDK is for developers. If you are not a developer, HTTP connector is your best bet.
 
 The question that follows immediately is, how are they different? This document aims to describe the differences and help with deciding between the best approach to enhancing your Workato recipes.
 
