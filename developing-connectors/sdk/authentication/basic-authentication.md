@@ -22,7 +22,7 @@ connection: {
   authorization: {
     type: "basic_auth",
 
-    credentials: lambda do |connection|
+    apply: lambda do |connection|
       user(connection["username"])
       password(connection["password"])
     end
@@ -30,7 +30,7 @@ connection: {
 }
 ```
 
-To set up a basic authentication, simply define type: 'basic_auth' and include the appropriate values in `user()` and `password()` in the credentials section. All requests made through the connector will contain the values defined in credentials.
+To set up a basic authentication, simply define type: 'basic_auth' and include the appropriate values in `user()` and `password()` in the `apply` section. All requests made through the connector will contain the values defined in `apply`.
 
 ## Variations
 
@@ -51,7 +51,7 @@ connection: {
 
     # close.io uses api key only for authentication. treats apikey as username and password left blank
     # curl -u "{your api_key}:" "https://app.close.io/api/v1/me/"
-    credentials: lambda do |connection|
+    apply: lambda do |connection|
       user(connection["api_key"])
       password("")
     end
@@ -63,7 +63,7 @@ In this example Close.io API expects an API Key generated in the individual User
 
 So, to adjust the connections portion of the code to suit this behaviour, simply request for an API instead of username + password.
 
-In the credentials section, pass the api_key into `user()` and an empty string ("") to `password()`
+In the `apply` section, pass the api_key into `user()` and an empty string ("") to `password()`
 
 ```ruby
 connection: {
@@ -83,7 +83,7 @@ connection: {
 
     # Toggl API expect the token to be sent as user name and the string 'api_token' as the password
     # curl -u "{your api_token}:api_token" "https://www.toggl.com/api/v8/me"
-    credentials: lambda do |connection|
+    apply: lambda do |connection|
       user(connection["api_token"])
       password("api_token")
     end
@@ -130,7 +130,7 @@ connection: {
   authorization: {
     type: "api_key",
 
-    credentials: lambda do |connection|
+    apply: lambda do |connection|
       params(api_key: connection["api_key"])
     end
   }

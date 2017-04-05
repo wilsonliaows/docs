@@ -1,9 +1,9 @@
 # HTTP vs SDK
+Once you have decided to build a connector, you will find yourself deciding between using the HTTP connector or Workato SDK. Please note that the Workato SDK is for developers. If you are not a developer, HTTP connector is your best best.
 
-Once you have decided to use one of the developer tools to widen your Workato connectivity, you will find yourself deciding between using the generic HTTP connector and Workato SDK. The question that follows immediately is, how are they different? This document aims to describe the differences and help with deciding between the best approach to enhancing your Workato recipes.
+The question that follows immediately is, how are they different? This document aims to describe the differences and help with deciding between the best approach to enhancing your Workato recipes.
 
 ## Authentication
-
 APIs use a wide variety of authentication mechanisms. Some as simple as basic (username/password pair) and some more complex like OAuth 2.0.
 
 |   | HTTP | SDK |
@@ -14,8 +14,7 @@ APIs use a wide variety of authentication mechanisms. Some as simple as basic (u
 | Digest auth | No  | Yes |
 | Multi-step auth | No  | Yes |
 
-## Data type
-
+## Data types
 |   | HTTP | SDK |
 |:-----|:-:|:-:|
 | JSON on REST | Yes | Yes |
@@ -24,8 +23,7 @@ APIs use a wide variety of authentication mechanisms. Some as simple as basic (u
 | Multipart form | No  | Yes |
 | Binary | No | Yes| 
 
-# Workflow 
-
+## Capabilities 
 |   | HTTP | SDK |
 |:-----|:-:|:-:|
 | Trigger closure | No  | Yes |
@@ -44,5 +42,5 @@ APIs use a wide variety of authentication mechanisms. Some as simple as basic (u
 | Sharing | Yes | Yes |
 | Clone n Run Recipes | Yes | No |
 | Reusable (cross recipe) | No | Yes |
-| Manual webhook | Yes | Yes (soon) |
+| Manual webhook | Yes | Yes |
 | Auto webhook | Troublesome | Yes |

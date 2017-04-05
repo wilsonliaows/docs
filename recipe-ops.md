@@ -3,10 +3,10 @@ title: Recipe Ops
 date: 2017-03-02 02:00:00 Z
 ---
 
-# Workato Admin connector
-The Workato Admin connector enables building of recipes that monitor and manage active recipes, either in the user's Workato account or the Workato accounts being managed.
+# Workato admin connector
+The Workato admin connector enables building of recipes to monitor and manage active recipes.
 
-Stopped recipes and failed jobs can have automated responses and notifications to mitigate their impact on critical business processes. Account, recipe and job details can also be retrieved via the Workato Admin connector.
+Stopped recipes and failed jobs can have automated responses and notifications to mitigate their impact on critical business processes. Account, recipe and job details can also be retrieved via the Workato admin connector.
 
 ## Example scenarios
 - Notify designated team members when a key recipe is stopped - notification via Gmail, SMS, Twilio phone call or IVR, Slack, etc.
@@ -16,6 +16,8 @@ Stopped recipes and failed jobs can have automated responses and notifications t
 - Build recipe reports of recipes for an overview of automations, connected apps, etc. in the company
 
 ## Connection
+You can monitor recipes in your account, or someone else's account (if they have shared API keys).
+
 When establishing the connection, select from **My account** or **Someone else's account**.
 - For **My account**, no further authentication information is needed
 - For **Someone else's account**, the account email and API key has to be provided
@@ -33,7 +35,7 @@ The managed user has to retrieve the API key from their **Account settings > API
 ## Triggers
 
 ### New failed job trigger
-The **New failed job** trigger is able to monitor all active recipes, or only selected recipes, for failed jobs. This is useful in ensuring that key recipes are monitored and that corrective actions are carried out and teams are alerted when a recipe does not execute as expected.
+The **New failed job** trigger is able to monitor all active recipes, or  selected recipes, for failed jobs. This is useful in ensuring that key recipes are monitored and corrective actions, including notifications, can be automated.
 
 When monitoring selected recipes, provide the IDs of recipes to watch.
 
@@ -50,7 +52,7 @@ Similar to the error notification emails, this trigger will trigger only once an
 - If the monitored recipe encounters 5 failed jobs with different errors within a 2-hour timespane, the recipe will pick up 5 trigger events.
 
 ### Recipe stopped by Workato trigger
-Under certain circumstances, Workato stops active recipes, e.g. when 60 cumulative authentication errors occur in the trigger. Generally, Workato stops recipes when they encounter non-recoverable errors, i.e. when Workato has attempted to carry out the trigger or action without success for a consecutive number of times.
+Under certain error conditions, Workato will stop an active recipe, e.g. when 60 cumulative authentication errors occur in the trigger. Generally, Workato stops recipes when they encounter non-recoverable errors, i.e. when Workato has attempted to carry out the trigger or action without success for a consecutive number of times.
 
 This trigger allows users to build ‘restart’ logic or other custom escalation policies for key recipes that should not be stopped.
 
