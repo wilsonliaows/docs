@@ -1,4 +1,4 @@
-# Workato SDK Basics
+# Connector SDK Basics
 
 This chapter provides a step-by-step walk through of building your own custom connector. Less common features are not included here. For details and examples, navigate to the respective chapters.
 
@@ -153,7 +153,7 @@ There are several components where the connector needs to describe the expected 
 ]
 ```
 
-# connector components
+# Connector components
 
 With these basics out of the way, we can now walk through an example connector, and show how its various parts relate to how users will edit and run recipes.
 
