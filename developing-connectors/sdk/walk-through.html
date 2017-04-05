@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Methods · GitBook</title>
+        <title>Walk through · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="pick-list.html" />
+    <link rel="next" href="authentication.html" />
     
     
-    <link rel="prev" href="data-format/xml-format.html" />
+    <link rel="prev" href="api-requirements.html" />
     
 
     
@@ -98,7 +98,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="../..">Methods</a>
+          <a href="../..">Walk through</a>
         </h1>
       </div>
     </div>
@@ -1100,7 +1100,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.3" data-path="walk-through.html">
+    <li class="chapter active" data-level="1.16.3" data-path="walk-through.html">
       
 
       
@@ -1349,7 +1349,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.16.10" data-path="methods.html">
+    <li class="chapter " data-level="1.16.10" data-path="methods.html">
       
 
       
@@ -1471,113 +1471,349 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="methods">Methods</h1>
-<p>Not all ruby public instance methods are available. Methods are whitelisted to ensure security. The Workato SDK Framework also exposes some methods to make building SDKs convenient.</p>
-<p>Here is a list of methods available:</p>
-<p>REST verb methods</p>
+                                <h1 id="connector-sdk-basics">Connector SDK Basics</h1>
+<p>This chapter provides a step-by-step walk through of building your own custom connector. Less common features are not included here. For details and examples, navigate to the respective chapters.</p>
+<h2 id="making-requests">Making requests</h2>
+<p>The custom connector framework supports building connectors to applications that offer an API reachable over HTTP/HTTPS.  The common request/response formats are supported: JSON (default), XML, and <code>www-form-urlencoded</code>.</p>
+<p>In parts of the connector that need to make requests, the HTTP verbs (GET, POST etc) are supported as ruby methods.  Let&apos;s use an example of an API that uses simple token-based authentication passed as a URL parameter, and returns customer records wrapped in a superfluous <code>customer</code> JSON object that we want the connector to peel off as it&apos;s not useful to recipe authors using it:</p>
+<p><code>GET https://api.my-app.com/v1/customers.json?id=1234&amp;api_token=xyz</code></p>
+<pre><code class="lang-javascript">{
+  <span class="hljs-string">&quot;customer&quot;</span>: {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1234</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;John Smith&quot;</span>,
+    <span class="hljs-string">&quot;email&quot;</span>: <span class="hljs-string">&quot;john.smith@email.com&quot;</span>,
+    <span class="hljs-string">&quot;address&quot;</span>: {
+      <span class="hljs-string">&quot;street&quot;</span>: <span class="hljs-string">&quot;123 Main St&quot;</span>,
+      <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;Anytown&quot;</span>,
+      <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;CA&quot;</span>,
+      <span class="hljs-string">&quot;zip&quot;</span>: <span class="hljs-string">&quot;94321&quot;</span>,
+      <span class="hljs-string">&quot;country&quot;</span>: <span class="hljs-string">&quot;USA&quot;</span>
+    }
+  }
+}
+</code></pre>
+<p>A request to do the above could be written in a custom connector as:</p>
+<pre><code class="lang-ruby">get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json?id=1234&amp;api_token=xyz&apos;</span>)[<span class="hljs-string">&apos;customer&apos;</span>]
+</code></pre>
+<p>or</p>
+<pre><code class="lang-ruby">get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>).params(<span class="hljs-symbol">id:</span> <span class="hljs-number">1234</span>, <span class="hljs-symbol">api_token:</span> <span class="hljs-string">&apos;xyz&apos;</span>)[<span class="hljs-string">&apos;customer&apos;</span>]
+</code></pre>
+<h2 id="request-execution">Request execution</h2>
+<p>Let&apos;s dissect the different parts of the second form of the request above:</p>
+<pre><code class="lang-ruby">get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>).params(<span class="hljs-symbol">id:</span> <span class="hljs-number">1234</span>, <span class="hljs-symbol">api_token:</span> <span class="hljs-string">&apos;xyz&apos;</span>)[<span class="hljs-string">&apos;customer&apos;</span>]
+</code></pre>
+<p>This chains three method calls:</p>
 <ul>
-<li>get(url, input)</li>
-<li>post(url, input)</li>
-<li>put(url, input)</li>
-<li>patch(url, input)</li>
+<li>Create the base request.</li>
+<li>Mix in more request options.</li>
+<li>Access the response, at which point the request is lazy-executed.</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>each</td>
-<td>Basic iterator<br>`[1, 2, 3].each { \</td>
-<td>i\</td>
-<td>puts i }`</td>
-</tr>
-<tr>
-<td>group_by</td>
-<td><a href="http://apidock.com/rails/Enumerable/group_by" target="_blank">Group arrays into sets</a></td>
-</tr>
-<tr>
-<td>headers</td>
-<td>Add headers to a request<br><code>.headers(Authorization: &quot;Bearer HTB674HJK1&quot;)</code></td>
-</tr>
-<tr>
-<td>params</td>
-<td>Add parameter to a request<br><code>.params(api_key: &quot;HTB674HJK1&quot;)</code></td>
-</tr>
-<tr>
-<td>payload</td>
-<td>Add payload to a request<br><code>.payload(id: &quot;345&quot;)</code></td>
-</tr>
-<tr>
-<td>ignored</td>
-<td>Ignore a comma-separate list of fields<br><code>object_definition[&quot;user&quot;].ignored(&quot;id&quot;, &quot;created_at&quot;)</code></td>
-</tr>
-<tr>
-<td>only</td>
-<td>White list a comma-separate  of fields<br><code>object_definition[&quot;user&quot;].only(&quot;id&quot;, &quot;name&quot;)</code></td>
-</tr>
-<tr>
-<td>required</td>
-<td>Make a comma-separate list of fields required<br><code>object_definition[&quot;user&quot;].required(&quot;id&quot;, &quot;created_at&quot;)</code></td>
-</tr>
-<tr>
-<td>inject</td>
-<td><a href="http://apidock.com/ruby/Enumerable/inject" target="_blank">Combine elements in an array using an operation</a></td>
-</tr>
-<tr>
-<td>iso8601</td>
-<td>Convert a date/date-time variable to ISO8601 format</td>
-</tr>
-<tr>
-<td>map</td>
-<td>Returns a new array after invoking block on each element</td>
-</tr>
-<tr>
-<td>merge</td>
-<td>Returns a new hash containing <a href="https://ruby-doc.org/core-2.2.0/Hash.html#method-i-merge" target="_blank">merged contents</a> of another hash</td>
-</tr>
-<tr>
-<td>pluck</td>
-<td>Select one or more attributes from an array of objects<br><code>[{&quot;id&quot;: 1, &quot;name&quot;: &quot;David&quot;},{&quot;id&quot;: 2, &quot;name&quot;: &quot;Peter&quot;}].pluck(&quot;id&quot;)</code> returns <code>[1, 2]</code></td>
-</tr>
-<tr>
-<td>rand</td>
-<td>Random number between 0 and 1</td>
-</tr>
-<tr>
-<td>select</td>
-<td><a href="http://apidock.com/ruby/v1_9_3_392/Array/select" target="_blank">Selectively returns</a> elements for which the block returns true</td>
-</tr>
-<tr>
-<td>reject</td>
-<td><a href="http://apidock.com/ruby/v1_9_3_392/Array/reject" target="_blank">Selectively returns</a> elements for which the block returns false (similar but opposite of select)</td>
-</tr>
-<tr>
-<td>sort</td>
-<td><a href="http://apidock.com/ruby/Array/sort" target="_blank">Sort function</a> returning new sorted array</td>
-</tr>
-<tr>
-<td>sort_by</td>
-<td><a href="http://apidock.com/ruby/v1_9_3_392/Array/sort_by" target="_blank">Sort function</a> returning self</td>
-</tr>
-<tr>
-<td>utc</td>
-<td>Convert Time to <a href="http://ruby-doc.org/core-2.2.0/Time.html#method-c-utc" target="_blank">utc</a></td>
-</tr>
-<tr>
-<td>puts</td>
-<td>ruby version of console.log/stdout, not the same as put</td>
-</tr>
-<tr>
-<td>while</td>
-<td><a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm" target="_blank">while loop statement</a></td>
-</tr>
-</tbody>
-</table>
-<p>(This list can and will be expanded constantly, feel free to contact <a href="support@workato.com">us</a> to update/add to this list)</p>
+<h3 id="base-request">Base request</h3>
+<p><code>GET https://api.my-app.com/v1/customers.json</code></p>
+<pre><code class="lang-ruby">get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>)
+</code></pre>
+<p>No request has been made yet: The result so far is the cued-up request for the base URL, and with the request and expected response format set to the default, JSON.</p>
+<h3 id="mix-in-request-options">Mix in request options</h3>
+<p><code>id=1234&amp;api_token=xyz</code></p>
+<pre><code class="lang-ruby">params(<span class="hljs-symbol">id:</span> <span class="hljs-number">1234</span>, <span class="hljs-symbol">api_token:</span> <span class="hljs-string">&apos;xyz&apos;</span>)
+</code></pre>
+<p><code>params</code> is one of the methods available on the request object, adding URL parameters, which are passed as a hash object.  More methods can be similarly chained to mix in other aspects of the request that is to be made:</p>
+<ul>
+<li><p><code>payload</code></p>
+<p>Payload fields (PATCH, POST, PUT only), also passed as a hash.</p>
+</li>
+<li><p><code>headers</code></p>
+<p>Request headers, passed as a hash</p>
+</li>
+<li><p>Methods to change the request/response (or both) formats from the JSON default:</p>
+<p><code>request_format_json</code>, <code>response_format_json</code>, <code>format_json</code>, <code>request_format_xml</code>, <code>response_format_xml</code>, <code>format_xml</code>, <code>request_format_www_form_urlencoded</code></p>
+</li>
+<li><p>HTTP authentication</p>
+<p><code>user</code>, <code>password</code></p>
+</li>
+</ul>
+<h3 id="execute-request-and-process-the-response">Execute request and process the response</h3>
+<pre><code class="lang-ruby">  [<span class="hljs-string">&apos;customer&apos;</span>]
+</code></pre>
+<p>By calling any method (<code>[]</code> here) that is not a request option, the connector signals that it is time to make the request so that we can process the API response.  In this JSON default case, the response is parsed into a ruby hash:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-string">&quot;customer&quot;</span> =&gt; {
+    <span class="hljs-string">&quot;id&quot;</span> =&gt; <span class="hljs-number">1234</span>,
+    <span class="hljs-string">&quot;name&quot;</span> =&gt; <span class="hljs-string">&quot;John Smith&quot;</span>,
+    <span class="hljs-string">&quot;email&quot;</span> =&gt; <span class="hljs-string">&quot;john.smith@email.com&quot;</span>,
+    <span class="hljs-string">&quot;address&quot;</span> =&gt; {
+      <span class="hljs-string">&quot;street&quot;</span> =&gt; <span class="hljs-string">&quot;123 Main St&quot;</span>,
+      <span class="hljs-string">&quot;city&quot;</span> =&gt; <span class="hljs-string">&quot;Anytown&quot;</span>,
+      <span class="hljs-string">&quot;state&quot;</span> =&gt; <span class="hljs-string">&quot;CA&quot;</span>,
+      <span class="hljs-string">&quot;zip&quot;</span> =&gt; <span class="hljs-string">&quot;94321&quot;</span>,
+      <span class="hljs-string">&quot;country&quot;</span> =&gt; <span class="hljs-string">&quot;USA&quot;</span>
+    }
+  }
+}
+</code></pre>
+<p>Which then has the <code>[&apos;customer&apos;]</code> method evaluated on it, peeling off the <code>customer</code> envelope and resulting in the action&apos;s output:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-string">&quot;id&quot;</span> =&gt; <span class="hljs-number">1234</span>,
+  <span class="hljs-string">&quot;name&quot;</span> =&gt; <span class="hljs-string">&quot;John Smith&quot;</span>,
+  <span class="hljs-string">&quot;email&quot;</span> =&gt; <span class="hljs-string">&quot;john.smith@email.com&quot;</span>,
+    <span class="hljs-string">&quot;address&quot;</span> =&gt; {
+      <span class="hljs-string">&quot;street&quot;</span> =&gt; <span class="hljs-string">&quot;123 Main St&quot;</span>,
+      <span class="hljs-string">&quot;city&quot;</span> =&gt; <span class="hljs-string">&quot;Anytown&quot;</span>,
+      <span class="hljs-string">&quot;state&quot;</span> =&gt; <span class="hljs-string">&quot;CA&quot;</span>,
+      <span class="hljs-string">&quot;zip&quot;</span> =&gt; <span class="hljs-string">&quot;94321&quot;</span>,
+      <span class="hljs-string">&quot;country&quot;</span> =&gt; <span class="hljs-string">&quot;USA&quot;</span>
+    }
+}
+</code></pre>
+<h2 id="schema---describing-inputoutput">Schema - describing input/output</h2>
+<p>There are several components where the connector needs to describe the expected fields for input, output or configuration.  This is done using schema notation:</p>
+<pre><code class="lang-ruby">[
+  { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;id&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:integer</span> },
+  { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;name&quot;</span> },
+  { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;email&quot;</span> },
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;address&quot;</span>,
+    <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:object</span>,
+    <span class="hljs-symbol">properties:</span> [
+      { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;street&quot;</span> },
+      { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;city&quot;</span> },
+      { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;zip&quot;</span> },
+      { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;country&quot;</span> }
+    ]
+  }
+]
+</code></pre>
+<h1 id="connector-components">Connector components</h1>
+<p>With these basics out of the way, we can now walk through an example connector, and show how its various parts relate to how users will edit and run recipes.</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-symbol">title:</span> <span class="hljs-string">&apos;My sample connector&apos;</span>,
+
+  <span class="hljs-symbol">connection:</span> {
+</code></pre>
+<h2 id="connection-fields">Connection fields</h2>
+<p>The optional connection <code>fields</code> use the <a href="#schema---describing-inputoutput">schema</a> notation to describe the connection configuration fields, if any are needed.  Using the example API above that requires an <code>api_token</code> URL parameter, this might be:</p>
+<pre><code class="lang-ruby">    <span class="hljs-symbol">fields:</span> [
+      {
+        <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;api_token&apos;</span>,
+        <span class="hljs-symbol">label:</span> <span class="hljs-string">&apos;API token&apos;</span>,
+        <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>,
+        <span class="hljs-symbol">hint:</span> <span class="hljs-string">&apos;You can find your MyApp API token under &quot;Account Settings&quot;&apos;</span>
+      }
+    ],
+</code></pre>
+<p>use the <a href="#schema---describing-inputoutput">schema</a> notation to describe the connection&apos;s properties, shown wherever the connection configuration is displayed, for example in the recipe&apos;s connection tab:</p>
+<p><img src="https://cloud.githubusercontent.com/assets/428200/22226964/91da3d50-e17d-11e6-8f04-c266e5546404.png" alt="screenshot from 2017-01-23 15-06-44"></p>
+<h2 id="authorization">Authorization</h2>
+<p><code>connection</code> can optionally also contain an <code>authorization</code> component to consolidate the API&apos;s authorization logic.  <code>authorization</code> can contain several components, its most important one being <code>apply</code>, which lets us define <a href="#mix-in-request-options">request options</a> that will be added to any API request made by the connector:</p>
+<pre><code class="lang-ruby">    <span class="hljs-symbol">authorization:</span> {
+      <span class="hljs-symbol">apply:</span> lambda <span class="hljs-keyword">do</span> |connection|
+        params(<span class="hljs-symbol">api_token:</span> connection[<span class="hljs-string">&apos;api_token&apos;</span>])
+      <span class="hljs-keyword">end</span>
+    },
+</code></pre>
+<p>This way our <a href="#request-execution">requests</a> don&apos;t need to repeat the authorization options:</p>
+<pre><code class="lang-ruby">get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>).params(<span class="hljs-symbol">id:</span> <span class="hljs-number">1234</span>)[<span class="hljs-string">&apos;customer&apos;</span>]
+</code></pre>
+<h2 id="connection-test">Connection test</h2>
+<p>Back outside <code>connection</code>, the <code>test</code> component lets the connection be tested, e.g. to make sure the credentials, like <code>api_token</code> in this example, are still valid.</p>
+<pre><code class="lang-ruby">  },
+
+  <span class="hljs-symbol">test:</span> lambda <span class="hljs-keyword">do</span> |connection|
+    get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>).params(<span class="hljs-symbol">limit:</span> <span class="hljs-number">1</span>)
+  <span class="hljs-keyword">end</span>,
+</code></pre>
+<p>As long as the lambda does not raise an exception, the connection is considered live.  It is invoked:</p>
+<ul>
+<li><p>With non-OAuth connectors only: when the <code>Connect</code> button is clicked.</p>
+</li>
+<li><p>In all cases:  When starting a recipe, each connection used in it has the corresponding <code>test</code> called; starting the recipe fails if any <code>test</code> raises an error.</p>
+</li>
+</ul>
+<h1 id="actions">Actions</h1>
+<pre><code class="lang-ruby">  <span class="hljs-symbol">actions:</span> {
+    <span class="hljs-symbol">get_customer_by_id:</span> {
+</code></pre>
+<h2 id="input-form">Input form</h2>
+<p>When one of the connector&apos;s actions is used in a recipe, its input form is based on its <code>input_fields</code> lambda, which also uses the <a href="#schema---describing-inputoutput">schema</a> notation.</p>
+<p>Continuing with our &quot;get customer by ID&quot; action example:</p>
+<pre><code class="lang-ruby">      <span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
+        [
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;id&apos;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:integer</span>, <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span> }
+        ]
+      <span class="hljs-keyword">end</span>,
+</code></pre>
+<p><img src="https://cloud.githubusercontent.com/assets/428200/22232125/61f40ff2-e19c-11e6-97e5-b7fe7816e010.png" alt="screenshot from 2017-01-23 18-47-05"></p>
+<h2 id="output-tree">Output tree</h2>
+<p>Using the same <a href="#schema---describing-inputoutput">schema</a> notation, <code>output_fields</code> describes the action&apos;s output that will appear downstream in the recipe job data:</p>
+<pre><code class="lang-ruby">      <span class="hljs-symbol">output_fields:</span> lambda <span class="hljs-keyword">do</span>
+        [
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;id&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:integer</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;name&quot;</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;email&quot;</span> },
+          {
+            <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;address&quot;</span>,
+            <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:object</span>,
+            <span class="hljs-symbol">properties:</span> [
+              { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;street&quot;</span> },
+              { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;city&quot;</span> },
+              { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;zip&quot;</span> },
+              { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;country&quot;</span> }
+            ]
+          }
+        ]
+      <span class="hljs-keyword">end</span>,
+</code></pre>
+<p><img src="https://cloud.githubusercontent.com/assets/428200/22232411/1274adf4-e19e-11e6-83a7-dadd1ceebde3.png" alt="screenshot from 2017-01-23 18-59-17"></p>
+<h2 id="execute"><code>execute</code></h2>
+<p>At runtime, when the job reaches a recipe line that uses this action, its <code>execute</code> lambda is called.</p>
+<ul>
+<li><p>The first argument is the <a href="#connection-fields"><code>connection</code></a> fields, packaged in a hash object.</p>
+</li>
+<li><p>The second argument is the action&apos;s input, evaluated based on how the <a href="#input-form">input form</a> is configured in the recipe.  Also packaged as a hash object.</p>
+</li>
+</ul>
+<p>As discussed earlier, the <code>execute</code> lambda <a href="#request-execution">makes the request</a>.  The result, lazy-evaluated either within the lambda or right after it returns, is expected to contain the specified <a href="#output-tree">output fields</a>.</p>
+<pre><code class="lang-ruby">      <span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+        get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>).params(<span class="hljs-symbol">id:</span> input[<span class="hljs-string">&apos;id&apos;</span>])[<span class="hljs-string">&apos;customer&apos;</span>]
+      <span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-ruby">    } <span class="hljs-comment"># get_customer_by_id</span>
+  }, <span class="hljs-comment"># actions:</span>
+</code></pre>
+<h1 id="triggers">Triggers</h1>
+<pre><code class="lang-ruby">  <span class="hljs-symbol">triggers:</span> {
+    <span class="hljs-symbol">new_customer:</span> {
+</code></pre>
+<h2 id="input-form">Input form</h2>
+<p>Same as the one for <a href="#input-form">actions</a></p>
+<h2 id="output-tree">Output tree</h2>
+<p>Similar to <a href="#output-tree">actions</a>, but describes what each <strong>one</strong> of the collection of records that the trigger&apos;s <code>poll</code> (see below) contains.</p>
+<h2 id="polling-for-trigger-events">Polling for trigger events</h2>
+<p>There are two types of trigger, to cater to two common patterns in such API endpoints: &quot;Ascending&quot; (the default), and &quot;paging&quot;, a.k.a. descending.</p>
+<h3 id="ascending-endpoints">&quot;Ascending&quot; endpoints</h3>
+<p>These are API endpoints that list records in the same order as we would want them consumed.  This is typically ascending in creation or modification time.</p>
+<p><code>GET /v1/customers.json?created_since=2017-01-01T12:00:00Z&amp;order=asc&amp;limit=100</code></p>
+<pre><code class="lang-javascript">{
+  <span class="hljs-string">&quot;customers&quot;</span>: [
+     {
+       id: <span class="hljs-number">1234</span>,
+       created_at: <span class="hljs-string">&quot;2017-01-02T12:34:56Z&quot;</span>,
+       ...
+     },
+     ... (up to <span class="hljs-number">100</span> total customer records)
+     {
+       id: <span class="hljs-number">2345</span>,
+       created_at: <span class="hljs-string">&quot;2017-01-03T12:34:56Z&quot;</span>,
+       ...
+     }
+  ]
+}
+</code></pre>
+<h4 id="poll"><code>poll</code></h4>
+<pre><code class="lang-ruby">    <span class="hljs-symbol">new_customer_ascending:</span> {
+      <span class="hljs-symbol">poll:</span> lambda <span class="hljs-keyword">do</span> |connection, input, last_created_since|
+        created_since = last_created_since || input[<span class="hljs-string">&apos;created_since&apos;</span>]
+        customers = get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>).
+                      params(<span class="hljs-symbol">created_since:</span> created_since.iso8601,
+                             <span class="hljs-symbol">order:</span> <span class="hljs-string">&apos;asc&apos;</span>,
+                             <span class="hljs-symbol">limit:</span> <span class="hljs-number">100</span>)[<span class="hljs-string">&apos;customers&apos;</span>] || []
+        {
+          <span class="hljs-symbol">events:</span> customers,
+          <span class="hljs-symbol">next_poll:</span> (customers.length &gt; <span class="hljs-number">0</span> &amp;&amp; customers.last[<span class="hljs-string">&apos;created_at&apos;</span>] ||
+                        created_since),
+          <span class="hljs-symbol">can_poll_more:</span> (customers.length &gt;= <span class="hljs-number">100</span>)
+        }
+      <span class="hljs-keyword">end</span>,
+</code></pre>
+<p>The <code>poll</code> response contains three parts:</p>
+<h5 id="events"><code>events</code></h5>
+<p>This is the array of events polled (customer objects in this case), out of which jobs may be started with the recipe.</p>
+<h5 id="nextpoll"><code>next_poll</code></h5>
+<p>An object to be passed as the last argument (named to <code>last_created_since</code> in this example) to the next poll cycle.  Use this to maintain a &quot;cursor&quot; for the next request.</p>
+<h5 id="canpollmore"><code>can_poll_more</code></h5>
+<p>A flag that informs the runtime whether more results may be immediately available.  If true, a further poll will be made (almost) immediately.</p>
+<h4 id="dedup"><code>dedup</code></h4>
+<pre><code class="lang-ruby">      <span class="hljs-symbol">dedup:</span> lambda <span class="hljs-keyword">do</span> |customer|
+        customer[<span class="hljs-string">&apos;id&apos;</span>]
+      <span class="hljs-keyword">end</span>,
+    }, <span class="hljs-comment"># closing out the trigger</span>
+</code></pre>
+<p>It is not always possible to prevent the same record from appearing in separate <code>poll</code> invocations.  To avoid duplicate recipe jobs, the runtime uses <code>dedup</code>, passing it each item returned in <a href="#events"><code>events</code></a>.  The output is a unique identifier associated with the recipe job that results from that item.</p>
+<p>For triggers that track the creation of new objects, the unique identifier is typically the application-specific unique ID for that object.</p>
+<p>Another common trigger pattern is tracking object modification.  To reflect that, the connector would typically mix the object&apos;s modification timestamp into the event&apos;s unique ID:</p>
+<pre><code class="lang-ruby"><span class="hljs-string">&quot;<span class="hljs-subst">#{customer[<span class="hljs-string">&apos;id&apos;</span>]}</span>@<span class="hljs-subst">#{customer[<span class="hljs-string">&apos;modified_at&apos;</span>]}</span>&quot;</span>
+</code></pre>
+<h3 id="descending-endpoints">&quot;Descending&quot; endpoints</h3>
+<p>These are endpoints that list records in the opposite order from the one we want them consumed.</p>
+<p><code>GET /v1/customers.json?created_since=2017-01-01T12:00:00Z&amp;created_before=2017-01-21T00:00:00Z&amp;order=desc&amp;limit=100</code></p>
+<pre><code class="lang-javascript">{
+  <span class="hljs-string">&quot;customers&quot;</span>: [
+     {
+       id: <span class="hljs-number">9876</span>,
+       created_at: <span class="hljs-string">&quot;2017-01-20T12:34:56Z&quot;</span>,
+       ...
+     }
+     ... (up to <span class="hljs-number">100</span> total customer records)
+     {
+       id: <span class="hljs-number">8765</span>,
+       created_at: <span class="hljs-string">&quot;2017-01-19T12:34:56Z&quot;</span>,
+       ...
+     }
+  ]
+}
+</code></pre>
+<h4 id="poll"><code>poll</code></h4>
+<p>The polling strategy for these endpoints is to &quot;page&quot; backwards, until we reach the beginning of the result set (or results we have processed before).  At that point the runtime handles creating the recipe jobs in the &quot;correct&quot; order.</p>
+<pre><code class="lang-ruby">    <span class="hljs-symbol">new_customer_descending:</span> {
+      <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:paging_desc</span>, <span class="hljs-comment"># marks this as a &quot;descending&quot; trigger</span>
+
+      <span class="hljs-symbol">poll:</span> lambda <span class="hljs-keyword">do</span> |connection, input, last_created_before|
+        created_before = last_created_before || Time.now
+        customers = get(<span class="hljs-string">&apos;https://api.my-app.com/v1/customers.json&apos;</span>).
+                      params(<span class="hljs-symbol">created_since:</span> input[<span class="hljs-string">&apos;created_since&apos;</span>].iso8601,
+                             <span class="hljs-symbol">created_before:</span> created_before.iso8601,
+                             <span class="hljs-symbol">order:</span> <span class="hljs-string">&apos;desc&apos;</span>,
+                             <span class="hljs-symbol">limit:</span> <span class="hljs-number">100</span>)[<span class="hljs-string">&apos;customers&apos;</span>] || []
+        {
+          <span class="hljs-symbol">events:</span> customers,
+          <span class="hljs-symbol">next_page:</span> (customers.length &gt;= <span class="hljs-number">100</span> &amp;&amp; customers.last[<span class="hljs-string">&apos;created_at&apos;</span>]).presence
+        }
+      <span class="hljs-keyword">end</span>,
+</code></pre>
+<p>This trigger variant&apos;s <code>poll</code> response contains two parts:</p>
+<h5 id="events"><code>events</code></h5>
+<p>Similar to the ascending variant&apos;s <a href="#events"><code>events</code></a>, but expected to be in descending order.</p>
+<h5 id="nextpage"><code>next_page</code></h5>
+<p>If present (not <code>nil</code>), this signals the runtime that there may be more, &quot;earlier&quot;, events available in the endpoint.</p>
+<p>This value will be passed to the next <code>poll</code> as the third argument, named <code>last_created_before</code> in this example.</p>
+<p>In comparison with the ascending trigger variant, this value plays the roles of both the &quot;cursor&quot; (<a href="#next_poll"><code>next_poll</code></a>) and poll timing hint (<a href="#can_poll_more"><code>can_poll_more</code></a>).</p>
+<p>The connector doesn&apos;t need to keep track of how far we can go before we encounter already-seen events; the runtime handles that state, in combination with the rest of the descending trigger components:</p>
+<h4 id="documentid"><code>document_id</code></h4>
+<pre><code class="lang-ruby">      <span class="hljs-symbol">document_id:</span> lambda <span class="hljs-keyword">do</span> |customer|
+        customer[<span class="hljs-string">&apos;id&apos;</span>]
+      <span class="hljs-keyword">end</span>,
+</code></pre>
+<p>Extracts the unique ID of the underlying object.  This is optional, if absent then the default behavior is to use the field called <code>id</code> (case insensitive) in the object (the example above just illustrates the default).</p>
+<p><strong>Note</strong>: This is not the same as <a href="#dedup-1"><code>dedup</code></a> below.</p>
+<h4 id="sortby"><code>sort_by</code></h4>
+<pre><code class="lang-ruby">      <span class="hljs-symbol">sort_by:</span> lambda <span class="hljs-keyword">do</span> |customer|
+        customer[<span class="hljs-string">&apos;created_at&apos;</span>]
+      <span class="hljs-keyword">end</span>,
+</code></pre>
+<p>Extracts a sorting/ranking value for the underlying object, so the runtime can determine whether we have polled &quot;far enough&quot; backwards.</p>
+<h4 id="dedup"><code>dedup</code></h4>
+<pre><code class="lang-ruby">      <span class="hljs-symbol">dedup:</span> lambda <span class="hljs-keyword">do</span> |customer|
+        <span class="hljs-string">&quot;<span class="hljs-subst">#{customer[<span class="hljs-string">&apos;id&apos;</span>]}</span>@<span class="hljs-subst">#{customer[<span class="hljs-string">&apos;created_at&apos;</span>]}</span>&quot;</span>
+      <span class="hljs-keyword">end</span>
+    }, <span class="hljs-comment"># closing out the trigger</span>
+</code></pre>
+<p>Performs the same de-duplication logic as in <a href="#dedup">the case</a> of ascending triggers.  However in the case of descending triggers it is optional; example above is the default, of combining the result of <code>document_id</code> and <code>sort_by</code>, separated by a <code>@</code> character.</p>
+<h1 id="complete-connector">Complete connector</h1>
+<p>At this point, after closing the remaining &quot;open&quot; braces in the connector description:</p>
+<pre><code class="lang-ruby">  } <span class="hljs-comment"># triggers</span>
+} <span class="hljs-comment"># top-level connector hash</span>
+</code></pre>
+<p>The connector should be ready to be used.</p>
 
                                 
                                 </section>
@@ -1777,7 +2013,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Methods","level":"1.16.10","depth":2,"next":{"title":"Pick lists","level":"1.16.11","depth":2,"path":"developing-connectors/sdk/pick-list.md","ref":"developing-connectors/sdk/pick-list.md","articles":[]},"previous":{"title":"XML","level":"1.16.9.2","depth":3,"path":"developing-connectors/sdk/data-format/xml-format.md","ref":"developing-connectors/sdk/data-format/xml-format.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/methods.md","mtime":"2017-04-05T06:30:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-05T06:31:45.926Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Walk through","level":"1.16.3","depth":2,"next":{"title":"Authentication","level":"1.16.4","depth":2,"path":"developing-connectors/sdk/authentication.md","ref":"developing-connectors/sdk/authentication.md","articles":[{"title":"Basic auth","level":"1.16.4.1","depth":3,"path":"developing-connectors/sdk/authentication/basic-authentication.md","ref":"developing-connectors/sdk/authentication/basic-authentication.md","articles":[]},{"title":"OAuth 2.0","level":"1.16.4.2","depth":3,"path":"developing-connectors/sdk/authentication/oauth2-authentication.md","ref":"developing-connectors/sdk/authentication/oauth2-authentication.md","articles":[]},{"title":"Custom auth","level":"1.16.4.3","depth":3,"path":"developing-connectors/sdk/authentication/custom-authentication.md","ref":"developing-connectors/sdk/authentication/custom-authentication.md","articles":[]},{"title":"Test","level":"1.16.4.4","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]}]},"previous":{"title":"API requirements","level":"1.16.2","depth":2,"path":"developing-connectors/sdk/api-requirements.md","ref":"developing-connectors/sdk/api-requirements.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/walk-through.md","mtime":"2017-04-05T06:30:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-05T06:31:45.926Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
