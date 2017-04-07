@@ -18,14 +18,14 @@ These changes driven by user actively changing the recipe. e.g. adding or removi
 
 - Schema change
 
-These changes are driven by Workato when it notices that the underlying schema of objects in the recipe has changed. e.g. when using a Salesforce custom object has a new field added. 
+These changes are driven by Workato when it notices that the underlying schema of objects in the recipe has changed. e.g. when using a Salesforce custom object has a new field added.
 
  Such schema refreshes will auto create a new version of the recipe.
 
 # Restoring versions
 To restore previous versions of the recipe, switch to the **Versions** tab to view all available versions. Recipe versions can be first previewed before being restored.
 
-[![https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb](https://i.gyazo.com/45711334ec05ed2e08fb6a3aa23232bb.gif)](https://gyazo.com/45711334ec05ed2e08fb6a3aa23232bb)
+![Preview and restore recipe](/assets/images/recipes/recipe-version-management/preview-restore-recipe.png)
 *Previewing and restoring a previous version of the recipe*
 
 Restored versions will be created as a new version. In the following case, the recipe had 3 versions initially. When version 2 of the recipe was restored, the restored version was created as Version 4.

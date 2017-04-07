@@ -6,12 +6,9 @@ date: 2017-03-23 14:00:00 Z
 # Action Errors
 When working on Workato, you will occasionally encounter errors. Errors arise when something has gone wrong with the recipe, like when a recipe wasn't configured properly, or the app you are trying to connect with is experiencing downtime. Job Failures and how to deal with them
 
-When one of your recipes encounters an error, you will receive an email informing you about it. You will also see a red 
+When one of your recipes encounters an error, you will receive an email informing you about it. You will also see a red
 
 rJD7hmlUodRmH3X4krGRFqY-l3X8P14SLw.png
-
-
-
 
 
 This is a sample of a recipe. The red digit is the number of errors or failed jobs while the green count is the number of successful jobs. You can check out your failed jobs at the "Jobs" section after you click into a recipe.

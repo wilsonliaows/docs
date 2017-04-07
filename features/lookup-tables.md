@@ -4,11 +4,11 @@ date: 2017-02-23 15:15:00 Z
 ---
 
 # Lookup tables
-The primary reason for lookup tables (also termed as cross reference tables) is to enable fast and easy lookup of frequently used data that are static and immutable. 
+The primary reason for lookup tables (also termed as cross reference tables) is to enable fast and easy lookup of frequently used data that are static and immutable.
 
 Some of examples of such data include:
-* Given a city name, you want to get the zip code 
-* Conversion from metric to SI for distances 
+* Given a city name, you want to get the zip code
+* Conversion from metric to SI for distances
 * Given a department, rank, retrieve vacation accrual rate
 
 Lookup tables is currently only available to **Business plans and up**.
@@ -19,7 +19,7 @@ We support only 5 columns. Each column can be used as a key to lookup the entry
 
 ## How to setup your lookup tables
 There are two ways your recipes can upload data from your lookup tables:
-* By importing an existing CSV file 
+* By importing an existing CSV file
 * By adding new entries via a recipe
 
 Note: Lookup tables are immutable and the existing entries cannot be modified or deleted.
@@ -45,7 +45,7 @@ There is a special connector called ‘Lookup table’ that allows you to work w
 As the name suggests, data is typically organized like in a database table columns and rows of data. You can then lookup any row by one or more columns. You can lookup an entry within the specified lookup table by using
 * Any column
 * Multiple columns
-In the example below, all 4 available columns are displayed. It returns the first entry based on the column value provide. 
+In the example below, all 4 available columns are displayed. It returns the first entry based on the column value provide.
 ![Lookup5](/assets/images/features/Lookup Tables/lookup tables 5.png)
 
 This GIF walks you through the entire flow:
@@ -61,11 +61,11 @@ Add a new entry to an existing lookup table. Great for reading a data source and
 
 
 ## How to use Lookup Table Formulas
-Now that you have a lookup table set up, you need to configure your recipe to obtain data from one column of the table when data from another column is fed in. To do so, simply use the `lookup` formula. Simply set any field to formula mode, and enter the formula in this format: 
+Now that you have a lookup table set up, you need to configure your recipe to obtain data from one column of the table when data from another column is fed in. To do so, simply use the `lookup` formula. Simply set any field to formula mode, and enter the formula in this format:
 
 lookup(`table name`,`column name for search`: `data pill`)[`column name for result`]
 
-For an example you can take a look at the gif below. 
+For an example you can take a look at the gif below.
 
 ![lookup formula](/assets/images/features/Lookup Tables/Lookup formula.gif)
 

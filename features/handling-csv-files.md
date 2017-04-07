@@ -40,12 +40,12 @@ The following recipe parses new CSV files in Box and uses the data parsed to cre
 
 When using **Box new CSV file** trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato will build the trigger output datatree for use in subsequent actions.
 
-[![https://gyazo.com/52deab1efa9062c4b543f510734dace1](https://i.gyazo.com/52deab1efa9062c4b543f510734dace1.gif)](https://gyazo.com/52deab1efa9062c4b543f510734dace1)
+![Define expected columns in CSV](/assets/images/features/handling-csv-files/define-expected-csv-columns.gif)
 *Defining the expected columns in the CSV files that the recipe will pick up* [Example recipe](https://www.workato.com/recipes/485023)
 
 The columns defined in the **Box new CSV file** trigger shows up as usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.
 
-[![https://gyazo.com/dbab89736dd49284cc000d33c13fd096](https://i.gyazo.com/dbab89736dd49284cc000d33c13fd096.gif)](https://gyazo.com/dbab89736dd49284cc000d33c13fd096)
+![Use defined CSV variables](/assets/images/features/handling-csv-files/use-defined-csv-variables.gif)
 *Using the variables created from the columns definition* [Example recipe](https://www.workato.com/recipes/485023)
 
 ## Parsing CSV files via Utility connector's CSV parsing capability

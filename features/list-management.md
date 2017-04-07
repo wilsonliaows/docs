@@ -22,13 +22,12 @@ In most of the examples, the **Box** trigger **New CSV file** will be used to re
 
 If the above CSV file is the only CSV file in the selected Box folder in the trigger configuration, the fields list will be populated automatically with the column names. The column names has to correspond exactly with the header line in the CSV file in order for the CSV data to be mapped accurately to their columns.
 
-[![https://gyazo.com/52deab1efa9062c4b543f510734dace1](https://i.gyazo.com/52deab1efa9062c4b543f510734dace1.gif)](https://gyazo.com/52deab1efa9062c4b543f510734dace1)
-
+![Defining expected CSV columns](/assets/images/features/list-management/defining-expected-csv-columns.gif)
 *Defining the expected columns in the CSV files that the recipe will pick up* [Example recipe](https://www.workato.com/recipes/485023)
 
 The columns defined in the **Box new CSV file** trigger shows up as a list of usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.
 
-[![https://gyazo.com/ddeaa437a58a5068b5c4198a6a93a6b8](https://i.gyazo.com/ddeaa437a58a5068b5c4198a6a93a6b8.gif)](https://gyazo.com/ddeaa437a58a5068b5c4198a6a93a6b8)
+![CSV columns in trigger output](/assets/images/features/list-management/csv-columns-in-trigger-output.gif)
 *Row of CSV columns in the trigger output datatree*
 
 Notice the row icon in the datatree. This identifies lists in the datatree.
@@ -46,10 +45,10 @@ These datapills can be used to map into Workato actions' input fields. There are
 ## Using datapills directly in an action without list processing
 When using pills directly from a list, only the values of the first list item will be retrieved. In the following recipe, pills from the list are used directly in the **Log message** action.
 
-*Recipe using list pills directly in Log message action*
- ![Example recipe using list pills directly](/assets/images/features/list-management/example-recipe-using-list-pills-directly.png) [Example recipe](https://www.workato.com/recipes/487919)
+![Example recipe using list pills directly](/assets/images/features/list-management/example-recipe-using-list-pills-directly.png)
+*Recipe using list pills directly in Log message action* [Example recipe](https://www.workato.com/recipes/487919)
 
-[![https://gyazo.com/8b35298c73eddf54d629e8c323a05673](https://i.gyazo.com/8b35298c73eddf54d629e8c323a05673.gif)](https://gyazo.com/8b35298c73eddf54d629e8c323a05673)
+![Field mappings for log message](/assets/images/features/list-management/field-mappings-for-log-message.gif)
 *Field mappings for Log message action*
 
 In the job details page, the trigger output displays all three lines within the CSV file.
@@ -78,7 +77,7 @@ Actions that take lists as inputs will have a input field called **Source list**
 
 For the list object passed into the input source list, the list will be transferred from the source app to the target app, with the values being trasnferred based on the fields mapped in the recipe. The three inventory items will be moved from Box into Salesforce as products.
 
-[![https://gyazo.com/08c4f325262962296e7ca637b2e95b9e](https://i.gyazo.com/08c4f325262962296e7ca637b2e95b9e.gif)](https://gyazo.com/08c4f325262962296e7ca637b2e95b9e)
+![Mapping list data pills to list](/assets/images/features/list-management/mapping-list-datapills-to-list.gif)
 *Mapping of list datapills to list input*
 
 The following shows the CSV file content.
@@ -105,7 +104,7 @@ To iterate through the Rows list, pass the Rows list object as input for the rep
 
 When using the Repeat step, the important thing to note is to retrieve datapills from the For each datatree.
 
-[![https://gyazo.com/217a8b83b7d15d8f3dc0fde77cefe3c5](https://i.gyazo.com/217a8b83b7d15d8f3dc0fde77cefe3c5.gif)](https://gyazo.com/217a8b83b7d15d8f3dc0fde77cefe3c5)
+![Mapping from foreach datatree](/assets/images/features/list-management/mapping-from-foreach-datatree.gif)
 *Mapping datapills from the Foreach datatree*
 
 This ensures that, when the list is being iterated through, the first **Add inventory item** step uses the first line:
@@ -127,8 +126,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 ### Common mistake when using Repeat step
 As discussed [here](#using-datapills-from-lists), using pills directly from the list object in the datatree without list handling will result in the first list item being used. Hence, if datapills from the list object (instead of datapills from the Repeat step) are used inside the Repeat step, the recipe still iterates through the 3 CSV lines, but instead of using values from each line with every iteration, only values from the first line will be used for all 3 iterations, resulting in duplication.
 
-[![https://gyazo.com/530196f2eb3ff0879e7f880db1f518d5](https://i.gyazo.com/530196f2eb3ff0879e7f880db1f518d5.gif)](https://gyazo.com/530196f2eb3ff0879e7f880db1f518d5)
-
+![Recipe with direct mapping from list](/assets/images/features/list-management/recipe-with-wrong-direct-mapping.gif)
 *Example of a recipe with wrong direct mapping from list instead of from the Repeat step* ([Example recipe](https://www.workato.com/recipes/488273))
 
 ## List connector (Accumulator)
@@ -163,7 +161,7 @@ Fields can be added or edited within custom lists anytime.
 
 The custom list can also be edited via its JSON representation.
 
-[![https://gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c](https://i.gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c.gif)](https://gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c)
+![Editing custom list JSON](/assets/images/features/list-management/editing-custom-list-json.gif)
 *Editing the custom list's JSON representation*
 
 ## Example recipes that use accumulator, list input and Repeat step

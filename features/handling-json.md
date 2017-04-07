@@ -1,3 +1,8 @@
+---
+title: Handling JSON files
+date: 2017-04-05 16:00:00 Z
+---
+
 # JSON data format
 
 JSON (JavaScript Object Notation) is a syntax for storing data. It is perhaps the most popular and widely used data format in the world of APIs. JSON is based on name/value pairs and arrays, put together in a simple format which makes it highly readable and easily transmitted.

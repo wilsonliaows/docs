@@ -25,7 +25,7 @@ Every API token generated in Workato is unique. For best practice, it is recomme
 ## Creating an API token
 To create a new API token, simply give the API token a descriptive name (don't worry, you can always change it again later). Pass this token to someone to permit access to your service catalog.
 
-[![https://gyazo.com/4280b9728b492a9ba28fc366255e0040](https://i.gyazo.com/4280b9728b492a9ba28fc366255e0040.gif)](https://gyazo.com/4280b9728b492a9ba28fc366255e0040)
+![Create API token](/assets/images/service-catalog/create-api-token.gif)
 *Creating an API token*
 
 Currently, giving someone an API token essentially provides that person access to your entire service catalog, so be careful who you give API tokens to!
@@ -43,7 +43,7 @@ Once you delete an API token, it is no longer usable. Anyone passing that token 
 ## Creating an endpoint
 Each service catalog endpoint corresponds to a callable recipe. To create a service catalog endpoint from a callable recipe, select **Yes** for the **Enable REST endpoint**input field within the **Callable recipe** connector's **Call recipe request** trigger.
 
-[![https://gyazo.com/7c66d7aa9fb20e37ffd3b723a29d3e87](https://i.gyazo.com/7c66d7aa9fb20e37ffd3b723a29d3e87.gif)](https://gyazo.com/7c66d7aa9fb20e37ffd3b723a29d3e87)
+![Create endpoint](/assets/images/service-catalog/create-endpoint.gif)
 
 Endpoints will not show up on the service catalog if **Enable REST endpoint** is marked **No**.
 
@@ -51,7 +51,7 @@ Endpoints will not show up on the service catalog if **Enable REST endpoint** is
 
 Additional fields will be generated for you to configure your endpoint. Determine the HTTP method of your endpoint as well as the endpoint URL. Endpoint URLs have to be unique across your account.
 
-[![https://gyazo.com/b3c2f75752ced1781888dec8734349c0](https://i.gyazo.com/b3c2f75752ced1781888dec8734349c0.gif)](https://gyazo.com/b3c2f75752ced1781888dec8734349c0)
+![Configure REST endpoint](/assets/images/service-catalog/configure-rest-endpoint.gif)
 *Configuring the REST endpoint*
 
 Once you've done that, you should be able to see the new endpoint appear in your service catalog.

@@ -21,7 +21,7 @@ Clock/Timer
 ### Polling triggers
 Polling triggers check for new events by periodically querying the app to see if new events are available. The polling frequency is determined by the type of Workato plan, and can be as low as 5 minutes.
 
-Each poll may yield multiple events ready for processing i.e. a single poll can result in several jobs being created. 
+Each poll may yield multiple events ready for processing i.e. a single poll can result in several jobs being created.
 
 When the recipe is first started, the polling trigger fetches all events after the **From** date. Subsequently, polls are made at regular intervals as dictated by the plan type.
 
@@ -45,10 +45,11 @@ Batch triggers are generally used for increasing throughput.
 For further details about batch triggers, refer to the Batch processing article here.
 
 ### Real-time triggers
-Real-time triggers are usually built on top of an asynchronous notification mechanism. Real-time triggers typically require letting the app know that you are interested in a specific event, and then when that event occurs, the app will send a notification. Webhooks are one such mechanism. The advantage of such a mechanism is that there is no delay as well as it is efficient because you are polling every so often to check for new events.
+Real-time triggers are usually built on top of an asynchronous notification mechanism. Real-time triggers typically require registration in your connected app (either via the API or manually via the app interface), to let the app know that you are interested in a specific event. When that event occurs, the app will send a notification to Workato and generate a trigger event.
 
-Real-time triggers supported by Workato (this excludes HTTP real-time triggers) using polling at start i.e. when recipe is first started, the recipe does a poll to fetch all events after the **From** date. 
+Webhooks are one such mechanism. Most real-time triggers supported on Workato are built on webhooks. The advantage of webhooks is that there is no delay, and it is more efficient as we only receive notifications from apps when events occur, instead of Workato having to check at regular intervals for new events.
 
+Real-time triggers supported by Workato (this excludes HTTP real-time triggers) are generally webhooks supported by regular polling. The polling intervals for real-time triggers are generally longer than the normal polling triggers, however, i.e. instead of polling once every 5 minutes or so, the trigger can now poll once every hour. The polling mechanism in real-time triggers is also what allows you to select a **From** date at the time of recipe start.
 
 ### Scheduled triggers
 Scheduled triggers are executed at specified days and times, hourly, daily, monthly, etc.
@@ -68,7 +69,7 @@ The **Since** or **From** setting enables fetching of historical trigger events 
 
 In the example below, the **New Salesforce object** trigger has a **From** date as 1 Jan 2017, midnight PST and the 'accounts' object is selected.
 
-[![https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4](https://i.gyazo.com/fef272317b761f9caee93d6fe81cd8b4.gif)](https://gyazo.com/fef272317b761f9caee93d6fe81cd8b4)
+![Setting since date](/assets/images/recipes/triggers/set-since-date-for-trigger.gif)
 *Setting the Since date for the trigger. Trigger will only pick up new accounts created since midnight of Jan 1, 2017*
 
 When the recipe is started, only Salesforce accounts created after 1 Jan 2017, midnight PST will be picked up, as viewed from the created date column on the job report.
@@ -96,20 +97,20 @@ Trigger filters are evaluated by Workato i.e. Workato retrieves all trigger even
 
 To add a trigger condition, check the **Trigger IF** checkbox. The trigger datatree will appear, displaying the variables that can be used to formulate the trigger condition.
 
-[![https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345](https://i.gyazo.com/7af54cb19e2f2c3d417cdbd830d25345.gif)](https://gyazo.com/7af54cb19e2f2c3d417cdbd830d25345)
+![Configure trigger filter](/assets/images/recipes/triggers/configure-trigger-filter.gif)
 *Checking the Trigger IF checkbox brings up trigger condition fields to be configured*
 
 Define the trigger condition. The following ensures that only Salesforce accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
 
-[![https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5](https://i.gyazo.com/5d62320895ef3628b581aa1fd60e79d5.gif)](https://gyazo.com/5d62320895ef3628b581aa1fd60e79d5)
+![Define trigger filter](/assets/images/recipes/triggers/define-trigger-condition.gif)
 *Define the trigger condition*
 
 To add an additional trigger conditions, select from the OR or AND in the picklist. The selected operator will define how all additional trigger conditions will be added.
 
-[![https://gyazo.com/1a43c84e1783091a15947f4256b02ae6](https://i.gyazo.com/1a43c84e1783091a15947f4256b02ae6.gif)](https://gyazo.com/1a43c84e1783091a15947f4256b02ae6)
+![Adding trigger filter](/assets/images/recipes/triggers/adding-trigger-filter-with-or.gif)
 *Adding another trigger condition with the OR operator*
 
 Define the additional trigger condition. Values are case sensitive and should be exact. The following ensures that accounts with a **Hot** rating value will also be picked up by the trigger. Notice that from the third trigger condition onwards, trigger conditions will be combined with the previously selected operator (OR or AND).
 
-[![https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50](https://i.gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50.gif)](https://gyazo.com/6c0c225b6ded8f13d642efc6e8a0df50)
+![Define additional trigger condition](/assets/images/recipes/triggers/define-additional-trigger-condition.gif)
 *Define the additional trigger condition. Subsequent trigger conditions has to use the same AND operator*
