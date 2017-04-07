@@ -40,7 +40,7 @@ You can read more about recipe steps [here](/recipes/steps.md) and actions [here
 ## Block
 
 ## Data tree and pills
-Every step including triggers brings data into the recipe. e.g. a new employee in Workday trigger would bring in employee data. This data is made available in the recipe via the 'data tree'. 
+Every step including triggers brings data into the recipe. e.g. a new employee in Workday trigger would bring in employee data. This data is made available in the recipe via the 'data tree'.
 
 The individual data fields are called data pills. You can use the data pills in subsequent steps. You can read more about data pills [here](/recipes/data-pills.md).
 
@@ -99,7 +99,7 @@ For a recipe to communicate with apps via actions and triggers, it has to be aut
 *Salesforce and Zendesk connections from the recipe view*
 
 ## Jobs
-Each time there is a trigger event, the actions in the recipe are executed. The entire flow of each trigger event through the recipe is called a **job**. Jobs can be successful (when actions are executed successfully), or have errors (when an action results in an error). When an error is encountered, further actions are not executed. 
+Each time there is a trigger event, the actions in the recipe are executed. The entire flow of each trigger event through the recipe is called a **job**. Jobs can be successful (when actions are executed successfully), or have errors (when an action results in an error). When an error is encountered, subsequent actions are not executed.
 
 ## Jobs report
 The job report gives a high-level summary of the all the trigger events processed by the recipe. The entire flow of each trigger event through the recipe is called a job.
@@ -114,5 +114,5 @@ You can read more about job reports [here](/recipes/jobs-report.md).
 ## Job details
 The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe. This page is useful for troubleshooting recipes as users are able to view the data passed into each step and the resultant output returned after each step was executed. You can read more about jobs and job details [here](recipes/jobs.md).
 
-[![https://gyazo.com/743ba03c8314a319bb15dba0bdeff35c](https://i.gyazo.com/743ba03c8314a319bb15dba0bdeff35c.gif)](https://gyazo.com/743ba03c8314a319bb15dba0bdeff35c)
+![Job details page](/assets/images/workato-concepts/job-details-page.gif)
 *Job details page showing the syncing of Salesforce account Myers Brewery to Zendesk*

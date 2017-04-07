@@ -27,7 +27,7 @@ The on-prem connector works with Windows, macOS and Linux.
 # Setting up on-prem access
 On the **On-prem access** page, there is the option to create a new agent. Once created, detailed setup instructions can be found within the **How to use** tab.
 
-[![https://gyazo.com/d02a6e3397db25b87fc2e24b0051e19b](https://i.gyazo.com/d02a6e3397db25b87fc2e24b0051e19b.gif)](https://gyazo.com/d02a6e3397db25b87fc2e24b0051e19b)
+![Create new agent](/assets/images/on-prem/create-new-agent.gif)
 *Creating and setting up a new on-prem agent*
 
 # Working with the on-prem agent

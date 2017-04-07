@@ -57,21 +57,20 @@ For example:
 Apps have different granularity when it comes to defining user roles and permissions. Refer to the specific connector documentation for more information on required permissions to connect to the app.
 
 # Using connections
-Typically a company may only have a single instance of an app and they may have another instance a sandbox for testing, etc. So a user would need just one connection for multiple recipes that work with the same app instance. 
+Typically a company may only have a single instance of an app and they may have another instance a sandbox for testing, etc. So a user would need just one connection for multiple recipes that work with the same app instance.
 
 In cases whereby there are more than one app instance to connect to, e.g. when working with sandboxes and production organizations or teams, multiple connections should be created, with each connection authenticated with each separate instance.
 
-Most Workato connectors allow only one connection to an app within a recipe.There are some connectors which allows you to work with two app instances within the same recipe. 
+Most Workato connectors allow only one connection to an app within a recipe.There are some connectors which allows you to work with two app instances within the same recipe.
 
 Here is an example where the same recipe works with two Saleforce instances i.e. primary and secondary connectors.
 
-[![https://gyazo.com/6bbdbb30e3a29c4057f15f20600f61c5](https://i.gyazo.com/6bbdbb30e3a29c4057f15f20600f61c5.gif)](https://gyazo.com/6bbdbb30e3a29c4057f15f20600f61c5)
-
-[Example recipe](https://www.workato.com/recipes/487648)
+![Secondary Salesforce connections](/assets/images/recipes/connections/primary-secondary-connectors.gif)
+*Recipe with primary and secondary Salesforce connectors* [Example recipe](https://www.workato.com/recipes/487648)
 
 The recipe requires two Salesforce connections.
 
 ![Secondary Salesforce connections](/assets/images/recipes/connections/secondary-app-connections.png)
 *Primary and secondary Salesforce connections*
 
-Refer to the Secondary connectors article to find out more.
+Refer to the [secondary connectors article](/features/secondary-connections.md) to find out more.

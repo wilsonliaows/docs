@@ -12,4 +12,4 @@ At present Workato supports secondary connectors for the folowing apps
 
 To use a secondary connector, simply build a recipe and look for the secondary connectors. The secondary behaves exactly the same as the primary.
 
-**Note**: using a secondary connector counts as a serparate connection.  
+**Note**: using a secondary connector counts as a serparate connection.

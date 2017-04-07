@@ -8,7 +8,7 @@ Properties allow you to store account wide recipe configuration parameters. They
 
 Account-level properties are also known as environment variables or configuration variables.  Acccount properties are useful for complex deployment models across connections and recipes.
 
-For e.g. you can have a property that indicates where to send a notification email. All recipes can look this value up from the data tree (properties section) and send email to the same recipient. 
+For e.g. you can have a property that indicates where to send a notification email. All recipes can look this value up from the data tree (properties section) and send email to the same recipient.
 
 Account properties feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or call us at +1 (844) 469-6752.
 
@@ -20,11 +20,12 @@ You can create property values (name value pairs) by going to the account proper
 ## Create property
 In order to use account properties in recipes, create them in the properties table. A property is a name and its corresponding value.
 
-[![https://gyazo.com/23296ffd5cf798f63381e88d8ed7be32](https://i.gyazo.com/23296ffd5cf798f63381e88d8ed7be32.gif)](https://gyazo.com/23296ffd5cf798f63381e88d8ed7be32)
+![Create property](/assets/images/features/account-properties/create-property.gif)
 *Create property*
 
 ## Update property
-[![https://gyazo.com/281ea4129927d446ff6710b388f435c9](https://i.gyazo.com/281ea4129927d446ff6710b388f435c9.gif)](https://gyazo.com/281ea4129927d446ff6710b388f435c9)
+
+![Update delete property](/assets/images/features/account-properties/update-delete-property.gif)
 *Updating or deleting an account property*
 
 ## Using properties in recipes

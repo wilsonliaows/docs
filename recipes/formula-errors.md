@@ -62,16 +62,3 @@ To be able to solve this error, we need to learn more about the .include? formul
 However, when using the function on certain data pills or value that is numerical or non-text, it will not be able to accept the input and process it. The error is a result of such misuse, where literal numbers or non-text data pills are called on with .include?. (See Image above)
 
 To resolve this, first check if the value in the data pill is returned as a number. If yes, you may first use .to_s to turn the number into literal text before applying .include?
-
-
-
-
-
-
-
-
-
-
-
-
-
