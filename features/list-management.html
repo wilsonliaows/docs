@@ -1422,10 +1422,10 @@ Sierra Gardening, MS-322, Gardening supplies, Cherry wood potting bench, MS-322,
 Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cedar, Black, 30 inches
 </code></pre><p>In most of the examples, the <strong>Box</strong> trigger <strong>New CSV file</strong> will be used to read this CSV file from a Box folder and parse it to Workato as a list of three CSV lines. Create a CSV file with the above CSV sample and upload into a specific Box folder for the <strong>New CSV file</strong> trigger to pick up.</p>
 <p>If the above CSV file is the only CSV file in the selected Box folder in the trigger configuration, the fields list will be populated automatically with the column names. The column names has to correspond exactly with the header line in the CSV file in order for the CSV data to be mapped accurately to their columns.</p>
-<p><a href="https://gyazo.com/52deab1efa9062c4b543f510734dace1" target="_blank"><img src="https://i.gyazo.com/52deab1efa9062c4b543f510734dace1.gif" alt="https://gyazo.com/52deab1efa9062c4b543f510734dace1"></a></p>
-<p><em>Defining the expected columns in the CSV files that the recipe will pick up</em> <a href="https://www.workato.com/recipes/485023" target="_blank">Example recipe</a></p>
+<p><img src="../assets/images/features/list-management/defining-expected-csv-columns.gif" alt="Defining expected CSV columns">
+<em>Defining the expected columns in the CSV files that the recipe will pick up</em> <a href="https://www.workato.com/recipes/485023" target="_blank">Example recipe</a></p>
 <p>The columns defined in the <strong>Box new CSV file</strong> trigger shows up as a list of usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.</p>
-<p><a href="https://gyazo.com/ddeaa437a58a5068b5c4198a6a93a6b8" target="_blank"><img src="https://i.gyazo.com/ddeaa437a58a5068b5c4198a6a93a6b8.gif" alt="https://gyazo.com/ddeaa437a58a5068b5c4198a6a93a6b8"></a>
+<p><img src="../assets/images/features/list-management/csv-columns-in-trigger-output.gif" alt="CSV columns in trigger output">
 <em>Row of CSV columns in the trigger output datatree</em></p>
 <p>Notice the row icon in the datatree. This identifies lists in the datatree.</p>
 <p><img src="../assets/images/features/list-management/list-datatree-icon.png" alt="List datatree icon">
@@ -1439,9 +1439,9 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 <h1 id="using-datapills-from-lists">Using datapills from lists</h1>
 <h2 id="using-datapills-directly-in-an-action-without-list-processing">Using datapills directly in an action without list processing</h2>
 <p>When using pills directly from a list, only the values of the first list item will be retrieved. In the following recipe, pills from the list are used directly in the <strong>Log message</strong> action.</p>
-<p><em>Recipe using list pills directly in Log message action</em>
- <img src="../assets/images/features/list-management/example-recipe-using-list-pills-directly.png" alt="Example recipe using list pills directly"> <a href="https://www.workato.com/recipes/487919" target="_blank">Example recipe</a></p>
-<p><a href="https://gyazo.com/8b35298c73eddf54d629e8c323a05673" target="_blank"><img src="https://i.gyazo.com/8b35298c73eddf54d629e8c323a05673.gif" alt="https://gyazo.com/8b35298c73eddf54d629e8c323a05673"></a>
+<p><img src="../assets/images/features/list-management/example-recipe-using-list-pills-directly.png" alt="Example recipe using list pills directly">
+<em>Recipe using list pills directly in Log message action</em> <a href="https://www.workato.com/recipes/487919" target="_blank">Example recipe</a></p>
+<p><img src="../assets/images/features/list-management/field-mappings-for-log-message.gif" alt="Field mappings for log message">
 <em>Field mappings for Log message action</em></p>
 <p>In the job details page, the trigger output displays all three lines within the CSV file.</p>
 <p><img src="../assets/images/features/list-management/csv-trigger-output.png" alt="CSV trigger output">
@@ -1458,7 +1458,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 <p><img src="../assets/images/features/list-management/example-input-source-list.png" alt="Example input source list">
 <em>Rows list object is mapped into the Salesforce products input source list</em></p>
 <p>For the list object passed into the input source list, the list will be transferred from the source app to the target app, with the values being trasnferred based on the fields mapped in the recipe. The three inventory items will be moved from Box into Salesforce as products.</p>
-<p><a href="https://gyazo.com/08c4f325262962296e7ca637b2e95b9e" target="_blank"><img src="https://i.gyazo.com/08c4f325262962296e7ca637b2e95b9e.gif" alt="https://gyazo.com/08c4f325262962296e7ca637b2e95b9e"></a>
+<p><img src="../assets/images/features/list-management/mapping-list-datapills-to-list.gif" alt="Mapping list data pills to list">
 <em>Mapping of list datapills to list input</em></p>
 <p>The following shows the CSV file content.</p>
 <p><img src="../assets/images/features/list-management/csv-trigger-output.png" alt="CSV trigger output">
@@ -1474,7 +1474,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 <p><img src="../assets/images/features/list-management/repeat-step-input-list.png" alt="Repeat step input list">
 <em>Provide the list object as input for repeat step</em></p>
 <p>When using the Repeat step, the important thing to note is to retrieve datapills from the For each datatree.</p>
-<p><a href="https://gyazo.com/217a8b83b7d15d8f3dc0fde77cefe3c5" target="_blank"><img src="https://i.gyazo.com/217a8b83b7d15d8f3dc0fde77cefe3c5.gif" alt="https://gyazo.com/217a8b83b7d15d8f3dc0fde77cefe3c5"></a>
+<p><img src="../assets/images/features/list-management/mapping-from-foreach-datatree.gif" alt="Mapping from foreach datatree">
 <em>Mapping datapills from the Foreach datatree</em></p>
 <p>This ensures that, when the list is being iterated through, the first <strong>Add inventory item</strong> step uses the first line:</p>
 <pre><code>Sierra Gardening, MS-321, Gardening supplies, Pine wood potting bench, MS-321, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Pine, White, 30 inches
@@ -1484,8 +1484,8 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 <pre><code>Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cedar, Black, 30 inches
 </code></pre><h3 id="common-mistake-when-using-repeat-step">Common mistake when using Repeat step</h3>
 <p>As discussed <a href="#using-datapills-from-lists">here</a>, using pills directly from the list object in the datatree without list handling will result in the first list item being used. Hence, if datapills from the list object (instead of datapills from the Repeat step) are used inside the Repeat step, the recipe still iterates through the 3 CSV lines, but instead of using values from each line with every iteration, only values from the first line will be used for all 3 iterations, resulting in duplication.</p>
-<p><a href="https://gyazo.com/530196f2eb3ff0879e7f880db1f518d5" target="_blank"><img src="https://i.gyazo.com/530196f2eb3ff0879e7f880db1f518d5.gif" alt="https://gyazo.com/530196f2eb3ff0879e7f880db1f518d5"></a></p>
-<p><em>Example of a recipe with wrong direct mapping from list instead of from the Repeat step</em> (<a href="https://www.workato.com/recipes/488273" target="_blank">Example recipe</a>)</p>
+<p><img src="../assets/images/features/list-management/recipe-with-wrong-direct-mapping.gif" alt="Recipe with direct mapping from list">
+<em>Example of a recipe with wrong direct mapping from list instead of from the Repeat step</em> (<a href="https://www.workato.com/recipes/488273" target="_blank">Example recipe</a>)</p>
 <h2 id="list-connector-accumulator">List connector (Accumulator)</h2>
 <p>The list connector is a Workato utility built for users to create custom lists and store data in the list for the duration of a job, to be used in the same job. It is usually used for users to prepare a list to write to an action with a list input.</p>
 <h2 id="using-the-accumulator-action-to-create-a-custom-list">Using the accumulator action to create a custom list</h2>
@@ -1506,7 +1506,7 @@ Append item to list</strong>.</p>
 <p><img src="../assets/images/features/list-management/accumulator-example.png" alt="Accumulator example">
 <em>Fields can be added or edited in custom lists</em></p>
 <p>The custom list can also be edited via its JSON representation.</p>
-<p><a href="https://gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c" target="_blank"><img src="https://i.gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c.gif" alt="https://gyazo.com/d868a9ed4d9c0019b92a3e6333e0f09c"></a>
+<p><img src="../assets/images/features/list-management/editing-custom-list-json.gif" alt="Editing custom list JSON">
 <em>Editing the custom list&apos;s JSON representation</em></p>
 <h2 id="example-recipes-that-use-accumulator-list-input-and-repeat-step">Example recipes that use accumulator, list input and Repeat step</h2>
 <p>Let&apos;s take the scenario whereby closed won Salesforce opportunities with a list of opportunity products need to be moved into NetSuite as sales orders with a similar list of line items.</p>
@@ -1719,7 +1719,7 @@ Append item to list</strong>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"List management","date":"2017-03-06T16:00:00.000Z","level":"1.11.10","depth":2,"next":{"title":"Data retention","level":"1.11.11","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"previous":{"title":"Single Sign-On (SSO)","level":"1.11.9","depth":2,"path":"signing-up/sso.md","ref":"signing-up/sso.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/list-management.md","mtime":"2017-04-06T05:49:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-06T05:55:35.747Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"List management","date":"2017-03-06T16:00:00.000Z","level":"1.11.10","depth":2,"next":{"title":"Data retention","level":"1.11.11","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"previous":{"title":"Single Sign-On (SSO)","level":"1.11.9","depth":2,"path":"signing-up/sso.md","ref":"signing-up/sso.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/list-management.md","mtime":"2017-04-07T19:32:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-07T19:35:36.648Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
