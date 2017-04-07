@@ -13,7 +13,7 @@ Arrays are ordered, integer-indexed collections of any object. List indexing sta
 
 Let's take the example of a list with 4 list items: 100, 101, 102, 103. This list is expressed as:
 
-```
+```ruby
 number_list = [100, 101, 102, 103]
 ```
 
@@ -58,7 +58,7 @@ A hash is a dictionary-like collection of unique keys and their values. They are
 
 Let's take the example of a hash with 2 values, with item_name as "Acme widgets" and item_quantity as 10.
 
-```
+```ruby
 line_item = { item_name: “Acme widgets”, item_qty: 10 }
 ```
 
@@ -70,11 +70,11 @@ line_item = { item_name: “Acme widgets”, item_qty: 10 }
 # List of hashes
 In Workato, you will mostly run into lists of hashes. Let’s look at a Quickbooks invoice which has a number of line items. It will be represented as an list of hashes.
 
-```
-line_items = [									# list
-{ item_name: “Acme widgets”, item_qty: 10 	},	# hash 1
-{ item_name: “RR bearings”,  item_qty: 100 	},	# hash 2
-{ item_name: “Coyote tyres”, item_qty: 7 	}	# hash 3
+```ruby
+line_items = [                                  # list
+  { item_name: “Acme widgets”, item_qty: 10  },	# hash 1
+  { item_name: “RR bearings”,  item_qty: 100 },	# hash 2
+  { item_name: “Coyote tyres”, item_qty: 7   }	# hash 3
 ]
 ```
 
@@ -95,12 +95,12 @@ This is the Contacts list in a table form:
 
 This is the Contacts list in a list of hashes form.
 
-```
+```ruby
 [
-  {name:'Joe', email:’joe@abc.com’, state:’CA’, company:’ABC’, company_rev:’1000’},
-  {name:'Jill', email:’jill@nbc.com’, state:’MA’, company:’NBC’, company_rev:’1000’},
-  {name:'Joan', email:’joan@nbc.com’, state:’MA’, company:’NBC’, company_rev:’1000’},
-  {name:'Jack', email:’jack@hbo.com’, state:’CA’, company:’HBO’, company_rev:’1000’}
+  { name: 'Joe',  email: ’joe@abc.com’,  state: ’CA’, company: ’ABC’, company_rev: ’1000’ },
+  { name: 'Jill', email: ’jill@nbc.com’, state: ’MA’, company: ’NBC’, company_rev: ’1000’ },
+  { name: 'Joan', email: ’joan@nbc.com’, state: ’MA’, company: ’NBC’, company_rev: ’1000’ },
+  { name: 'Jack', email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
 ]
 ```
 
@@ -116,10 +116,11 @@ Retrieves only the rows (hashes) which meet the WHERE condition specified.
 | Jack            | jack@hbo.com | CA    | HBO     | 30000       |
 
 These rows will be expressed as a list of hashes:
-```
+
+```ruby
 [
-  {name:’Joe’, email:’joe@abc.com’, state:’CA’, company:’ABC’, company_rev:’1000’},
-  {name:’Jack’, email:’jack@hbo.com’, state:’CA’, company:’HBO’, company_rev:’1000’}
+  { name: ’Joe’,  email: ’joe@abc.com’,  state: ’CA’, company: ’ABC’, company_rev: ’1000’ },
+  { name: ’Jack’, email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
 ]
 ```
 
@@ -134,9 +135,9 @@ A compound where formula will retrieve only the rows that matches all the condit
 
 These rows will be expressed as a list of hashes:
 
-```
+```ruby
 [
-  {name:’Jack’, email:’jack@hbo.com’, state:’CA’, company:’HBO’, company_rev:’1000’}
+  { name: ’Jack’, email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
 ]
 ```
 
@@ -166,9 +167,9 @@ And `.where("company_revenue >=": (2000..10000))` filters this intermediary arra
 
 Results will be expressed as a list of hashes:
 
-```
+```ruby
 [
-  {name:’Jack’, email:’jack@hbo.com’, state:’CA’, company:’HBO’, company_rev:’1000’}
+  { name: ’Jack’, email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
 ]
 ```
 
@@ -187,7 +188,7 @@ Retrieves only the columns which have been specified.
 
 If a single column, results will be returned as an array:
 
-```
+```ruby
 [joe@abc.com, jill@nbc.com, joan@nbc.com, jack@hbo.com]
 ```
 
@@ -202,7 +203,7 @@ If a single column, results will be returned as an array:
 
 Results are returned as a list of a list:
 
-```
+```ruby
 [["joe@abc.com", "ABC"], ["jill@nbc.com, "NBC"], ["joan@nbc.com, "NBC"], ["jack@hbo.com, "HBO"]]
 ```
 
@@ -220,7 +221,7 @@ Works on a list to concatenate values together as a string. The values are joine
 We can also chain .join behind any formula that returns a list, such as
 `contacts.where(“state ==”: “CA”).pluck(“email”).join(“, ”)`. This returns
 
-```
+```ruby
 “joe@abc.com, jack@hbo.com”
 ```
 
