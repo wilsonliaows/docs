@@ -22,14 +22,16 @@ The following step carries out a **Search organizations** action in Zendesk. The
 In the following case, the **Search organization** action is carried out by name.
 
 ![Search Zendesk organizations by Salesforce account name](/assets/images/recipes/steps/search-zendesk-organizations.gif)
-*Searching Zendesk organizations by Salesforce account name* [Example recipe](https://www.workato.com/recipes/480358)
+*Searching Zendesk organizations by Salesforce account name*
+[Example recipe](https://www.workato.com/recipes/480358)
 
 When the **Search organizations** action has been carried out, Zendesk returns data about the organizations found, if any. The output datatree displays available fields for mapping in subsequent steps.
 
 In the following case, the **Update organization** action uses the ID field from the **Search organizations** action to identify which Zendesk organization to update (ID field as highlighted).
 
 ![Updating Zendesk organization identified by ID](/assets/images/recipes/steps/update-zendesk-organization.gif)
-*Updating Zendesk organization identified by ID* [Example recipe](https://www.workato.com/recipes/480358)
+*Updating Zendesk organization identified by ID*
+[Example recipe](https://www.workato.com/recipes/480358)
 
 ## Conditional action step
 Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true.
@@ -40,7 +42,8 @@ The following recipe has two conditional steps:
 - If Zendesk organization was not found, create new Zendesk organization
 
 ![Conditional step examples](/assets/images/recipes/steps/conditional_step_examples.png)
-*Recipe that uses conditional steps to decide whether to create or update Zendesk organization* [Example recipe](https://www.workato.com/recipes/480358)
+*Recipe that uses conditional steps to decide whether to create or update Zendesk organization*
+[Example recipe](https://www.workato.com/recipes/480358)
 
 In this example, any job can only proceed through either one of the conditional steps, as the Zendesk organization must have either been found or not.
 
@@ -53,24 +56,28 @@ The input to the repeat step is a list. Actions within a repeat block, should  u
 Refer to the example scenario of syncing Salesforce accounts (using the batch trigger) to Zendesk as organizations.
 
 ![Foreach step example scenario](/assets/images/recipes/steps/foreach_example_scenario.png)
-*Recipe that uses the Repeat step to iterate through list of Salesforce accounts* [Example recipe](https://www.workato.com/recipes/480695)
+*Recipe that uses the Repeat step to iterate through list of Salesforce accounts*
+[Example recipe](https://www.workato.com/recipes/480695)
 
 In this example, the trigger returns a list of Salesforce accounts. Since Zendesk does not support batch actions, each Salesforce account must be added one at a time to Zendesk.
 
 The list datapill has to be passed into the repeat step. When the input list field is selected, only list type datapills are usable in the datatree, as shown below. List type pills can be identified via their stack icon.
 
 ![Map list data pill into the Repeat step](/assets/images/recipes/steps/map-list-pill-into-repeat-step.gif)
-*Mapping a list data pill into the Repeat step's input list field* [Example recipe](https://www.workato.com/recipes/480695)
+*Mapping a list data pill into the Repeat step's input list field*
+[Example recipe](https://www.workato.com/recipes/480695)
 
 Datapills from the **Foreach** output datatree should be mapped to ensure that values from each list item are used when the action is repeated. For example, if two Salesforce accounts are fetched by the trigger, using pills from the **Foreach** datatree ensures that the **Create organization** action creates a Zendesk organization with the data from the first Salesforce account on its first iteration, then with the data from the second Salesforce account on its second iteration.
 
 ![Use datapills from Repeat step](/assets/images/recipes/steps/use-datapills-from-repeat-step.gif)
-*Using datapills from the Repeat step's datatree. This ensures values from the list being iterated through are used.* [Example recipe](https://www.workato.com/recipes/480695)
+*Using datapills from the Repeat step's datatree. This ensures values from the list being iterated through are used.*
+[Example recipe](https://www.workato.com/recipes/480695)
 
 The following displays the mapping from the **Foreach** datatree.
 
 ![Foreach step example](/assets/images/recipes/steps/foreach_example.png)
-*Datapills are mapped from the Repeat step's datatree* [Example recipe](https://www.workato.com/recipes/480695)
+*Datapills are mapped from the Repeat step's datatree*
+[Example recipe](https://www.workato.com/recipes/480695)
 
 For further Repeat step examples or more info about list processing, refer to the List management article.
 
@@ -90,14 +97,16 @@ The stop step can be configured to mark the job as a failed or a successful, dep
 The following recipe expects all Salesforce accounts to be present in Zendesk as organizations. In cases where no corresponding Zendesk organization is found, the recipe will stop processing further actions.
 
 ![Stop step example](/assets/images/recipes/steps/stop_step_example.png)
-*Recipe that utilizes the Stop step to send email and end job* [Example recipe](https://www.workato.com/recipes/480360)
+*Recipe that utilizes the Stop step to send email and end job*
+[Example recipe](https://www.workato.com/recipes/480360)
 
 Any job ran by this recipe can proceed through either one of the conditional step, as the Zendesk organization must have either been found or not. If not found, the job will stop at Step 4. If found, the job will not carry out actions within the conditional step (Steps 3 and 4), instead only updating the matching Zendesk organization.
 
 This recipe marks the job as an error, so that the recipe owner will take notice of this job and attempt to rerun it.
 
 ![Stop step with error](/assets/images/recipes/steps/stop_with_error.png)
-*Configuring the Step step's error message* [Example recipe](https://www.workato.com/recipes/480360)˚
+*Configuring the Step step's error message*
+[Example recipe](https://www.workato.com/recipes/480360)˚
 
 ## Action with error handler step
 This step allows you watch for errors in actions and take remedial actions when an error occurs. It is similar to try/catch concept in programming lanaguages.
@@ -110,6 +119,7 @@ This step consists of 2 blocks: the **Monitor actions for error** and the **On e
 The following recipe tries to update the Zendesk organization right after the search step, irrespective of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
 
 ![Error monitor step example](/assets/images/recipes/steps/error_monitor_example.png)
-*Recipe that uses the error monitor to monitor failures in updating Zendesk organizations* [Example recipe](https://www.workato.com/recipes/480361)
+*Recipe that uses the error monitor to monitor failures in updating Zendesk organizations*
+[Example recipe](https://www.workato.com/recipes/480361)
 
 As the recipe catches failed actions within the error monitor block, failed **Update organization** actions will be caught, and the recipe proceeds to carry out steps within the **On error** block. In this case, it seems that the only reason for the update failing is because no matching Zendesk organization was found. Hence the remedial step creates a new Zendesk organization.

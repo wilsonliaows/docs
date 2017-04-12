@@ -26,7 +26,7 @@ The recipe above has a trigger and just one action. The trigger is **New Salesfo
 ## Triggers
 Triggers determine what event to listen to in order to execute the actions described in a recipe
 
-Trigger events can occur in apps (e.g. Salesforce, Jira, etc.), can be a timer driven (fires at a certain time or interval), occur when a new line is added in a file, etc.
+Trigger events can occur in apps (e.g. Salesforce, JIRA, etc.), can be a timer driven (fires at a certain time or interval), occur when a new line is added in a file, etc.
 
 Depending on the available API, Workato can receive trigger events in real-time, or check for the occurence of an event periodically (i.e. polled).
 
