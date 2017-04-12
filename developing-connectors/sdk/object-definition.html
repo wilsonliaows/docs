@@ -1138,22 +1138,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.14.6" data-path="object-definition.html">
-      
-
-      
-        <a href="object-definition.html">
-      
-        
-        Object definition
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.14.7" data-path="data-format.html">
+    <li class="chapter " data-level="1.14.6" data-path="data-format.html">
       
         <i class="fa fa-angle-right chapter__toggle"></i>
       
@@ -1171,7 +1156,7 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.14.7.1" data-path="data-format/json-format.html">
+    <li class="chapter " data-level="1.14.6.1" data-path="data-format/json-format.html">
       
 
       
@@ -1186,7 +1171,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.7.2" data-path="data-format/xml-format.html">
+    <li class="chapter " data-level="1.14.6.2" data-path="data-format/xml-format.html">
       
 
       
@@ -1206,7 +1191,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.8" data-path="methods.html">
+    <li class="chapter " data-level="1.14.7" data-path="methods.html">
       
 
       
@@ -1221,7 +1206,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.9" data-path="pick-list.html">
+    <li class="chapter " data-level="1.14.8" data-path="pick-list.html">
       
 
       
@@ -1236,7 +1221,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.10" data-path="config-fields.html">
+    <li class="chapter " data-level="1.14.9" data-path="config-fields.html">
       
 
       
@@ -1251,7 +1236,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.11" data-path="examples.html">
+    <li class="chapter " data-level="1.14.10" data-path="examples.html">
       
 
       
@@ -1266,7 +1251,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.12" data-path="publishing-process.html">
+    <li class="chapter " data-level="1.14.11" data-path="publishing-process.html">
       
 
       
@@ -1517,6 +1502,141 @@
     </tbody>
 </table>
 
+<h2 id="nested-fields">Nested fields</h2>
+<p>Often, data returned from API request is not a simple one-level JSON. More often than not, the object is much more complex, with multiple levels of nesting. This section aims to illustrate how to define nested fields.</p>
+<h3 id="nested-object">Nested object</h3>
+<p>Take this sample User JSON from Okta:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;00ub0oNGTSWTBKOLGLNR&quot;</span>,
+  <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;STAGED&quot;</span>,
+  <span class="hljs-string">&quot;created&quot;</span>: <span class="hljs-string">&quot;2013-07-02T21:36:25.344Z&quot;</span>,
+  <span class="hljs-string">&quot;activated&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;lastLogin&quot;</span>: <span class="hljs-string">&quot;2013-07-02T21:36:25.344Z&quot;</span>,
+  <span class="hljs-string">&quot;profile&quot;</span>: {
+    <span class="hljs-string">&quot;firstName&quot;</span>: <span class="hljs-string">&quot;Isaac&quot;</span>,
+    <span class="hljs-string">&quot;lastName&quot;</span>: <span class="hljs-string">&quot;Brock&quot;</span>,
+    <span class="hljs-string">&quot;email&quot;</span>: <span class="hljs-string">&quot;isaac.brock@example.com&quot;</span>,
+    <span class="hljs-string">&quot;login&quot;</span>: <span class="hljs-string">&quot;isaac.brock@example.com&quot;</span>,
+    <span class="hljs-string">&quot;mobilePhone&quot;</span>: <span class="hljs-string">&quot;555-415-1337&quot;</span>
+  },
+  <span class="hljs-string">&quot;credentials&quot;</span>: {
+    <span class="hljs-string">&quot;provider&quot;</span>: {
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;OKTA&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;OKTA&quot;</span>
+    }
+  },
+  <span class="hljs-string">&quot;_links&quot;</span>: {
+    <span class="hljs-string">&quot;activate&quot;</span>: {
+      <span class="hljs-string">&quot;href&quot;</span>: <span class="hljs-string">&quot;https://your-domain.okta.com/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate&quot;</span>
+    }
+  }
+}
+</code></pre>
+<p>Nested object field <code>profile</code> can be defined <code>type: :object</code> with fields nested inside using <code>properties</code>. Properties should be an array of fields objects (just like <code>fields</code> within the <code>user</code> object).</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">object_definitions:</span> {
+  <span class="hljs-symbol">user:</span> {
+    <span class="hljs-symbol">fields:</span> lambda <span class="hljs-keyword">do</span>
+      [
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;id&quot;</span>
+        },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;status&quot;</span>
+        },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;created&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:timestamp</span>
+        },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;activated&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:timestamp</span>
+        },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;lastLogin&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:timestamp</span>
+        },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;profile&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:object</span>,
+          <span class="hljs-symbol">properties:</span> [
+            {
+              <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;firstName&quot;</span>
+            },
+            {
+              <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;lastName&quot;</span>
+            },
+            {
+              <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;email&quot;</span>,
+              <span class="hljs-symbol">control_type:</span> <span class="hljs-symbol">:email</span>
+            },
+            {
+              <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;login&quot;</span>,
+              <span class="hljs-symbol">control_type:</span> <span class="hljs-symbol">:email</span>
+            },
+            {
+              <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;mobilePhone&quot;</span>,
+              <span class="hljs-symbol">control_type:</span> <span class="hljs-symbol">:phone</span>
+            }
+          ]
+        }
+      ]
+    <span class="hljs-keyword">end</span>
+  }
+}
+</code></pre>
+<h3 id="nested-arrays">Nested Arrays</h3>
+<p>The other common type of nested field is array of objects. This type of field contains a list of repeated objects of the same fields. The defining such fields will be very similar to defining objects. Take the following sample <code>user</code> object from Asana for instance.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data&quot;</span>: {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">12149914544379</span>,
+    <span class="hljs-string">&quot;email&quot;</span>: <span class="hljs-string">&quot;eeshan@workato.com&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ee Shan&quot;</span>,
+    <span class="hljs-string">&quot;workspaces&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1041269201604</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Workato&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">498346130780</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Product Documentation&quot;</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<p>The <code>workspaces</code> array should be given <code>type: :array</code> as well as <code>of: :object</code>. This tells the <code>object_definitions</code> framework that the field contains an array of objects. Similar to nested objects, you will need to define <code>properties</code>, which is an array of fields corresponding to the fields of each object in the <code>workspaces</code> array.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">object_definitions:</span> {
+  <span class="hljs-symbol">user:</span> {
+    <span class="hljs-symbol">fields:</span> lambda <span class="hljs-keyword">do</span>
+      [
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;id&apos;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:integer</span>
+        },
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;name&apos;</span> },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;email&apos;</span>,
+          <span class="hljs-symbol">control_type:</span> <span class="hljs-symbol">:phone</span>
+        },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;workspaces&apos;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:array</span>,
+          <span class="hljs-symbol">of:</span> <span class="hljs-symbol">:object</span>,
+          <span class="hljs-symbol">properties:</span> [
+            {
+              <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;id&apos;</span>,
+              <span class="hljs-symbol">label:</span> <span class="hljs-string">&apos;Workspace ID&apos;</span>,
+              <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:integer</span>
+            },
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;name&apos;</span> }
+          ]
+        }
+      ]
+    <span class="hljs-keyword">end</span>
+  }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1715,7 +1835,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Object definition","level":"1.14.3","depth":2,"next":{"title":"Action","level":"1.14.4","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},"previous":{"title":"Test","level":"1.14.2.4","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/object-definition.md","mtime":"2017-04-12T02:32:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-12T02:33:59.304Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Object definition","level":"1.14.3","depth":2,"next":{"title":"Action","level":"1.14.4","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},"previous":{"title":"Test","level":"1.14.2.4","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/object-definition.md","mtime":"2017-04-12T04:55:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-12T04:56:55.055Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
