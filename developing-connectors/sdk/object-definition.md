@@ -115,3 +115,153 @@ object_definitions: {
         </tr>
     </tbody>
 </table>
+
+## Nested fields
+
+Often, data returned from API request is not a simple one-level JSON. More often than not, the object is much more complex, with multiple levels of nesting. This section aims to illustrate how to define nested fields.
+
+### Nested object
+
+Take this sample User JSON from Okta:
+
+```json
+{
+  "id": "00ub0oNGTSWTBKOLGLNR",
+  "status": "STAGED",
+  "created": "2013-07-02T21:36:25.344Z",
+  "activated": null,
+  "lastLogin": "2013-07-02T21:36:25.344Z",
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "provider": {
+      "type": "OKTA",
+      "name": "OKTA"
+    }
+  },
+  "_links": {
+    "activate": {
+      "href": "https://your-domain.okta.com/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    }
+  }
+}
+```
+
+Nested object field `profile` can be defined `type: :object` with fields nested inside using `properties`. Properties should be an array of fields objects (just like `fields` within the `user` object).
+
+```ruby
+object_definitions: {
+  user: {
+    fields: lambda do
+      [
+        {
+          name: "id"
+        },
+        {
+          name: "status"
+        },
+        {
+          name: "created",
+          type: :timestamp
+        },
+        {
+          name: "activated",
+          type: :timestamp
+        },
+        {
+          name: "lastLogin",
+          type: :timestamp
+        },
+        {
+          name: "profile",
+          type: :object,
+          properties: [
+            {
+              name: "firstName"
+            },
+            {
+              name: "lastName"
+            },
+            {
+              name: "email",
+              control_type: :email
+            },
+            {
+              name: "login",
+              control_type: :email
+            },
+            {
+              name: "mobilePhone",
+              control_type: :phone
+            }
+          ]
+        }
+      ]
+    end
+  }
+}
+```
+
+### Nested Arrays
+
+The other common type of nested field is array of objects. This type of field contains a list of repeated objects of the same fields. The defining such fields will be very similar to defining objects. Take the following sample `user` object from Asana for instance.
+
+```json
+{
+  "data": {
+    "id": 12149914544379,
+    "email": "eeshan@workato.com",
+    "name": "Ee Shan",
+    "workspaces": [
+      {
+        "id": 1041269201604,
+        "name": "Workato"
+      },
+      {
+        "id": 498346130780,
+        "name": "Product Documentation"
+      }
+    ]
+  }
+}
+```
+
+The `workspaces` array should be given `type: :array` as well as `of: :object`. This tells the `object_definitions` framework that the field contains an array of objects. Similar to nested objects, you will need to define `properties`, which is an array of fields corresponding to the fields of each object in the `workspaces` array.
+
+```ruby
+object_definitions: {
+  user: {
+    fields: lambda do
+      [
+        {
+          name: 'id',
+          type: :integer
+        },
+        { name: 'name' },
+        {
+          name: 'email',
+          control_type: :phone
+        },
+        {
+          name: 'workspaces',
+          type: :array,
+          of: :object,
+          properties: [
+            {
+              name: 'id',
+              label: 'Workspace ID',
+              type: :integer
+            },
+            { name: 'name' }
+          ]
+        }
+      ]
+    end
+  }
+}
+```

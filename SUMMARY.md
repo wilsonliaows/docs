@@ -61,7 +61,6 @@
   * [Trigger](developing-connectors/sdk/trigger.md)
     * [Poll trigger](developing-connectors/sdk/trigger/poll-trigger.md)
     * [Webhook trigger](developing-connectors/sdk/trigger/webhook-trigger.md)
-  * [Object definition](developing-connectors/sdk/object-definition.md)
   * [Data format](developing-connectors/sdk/data-format.md)
     * [JSON](developing-connectors/sdk/data-format/json-format.md)
     * [XML](developing-connectors/sdk/data-format/xml-format.md)
