@@ -1427,11 +1427,13 @@
 </ul>
 <p>In the following case, the <strong>Search organization</strong> action is carried out by name.</p>
 <p><img src="../assets/images/recipes/steps/search-zendesk-organizations.gif" alt="Search Zendesk organizations by Salesforce account name">
-<em>Searching Zendesk organizations by Salesforce account name</em> <a href="https://www.workato.com/recipes/480358" target="_blank">Example recipe</a></p>
+<em>Searching Zendesk organizations by Salesforce account name</em>
+<a href="https://www.workato.com/recipes/480358" target="_blank">Example recipe</a></p>
 <p>When the <strong>Search organizations</strong> action has been carried out, Zendesk returns data about the organizations found, if any. The output datatree displays available fields for mapping in subsequent steps.</p>
 <p>In the following case, the <strong>Update organization</strong> action uses the ID field from the <strong>Search organizations</strong> action to identify which Zendesk organization to update (ID field as highlighted).</p>
 <p><img src="../assets/images/recipes/steps/update-zendesk-organization.gif" alt="Updating Zendesk organization identified by ID">
-<em>Updating Zendesk organization identified by ID</em> <a href="https://www.workato.com/recipes/480358" target="_blank">Example recipe</a></p>
+<em>Updating Zendesk organization identified by ID</em>
+<a href="https://www.workato.com/recipes/480358" target="_blank">Example recipe</a></p>
 <h2 id="conditional-action-step">Conditional action step</h2>
 <p>Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true.</p>
 <h3 id="example-conditional">Example: Conditional</h3>
@@ -1441,7 +1443,8 @@
 <li>If Zendesk organization was not found, create new Zendesk organization</li>
 </ul>
 <p><img src="../assets/images/recipes/steps/conditional_step_examples.png" alt="Conditional step examples">
-<em>Recipe that uses conditional steps to decide whether to create or update Zendesk organization</em> <a href="https://www.workato.com/recipes/480358" target="_blank">Example recipe</a></p>
+<em>Recipe that uses conditional steps to decide whether to create or update Zendesk organization</em>
+<a href="https://www.workato.com/recipes/480358" target="_blank">Example recipe</a></p>
 <p>In this example, any job can only proceed through either one of the conditional steps, as the Zendesk organization must have either been found or not.</p>
 <h2 id="repeat-step">Repeat step</h2>
 <p>When working with a list of items (e.g. a list of invoice line items), you may need to carry out a set of actions for every item in the list. The repeat step helps you do that. Actions indented within a repeat block will be carried out for all items in the list.</p>
@@ -1449,17 +1452,21 @@
 <h3 id="example-repeat">Example: Repeat</h3>
 <p>Refer to the example scenario of syncing Salesforce accounts (using the batch trigger) to Zendesk as organizations.</p>
 <p><img src="../assets/images/recipes/steps/foreach_example_scenario.png" alt="Foreach step example scenario">
-<em>Recipe that uses the Repeat step to iterate through list of Salesforce accounts</em> <a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
+<em>Recipe that uses the Repeat step to iterate through list of Salesforce accounts</em>
+<a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
 <p>In this example, the trigger returns a list of Salesforce accounts. Since Zendesk does not support batch actions, each Salesforce account must be added one at a time to Zendesk.</p>
 <p>The list datapill has to be passed into the repeat step. When the input list field is selected, only list type datapills are usable in the datatree, as shown below. List type pills can be identified via their stack icon.</p>
 <p><img src="../assets/images/recipes/steps/map-list-pill-into-repeat-step.gif" alt="Map list data pill into the Repeat step">
-<em>Mapping a list data pill into the Repeat step&apos;s input list field</em> <a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
+<em>Mapping a list data pill into the Repeat step&apos;s input list field</em>
+<a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
 <p>Datapills from the <strong>Foreach</strong> output datatree should be mapped to ensure that values from each list item are used when the action is repeated. For example, if two Salesforce accounts are fetched by the trigger, using pills from the <strong>Foreach</strong> datatree ensures that the <strong>Create organization</strong> action creates a Zendesk organization with the data from the first Salesforce account on its first iteration, then with the data from the second Salesforce account on its second iteration.</p>
 <p><img src="../assets/images/recipes/steps/use-datapills-from-repeat-step.gif" alt="Use datapills from Repeat step">
-<em>Using datapills from the Repeat step&apos;s datatree. This ensures values from the list being iterated through are used.</em> <a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
+<em>Using datapills from the Repeat step&apos;s datatree. This ensures values from the list being iterated through are used.</em>
+<a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
 <p>The following displays the mapping from the <strong>Foreach</strong> datatree.</p>
 <p><img src="../assets/images/recipes/steps/foreach_example.png" alt="Foreach step example">
-<em>Datapills are mapped from the Repeat step&apos;s datatree</em> <a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
+<em>Datapills are mapped from the Repeat step&apos;s datatree</em>
+<a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></p>
 <p>For further Repeat step examples or more info about list processing, refer to the List management article.</p>
 <h2 id="call-recipe-step">Call recipe step</h2>
 <p>Call recipe will run another recipe (named a callable recipe). Callable recipes are like functional calls in programming languages. They offer an easy way to resuse recipe logic.</p>
@@ -1471,11 +1478,13 @@
 <h3 id="example-stop">Example: Stop</h3>
 <p>The following recipe expects all Salesforce accounts to be present in Zendesk as organizations. In cases where no corresponding Zendesk organization is found, the recipe will stop processing further actions.</p>
 <p><img src="../assets/images/recipes/steps/stop_step_example.png" alt="Stop step example">
-<em>Recipe that utilizes the Stop step to send email and end job</em> <a href="https://www.workato.com/recipes/480360" target="_blank">Example recipe</a></p>
+<em>Recipe that utilizes the Stop step to send email and end job</em>
+<a href="https://www.workato.com/recipes/480360" target="_blank">Example recipe</a></p>
 <p>Any job ran by this recipe can proceed through either one of the conditional step, as the Zendesk organization must have either been found or not. If not found, the job will stop at Step 4. If found, the job will not carry out actions within the conditional step (Steps 3 and 4), instead only updating the matching Zendesk organization.</p>
 <p>This recipe marks the job as an error, so that the recipe owner will take notice of this job and attempt to rerun it.</p>
 <p><img src="../assets/images/recipes/steps/stop_with_error.png" alt="Stop step with error">
-<em>Configuring the Step step&apos;s error message</em> <a href="https://www.workato.com/recipes/480360" target="_blank">Example recipe</a>&#x2DA;</p>
+<em>Configuring the Step step&apos;s error message</em>
+<a href="https://www.workato.com/recipes/480360" target="_blank">Example recipe</a>&#x2DA;</p>
 <h2 id="action-with-error-handler-step">Action with error handler step</h2>
 <p>This step allows you watch for errors in actions and take remedial actions when an error occurs. It is similar to try/catch concept in programming lanaguages.</p>
 <p>Common remedial steps are to notify users of the error via email or error messages in the app, or to carry out a rollback (i.e. reversing the job by deleting any created or half-created records).</p>
@@ -1483,7 +1492,8 @@
 <h2 id="example-error-handler">Example: Error handler</h2>
 <p>The following recipe tries to update the Zendesk organization right after the search step, irrespective of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the <strong>Update organization</strong> action will fail.</p>
 <p><img src="../assets/images/recipes/steps/error_monitor_example.png" alt="Error monitor step example">
-<em>Recipe that uses the error monitor to monitor failures in updating Zendesk organizations</em> <a href="https://www.workato.com/recipes/480361" target="_blank">Example recipe</a></p>
+<em>Recipe that uses the error monitor to monitor failures in updating Zendesk organizations</em>
+<a href="https://www.workato.com/recipes/480361" target="_blank">Example recipe</a></p>
 <p>As the recipe catches failed actions within the error monitor block, failed <strong>Update organization</strong> actions will be caught, and the recipe proceeds to carry out steps within the <strong>On error</strong> block. In this case, it seems that the only reason for the update failing is because no matching Zendesk organization was found. Hence the remedial step creates a new Zendesk organization.</p>
 
                                 
@@ -1684,7 +1694,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Steps","date":"2017-02-20T13:00:00.000Z","level":"1.4.2","depth":2,"next":{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},"previous":{"title":"Triggers","level":"1.4.1","depth":2,"path":"recipes/triggers.md","ref":"recipes/triggers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/steps.md","mtime":"2017-04-07T21:56:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-07T21:57:42.305Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Steps","date":"2017-02-20T13:00:00.000Z","level":"1.4.2","depth":2,"next":{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},"previous":{"title":"Triggers","level":"1.4.1","depth":2,"path":"recipes/triggers.md","ref":"recipes/triggers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/steps.md","mtime":"2017-04-12T02:32:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-12T02:33:59.304Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

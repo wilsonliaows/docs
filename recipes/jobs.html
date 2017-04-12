@@ -1425,27 +1425,25 @@ Completed indicates that the job was processed successfully.</p>
 Failed indicates that the job ended because of an error. Errors can generally be attributed to failures in executing actions. e.g. an app was not reachable, or a contact being added already exists, etc. A</p>
 </li>
 </ul>
-<p>When an error is encountered, job execution stops i.e. downstream steps are not executed. </p>
+<p>When an error is encountered, job execution stops i.e. downstream steps are not executed.</p>
 <p>Such jobs may create incomplete records in your apps as it failed before finishing all steps.</p>
 <ul>
 <li><p>Pending
 Pending indicates that the job is still being processed.</p>
 </li>
 <li><p>Aborted
-Aborted is a rare state that a job can get into if it has pending jobs and the recipe has been affected in a manner that these pending jobs cannot finish processing. </p>
+Aborted is a rare state that a job can get into if it has pending jobs and the recipe has been affected in a manner that these pending jobs cannot finish processing.</p>
 </li>
 </ul>
-<p>ZZZZZZZZ</p>
 <h2 id="jobs-report">Jobs report</h2>
 <p>The jobs report is a record of all processed jobs. For each processed job, you can view complete details i.e. execution flow, data input/output from every step.</p>
 <p><img src="../assets/images/workato-concepts/jobs-history.png" alt="Jobs history">
 <em>Jobs report page</em></p>
 <p>You can find out more about jobs reports <a href="jobs-report.md">here</a>.</p>
 <h2 id="rerun-jobs">Rerun jobs</h2>
-<p>Any job (completed, failed, etc.) can be rerun. Workato stores the trigger event, and will rerun a job using this copy of the trigger event. </p>
+<p>Any job (completed, failed, etc.) can be rerun. Workato stores the trigger event, and will rerun a job using this copy of the trigger event.</p>
 <p>Rerun of a job will always use the latest version of the recipe. i.e. if the recipe has been modified since the job ran, rerun will use the most recent version.</p>
 <p>You can find out more about job reruns <a href="recipes/rerun-job.md">here</a>.</p>
-<p>ZZZZZZZZ</p>
 <h1 id="jobs-report">Jobs report</h1>
 <p>The jobs report is a record of all processed jobs. For each processed job, you can view complete details i.e. execution flow, data input/output from every step.</p>
 <p>Information such as date, time processed and job IDs, can be found here. The following shows the default jobs report page.</p>
@@ -1456,40 +1454,46 @@ Aborted is a rare state that a job can get into if it has pending jobs and the r
 <p><img src="../assets/images/job-details/custom-jobs-report.png" alt="Custom jobs report">
 <em>Customized jobs report page</em></p>
 <p>To create a custom jobs report, click on &apos;Customize report&apos; next to the Rerun and Refresh buttons.</p>
-<p><img src="../assets/images/job-details/customize-report.JPG" alt="customize report"></p>
-<p>You can use data pills from any data tree in your recipe for the column values. In the example below, the custom jobs report contains the Xero invoice ID, Infusionsoft invoice ID, as well as payment and contact information. </p>
-<p><img src="../assets/images/job-details/customize-report2.JPG" alt="customize report2"></p>
+<p><img src="../assets/images/job-details/customize-report.JPG" alt="customize report">
+<em>Customize report button</em></p>
+<p>You can use data pills from any data tree in your recipe for the column values. In the example below, the custom jobs report contains the Xero invoice ID, Infusionsoft invoice ID, as well as payment and contact information.</p>
+<p><img src="../assets/images/job-details/customize-report2.JPG" alt="customize report2">
+<em>Popup where customization of jobs report takes place</em></p>
 <h1 id="job-details">Job details</h1>
 <p>From the jobs report, you can view detailed information about each job as well as step-level information. This is useful in several ways:</p>
 <ul>
-<li><p>Debugging your recipe
-During testing, jobs may show up as completed in the jobs report, but they might not be processed in the manner you expect - taking a look at the exact steps processed by the recipe will help in ensuring the recipe is processing jobs in the expected manner.</p>
-</li>
-<li><p>Troubleshooting your job errors
-If jobs fail, you can take a look at the run-time data to understand why the job failed at specific step.</p>
-</li>
+<li>Debugging your recipe</li>
 </ul>
+<p>During testing, jobs may show up as completed in the jobs report, but they might not be processed in the manner you expect - taking a look at the exact steps processed by the recipe will help in ensuring the recipe is processing jobs in the expected manner.</p>
+<ul>
+<li>Troubleshooting your job errors</li>
+</ul>
+<p>If jobs fail, you can take a look at the run-time data to understand why the job failed at specific step.</p>
 <p>To view job details, simply click on the job you are interested in seeing.</p>
-<p><img src="../assets/images/job-details/jobs.JPG" alt="jobs"></p>
+<p><img src="../assets/images/job-details/jobs.JPG" alt="jobs">
+<em>Job details</em></p>
 <h2 id="how-to-read-the-job-report">How to read the job report</h2>
 <p>The summary of the job is displayed on top of the job report. This includes the status, description, start and end time, and the recipe version.</p>
-<p><img src="../assets/images/job-details/report1.JPG" alt="report1"></p>
+<p><img src="../assets/images/job-details/report1.JPG" alt="report1">
+<em>Job detail header</em></p>
 <p>For every action, the input and output data is available.</p>
 <p>In the image below, in the search step, which uses the specific string <strong>&quot;Xero Invoice + <code>Invoice Number</code></strong> to search for an order title, the input contains the string and the number of the invoice used in this job.</p>
-<p><img src="../assets/images/job-details/recipevsreport.png" alt="recipevsreport"></p>
-<p>Output data example</p>
-<p><img src="../assets/images/job-details/reportoutput.JPG" alt="reportoutput"></p>
+<p><img src="../assets/images/job-details/recipevsreport.png" alt="recipevsreport">
+<em>Fields mapping showing recipe input</em></p>
+<p>Here is how the output looks like.</p>
+<p><img src="../assets/images/job-details/reportoutput.JPG" alt="reportoutput">
+<em>Job details showing step output</em></p>
 <p>Looking at the output in the steps can tell you vital information about why a job has failed. Often, the output used in a specific step may be empty, thus using the data pills from that step in a later part of the recipe will not yield anything.</p>
 <h3 id="errors">Errors</h3>
 <p>When the job throws an error, view which step this occurs at and the error details on this page. The step with the error is indicated with a red line.</p>
-<p><img src="../assets/images/job-details/report5.JPG" alt="report5"></p>
+<p><img src="../assets/images/job-details/report5.JPG" alt="report5">
+<em>Error in recipe step</em></p>
 <h3 id="conditional-step">Conditional step</h3>
 <p>In conditional actions, there is only an &quot;Output&quot; tab. The output will have one of two values: &quot;True&quot; or &quot;False&quot; which determines whether the nested actions will take place.</p>
 <p>When the value is &quot;False&quot;, the nested actions will be skipped and the recipe proceeds to the next possible action.</p>
 <p><img src="../assets/images/job-details/report3.JPG" alt="report3"></p>
 <p>When the value is &quot;True&quot;, the nested actions will be completed.</p>
 <p><img src="../assets/images/job-details/report4.JPG" alt="report4"></p>
-<h3 id="for-each-step">For each step</h3>
 
                                 
                                 </section>
@@ -1689,7 +1693,7 @@ If jobs fail, you can take a look at the run-time data to understand why the job
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Jobs","date":"2017-03-23T14:00:00.000Z","level":"1.5.3","depth":2,"next":{"title":"Rerun job","level":"1.5.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},"previous":{"title":"Test mode","level":"1.5.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/jobs.md","mtime":"2017-04-07T21:56:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-07T21:57:42.305Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Jobs","date":"2017-03-23T14:00:00.000Z","level":"1.5.3","depth":2,"next":{"title":"Rerun job","level":"1.5.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},"previous":{"title":"Test mode","level":"1.5.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/jobs.md","mtime":"2017-04-12T02:32:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-12T02:33:59.304Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
