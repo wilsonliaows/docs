@@ -25,7 +25,7 @@ These changes are driven by Workato when it notices that the underlying schema o
 # Restoring versions
 To restore previous versions of the recipe, switch to the **Versions** tab to view all available versions. Recipe versions can be first previewed before being restored.
 
-![Preview and restore recipe](/assets/images/recipes/recipe-version-management/preview-restore-recipe.png)
+![Preview and restore recipe](/assets/images/recipes/recipe-version-management/preview-restore-recipe.gif)
 *Previewing and restoring a previous version of the recipe*
 
 Restored versions will be created as a new version. In the following case, the recipe had 3 versions initially. When version 2 of the recipe was restored, the restored version was created as Version 4.

@@ -30,7 +30,7 @@ For more information on connecting to a specific app, refer to the specific app 
 The following recipe requires both Salesforce and a Zendesk connections, which are both OAuth2. The **Connection** tab within the recipe shows further details about the app connections.
 
 ![Example recipe](/assets/images/recipes/connections/example-recipe.png)
-*Recipe syncing new/updated Salesforce accounts to Zendesk as organizations* [Example recipe](https://www.workato.com/recipes/480360)
+*Recipe syncing new/updated Salesforce accounts to Zendesk as organizations [Example recipe](https://www.workato.com/recipes/480360)*
 
 The following shows the **Connections** tab. Zendesk has been connected, but the Salesforce connector has no connection established yet.
 
@@ -66,7 +66,7 @@ Most Workato connectors allow only one connection to an app within a recipe.Ther
 Here is an example where the same recipe works with two Saleforce instances i.e. primary and secondary connectors.
 
 ![Secondary Salesforce connections](/assets/images/recipes/connections/primary-secondary-connectors.gif)
-*Recipe with primary and secondary Salesforce connectors* [Example recipe](https://www.workato.com/recipes/487648)
+*Recipe with primary and secondary Salesforce connectors [Example recipe](https://www.workato.com/recipes/487648)*
 
 The recipe requires two Salesforce connections.
 

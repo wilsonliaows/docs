@@ -8,7 +8,7 @@ Some basic trigger rules
 - Each trigger event will be processed only once. i.e. no duplicates
 - Trigger events will be processed in the same order as when the events where created (in the app)
 
-## Trigger types
+# Trigger types
 Triggers can be classified into different types based on how they check for and retrieve new events
 ```
 Polling,
@@ -18,7 +18,7 @@ Scheduled,
 Clock/Timer
 ```
 
-### Polling triggers
+## Polling triggers
 Polling triggers check for new events by periodically querying the app to see if new events are available. The polling frequency is determined by the type of Workato plan, and can be as low as 5 minutes.
 
 Each poll may yield multiple events ready for processing i.e. a single poll can result in several jobs being created.
@@ -37,21 +37,21 @@ The recipe polls every 5 minutes for new accounts created in Salesforce, and fet
 
 If the recipe is stopped on 1 Feb 2017, midnight PST, it will cease to fetch trigger events. However, when the recipe is started again, lets say on the 10 of March midnight PST, Workato will fetch all Salesforce accounts created since Feb 1.
 
-### Batch triggers
+## Batch triggers
 Batch triggers are similar to polling triggers in terms of how they fetch new events. But, where polling triggers will create a new job for every trigger event, batch triggers will create a new job for a group of events. This group size i.e. batch size can be specified by the end user as part of the trigger configuration. Typical values for batch size are 100.
 
 Batch triggers are generally used for increasing throughput.
 
 For further details about batch triggers, refer to the Batch processing article [here](/docs/features/batch-processing.md).
 
-### Real-time triggers
+## Real-time triggers
 Real-time triggers are usually built on top of an asynchronous notification mechanism. Real-time triggers typically require registration in your connected app (either via the API or manually via the app interface), to let the app know that you are interested in a specific event. When that event occurs, the app will send a notification to Workato and generate a trigger event.
 
 Webhooks are one such mechanism. Most real-time triggers supported on Workato are built on webhooks. The advantage of webhooks is that there is no delay, and it is more efficient as we only receive notifications from apps when events occur, instead of Workato having to check at regular intervals for new events.
 
 Real-time triggers supported by Workato (this excludes HTTP real-time triggers) are generally webhooks supported by regular polling. The polling intervals for real-time triggers are generally longer than the normal polling triggers, however, i.e. instead of polling once every 5 minutes or so, the trigger can now poll once every hour. The polling mechanism in real-time triggers is also what allows you to select a **From** date at the time of recipe start.
 
-### Scheduled triggers
+## Scheduled triggers
 Scheduled triggers are executed at specified days and times, hourly, daily, monthly, etc.
 
 ![Salesforce scheduled trigger schedules](/assets/images/recipes/triggers/scheduled_trigger_schedules.png)
@@ -61,8 +61,21 @@ At the scheduled time or interval, this trigger will fetch all events matching t
 
 Scheduled triggers will return events in batches, similar to how batch triggers work. Users can specificy the maximum batch size. For e.g. if the batch size is set to 100 and 420 new events are identified, 5 new jobs will be created. The first four jobs will have 100 events each and the fifth will have 20 jobs.
 
-### Clock/timer
-Add definition and example.
+## Scheduler/clock/timer
+Scheduler triggers allows you to schedule when exactly your recipe will run. There are two triggers:
+
+- Basic scheduler trigger
+
+This trigger allows you to specify the time the recipe should first trigger, and subsequently, the time intervals to continue triggering on.
+
+![Basic scheduler trigger](/assets/images/recipes/triggers/basic-scheduler-trigger.png)
+*Basic scheduler trigger that triggers the first time when recipe is started, then subsequently every hour after that*
+
+- Advanced scheduler trigger
+
+This trigger allows you to specify the days of the week the recipe should trigger on, as well as the times it should trigger on. If you specify only the minutes, e.g. 30, the recipe will trigger 24 times in a day, every 30 minutes past the hour. If both hour and minute inpur fields are filled, the recipe will trigger once a day.
+
+![Advanced scheduler trigger](/assets/images/recipes/triggers/advanced-scheduler-trigger.gif) *Advanced scheduler trigger that triggers every Monday at midnight 0000*
 
 ## Since/From
 The **Since** or **From** setting enables fetching of historical trigger events from a specified date and time. i.e. instead of picking up new trigger events (events created since recipe was started) this enables picking events that have already occurred.
