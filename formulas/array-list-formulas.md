@@ -239,10 +239,10 @@ Reverses the order of a list.
 Joins array elements into a string. Removes empty and nil values and trims any white space before joining.
 
 ### Example
-| Example                                                                    | Result                                         |
-|----------------------------------------------------------------------------|------------------------------------------------|
-| [nil, "", "Hello", " ", "World"].smart_join(" ")                           | "Hello World"                                  |
-| ["111 Vinewood Drive", "", "San Francisco", "CA", "95050"].smart_join(",") | "111 Vinewood Drive, San Francisco, CA, 95050" |
+| Example                                                                      | Result                                         |
+|------------------------------------------------------------------------------|------------------------------------------------|
+| `[nil, "", "Hello", " ", "World"].smart_join(" ")`                           | "Hello World"                                  |
+| `["111 Vinewood Drive", "", "San Francisco", "CA", "95050"].smart_join(",")` | "111 Vinewood Drive, San Francisco, CA, 95050" |
 
 ## sum
 For integers and decimals, the numbers will be added together and the total sum obtained. For strings, the strings will be concatenated together to form a longer string.

@@ -56,6 +56,7 @@
     * [OAuth 2.0](developing-connectors/sdk/authentication/oauth2-authentication.md)
     * [Custom auth](developing-connectors/sdk/authentication/custom-authentication.md)
     * [Test](developing-connectors/sdk/authentication/test.md)
+* [Workato API](https://www.workato.com/apidoc)
   * [Object definition](developing-connectors/sdk/object-definition.md)
   * [Action](developing-connectors/sdk/action.md)
   * [Trigger](developing-connectors/sdk/trigger.md)
