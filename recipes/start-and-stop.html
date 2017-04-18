@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Start and stop · GitBook</title>
+        <title>Test, start and stop recipe · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,7 +60,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="testing-recipes.html" />
+    <link rel="next" href="jobs.html" />
     
     
     <link rel="prev" href="running-recipes.html" />
@@ -98,7 +98,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="..">Start and stop</a>
+          <a href="..">Test, start and stop recipe</a>
         </h1>
       </div>
     </div>
@@ -263,21 +263,6 @@
       
     </li>
   
-    <li class="chapter " data-level="1.4.6" data-path="building-best-practices.html">
-      
-
-      
-        <a href="building-best-practices.html">
-      
-        
-        Best practices
-      
-        </a>
-      
-
-      
-    </li>
-  
 
         </ul>
       
@@ -308,7 +293,7 @@
         <a href="start-and-stop.html">
       
         
-        Start and stop
+        Test, start and stop recipe
       
         </a>
       
@@ -316,22 +301,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.5.2" data-path="testing-recipes.html">
-      
-
-      
-        <a href="testing-recipes.html">
-      
-        
-        Test mode
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.5.3" data-path="jobs.html">
+    <li class="chapter " data-level="1.5.2" data-path="jobs.html">
       
 
       
@@ -346,7 +316,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.5.4" data-path="rerun-job.html">
+    <li class="chapter " data-level="1.5.3" data-path="rerun-job.html">
       
 
       
@@ -361,7 +331,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.5.5" data-path="../recipe-ops.html">
+    <li class="chapter " data-level="1.5.4" data-path="../recipe-ops.html">
       
 
       
@@ -390,7 +360,7 @@
         <a href="../formulas.html">
       
         
-        Data mapping formulas
+        Data types and formulas
       
         </a>
       
@@ -1419,34 +1389,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="starting--stopping-recipes">Starting &amp; stopping recipes</h1>
-<h2 id="starting-recipes">Starting recipes</h2>
-<p>Click on &apos;Start recipe&apos; to activate the recipe i.e. look for trigger events to process.</p>
-<p>If you have already run your recipe in &apos;test&apos; mode, the &apos;Start recipe&apos; button should be displayed, otherwise, this button is available in the dropdown beside &apos;Test recipe&apos;.</p>
-<p><img src="../assets/images/testing-recipes/Teststart.JPG" alt="Teststart"></p>
-<p>After you have started the recipe, the recipe becomes an &apos;Active&apos; recipe. On your home page, you can filter by active recipes to see all the active recipes.</p>
-<h2 id="stopping-recipes">Stopping recipes</h2>
-<p>Stop the recipes when they are no longer relevant, or to make changes. </p>
-<p><img src="../assets/images/startstop/stopbutton.JPG" alt="stopbutton"></p>
-<p>When you start the recipe again, Workato remembers the last processed event, and will start processing from there so you do not miss any trigger events when your recipe was stopped.</p>
-<h3 id="why-are-my-recipes-automatically-stopped">Why are my recipes automatically stopped?</h3>
-<p>There are 2 reasons for this: </p>
+                                <h1 id="test-start-and-stop-recipe">Test, start and stop recipe</h1>
+<p>In Workato, you can work with recipes in various ways:</p>
+<ul>
+<li>test a recipe to run a single trigger event through the recipe logic</li>
+<li>start a recipe to have it pick up trigger events</li>
+<li>stop a recipe to have it stop processing new trigger events</li>
+</ul>
+<h1 id="test-mode">Test mode</h1>
+<p>It is best practice to test your recipe before starting it and letting it run with minimal supervision. You don&apos;t want to turn on an inaccurate automation that moves lots of data wrongly - that&apos;s a lot of cleanup work to do!</p>
+<p>The test recipe button picks up a single trigger event and runs it through your recipe. This allows you to check for recipe correctness. Typically, the test button show up by default for a new recipe, while the start button can be found in the dropdown list. Once your recipe has a first successful job, the default button changes to the start button, while the test button can then be found in the dropdown list.</p>
+<p><img src="../assets/images/testing-recipes/default-test-button.gif" alt="Default test button">
+<em>Test button showing up on default for a recipe with no successful jobs</em></p>
+<h2 id="test-trigger-events">Test trigger events</h2>
+<p>The trigger event picked up when you click on test depends on the <strong>Since/From</strong> date selected. In short, your recipe picks up the same trigger events as it would have if you clicked on recipe start. The only difference is that the recipe controls the number of trigger events processed - in this case, one.</p>
+<p>The <strong>Since/From</strong> date cannot be changed once you have selected it. Learn more about the <strong>Since/From</strong> date <a href="triggers.html#sincefrom">here</a>.</p>
+<p>If the test mode found jobs, it picks up and processes the first one.</p>
+<p><img src="../assets/images/testing-recipes/test-one-job.gif" alt="Test recipe and picked up one job">
+<em>Test recipe and picked up one job</em></p>
+<p>If the test mode did not find any jobs, it returns the follwoing message.</p>
+<p><img src="../assets/images/testing-recipes/test-found-no-jobs.gif" alt="No jobs when testing">
+<em>Test recipe picked up no jobs</em></p>
+<h1 id="testing-tips">Testing tips</h1>
+<h2 id="use-sandboxes">Use sandboxes</h2>
+<p>As best practice, try to use sandboxes instead of production accounts for testing recipes. This ensures that you&apos;re using realistic data but not working with production, possibly mission-critical data.</p>
+<h2 id="add-stop-steps-to-prevent-unwanted-actions-from-happening">Add Stop steps to prevent unwanted actions from happening</h2>
+<p>Add a <a href="steps.html#stop-step">Stop step</a> to the recipe when testing to prevent the recipe from carrying out steps that you&apos;re not interested in testing. For example, if you simply wish to test your conditional actions and verify that data is being carried out with the correct steps, you can add stop steps to prevent the recipe from actually carrying out any actions within the conditional step.</p>
+<p><img src="../assets/images/testing-recipes/add-stop-steps-for-test.png" alt="Add stop steps for testing">
+<em>Recipe with additional stop steps in steps 3 and 6 to test conditional actions</em></p>
+<h2 id="test-all-possible-scenarios">Test all possible scenarios</h2>
+<p>Recipes often come with multiple lines of conditional logic. In the following example, the recipe will either create a Zendesk organization, or update an existing Zendesk organization.</p>
+<p><img src="../assets/images/testing-recipes/recipe-with-conditional-steps.png" alt="Recipe with conditional steps">
+<em>Recipe with conditional steps that syncs Salesfore accounts and Zendesk organizations</em></p>
+<p>To test this recipe, we suggest testing with a couple of trigger events that will test out both paths, e.g. with a Salesforce account that has a corresponding Zendesk organization, and with a Salesforce account that doesn&apos;t.</p>
+<h2 id="test-all-mapped-data-fields-and-pills">Test all mapped data fields and pills</h2>
+<p>To ensure data is being transformed (if applicable) and moved from one app to the other correctly, test all data being moved. For example, in the following recipe, we&apos;re moving <em>Account Name</em>, <em>Account Description</em> and <em>Account Phone</em> from Salesforce into Zendesk. During testing, best practice is to ensure that these three data fields in Salesforce has data, and then verify that these input fields in Zendesk (<em>Name</em>, <em>Details</em> and <em>Phone</em>) has the right data moved from Salesforce.</p>
+<p><img src="../assets/images/testing-recipes/mapped-input-fields.png" alt="Mapped input fields">
+<em>Mapped input fields</em></p>
+<h1 id="start-recipe">Start recipe</h1>
+<p>Starting a recipe will cause it to pick up trigger events and process them through the recipe. When a recipe is started, it becomes <strong>active</strong>.</p>
+<h2 id="starting-a-recipe-for-the-first-time">Starting a recipe for the first time</h2>
+<p>When a recipe is first started, it will fetch trigger events from the <strong>Since/From</strong> datetime defined. Subsequently, it will continuously process these events. If you had defined the <strong>Since/From</strong> date during testing previously, this date cannot be changed again for this recipe - you can find out more <a href="triggers.html#sincefrom">here</a>.</p>
+<p>If you had tested your recipe in test mode before starting, the recipe will not reprocess any trigger events previously picked up during testing. This prevents duplication of data in your apps. You should only start your recipe when you&apos;ve fully tested it - check out the section on <a href="#test-mode">testing recipes</a> if not.</p>
+<p>If you have any successful jobs, the start button should be displayed by default. Otherwise, it can be found in the dropdown list.</p>
+<p><img src="../assets/images/testing-recipes/default-start-button.gif" alt="Default start button">
+<em>Start button showing up on default for a recipe with at least 1 successful job</em></p>
+<h2 id="starting-a-recipe-for-the-second-time-onwards">Starting a recipe for the second time onwards</h2>
+<p>For most Workato recipes, when a recipe is started after it has been stopped previously, it will continue where it was stopped. For example, if it was stopped on Monday, and started again from Thursday, the recipe will fetch all trigger events since Monday and process them.</p>
+<p>However, this might not be the case for recipes with real-time triggers powered by webhooks - trigger events that occur during the time that the recipe was stopped might not be picked up by the recipe. You can read more about real-time triggers and webhooks <a href="triggers.html#real-time-triggers">here</a>.</p>
+<h1 id="stop-recipe">Stop recipe</h1>
+<p>Stopping a recipe makes it <strong>inactive</strong>. It will stop picking up trigger events. Recipes have to be stopped to make changes to the recipe, or to rename the recipe.</p>
+<p>Most Workato recipes will continue where they have left off when a recipe is restarted from a stopped state. This depends on the trigger it has. For most Workato triggers, the recipe will continue to process jobs from when it stopped - for example, if it was stopped on Monday, and started again from Thursday, the recipe will fetch all trigger events since Monday and process them.</p>
+<p>However, this might not be the case for recipes with real-time triggers powered by webhooks - trigger events that occur during the time that the recipe was stopped might not be picked up by the recipe. You can read more about real-time triggers and webhooks <a href="triggers.html#real-time-triggers">here</a>.</p>
+<h2 id="recipes-stopped-by-workato">Recipes stopped by Workato</h2>
+<p>Some recipes are stopped by Workato. In such cases, you will receive an email from us about this stopped recipe. There are 2 reasons for this:</p>
 <ol>
-<li><p>Recipes are automatically stopped when the monthly transaction limit is hit. Contact our customer success team to add more transactions. </p>
+<li><p>Recipes are automatically stopped when the monthly transaction limit is hit. <a href="docs/contact-us.md">Contact our customer success team</a> to add more transactions.</p>
 </li>
-<li><p>There are more than 60 consecutive errors in receiving trigger events. In this case, address the underlying cause (e.g. API password change, etc.) and restart the recipe.</p>
-<p><img src="../assets/images/startstop/consecerror.png" alt="consecerror"></p>
+<li><p>The recipe has experienced 60 consecutive errors when trying to fetch trigger events. This can be due to various causes, e.g. password change leading to disconnected connection, API server of the app was down, etc. You have to fix the underlying issue before the recipe will work.</p>
+<p><img src="../assets/images/startstop/consecerror.png" alt="consecerror">
+<em>Error message shown in the recipe when there has been 60 consecutive trigger errors</em></p>
 </li>
 </ol>
-<h2 id="restarting-recipes">Restarting recipes</h2>
-<p>Starting a stopped recipe will pick up jobs from where it last stopped. </p>
-<p>For example, if I stopped my recipe on January 1st, 10:30pm, and start it again on January 10th, 7pm, it will begin picking up jobs from January 1st, 10:31pm onwards. </p>
-<p>If you wish for the recipe to only start picking up new jobs from January 10th onwards, copy the recipe and change the &apos;From&apos; date. The &apos;copy&apos; button is below the recipe name. </p>
-<p><img src="../assets/images/startstop/copyrecipe.png" alt="copyrecipe"></p>
 <h3 id="notifications-email">Notifications email</h3>
-<p>Anytime there is an error when processing a recipe, an email is sent. By default, this email is sent to your Workato account login email. You can change this, or add additional recipients by setting your <strong>notifications email</strong> in your account settings. </p>
-<p><img src="../assets/images/startstop/settingsdropdown.JPG" alt="settingsdropdown"></p>
-<p><img src="../assets/images/startstop/notemail.JPG" alt="notemail"></p>
+<p>When a recipe is stopped by Workato, an email is sent to the login email associated with the Workato account. This email can be changed, and additional recipients can also be added to be notified via the <strong>Notifications email</strong> setup in your account settings.</p>
+<p><img src="../assets/images/startstop/notemail.JPG" alt="notemail">
+<em>Configure the emails to notify in account settings</em></p>
 
                                 
                                 </section>
@@ -1646,7 +1654,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Start and stop","level":"1.5.1","depth":2,"next":{"title":"Test mode","level":"1.5.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},"previous":{"title":"Running recipes","level":"1.5","depth":1,"path":"recipes/running-recipes.md","ref":"recipes/running-recipes.md","articles":[{"title":"Start and stop","level":"1.5.1","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},{"title":"Test mode","level":"1.5.2","depth":2,"path":"recipes/testing-recipes.md","ref":"recipes/testing-recipes.md","articles":[]},{"title":"Jobs","level":"1.5.3","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},{"title":"Rerun job","level":"1.5.4","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},{"title":"Operations","level":"1.5.5","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/start-and-stop.md","mtime":"2017-04-18T00:04:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T00:06:19.955Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Test, start and stop recipe","date":"2017-02-18T22:15:00.000Z","level":"1.5.1","depth":2,"next":{"title":"Jobs","level":"1.5.2","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},"previous":{"title":"Running recipes","level":"1.5","depth":1,"path":"recipes/running-recipes.md","ref":"recipes/running-recipes.md","articles":[{"title":"Test, start and stop recipe","level":"1.5.1","depth":2,"path":"recipes/start-and-stop.md","ref":"recipes/start-and-stop.md","articles":[]},{"title":"Jobs","level":"1.5.2","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},{"title":"Rerun job","level":"1.5.3","depth":2,"path":"recipes/rerun-job.md","ref":"recipes/rerun-job.md","articles":[]},{"title":"Operations","level":"1.5.4","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/start-and-stop.md","mtime":"2017-04-18T05:27:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:28:54.699Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
