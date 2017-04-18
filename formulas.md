@@ -54,11 +54,11 @@ In text mode, the message will be as follows:
 
 ![Welcome email in text mode](/assets/images/formula-docs/welcome-email-in-text.png)
 
-*Email in text mode* [Example recipe](https://www.workato.com/recipes/504766)
+*Email in text mode. [Example recipe](https://www.workato.com/recipes/504766)*
 
 ![Welcome email in formula mode](/assets/images/formula-docs/welcome-email-in-formula.png)
 
-*Email in formula mode* [Example recipe])(https://www.workato.com/recipes/496603)
+*Email in formula mode. [Example recipe])(https://www.workato.com/recipes/496603)*
 
 ## Conditionals
 You can conditionally (if-else) execute formulas using Ruby's ternary syntax. Ternary syntax are of the form:

@@ -42,7 +42,7 @@ Batch triggers are similar to polling triggers in terms of how they fetch new ev
 
 Batch triggers are generally used for increasing throughput.
 
-For further details about batch triggers, refer to the Batch processing article [here](/docs/features/batch-processing.md).
+For further details about batch triggers, refer to the Batch processing article [here](docs/features/batch-processing.md).
 
 ## Real-time triggers
 Real-time triggers are usually built on top of an asynchronous notification mechanism. Real-time triggers typically require registration in your connected app (either via the API or manually via the app interface), to let the app know that you are interested in a specific event. When that event occurs, the app will send a notification to Workato and generate a trigger event.
@@ -64,14 +64,14 @@ Scheduled triggers will return events in batches, similar to how batch triggers 
 ## Scheduler/clock/timer
 Scheduler triggers allows you to schedule when exactly your recipe will run. There are two triggers:
 
-- Basic scheduler trigger
+- New scheduled event
 
 This trigger allows you to specify the time the recipe should first trigger, and subsequently, the time intervals to continue triggering on.
 
 ![Basic scheduler trigger](/assets/images/recipes/triggers/basic-scheduler-trigger.png)
 *Basic scheduler trigger that triggers the first time when recipe is started, then subsequently every hour after that*
 
-- Advanced scheduler trigger
+- New scheduled event (advanced)
 
 This trigger allows you to specify the days of the week the recipe should trigger on, as well as the times it should trigger on. If you specify only the minutes, e.g. 30, the recipe will trigger 24 times in a day, every 30 minutes past the hour. If both hour and minute inpur fields are filled, the recipe will trigger once a day.
 

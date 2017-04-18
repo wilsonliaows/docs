@@ -37,12 +37,10 @@ Workato steps can be actions, conditional actions, list actions, actions that ca
 
 You can read more about recipe steps [here](/recipes/steps.md) and actions [here](/recipes/actions.md).
 
-## Block
-
 ## Data tree and pills
 Every step including triggers brings data into the recipe. e.g. a new employee in Workday trigger would bring in employee data. This data is made available in the recipe via the 'data tree'.
 
-The individual data fields are called data pills. You can use the data pills in subsequent steps. You can read more about data pills [here](/recipes/data-pills.md).
+The individual data fields are called data pills. You can use the data pills in subsequent steps. You can read more about data pills [here](/recipes/data-pills-and-mapping.md).
 
 The following is the output datatree for the trigger **New Salesforce account**. This datatree contains all the variables known to us and available for use whenever a trigger event occurs.
 
@@ -68,7 +66,7 @@ These values can be used in subsequent steps of the recipe by being passed into 
 ## Input fields and fields mapping
 Triggers and actions have input fields. Input fields are how triggers and actions are designed to carry out customized workflows, and they can take in variables (datapills) or constants.
 
-When we insert variables (datapills) or constants into input fields, that's called fields mapping. You can read more about fields mapping [here](/recipes/mapping.md).
+When we insert variables (datapills) or constants into input fields, that's called fields mapping. You can read more about fields mapping [here](/recipes/data-pills-and-mapping.md#fields-mapping).
 
 The following is an expanded view of the **Create Zendesk organization** action. In this view, we can see two input fields: **Name** and **Notes**.
 
@@ -93,26 +91,26 @@ Here's an example of the new Zendesk organization created via the above mapping:
 *Newly created Zendesk organization Sattei Winery*
 
 ## Connections
-For a recipe to communicate with apps via actions and triggers, it has to be authorized to interact with apps. This authorization is referred to as a **connection**. Connections are not tied to a recipe - a single connection can be used by multiple recipes. You can read more about connections [here](/connections.md).
+For a recipe to communicate with apps via actions and triggers, it has to be authorized to interact with apps. This authorization is referred to as a **connection**. Connections are not tied to a recipe - a single connection can be used by multiple recipes. You can read more about app connections [here](/connections.md).
 
 ![Connections](/assets/images/workato-concepts/connections.png)
 *Salesforce and Zendesk connections from the recipe view*
 
 ## Jobs
-Each time there is a trigger event, the actions in the recipe are executed. The entire flow of each trigger event through the recipe is called a **job**. Jobs can be successful (when actions are executed successfully), or have errors (when an action results in an error). When an error is encountered, subsequent actions are not executed.
+Each time there is a trigger event, the actions in the recipe are executed. The entire flow of each trigger event through the recipe is called a **job**. Jobs can be successful (when actions are executed successfully), or have errors (when an action results in an error). When an error is encountered, subsequent actions are not executed. You can read more about jobs [here](/recipes/jobs.md).
 
 ## Jobs report
 The job report gives a high-level summary of the all the trigger events processed by the recipe. The entire flow of each trigger event through the recipe is called a job.
 
 Information such as date, time processed and job IDs, can be found here. From this jobs history page, users can view more detailed information about a job by clicking on it.
 
-You can read more about job reports [here](/recipes/jobs-report.md).
+You can read more about job reports [here](/recipes/jobs.md#jobs-report).
 
 ![Jobs history](/assets/images/workato-concepts/jobs-history.png)
 *Jobs report page*
 
 ## Job details
-The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe. This page is useful for troubleshooting recipes as users are able to view the data passed into each step and the resultant output returned after each step was executed. You can read more about jobs and job details [here](recipes/jobs.md).
+The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe. This page is useful for troubleshooting recipes as users are able to view the data passed into each step and the resultant output returned after each step was executed. You can read more about job details [here](recipes/jobs.md#job-details).
 
 ![Job details page](/assets/images/workato-concepts/job-details-page.gif)
 *Job details page showing the syncing of Salesforce account Myers Brewery to Zendesk*

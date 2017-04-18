@@ -36,17 +36,17 @@ Note - even if you have CSV files with other schema and different header lines i
 The following recipe parses new CSV files in Box and uses the data parsed to create new NetSuite inventory items.
 
 ![Example recipe - CSV file parsing](/assets/images/features/files-and-attachments/csv-file-parsing-recipe.png)
-*Recipe that parses CSV files to retrieve data for use in datatree* [Example recipe](https://www.workato.com/recipes/485023)
+*Recipe that parses CSV files to retrieve data for use in datatree. [Example recipe](https://www.workato.com/recipes/485023)*
 
 When using **Box new CSV file** trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato will build the trigger output datatree for use in subsequent actions.
 
 ![Define expected columns in CSV](/assets/images/features/handling-csv-files/define-expected-csv-columns.gif)
-*Defining the expected columns in the CSV files that the recipe will pick up* [Example recipe](https://www.workato.com/recipes/485023)
+*Defining the expected columns in the CSV files that the recipe will pick up. [Example recipe](https://www.workato.com/recipes/485023)*
 
 The columns defined in the **Box new CSV file** trigger shows up as usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.
 
 ![Use defined CSV variables](/assets/images/features/handling-csv-files/use-defined-csv-variables.gif)
-*Using the variables created from the columns definition* [Example recipe](https://www.workato.com/recipes/485023)
+*Using the variables created from the columns definition. [Example recipe](https://www.workato.com/recipes/485023)*
 
 ## Parsing CSV files via Utility connector's CSV parsing capability
 Not all connectors are able to process CSV files in particular and move individual values from these CSV files into other apps. Such connectors will have triggers that process only files in general. In such cases, we can still try to read the text content of CSV files and parse them explicitly with the Utility connector. This will allow us to move individual values from these CSV files into other apps, for example, from the sample CSV file:
@@ -62,8 +62,7 @@ Natural
 In the following recipe, Dropbox files triggered upon are not being parsed in the trigger, hence the additional need to download the content of the file and parse the CSV content for Workato to use. Parsing the CSV lines provides us with a list of lines (with each line having their own set of inventory item values) to utlize, hence we use a Repeat step to iterate through the list of lines and to create an inventory item with each set of values.
 
 ![Example recipe - CSV file parsing with utilities](/assets/images/features/files-and-attachments/utilitites-parse-csv-example-recipe.png)
-
-[Example recipe](https://www.workato.com/recipes/492685)
+*Recipe that uses CSV file parsing utility. [Example recipe](https://www.workato.com/recipes/492685)*
 
 In the **Parse CSV** action, provide the file content to the CSV body input field, and specify the header line.
 

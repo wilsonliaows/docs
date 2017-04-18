@@ -23,7 +23,7 @@ In most of the examples, the **Box** trigger **New CSV file** will be used to re
 If the above CSV file is the only CSV file in the selected Box folder in the trigger configuration, the fields list will be populated automatically with the column names. The column names has to correspond exactly with the header line in the CSV file in order for the CSV data to be mapped accurately to their columns.
 
 ![Defining expected CSV columns](/assets/images/features/list-management/defining-expected-csv-columns.gif)
-*Defining the expected columns in the CSV files that the recipe will pick up* [Example recipe](https://www.workato.com/recipes/485023)
+*Defining the expected columns in the CSV files that the recipe will pick up. [Example recipe](https://www.workato.com/recipes/485023)*
 
 The columns defined in the **Box new CSV file** trigger shows up as a list of usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.
 
@@ -46,7 +46,7 @@ These datapills can be used to map into Workato actions' input fields. There are
 When using pills directly from a list, only the values of the first list item will be retrieved. In the following recipe, pills from the list are used directly in the **Log message** action.
 
 ![Example recipe using list pills directly](/assets/images/features/list-management/example-recipe-using-list-pills-directly.png)
-*Recipe using list pills directly in Log message action* [Example recipe](https://www.workato.com/recipes/487919)
+*Recipe using list pills directly in Log message action. [Example recipe](https://www.workato.com/recipes/487919)*
 
 ![Field mappings for log message](/assets/images/features/list-management/field-mappings-for-log-message.gif)
 *Field mappings for Log message action*
@@ -67,8 +67,7 @@ Some actions will accept a list as input e.g. Salesforce bulk insert and bulk up
 The following is an example scenario that imports new products from a Box CSV file into Salesforce via the **Bulk insert** action.
 
 ![Example recipe using list input](/assets/images/features/list-management/example-recipe-using-input-list.png)
-
-*Example recipe using list input* [Example recipe](https://www.workato.com/recipes/488454)
+*Example recipe using list input. [Example recipe](https://www.workato.com/recipes/488454)*
 
 Actions that take lists as inputs will have a input field called **Source list**, which will only take in list pills. When these list input fields are selected, the datatree changes to offer only list pills. The Rows list object pill is mapped into the Salesforce product source list input field.
 
@@ -95,7 +94,8 @@ In this example scenario, let's import a list of new inventory items (recorded w
 
 In order to move through the list and create three NetSuite inventory items, the Repeat step should be used to iterate through the list, and carry out the same action for each iteration.
 
-![Example recipe using repeat step](/assets/images/features/list-management/example-recipe-using-repeat-step.png) [Example recipe](https://www.workato.com/recipes/487921)
+![Example recipe using repeat step](/assets/images/features/list-management/example-recipe-using-repeat-step.png)
+*Recipe using repeat step to iterate through NetSuite list of inventory items. [Example recipe](https://www.workato.com/recipes/487921)*
 
 To iterate through the Rows list, pass the Rows list object as input for the repeat step. The recipe will therefore iterate through the list thrice to repeat the "Add inventory item" action thrice, with different values from different CSV lines each time.
 
@@ -127,7 +127,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 As discussed [here](#using-datapills-from-lists), using pills directly from the list object in the datatree without list handling will result in the first list item being used. Hence, if datapills from the list object (instead of datapills from the Repeat step) are used inside the Repeat step, the recipe still iterates through the 3 CSV lines, but instead of using values from each line with every iteration, only values from the first line will be used for all 3 iterations, resulting in duplication.
 
 ![Recipe with direct mapping from list](/assets/images/features/list-management/recipe-with-wrong-direct-mapping.gif)
-*Example of a recipe with wrong direct mapping from list instead of from the Repeat step* ([Example recipe](https://www.workato.com/recipes/488273))
+*Example of a recipe with wrong direct mapping from list instead of from the Repeat step. [Example recipe](https://www.workato.com/recipes/488273)*
 
 ## List connector (Accumulator)
 The list connector is a Workato utility built for users to create custom lists and store data in the list for the duration of a job, to be used in the same job. It is usually used for users to prepare a list to write to an action with a list input.
@@ -175,13 +175,11 @@ There are two ways of building this recipe:
 Iterate through the Salesforce list of opportunity products via a Repeat step to find corresponding NetSuite inventory items, and accumulate that in a custom list. Subsequently, create a complete NetSuite sales order with a list of line items in a single action, by passing in the custom list built with accumulator.
 
 ![Example recipe using accumulator](/assets/images/features/list-management/example-recipe-using-accumulator.png)
-
-*Salesforce-Netsuite recipe using Repeat step* [Example recipe](https://www.workato.com/recipes/488286)
+*Salesforce-Netsuite recipe using Repeat step. [Example recipe](https://www.workato.com/recipes/488286)*
 
 **2) Using Repeat step. Create a NetSuite sales order, then iteratively move lines from Salesforce opportunity to NetSuite sales order via a Repeat step.**
 
 First, create a NetSuite sales order. Then, in a Repeat step, search for Netsuite inventory item by Salesforce opportunity product name (or any other identifying field). Pass the internal ID of the NetSuite inventory item found into the **Update sales order** action in order to append a new line to the sales order.
 
 ![Example recipe using repeat step](/assets/images/features/list-management/example-recipe-using-repeat-step-vs-accumulator.png)
-
-*Salesforce-Netsuite recipe using Repeat step* [Example recipe](https://www.workato.com/recipes/488358)
+*Salesforce-Netsuite recipe using Repeat step. [Example recipe](https://www.workato.com/recipes/488358)*

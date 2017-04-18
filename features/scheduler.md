@@ -3,28 +3,29 @@ title: Scheduler
 date: 2017-02-23 15:15:00 Z
 ---
 
-#Scheduler
-There are use cases where a workflow needs to occur at a specific time, or at a specific frequency e.g. every Monday morning a report is generated and distributed before a status meeting, every 6 hours a file is available via FTP that needs to be uploaded. The scheduler (aka clock) connector supports such use cases.
-
-The scheduler connectors supports two types of triggers:
-* New scheduled event: This trigger can be configured to fire periodically. The user can select from every 5 minutes to days and weeks.
-* New scheduled event (advanced): This trigger can be configured to fire at a specific time, and specific frequency. e.g. 1:15pm every Monday and Tuesday.
-
-It is important to note that all times are in the user's time zone. The user's time zone setting is defaulted to the locale from which they sign up to Workato. The timezone setting can be modified (in the user settings section) at any time. All new jobs will then use the new time zone setting.
-
-The following 2 actions are also supported:
-* Get current time - returns the specific time when this step is executed within in a job. 
-* Wait - The job waits for the specified amount of time before executing the next step in the recipe. 
+# Scheduler
+There are scenarios where a workflow needs to occur at a specific time, or at a specific frequency e.g. generate a report every Monday morning at 9am, check for new CSV files uploaded in your FTP server every 6 hours. The scheduler connector (AKA clock connector) supports such scenarios.
 
 ## Triggers
+Scheduler triggers allows you to schedule when exactly your recipe will run. There are two triggers:
 
-### New scheduled event
-This triggers at regular time intervals based on the user configuration. You can select from as low as 5 minutes to weeks. Specify the time interval at when you would like the recipe to run.
+- New scheduled event
 
-You can also set the time you want the recipe to start running using "Start at". e.g. Start running this recipe at 4:00 pm on Friday the 13th of August, and from then on run it every 15 minutes.
+This trigger allows you to specify the time the recipe should first trigger, and subsequently, the time intervals to continue triggering on.
 
-### New scheduled event (advanced) 
-This trigger will run the recipe at specific times. For instance, you can specify the trigger to run at 1:15pm every Monday and Tuesday. First, select the "Scheduled task" trigger, and then add the "Hour" optional field.
+![Basic scheduler trigger](/assets/images/recipes/triggers/basic-scheduler-trigger.png)
+*Basic scheduler trigger that triggers the first time when recipe is started, then subsequently every hour after that*
+
+- New scheduled event (advanced)
+
+This trigger allows you to specify the days of the week the recipe should trigger on, as well as the times it should trigger on. If you specify only the minutes, e.g. 30, the recipe will trigger 24 times in a day, every 30 minutes past the hour. If both hour and minute inpur fields are filled, the recipe will trigger once a day.
+
+![Advanced scheduler trigger](/assets/images/recipes/triggers/advanced-scheduler-trigger.gif) *Advanced scheduler trigger that triggers every Monday at midnight 0000*
+
+Note that all times set using Scheduler are in the user's time zone, which can be viewed and edited in the user's account settings.
+
+### Example of configuring new scheduler event (advanced) trigger
+For instance, we might want to specify the trigger to run at 1:15pm every Monday and Tuesday. First, select the "Scheduled task" trigger, and then add the "Hour" optional field.
 
 * In the "Hour" field, fill in 13.
 * In the "Minute" field, fill in 15.
@@ -32,5 +33,13 @@ This trigger will run the recipe at specific times. For instance, you can specif
 * Choose "yes" for Monday and Tuesday, and "no" for the rest.
 Now, the recipe will run at 1:15pm every Monday and Tuesday.
 
-**What happens if I don't fill in the "Hour" field?**
-In that case, your recipe will run at MM minutes, every hour of every day specified. In this example, on Monday and Tuesday, the recipe would be triggered at 0015, 0115, etc.
+## Actions
+The following 2 actions are also supported:
+
+- Get current time
+
+This action returns the specific date and time when this step is executed in a job.
+
+- Wait
+
+The job waits for the specified amount of time before executing the next step in the recipe.

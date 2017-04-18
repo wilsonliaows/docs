@@ -36,12 +36,12 @@ This is typically a 2-step process:
 Let's take the scenario where we move new files from Dropbox to Box. This is how the recipe looks.
 
 ![Example recipe - moving files via URL](/assets/images/features/files-and-attachments/file-url-recipe.png)
-*Recipe moves files from Dropbox to Box via public URLs* [Example recipe](https://www.workato.com/recipes/485735)
+*Recipe moves files from Dropbox to Box via public URLs. [Example recipe](https://www.workato.com/recipes/485735)*
 
 The **Obtain a direct URL to file** field in the **New file** trigger should be marked, so as to generate a public URL for the new file. The recipe then verifies that the file does not already exist in Box before uploading the file into Box via URL.
 
 ![Map Box URL in recipe](/assets/images/features/files-and-attachments/map-box-url-in-recipe.gif)
-*Obtain a direct URL for the Box file, then map the URL to the Box file to the upload action* [Example recipe](https://www.workato.com/recipes/485735)
+*Obtain a direct URL for the Box file, then map the URL to the Box file to the upload action. [Example recipe](https://www.workato.com/recipes/485735)*
 
 ## Moving text/binary files via file content
 This is typically a 2-step process:
@@ -54,17 +54,17 @@ This is typically a 2-step process:
 Let's take the scenario where Gmail email attachments need to be moved to Box. This is how the recipe looks.
 
 ![Example recipe - moving files between apps](/assets/images/features/files-and-attachments/moving-files-betwen-apps-recipe.png)
-*Recipe moves Gmail attachments to Box* [Example recipe](https://www.workato.com/recipes/485773)
+*Recipe moves Gmail attachments to Box. [Example recipe](https://www.workato.com/recipes/485773)*
 
 From the **New email** trigger output, each email event that comes in has potentially a list of attachments. Therefore, the conditional action checks if the email has attachments. If not, nothing is processed for that email. In this case, the datapill from the attachment list in **New email** trigger is used. As the pills within a list refer to the first list item in that list (e.g. the first attachment within the list of attachments) unless when used in a for each step or in an input array, this allows us to verify if there's at least one attachment in the list.
 
 ![Check for email attachments](/assets/images/features/files-and-attachments/check-for-email-attachments.gif)
-*Check if email contains at least one attachment* [Example recipe](https://www.workato.com/recipes/485773)
+*Check if email contains at least one attachment. [Example recipe](https://www.workato.com/recipes/485773)*
 
 In cases whereby the email event has one or more attachments, the for each step ensures that the recipe iterates through the list of attachments, and that for each attachment, the attachment content is downloaded from Gmail before being uploaded into Box.
 
 ![Download attachment via ID](/assets/images/features/files-and-attachments/download-attachment-via-id.gif)
-*If email contains attachments, download each attachment from Gmail using attachment ID, and upload attachment content to Box* [Example recipe](https://www.workato.com/recipes/485773)
+*If email contains attachments, download each attachment from Gmail using attachment ID, and upload attachment content to Box. [Example recipe](https://www.workato.com/recipes/485773)*
 
 In this case, file content is used as Gmail does not provide public URLs to attachments. For scenarios where the source app provides public URLs to files and the target app accepts URLs for file uploads, [moving of files via URLs](#moving-textbinary-files-via-public-URL) should be the preferred method for recipe efficiency.
 
@@ -75,12 +75,12 @@ Let's take the scenario where new files created in a shared Box folder needs to 
 
 ![Example recipe - using utilities to download file](/assets/images/features/files-and-attachments/utilities-download-file.png)
 
-*Recipe that uses Utilities to download file content* [Example recipe](https://www.workato.com/recipes/485775)
+*Recipe that uses Utilities to download file content. [Example recipe](https://www.workato.com/recipes/485775)*
 
 The recipe uses the public URL to the Box file to download the file content. This file content is then uploaded into Salesforce as a new attachment, associated to a certain Salesforce account (the account ID is hardcoded in this instance).
 
 ![Upload file to Salesforce](/assets/images/features/files-and-attachments/upload-file-to-salesforce.gif)
-*Download file using Box URL, then upload file content to Salesforce* [Example recipe](https://www.workato.com/recipes/485775)
+*Download file using Box URL, then upload file content to Salesforce. [Example recipe](https://www.workato.com/recipes/485775)*
 
 ## Base64 encoding
 Base64 encoding is a way of converting binary content into a set of standard characters for sending over networks. Certain apps require base64-encoded file content to be uploaded, and usually these same apps will produce base64-encoded file content when their files are downloaded.
@@ -104,14 +104,14 @@ When working with text files, Workato and interpret the content of the file and 
 The following recipe creates a NetSuite inventory object by using data from a CSV file.
 
 ![Example recipe - CSV file parsing](/assets/images/features/files-and-attachments/csv-file-parsing-recipe.png)
-*Recipe reads CSV file* [Example recipe](https://www.workato.com/recipes/485023)
+*Recipe reads CSV file. [Example recipe](https://www.workato.com/recipes/485023)*
 
 When using **Box new CSV file** trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato builds the trigger output datatree.
 
 ![Define expected columns in CSV](/assets/images/features/files-and-attachments/define-expected-csv-columns.gif)
-*Defining the expected columns in the CSV files that the recipe will pick up* [Example recipe](https://www.workato.com/recipes/485023)
+*Defining the expected columns in the CSV files that the recipe will pick up. [Example recipe](https://www.workato.com/recipes/485023)*
 
 The columns defined in the **Box new CSV file** trigger shows up as usable datapills in the output datatree. These variables can be used to map into subsequent recipe steps.
 
 ![Use defined CSV variables](/assets/images/features/files-and-attachments/use-defined-csv-variables.gif)
-*Using the variables created from the columns definition* [Example recipe](https://www.workato.com/recipes/485023)
+*Using the variables created from the columns definition. [Example recipe](https://www.workato.com/recipes/485023)*

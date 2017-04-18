@@ -6,7 +6,7 @@ date: 2017-03-04 18:00:00 Z
 # App connections
 For every app your recipe interacts with, Workato needs to be authorized to communicate with the apps on your behalf. Workato typically uses the apps API and it may require Oauth based authorization, or API keys, etc.
 
-This authorization is referred to as an app **connection**.
+This authorization is referred to as an **app connection**.
 
 In many cases recipes will require a valid app connection before triggers and actions can be configured, to retrieve custom objects and fields, picklist values and other information ('meta-data') that helps with recipe construction.
 
@@ -30,7 +30,7 @@ For more information on connecting to a specific app, refer to the specific app 
 The following recipe requires both Salesforce and a Zendesk connections, which are both OAuth2. The **Connection** tab within the recipe shows further details about the app connections.
 
 ![Example recipe](/assets/images/recipes/connections/example-recipe.png)
-*Recipe syncing new/updated Salesforce accounts to Zendesk as organizations [Example recipe](https://www.workato.com/recipes/480360)*
+*Recipe syncing new/updated Salesforce accounts to Zendesk as organizations. [Example recipe](https://www.workato.com/recipes/480360)*
 
 The following shows the **Connections** tab. Zendesk has been connected, but the Salesforce connector has no connection established yet.
 
@@ -66,11 +66,11 @@ Most Workato connectors allow only one connection to an app within a recipe.Ther
 Here is an example where the same recipe works with two Saleforce instances i.e. primary and secondary connectors.
 
 ![Secondary Salesforce connections](/assets/images/recipes/connections/primary-secondary-connectors.gif)
-*Recipe with primary and secondary Salesforce connectors [Example recipe](https://www.workato.com/recipes/487648)*
+*Recipe with primary and secondary Salesforce connectors. [Example recipe](https://www.workato.com/recipes/487648)*
 
-The recipe requires two Salesforce connections.
+The recipe requires two Salesforce separate connections.
 
 ![Secondary Salesforce connections](/assets/images/recipes/connections/secondary-app-connections.png)
 *Primary and secondary Salesforce connections*
 
-Refer to the [secondary connectors article](/features/secondary-connections.md) to find out more.
+Refer to the [secondary connectors article](docs/features/secondary-connections.md) to find out more.

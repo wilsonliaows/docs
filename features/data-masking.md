@@ -20,14 +20,14 @@ Data can be masked for individual recipe steps, and both input and output data d
 The following shows enabled data masking for the **Salesforce new account** trigger.
 
 ![Enabling data masking](/assets/images/features/data-masking/enabling-data-masking.gif)
-*Enabling data masking* [Example recipe](https://www.workato.com/recipes/480360)
+*Enabling data masking. [Example recipe](https://www.workato.com/recipes/480360)*
 
 The following shows job history before data masking.
 
 ![Job details before masking](/assets/images/features/data-masking/job-details-before-masking.gif)
-*Job detail before masking* [Example recipe](https://www.workato.com/recipes/480360)
+*Job detail before masking. [Example recipe](https://www.workato.com/recipes/480360)*
 
 The following shows job history after data masking.
 
 ![Job details after masking](/assets/images/features/data-masking/job-details-after-masking.gif)
-*Job details after masking* [Example recipe](https://www.workato.com/recipes/480360)
+*Job details after masking. [Example recipe](https://www.workato.com/recipes/480360)*

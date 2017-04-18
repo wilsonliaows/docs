@@ -14,7 +14,7 @@ It is best practice to test your recipe before starting it and letting it run wi
 
 The test recipe button picks up a single trigger event and runs it through your recipe. This allows you to check for recipe correctness. Typically, the test button show up by default for a new recipe, while the start button can be found in the dropdown list. Once your recipe has a first successful job, the default button changes to the start button, while the test button can then be found in the dropdown list.
 
-![Default test button](/assets/images/testing-recipes/default-test-button.gif)
+![Default test button](/assets/images/startstop/default-test-button.gif)
 *Test button showing up on default for a recipe with no successful jobs*
 
 ## Test trigger events
@@ -24,12 +24,12 @@ The **Since/From** date cannot be changed once you have selected it. Learn more 
 
 If the test mode found jobs, it picks up and processes the first one.
 
-![Test recipe and picked up one job](/assets/images/testing-recipes/test-one-job.gif)
+![Test recipe and picked up one job](/assets/images/startstop/test-one-job.gif)
 *Test recipe and picked up one job*
 
 If the test mode did not find any jobs, it returns the follwoing message.
 
-![No jobs when testing](/assets/images/testing-recipes/test-found-no-jobs.gif)
+![No jobs when testing](/assets/images/startstop/test-found-no-jobs.gif)
 *Test recipe picked up no jobs*
 
 # Testing tips
@@ -40,13 +40,13 @@ As best practice, try to use sandboxes instead of production accounts for testin
 ## Add Stop steps to prevent unwanted actions from happening
 Add a [Stop step](steps.md#stop-step) to the recipe when testing to prevent the recipe from carrying out steps that you're not interested in testing. For example, if you simply wish to test your conditional actions and verify that data is being carried out with the correct steps, you can add stop steps to prevent the recipe from actually carrying out any actions within the conditional step.
 
-![Add stop steps for testing](/assets/images/testing-recipes/add-stop-steps-for-test.png)
+![Add stop steps for testing](/assets/images/startstop/add-stop-steps-for-test.png)
 *Recipe with additional stop steps in steps 3 and 6 to test conditional actions*
 
 ## Test all possible scenarios
 Recipes often come with multiple lines of conditional logic. In the following example, the recipe will either create a Zendesk organization, or update an existing Zendesk organization.
 
-![Recipe with conditional steps](/assets/images/testing-recipes/recipe-with-conditional-steps.png)
+![Recipe with conditional steps](/assets/images/startstop/recipe-with-conditional-steps.png)
 *Recipe with conditional steps that syncs Salesfore accounts and Zendesk organizations*
 
 To test this recipe, we suggest testing with a couple of trigger events that will test out both paths, e.g. with a Salesforce account that has a corresponding Zendesk organization, and with a Salesforce account that doesn't.
@@ -54,7 +54,7 @@ To test this recipe, we suggest testing with a couple of trigger events that wil
 ## Test all mapped data fields and pills
 To ensure data is being transformed (if applicable) and moved from one app to the other correctly, test all data being moved. For example, in the following recipe, we're moving *Account Name*, *Account Description* and *Account Phone* from Salesforce into Zendesk. During testing, best practice is to ensure that these three data fields in Salesforce has data, and then verify that these input fields in Zendesk (*Name*, *Details* and *Phone*) has the right data moved from Salesforce.
 
-![Mapped input fields](/assets/images/testing-recipes/mapped-input-fields.png)
+![Mapped input fields](/assets/images/startstop/mapped-input-fields.png)
 *Mapped input fields*
 
 # Start recipe
@@ -67,7 +67,7 @@ If you had tested your recipe in test mode before starting, the recipe will not 
 
 If you have any successful jobs, the start button should be displayed by default. Otherwise, it can be found in the dropdown list.
 
-![Default start button](/assets/images/testing-recipes/default-start-button.gif)
+![Default start button](/assets/images/startstop/default-start-button.gif)
 *Start button showing up on default for a recipe with at least 1 successful job*
 
 ## Starting a recipe for the second time onwards
