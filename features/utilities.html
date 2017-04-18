@@ -1389,41 +1389,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><img src="../assets/images/features/Utilities/Utilities Icon.png" alt="utilities icon"></p>
-<h1 id="utilities">Utilities</h1>
-<p>Workato&apos;s Utilities connector is useful for performing all sorts of tasks
-Here are the list of actions you can perform using </p>
+                                <h1 id="utilities">Utilities</h1>
+<p>Workato&apos;s Utilities connector is useful for performing all sorts of tasks Here are the list of actions you can perform using.</p>
 <ol>
-<li><p>Create list</p>
+<li><p><a href="#create-list">Create list</a></p>
 </li>
-<li><p>Download file from URL</p>
+<li><p><a href="#download-file-from-url">Download file from URL</a></p>
 </li>
-<li><p>Generate column chart</p>
+<li><p><a href="#generate-column-chart">Generate column chart</a></p>
 </li>
-<li><p>Generate pie chart</p>
+<li><p><a href="#generate-pie-chart">Generate pie chart</a></p>
 </li>
-<li><p>Link two objects</p>
+<li><p><a href="#link-two-objects">Link two objects</a></p>
 </li>
-<li><p>Get linked object</p>
+<li><p><a href="#link-two-objects">Get linked object</a></p>
 </li>
 </ol>
 <h2 id="create-list">Create list</h2>
-<p>In workato, to use the repeat action requires a List item to be present. However there may be some instances where you may want to repeat an action a specific number of times. To do so, you can use the  <strong>Create list</strong> action to create a list with a predetermined size (up to 500) to use the repeat action. 
-First, create the <strong>create list</strong> action, and determine the size you want to use 
-Next, you can create a repeat action any time after the <strong>Create list</strong> action. Then, use the <strong>list</strong> pill from the <strong>create list</strong> step&apos;s output in the <strong>Input list</strong> field. Once you have configured your recipe, it will repeat the set of actions the same number of times as the size of the list.</p>
+<p>In workato, to use the repeat action requires a List item to be present. However there may be some instances where you may want to repeat an action a specific number of times. To do so, you can use the <strong>Create list</strong> action to create a list with a predetermined size (up to 500) to use the repeat action.</p>
+<p>First, create the <strong>create list</strong> action, and determine the size you want to use. Next, you can create a repeat action any time after the <strong>Create list</strong> action. Then, use the <strong>list</strong> pill from the <strong>create list</strong> step&apos;s output in the <strong>Input list</strong> field. Once you have configured your recipe, it will repeat the set of actions the same number of times as the size of the list.</p>
 <h2 id="download-file-from-url">Download file from URL</h2>
-<p>Downloading a file in a recipe allows you to use that file later in the recipe, usually to upload onto another app. However, downloaded text content can be used directly into the recipe. Downloading a file <strong>does not mean</strong> that you will see that file on your computer. It is merely download for use in a recipe. Take note the maximum file size you can download is <strong>25MB</strong>. </p>
-<p>In the Download file from URL section, you can provide a static URL if you intend to upload the same file to multiple places, (e.g. as an attachment to all Accounts in Salesforce) or provide a dynamic URL by using a URL pill obtained from a previous step output. You may also choose if you want your download file content to be encoded using base64. </p>
+<p>Downloading a file in a recipe allows you to use that file later in the recipe, usually to upload onto another app. However, downloaded text content can be used directly into the recipe. Downloading a file <strong>does not mean</strong> that you will see that file on your computer. It is merely download for use in a recipe. Take note the maximum file size you can download is <strong>25MB</strong>.</p>
+<p>In the Download file from URL section, you can provide a static URL if you intend to upload the same file to multiple places, (e.g. as an attachment to all Accounts in Salesforce) or provide a dynamic URL by using a URL pill obtained from a previous step output. You may also choose if you want your download file content to be encoded using base64.</p>
 <h2 id="generate-column-chart">Generate column chart</h2>
-<p>Using this action allows you to use data from two columns in a list to create a column chart to help visualize and analyze data better. Select a list from your recipe&apos;s app data, followed by 2 columns from the list. The X-axis should contain the independant value, while the Y axis contains the dependant value. </p>
+<p>Using this action allows you to use data from two columns in a list to create a column chart to help visualize and analyze data better. Select a list from your recipe&apos;s app data, followed by 2 columns from the list. The X-axis should contain the independant value, while the Y axis contains the dependant value.</p>
 <p><img src="../assets/images/features/Utilities/utilities-chart.png" alt="chart"></p>
 <h2 id="generate-pie-chart">Generate pie chart</h2>
-<p>Using this action allows you to use data from two columns (name and values) in a list to create a pie chart to help visualize and analyze data better. </p>
+<p>Using this action allows you to use data from two columns (name and values) in a list to create a pie chart to help visualize and analyze data better.</p>
 <p><img src="../assets/images/features/Utilities/utilities-piechart.png" alt="piechart"></p>
 <h2 id="link-two-objects">Link two objects</h2>
-<p>Linking two objects allows you to associate one object to another, and allows you to cme back to this connection in another recipe. Some simple coonnections includes a Salesforce account ID with a Zendesk ticket ID, for easy tracking. </p>
+<p>Linking two objects allows you to associate one object to another, and allows you to cme back to this connection in another recipe. Some simple coonnections includes a Salesforce account ID with a Zendesk ticket ID, for easy tracking.</p>
 <p><img src="../assets/images/features/Utilities/utilities-linkobject.png" alt="linkobject"></p>
-<p>To come back to this connection in another recipe, use the <strong>Get linked object</strong> action under <strong>Utilities</strong>, select the object which exists in some part of the new recipe, and select which linked object you need. </p>
+<p>To come back to this connection in another recipe, use the <strong>Get linked object</strong> action under <strong>Utilities</strong>, select the object which exists in some part of the new recipe, and select which linked object you need.</p>
 <p><img src="../assets/images/features/Utilities/utilities-getlinkobject.png" alt="linkobject"></p>
 
                                 
@@ -1624,7 +1621,7 @@ Next, you can create a repeat action any time after the <strong>Create list</str
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Utility","level":"1.11.7","depth":2,"next":{"title":"Data masking","level":"1.11.8","depth":2,"path":"features/data-masking.md","ref":"features/data-masking.md","articles":[]},"previous":{"title":"Account properties","level":"1.11.6","depth":2,"path":"features/account-properties.md","ref":"features/account-properties.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/utilities.md","mtime":"2017-04-18T05:27:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:28:54.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Utility","date":"2017-02-23T15:15:00.000Z","level":"1.11.7","depth":2,"next":{"title":"Data masking","level":"1.11.8","depth":2,"path":"features/data-masking.md","ref":"features/data-masking.md","articles":[]},"previous":{"title":"Account properties","level":"1.11.6","depth":2,"path":"features/account-properties.md","ref":"features/account-properties.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/utilities.md","mtime":"2017-04-18T19:26:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T19:28:07.307Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

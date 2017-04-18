@@ -1408,10 +1408,9 @@
 <p>Recipe steps are executed every time the trigger event occurs. Recipes are required to have at least one step. The most basic step for a recipe is an action e.g. an action to create an organization in Zendesk.</p>
 <p>Workato steps can be actions, conditional actions, list actions, actions that call other recipes, try/catch, etc.</p>
 <p>You can read more about recipe steps <a href="recipes/steps.html">here</a> and actions <a href="recipes/actions.html">here</a>.</p>
-<h2 id="block">Block</h2>
 <h2 id="data-tree-and-pills">Data tree and pills</h2>
 <p>Every step including triggers brings data into the recipe. e.g. a new employee in Workday trigger would bring in employee data. This data is made available in the recipe via the &apos;data tree&apos;.</p>
-<p>The individual data fields are called data pills. You can use the data pills in subsequent steps. You can read more about data pills <a href="recipes/data-pills.md">here</a>.</p>
+<p>The individual data fields are called data pills. You can use the data pills in subsequent steps. You can read more about data pills <a href="recipes/data-pills-and-mapping.html">here</a>.</p>
 <p>The following is the output datatree for the trigger <strong>New Salesforce account</strong>. This datatree contains all the variables known to us and available for use whenever a trigger event occurs.</p>
 <p><img src="assets/images/workato-concepts/output-datatree.png" alt="Output datatree">
 <em>Output datatree for New Salesforce account trigger</em></p>
@@ -1429,7 +1428,7 @@ etc.
 </code></pre><p>These values can be used in subsequent steps of the recipe by being passed into input fields, as covered next.</p>
 <h2 id="input-fields-and-fields-mapping">Input fields and fields mapping</h2>
 <p>Triggers and actions have input fields. Input fields are how triggers and actions are designed to carry out customized workflows, and they can take in variables (datapills) or constants.</p>
-<p>When we insert variables (datapills) or constants into input fields, that&apos;s called fields mapping. You can read more about fields mapping <a href="recipes/mapping.md">here</a>.</p>
+<p>When we insert variables (datapills) or constants into input fields, that&apos;s called fields mapping. You can read more about fields mapping <a href="recipes/data-pills-and-mapping.html#fields-mapping">here</a>.</p>
 <p>The following is an expanded view of the <strong>Create Zendesk organization</strong> action. In this view, we can see two input fields: <strong>Name</strong> and <strong>Notes</strong>.</p>
 <p><img src="assets/images/workato-concepts/input-fields.png" alt="Input fields">
 <em>Input fields for the action Create Zendesk organization</em></p>
@@ -1445,19 +1444,19 @@ etc.
 <p><img src="assets/images/workato-concepts/zendesk-organization.png" alt="Newly created Zendesk organization">
 <em>Newly created Zendesk organization Sattei Winery</em></p>
 <h2 id="connections">Connections</h2>
-<p>For a recipe to communicate with apps via actions and triggers, it has to be authorized to interact with apps. This authorization is referred to as a <strong>connection</strong>. Connections are not tied to a recipe - a single connection can be used by multiple recipes. You can read more about connections <a href="connections.html">here</a>.</p>
+<p>For a recipe to communicate with apps via actions and triggers, it has to be authorized to interact with apps. This authorization is referred to as a <strong>connection</strong>. Connections are not tied to a recipe - a single connection can be used by multiple recipes. You can read more about app connections <a href="connections.html">here</a>.</p>
 <p><img src="assets/images/workato-concepts/connections.png" alt="Connections">
 <em>Salesforce and Zendesk connections from the recipe view</em></p>
 <h2 id="jobs">Jobs</h2>
-<p>Each time there is a trigger event, the actions in the recipe are executed. The entire flow of each trigger event through the recipe is called a <strong>job</strong>. Jobs can be successful (when actions are executed successfully), or have errors (when an action results in an error). When an error is encountered, subsequent actions are not executed.</p>
+<p>Each time there is a trigger event, the actions in the recipe are executed. The entire flow of each trigger event through the recipe is called a <strong>job</strong>. Jobs can be successful (when actions are executed successfully), or have errors (when an action results in an error). When an error is encountered, subsequent actions are not executed. You can read more about jobs <a href="recipes/jobs.html">here</a>.</p>
 <h2 id="jobs-report">Jobs report</h2>
 <p>The job report gives a high-level summary of the all the trigger events processed by the recipe. The entire flow of each trigger event through the recipe is called a job.</p>
 <p>Information such as date, time processed and job IDs, can be found here. From this jobs history page, users can view more detailed information about a job by clicking on it.</p>
-<p>You can read more about job reports <a href="recipes/jobs-report.md">here</a>.</p>
+<p>You can read more about job reports <a href="recipes/jobs.html#jobs-report">here</a>.</p>
 <p><img src="assets/images/workato-concepts/jobs-history.png" alt="Jobs history">
 <em>Jobs report page</em></p>
 <h2 id="job-details">Job details</h2>
-<p>The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe. This page is useful for troubleshooting recipes as users are able to view the data passed into each step and the resultant output returned after each step was executed. You can read more about jobs and job details <a href="recipes/jobs.html">here</a>.</p>
+<p>The job details page provides step-by-step input/output details of a single trigger event as it is processed by the recipe. This page is useful for troubleshooting recipes as users are able to view the data passed into each step and the resultant output returned after each step was executed. You can read more about job details <a href="recipes/jobs.html#job-details">here</a>.</p>
 <p><img src="assets/images/workato-concepts/job-details-page.gif" alt="Job details page">
 <em>Job details page showing the syncing of Salesforce account Myers Brewery to Zendesk</em></p>
 
@@ -1659,7 +1658,7 @@ etc.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Concepts","date":"2017-03-08T18:00:00.000Z","level":"1.2","depth":1,"next":{"title":"Connecting apps","level":"1.3","depth":1,"path":"connections.md","ref":"connections.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workato-concepts.md","mtime":"2017-04-18T05:27:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:28:54.699Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Concepts","date":"2017-03-08T18:00:00.000Z","level":"1.2","depth":1,"next":{"title":"Connecting apps","level":"1.3","depth":1,"path":"connections.md","ref":"connections.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workato-concepts.md","mtime":"2017-04-18T19:26:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T19:28:07.307Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

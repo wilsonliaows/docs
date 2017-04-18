@@ -1401,7 +1401,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 </code></pre><p>In most of the examples, the <strong>Box</strong> trigger <strong>New CSV file</strong> will be used to read this CSV file from a Box folder and parse it to Workato as a list of three CSV lines. Create a CSV file with the above CSV sample and upload into a specific Box folder for the <strong>New CSV file</strong> trigger to pick up.</p>
 <p>If the above CSV file is the only CSV file in the selected Box folder in the trigger configuration, the fields list will be populated automatically with the column names. The column names has to correspond exactly with the header line in the CSV file in order for the CSV data to be mapped accurately to their columns.</p>
 <p><img src="../assets/images/features/list-management/defining-expected-csv-columns.gif" alt="Defining expected CSV columns">
-<em>Defining the expected columns in the CSV files that the recipe will pick up</em> <a href="https://www.workato.com/recipes/485023" target="_blank">Example recipe</a></p>
+<em>Defining the expected columns in the CSV files that the recipe will pick up. <a href="https://www.workato.com/recipes/485023" target="_blank">Example recipe</a></em></p>
 <p>The columns defined in the <strong>Box new CSV file</strong> trigger shows up as a list of usable variables in the output datatree. These variables can be used to map into subsequent recipe steps.</p>
 <p><img src="../assets/images/features/list-management/csv-columns-in-trigger-output.gif" alt="CSV columns in trigger output">
 <em>Row of CSV columns in the trigger output datatree</em></p>
@@ -1418,7 +1418,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 <h2 id="using-datapills-directly-in-an-action-without-list-processing">Using datapills directly in an action without list processing</h2>
 <p>When using pills directly from a list, only the values of the first list item will be retrieved. In the following recipe, pills from the list are used directly in the <strong>Log message</strong> action.</p>
 <p><img src="../assets/images/features/list-management/example-recipe-using-list-pills-directly.png" alt="Example recipe using list pills directly">
-<em>Recipe using list pills directly in Log message action</em> <a href="https://www.workato.com/recipes/487919" target="_blank">Example recipe</a></p>
+<em>Recipe using list pills directly in Log message action. <a href="https://www.workato.com/recipes/487919" target="_blank">Example recipe</a></em></p>
 <p><img src="../assets/images/features/list-management/field-mappings-for-log-message.gif" alt="Field mappings for log message">
 <em>Field mappings for Log message action</em></p>
 <p>In the job details page, the trigger output displays all three lines within the CSV file.</p>
@@ -1430,8 +1430,8 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 <h2 id="using-datapills-in-an-action-with-a-list-input-action-handles-list-processing-implicitly">Using datapills in an action with a list input (action handles list processing implicitly)</h2>
 <p>Some actions will accept a list as input e.g. Salesforce bulk insert and bulk update actions, create journal entry actions for accounting apps, create sales order actions for ERP apps.</p>
 <p>The following is an example scenario that imports new products from a Box CSV file into Salesforce via the <strong>Bulk insert</strong> action.</p>
-<p><img src="../assets/images/features/list-management/example-recipe-using-input-list.png" alt="Example recipe using list input"></p>
-<p><em>Example recipe using list input</em> <a href="https://www.workato.com/recipes/488454" target="_blank">Example recipe</a></p>
+<p><img src="../assets/images/features/list-management/example-recipe-using-input-list.png" alt="Example recipe using list input">
+<em>Example recipe using list input. <a href="https://www.workato.com/recipes/488454" target="_blank">Example recipe</a></em></p>
 <p>Actions that take lists as inputs will have a input field called <strong>Source list</strong>, which will only take in list pills. When these list input fields are selected, the datatree changes to offer only list pills. The Rows list object pill is mapped into the Salesforce product source list input field.</p>
 <p><img src="../assets/images/features/list-management/example-input-source-list.png" alt="Example input source list">
 <em>Rows list object is mapped into the Salesforce products input source list</em></p>
@@ -1447,7 +1447,8 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 <h2 id="using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level">Using datapills in an action with a Repeat step (action does not handle list processing, list processing needs to be done explicitly at the recipe logic level)</h2>
 <p>In this example scenario, let&apos;s import a list of new inventory items (recorded within a CSV file just uploaded into Box) into a NetSuite instance. There is a list to read from with the Box connector&apos;s <strong>New CSV file</strong> trigger, but no list processing capabilities in the NetSuite connector&apos;s <strong>Add inventory item</strong> action.</p>
 <p>In order to move through the list and create three NetSuite inventory items, the Repeat step should be used to iterate through the list, and carry out the same action for each iteration.</p>
-<p><img src="../assets/images/features/list-management/example-recipe-using-repeat-step.png" alt="Example recipe using repeat step"> <a href="https://www.workato.com/recipes/487921" target="_blank">Example recipe</a></p>
+<p><img src="../assets/images/features/list-management/example-recipe-using-repeat-step.png" alt="Example recipe using repeat step">
+<em>Recipe using repeat step to iterate through NetSuite list of inventory items. <a href="https://www.workato.com/recipes/487921" target="_blank">Example recipe</a></em></p>
 <p>To iterate through the Rows list, pass the Rows list object as input for the repeat step. The recipe will therefore iterate through the list thrice to repeat the &quot;Add inventory item&quot; action thrice, with different values from different CSV lines each time.</p>
 <p><img src="../assets/images/features/list-management/repeat-step-input-list.png" alt="Repeat step input list">
 <em>Provide the list object as input for repeat step</em></p>
@@ -1463,7 +1464,7 @@ Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, 
 </code></pre><h3 id="common-mistake-when-using-repeat-step">Common mistake when using Repeat step</h3>
 <p>As discussed <a href="#using-datapills-from-lists">here</a>, using pills directly from the list object in the datatree without list handling will result in the first list item being used. Hence, if datapills from the list object (instead of datapills from the Repeat step) are used inside the Repeat step, the recipe still iterates through the 3 CSV lines, but instead of using values from each line with every iteration, only values from the first line will be used for all 3 iterations, resulting in duplication.</p>
 <p><img src="../assets/images/features/list-management/recipe-with-wrong-direct-mapping.gif" alt="Recipe with direct mapping from list">
-<em>Example of a recipe with wrong direct mapping from list instead of from the Repeat step</em> (<a href="https://www.workato.com/recipes/488273" target="_blank">Example recipe</a>)</p>
+<em>Example of a recipe with wrong direct mapping from list instead of from the Repeat step. <a href="https://www.workato.com/recipes/488273" target="_blank">Example recipe</a></em></p>
 <h2 id="list-connector-accumulator">List connector (Accumulator)</h2>
 <p>The list connector is a Workato utility built for users to create custom lists and store data in the list for the duration of a job, to be used in the same job. It is usually used for users to prepare a list to write to an action with a list input.</p>
 <h2 id="using-the-accumulator-action-to-create-a-custom-list">Using the accumulator action to create a custom list</h2>
@@ -1492,12 +1493,12 @@ Append item to list</strong>.</p>
 <p>There are two ways of building this recipe:
 <strong>1) Using accumulator + list input. Iteratively build a custom list of NetSuite inventory items from the Saleforce opportunity product list, then create the complete NetSuite sales order with lines in a single action</strong></p>
 <p>Iterate through the Salesforce list of opportunity products via a Repeat step to find corresponding NetSuite inventory items, and accumulate that in a custom list. Subsequently, create a complete NetSuite sales order with a list of line items in a single action, by passing in the custom list built with accumulator.</p>
-<p><img src="../assets/images/features/list-management/example-recipe-using-accumulator.png" alt="Example recipe using accumulator"></p>
-<p><em>Salesforce-Netsuite recipe using Repeat step</em> <a href="https://www.workato.com/recipes/488286" target="_blank">Example recipe</a></p>
+<p><img src="../assets/images/features/list-management/example-recipe-using-accumulator.png" alt="Example recipe using accumulator">
+<em>Salesforce-Netsuite recipe using Repeat step. <a href="https://www.workato.com/recipes/488286" target="_blank">Example recipe</a></em></p>
 <p><strong>2) Using Repeat step. Create a NetSuite sales order, then iteratively move lines from Salesforce opportunity to NetSuite sales order via a Repeat step.</strong></p>
 <p>First, create a NetSuite sales order. Then, in a Repeat step, search for Netsuite inventory item by Salesforce opportunity product name (or any other identifying field). Pass the internal ID of the NetSuite inventory item found into the <strong>Update sales order</strong> action in order to append a new line to the sales order.</p>
-<p><img src="../assets/images/features/list-management/example-recipe-using-repeat-step-vs-accumulator.png" alt="Example recipe using repeat step"></p>
-<p><em>Salesforce-Netsuite recipe using Repeat step</em> <a href="https://www.workato.com/recipes/488358" target="_blank">Example recipe</a></p>
+<p><img src="../assets/images/features/list-management/example-recipe-using-repeat-step-vs-accumulator.png" alt="Example recipe using repeat step">
+<em>Salesforce-Netsuite recipe using Repeat step. <a href="https://www.workato.com/recipes/488358" target="_blank">Example recipe</a></em></p>
 
                                 
                                 </section>
@@ -1697,7 +1698,7 @@ Append item to list</strong>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"List management","date":"2017-03-06T16:00:00.000Z","level":"1.11.10","depth":2,"next":{"title":"Data retention","level":"1.11.11","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"previous":{"title":"Single Sign-On (SSO)","level":"1.11.9","depth":2,"path":"signing-up/sso.md","ref":"signing-up/sso.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/list-management.md","mtime":"2017-04-18T05:27:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:28:54.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"List management","date":"2017-03-06T16:00:00.000Z","level":"1.11.10","depth":2,"next":{"title":"Data retention","level":"1.11.11","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"previous":{"title":"Single Sign-On (SSO)","level":"1.11.9","depth":2,"path":"signing-up/sso.md","ref":"signing-up/sso.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/list-management.md","mtime":"2017-04-18T19:26:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T19:28:07.307Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

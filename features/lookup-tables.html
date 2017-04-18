@@ -1390,60 +1390,80 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="lookup-tables">Lookup tables</h1>
-<p>The primary reason for lookup tables (also termed as cross reference tables) is to enable fast and easy lookup of frequently used data that are static and immutable.</p>
-<p>Some of examples of such data include:</p>
+<p>Lookup tables (AKA cross reference tables) enable fast and easy lookup of frequently used data that are static and immutable.</p>
+<p>Data in lookup tables is typically organized like a database table, with columns and rows of data. You can lookup an entry within the specified lookup table by using</p>
+<ul>
+<li>Any column</li>
+<li>Multiple columns</li>
+</ul>
+<p>For example, if I&apos;m trying to move accounting entries from my sales app Salesforce into my accounting app Intacct, I might find that both departments are using different account codes internally. In order to ensure data is synced accurately from Salesforce into Intacct, I would need to take the account codes from Salesforce, find the matching codes in Intacct, and create the Intacct accounting entries using the corresponding Intacct account codes. In the following table, any Salesforce entries coming in with the code 34267 will be written into Intacct under the code 6754.</p>
+<p><img src="../assets/images/features/lookup-tables/example-lookup-table.png" alt="Example lookup table">
+<em>Lookup table with the account IDs in Salesforce, Intacct and account names</em></p>
+<p>Some other scenarios where you might need lookup tables:</p>
 <ul>
 <li>Given a city name, you want to get the zip code</li>
 <li>Conversion from metric to SI for distances</li>
 <li>Given a department, rank, retrieve vacation accrual rate</li>
 </ul>
-<p>Lookup tables is currently only available to <strong>Business plans and up</strong>.</p>
-<h4 id="limits">Limits</h4>
-<p>You cannot have more than 5000 entries in one lookup table
-We support only 5 columns. Each column can be used as a key to lookup the entry</p>
-<h2 id="how-to-setup-your-lookup-tables">How to setup your lookup tables</h2>
-<p>There are two ways your recipes can upload data from your lookup tables:</p>
+<p>Lookup tables are enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
+<h1 id="setting-up-your-lookup-tables">Setting up your lookup tables</h1>
+<p>There are two ways to upload data into your lookup tables:</p>
 <ul>
-<li>By importing an existing CSV file</li>
-<li>By adding new entries via a recipe</li>
+<li>Import an existing CSV file</li>
+<li>Add new entries manually</li>
+<li>Add new entries via a recipe</li>
 </ul>
 <p>Note: Lookup tables are immutable and the existing entries cannot be modified or deleted.</p>
-<h3 id="importing-an-existing-csv-file">Importing an existing CSV file</h3>
-<p>The GIF below walks you through the process of creating a lookup table and loading it with data imported from a CSV file.
-<img src="../assets/images/features/Lookup Tables/lookup tables 1.gif" alt="Lookup1"></p>
-<p>You can also manually enter additional rows from the UI.
-<img src="../assets/images/features/Lookup Tables/lookup tables 2.png" alt="Lookup2">
-<img src="../assets/images/features/Lookup Tables/lookup tables 3.png" alt="Lookup3"></p>
-<p>You can select what columns you choose to view. At present we support only 5 columns.
-<img src="../assets/images/features/Lookup Tables/lookup tables 4.png" alt="Lookup4"></p>
-<h3 id="adding-new-entries-via-a-recipe">Adding new entries via a recipe</h3>
-<p>There is a special connector called &#x2018;Lookup table&#x2019; that allows you to work with your tables. This connectors support these actions</p>
+<h2 id="importing-an-existing-csv-file">Importing an existing CSV file</h2>
+<p>The GIF below walks you through the process of creating a lookup table and loading it with data imported from a CSV file.</p>
+<p><img src="../assets/images/features/lookup-tables/lookup-tables-1.gif" alt="Lookup1">
+<em>Creating a new lookup table and importing a CSV file</em></p>
+<h2 id="adding-new-entries-manually">Adding new entries manually</h2>
+<p>You can manually enter additional lookup table entries.</p>
+<p><img src="../assets/images/features/lookup-tables/lookup-tables-2.png" alt="Lookup2">
+<em>Click on the Add new entry button</em></p>
+<p><img src="../assets/images/features/lookup-tables/lookup-tables-3.png" alt="Lookup3">
+<em>A new, blank row will be generated for values to be entered</em></p>
+<h2 id="adding-new-entries-via-a-recipe">Adding new entries via a recipe</h2>
+<p>There is a special <strong>Lookup table</strong> connector that allows you to work with your tables via recipes. This connector support these actions:</p>
 <ul>
 <li>Lookup entry</li>
 <li>Search entries</li>
-<li>Add entry</li>
+<li><p>Add entry</p>
+</li>
+<li><p>Lookup entry action
+The lookup entry action allows you to search for an entry (a row in the lookup table) by any of its values. The lookup entry action behaves like a search - it retrieves a single entry - the first matching entry depending on the values passed in. Take note - if you have duplicated entries (i.e. your lookup will return more than one entry), only one entry will be retrieved.</p>
+</li>
 </ul>
-<h4 id="1-lookup-entry">1. Lookup entry</h4>
-<p>As the name suggests, data is typically organized like in a database table columns and rows of data. You can then lookup any row by one or more columns. You can lookup an entry within the specified lookup table by using</p>
+<p>In the example below, we have a table called <strong>Vacation Rules</strong> with 4 columns - vacation type, department ID, job code and job title.</p>
+<p><img src="../assets/images/features/lookup-tables/lookup-tables-5.png" alt="Lookup5">
+<em>Using the lookup entry action in the recipe</em></p>
+<p>In the following gif, we configure the lookup entry table to search for a specific row that matches the values we have (in that job) for department ID and job code. In the subsequent step, we can see what&apos;s returned - a single entry with all 4 available values. If we were looking for the corresponding vacation type and job title, we can use those datapills from the datatree.</p>
+<p>The following gif walks you through the flow of configuring the lookup entry action to retrieve a matching entry.</p>
+<p><img src="../assets/images/features/lookup-tables/lookup-tables-6.gif" alt="Lookup6">
+<em>Configuring the action to lookup entries with the matching department ID and job code</em></p>
 <ul>
-<li>Any column</li>
-<li>Multiple columns
-In the example below, all 4 available columns are displayed. It returns the first entry based on the column value provide.
-<img src="../assets/images/features/Lookup Tables/lookup tables 5.png" alt="Lookup5"></li>
+<li>Search entries action
+The search entries action works like the lookup action. The difference is that where lookup action returns a single entry, the search entries action returns a list of entries.</li>
 </ul>
-<p>This GIF walks you through the entire flow:
-<img src="../assets/images/features/Lookup Tables/lookup tables 6.gif" alt="Lookup6"></p>
-<h4 id="2-search-entries">2. Search entries</h4>
-<p>Works similar to lookup, except that it will return all matched entries. It returns a list.</p>
-<h4 id="3-add-entry">3. Add entry</h4>
-<p>Add a new entry to an existing lookup table. Great for reading a data source and creating a lookup table based on it. E.g. read titles from your HR apps and create a title lookup table.
-<img src="../assets/images/features/Lookup Tables/lookup tables 7.gif" alt="Lookup7"></p>
-<h2 id="how-to-use-lookup-table-formulas">How to use Lookup Table Formulas</h2>
-<p>Now that you have a lookup table set up, you need to configure your recipe to obtain data from one column of the table when data from another column is fed in. To do so, simply use the <code>lookup</code> formula. Simply set any field to formula mode, and enter the formula in this format:</p>
+<p>Use this if you expect a list of matching entries to be returned, and wish to process the list accordingly.</p>
+<ul>
+<li>Add entry action
+Add a new entry to an existing lookup table. You can use this action to keep your lookup tables updated, e.g. read newly created job titles from your human resources application and create a new entry for that job title in your lookup table.</li>
+</ul>
+<p><img src="../assets/images/features/lookup-tables/lookup-tables-7.gif" alt="Lookup7">
+<em>Select the lookup table to write to and then input the values to provide for each cell of the row</em></p>
+<h2 id="lookup-table-formulas">Lookup table formulas</h2>
+<p>Instead of using an action step to carry out the entry lookup, you can also use a formula to lookup entries in your lookup table. This is efficient as the lookup can be done within the input field without requiring additional actions.</p>
+<p>To use the formula, set the input field to formula mode, and enter the formula in this format:</p>
 <p>lookup(<code>table name</code>,<code>column name for search</code>: <code>data pill</code>)[<code>column name for result</code>]</p>
-<p>For an example you can take a look at the gif below.</p>
-<p><img src="../assets/images/features/Lookup Tables/Lookup formula.gif" alt="lookup formula"></p>
-<p>Alternatively, you can use the <strong>Lookup table</strong> connector and use either the <strong>lookup entry</strong> action to get a single entry or the <strong>Search entries</strong> action to get an array of results. This would allow you to use data from all the columns in your table for mapping in subsequent steps.</p>
+<p><img src="../assets/images/features/lookup-tables/lookup-formula.gif" alt="lookup formula">
+<em>Using the lookup table formula to lookup entries in table Test</em></p>
+<h2 id="limits">Limits</h2>
+<p>Each lookup table supports up to 5 columns of data. Each column can be used as a key to lookup the entry.</p>
+<p><img src="../assets/images/features/lookup-tables/lookup-tables-4.png" alt="Lookup4">
+<em>Maximum of 5 data columns available</em></p>
+<p>There is a maximum of 5000 entries per lookup table.</p>
 
                                 
                                 </section>
@@ -1643,7 +1663,7 @@ In the example below, all 4 available columns are displayed. It returns the firs
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lookup tables","date":"2017-02-23T15:15:00.000Z","level":"1.11.4","depth":2,"next":{"title":"Callable recipes","level":"1.11.5","depth":2,"path":"features/callable-recipes.md","ref":"features/callable-recipes.md","articles":[]},"previous":{"title":"Batch processing","level":"1.11.3","depth":2,"path":"features/batch-processing.md","ref":"features/batch-processing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/lookup-tables.md","mtime":"2017-04-18T05:27:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:28:54.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lookup tables","date":"2017-02-23T15:15:00.000Z","level":"1.11.4","depth":2,"next":{"title":"Callable recipes","level":"1.11.5","depth":2,"path":"features/callable-recipes.md","ref":"features/callable-recipes.md","articles":[]},"previous":{"title":"Batch processing","level":"1.11.3","depth":2,"path":"features/batch-processing.md","ref":"features/batch-processing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"features/lookup-tables.md","mtime":"2017-04-18T19:26:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T19:28:07.307Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
