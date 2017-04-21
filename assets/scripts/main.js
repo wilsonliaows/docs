@@ -1,4 +1,8 @@
 require(['gitbook', 'jquery'], function (gitbook, $) {
+  // Monitoring anchor change
+  // Using `setInterval` because `hashchange` event doesn't work for some reason
+  setInterval(checkCurrentPath, 200);
+
   gitbook.events.on('page.change', function () {
     // Should do it on `page.change` because buttons are being redrawn on every page change for some reason
     updateToolbarButtons();
@@ -7,12 +11,32 @@ require(['gitbook', 'jquery'], function (gitbook, $) {
     addHeaderLinks();
 
     // Scrolling page to anchor or top, because theme script scrolls wrong element (`.body-inner`)
-    setTimeout(function () {
-      var scrollToElem = $(document.getElementById(location.hash.slice(1)));
-      var scrollTop = scrollToElem.length ? scrollToElem.position().top : 0;
-      $('body').scrollTop(scrollTop);
-    }, 0);
+    activePath = getCurrentPath();
+    setTimeout(updatePageScroll, 0);
   });
+
+  var activePath;
+
+  function checkCurrentPath() {
+    var currentPath = getCurrentPath();
+
+    if (currentPath === activePath) {
+      return;
+    }
+
+    activePath = currentPath;
+    updatePageScroll();
+  }
+
+  function getCurrentPath() {
+    return location.pathname + location.hash;
+  }
+
+  function updatePageScroll() {
+    var scrollToElem = $(document.getElementById(location.hash.slice(1)));
+    var scrollTop = scrollToElem.length ? scrollToElem.position().top : 0;
+    $('body').scrollTop(scrollTop);
+  }
 
   function updateToolbarButtons() {
     // `Menu` button
