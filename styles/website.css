@@ -250,12 +250,13 @@ body {
 
 /* "Didn't find..." block */
 .ask {
-  background: #fff;
+  background: #27989f;
   border-top: 1px solid #dedede;
-  padding: 50px 15px 65px;
+  padding: 50px 50px 60px;
 }
 
 .ask__title {
+  color: #fff;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 40px;
@@ -268,18 +269,21 @@ body {
 
 .ask__link {
   border: 1px solid #e3e3e3;
+  background: #fff;
   border-radius: 2px;
   color: #525252;
   display: block;
   flex: 0 0 32%;
   font-size: 14px;
   padding: 15px;
+  transition: color .3s ease, box-shadow .3s ease;
 }
 
 .ask__link:hover,
 .ask__link:focus,
 .ask__link:active {
-  border-color: #27989f;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, .2);
+  color: #27989f;
 }
 
 .ask__link-title,
@@ -298,29 +302,14 @@ body {
 /* Footer */
 .footer {
   background: #27989f;
+  border-top: 1px solid #fff;
   color: #fff;
   font-size: 14px;
   line-height: 1.6;
   overflow: hidden;
-  padding: 55px 0;
+  padding: 40px 50px;
 }
 
-.footer__inner {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 15px 0 0;
-}
-
-.footer__side {
-  width: 40%;
-}
-
-.footer__menu-link,
-.footer__menu-link:link,
-.footer__menu-link:visited,
-.footer__menu-link:active,
-.footer__menu-link:hover,
-.footer__menu-link:focus,
 .footer__terms-link,
 .footer__terms-link:link,
 .footer__terms-link:visited,
@@ -331,42 +320,14 @@ body {
   font-size: 14px;
 }
 
-.footer__navigation {
-  display: flex;
-  flex-wrap: wrap;
-  width: 60%;
-}
-
-.footer__menu {
-  margin-bottom: 45px;
-  padding: 0 20px;
-  width: 25%;
-}
-
-.footer__menu-title {
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.footer__menu-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer__menu-item {
-  margin-bottom: 5px;
-}
-
 .footer__terms {
   margin: 0 0 15px;
-  text-align: right;
+  text-align: center;
 }
 
 .footer__terms-item {
   margin: 0 5px 0 0;
+  font-weight: bold;
 }
 
 .footer__terms-item:not(:first-child)::before {
@@ -376,7 +337,7 @@ body {
 }
 
 .footer__social {
-  text-align: right;
+  text-align: center;
 }
 
 .footer__social-icon {
@@ -412,15 +373,6 @@ body {
 
   .heading_linkable:hover .heading__anchor {
     display: none;
-  }
-
-  .footer__side {
-    margin-left: 15px;
-    width: 100%;
-  }
-
-  .footer__navigation {
-    width: 100%;
   }
 
   .footer__terms {
@@ -462,6 +414,10 @@ body {
     content: " Edit";
   }
 
+  .ask {
+    padding: 45px 30px 50px;
+  }
+
   .ask__links {
     display: block;
   }
@@ -474,7 +430,7 @@ body {
     margin-bottom: 0;
   }
 
-  .footer__menu {
-    width: 50%;
+  .footer {
+    padding: 35px 30px;
   }
 }
