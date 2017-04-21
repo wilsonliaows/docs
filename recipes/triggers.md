@@ -6,7 +6,7 @@ date: 2017-02-18 22:15:00 Z
 # Triggers
 Some basic trigger rules
 - Each trigger event will be processed only once. i.e. no duplicates
-- Trigger events will be processed in the same order as when the events where created (in the app)
+- Trigger events will be processed in the same order as when the events were created (in the app)
 
 # Trigger types
 Triggers can be classified into different types based on how they check for and retrieve new events
