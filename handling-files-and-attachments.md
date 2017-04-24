@@ -66,7 +66,7 @@ In cases whereby the email event has one or more attachments, the for each step 
 ![Download attachment via ID](/assets/images/features/files-and-attachments/download-attachment-via-id.gif)
 *If email contains attachments, download each attachment from Gmail using attachment ID, and upload attachment content to Box. [Example recipe](https://www.workato.com/recipes/485773)*
 
-In this case, file content is used as Gmail does not provide public URLs to attachments. For scenarios where the source app provides public URLs to files and the target app accepts URLs for file uploads, [moving of files via URLs](#moving-textbinary-files-via-public-URL) should be the preferred method for recipe efficiency.
+In this case, file content is used as Gmail does not provide public URLs to attachments. For scenarios where the source app provides public URLs to files and the target app accepts URLs for file uploads, [moving of files via URLs](#moving-textbinary-files-via-public-url) should be the preferred method for recipe efficiency.
 
 ### Example of using Utilities to download file from public URL
 The **Utilities** connector has a **Download file from URL** action that retrieves file content, given a public URL to a file. In cases whereby the file source app provides only a public URL to the file, but the destination app requires the actual file content, this action can be used.
@@ -74,7 +74,6 @@ The **Utilities** connector has a **Download file from URL** action that retriev
 Let's take the scenario where new files created in a shared Box folder needs to be uploaded and associated with a Salesforce account. This is how the recipe looks.
 
 ![Example recipe - using utilities to download file](/assets/images/features/files-and-attachments/utilities-download-file.png)
-
 *Recipe that uses Utilities to download file content. [Example recipe](https://www.workato.com/recipes/485775)*
 
 The recipe uses the public URL to the Box file to download the file content. This file content is then uploaded into Salesforce as a new attachment, associated to a certain Salesforce account (the account ID is hardcoded in this instance).

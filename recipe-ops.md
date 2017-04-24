@@ -48,7 +48,9 @@ Recipe IDs can be found in the recipe page URL as highlighted below.
 *Recipe IDs can be found in recipe URL*
 
 Similar to the error notification emails, this trigger will trigger only once an hour for the same error type. For example:
+
 - If the monitored recipe encounters 5 failed jobs with the same error within a 2-hour timespan, the recipe will only pick up 2 trigger events.
+
 - If the monitored recipe encounters 5 failed jobs with different errors within a 2-hour timespane, the recipe will pick up 5 trigger events.
 
 ### Recipe stopped by Workato trigger

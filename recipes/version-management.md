@@ -12,6 +12,7 @@ In the version history view, each version is attributed to the user who made the
 *Recipe versions as viewed from the Versions tab*
 
 The are 2 types of changes:
+
 - Logic change
 
 These changes driven by user actively changing the recipe. e.g. adding or removing steps and changing field mappings, will create a new version of the recipe when the recipe is saved.
@@ -20,7 +21,7 @@ These changes driven by user actively changing the recipe. e.g. adding or removi
 
 These changes are driven by Workato when it notices that the underlying schema of objects in the recipe has changed. e.g. when using a Salesforce custom object has a new field added.
 
- Such schema refreshes will auto create a new version of the recipe.
+Such schema refreshes will auto create a new version of the recipe.
 
 # Restoring versions
 To restore previous versions of the recipe, switch to the **Versions** tab to view all available versions. Recipe versions can be first previewed before being restored.

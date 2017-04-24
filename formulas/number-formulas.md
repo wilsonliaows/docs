@@ -6,7 +6,7 @@ date: 2017-03-30 05:00:00 Z
 # Number formulas
 In Ruby, Fixnum refers to integers, e.g. 9, 10, 11, while Float refers to decimals, e.g. 1.75.
 
-Workato supports a variety of number formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged. Take note that most formulas will return an error and stop the job if it tries to operate on nulls (expressed as `nil` in Ruby), except for `present?`, `presence` and `blank?`.
+Workato supports a variety of number formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](/contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged. Take note that most formulas will return an error and stop the job if it tries to operate on nulls (expressed as `nil` in Ruby), except for `present?`, `presence` and `blank?`.
 
 You can refer to the complete Ruby documentation for Fixnum (integers) [here](http://ruby-doc.org/core-2.3.3/Fixnum.html) as well as the Ruby documentation for Float (decimals) [here](http://ruby-doc.org/core-2.3.3/Float.html).
 
@@ -18,7 +18,7 @@ For example:
 - If float values are provided, a float value will be returned.
 - If both float and integer values are provided, a float value will be returned, as that is more precise.
 
-## +
+## The + operator
 This operator allows the addition of operands on either side.
 
 ### Example
@@ -28,7 +28,7 @@ This operator allows the addition of operands on either side.
 | `4.0 + 7`   | 11.0   | Float  |
 | `4.0 + 7.0` | 11.0   | Float  |
 
-## -
+## The - operator
 This operator subtracts the right hand operand from the left hand operand.
 
 ### Example
@@ -38,7 +38,7 @@ This operator subtracts the right hand operand from the left hand operand.
 | `4.0 - 7`   | -3.0   | Float  |
 | `4.0 + 7.0` | -3.0   | Float  |
 
-## *
+## The * operator
 This operator multiplies the operands on either side.
 
 ### Example
@@ -48,7 +48,7 @@ This operator multiplies the operands on either side.
 | `4.0 * 7`   | 28.0   | Float  |
 | `4.0 * 7.0` | 28.0   | Float  |
 
-## /
+## The / operator
 Divides left hand operand by right hand operand.
 
 ### Example
@@ -61,7 +61,7 @@ Divides left hand operand by right hand operand.
 | `7.0 / 4`   | 1.75        | Float  |
 | `7.0 / 4.0` | 1.75        | Float  |
 
-## %
+## The % operator
 Divides left hand operand by right hand operand and returns the remainder.
 
 ### Example

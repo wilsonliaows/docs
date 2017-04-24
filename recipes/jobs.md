@@ -117,4 +117,4 @@ Any job (completed, failed, etc.) can be rerun. Workato stores the data of the t
 
 Rerun of a job will always use the latest version of the recipe. i.e. if the recipe has been modified since the job ran, rerun will use the most recent version.
 
-You can find out more about job reruns [here](recipes/rerun-job.md).
+You can find out more about job reruns [here](rerun-job.md).

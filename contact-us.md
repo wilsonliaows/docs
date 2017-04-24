@@ -3,6 +3,9 @@ title: Contact us
 date: 2017-02-16 22:15:00 Z
 ---
 
+# Contact us
+You can always contact us to file an enhancement request or a bug report. You can do so via the forums(https://support.workato.com/discussions) or by filing a ticket(https://support.workato.com/support/tickets/new).
+
 # Bug reports
 If you encounter bugs while building recipes, or if your triggers and actions are behaving unexpectedly, you can [submit a ticket](https://support.workato.com/support/tickets/new) and our team will look into it.
 
@@ -26,9 +29,10 @@ You can also browse our forums and upvote the ideas and suggestions you'd like t
 - [Core Product Features](https://support.workato.com/discussions/forums/1000228698)
 - [Other Ideas](https://support.workato.com/discussions/forums/1000228699)
 
-To hop into the forums from Workato, click on **Help** on the top navigation bar, and on **Forums** in the **Workato Success Center**.
+To navigate to the forums from Workato, click on **Help** on the top navigation bar, and on **Forums** in the **Workato Success Center**.
 
-![forum](/_uploads/contact-us/workato_forum.png)
+![Forums](/assets/images/contact-us/workato-forum.png)
+*Workato forums*
 
 # Update our documentation
 Our documentation is on Github. If you spot something missing, or if you have additional information you'd like to add to our documentation, you can reach out to us via:

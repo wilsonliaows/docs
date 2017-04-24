@@ -17,7 +17,7 @@ Delete,
 etc.
 ```
 
-We will use the Zendesk and Salesforce connectors to illustrate these actions. You may visit the Workato recipe [here](https://www.workato.com/recipes/484532) and install them into your own Workato account if you would like test out these actions yourself.
+We will use the Zendesk and Salesforce connectors to illustrate these actions. Check out the Workato recipe [here](https://www.workato.com/recipes/484532) and install it into your Workato account if you would like to test out these actions.
 
 ## Create
 The **Create object** action allows you to create any standard or custom object. In Salesforce, creating an account requires at least an Account Name to be stated.

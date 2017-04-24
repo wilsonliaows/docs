@@ -14,12 +14,12 @@ Workato allows for jobs to be reran. In such cases, the trigger event will run t
 
 To rerun jobs from the jobs report page, check the jobs to rerun and click on the rerun button.
 
-![Job rerun from jobs report page](/assets/images/recipes/_actionerror/job-rerun-from-report.gif)
+![Job rerun from jobs report page](/assets/images/rerun-jobs/job-rerun-from-report.gif)
 *Rerunning jobs from jobs report page*
 
 You can also rerun jobs when within the job details page. Simply click on the rerun button.
 
-![Job rerun from job details page](/assets/images/recipes/_actionerror/job-rerun-from-details.gif)
+![Job rerun from job details page](/assets/images/rerun-jobs/job-rerun-from-details.gif)
 *Job rerun from job details page*
 
 Job reruns are in-place - meaning that the position of the job will not change within hte jobs report. A job which was first processed in August and reran in September will retain its position amongst the other jobs processed in August.
@@ -38,7 +38,7 @@ However, if you have a **New/updated object** trigger, you wouldn't have to dele
 # Job rerun history
 Within the job details page, you can view the rerun history of the job.
 
-![Jobs history](/assets/images/recipes/rerun-jobs/jobs-history.png)
+![Jobs history](/assets/images/rerun-jobs/jobs-history.png)
 *Jobs history*
 
 In the job details screen, if you're viewing a job rerun which is not the latest version of the job reran, the *Rerun* button will be greyed out.
@@ -54,7 +54,7 @@ When testing your recipe after building or after editing, it's a good idea to te
 
 For example, in the following recipe, a trigger event carries out either steps 2-3, or steps 4-5. In this case, we should test out the recipe flow for a Salesforce account which has no matching Zendesk organization, as well as a Salesforce account which has a matching Zendesk organization.
 
-![Example recipe](/assets/images/recipes/rerun-jobs/example-recipe.png)
+![Example recipe](/assets/images/rerun-jobs/example-recipe.png)
 *Recipe with two logical branches. [Example recipe](https://www.workato.com/recipes/480358) *
 
 Because the trigger is **New/updated Salesforce account**, we can simply create a new Salesforce account and let the recipe pick it up and process it through steps 2-3 to create a corresponding Zendesk account. After that, we can make a quick edit to the Salesforce acccount for the recipe to pick up the updated record, in which case it will run this Salesforce account through steps 4-5 as it will now have a matching Zendesk organization.
@@ -70,4 +70,4 @@ Rather than creating new trigger events, rerunning the same job will allow you t
 When an error occurs in your recipe, the job will be incomplete as it will have ended where the error occurred (unless you're using the [Error monitor step](steps.md#action-with-error-handler-step) to recover from errors). In such cases, rerunning the job is necessary to ensure the job runs to completion as specified in the recipe, unless the issue is with the trigger data, in which case you should refer to [this section](#cached-trigger-data-in-job-reruns) about handling trigger errors.
 
 ## Data retention policy
-Data retention applies to processed trigger events. This means that older jobs might not be able to be reran. Find out how the data retention policy affects job reruns [here](data-retention.md).
+Data retention applies to processed trigger events. This means that older jobs might not be able to be reran. Find out how the data retention policy affects job reruns [here](/data-retention.md).

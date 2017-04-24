@@ -71,15 +71,15 @@ line_item = { item_name: “Acme widgets”, item_qty: 10 }
 In Workato, you will mostly run into lists of hashes. Let’s look at a Quickbooks invoice which has a number of line items. It will be represented as an list of hashes.
 
 ```ruby
-line_items = [                                  # list
+line_items = [                                     # list
   { item_name: “Acme widgets”, item_qty: 10  },	# hash 1
   { item_name: “RR bearings”,  item_qty: 100 },	# hash 2
-  { item_name: “Coyote tyres”, item_qty: 7   }	# hash 3
+  { item_name: “Coyote tyres”, item_qty: 7   }	 # hash 3
 ]
 ```
 
 # Formulas
-Workato supports a variety of list formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
+Workato supports a variety of list formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](/contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
 
 ## Example list of hashes
 The following is an example of a list of hashes called Contacts.
@@ -100,7 +100,7 @@ This is the Contacts list in a list of hashes form.
   { name: 'Joe',  email: ’joe@abc.com’,  state: ’CA’, company: ’ABC’, company_rev: ’1000’ },
   { name: 'Jill', email: ’jill@nbc.com’, state: ’MA’, company: ’NBC’, company_rev: ’1000’ },
   { name: 'Joan', email: ’joan@nbc.com’, state: ’MA’, company: ’NBC’, company_rev: ’1000’ },
-  { name: 'Jack', email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’1000’ }
+  { name: 'Jack', email: ’jack@hbo.com’, state: ’CA’, company: ’HBO’, company_rev: ’30000’ }
 ]
 ```
 
@@ -127,7 +127,7 @@ These rows will be expressed as a list of hashes:
 ### Example of compound where formula
 A compound where formula will retrieve only the rows that matches all the conditions.
 
-`contacts.where("state ==": "CA", "company_revenue >=": (2000..10000))` returns the following rows:
+`contacts.where("state ==": "CA", "company_revenue >=": 10000)` returns the following rows:
 
 | name            | email        | state | company | company_rev |
 |-----------------|--------------|-------|---------|-------------|
@@ -144,7 +144,7 @@ These rows will be expressed as a list of hashes:
 ### Example of complex reduction
 If a series of where conditions are chained, the formula evaluates each where condition in series.
 
-`contacts.where("state ==": "CA").where("company_revenue >=": (2000..10000))` returns the following rows, which is the same as the compound where formula:
+`contacts.where("state ==": "CA").where("company_revenue >=": 10000)` returns the following rows, which is the same as the compound where formula:
 
 | name            | email        | state | company | company_rev |
 |-----------------|--------------|-------|---------|-------------|
@@ -159,7 +159,7 @@ In this case, however, the chaining will result in an intermediary array:
 | Joe             | joe@abc.om   | CA    | ABC     | 1000        |
 | Jack            | jack@hbo.com | CA    | HBO     | 30000       |
 
-And `.where("company_revenue >=": (2000..10000))` filters this intermediary array further to return only:
+And `.where("company_revenue >=": 10000)` filters this intermediary array further to return only:
 
 | name            | email        | state | company | company_rev |
 |-----------------|--------------|-------|---------|-------------|

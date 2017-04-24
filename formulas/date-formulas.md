@@ -4,7 +4,7 @@ date: 2017-03-30 05:00:00 Z
 ---
 
 # Date formulas
-Workato supports a variety of date and datetime formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged. Take note that most formulas will return an error and stop the job if it tries to operate on nulls (expressed as `nil` in Ruby), except for `present?`, `presence` and `blank?`.
+Workato supports a variety of date and datetime formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always [reach out to us](/contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged. Take note that most formulas will return an error and stop the job if it tries to operate on nulls (expressed as `nil` in Ruby), except for `present?`, `presence` and `blank?`.
 
 You can refer to the complete Ruby documentation for Time [here](http://ruby-doc.org/core-2.3.3/Time.html).
 

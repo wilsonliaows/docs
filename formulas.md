@@ -53,11 +53,9 @@ Thanks for joining our mailing list! We're excited to have you!
 In text mode, the message will be as follows:
 
 ![Welcome email in text mode](/assets/images/formula-docs/welcome-email-in-text.png)
-
 *Email in text mode. [Example recipe](https://www.workato.com/recipes/504766)*
 
 ![Welcome email in formula mode](/assets/images/formula-docs/welcome-email-in-formula.png)
-
 *Email in formula mode. [Example recipe])(https://www.workato.com/recipes/496603)*
 
 ## Conditionals
@@ -71,6 +69,7 @@ You can conditionally (if-else) execute formulas using Ruby's ternary syntax. Te
 In the following example, we conditionally pass in either the *Full name* or *First name* into the *Message* input field.
 
 ![Ternary syntax](/assets/images/formula-docs/ternary-formula.png)
+*Ternary formula that passes in "Full name" as the input when "Full name" is present, and passes in "First name" as the input when "Full name" is not present*
 
 Here is a detailed explanation of what the ternary formula does:
 

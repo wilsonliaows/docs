@@ -21,7 +21,7 @@
 * [Files and attachments](handling-files-and-attachments.md)
   * [CSV files](features/handling-csv-files.md)
   * [JSON content](features/handling-json.md)
-  * [XML content](handling-xml.md)
+  * [XML content](features/handling-xml.md)
 * [Teams and collaboration](user-accounts-and-teams.md)
   * [Collaboration](user-accounts-and-teams/team-collaboration.md)
   * [Role-based access](user-accounts-and-teams/team-collaboration.md#team-roles)

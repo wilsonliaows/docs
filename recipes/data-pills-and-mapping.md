@@ -22,12 +22,12 @@ Data pills can be of the following data types
 - [Integer or number](docs/formulas/number-formulas.md)
 - [Date or datetime](docs/formulas/date-formulas.md)
 - Boolean
-- [Arrays/hashes](docs/formulas/array-list-formulas.md)
+- [Array/hash (list)](docs/formulas/array-list-formulas.md)
 
 When mapping (i.e. assigning data pill to an input field) it is important that they are 'type' compatible. Workato will do default type conversions where it can be done with no ambioguity or loss of information.
 
 # Type conversions
-Certain data types can be converted from one to the other using [formulas](/docs/formulas.md). For example, if you wish to convert a text string of numbers into integer type so as to perform arithmetic on it, or if an app expresses a datetime as a string, but you wish to convert it into a proper datetime type.
+Certain data types can be converted from one to the other using [formulas](/formulas.md). For example, if you wish to convert a text string of numbers into integer type so as to perform arithmetic on it, or if an app expresses a datetime as a string, but you wish to convert it into a proper datetime type.
 
 The list of available type conversion formulas are as follows:
 - to_currency
@@ -87,7 +87,6 @@ You can also combine constants and variables in the input fields for the data yo
 Let's take the scenario where we wish to send out a simple welcome email to every new Salesforce lead who has signed up. The recipe looks like
 
 ![Recipe will send a welcome email to each new Salesforce lead](/assets/images/recipes/data-pills/salesforce-lead-welcome-email-recipe.png)
-
 *Recipe that sends a welcome email to new Salesforce leads. [Example recipe](https://www.workato.com/recipes/504766)*
 
 In the **Send email** action, pills from the **New Salesforce lead** datatree have been mapped into the input fields.
@@ -116,17 +115,18 @@ Here are some of the common errors we've experienced when it comes to fields map
 
 - Data pills with no values at run-time for required fields
 
-At design-time (when we're building the recipe), all required fields are supposed to be mapped. The recipe will refuse to start and throw an error if a required field is left empty.
+  At design-time (when we're building the recipe), all required fields are supposed to be mapped. The recipe will refuse to start and throw an error if a required field is left empty.
 
-However, even if an input field has been mapped at design-time, it might not actually have a value at run-time (when a trigger event comes in and a job is being processed). In such a case, that specific job will throw an error and fail.
+  However, even if an input field has been mapped at design-time, it might not actually have a value at run-time (when a trigger event comes in and a job is being processed). In such a case, that specific job will throw an error and fail.
 
-You would need to decide how to handle such cases whereby a required field might not receive a value at run-time. If that is rightly a business logic error which needs to be resolved, e.g. the recipe tries to move a new lead from a sales app to a marketing app, but finds that it's missing an email address for the lead, the answer might be to let the job fail and flag the employee who had created the lead record.
+  You would need to decide how to handle such cases whereby a required field might not receive a value at run-time. If that is rightly a business logic error which needs to be resolved, e.g. the recipe tries to move a new lead from a sales app to a marketing app, but finds that it's missing an email address for the lead, the answer might be to let the job fail and flag the employee who had created the lead record.
 
 - Data pills from the wrong datatree
 
-When mapping input fields with data pills, it is common to find pills with the same names in the datatrees, e.g. if you're moving customers from an app to another, customer datatrees tend to hold address information. Hence you might find yourself using a pill with the right name, e.g. **City**, **State**, **Country**, but from the wrong datatree.
+  When mapping input fields with data pills, it is common to find pills with the same names in the datatrees, e.g. if you're moving customers from an app to another, customer datatrees tend to hold address information. Hence you might find yourself using a pill with the right name, e.g. **City**, **State**, **Country**, but from the wrong datatree.
 
 - Data pills from the wrong part of the recipe
-If your recipe has conditional steps, e.g. if customer is present, update customer record, and if customer is not present, create customer record, then for each job that's processed, there will be steps that are not carried out. In such cases, the values in the datatree for these steps will most likely be blank.
 
-If you're using data pills from these steps, you need to recognize the potential of these pills being null, and handle that scenario.
+  If your recipe has conditional steps, e.g. if customer is present, update customer record, and if customer is not present, create customer record, then for each job that's processed, there will be steps that are not carried out. In such cases, the values in the datatree for these steps will most likely be blank.
+
+  If you're using data pills from these steps, you need to recognize the potential of these pills being null, and handle that scenario.

@@ -1,104 +1,119 @@
-![Workbot1](/assets/images/Workbot/Workbot/Workbot 1.png)
+---
+title: Workbot
+date: 2017-03-30 05:00:00 Z
+---
 
-# Workbot 
-
+# Workbot
 Workbot from Workato helps you work with your business apps from within Slack. You can chat with your apps to access information or ask the the app to create or update business data. To cut down on traffic, apps can now send you smart notifications based on user specified filters.
 
+![Workbot1](/assets/images/Workbot/Workbot/Workbot 1.png)
+
 We will cover four areas in this document to help you get started!
-* Adding Workbot to Slack
-* Connecting Workbot to Apps
-* Sending commands to the Apps
-* Setting up Workbot for Smart Notifications
+- Adding Workbot to Slack
+- Connecting Workbot to Apps
+- Sending commands to the Apps
+- Setting up Workbot for Smart Notifications
 
 ## Adding Workbot to Slack
-To add Workbot to your Slack, [click here](https://www.workato.com/workbot-slack) or enter www.workato.com/workbot-slack in the address bar
-Workato will bring up the screen that will help you set up Workbot for Slack
+You can add Workbot to your Slack [here](https://www.workato.com/workbot-slack). This brings you to the following screen to set up Workbot for Slack.
+
 Note: If you do not want to not make Workbot available to all your team members, or if you are doing your own testing, you can create a new Slack team and use that team to set up Workbot.
 
-Click on the Add to Slack button. This will bring up a pop-up that shows you which slack channel you are connected to and ask you to authorize
 ![Workbot2](/assets/images/Workbot/Workbot/Workbot 2.png)
+*Workbot introduction page*
 
-Authorize access to Slack
+Click on the **Add to Slack** button. This brings up a pop-up showing the Slack team you're connected to. To authorize Workbot to have access to that Slack team, click on **Authorize**.
 
 ![Workbot3](/assets/images/Workbot/Workbot/Workbot 3.png)
+*Click on Authorize to let Workbot chat with and help your team on Slack*
 
-Once you authorize, you will get a confirmation screen. From here you just have two more steps get going
-
-
-Clicking on Got it! will add Workbot to your Slackand show you the list of pre-built apps
+If authorized, you should see the following screen:
 
 ![Workbot4](/assets/images/Workbot/Workbot/Workbot 4.png)
+*Popup shown when authorization is successful*
 
-Workbot Added to Slack
-                                           
-## Connecting Workbot to apps                                        
-You can turn on the access to the apps you need simply by toggling the switches shown below.
+That's cool, you've now added Workbot to your Slack team!
+
+## Connecting Workbot to Apps
+Next, you have to connect to the apps you want Workbot to interact with. Toggle the switches to **On** if you wish to interact with that app.
 
 ![Workbot5](/assets/images/Workbot/Workbot/Workbot 5.png)
+*List of available apps to connect Workbot to*
 
-If you turn on an App, such as Salesforce, a connection screen will pop up and guide you to connect to the right App instance
+Authorize the connection by providing your user credentials or other required authentication information. For example, connecting to Salesforce brings up a popup to connect to Salesforce and authorize Salesforce access to Workato.
 
 ![Workbot6](/assets/images/Workbot/Workbot/Workbot 6.png)
+*Popup generated when we turn on the Salesforce connection in Workbot*
 
-Once turned on, the apps will show up with the button as ON. You can click on the Commands link to see the list of available commands
+Once connected, the switch turns **On**.
 
-Activated Apps and list of available commands
+Now you're ready to get Workbot to fetch or push data from your connected apps!
+
+## Sending commands to the app
+There is a defined list of commands for each app that tells you what data you can retrieve or what data you can write to each app. Simply click on **Commands** right under the app name to view the list.
+
+For example, you can request Workbot to display the details of an opportunity in Salesforce, or list recent opportunities. You can even create accounts and cases from Slack with Workbot!
 
 ![Workbot16](/assets/images/Workbot/workbot/Workbot 16.png)
+*List of commands available for Salesforce*
 
-Now you are ready to start chatting with Workbot
-Note that Direct messages or DM are private exchanges with Workbot and won’t be seen by others
+Note that direct messages (DMs) are private exchanges with Workbot and won’t be seen by others.
 
-
-## Sending Commands to the app
-To send a command in workbot, you can simply use on of the default commands from the app, or you can build your own recipes and customize a command! For example,  Let’s ask workbot to **"show details for a customer"** from quickbooks
+### Example of using commands
+Let’s ask workbot to **show details for a customer** from QuickBooks.
 
 ![Workbot7](/assets/images/Workbot/Workbot/Workbot 7.png)
-Workbot then shows us the result and asks us if we want to create a corresponding account in Salesforce. if we want to do that, all we need to do is say "@workbot Yes" 
+*Using show customer details command with Workbot in Slack*
+
+Workbot checks if the QuickBooks customer GenePoint already exists. If it does, the customer details will be retrieved and posted on Slack. It also asks if we would want to create a corresponding account in Salesforce. if we want to do that, all we need to do is say "@workbot Yes", and Workbot proceeds to create and display the data for the newly created Salesforce account.
+
+Workbot will do a search to check for duplicates - if the Salesforce account GenePoint already exists, the customer details will be retrieved and posted on Slack. If it does not exist yet, the account will be created and details will be posted on Slack.
+
 ![Workbot8](/assets/images/Workbot/Workbot/Workbot 8.png)
-As shown from above, Workbot will check to see if the **Account** already exists, and if it does, will notify you on the chat. If it does not exisit yet, the Account will be created and details will be shown. 
+*If Workbot finds a duplicate record, it will not create the new Salesforce account*
 
+## Setting up notifications
+Commands are one way to interact with Workbot. At the same time, you can get Workbot to monitor your apps for important events and notify you about them. Invite Workbot to any channel and configure notifications to be posted to that channel. To set up notifications in your channel for specific recipes, follow the steps below:
 
-## Setting Up Notifications
-Commands are one way to interact with Workbot. At the same time, you can also ask it to listen for important stuff and notify you about them. You can invite workbot to any channel and configure the notifications to go to that channel. Follow the steps below to set up notifications in your channel for specific recipes
-
-1. Selecting the Channel for Workbot
+1. Go to channel for Workbot to post notifications to
 
 ![Workbot9](/assets/images/Workbot/Workbot/Workbot 9.png)
+*Go to, or create, the channel where Workbot should post notifcations*
 
-2. Inviting Workbot to the Channel
+2. Invite Workbot to the channel
 
 ![Workbot10](/assets/images/Workbot/workbot/workbot-adding-channel.gif)
+*Invite Workbot to the channel*
 
-3. Send a command to workbot to trun on notifications
-  
-The command should follow this format: 
-  
-**@workbot appname start notifications name:\[document] [event]**
-  
-If the recipe is not started, you will not be able to turn on notifications. But if it is connected, it will confirm that notifications is turned on.
+3. Turn on notifications via Workbot command
+
+The command should follow this format:
+```@workbot appname start notifications name:\[document] [event]```
+
+If the app has not been turned on, you will not be able to start notifications. But if the app has been turned on earlier, Workbot will confirm that notifications is started.
 
 ![Workbot12](/assets/images/Workbot/Workbot/Workbot 12.png)
+*Workbot confirming that the specified notification has been turned on*
 
-And send you the notifications on this channel
+Subsequently, when the event occurs in your app, Workbot will send you notifications accordingly on this channel.
 
 ![Workbot13](/assets/images/Workbot/Workbot/Workbot 13.png)
+*Notifications posted to the specified channel by Workbot*
 
-4. You can also turn off notifications, by using this format: 
-  
-**@workbot appname stop notifications name:\[document] [event]**
-  
-Workbot will confirm that it has turned notifications off
+4. Optionally, turn off notifications via Workbot command
+
+The command should follow this format:
+```@workbot appname stop notifications name:\[document] [event]```
+
+Workbot will confirm that it has stopped notifications for the specified event.
 
 ![Workbot15](/assets/images/Workbot/Workbot/Workbot 15.png)
+*Workbot confirming that the specific notifications will be stopped*
 
-### Things To Note
+### Final notes
 
-1. Treat workbot like an actual person, he deserves some respect (:
-2. Make sure that workbot is always in the channel to run commands, you can do this by inviting workbot to the channel
-3. Just like talking to a real person, always use @workbot because you want him to be alerted
-4. When you talk to workbot in its direct message channel, you do not need to use @workbot because he knows you are talking to him
-5. When you invite workbot into the channel, ANYONE in that channel can tell Workbot to do the assigned commands
-6. In the event you want workbot to do something that he is unable to do, feel free to post your request here and our team can take a look at it 
-7. The integration app connection will pick up the LATEST connection that you have made to the app
-
+1. Make sure that Workbot is always in the channel to run commands. Do this by inviting it to the channel.
+2. Just like talking to a real person, always use @workbot because you want it to be alerted.
+3. When you talk to Workbot in his direct message channel, you do not need to use @workbot because it knows you are talking to it.
+4. When you invite Workbot into the channel, **anyone** in that channel can interact with Workbot via commands.
+5. When first installing Workbot into your Slack team, Workbot will detect the **latest** app connections you have made in your Workato account and automatically connect to them.

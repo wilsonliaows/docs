@@ -10,7 +10,7 @@ In Workato, you can work with recipes in various ways:
 - stop a recipe to have it stop processing new trigger events
 
 # Test mode
-It is best practice to test your recipe before starting it and letting it run with minimal supervision. You don't want to turn on an inaccurate automation that moves lots of data wrongly - that's a lot of cleanup work to do!
+It is best practice to test your recipe before starting it and letting it run with minimal supervision. You don't want to turn on an inaccurate automation that moves lots of data wrongly - that probably results in a lot of cleanup work to do!
 
 The test recipe button picks up a single trigger event and runs it through your recipe. This allows you to check for recipe correctness. Typically, the test button show up by default for a new recipe, while the start button can be found in the dropdown list. Once your recipe has a first successful job, the default button changes to the start button, while the test button can then be found in the dropdown list.
 
@@ -85,7 +85,7 @@ However, this might not be the case for recipes with real-time triggers powered 
 ## Recipes stopped by Workato
 Some recipes are stopped by Workato. In such cases, you will receive an email from us about this stopped recipe. There are 2 reasons for this:
 
-  1. Recipes are automatically stopped when the monthly transaction limit is hit. [Contact our customer success team](docs/contact-us.md) to add more transactions.
+  1. Recipes are automatically stopped when the monthly transaction limit is hit. [Contact our customer success team](/contact-us.md) to add more transactions.
 
   2. The recipe has experienced 60 consecutive errors when trying to fetch trigger events. This can be due to various causes, e.g. password change leading to disconnected connection, API server of the app was down, etc. You have to fix the underlying issue before the recipe will work.
 

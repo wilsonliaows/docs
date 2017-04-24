@@ -1,39 +1,23 @@
-# Troubleshooting Workbot
-Sometimes when using workbot, you may face some issues. Here is a list of things to do whenever you encounter an problem while on Workbot. 
+---
+title: Troubleshooting Workbot
+date: 2017-03-30 05:00:00 Z
+---
 
-## Recipe Execution Error
-When a recipe that invovles workbot encounters an error, you will see this message: 
+# Troubleshooting Workbot
+Sometimes when interacting with Workbot, he may raise some errors or issues. Here are some common errors and issues that Workbot might tell you about, and how to handle them.
+
+## Recipe execution error
+Workbot is powered by Workato recipes to fetch your app data, such as retrieve Salesforce opportunities' data, or to write data to your apps, such as creating a new account in Salesforce. When Workbot tries to execute your command, but meets with an unexpected error, he will respond with the following message.
 
 ![workbot recipe execution](/assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-1.png)
+*Workbot error message about recipe execution error*
 
-"Got a recipe execution error that I don't know how to handle. Please try again later"
-together with a message detailing the error. In order to fix this error, you will have to go to the recipe and look for the problem there. Check out this link on what to do when you encounter recipe errors (insert link here). 
+Usually, there is also a short description included about the error. To fix this error, you will have to go to the recipe, look for the failed job, and [debug the error](/recipes/jobs.md#job-details) that happened in the job.
 
-## Workbot Offline
-Sometimes, you may find that despite having an active recipe or connection, Workbot goes offline. In order to solve this problem, you can try to reconnect your Slack Workbot connection. Users can do this by clicking on "Connection" under the drop-down menu on the top-right hand corner. Then click on Slack Workbot and click on "Edit". Then click on "Disconnect" then click on "Connect".
+## Workbot offline
+At times, you may find that despite having an active recipe or connection, Workbot appears to be offline. This is usually temporary - he might be undergoing maintenance, or gone out for a coffee break!
 
-Sometimes however, workbot may be under maintainence, but do give it a while and it will come back online again!
+Occasionally, reconnecting your Workbot connection helps to get him back online. Reconnect just like how you would reconnect to Slack. Navigate to **Connections**, find the Workbot connection, disconnect and connect again.
 
-##  Duplicate reply
-Possible scenario
-
-Two person in Slack team installed Workbot at the same time
-When you encounter this issue, this usually means that your team has two instances of Workbot installed by two separate members of your team. To stop this, check with your team and make sure that only one account is used to install Workbot. The other account's Workbot should be deactivated. 
-
-Checking on the duplicated installed Workbot
-
-1) Go into Apps & Integrations of your Slack team
-You can access this by clicking onto your Slack team and click on app & integrations
-
-![workbot duplicate 1](/assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-2.png)
-
-
-2) Go to Manage Integrations section and find Workbot
-It will bring you to Slack's marketplace. On the top right corner, look for Manage. Then, you will be able to see Workbot. If there are 2 or more configurations under workbot, this means that you have more than one workbot connected. 
-![workbot duplicate 3](/assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-4.png)
-![workbot duplicate gif](/assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-1.gif)
-
-
-
-3) Identify and Remove duplicated Workbot
-You will be able to identify the users who installed Workbots. After this, you should then contact them and remove Workbot from there.
+![Reconnect Workbot connection](/assets/images/Workbot/troubleshooting-workbot/reconnect-connections.gif)
+*Navigate to Connections and reconnect to Workbot*
