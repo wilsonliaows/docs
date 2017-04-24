@@ -60,7 +60,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="workbot-triggers.md" />
+    <link rel="next" href="workbot-triggers.html" />
     
     
     <link rel="prev" href="workbot.html" />
@@ -482,11 +482,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.7.3" data-path="../handling-xml.md">
+    <li class="chapter " data-level="1.7.3" data-path="../features/handling-xml.html">
       
 
       
-        <span>
+        <a href="../features/handling-xml.html">
       
         
         XML content
@@ -821,11 +821,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.12.2" data-path="workbot-triggers.md">
+    <li class="chapter " data-level="1.12.2" data-path="workbot-triggers.html">
       
 
       
-        <span>
+        <a href="workbot-triggers.html">
       
         
         Workbot triggers
@@ -1381,16 +1381,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="workato-actions">Workato Actions</h1>
-<p>Creating your own Workbot functions require a minimum required understanding of the Workato platform. To get started, click here.
-Workbot currently supports 2 actions</p>
+                                <h1 id="workato-actions">Workato actions</h1>
+<p>Workbot actions allow Workbot to post notifications into a specified channel when there are events to take note of, or respond to a command.</p>
+<p>Workbot supports 2 actions:</p>
 <ul>
-<li>Post Command Reply</li>
-<li>Post Notifications</li>
+<li>Post command reply</li>
+<li>Post notifications</li>
 </ul>
 <h2 id="post-command-reply">Post command reply</h2>
-<p>Post command reply allows you to customize how workbot will reply you when an event is completed. This reply can be a simple message to let you know that the recipe has completed processing, or even a message configured with buttons which you can click to perform specific further tasks. </p>
-<p>These are all the fields available in a Post Command reply action. We will get into the details of each field means in the later part of the section.</p>
+<p>Post command reply allows you to customize how Workbot replies when an event is completed. This reply can be a simple message about the task completion, or a prompt for the user to take a subsequent action once the first has been done, e.g. after retrieving data for a custom account in Salesforce, ask if the user wishes to copy that information across to another application.</p>
+<p>These are all the fields available in a <strong>Post command reply</strong> action. We will get into the details of each field means in the later part of the section.</p>
 <table>
 <thead>
 <tr>
@@ -1402,17 +1402,17 @@ Workbot currently supports 2 actions</p>
 <tbody>
 <tr>
 <td>Application</td>
-<td>The application you are dealing with (e.g.salesforce, JIRA)</td>
+<td>The application you are dealing with (e.g. Salesforce, JIRA)</td>
 <td>Use the <strong>Application</strong> Pill from the Workato Trigger output for this</td>
 </tr>
 <tr>
 <td>Reply Channel</td>
-<td>The channel to which workbot replies to</td>
+<td>The channel Workbot replies in</td>
 <td>Use the <strong>Reply channel</strong> Field from the Workato Trigger output</td>
 </tr>
 <tr>
 <td>Message</td>
-<td>The message that will be displayed</td>
+<td>Message posted in the channel</td>
 <td>Whatever you want. Slack Emojis are supported too</td>
 </tr>
 <tr>
@@ -1433,17 +1433,17 @@ Workbot currently supports 2 actions</p>
 <tr>
 <td>Buttons</td>
 <td>Buttons will be shown on the message, and you can click them in lieu of typing out another command</td>
-<td>Array of JSON objects. (e.g.[{&quot;title&quot;:&quot;button title&quot;, &quot;command&quot;:&quot;button command&quot;}])</td>
+<td>Array of JSON objects. (e.g. <code>\[{&quot;title&quot;:&quot;button title&quot;, &quot;command&quot;:&quot;button command&quot;}]</code>)</td>
 </tr>
 <tr>
 <td>Message Type</td>
-<td>a colour will be displayed on the message to indicate what type of message is being sent</td>
+<td>Colour displayed on the message to indicate message&apos;s importance or type</td>
 <td>Good = Green <br>Warning = Amber <br>Danger = Red</td>
 </tr>
 <tr>
 <td>Fields</td>
 <td>Fields to display in a grid</td>
-<td>One name-value pair per line (e.g. <br>Name:John<br>Address:[address pill])</td>
+<td>One name-value pair per line (e.g. <code>&lt;br&gt;Name: John&lt;br&gt;Address: [address_pill]</code>)</td>
 </tr>
 <tr>
 <td>Image URL</td>
@@ -1457,14 +1457,10 @@ Workbot currently supports 2 actions</p>
 </tr>
 </tbody>
 </table>
-<p>Here is what the Post Command Reply action&apos;s output will look like in Slack : </p>
-<p>Multi-App Bots
-Creating a completely new command with all your own vocabulary is as easy, and while you are at it, with Workato Recipes you can have your Workbot command to combine data from multiple apps.Here&apos;s an example. As a Project manager you may be introduced to new users that work in the same project, and you may need create new them in QuickBooks as new customers. You would then need an automation that create a customer in QuickBooks from a Salesforce Account. </p>
-<p>The following table shows what you get for the command reply action, which you can use to notify you that a set task has been completed based on the information that was provided, and can also show you information on that task (e.g. when an object is created, what does it look like, URL of the object, URL of a search result) </p>
-<p>You can also configure the command reply to include buttons for you to continue to process another command based on the data in the first command&apos;s reply. </p>
-<h2 id="post-notifications">Post Notifications</h2>
-<p>This action allows you to configure a notification that workbot will send out to channels where notifications for that recipe are turned on, including the administrator&apos;s private channel with workbot. The fields available are very simillar to that of the <strong>Post command reply</strong> action, with all the typical fields you see in a slack message. However, there is the addition of the field <strong>Notification Filter</strong> </p>
-<p>This field allows you to set parameters for filters, which acts like a trigger filter for sending out notifications (i.e. the notification will only get sent when the set criteria is met)</p>
+<p>Here is what the Post Command Reply action&apos;s output will look like in Slack.</p>
+<h2 id="post-notifications">Post notifications</h2>
+<p>This action allows you to post customized notifications to Slack channels.</p>
+<p>The fields available are simillar to that of the <strong>Post command reply</strong> action, with all the typical fields you see in a Slack message. However, there is the addition of the field <strong>Notification Filter</strong>. This field allows you to set parameters for filters, which acts like a trigger filter for sending out notifications (i.e. the notification will only get sent when the set criteria is met).</p>
 
                                 
                                 </section>
@@ -1547,7 +1543,7 @@ Creating a completely new command with all your own vocabulary is as easy, and w
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot actions","level":"1.12.1","depth":2,"next":{"title":"Workbot triggers","level":"1.12.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"previous":{"title":"Workbot","level":"1.12","depth":1,"path":"workbot/workbot.md","ref":"workbot/workbot.md","articles":[{"title":"Workbot actions","level":"1.12.1","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},{"title":"Workbot triggers","level":"1.12.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},{"title":"Workbot troubleshooting","level":"1.12.3","depth":2,"path":"workbot/workbot-troubleshooting.md","ref":"workbot/workbot-troubleshooting.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot-actions.md","mtime":"2017-04-21T18:39:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-21T18:41:20.991Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot actions","date":"2017-03-30T05:00:00.000Z","level":"1.12.1","depth":2,"next":{"title":"Workbot triggers","level":"1.12.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"previous":{"title":"Workbot","level":"1.12","depth":1,"path":"workbot/workbot.md","ref":"workbot/workbot.md","articles":[{"title":"Workbot actions","level":"1.12.1","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},{"title":"Workbot triggers","level":"1.12.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},{"title":"Workbot troubleshooting","level":"1.12.3","depth":2,"path":"workbot/workbot-troubleshooting.md","ref":"workbot/workbot-troubleshooting.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot-actions.md","mtime":"2017-04-24T18:00:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T18:02:49.215Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

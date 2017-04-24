@@ -482,11 +482,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.7.3" data-path="../handling-xml.md">
+    <li class="chapter " data-level="1.7.3" data-path="../features/handling-xml.html">
       
 
       
-        <span>
+        <a href="../features/handling-xml.html">
       
         
         XML content
@@ -821,11 +821,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.12.2" data-path="../workbot/workbot-triggers.md">
+    <li class="chapter " data-level="1.12.2" data-path="../workbot/workbot-triggers.html">
       
 
       
-        <span>
+        <a href="../workbot/workbot-triggers.html">
       
         
         Workbot triggers
@@ -1385,7 +1385,7 @@
 <p>Some basic trigger rules</p>
 <ul>
 <li>Each trigger event will be processed only once. i.e. no duplicates</li>
-<li>Trigger events will be processed in the same order as when the events where created (in the app)</li>
+<li>Trigger events will be processed in the same order as when the events were created (in the app)</li>
 </ul>
 <h1 id="trigger-types">Trigger types</h1>
 <p>Triggers can be classified into different types based on how they check for and retrieve new events</p>
@@ -1393,7 +1393,7 @@
 Batch,
 Real-time,
 Scheduled,
-Clock/Timer
+Scheduler/Clock
 </code></pre><h2 id="polling-triggers">Polling triggers</h2>
 <p>Polling triggers check for new events by periodically querying the app to see if new events are available. The polling frequency is determined by the type of Workato plan, and can be as low as 5 minutes.</p>
 <p>Each poll may yield multiple events ready for processing i.e. a single poll can result in several jobs being created.</p>
@@ -1408,7 +1408,7 @@ Clock/Timer
 <h2 id="batch-triggers">Batch triggers</h2>
 <p>Batch triggers are similar to polling triggers in terms of how they fetch new events. But, where polling triggers will create a new job for every trigger event, batch triggers will create a new job for a group of events. This group size i.e. batch size can be specified by the end user as part of the trigger configuration. Typical values for batch size are 100.</p>
 <p>Batch triggers are generally used for increasing throughput.</p>
-<p>For further details about batch triggers, refer to the Batch processing article <a href="docs/features/batch-processing.md">here</a>.</p>
+<p>For further details about batch triggers, refer to the Batch processing article <a href="../features/batch-processing.html">here</a>.</p>
 <h2 id="real-time-triggers">Real-time triggers</h2>
 <p>Real-time triggers are usually built on top of an asynchronous notification mechanism. Real-time triggers typically require registration in your connected app (either via the API or manually via the app interface), to let the app know that you are interested in a specific event. When that event occurs, the app will send a notification to Workato and generate a trigger event.</p>
 <p>Webhooks are one such mechanism. Most real-time triggers supported on Workato are built on webhooks. The advantage of webhooks is that there is no delay, and it is more efficient as we only receive notifications from apps when events occur, instead of Workato having to check at regular intervals for new events.</p>
@@ -1548,7 +1548,7 @@ This offset is usually communicated in the trigger hint for the connector.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Triggers","date":"2017-02-18T22:15:00.000Z","level":"1.4.1","depth":2,"next":{"title":"Steps","level":"1.4.2","depth":2,"path":"recipes/steps.md","ref":"recipes/steps.md","articles":[]},"previous":{"title":"Building recipes","level":"1.4","depth":1,"path":"recipes/building-recipes.md","ref":"recipes/building-recipes.md","articles":[{"title":"Triggers","level":"1.4.1","depth":2,"path":"recipes/triggers.md","ref":"recipes/triggers.md","articles":[]},{"title":"Steps","level":"1.4.2","depth":2,"path":"recipes/steps.md","ref":"recipes/steps.md","articles":[]},{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},{"title":"Data pills and mapping","level":"1.4.4","depth":2,"path":"recipes/data-pills-and-mapping.md","ref":"recipes/data-pills-and-mapping.md","articles":[]},{"title":"Version management","level":"1.4.5","depth":2,"path":"recipes/version-management.md","ref":"recipes/version-management.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/triggers.md","mtime":"2017-04-21T18:39:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-21T18:41:20.991Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Triggers","date":"2017-02-18T22:15:00.000Z","level":"1.4.1","depth":2,"next":{"title":"Steps","level":"1.4.2","depth":2,"path":"recipes/steps.md","ref":"recipes/steps.md","articles":[]},"previous":{"title":"Building recipes","level":"1.4","depth":1,"path":"recipes/building-recipes.md","ref":"recipes/building-recipes.md","articles":[{"title":"Triggers","level":"1.4.1","depth":2,"path":"recipes/triggers.md","ref":"recipes/triggers.md","articles":[]},{"title":"Steps","level":"1.4.2","depth":2,"path":"recipes/steps.md","ref":"recipes/steps.md","articles":[]},{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},{"title":"Data pills and mapping","level":"1.4.4","depth":2,"path":"recipes/data-pills-and-mapping.md","ref":"recipes/data-pills-and-mapping.md","articles":[]},{"title":"Version management","level":"1.4.5","depth":2,"path":"recipes/version-management.md","ref":"recipes/version-management.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/triggers.md","mtime":"2017-04-24T18:00:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T18:02:49.215Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

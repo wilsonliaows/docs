@@ -482,11 +482,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.7.3" data-path="../handling-xml.md">
+    <li class="chapter " data-level="1.7.3" data-path="../features/handling-xml.html">
       
 
       
-        <span>
+        <a href="../features/handling-xml.html">
       
         
         XML content
@@ -821,11 +821,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.12.2" data-path="../workbot/workbot-triggers.md">
+    <li class="chapter " data-level="1.12.2" data-path="../workbot/workbot-triggers.html">
       
 
       
-        <span>
+        <a href="../workbot/workbot-triggers.html">
       
         
         Workbot triggers
@@ -1522,14 +1522,14 @@
 </table>
 <h1 id="list-of-hashes">List of hashes</h1>
 <p>In Workato, you will mostly run into lists of hashes. Let&#x2019;s look at a Quickbooks invoice which has a number of line items. It will be represented as an list of hashes.</p>
-<pre><code class="lang-ruby">line_items = [                                  <span class="hljs-comment"># list</span>
+<pre><code class="lang-ruby">line_items = [                                     <span class="hljs-comment"># list</span>
   { <span class="hljs-symbol">item_name:</span> &#x201C;Acme widgets&#x201D;, <span class="hljs-symbol">item_qty:</span> <span class="hljs-number">10</span>  },    <span class="hljs-comment"># hash 1</span>
   { <span class="hljs-symbol">item_name:</span> &#x201C;RR bearings&#x201D;,  <span class="hljs-symbol">item_qty:</span> <span class="hljs-number">100</span> },    <span class="hljs-comment"># hash 2</span>
-  { <span class="hljs-symbol">item_name:</span> &#x201C;Coyote tyres&#x201D;, <span class="hljs-symbol">item_qty:</span> <span class="hljs-number">7</span>   }    <span class="hljs-comment"># hash 3</span>
+  { <span class="hljs-symbol">item_name:</span> &#x201C;Coyote tyres&#x201D;, <span class="hljs-symbol">item_qty:</span> <span class="hljs-number">7</span>   }     <span class="hljs-comment"># hash 3</span>
 ]
 </code></pre>
 <h1 id="formulas">Formulas</h1>
-<p>Workato supports a variety of list formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always <a href="contact-us.md">reach out to us</a> to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.</p>
+<p>Workato supports a variety of list formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always <a href="../contact-us.html">reach out to us</a> to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.</p>
 <h2 id="example-list-of-hashes">Example list of hashes</h2>
 <p>The following is an example of a list of hashes called Contacts.</p>
 <p>This is the Contacts list in a table form:</p>
@@ -1579,7 +1579,7 @@
   { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;Joe&apos;</span>,  <span class="hljs-symbol">email:</span> &#x2019;joe@abc.com&#x2019;,  <span class="hljs-symbol">state:</span> &#x2019;CA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;ABC&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">1000</span>&#x2019; },
   { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;Jill&apos;</span>, <span class="hljs-symbol">email:</span> &#x2019;jill@nbc.com&#x2019;, <span class="hljs-symbol">state:</span> &#x2019;MA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;NBC&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">1000</span>&#x2019; },
   { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;Joan&apos;</span>, <span class="hljs-symbol">email:</span> &#x2019;joan@nbc.com&#x2019;, <span class="hljs-symbol">state:</span> &#x2019;MA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;NBC&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">1000</span>&#x2019; },
-  { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;Jack&apos;</span>, <span class="hljs-symbol">email:</span> &#x2019;jack@hbo.com&#x2019;, <span class="hljs-symbol">state:</span> &#x2019;CA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;HBO&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">1000</span>&#x2019; }
+  { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;Jack&apos;</span>, <span class="hljs-symbol">email:</span> &#x2019;jack@hbo.com&#x2019;, <span class="hljs-symbol">state:</span> &#x2019;CA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;HBO&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">30000</span>&#x2019; }
 ]
 </code></pre>
 <h2 id="where">where</h2>
@@ -1621,7 +1621,7 @@
 </code></pre>
 <h3 id="example-of-compound-where-formula">Example of compound where formula</h3>
 <p>A compound where formula will retrieve only the rows that matches all the conditions.</p>
-<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;, &quot;company_revenue &gt;=&quot;: (2000..10000))</code> returns the following rows:</p>
+<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;, &quot;company_revenue &gt;=&quot;: 10000)</code> returns the following rows:</p>
 <table>
 <thead>
 <tr>
@@ -1649,7 +1649,7 @@
 </code></pre>
 <h3 id="example-of-complex-reduction">Example of complex reduction</h3>
 <p>If a series of where conditions are chained, the formula evaluates each where condition in series.</p>
-<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;).where(&quot;company_revenue &gt;=&quot;: (2000..10000))</code> returns the following rows, which is the same as the compound where formula:</p>
+<p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;).where(&quot;company_revenue &gt;=&quot;: 10000)</code> returns the following rows, which is the same as the compound where formula:</p>
 <table>
 <thead>
 <tr>
@@ -1699,7 +1699,7 @@
 </tr>
 </tbody>
 </table>
-<p>And <code>.where(&quot;company_revenue &gt;=&quot;: (2000..10000))</code> filters this intermediary array further to return only:</p>
+<p>And <code>.where(&quot;company_revenue &gt;=&quot;: 10000)</code> filters this intermediary array further to return only:</p>
 <table>
 <thead>
 <tr>
@@ -2202,7 +2202,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"List formulas","date":"2017-03-30T05:00:00.000Z","level":"1.6.4","depth":2,"next":{"title":"Files and attachments","level":"1.7","depth":1,"path":"handling-files-and-attachments.md","ref":"handling-files-and-attachments.md","articles":[{"title":"CSV files","level":"1.7.1","depth":2,"path":"features/handling-csv-files.md","ref":"features/handling-csv-files.md","articles":[]},{"title":"JSON content","level":"1.7.2","depth":2,"path":"features/handling-json.md","ref":"features/handling-json.md","articles":[]},{"title":"XML content","level":"1.7.3","depth":2,"path":"handling-xml.md","ref":"handling-xml.md","articles":[]}]},"previous":{"title":"Date formulas","level":"1.6.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/array-list-formulas.md","mtime":"2017-04-21T18:39:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-21T18:41:20.991Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"List formulas","date":"2017-03-30T05:00:00.000Z","level":"1.6.4","depth":2,"next":{"title":"Files and attachments","level":"1.7","depth":1,"path":"handling-files-and-attachments.md","ref":"handling-files-and-attachments.md","articles":[{"title":"CSV files","level":"1.7.1","depth":2,"path":"features/handling-csv-files.md","ref":"features/handling-csv-files.md","articles":[]},{"title":"JSON content","level":"1.7.2","depth":2,"path":"features/handling-json.md","ref":"features/handling-json.md","articles":[]},{"title":"XML content","level":"1.7.3","depth":2,"path":"features/handling-xml.md","ref":"features/handling-xml.md","articles":[]}]},"previous":{"title":"Date formulas","level":"1.6.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/array-list-formulas.md","mtime":"2017-04-24T18:00:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T18:02:49.215Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

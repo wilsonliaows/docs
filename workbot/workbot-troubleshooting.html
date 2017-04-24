@@ -63,7 +63,7 @@
     <link rel="next" href="../developing-connectors.html" />
     
     
-    <link rel="prev" href="workbot-triggers.md" />
+    <link rel="prev" href="workbot-triggers.html" />
     
 
     
@@ -482,11 +482,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.7.3" data-path="../handling-xml.md">
+    <li class="chapter " data-level="1.7.3" data-path="../features/handling-xml.html">
       
 
       
-        <span>
+        <a href="../features/handling-xml.html">
       
         
         XML content
@@ -821,11 +821,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.12.2" data-path="workbot-triggers.md">
+    <li class="chapter " data-level="1.12.2" data-path="workbot-triggers.html">
       
 
       
-        <span>
+        <a href="workbot-triggers.html">
       
         
         Workbot triggers
@@ -1382,29 +1382,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="troubleshooting-workbot">Troubleshooting Workbot</h1>
-<p>Sometimes when using workbot, you may face some issues. Here is a list of things to do whenever you encounter an problem while on Workbot. </p>
-<h2 id="recipe-execution-error">Recipe Execution Error</h2>
-<p>When a recipe that invovles workbot encounters an error, you will see this message: </p>
-<p><img src="../assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-1.png" alt="workbot recipe execution"></p>
-<p>&quot;Got a recipe execution error that I don&apos;t know how to handle. Please try again later&quot;
-together with a message detailing the error. In order to fix this error, you will have to go to the recipe and look for the problem there. Check out this link on what to do when you encounter recipe errors (insert link here). </p>
-<h2 id="workbot-offline">Workbot Offline</h2>
-<p>Sometimes, you may find that despite having an active recipe or connection, Workbot goes offline. In order to solve this problem, you can try to reconnect your Slack Workbot connection. Users can do this by clicking on &quot;Connection&quot; under the drop-down menu on the top-right hand corner. Then click on Slack Workbot and click on &quot;Edit&quot;. Then click on &quot;Disconnect&quot; then click on &quot;Connect&quot;.</p>
-<p>Sometimes however, workbot may be under maintainence, but do give it a while and it will come back online again!</p>
-<h2 id="duplicate-reply">Duplicate reply</h2>
-<p>Possible scenario</p>
-<p>Two person in Slack team installed Workbot at the same time
-When you encounter this issue, this usually means that your team has two instances of Workbot installed by two separate members of your team. To stop this, check with your team and make sure that only one account is used to install Workbot. The other account&apos;s Workbot should be deactivated. </p>
-<p>Checking on the duplicated installed Workbot</p>
-<p>1) Go into Apps &amp; Integrations of your Slack team
-You can access this by clicking onto your Slack team and click on app &amp; integrations</p>
-<p><img src="../assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-2.png" alt="workbot duplicate 1"></p>
-<p>2) Go to Manage Integrations section and find Workbot
-It will bring you to Slack&apos;s marketplace. On the top right corner, look for Manage. Then, you will be able to see Workbot. If there are 2 or more configurations under workbot, this means that you have more than one workbot connected. 
-<img src="../assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-4.png" alt="workbot duplicate 3">
-<img src="../assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-1.gif" alt="workbot duplicate gif"></p>
-<p>3) Identify and Remove duplicated Workbot
-You will be able to identify the users who installed Workbots. After this, you should then contact them and remove Workbot from there.</p>
+<p>Sometimes when interacting with Workbot, he may raise some errors or issues. Here are some common errors and issues that Workbot might tell you about, and how to handle them.</p>
+<h2 id="recipe-execution-error">Recipe execution error</h2>
+<p>Workbot is powered by Workato recipes to fetch your app data, such as retrieve Salesforce opportunities&apos; data, or to write data to your apps, such as creating a new account in Salesforce. When Workbot tries to execute your command, but meets with an unexpected error, he will respond with the following message.</p>
+<p><img src="../assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-1.png" alt="workbot recipe execution">
+<em>Workbot error message about recipe execution error</em></p>
+<p>Usually, there is also a short description included about the error. To fix this error, you will have to go to the recipe, look for the failed job, and <a href="../recipes/jobs.html#job-details">debug the error</a> that happened in the job.</p>
+<h2 id="workbot-offline">Workbot offline</h2>
+<p>At times, you may find that despite having an active recipe or connection, Workbot appears to be offline. This is usually temporary - he might be undergoing maintenance, or gone out for a coffee break!</p>
+<p>Occasionally, reconnecting your Workbot connection helps to get him back online. Reconnect just like how you would reconnect to Slack. Navigate to <strong>Connections</strong>, find the Workbot connection, disconnect and connect again.</p>
+<p><img src="../assets/images/Workbot/troubleshooting-workbot/reconnect-connections.gif" alt="Reconnect Workbot connection">
+<em>Navigate to Connections and reconnect to Workbot</em></p>
 
                                 
                                 </section>
@@ -1487,7 +1475,7 @@ You will be able to identify the users who installed Workbots. After this, you s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot troubleshooting","level":"1.12.3","depth":2,"next":{"title":"Developing connectors","level":"1.13","depth":1,"path":"developing-connectors.md","ref":"developing-connectors.md","articles":[{"title":"HTTP vs SDK","level":"1.13.1","depth":2,"path":"developing-connectors/http-vs-sdk.md","ref":"developing-connectors/http-vs-sdk.md","articles":[]},{"title":"HTTP","level":"1.13.2","depth":2,"path":"developing-connectors/http.md","ref":"developing-connectors/http.md","articles":[]}]},"previous":{"title":"Workbot triggers","level":"1.12.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot-troubleshooting.md","mtime":"2017-04-21T18:39:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-21T18:41:20.991Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot troubleshooting","date":"2017-03-30T05:00:00.000Z","level":"1.12.3","depth":2,"next":{"title":"Developing connectors","level":"1.13","depth":1,"path":"developing-connectors.md","ref":"developing-connectors.md","articles":[{"title":"HTTP vs SDK","level":"1.13.1","depth":2,"path":"developing-connectors/http-vs-sdk.md","ref":"developing-connectors/http-vs-sdk.md","articles":[]},{"title":"HTTP","level":"1.13.2","depth":2,"path":"developing-connectors/http.md","ref":"developing-connectors/http.md","articles":[]}]},"previous":{"title":"Workbot triggers","level":"1.12.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot-troubleshooting.md","mtime":"2017-04-24T18:00:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T18:02:49.215Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
