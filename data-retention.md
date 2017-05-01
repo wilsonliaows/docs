@@ -18,7 +18,7 @@ The following details the data which are subject to the data retention policy an
 Detailed job steps that shows information about the data passed into each step, as well as the data response received from each step.
 
 ![Step input output](/assets/images/data-retention/step-input-output.gif)
-*Step-by-step details showing input and output of each action.*
+*Step-by-step details showing input and output of each action*
 
 After the retention period, detailed job logs will be erased. Job ID, job status and job timestamp will be retained.
 
