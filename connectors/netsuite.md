@@ -5,16 +5,6 @@ date: 2017-04-28 06:15:00 Z
 
 # NetSuite
 
-## Connector information
-
-### API version
-
-### Supported editions and versions
-
-## How to connect to NetSuite on Workato
-### NetSuite connection
-### Roles and permissions required to connect
-
 ## Working with the NetSuite connector
 
 ### Using the New saved search result for object trigger
