@@ -15,13 +15,13 @@ Post command reply allows you to customize how Workbot replies when an event is 
 
 Here is what the Post Command Reply action's output will look like in Slack.
 
-![Workbot post command reply](/assets/images/Workbot/Workbot/workbot-custom-commands/post-command-reply2.png)
+![Workbot post command reply](/assets/images/Workbot/workbot-custom-commands/post-command-reply2.png)
 *Workbot's post command reply action in Slack*
 
 The corresponding action with mapped fields can be found below.
 
-![Workbot post command reply](/assets/images/Workbot/Workbot/workbot-custom-commands/post-command-action-mapping1.png)
-![Workbot post command reply](/assets/images/Workbot/Workbot/workbot-custom-commands/post-command-action-mapping2.png)
+![Workbot post command reply](/assets/images/Workbot/workbot-custom-commands/post-command-action-mapping1.png)
+![Workbot post command reply](/assets/images/Workbot/workbot-custom-commands/post-command-action-mapping2.png)
 *Post command action fields mapping*
 
 The following table lists the fields available in a **Post command reply** action.
