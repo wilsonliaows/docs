@@ -13,7 +13,18 @@ Workbot supports 2 actions:
 ## Post command reply
 Post command reply allows you to customize how Workbot replies when an event is completed. This reply can be a simple message about the task completion, or a prompt for the user to take a subsequent action once the first has been done, e.g. after retrieving data for a custom account in Salesforce, ask if the user wishes to copy that information across to another application.
 
-These are all the fields available in a **Post command reply** action. We will get into the details of each field means in the later part of the section.
+Here is what the Post Command Reply action's output will look like in Slack.
+
+![Workbot post command reply](/assets/images/Workbot/Workbot/workbot-custom-commands/post-command-reply2.png)
+*Workbot's post command reply action in Slack*
+
+The corresponding action with mapped fields can be found below.
+
+![Workbot post command reply](/assets/images/Workbot/Workbot/workbot-custom-commands/post-command-action-mapping1.png)
+![Workbot post command reply](/assets/images/Workbot/Workbot/workbot-custom-commands/post-command-action-mapping2.png)
+*Post command action fields mapping*
+
+The following table lists the fields available in a **Post command reply** action.
 
 |Field   |Explanation|What goes in here   |
 |---|---|---|
@@ -28,8 +39,6 @@ These are all the fields available in a **Post command reply** action. We will g
 |Fields|Fields to display in a grid|One name-value pair per line (e.g. `<br>Name: John<br>Address: [address_pill]`)
 |Image URL|Attach a picture to the message|URL of an image that will be displayed below the message
 |Related documents|Commands can be linked to other commands via the document they operate on. Workbot uses this to recommend commands in a conversation|Specify links using this format: document name identifier_1:"App data from data tree" identifier_2:"App data from data tree" E.g. ticket id:"[data tree pill]" Specify one parameter per line. No spaces allowed in document name.|
-
-Here is what the Post Command Reply action's output will look like in Slack.
 
 ## Post notifications
 This action allows you to post customized notifications to Slack channels.
