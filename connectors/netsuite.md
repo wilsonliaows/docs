@@ -5,16 +5,6 @@ date: 2017-04-28 06:15:00 Z
 
 # NetSuite
 
-## Connector information
-
-### API version
-
-### Supported editions and versions
-
-## How to connect to NetSuite on Workato
-### NetSuite connection
-### Roles and permissions required to connect
-
 ## Working with the NetSuite connector
 
 ### Using the New saved search result for object trigger
@@ -31,6 +21,11 @@ Navigate to the **Results** page's **Columns** section, and add the two fields t
 
 ![Add Internal ID and Date created columns in saved search](/assets/images/connectors/netsuite/new-results-in-saved-search.gif)
 *Add Internal ID and Date created columns in saved search for New trigger*
+
+Also, make sure to remove the **Dashboard** column in the saved search's results if it's present. Having this column will cause the trigger to throw an error.
+
+![Remove Dashboard column in saved search](/assets/images/connectors/netsuite/delete-dashboard-field.gif)
+*Remove Dashboard column in saved search*
 
 Once this setup has been done, we can proceed to configure the trigger. This configuration is similar to that for **New/updated saved search result** trigger:
 1) Select the object type we wish to retrieve the saved searches for. In our case, we selected the customer object.
@@ -49,6 +44,11 @@ To ensure the trigger works, we need to make sure that the columns **Internal ID
 
 ![Add Internal ID and Last modified columns in saved search](/assets/images/connectors/netsuite/edit-saved-search.gif)
 *Add Internal ID and Last modified columns in saved search for New/updated trigger*
+
+Also, make sure to remove the **Dashboard** column in the saved search's results if it's present. Having this column will cause the trigger to throw an error.
+
+![Remove Dashboard column in saved search](/assets/images/connectors/netsuite/delete-dashboard-field.gif)
+*Remove Dashboard column in saved search*
 
 Once this setup has been done, we can proceed to configure the trigger. This configuration is similar to that for **New saved search result** trigger:
 1) Select the object type we wish to retrieve the saved searches for. In our case, we selected the customer object.
