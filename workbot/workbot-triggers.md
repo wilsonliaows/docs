@@ -30,3 +30,12 @@ When creating a recipe with **New Commands** as the trigger, you will see these 
 |Document   |Document/record associated with the command (Account, Invoice, Lead)   |
 |Hint|Displayed as help in Slack|
 |Command input |This is how you configure your expected command input (parameters). The format for specifying input is parameter name `\[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John]` E.g. `customer_id hint:customer ID sample:12789`. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step.
+
+## New URL mention
+When you send a URL in slack, you can have workbot provide certain information into the channel for everyone to see. For example, you can send a Salseforce Lead URL into your sales channel and workbot will automatically send a message showing more information about that particular lead
+
+![workbot triggers](/assets/images/workbot/workbot-custom-commands/workbot-url.gif)
+
+Simply select the application in the trigger (Currently only Salesforce and Github), and select the Document, and set up your actions as you prefer. By default, giving a salesforce or github URL in a channel workbot is in will trigger a prompt from workbot asking you if you want to show details of the content of the URL that you have sent
+
+![workbot triggers](/assets/images/workbot/workbot-custom-commands/workbot-url-mention.gif)

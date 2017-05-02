@@ -9,7 +9,7 @@ Sometimes when interacting with Workbot, he may raise some errors or issues. Her
 ## Recipe execution error
 Workbot is powered by Workato recipes to fetch your app data, such as retrieve Salesforce opportunities' data, or to write data to your apps, such as creating a new account in Salesforce. When Workbot tries to execute your command, but meets with an unexpected error, he will respond with the following message.
 
-![workbot recipe execution](/assets/images/Workbot/troubleshooting-workbot/troubleshooting-workbot-1.png)
+![workbot recipe execution](/assets/images/workbot/troubleshooting-workbot/troubleshooting-workbot-1.png)
 *Workbot error message about recipe execution error*
 
 Usually, there is also a short description included about the error. To fix this error, you will have to go to the recipe, look for the failed job, and [debug the error](/recipes/jobs.md#job-details) that happened in the job.
@@ -19,5 +19,5 @@ At times, you may find that despite having an active recipe or connection, Workb
 
 Occasionally, reconnecting your Workbot connection helps to get him back online. Reconnect just like how you would reconnect to Slack. Navigate to **Connections**, find the Workbot connection, disconnect and connect again.
 
-![Reconnect Workbot connection](/assets/images/Workbot/troubleshooting-workbot/reconnect-connections.gif)
+![Reconnect Workbot connection](/assets/images/workbot/troubleshooting-workbot/reconnect-connections.gif)
 *Navigate to Connections and reconnect to Workbot*
