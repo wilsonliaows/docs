@@ -565,6 +565,51 @@
       
     </li>
   
+    <li class="chapter " data-level="1.8.4" data-path="team-collaboration.html">
+      
+
+      
+        <a href="team-collaboration.html#okta-single-sign-on">
+      
+        
+        Okta SSO
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.5" data-path="team-collaboration.html">
+      
+
+      
+        <a href="team-collaboration.html#onelogin-single-sign-on">
+      
+        
+        OneLogin SSO
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.6" data-path="team-collaboration.html">
+      
+
+      
+        <a href="team-collaboration.html#workato-single-sign-on-setup">
+      
+        
+        Workato SSO settings
+      
+        </a>
+      
+
+      
+    </li>
+  
 
         </ul>
       
@@ -1582,6 +1627,105 @@
 <p>Recipe changes are logged under <strong>Versions</strong> tab and attributed to the collaborator who made the change. Older versions of the recipe can be restored by users with admin or analyst roles.</p>
 <p><img src="../assets/images/user-accounts-and-teams/team-collaboration/recipe-versions.png" alt="Recipe versions">
 <em>Recipe audit log in Versions tab</em></p>
+<h1 id="okta-single-sign-on">Okta Single Sign-On</h1>
+<p>Follow the steps below to enable Okta SSO for your team.</p>
+<h2 id="create-saml-application">Create SAML application</h2>
+<p>Create a new SAML application in Okta admin interface. Refer to the <a href="http://developer.okta.com/standards/SAML/setting_up_a_saml_application_in_okta" target="_blank">Okta documentation</a>  for more details.</p>
+<p><img src="../assets/images/user-accounts-and-teams/team-collaboration/okta-settings-config-mode.png" alt="Okta Config Wizard">
+<em>Okta Workato Service Provider settings in Wizard mode</em></p>
+<p>Fill the settings form as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single Sign On URL</td>
+<td><code>https://www.workato.com/saml/init</code></td>
+</tr>
+<tr>
+<td>Allow this app to request other SSO URLs</td>
+<td>Enable checkmark</td>
+</tr>
+<tr>
+<td>Requestable SSO URLs</td>
+<td>Add <code>https://www.workato.com/saml/consume</code></td>
+</tr>
+<tr>
+<td>Audience Restriction</td>
+<td>Add <code>https://www.workato.com/saml/metadata</code></td>
+</tr>
+<tr>
+<td>Recipient URL</td>
+<td>Add <code>https://www.workato.com/saml/init</code></td>
+</tr>
+<tr>
+<td>Destination URL</td>
+<td>Add <code>https://www.workato.com/saml/init</code></td>
+</tr>
+</tbody>
+</table>
+<p>The final Okta settings screen should look like this:
+<img src="../assets/images/user-accounts-and-teams/team-collaboration/okta-settings-view-mode.png" alt="Okta Config View">
+<em>Okta Workato Service Provider completed settings</em></p>
+<h2 id="obtain-okta-metadata-url-for-workato-saml-setup">Obtain Okta metadata URL for Workato SAML setup</h2>
+<p>Go to the &quot;Sign On&quot; tab and in yellow field you would see link <strong>&quot;Identity Provider Metadata&quot;</strong>. Copy this URL to use in future in Workato Team Settings SAML configuration
+<img src="../assets/images/user-accounts-and-teams/team-collaboration/okta-metadata-link.gif" alt="Okta IdP URL">
+<em>Okta metadata URL</em></p>
+<h1 id="onelogin-single-sign-on">OneLogin Single Sign-On</h1>
+<p>Follow the steps below to enable OneLogin SSO for your team.</p>
+<h2 id="create-saml-application">Create SAML application</h2>
+<p>Create a new SAML application in OneLogin admin interface. Refer to the <a href="https://support.onelogin.com/hc/en-us/articles/202673944-How-to-Use-the-OneLogin-SAML-Test-Connector" target="_blank">OneLogin documentation</a> for more details.</p>
+<p><img src="../assets/images/user-accounts-and-teams/team-collaboration/onelogin-settings.png" alt="OneLogin Config">
+<em>OneLogin Workato Service Provider settings</em></p>
+<p>Fill the settings form as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audience</td>
+<td><code>https://www.workato.com/saml/metadata</code></td>
+</tr>
+<tr>
+<td>Recipient</td>
+<td><code>https://www.workato.com/saml/init</code></td>
+</tr>
+<tr>
+<td>ACS (Consumer) URL validator</td>
+<td><code>^https:\/\/www.workato.com\/saml\/*$</code></td>
+</tr>
+<tr>
+<td>ACS (Consumer) URL</td>
+<td><code>https://www.workato.com/saml/consume</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="obtain-onelogin-metadata-url-for-workato-saml-setup">Obtain OneLogin metadata URL for Workato SAML setup</h3>
+<ul>
+<li>Once OneLogin setup finished press on  <strong>&quot;Save&quot;</strong> button in the top right corner of OneLogin SAML settings page.</li>
+<li>Click on the menu <strong>&quot;More Actions&quot;</strong>, right click on <strong>&quot;SAML metadata&quot;</strong> and choose <strong>&quot;Copy Link Address&quot;</strong> in context menu.</li>
+<li>Copy this URL to use in future in Workato Team Settings SAML configuration.</li>
+</ul>
+<p><img src="../assets/images/user-accounts-and-teams/team-collaboration/onelogin-metadata-link.gif" alt="OneLogin IdP URL">
+<em>OneLogin metadata URL</em></p>
+<h1 id="workato-single-sign-on-setup">Workato Single Sign-on setup</h1>
+<ul>
+<li>Enable SAML on <strong>Team -&gt; Settings</strong> page</li>
+<li>Enter Team ID - handle to identify team during login (no whitespace or special characters, just letters, numbers and dash)</li>
+<li>Set SAML provider</li>
+<li>Preferable way of SAML configuration is via metadata URL - get this URL from Identity Provider (see instruction for <a href="team-collaboration.html#obtain-okta-metadata-url-for-workato-saml-setup">Okta</a> and <a href="team-collaboration.html#obtain-onelogin-metadata-url-for-workato-saml-setup">OneLogin</a> how to get it)</li>
+<li>Insert metadata URL and press <strong>&quot;Validate Settings&quot;</strong>, once validation succeeds press <strong>&quot;Save&quot;</strong>
+<img src="../assets/images/user-accounts-and-teams/team-collaboration/workato-okta-settings.png" alt="Workato SAML config">
+<em>Workato SAML Okta Configuration example</em></li>
+</ul>
 
                                 
                                 </section>
@@ -1664,7 +1808,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Collaboration","date":"2017-02-16T06:15:00.000Z","level":"1.8.1","depth":2,"next":{"title":"Role-based access","level":"1.8.2","depth":2,"anchor":"#team-roles","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#team-roles","articles":[]},"previous":{"title":"Teams and collaboration","level":"1.8","depth":1,"path":"user-accounts-and-teams.md","ref":"user-accounts-and-teams.md","articles":[{"title":"Collaboration","level":"1.8.1","depth":2,"path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md","articles":[]},{"title":"Role-based access","level":"1.8.2","depth":2,"anchor":"#team-roles","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#team-roles","articles":[]},{"title":"Audit logs","level":"1.8.3","depth":2,"anchor":"#audit-logs","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#audit-logs","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"user-accounts-and-teams/team-collaboration.md","mtime":"2017-05-02T18:55:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-02T18:57:02.557Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Collaboration","date":"2017-02-16T06:15:00.000Z","level":"1.8.1","depth":2,"next":{"title":"Role-based access","level":"1.8.2","depth":2,"anchor":"#team-roles","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#team-roles","articles":[]},"previous":{"title":"Teams and collaboration","level":"1.8","depth":1,"path":"user-accounts-and-teams.md","ref":"user-accounts-and-teams.md","articles":[{"title":"Collaboration","level":"1.8.1","depth":2,"path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md","articles":[]},{"title":"Role-based access","level":"1.8.2","depth":2,"anchor":"#team-roles","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#team-roles","articles":[]},{"title":"Audit logs","level":"1.8.3","depth":2,"anchor":"#audit-logs","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#audit-logs","articles":[]},{"title":"Okta SSO","level":"1.8.4","depth":2,"anchor":"#okta-single-sign-on","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#okta-single-sign-on","articles":[]},{"title":"OneLogin SSO","level":"1.8.5","depth":2,"anchor":"#onelogin-single-sign-on","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#onelogin-single-sign-on","articles":[]},{"title":"Workato SSO settings","level":"1.8.6","depth":2,"anchor":"#workato-single-sign-on-setup","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#workato-single-sign-on-setup","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"user-accounts-and-teams/team-collaboration.md","mtime":"2017-05-02T21:43:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-02T21:45:10.279Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
