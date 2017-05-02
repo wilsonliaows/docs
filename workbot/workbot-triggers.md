@@ -34,7 +34,7 @@ When creating a recipe with **New Commands** as the trigger, you will see these 
 ## New URL mention
 When you send a URL in slack, you can have workbot provide certain information into the channel for everyone to see. For example, you can send a Salseforce Lead URL into your sales channel and workbot will automatically send a message showing more information about that particular lead
 
-![workbot triggers](docs/assets/images/workbot/workbot-trigger/workbot-url.gif)
+![workbot triggers](/assets/images/workbot/workbot-trigger/workbot-url.gif)
 
 Simply select the application in the trigger (Currently only Salesforce and Github), and select the Document, and set up your actions as you prefer. By default, giving a salesforce or github URL in a channel workbot is in will trigger a prompt from workbot asking you if you want to show details of the content of the URL that you have sent
 
