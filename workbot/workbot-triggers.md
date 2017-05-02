@@ -36,6 +36,6 @@ When you send a URL in slack, you can have workbot provide certain information i
 
 ![workbot triggers](/assets/images/workbot/workbot-trigger/workbot-url.gif)
 
-Simply select the application in the trigger (Currently only Salesforce and Github), and select the Document, and set up your actions as you prefer. By default, giving a salesforce or github URL in a channel workbot is in will trigger a prompt from workbot asking you if you want to show details of the content of the URL that you have sent
+Simply select the application in the trigger (Currently only Salesforce and Github), and select the Document, and set up your actions as you prefer. By default, giving a salesforce or github URL in a channel workbot is in will trigger a prompt from workbot asking you if you want to show details of the content of the URL that you have sent. CLick on yes to trigger the recipe. You can also edit the recipe in workato if you want to have more or less fields included in the message.
 
 ![workbot triggers](/assets/images/workbot/workbot-trigger/workbot-url-mention.gif)
