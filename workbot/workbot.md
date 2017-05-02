@@ -1,9 +1,9 @@
 ---
-title: Workbot
+title: Workbot for Slack
 date: 2017-03-30 05:00:00 Z
 ---
 
-# Workbot
+# Workbot for Slack
 Workbot from Workato helps you work with your business apps from within Slack. You can chat with your apps to access information or ask the the app to create or update business data. To cut down on traffic, apps can now send you smart notifications based on user specified filters.
 
 ![Workbot1](/assets/images/Workbot/Workbot/Workbot 1.png)
