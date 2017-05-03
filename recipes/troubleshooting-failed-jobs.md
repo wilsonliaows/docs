@@ -1,10 +1,10 @@
-# Troubleshooting Recipe Errors
+# Troubleshooting Failed Jobs
 
 A big part of achieving success with Workato integrations lies in your ability to manage recipe errors. Whenever you run a recipe, your objective is to complete all jobs successfully. However, more often than not, you will encounter errors in one or more of the jobs. But that's okay, Workato offers an easy way for you to identify job errors so that you can quickly begin to resolve them. 
 
 From your Recipes Home, you can already see which recipes have errors, and specifically how many errors (failed jobs).
 
-
+![troubleshooting-failed-jobs-1](assets/images/recipes/troubleshooting-failed-jobs/troubleshooting-failed-jobs-1.png)
 
 **Jobs History**: To see a summary about your jobs, click into the Jobs tab in your recipe page to view your Jobs Report - you will see a list of jobs that the recipe ran through, with basic details such as Job ID, Start date, and Description provided. You can choose what details you would like to see by customizing your job report. You can also Filter the jobs by Job status e.g. Completed, Pending, or Failed, or Data range, or Job type e.g. rerun which means any job that has ran more than once. You can easily identify jobs that have failed, indicated by the RED colored Job ID.
 
@@ -15,8 +15,7 @@ From your Recipes Home, you can already see which recipes have errors, and speci
 
 Now that you learnt how to view failed jobs, its time to learn how to understand failed job reports. When you click into any job, you will be able to take a look at the specific job report. You can click into each step of the recipe to look into each step's input and output for that particular job.
 
-
-
+![troubleshooting-failed-jobs-2](assets/images/recipes/troubleshooting-failed-jobs/troubleshooting-failed-jobs-2.png)
 
 Interpreting the Job Report - Basic information that you should know:
 
@@ -46,3 +45,6 @@ When your recipes get too complicated, errors are hard to follow. The best way t
 3. If there's a pill involved, hover over it and you can see which step's output you used the pill from. 
 4. Based on that the pill and the output step number, go back to your job details page and check out what is the value that is given in the output. .
 5. You can keep going down the chain to reach the root of the data source. 
+
+
+To see an example of using the above workflow, check out this solution article. 
