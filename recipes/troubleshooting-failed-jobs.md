@@ -47,4 +47,4 @@ When your recipes get too complicated, errors are hard to follow. The best way t
 5. You can keep going down the chain to reach the root of the data source. 
 
 
-To see an example of using the above workflow, check out this solution article. 
+To see an example of using the above workflow, [check out this solution article.](https://support.workato.com/solution/articles/1000144431-troubleshooting-how-do-i-deal-with-my-failed-jobs-)
