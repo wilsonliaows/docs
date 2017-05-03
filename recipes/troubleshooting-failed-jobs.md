@@ -2,11 +2,11 @@
 
 A big part of achieving success with Workato integrations lies in your ability to manage recipe errors. Whenever you run a recipe, your objective is to complete all jobs successfully. However, more often than not, you will encounter errors in one or more of the jobs. But that's okay, Workato offers an easy way for you to identify job errors so that you can quickly begin to resolve them. 
 
-From your Recipes Home, you can already see which recipes have errors, and specifically how many errors (failed jobs).
+From your [Recipes Home](https://www.workato.com/#recipes), you can already see which recipes have errors, and specifically how many errors (failed jobs).
 
 ![troubleshooting-failed-jobs-1](/assets/images/recipes/troubleshooting-failed-jobs/troubleshooting-failed-jobs-1.png)
 
-**Jobs History**: To see a summary about your jobs, click into the Jobs tab in your recipe page to view your Jobs Report - you will see a list of jobs that the recipe ran through, with basic details such as Job ID, Start date, and Description provided. You can choose what details you would like to see by customizing your job report. You can also Filter the jobs by Job status e.g. Completed, Pending, or Failed, or Data range, or Job type e.g. rerun which means any job that has ran more than once. You can easily identify jobs that have failed, indicated by the RED colored Job ID.
+**Jobs History**: To see a summary about your jobs, click into the Jobs tab in your recipe page to view your Jobs Report - you will see a list of jobs that the recipe ran through, with basic details such as Job ID, Start date, and Description provided. You can choose what details you would like to see by [customizing your job report](http://docs.workato.com/recipes/jobs.html#custom-report). You can also Filter the jobs by Job status e.g. Completed, Pending, or Failed, or Data range, or Job type e.g. rerun which means any job that has ran more than once. You can easily identify jobs that have failed, indicated by the RED colored Job ID.
 
 **Job Reports**: From the Jobs History view, you can click into each individual job to about up the job report for that job. You will be able to see the input and output of each recipe step that was processed for that particular job. Take a look at the next section to learn more about understanding the job report.
 
