@@ -32,17 +32,17 @@ Interpreting the Job Report - Basic information that you should know:
 
 
 Common Root Causes for Job Failure are: 
-A Required input field was empty. It may not be filled with any value, or the data pill used in that field does not have any value.
-An object couldn't be found using the key/ID provided in the field.
-You attempted to create an object with the same/existing names available.
-Improper Formula mode conditions were applied on a null pill 
+  1. A Required input field was empty. It may not be filled with any value, or the data pill used in that field does not have any value.
+  2. An object couldn't be found using the key/ID provided in the field.
+  3. You attempted to create an object with the same/existing names available.
+  4. Improper Formula mode conditions were applied on a null pill 
 
 
 Tracing your Recipe Steps
 
-When your recipes get too complicated, errors are hard to follow. The best way to trace your errors is a bottom-up approach. Start from where the error is coming from, and work your way from there and follow the data. Here is an example of how you can trace errors
-Identify which step and which field is giving/causing the error. 
-Open up your recipe in a new browser tab. Check what is filled up in that specific field
-If there's a pill involved, hover over it and you can see which step's output you used the pill from. 
-Based on that the pill and the output step number, go back to your job details page and check out what is the value that is given in the output. .
-You can keep going down the chain to reach the root of the data source. 
+When your recipes get too complicated, errors are hard to follow. The best way to trace your errors is a bottom-up approach. Start from where the error is coming from, and work your way from there and follow the data. Here is the general flow of steps to identify errors.
+1. Identify which step and which field is giving/causing the error. 
+2. Open up your recipe in a new browser tab. Check what is filled up in that specific field
+3. If there's a pill involved, hover over it and you can see which step's output you used the pill from. 
+4. Based on that the pill and the output step number, go back to your job details page and check out what is the value that is given in the output. .
+5. You can keep going down the chain to reach the root of the data source. 
