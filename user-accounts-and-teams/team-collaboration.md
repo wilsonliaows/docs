@@ -131,7 +131,7 @@ Fill the settings form as follows:
 - Enable SAML on **Team -> Settings** page
 - Enter Team ID - handle to identify team during login (no whitespace or special characters, just letters, numbers and dash)
 - Set SAML provider
-- Preferable way of SAML configuration is via metadata URL - get this URL from Identity Provider (see instruction for [Okta](/user-accounts-and-teams/team-collaboration.html#obtain-okta-metadata-url-for-workato-saml-setup) and [OneLogin](/user-accounts-and-teams/team-collaboration.md#obtain-onelogin-metadata-url-for-workato-saml-setup) how to get it)
+- Preferable way of SAML configuration is via metadata URL - get this URL from Identity Provider (see the instructions for [Okta](/user-accounts-and-teams/team-collaboration.html#obtain-okta-metadata-url-for-workato-saml-setup) and [OneLogin](/user-accounts-and-teams/team-collaboration.md#obtain-onelogin-metadata-url-for-workato-saml-setup))
 - Insert metadata URL and press **"Validate Settings"**, once validation succeeds press **"Save"**
 ![Workato SAML config](/assets/images/user-accounts-and-teams/team-collaboration/workato-okta-settings.png)
 *Workato SAML Okta Configuration example*
