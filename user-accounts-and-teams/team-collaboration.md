@@ -135,3 +135,20 @@ Fill the settings form as follows:
 - Insert metadata URL and press **"Validate Settings"**, once validation succeeds press **"Save"**
 ![Workato SAML config](/assets/images/user-accounts-and-teams/team-collaboration/workato-okta-settings.png)
 *Workato SAML Okta Configuration example*
+
+Also SAML settings could be configured manually. In this case you need to get from SAML Identity Provider next information:
+- Identity Provider Single Sign-On URL
+- Identity Provider Issuer
+- X.509 Certificate
+![Workato SAML manual config](/assets/images/user-accounts-and-teams/team-collaboration/workato-okta-settings-manual.png)
+*Workato SAML Okta Manual Configuration example*
+
+# Logging into SAML-enabled team
+
+Once SAML is enabled access to Team is controlled by SAML Identity Provider (Okta, OneLogin, etc). In order to switch from personal account to the SAML-enabled team you need to go through SAML Identity Provider authentication procedure.
+![Team Switch with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-switch.gif)
+*Switch to Team account with Okta authorization*
+
+Another way to login directly into SAML-enabled team is by providing Team Id set during Team SAML configuration procedure. SAML Identity Provider authentication step is required as well.
+![Team Login with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-login.gif)
+*Login into Team account with Team Id and Okta authentication*
