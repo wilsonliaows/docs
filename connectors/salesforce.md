@@ -12,7 +12,7 @@ The Salesforce connector works with all Salesforce cloud instances.
 
 ### Salesforce connection
 The Salesforce connector uses basic authentication to authenticate with Salesforce.
-![Configured Salesforce connection](/assets/images/Salesforce-docs-img/Salesforce New connection.PNG)
+![Configured Salesforce connection](/assets/images/salesforce-docs-img/salesforce-new-connection.PNG)
 * **Connection name**
 
   Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
@@ -25,7 +25,7 @@ The Salesforce connector uses basic authentication to authenticate with Salesfor
 
   Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
-Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/assets/images/Salesforce-docs-img/Salesforce authentication.PNG)
+Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/assets/images/salesforce-docs-img/salesforce-authentication.PNG)
 
 * **Username**
 
@@ -93,7 +93,7 @@ For a list of standard fields for major Salesforce objects, see: Salesforce Fiel
 The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: fieldName comparisonOperator value.
 **Comparison operators:**
 Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
- 
+![SOQL-1](/assets/images/salesforce-docs-img/salesforce-soql-example-1.PNG)
 For detailed information on how to use each comparison operator, see: Comparison Operators
 **Logical operators:**
 Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
@@ -101,7 +101,7 @@ fieldExpressionX **AND** fieldExpressionY
 fieldExpressionX **OR** fieldExpressionY
 **NOT** fieldExpressionX
 Here is an example showing two fieldExpressions joined by a logical operator:
-
+![SOQL-2](/assets/images/salesforce-docs-img/salesforce-soql-example-2.PNG)
 For more information on logical operators, see: [Logical Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm)
  
 ### Date Formats and Date Literals:
@@ -110,11 +110,16 @@ To filter on dateTime fields in a query, you must use the format including: date
 YYYY-MM-DDThh:mm:ss+hh:mm
 YYYY-MM-DDThh:mm:ss-hh:mm
 YYYY-MM-DDThh:mm:ssZ
-In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values.
+In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values. 
 For date fields, add ‘.to_date’ to the end of your date formula to convert your date or timestamp to the correct format.
 
+![SOQL-3](/assets/images/salesforce-docs-img/salesforce-soql-example-3.PNG)
+
+![SOQL-4](/assets/images/salesforce-docs-img/salesforce-soql-example-4.PNG)
 
 For dateTime fields, the third syntax format is the simplest to use. After entering the formula to get your desired timestamp (eg: now, 2.weeks.ago.beginning_of_day, etc.), add ‘.strftime("%Y-%m-%dT%H:%M:%S%z")’ to the end of it.
+
+![SOQL-5](/assets/images/salesforce-docs-img/salesforce-soql-example-5.PNG)
 
 For more information on date formats and date literals, see: [Date Formats and Date Literals](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm)
 
