@@ -8,6 +8,8 @@ Workato supports a variety of date and datetime formulas. Formulas in Workato ar
 
 You can refer to the complete Ruby documentation for Time [here](http://ruby-doc.org/core-2.3.3/Time.html).
 
+---
+
 ## now
 Returns the current date and time that the action was carried out by Workato.
 
@@ -18,6 +20,8 @@ In the following example, Workato carries out the action on on 2 April 2017, 12.
 |---------------------|--------------------------------------|
 | `now`               | "2017-04-02T12:30:30.462659-07:00"   |
 
+---
+
 ## today
 Returns the current date that the action was carried out by Workato.
 
@@ -27,6 +31,8 @@ In the following example, Workato carries out the action on on 2 April 2017, 12.
 | Example             | Result                               |
 |---------------------|--------------------------------------|
 | `today`             | "2017-04-03"                         |
+
+---
 
 ## to_date
 This function converts a value in another data type, e.g. time or string, into a date data type. By default, the format of the date returned will be YYYY-MM-DD.
@@ -39,6 +45,8 @@ You can specify the format of the date returned via an additional parameter *for
 | `"2017-04-02".to_date`                       | "2017-04-02"                         |
 | `"2017-04-02T12:30:30.462659-07:00".to_date` | "2017-04-02"                         |
 
+---
+
 ## to_time
 This function converts a value in another data type, e.g. date or string, into a date data type. Dates will be represented in UTC offset (i.e. expressed in GMT timezone of +00:00).
 
@@ -49,6 +57,8 @@ If a datetime is coverted using the to_time formula, it will be expressed in UTC
 |----------------------------------------------|--------------------------------------|
 | `"2017-04-02T12:30:30.462659-07:00".to_time` | "2017-04-02T19:30:30.462659+00:00"   |
 | `"2017-04-02".to_time`                       | "2017-04-02T00:00:00.000000+00:00"   |
+
+---
 
 ## blank?
 This function checks the input string and returns true if it is an empty string or if it is null.
@@ -61,6 +71,8 @@ This function checks the input string and returns true if it is an empty string 
 | `" ".blank?`                                 | true   |
 | `null.blank?`                                | true   |
 
+---
+
 ## present?
 This function will check the input, returning true if there is a value present. If input is null or an empty string, formula returns false.
 
@@ -72,6 +84,8 @@ This function will check the input, returning true if there is a value present. 
 | `" ".present?`                                 | false  |
 | `null.present?`                                | false  |
 
+---
+
 ## presence
 This function will check the input, returning its value if there is one present, else returning nil.
 
@@ -82,6 +96,8 @@ This function will check the input, returning its value if there is one present,
 | `"2017-04-03".presence`                        | "2017-04-03"                         |
 | `" ".presence`                                 | nil                                  |
 | `null.presence`                                | nil                                  |
+
+---
 
 # Date arithmetics
 We can make use of certain keywords such as **days**, **months**, **years**, **minutes** and **seconds** to perform date arithmetics to add or subtract days, months, years, minutes and seconds from dates and datetimes.
@@ -121,5 +137,36 @@ To retrieve the last date of the current month:
 To retrieve the last date of the next month:
 ![last date of next month](/assets/images/formula-docs/last_date_next_month.png)
 
-# Converting other data types to strings
+# Converting datetime to date
 To convert a date data type into a datetime data, or vice versa, use the [to_date](#todate) or [to_time](#totime) formulas.
+
+## Changing displayed format of date
+To change the format of a datetime to suit your preference, you can use the .strftime formula to do so. For example, I have the following formula: 
+
+    "2017-06-05T17:13:27+00:00".strftime("%B %e, %I:%M%p) 
+    
+which will give this result:
+
+    June 5, 5:13pm
+    
+As shown above, each code (%B, %e, %I etc.) refers to a specific element of datetime. Static text and punctuation can also be added, such as commas (,), slashes (/), and colons (:) and will be displayed as set. Here's a list of commonly used codes in Workato
+
+|Code|Meaning|Example (Using 2017-06-05T17:13:27+00:00)|
+|-----|-----|----|
+|%Y |Year with century|2017|
+|%m |Month with zero-prefix|06|
+|%B |Full month name|June|
+|%b |Abbreviated month name|Jun|
+|%d |Day of the month with zero-prefix|05|
+|%e |Day of the month without zero-prefix|5|
+|%H |Hour of the day (24-hour)|17|
+|%k |Hour of day without 0 prefix (24-hour)|17|
+|%I (capital i)|Hour of the day (12-hour)|05|
+|%l (lowercase L)|Hour of day without 0 prefix (12-hour)|5
+|%p |AM or PM|PM|
+|%M |Minute of the hour|13|
+|%S |Second of the minute|27|
+|%z |Time zone offset from UTC|+00:00|
+|%Z |Time zone abbrev. name|UTC|
+
+To access the full list, [click here](http://ruby-doc.org/core-2.3.3/Time.html#method-i-strftime)
