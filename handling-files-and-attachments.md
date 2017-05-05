@@ -21,7 +21,7 @@ Some examples of binary files commonly used:
 - Documents: pdf, doc, docx, ppt, xls, odt
 
 # Moving text/binary files as-is between apps
-When moving files across apps without interpreting the content, it works sames for text or binary files. Workato has 2 approaches:
+When moving files across apps without interpreting the content, it works the same for text or binary files. Workato has 2 approaches:
 - By passing on a URL to the destination app, so this data does not have to move through Workato. This URL will have to be publicly accessible and can disappear afer the job has completed.
 - By uploading content from app to Workato, and then downloading to the other app. This is not a great approach for working with very large files, as all the data has to move into the recipe, across every recipe step and then to the destination app.
 
