@@ -162,7 +162,7 @@ As shown above, each code (%B, %e, %I etc.) refers to a specific element of date
 |%H |Hour of the day (24-hour)|17|
 |%k |Hour of day without 0 prefix (24-hour)|17|
 |%I (capital i)|Hour of the day (12-hour)|05|
-|%l (lowercase L)|Hour of day without 0 prefix (12-hour)|5
+|%l (lowercase L)|Hour of day without 0 prefix (12-hour)|5|
 |%p |AM or PM|PM|
 |%M |Minute of the hour|13|
 |%S |Second of the minute|27|
