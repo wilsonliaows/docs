@@ -4,7 +4,7 @@ date: 2017-04-05 16:00:00 Z
 ---
 
 # XML data format
-XML (eXtensible Markup Language) is a syntax for storing and transferring data. It is a common data format in the world of APIs. XML data is stored in a systematic heirarchy of tags. While JSON format has being increasingly preferred over XML format, XML is still used widely and provides some advantages over the former.
+XML (eXtensible Markup Language) is a syntax for storing and transferring data. It is a common data format for APIs. XML data is stored in a systematic hierarchy of tags. While JSON format has being increasingly preferred over XML format, XML is still used widely and provides some advantages over the former.
 
 XML data is mostly hidden from regular Workato users because we expose data as input fields and output datapills in the recipe. However, you may occassionally require raw XML data for your use case. Workato provides a few options for handling such instances.
 
