@@ -38,7 +38,7 @@ The following 2 actions are also supported:
 
 - Get current time
 
-This action returns the specific date and time when this step is executed in a job.
+This action returns the specific date and time when this step is executed in a job. This date and time is expressed in UTC, e.g. `2017-01-30T05:30:33.479446+00:00`.
 
 - Wait
 
