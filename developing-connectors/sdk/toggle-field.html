@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Configuration fields · GitBook</title>
+        <title>Toggle field · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="examples.html" />
+    <link rel="next" href="action.html" />
     
     
-    <link rel="prev" href="pick-list.html" />
+    <link rel="prev" href="object-definition.html" />
     
 
     
@@ -98,7 +98,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="../..">Configuration fields</a>
+          <a href="../..">Toggle field</a>
         </h1>
       </div>
     </div>
@@ -1258,7 +1258,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.15.4" data-path="toggle-field.html">
+    <li class="chapter active" data-level="1.15.4" data-path="toggle-field.html">
       
 
       
@@ -1424,7 +1424,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.15.10" data-path="config-fields.html">
+    <li class="chapter " data-level="1.15.10" data-path="config-fields.html">
       
 
       
@@ -1614,52 +1614,66 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="configuration-fields">Configuration Fields</h1>
-<p>Occassionally, input/output fields depend on user input. For example, the fields for an object depends on the chosen object. Here, we introduce <code>config_fields</code>. It is an optional key available in both actions and triggers. It is a special type of input field that can be used to generate other dependent input/output fields. We see this in the merge_document action in Webmerge.</p>
-<pre><code class="lang-ruby"><span class="hljs-symbol">action:</span> {
-  <span class="hljs-symbol">merge_document:</span> {
-    <span class="hljs-symbol">config_fields:</span> [
-      <span class="hljs-comment"># this field shows up first in recipe as a picklist of documents to use</span>
+                                <h1 id="toggle-fields">Toggle Fields</h1>
+<p>Toggle fields are a special type of input fields that allow 2 input types. This is useful in a scenario where there are 2 ways to provide an input value for an action or trigger. It is typically used for input fields that are primarily a <code>pick list</code> but may require a <code>text</code> type in certain scenarios.</p>
+<p>Here we have an example toggle field <code>parser_id</code> used in the Docparser connector. The action, <strong>Fetch document from URL</strong>, requires the parser ID as an input. This ID can be accessed within the parser page URL. However, that is not a great user experience for the recipe builder. Ideally, we want users to be able to stay on the recipe page without having to toggle (pun intended) between browser tabs.</p>
+<p>Hence, we introduced the parser pick list. This pick list is dynamically generated from the user&apos;s list of parsers. For details of pick lists, checkout <a href="pick-list.html">Pick list</a></p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">fetch_document_from_url:</span> {
+  <span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
+    [
+      { 
+        <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;url&quot;</span>, 
+        <span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;Source URL&quot;</span>,
+        <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;Upload file from this URL&quot;</span>,
+        <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span> 
+      },
       {
-        <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;document_id&quot;</span>,
-        <span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;Document&quot;</span>,
+        <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;parser_id&quot;</span>,
+        <span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;Document Parser&quot;</span>,
+        <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;The Document Parser the file gets imported to&quot;</span>,
         <span class="hljs-symbol">control_type:</span> <span class="hljs-symbol">:select</span>,
-        <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;documents&quot;</span>,
-        <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>
-      }
-    ],
-
-    <span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span> |object_definition|
-      object_definition[<span class="hljs-string">&quot;document&quot;</span>]
-    <span class="hljs-keyword">end</span>,
-
-    <span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |_connection, input|
-      d = input[<span class="hljs-string">&quot;document_id&quot;</span>].split(<span class="hljs-string">&quot;|&quot;</span>)
-      post(d.last.to_s, input)
-    <span class="hljs-keyword">end</span>,
-
-    <span class="hljs-symbol">output_fields:</span> lambda <span class="hljs-keyword">do</span> |_object_definition|
-      [
-        {
-          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;success&quot;</span>
+        <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;parsers&quot;</span>,
+        <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>,
+        <span class="hljs-symbol">toggle_hint:</span> <span class="hljs-string">&quot;Select from list&quot;</span>,
+        <span class="hljs-symbol">toggle_field:</span> {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;parser_id&quot;</span>,
+          <span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;Parser ID&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span>,
+          <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;text&quot;</span>,
+          <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>,
+          <span class="hljs-symbol">toggle_hint:</span> <span class="hljs-string">&quot;Use custom value&quot;</span>,
+          <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;Go to home page and select the required parser. If the URL is &apos;https://app.docparser.com/stack/ynrqkdxvaghs/overview&apos;, then &apos;ynrqkdxvaghs&apos; is the ID&quot;</span>
         }
-      ]
-    <span class="hljs-keyword">end</span>
-  }
+      },
+      {
+        <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;remote_id&quot;</span>,
+        <span class="hljs-symbol">sticky:</span> <span class="hljs-keyword">true</span>
+      }
+    ]
+  <span class="hljs-keyword">end</span>,
+
+  <span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+      post(<span class="hljs-string">&quot;https://api.docparser.com/v1/document/fetch/<span class="hljs-subst">#{input[<span class="hljs-string">&quot;parser_id&quot;</span>]}</span>?url=<span class="hljs-subst">#{input[<span class="hljs-string">&quot;url&quot;</span>]}</span>&quot;</span>)
+  <span class="hljs-keyword">end</span>,
+
+  <span class="hljs-symbol">output_fields:</span> lambda <span class="hljs-keyword">do</span> |object_definitions|
+      object_definitions[<span class="hljs-string">&quot;document&quot;</span>]
+  <span class="hljs-keyword">end</span>
 }
 </code></pre>
-<p>Here, the fields are different for each document, hence a user first chooses a document (from a pick list of documents available in the instance) which is then used to generate the remaining fields. This part is done by specifying that the &quot;document&quot; object definition is dependent on the value of &quot;document_id&quot; within config_field. Notice that the fields block accepts a second argument <code>config_fields</code>. This argument refers to the field(s) you define in <code>config_fields</code> in each action/trigger.</p>
-<pre><code class="lang-ruby"><span class="hljs-symbol">object_definition:</span> {
-  <span class="hljs-symbol">document:</span> {
-    <span class="hljs-symbol">fields:</span> lambda <span class="hljs-keyword">do</span> |_connection, config_fields|
-      <span class="hljs-keyword">return</span> [] <span class="hljs-keyword">if</span> config_fields.blank?
-      get(<span class="hljs-string">&quot;https://www.webmerge.me/api/documents/<span class="hljs-subst">#{config_fields[<span class="hljs-string">&quot;document_id&quot;</span>]}</span>/fields&quot;</span>).
-        map { |field| field.slice(<span class="hljs-string">&quot;name&quot;</span>) }
-    <span class="hljs-keyword">end</span>
-  }
-}
-</code></pre>
-<p>While the config_fields is empty, document objects will have no fields (empty array of fields). As soon as config_fields is given a value, a request is made to retrieve the fields present in this document. From a recipe user perspective, the action will appear initially as a single input with a list of documents. After selecting a document, the corresponding set of fields will be generated, to be used in the recipe.</p>
+<p>A pick list input type is used to create a more desired user experience. However, this makes the action value mapping static. Because the pick list can only select a single value, all recipe jobs executing this action will use the single parser ID value selected. To overcome this limitation, a text field should be used. A text field allows dynamic mapping of input field value.</p>
+<p>In this case, both field types are desired, so we decided to use a <code>toggle_field</code> to provide both input options to users. Since, it is a more common scenario for users to select a parser per action, pick list type is set as the primary toggle and text field set as the secondary (nested <code>toggle_field</code>).</p>
+<h1 id="toggle-field-in-recipe">Toggle field in recipe</h1>
+<h2 id="toggle-primary-field">Toggle primary field</h2>
+<p><img src="../../assets/images/sdk/toggle-primary" alt="Toggle primary field"></p>
+<h2 id="toggle-secondary-field">Toggle secondary field</h2>
+<p><img src="../../assets/images/sdk/toggle-secondary.png" alt="Toggle secondary field"></p>
+<h2 id="togglehint">toggle_hint</h2>
+<p>Toggle hints are displayed in the toggle dropdown when choosing between primary and secondary options. This is an optional field but should be added as best practice. A <code>toggle_hint</code> defined in the primary field will be displayed as a hint for choosing the primary field. The same applies for <code>toggle_hint</code> for secondary field.</p>
+<p><img src="../../assets/images/sdk/toggle-hint.png" alt="Toggle field hint"></p>
+<h1 id="togglefield">toggle_field</h1>
+<p><code>toggle_field</code> should be defined as a hash nested in the primary field. Within this hash should be a definition of a typical field. This means that the <code>toggle_field</code> hash should contain all the fields required for a field.</p>
+<p>Note: <code>toggle_field</code> keys do not have default behaviours. This means that all fields are required and must be explicitly defined. For a details of field definitions, check out <a href="object-definition.html">Object Definition</a></p>
 
                                 
                                 </section>
@@ -1742,7 +1756,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configuration fields","level":"1.15.10","depth":2,"next":{"title":"Examples","level":"1.15.11","depth":2,"path":"developing-connectors/sdk/examples.md","ref":"developing-connectors/sdk/examples.md","articles":[]},"previous":{"title":"Pick lists","level":"1.15.9","depth":2,"path":"developing-connectors/sdk/pick-list.md","ref":"developing-connectors/sdk/pick-list.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/config-fields.md","mtime":"2017-05-09T23:20:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-09T23:21:48.575Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Toggle field","level":"1.15.4","depth":2,"next":{"title":"Action","level":"1.15.5","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},"previous":{"title":"Object definition","level":"1.15.3","depth":2,"path":"developing-connectors/sdk/object-definition.md","ref":"developing-connectors/sdk/object-definition.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk/toggle-field.md","mtime":"2017-05-09T23:20:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-09T23:21:48.575Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
