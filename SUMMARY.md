@@ -69,6 +69,7 @@
     * [Custom auth](developing-connectors/sdk/authentication/custom-authentication.md)
     * [Test](developing-connectors/sdk/authentication/test.md)
   * [Object definition](developing-connectors/sdk/object-definition.md)
+  * [Toggle field](developing-connectors/sdk/toggle-field.md)
   * [Action](developing-connectors/sdk/action.md)
   * [Trigger](developing-connectors/sdk/trigger.md)
     * [Poll trigger](developing-connectors/sdk/trigger/poll-trigger.md)
