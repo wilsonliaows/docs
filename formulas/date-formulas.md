@@ -141,15 +141,15 @@ To retrieve the last date of the next month:
 To convert a date data type into a datetime data, or vice versa, use the [to_date](#todate) or [to_time](#totime) formulas.
 
 ## Changing displayed format of date
-To change the format of a datetime to suit your preference, you can use the .strftime formula to do so. For example, I have the following formula: 
+To change the format of a datetime value to suit your preferences, you can use the .strftime formula to do so. For example, the following formula: 
 
     "2017-06-05T17:13:27+00:00".strftime("%B %e, %I:%M%p) 
     
-which will give this result:
+will give this result:
 
     June 5, 5:13pm
     
-As shown above, each code (%B, %e, %I etc.) refers to a specific element of datetime. Static text and punctuation can also be added, such as commas (,), slashes (/), and colons (:) and will be displayed as set. Here's a list of commonly used codes in Workato
+As shown above, each code (%B, %e, %I etc.) refers to a specific element of datetime. Static text and punctuation can also be added, such as commas (,), slashes (/), and colons (:). Here's a list of commonly used codes in Workato:
 
 |Code|Meaning|Example (Using 2017-06-05T17:13:27+00:00)|
 |-----|-----|----|
@@ -169,4 +169,4 @@ As shown above, each code (%B, %e, %I etc.) refers to a specific element of date
 |%z |Time zone offset from UTC|+00:00|
 |%Z |Time zone abbrev. name|UTC|
 
-To access the full list, [click here](http://ruby-doc.org/core-2.3.3/Time.html#method-i-strftime)
+To access the full list, check out the [Ruby documentation](http://ruby-doc.org/core-2.3.3/Time.html#method-i-strftime)
