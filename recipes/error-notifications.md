@@ -25,6 +25,9 @@ In the following case, a trigger warning was raised because the schema recorded 
 ### Recipes stopped by Workato
 When the recipe has encountered 60 trigger errors, it will be stopped by Workato automatically under the assumption that there's a critical, non-transient error with the trigger configuration or connection that needs to be fixed.
 
+![Recipe stopped due to 60 trigger errors](/assets/images/recipes/errors/stopped-recipe-60-errors.png)
+*Recipe stopped due to 60 trigger errors*
+
 An email notification will be sent to the Workato account owner when a recipe is stopped due to 60 trigger errors.
 
 ## Action errors
