@@ -118,3 +118,8 @@ Any job (completed, failed, etc.) can be rerun. Workato stores the data of the t
 Rerun of a job will always use the latest version of the recipe. i.e. if the recipe has been modified since the job ran, rerun will use the most recent version.
 
 You can find out more about job reruns [here](rerun-job.md).
+
+# Timeouts
+If a job or a single step is taking too long to execute, it will time out. The current limit is 25 seconds for a single step, and 90 seconds for a single job. The error message for a job that times out will explicitly mention the reason.
+
+In these cases, you might have to further optimize your recipe to ensure that they don't hit this time limit.

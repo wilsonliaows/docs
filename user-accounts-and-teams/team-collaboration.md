@@ -66,3 +66,89 @@ Recipe changes are logged under **Versions** tab and attributed to the collabora
 
 ![Recipe versions](/assets/images/user-accounts-and-teams/team-collaboration/recipe-versions.png)
 *Recipe audit log in Versions tab*
+
+# Okta Single Sign-On
+Follow the steps below to enable Okta SSO for your team.
+
+## Create SAML application
+
+Create a new SAML application in Okta admin interface. Refer to the [Okta documentation](http://developer.okta.com/standards/SAML/setting_up_a_saml_application_in_okta)  for more details.
+
+![Okta Config Wizard](/assets/images/user-accounts-and-teams/team-collaboration/okta-settings-config-mode.png)
+*Okta Workato Service Provider settings in Wizard mode*
+
+Fill the settings form as follows:
+
+| Field  | Value |
+| ------------- | ------------- |
+| Single Sign On URL  | `https://www.workato.com/saml/init`  |
+| Allow this app to request other SSO URLs  | Enable checkmark  |
+| Requestable SSO URLs  | Add `https://www.workato.com/saml/consume`  |
+| Audience Restriction  | Add `https://www.workato.com/saml/metadata`  |
+| Recipient URL  | Add `https://www.workato.com/saml/init`  |
+| Destination URL  | Add `https://www.workato.com/saml/init`  |
+
+The final Okta settings screen should look like this:
+![Okta Config View](/assets/images/user-accounts-and-teams/team-collaboration/okta-settings-view-mode.png)
+*Okta Workato Service Provider completed settings*
+
+## Obtain Okta metadata URL for Workato SAML setup
+
+Go to the "Sign On" tab and in yellow field you would see link **"Identity Provider Metadata"**. Copy this URL to use in future in Workato Team Settings SAML configuration
+![Okta IdP URL](/assets/images/user-accounts-and-teams/team-collaboration/okta-metadata-link.gif)
+*Okta metadata URL*
+
+# OneLogin Single Sign-On
+Follow the steps below to enable OneLogin SSO for your team.
+
+## Create SAML application
+
+Create a new SAML application in OneLogin admin interface. Refer to the [OneLogin documentation](https://support.onelogin.com/hc/en-us/articles/202673944-How-to-Use-the-OneLogin-SAML-Test-Connector) for more details.
+
+![OneLogin Config](/assets/images/user-accounts-and-teams/team-collaboration/onelogin-settings.png)
+*OneLogin Workato Service Provider settings*
+
+Fill the settings form as follows:
+
+| Field  | Value |
+| ------------- | ------------- |
+| Audience | `https://www.workato.com/saml/metadata` |
+| Recipient | `https://www.workato.com/saml/init` |
+| ACS (Consumer) URL validator | `^https:\/\/www.workato.com\/saml\/*$` |
+| ACS (Consumer) URL | `https://www.workato.com/saml/consume` |
+
+### Obtain OneLogin metadata URL for Workato SAML setup
+
+- Once OneLogin setup finished press on  **"Save"** button in the top right corner of OneLogin SAML settings page.
+- Click on the menu **"More Actions"**, right click on **"SAML metadata"** and choose **"Copy Link Address"** in context menu.
+- Copy this URL to use in future in Workato Team Settings SAML configuration.
+
+![OneLogin IdP URL](/assets/images/user-accounts-and-teams/team-collaboration/onelogin-metadata-link.gif)
+*OneLogin metadata URL*
+
+# Workato Single Sign-on setup
+
+- Enable SAML on **Team -> Settings** page
+- Enter Team ID - handle to identify team during login (no whitespace or special characters, just letters, numbers and dash)
+- Set SAML provider
+- Preferable way of SAML configuration is via metadata URL - get this URL from Identity Provider (see the instructions for [Okta](/user-accounts-and-teams/team-collaboration.html#obtain-okta-metadata-url-for-workato-saml-setup) and [OneLogin](/user-accounts-and-teams/team-collaboration.md#obtain-onelogin-metadata-url-for-workato-saml-setup))
+- Insert metadata URL and press **"Validate Settings"**, once validation succeeds press **"Save"**
+![Workato SAML config](/assets/images/user-accounts-and-teams/team-collaboration/workato-okta-settings.png)
+*Workato SAML Okta Configuration example*
+
+Also SAML settings could be configured manually. In this case you need to get from SAML Identity Provider next information:
+- Identity Provider Single Sign-On URL
+- Identity Provider Issuer
+- X.509 Certificate
+![Workato SAML manual config](/assets/images/user-accounts-and-teams/team-collaboration/workato-okta-settings-manual.png)
+*Workato SAML Okta Manual Configuration example*
+
+# Logging into SAML-enabled team
+
+Once SAML is enabled access to Team is controlled by SAML Identity Provider (Okta, OneLogin, etc). In order to switch from personal account to the SAML-enabled team you need to go through SAML Identity Provider authentication procedure.
+![Team Switch with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-switch.gif)
+*Switch to Team account with Okta authorization*
+
+Another way to login directly into SAML-enabled team is by providing Team Id set during Team SAML configuration procedure. SAML Identity Provider authentication step is required as well.
+![Team Login with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-login.gif)
+*Login into Team account with Team Id and Okta authentication*
