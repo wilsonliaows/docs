@@ -1,4 +1,4 @@
-﻿---
+---
 title: Workbot for Slack
 date: 2017-03-30 05:00:00 Z
 ---
@@ -27,12 +27,8 @@ Click on the **Add to Slack** button. This brings up a pop-up showing the Slack 
 ![Workbot3](/assets/images/workbot/workbot/workbot-3.png)
 *Click on Authorize to let Workbot chat with and help your team on Slack*
 
-If authorized, you should see the following screen:
+Congratulations! You have now succesfully connected to workbot! 
 
-![Workbot4](/assets/images/workbot/workbot/workbot-4.png)
-*Popup shown when authorization is successful*
-
-That's cool, you've now added Workbot to your Slack team!
 
 ## Connecting Workbot to Apps
 Next, you have to connect to the apps you want Workbot to interact with. Toggle the switches to **On** if you wish to interact with that app.
@@ -88,7 +84,7 @@ Commands are one way to interact with Workbot. At the same time, you can get Wor
 3. Turn on notifications via Workbot command
 
 The command should follow this format:
-```@workbot appname start notifications name:\[document] [event]```
+```@workbot appname start notifications name:[document] [event]```
 
 If the app has not been turned on, you will not be able to start notifications. But if the app has been turned on earlier, Workbot will confirm that notifications is started.
 
@@ -103,7 +99,7 @@ Subsequently, when the event occurs in your app, Workbot will send you notificat
 4. Optionally, turn off notifications via Workbot command
 
 The command should follow this format:
-```@workbot appname stop notifications name:\[document] [event]```
+```@workbot appname stop notifications name:[document] [event]```
 
 Workbot will confirm that it has stopped notifications for the specified event.
 
