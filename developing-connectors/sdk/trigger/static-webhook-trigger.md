@@ -3,7 +3,7 @@
 A static webhook trigger is one that requires manual registration. This usually involves a user creating a webhook in the application user interface with a pre-defined webhook URL. It defers from a dynamic webhook because it requires a fixed webhook URL for use in the manual registration process, instead of having it be done in the background (programmatic subscription through the API when a user starts a recipe).
 
 ```ruby
-webhook_keys: lambda do |params, _headers, _payload|
+webhook_keys: lambda do |params, headers, payload|
   params['spaceId']
 end,
 
