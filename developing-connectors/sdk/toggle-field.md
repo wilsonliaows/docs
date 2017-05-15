@@ -58,7 +58,7 @@ In this case, both field types are desired, so we decided to use a `toggle_field
 # Toggle field in recipe
 
 ## Toggle primary field
-![Toggle primary field](/assets/images/sdk/toggle-primary)
+![Toggle primary field](/assets/images/sdk/toggle-primary.png)
 
 ## Toggle secondary field
 ![Toggle secondary field](/assets/images/sdk/toggle-secondary.png)
