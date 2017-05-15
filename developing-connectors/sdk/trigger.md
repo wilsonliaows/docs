@@ -1,4 +1,5 @@
 # Trigger
 
 - [Poll trigger](trigger/poll-trigger.md)
-- [Webhook trigger](trigger/webhook-trigger.md)
+- [Dynamic webhook trigger](trigger/webhook-trigger.md)
+- [Static webhook trigger](trigger/static-webhook-trigger.md)
