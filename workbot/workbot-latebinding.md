@@ -5,7 +5,7 @@ date: 2017-05-15 05:00:00 Z
 
 # Workbot Personal Connections
 
-This feature allows to use in Workbot commands personal user connection instead of one provide by Admin during Workbot recipe setup. Here is the simple example: for command *list salesforce opportunity* you may want to pull opportunities information from user's account who typed the command. By default information will be pulled from Admin Salesforce connectionset up during recipe composing. To enable personal user connection usage go to Recipe->Settings page and enable Runtime connection binding before starting recipe.
+This feature allows to use in Workbot commands personal user connection instead of one provide by Admin during Workbot recipe setup. Here is the simple example: for command *list salesforce opportunity* you may want to pull opportunities information from user's account who typed the command. By default information will be pulled from Admin Salesforce connection set up during recipe composing. To enable personal user connection usage go to Recipe->Settings page and enable Runtime connection binding before starting recipe.
 
 ![recipe-setting](/assets/images/Workbot/workbot-latebinding/recipe-settings.png)
 
