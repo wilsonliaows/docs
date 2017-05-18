@@ -19,7 +19,7 @@ There are 4 elements in the command that Workbot looks out for:
 - Addressed to an **application** (e.g. Salesforce, QuickBooks)
 - A specific **document** type to be processed (e.g. Account, Lead, Invoice)
 - A certain **command** to execute - (e.g. Show, Create, Update)
-- One or more **parameters**. Parameter may have type *file* which takes as input file that you may upload to Slack. Then you may use this file in future operations using **Download Attachment** Workbot action.
+- One or more **parameters**. Parameters may have the type *file*, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action **Download Attachment**.
 
 When creating a recipe with **New Commands** as the trigger, you will see these fields listed in the table below:
 
@@ -35,12 +35,12 @@ Trigger has *Context* which contains useful information about command environmen
 
 |Context Field   |Explanation   |
 |---|---|
-|Team   |Slack Team Id|
-|User   |Slack User Id|
-|Reply Channel   |Slack Channel Id where message was posted|
+|Team   |Slack Team ID|
+|User   |Slack User ID|
+|Reply channel   |Slack Channel ID where message was posted|
 |User handle| Slack user handle|
 |User email | Slack user email |
 |User name | Slack user friendly name|
-|Thread Id| Thread Id if message was posted to thread or null otherwise|
+|Thread ID| Thread ID if message was posted to thread or null otherwise|
 
-Also triggers may contain **Message Id**. It is id of the previous message that you may want to overwrite. Message Id has value only for cases when **New command** was triggered by button action. If command was triggered as result of manual command typing this field is empty.
+Triggers may contain **Message ID** in their output. Message ID has a value only when **New command** was triggered by a button action. If command was triggered as result of a manually typed command, this field will be empty.
