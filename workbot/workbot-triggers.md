@@ -31,7 +31,7 @@ When creating a recipe with **New Commands** as the trigger, you will see these 
 |Hint|Displayed as help in Slack|
 |Command input |This is how you configure your expected command input (parameters). The format for specifying input is parameter name `\[optional:true]  \[type:string, date_time or file]   \[hint:help]   \[sample:John]` E.g. `customer_id hint:customer ID sample:12789`. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step.
 
-Trigger has *Context* which contains useful information about command environment
+Trigger has *Context* which contains useful information about command environment.
 
 |Context Field   |Explanation   |
 |---|---|
