@@ -19,7 +19,7 @@ There are 4 elements in the command that Workbot looks out for:
 - Addressed to an **application** (e.g. Salesforce, QuickBooks)
 - A specific **document** type to be processed (e.g. Account, Lead, Invoice)
 - A certain **command** to execute - (e.g. Show, Create, Update)
-- One or more **parameters**
+- One or more **parameters**. Parameters may have the type *file*, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action **Download Attachment**.
 
 When creating a recipe with **New Commands** as the trigger, you will see these fields listed in the table below:
 
@@ -29,4 +29,18 @@ When creating a recipe with **New Commands** as the trigger, you will see these 
 |Target application   |App that Workbot should work with (e.g. Salesforce, QuickBooks)|
 |Document   |Document/record associated with the command (Account, Invoice, Lead)   |
 |Hint|Displayed as help in Slack|
-|Command input |This is how you configure your expected command input (parameters). The format for specifying input is parameter name `\[optional:true]  \[type:string or date_time]   \[hint:help]   \[sample:John]` E.g. `customer_id hint:customer ID sample:12789`. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step.
+|Command input |This is how you configure your expected command input (parameters). The format for specifying input is parameter name `\[optional:true]  \[type:string, date_time or file]   \[hint:help]   \[sample:John]` E.g. `customer_id hint:customer ID sample:12789`. Specify one parameter per line. No spaces allowed in parameter name. Each parameter will show up as a pill available for mapping in a following step.
+
+Trigger has *Context* which contains useful information about command environment.
+
+|Context Field   |Explanation   |
+|---|---|
+|Team   |Slack Team ID|
+|User   |Slack User ID|
+|Reply channel   |Slack Channel ID where message was posted|
+|User handle| Slack user handle|
+|User email | Slack user email |
+|User name | Slack user friendly name|
+|Thread ID| Thread ID if message was posted to thread or null otherwise|
+
+Triggers may contain **Message ID** in their output. Message ID has a value only when **New command** was triggered by a button action. If command was triggered as result of a manually typed command, this field will be empty.

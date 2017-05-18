@@ -48,6 +48,7 @@
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
+  * [Workbot personal connections](workbot/workbot-latebinding.md)
 * [Connectors documentation](connectors.md)
   * [Amazon S3](connectors/s3.md)
   * [Box](connectors/box.md)
