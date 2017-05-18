@@ -911,6 +911,21 @@
       
     </li>
   
+    <li class="chapter " data-level="1.13.4" data-path="workbot-latebinding.html">
+      
+
+      
+        <a href="workbot-latebinding.html">
+      
+        
+        Workbot personal connections
+      
+        </a>
+      
+
+      
+    </li>
+  
 
         </ul>
       
@@ -1631,10 +1646,11 @@
                                 
                                 <h1 id="workato-actions">Workato actions</h1>
 <p>Workbot actions allow Workbot to post notifications into a specified channel when there are events to take note of, or respond to a command.</p>
-<p>Workbot supports 2 actions:</p>
+<p>Workbot supports 3 actions:</p>
 <ul>
 <li>Post command reply</li>
 <li>Post notifications</li>
+<li>Download attachment</li>
 </ul>
 <h2 id="post-command-reply">Post command reply</h2>
 <p>Post command reply allows you to customize how Workbot replies when an event is completed. This reply can be a simple message about the task completion, or a prompt for the user to take a subsequent action once the first has been done, e.g. after retrieving data for a custom account in Salesforce, ask if the user wishes to copy that information across to another application.</p>
@@ -1666,23 +1682,38 @@
 <td>Use the <strong>Reply channel</strong> Field from the Workato Trigger output</td>
 </tr>
 <tr>
+<td>Message to update</td>
+<td>ID of an existing message that you want to replace with the new message. This overwrites the existing message in the channel</td>
+<td>Message ID can be obtained from the output of a <strong>Post command reply</strong> or <strong>Post notification</strong> action,  or the <strong>New command</strong> trigger. Note: manual user inputs cannot be overwritten.</td>
+</tr>
+<tr>
+<td>Thread ID</td>
+<td>Pass in a thread ID to post your new message in that thread. Pass in a message ID if you wish to create a new thread and post your new message under that existing message.</td>
+<td>For replying to the current thread use thread ID value from <strong>New command</strong> trigger. For creating new thread pass here message ID from output of another <strong>Post command reply</strong> or <strong>New command</strong> trigger - make sure it is not empty in the last case.</td>
+</tr>
+<tr>
 <td>Message</td>
-<td>Message posted in the channel</td>
-<td>Whatever you want. Slack Emojis are supported too</td>
+<td>Message posted in the channel.</td>
+<td>Whatever you want. Slack Emojis are supported too. This field is optional if you use the <strong>Fields</strong> input field.</td>
+</tr>
+<tr>
+<td>Message menu</td>
+<td>This generates a picklist menu in the message for the user to select an option from.</td>
+<td>Option placeholder text (shown when there is no option chosen) and array of JSON objects. (e.g. <code>\[{&quot;title&quot;:&quot;item title&quot;, &quot;command&quot;:&quot;item command&quot;}]</code>)</td>
 </tr>
 <tr>
 <td>Title</td>
-<td>Title as seen in Slack message</td>
-<td>Whatever you want. Slack Emojis are supported too</td>
+<td>Title as seen in Slack message.</td>
+<td>Whatever you want. Slack Emojis are supported too.</td>
 </tr>
 <tr>
-<td>Title Link</td>
-<td>Allows you to embed a link in the title</td>
-<td>URL of a page you want to be brought to</td>
+<td>Title link</td>
+<td>Allows you to embed a link in the title.</td>
+<td>URL of a page you want to be brought to.</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>Detailed message</td>
+<td>Detailed message.</td>
 <td>Whatever you want. Slack Emojis are supported too</td>
 </tr>
 <tr>
@@ -1692,18 +1723,18 @@
 </tr>
 <tr>
 <td>Message Type</td>
-<td>Colour displayed on the message to indicate message&apos;s importance or type</td>
+<td>Colour displayed with the message to indicate message&apos;s importance or type.</td>
 <td>Good = Green <br>Warning = Amber <br>Danger = Red</td>
 </tr>
 <tr>
 <td>Fields</td>
-<td>Fields to display in a grid</td>
+<td>Fields to display in a grid.</td>
 <td>One name-value pair per line (e.g. <code>&lt;br&gt;Name: John&lt;br&gt;Address: [address_pill]</code>)</td>
 </tr>
 <tr>
 <td>Image URL</td>
-<td>Attach a picture to the message</td>
-<td>URL of an image that will be displayed below the message</td>
+<td>Attach a picture to the message.</td>
+<td>URL of an image that will be displayed below the message.</td>
 </tr>
 <tr>
 <td>Related documents</td>
@@ -1713,8 +1744,10 @@
 </tbody>
 </table>
 <h2 id="post-notifications">Post notifications</h2>
-<p>This action allows you to post customized notifications to Slack channels.</p>
-<p>The fields available are simillar to that of the <strong>Post command reply</strong> action, with all the typical fields you see in a Slack message. However, there is the addition of the field <strong>Notification Filter</strong>. This field allows you to set parameters for filters, which acts like a trigger filter for sending out notifications (i.e. the notification will only get sent when the set criteria is met).</p>
+<p>This action allows you to define which Slack channel to post customized notifications to. By default, Workbot posts direct messages only to the user who installed Workbot. Note, it is also possible to subscribe from a channel (where Workbot participates) to these notifications.</p>
+<p>The fields available are simillar to that of the <strong>Post command reply</strong> action, with all the typical fields you see in a Slack message. However, there is the addition of the field <strong>Notification filter</strong>. This field allows you to set parameters for filters, which acts like a trigger filter for sending out notifications (i.e. the notification will only get sent when the set criteria is met).</p>
+<h2 id="download-attachment">Download attachment</h2>
+<p>This action allows you to download attachments from Slack, received as input to <strong>New command</strong> trigger. Pass file URL from <strong>New command</strong> output into the <strong>URL</strong> field to get attachment content. Then you may further pass this file content to Dropbox, Box or other connectors to upload them as files.</p>
 
                                 
                                 </section>
@@ -1797,7 +1830,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot actions","date":"2017-03-30T05:00:00.000Z","level":"1.13.1","depth":2,"next":{"title":"Workbot triggers","level":"1.13.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"previous":{"title":"Workbot","level":"1.13","depth":1,"path":"workbot/workbot.md","ref":"workbot/workbot.md","articles":[{"title":"Workbot actions","level":"1.13.1","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},{"title":"Workbot triggers","level":"1.13.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},{"title":"Workbot troubleshooting","level":"1.13.3","depth":2,"path":"workbot/workbot-troubleshooting.md","ref":"workbot/workbot-troubleshooting.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot-actions.md","mtime":"2017-05-18T17:55:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-18T17:57:09.351Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot actions","date":"2017-03-30T05:00:00.000Z","level":"1.13.1","depth":2,"next":{"title":"Workbot triggers","level":"1.13.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"previous":{"title":"Workbot","level":"1.13","depth":1,"path":"workbot/workbot.md","ref":"workbot/workbot.md","articles":[{"title":"Workbot actions","level":"1.13.1","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},{"title":"Workbot triggers","level":"1.13.2","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},{"title":"Workbot troubleshooting","level":"1.13.3","depth":2,"path":"workbot/workbot-troubleshooting.md","ref":"workbot/workbot-troubleshooting.md","articles":[]},{"title":"Workbot personal connections","level":"1.13.4","depth":2,"path":"workbot/workbot-latebinding.md","ref":"workbot/workbot-latebinding.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot-actions.md","mtime":"2017-05-18T21:57:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-18T21:59:05.784Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
