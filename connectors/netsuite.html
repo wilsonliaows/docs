@@ -1630,10 +1630,150 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="netsuite">NetSuite</h1>
+<h2 id="how-to-connect-to-netsuite-on-workato">How to connect to NetSuite on Workato</h2>
+<p>In order to connect to NetSuite and allow for data to flow to and from NetSuite via Workato, the following needs to be done in NetSuite. In this section, we&apos;ll be going through how to set these up in detail.</p>
+<ol>
+<li><p>Enable Web Services access in your NetSuite instance</p>
+</li>
+<li><p>Create an integration role with required permission levels for your integration</p>
+</li>
+<li><p>Assign the above integration role to the integration user</p>
+</li>
+</ol>
+<h3 id="1-enable-web-services-access-in-your-netsuite-instance">1. Enable Web Services access in your NetSuite instance</h3>
+<p>First, API Access needs to be enabled in NetSuite. Go to Setup&gt;Company&gt;Enable Features&gt;SuiteCloud.</p>
+<p><img src="../assets/images/connectors/netsuite/enable-web-services-1.png" alt="Setup &gt; Company &gt; Enabled Features &gt; SuiteCloud">
+<em>In NetSuite, go to Setup&gt;Company&gt;Enable Features&gt;SuiteCloud</em></p>
+<p>Check the Web Services checkbox, then save the settings.</p>
+<p><img src="../assets/images/connectors/netsuite/enable-web-services-2.png" alt="Check the SuiteTalk Web Services checkbox">
+<em>In the SuiteCloud tab, check the SuiteTalk Web Services checkbox</em></p>
+<p>Now that we&apos;ve enabled Web Services, we need to set up a user with the proper set of permissions to read from or write to NetSuite via the API. We will use this user to connect to NetSuite from Workato. Typically, this user is a special integration user whose sole function is to enable the integration.</p>
+<h3 id="2-create-an-integration-role-with-required-permission-levels-for-your-integration">2. Create an integration role with required permission levels for your integration</h3>
+<p>We need to create a specialized role for our integration user. We need to enable Full Web Services permission level for our user, as well as add any further permissions the user needs to have for our integration to work.</p>
+<p>In the example below, we&apos;re creating a new role and giving it the Full Web Services permission. However, if you wish to enable an existing role to be able to read from and write to NetSuite via the API, simply add the Full Web Services permission to the existing role.</p>
+<ol>
+<li><p>In NetSuite, go to Setup&gt;Users/Roles&gt;Manage Roles
+<img src="../assets/images/connectors/netsuite/setup-integration-role-1.png" alt="Setup &gt; Users/Roles &gt; Manage Roles"></p>
+</li>
+<li><p>Check the Web Services Only Role checkbox if you don&apos;t want this role to have the ability to login to NetSuite (i.e. only the ability to connect to NetSuite via the API)
+<img src="../assets/images/connectors/netsuite/setup-integration-role-2.png" alt="Check Web Services Only Role checkbox if relevant"></p>
+</li>
+<li><p>Under Permissions&gt;Setup, this role needs to have the Web Services permissions with a Full level
+<img src="../assets/images/connectors/netsuite/setup-integration-role-3.png" alt="Give Full level Web Services permissions"></p>
+</li>
+<li><p>Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the Sales Order - Create permission level, and if you wish to be able to create and update and read sales order data, select the Full permission level.
+<img src="../assets/images/connectors/netsuite/setup-integration-role-4.png" alt="Set up other permissions and permission levels"></p>
+</li>
+</ol>
+<h3 id="3-set-up-an-integration-user">3. Set up an integration user</h3>
+<p>Once we&apos;ve set up our integration role, we need to assign this role to our integration user.</p>
+<p>In NetSuite, go to Setup&gt;Users/Roles&gt;Manage Users to edit an existing user or create a new user</p>
+<p><img src="../assets/images/connectors/netsuite/setup-integration-user-1.png" alt="Set up other permissions and permission levels">
+<em>Navigate to Setup&gt;Users/Roles&gt;Manage Users</em></p>
+<p>When editing a user, under the Access tab, ensure you assign this user the integration role you&apos;ve just created/edited above.</p>
+<p><img src="../assets/images/connectors/netsuite/setup-integration-user-2.png" alt="Assign integration role">
+<em>Assign integration role to user</em></p>
+<p>Once you&apos;ve set up your integration user, you&apos;re ready to connect to NetSuite on Workato!</p>
+<h3 id="4-connect-to-netsuite-on-workato">4. Connect to NetSuite on Workato</h3>
+<p>NetSuite asks for the following information to connect.</p>
+<p><img src="../assets/images/connectors/netsuite/information-to-connect-to-netsuite.png" alt="Information to connect to NetSuite"></p>
+<p>The following details more information about each field.</p>
+<ul>
+<li>Email and password</li>
+</ul>
+<p>This is the email and password of your integration user</p>
+<ul>
+<li>Account ID</li>
+</ul>
+<p>Retrieve the account ID of your NetSuite instance from Integration&gt;Web Services Preferences</p>
+<ul>
+<li>Role</li>
+</ul>
+<p>Name of the role you&apos;ve just created</p>
+<ul>
+<li>Application ID</li>
+</ul>
+<p>Retrieve the application ID from Integration&gt;Manage Integrations</p>
+<ul>
+<li>Account timezone</li>
+</ul>
+<p>Select the timezone of your NetSuite instance in order to ensure that the dates in your NetSuite account are handled accurately. All datetime values used in actions/triggers for the NetSuite connection will be based on this timezone.</p>
+<ul>
+<li>Sandbox</li>
+</ul>
+<p>Select True or False depending on whether the NetSuite instance you&apos;re trying to connect to is a sandbox or not</p>
 <h2 id="working-with-the-netsuite-connector">Working with the NetSuite connector</h2>
-<h3 id="using-the-new-saved-search-result-for-object-trigger">Using the New saved search result for object trigger</h3>
+<h3 id="common-netsuite-fields-and-possible-disparity-between-objectfield-names-in-netsuite-and-workato">Common NetSuite fields and possible disparity between object/field names in NetSuite and Workato</h3>
+<p>The NetSuite connector is able to retrieve your standard or custom NetSuite objects and the associated set of standard and custom fields. Whenever you configure your trigger or action, you would first need to select the specific object you wish to interact with.</p>
+<p>Take note that objects in your NetSuite instance might have been renamed, in which case they would appear in Workato with the original name (instead of the new name). Do check with your NetSuite admin or reach out to us if it looks like you&apos;re not able to find your object on Workato!</p>
+<p>If you&apos;re configuring an action, you would see the fields selector pop up with a list of the standard and custom fields that belongs to the selected object. Simply select the fields you wish to interact with.</p>
+<p><img src="../assets/images/connectors/netsuite/netsuite-fields-selector.png" alt="NetSuite fields selector">
+<em>NetSuite fields selector</em></p>
+<p>Some fields are displayed with their internal API names instead of their labels in NetSuite. The following list brings you through the more common NetSuite fields, some of which might have a different name in Workato.</p>
+<ul>
+<li>Internal ID</li>
+</ul>
+<p>Every NetSuite record has a unique internal ID, which can be found in the URL when viewing the specific NetSuite record. Internal IDs are usually used to specify the exact record to update for update object actions. They can be obtained from the datatree of create object actions or search object actions.</p>
+<p><img src="../assets/images/connectors/netsuite/internal-id-in-netsuite-url.png" alt="NetSuite Internal ID">
+<em>Internal ID of a specific sales order as seen in the URL</em></p>
+<ul>
+<li>External ID</li>
+</ul>
+<p>Every NetSuite record has an external ID field to store the IDs of corresponding objects in other systems - for example, you can store the corresponding Salesforce ID of a NetSuite customer in that customer&apos;s external ID field.</p>
+<p>This field is a standard field in NetSuite, but typically not visible by default in NetSuite.</p>
+<ul>
+<li>IDs</li>
+</ul>
+<p>When linking an object to another object via Workato (e.g. when creating a transaction and trying to link this transaction to a class, department or subsidiary), NetSuite usually asks for the IDs of the object you wish to link to. To find these IDs, you would typically need to search for these objects (e.g. in this case, to search for your class, department or subsidiary). Alternatively, you might want to store these values in a <a href="features/lookup-tables.md">lookup table</a> for easy reference without having to execute a search in your NetSuite instance.</p>
+<ul>
+<li>Custom fields</li>
+</ul>
+<p>The recipe is able to retrieve the custom fields of your selected NetSuite object for you to read from or write to. All custom fields are grouped in Workato.</p>
+<p><img src="../assets/images/connectors/netsuite/netsuite-custom-fields.png" alt="NetSuite custom fields">
+<em>Custom fields Tax Receipt No. and External ID</em></p>
+<ul>
+<li>Item list</li>
+</ul>
+<p>For transaction objects that contains line items, the available fields within each line item can be found grouped within the item list field.</p>
+<p><img src="../assets/images/connectors/netsuite/netsuite-item-list.png" alt="NetSuite item list">
+<em>Item list displayed in the create sales order action</em></p>
+<h3 id="new-classification-object-trigger">New classification object trigger</h3>
+<p>Certain objects in NetSuite are classification objects, such as departments, locations and classifications. Select the classification object to monitor.</p>
+<p>When the recipe is first started, all the existing instances of the selected object will be picked up by the recipe. Subsequently, only newly created instances will be processed by the recipe.</p>
+<p><img src="../assets/images/connectors/netsuite/new-classification-object-trigger.png" alt="New classification object trigger">
+<em>New classification object trigger</em></p>
+<p>For example, if I select departments as the object to trigger upon, all existing department objects will be picked up by the trigger when the recipe is first ran. Subsequently, if the recipe is kept running, only departments which have been newly created will be picked up by the recipe.</p>
+<h4 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h4>
+<p>Even if the recipe is stopped, when it&apos;s restarted again, all departments created in the time during which the recipe was stopped will be picked up by the recipe.</p>
+<h3 id="new-standard-object-and-new-custom-object-trigger">New standard object and new custom object trigger</h3>
+<p>The new standard object and new custom object trigger are very similar, so this section will cover both.</p>
+<h4 id="configuring-the-trigger">Configuring the trigger</h4>
+<p>To use this trigger, we need to first select the standard object or the custom object to monitor. We also need to input the datetime in the <strong>From</strong> field to pinpoint the exact date from which the recipe should start processing records.</p>
+<p><img src="../assets/images/connectors/netsuite/unconfigured-netsuite-new-trigger.png" alt="Unconfigured NetSuite new object trigger">
+<em>NetSuite new object trigger - unconfigured. Select the object to monitor for newly created records.</em></p>
+<p>When the recipe is first started, all the existing instances of the selected object created after the datetime in the <strong>From</strong> field will be picked up by the recipe. Subsequently, only newly created instances will be processed by the recipe.</p>
+<p>For example, I&apos;ve selected sales order and 1 Jan, 2017 midnight for my trigger as below.</p>
+<p><img src="../assets/images/connectors/netsuite/configured-netsuite-new-trigger.png" alt="Configured NetSuite new object trigger">
+<em>NetSuite new object trigger - configured</em></p>
+<p>When I first start my recipe all sales orders created from or after 1 Jan, 2017 midnight, will be processed. Subsequently, if the recipe is kept running, only sales orders which have been newly created will be picked up by the recipe.</p>
+<h4 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h4>
+<p>Even if the recipe is stopped, when it&apos;s restarted again, all sales orders created in the time during which the recipe was stopped will be picked up by the recipe.</p>
+<h3 id="newupdated-standard-object-and-newupdated-custom-object-trigger">New/updated standard object and new/updated custom object trigger</h3>
+<p>The new/updated standard object and new/updated custom object trigger are very similar, so this section will cover both.</p>
+<h4 id="configuring-the-trigger">Configuring the trigger</h4>
+<p>To use this trigger, we need to first select the standard object or the custom object to monitor. We also need to input the datetime from the <strong>From</strong> field to pinpoint the exact date from which the recipe should start processing records.</p>
+<p><img src="../assets/images/connectors/netsuite/unconfigured-netsuite-new-updated-trigger.png" alt="Unconfigured NetSuite new/updated object trigger">
+<em>NetSuite new/updated object trigger - unconfigured. Select the object to monitor for newly created or updated records.</em></p>
+<p>When the recipe is first started, all the existing instances of the selected object created or updated after the datetime in the <strong>From</strong> field will be picked up by the recipe. Subsequently, any newly created instances or updated instances will be processed by the recipe.</p>
+<p>For example, I&apos;ve selected sales order and 1 Jan, 2017 midnight for my trigger as below.</p>
+<p><img src="../assets/images/connectors/netsuite/configured-netsuite-new-updated-trigger.png" alt="Configured NetSuite new/updated object trigger">
+<em>NetSuite new/updated object trigger - configured</em></p>
+<p>When I first start my recipe all sales orders created or updated from or after 1 Jan, 2017 midnight, will be processed. Subsequently, if the recipe is kept running, any sales orders which have been newly created or updated will be picked up by the recipe.</p>
+<h4 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h4>
+<p>Even if the recipe is stopped, when it&apos;s restarted again, all sales orders created or updated in the time during which the recipe was stopped will be picked up by the recipe. Do note, however, that the recipe will only pick up the last (most updated) version of search record. For example, if a record was newly created and had 3 updates made to it while the recipe was stopped, the recipe will only pick up the last updated version of the record when it&apos;s restarted again.</p>
+<h3 id="new-saved-search-result-for-object-trigger">New saved search result for object trigger</h3>
 <p>The <strong>New saved search result for object</strong> trigger retrieves new records that meet the saved search&apos;s criteria, e.g. for a saved search that fetches customer records of industry type <strong>Hardware</strong>, new customers created of the industry type <strong>Hardware</strong> will be picked up as a trigger event.</p>
-<p>Existing customers whose industry type is changed to <strong>Hardware</strong> will also be picked up as a trigger event if their <strong>Date created</strong> value is valid for the recipe (falls after the <strong>From</strong> date specified in the trigger).</p>
+<p>Existing customers whose industry type is changed to <strong>Hardware</strong> will also be picked up as a trigger event if their <strong>Date created</strong> value is valid for the recipe (falls after the datetime in the <strong>From</strong> field specified in the trigger).</p>
 <p>To ensure the trigger works, we need to make sure that the columns <strong>Internal ID</strong> and <strong>Date created</strong> are configured as result columns in the saved search. To do this, navigate to the saved search page to edit it.</p>
 <p><img src="../assets/images/connectors/netsuite/edit-saved-search.gif" alt="Edit saved search">
 <em>Edit the saved search</em></p>
@@ -1643,13 +1783,15 @@
 <p>Also, make sure to remove the <strong>Dashboard</strong> column in the saved search&apos;s results if it&apos;s present. Having this column will cause the trigger to throw an error.</p>
 <p><img src="../assets/images/connectors/netsuite/delete-dashboard-field.gif" alt="Remove Dashboard column in saved search">
 <em>Remove Dashboard column in saved search</em></p>
-<p>Once this setup has been done, we can proceed to configure the trigger. This configuration is similar to that for <strong>New/updated saved search result</strong> trigger:
-1) Select the object type we wish to retrieve the saved searches for. In our case, we selected the customer object.
-2) Once the object type has been selected, select the saved search to listen to for new records.
-3) Specify the <strong>From</strong> date. Only records created after this <strong>From</strong> date will be retrieved by the recipe. This means that, when an existing record meets the saved search criteria, it will only be picked up by the recipe if it has a <strong>Date created</strong> value after the <strong>From</strong> value.</p>
+<p>Once this setup has been done, we can proceed to configure the trigger. This configuration is similar to that for <strong>New/updated saved search result</strong> trigger:</p>
+<ol>
+<li>Select the object type we wish to retrieve the saved searches for. In our case, we selected the customer object.</li>
+<li>Once the object type has been selected, select the saved search to listen to for new records.</li>
+<li>Specify the date time in the <strong>From</strong> field. Only records created after this <strong>From</strong> date will be retrieved by the recipe. This means that, when an existing record meets the saved search criteria, it will only be picked up by the recipe if it has a <strong>Date created</strong> value after the <strong>From</strong> value.</li>
+</ol>
 <p><img src="../assets/images/connectors/netsuite/configure-new-saved-search-results-trigger.gif" alt="Configure new saved search results trigger">
 <em>Configure the new saved search results trigger</em></p>
-<h3 id="using-the-newupdated-saved-search-result-for-object-trigger">Using the New/updated saved search result for object trigger</h3>
+<h3 id="newupdated-saved-search-result-for-object-trigger">New/updated saved search result for object trigger</h3>
 <p>The <strong>New/updated saved search result for object</strong> trigger retrieves new and updated records that meet the saved search&apos;s criteria, e.g. for a saved search that fetches customer records of industry type <strong>Hardware</strong>, new or updated customers of the industry type <strong>Hardware</strong> will be picked up as a trigger event.</p>
 <p>Existing customers whose industry type is changed to <strong>Hardware</strong> will also be picked up as a trigger event.</p>
 <p>To ensure the trigger works, we need to make sure that the columns <strong>Internal ID</strong> and <strong>Last modified</strong> are configured as result columns in the saved search. To do this, navigate to the saved search page to edit it.</p>
@@ -1658,12 +1800,107 @@
 <p>Also, make sure to remove the <strong>Dashboard</strong> column in the saved search&apos;s results if it&apos;s present. Having this column will cause the trigger to throw an error.</p>
 <p><img src="../assets/images/connectors/netsuite/delete-dashboard-field.gif" alt="Remove Dashboard column in saved search">
 <em>Remove Dashboard column in saved search</em></p>
-<p>Once this setup has been done, we can proceed to configure the trigger. This configuration is similar to that for <strong>New saved search result</strong> trigger:
-1) Select the object type we wish to retrieve the saved searches for. In our case, we selected the customer object.
-2) Once the object type has been selected, select the saved search to listen to for new records.
-3) Specify the <strong>From</strong> date. Only records created or updated after this <strong>From</strong> date will be retrieved by the recipe.</p>
+<p>Once this setup has been done, we can proceed to configure the trigger. This configuration is similar to that for <strong>New saved search result</strong> trigger:</p>
+<ol>
+<li>Select the object type we wish to retrieve the saved searches for. In our case, we selected the customer object.</li>
+<li>Once the object type has been selected, select the saved search to listen to for new records.</li>
+<li>Specify the datetime in the <strong>From</strong> field. Only records created or updated after this <strong>From</strong> date will be retrieved by the recipe.</li>
+</ol>
 <p><img src="../assets/images/connectors/netsuite/configure-updated-saved-search-result-trigger.gif" alt="Configure new/updated saved search results trigger">
 <em>Configure the new/updated saved search results trigger</em></p>
+<h3 id="add-standard-object-and-add-custom-object-action">Add standard object and add custom object action</h3>
+<p>The add standard object and add custom object actions are similar except that the former works with standard NetSuite objects, while the latter works with custom objects created by your organization.</p>
+<p>In this section, we&apos;ll be covering how to use the add standard object action, which will be applicable for the add custom object action as well.</p>
+<h4 id="configuring-your-add-object-action">Configuring your add object action</h4>
+<p>To configure your action, first select the object you would like to create. In this case, let&apos;s create a sales order. After you have selected the object you wish to create, the recipe will retrieve the fields of your selected NetSuite object.</p>
+<p><img src="../assets/images/connectors/netsuite/unconfigured-netsuite-add-action.png" alt="Unconfigured NetSuite add object action">
+<em>NetSuite add object action - unconfigured. Select the object to create.</em></p>
+<h4 id="selecting-and-mapping-your-fields">Selecting and mapping your fields</h4>
+<p>After selecting the object you wish to create, you&apos;d need to select the specific fields you wish to write to when creating your NetSuite record.</p>
+<p><img src="../assets/images/connectors/netsuite/netsuite-add-action-fields-selector.png" alt="Unconfigured NetSuite add object action">
+<em>After selecting your object, select the specific fields you wish to write to</em></p>
+<p>Take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
+<p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
+<h3 id="search-standard-objects-action">Search standard objects action</h3>
+<p>The search standard objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array.</p>
+<h4 id="configuring-the-search-standard-objects-action">Configuring the search standard objects action</h4>
+<p>To carry out a search standard object action, we would first need to tell the recipe exactly what standard object category and what specific object we want to search for. The following displays an unconfigured search standard object action.</p>
+<p><img src="../assets/images/connectors/netsuite/unconfigured-search-action.png" alt="Unconfigured NetSuite search action">
+<em>Unconfigured search standard object action. Select the category and specific object to search for.</em></p>
+<p>Regardless of category, we&apos;re able to search for any standard objects by its internal ID or its external ID. As these IDs are unique, we would only retrieve a maximum of 1 record if we search by IDs.</p>
+<p><img src="../assets/images/connectors/netsuite/search-objects-action-list.png" alt="NetSuite search action picklist">
+<em>Available categories to search from</em></p>
+<p>Regardless of category, we&apos;re able to search for any standard objects by its internal ID or its external ID. As these IDs are unique, we would only retrieve a maximum of 1 record if we search by IDs.</p>
+<p><img src="../assets/images/connectors/netsuite/search-via-internal-external-id.png" alt="NetSuite search objects via internal or external ID">
+<em>Ability to search NetSuite record by unique internal ID or external ID</em></p>
+<p>Depending on the object category selected, we would be able to search by additional fields specific to that category.</p>
+<p>For example, some of the available fields to search by for transaction categories is its status - opened or closed status, and its number.</p>
+<p><img src="../assets/images/connectors/netsuite/search-fields-for-transaction-category.png" alt="Available fields to search by for transaction category">
+<em>Available fields to search by for transaction category</em></p>
+<p>Some of the available fields to search by for relationship categories is its company name and email.</p>
+<p><img src="../assets/images/connectors/netsuite/search-fields-by-relationship-category.png" alt="Available fields to search by for relationship category">
+<em>Available fields to search by for relationship category</em></p>
+<p>When selecting the fields to search by in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
+<p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
+<h3 id="search-custom-objects-action">Search custom objects action</h3>
+<p>The search custom objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array.</p>
+<h4 id="configuring-the-search-custom-objects-action">Configuring the search custom objects action</h4>
+<p>To carry out a search custom objects action, we would first need to tell the recipe exactly what specific custom object we want to search for. The following displays an unconfigured search custom objects action.</p>
+<p><img src="../assets/images/connectors/netsuite/unconfigured-search-custom-object-action.png" alt="Unconfigured search custom object action">
+<em>Unconfigured search custom object action. Select the the specific object to search for.</em></p>
+<p>Regardless of selected object, we&apos;re able to search for any custom objects by its internal ID or its external ID. As these IDs are unique, we would only retrieve a maximum of 1 record if we search by IDs.</p>
+<p>Depending on the object selected, we would be able to search by additional fields specific to that object.</p>
+<p><img src="../assets/images/connectors/netsuite/search-fields-for-custom-objects.png" alt="Search fields for custom objects">
+<em>Available fields to search by for the custom object estimate</em></p>
+<p>When selecting the fields to search by in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
+<p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
+<h3 id="update-standard-object-and-update-custom-object-action">Update standard object and update custom object action</h3>
+<p>The update standard object and update custom object actions are similar except that the former works with standard NetSuite objects, while the latter works with custom objects created by your organization.</p>
+<p>In this section, we&apos;ll be covering how to use the update standard object action, which will be applicable for the update custom object action as well.</p>
+<h4 id="functions-of-the-update-object-actions">Functions of the update object actions</h4>
+<p>The following lists the various types of updates you can do with the update object action.</p>
+<ul>
+<li>Overwrite existing field values with new values (you can&apos;t delete an existing value of a field and change it to null/a blank value, however)</li>
+<li>Append new lines to records (e.g. add additional line items to your sales order)</li>
+<li>Replace all lines in records (e.g. overwrite all existing line items in your sales order with a new set of line items)</li>
+</ul>
+<h4 id="configuring-your-update-action">Configuring your update action</h4>
+<ol>
+<li>First, specify the object to update via internal ID or external ID
+To update your NetSuite record, you first need to specify which record to update. You can use either the internal ID or the external ID to specify the record - all other fields with values passed into them will overwrite the original existing value in the NetSuite record.</li>
+</ol>
+<p><img src="../assets/images/connectors/netsuite/specify-record-to-update-by-id.png" alt="Specify record to update by ID">
+<em>Specifying the NetSuite record to update with either internal ID or external ID</em></p>
+<ol>
+<li><p>Next, configure the action to carry out the type of update you want: overwrite existing values or append values</p>
+</li>
+<li><p>Overwrite existing field values</p>
+</li>
+</ol>
+<p>To do this, simply select the fields you wish to write to, then input the values or variables you wish to overwrite it with. For example, we might have a Shopify ecommerce site set up, and we want to move all our sales orders made in Shopify into NetSuite for inventory and delivery management.</p>
+<p>In the following recipe, we&apos;re moving all newly created sales orders and all updates to existing orders from Shopify into NetSuite. Whenever there&apos;s a new/updated Shopify order, we try to search for the corresponding NetSuite order. If it exists, we&apos;d update that NetSuite order. If it doesn&apos;t exist, we&apos;ll create a NetSuite order.</p>
+<p><img src="../assets/images/connectors/netsuite/shopify-to-netsuite-recipe.png" alt="Shopify to NetSuite recipe">
+<em>Recipe that syncs Shopify sales orders into NetSuite.</em></p>
+<p>In Step 3, which is the branch of the recipe we&apos;d execute if we manage to find a NetSuite order that corresponds to the incoming Shopify sales order, we pass in the internal ID of the NetSuite order we&apos;ve found.</p>
+<p><img src="../assets/images/connectors/netsuite/specify-record-to-update-via-internal-id.png" alt="Specify NetSuite record to update via internal ID">
+<em>Specify NetSuite record to update via internal ID</em></p>
+<p>In this update action, we&apos;re taking the values of the note and email fields in the Shopify order, and updating the values of the memo and email fields in the corresponding NetSuite order.</p>
+<p><img src="../assets/images/connectors/netsuite/netsuite-fields-to-update.png" alt="Update memo and email fields">
+<em>Update memo and email fields</em></p>
+<p>When selecting the fields to update in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
+<p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
+<ul>
+<li>Append new lines to object VS replacing all lines in the object</li>
+</ul>
+<p>There are numerous NetSuite objects which contains one or more lists. For example, transaction objects such as sales orders have lists of line items. When updating objects in NetSuite, with most lists you have the ability to define whether you&apos;d like to append more elements to the list, or if you&apos;d like to replace the existing list with a whole new list.</p>
+<p>First specify the object you&apos;d like to update, then the specific ID of the object to update. Do the same data mapping for the item list as you would usually do.</p>
+<p><img src="../assets/images/connectors/netsuite/append-new-lines-update-object-via-id.png" alt="Specify NetSuite record to update via internal ID">
+<em>Select object and record ID to update</em></p>
+<p>At the end of most NetSuite lists, you will see the <strong>Replace all</strong> option. Select <strong>True</strong> to overwrite all existing list items, select <strong>False</strong> to append new list items to existing list of items.</p>
+<p><img src="../assets/images/connectors/netsuite/append-new-lines-replace-all-false.png" alt="Specify NetSuite record to update via internal ID">
+<em>Replace all picklist found at the end of NetSuite lists</em></p>
+<p>When selecting the fields to update in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
+<p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
 
                                 
                                 </section>
@@ -1746,7 +1983,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"NetSuite","date":"2017-04-28T06:15:00.000Z","level":"1.14.5","depth":2,"next":{"title":"QuickBooks Online","level":"1.14.6","depth":2,"path":"connectors/quickbooks.md","ref":"connectors/quickbooks.md","articles":[]},"previous":{"title":"JIRA","level":"1.14.4","depth":2,"path":"connectors/jira.md","ref":"connectors/jira.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"connectors/netsuite.md","mtime":"2017-05-15T18:48:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-15T18:49:34.285Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"NetSuite","date":"2017-04-28T06:15:00.000Z","level":"1.14.5","depth":2,"next":{"title":"QuickBooks Online","level":"1.14.6","depth":2,"path":"connectors/quickbooks.md","ref":"connectors/quickbooks.md","articles":[]},"previous":{"title":"JIRA","level":"1.14.4","depth":2,"path":"connectors/jira.md","ref":"connectors/jira.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"connectors/netsuite.md","mtime":"2017-05-18T17:55:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-18T17:57:09.351Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
