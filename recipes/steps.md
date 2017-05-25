@@ -10,7 +10,7 @@ Recipe steps can be actions, or control flow statements that help you describe b
 *Various recipe steps available in recipe editor*
 
 ## Action step
-Actions carry out an operation in your target app, usually a create, update, or search operation. Each action requires a set of input fields and typically return data i.e. output data tree.
+Actions carry out an operation in your target app, usually a create, update, or search operation. Each action requires a set of input fields and typically return data i.e. output data tree. You can read more about actions [here](/recipes/actions.md).
 
 ### Example: Action
 The following step carries out a **Search organizations** action in Zendesk. The input fields on the left shows the available fields to search for a Zendesk organization by:
@@ -72,14 +72,14 @@ The following displays the mapping from the **Foreach** datatree.
 ![Foreach step example](/assets/images/recipes/steps/foreach_example.png)
 *Datapills are mapped from the Repeat step's datatree. [Example recipe](https://www.workato.com/recipes/480695)*
 
-For further Repeat step examples or more info about list processing, refer to the List management article.
+For further Repeat step examples or more info about list processing, refer to the [List management article](/features/list-management.md).
 
 ## Call recipe step
 Call recipe will run another recipe (named a callable recipe). Callable recipes are like functional calls in programming languages. They offer an easy way to resuse recipe logic.
 
 You should note that callable recipes are executed synchronously. i.e. the calling recipe will be blocked waiting for the called recipe to finish processing.
 
-Callable recipes are an advanced feature in Workato that you can read more about in the Callable recipes article.
+Callable recipes are an advanced feature in Workato that you can read more about in the [Callable recipes article](/features/callable-recipes.md).
 
 ## Stop step
 The stop step ends a single job from being processed any further. It is usually used in cases when there is a an error in the business logic and further processing of the job is not required.
