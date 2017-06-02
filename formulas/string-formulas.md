@@ -173,7 +173,7 @@ This function inverts a string, reordering the characters in a backward manner. 
 | Example                 | Result         |
 |-------------------------|----------------|
 | `"Jean Marie".reverse`  | "eiraM naeJ"   |
-| `" jean marie ".upcase` | " eiram naej " |
+| `" jean marie ".reverse` | " eiram naej " |
 
 ## gsub
 This function replaces all occurrence of the first input value, with the second input value, within the string. This function is case-sensitive - make sure to downcase or upcase before comparison if you are not concerned about case sensitivity.
