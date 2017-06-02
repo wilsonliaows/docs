@@ -19,7 +19,7 @@ There are 4 elements in the command that Workbot looks out for:
 - Addressed to an **application** (e.g. Salesforce, QuickBooks)
 - A specific **document** type to be processed (e.g. Account, Lead, Invoice)
 - A certain **command** to execute - (e.g. Show, Create, Update)
-- One or more **parameters**. Parameters may have the type *file*, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action **Download Attachment**.
+- One or more **parameters**. Parameters may have the type *file*, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action **[Download Attachment](workbot-actions.md#download-attachment)**.
 
 When creating a recipe with **New Commands** as the trigger, you will see these fields listed in the table below:
 
