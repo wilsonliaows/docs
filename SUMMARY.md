@@ -31,6 +31,7 @@
   * [OneLogin SSO](user-accounts-and-teams/team-collaboration.md#onelogin-single-sign-on)
   * [Workato SSO settings](user-accounts-and-teams/team-collaboration.md#workato-single-sign-on-setup)
   * [Logging into SAML-enabled team](user-accounts-and-teams/team-collaboration.md#logging-into-saml-enabled-team)
+  * [SAML Just-In-Time provisioning](user-accounts-and-teams/team-collaboration.md#saml-just-in-time-provisioning)
 * [People Task](workflow.md)
 * [On premise connectivity](on-prem.md)
 * [Key features](features.md)
