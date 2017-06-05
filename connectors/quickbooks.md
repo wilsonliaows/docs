@@ -14,8 +14,8 @@ date: 2017-02-16 06:15:00 Z
 The QuickBooks connector works with all versions of **QuickBooks Online-** QuickBooks Self-Employed, QuickBooks Simple Start, QuickBooks Essentials, as well as QuickBooks Plus.
 
 Workato currently does not support QuickBooks Desktop/Enterprise versions. 
-
-## How to connect to QuickBooks on Workato
+## How to 
+connect to QuickBooks on Workato
 
 ### QuickBooks connection 
 ![QBO connect1](/assets/images/QBO connect1.JPG)
