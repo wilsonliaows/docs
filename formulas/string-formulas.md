@@ -413,7 +413,7 @@ Returns the first item in a list. Can also be used to return the first n items i
 
 | Example                            | Result         |
 | ---------------------------------- | -------------- |
-| `["Jean", "Marie"].first           | "Jean"         |
+| `["Jean", "Marie"].first`          | "Jean"         |
 | `["Ms", "Jean", "Marie"].first`    | "Ms"           |
 | `["Ms", "Jean", "Marie"].first(2)` | ["Ms", "Jean"] |
 
@@ -487,11 +487,11 @@ Changes the type of variable to an integer . Will always be rounded **down** to 
 
 | Example                   | Result |
 | ------------------------- | ------ |
-| "Jean Marie".to_i         | "0"    |
-| "123".to_i                | "123"  |
-| "123 Jean Marie 321".to_f | "123"  |
-| "123.456".to_f            | "123"  |
-| "123.9".to_f              | "123"  |
+| "Jean Marie".to_i         | 0    |
+| "123".to_i                | 123  |
+| "123 Jean Marie 321".to_f | 123  |
+| "123.456".to_f            | 123  |
+| "123.9".to_f              | 123  |
 
 
 
@@ -505,8 +505,8 @@ Convert alpha-3 country code or country name to alpha2 country code (first 2 ini
 
 | Example                            | Result |
 | ---------------------------------- | ------ |
-| "GBR".to_country_alpha2            | GB     |
-| "United Kingdom".to_country_alpha2 | GB     |
+| "GBR".to_country_alpha2            | "GB"     |
+| "United Kingdom".to_country_alpha2 | "GB"     |
 
 
 
@@ -520,8 +520,8 @@ Convert alpha-2 country code or country name to alpha3 country code (first 3 ini
 
 | Example                            | Result |
 | ---------------------------------- | ------ |
-| "GB".to_country_alpha2             | GBR    |
-| "United Kingdom".to_country_alpha2 | GBR    |
+| "GB".to_country_alpha2             | "GBR"    |
+| "United Kingdom".to_country_alpha2 | "GBR"    |
 
 
 
@@ -535,8 +535,8 @@ Convert alpha-2/3 country code or country name to ISO3166 country name.
 
 | Example               | Result         |
 | --------------------- | -------------- |
-| "GBR".to_country_name | United Kingdom |
-| "GB".to_country_name  | United Kingdom |
+| "GBR".to_country_name | "United Kingdom" |
+| "GB".to_country_name  | "United Kingdom" |
 
 
 
@@ -544,16 +544,15 @@ Convert alpha-2/3 country code or country name to ISO3166 country name.
 
 ## to_currency
 
-Formats integers/numbers to a currency-style. You may optionally modify it with other parameters.
+Formats integers/numbers to a currency-style. You may add the precision as well. (Defaults to 2 decimal points)
 
 ### Example
 
 | Example                               | Result     |
 | ------------------------------------- | ---------- |
-| "12345.60".to_currency                | $12345.60  |
-| "12345.678".to_currency               | $12345.68  |
-| "12345.678".to_currency(precision: 3) | $12345.678 |
-| "12345.60".to_currency(locale: :fr)   |            |
+| "12345.60".to_currency                | "$12345.60"  |
+| "12345.678".to_currency               | "$12345.68"  |
+| "12345.678".to_currency(precision: 3) | "$12345.678" |
 
 
 
@@ -567,8 +566,8 @@ Convert alpha-2/3 country code or country name to ISO4217 currency code
 
 | Example                | Result |
 | ---------------------- | ------ |
-| "GBR".to_currency_code | GBP    |
-| "US".to_currency_code  | USD    |
+| "GBR".to_currency_code | "GBP"    |
+| "US".to_currency_code  | "USD"    |
 
 
 
@@ -582,8 +581,8 @@ Convert alpha-3 currency code or alpha-2/3 country code or country name to ISO42
 
 | Example                | Result  |
 | ---------------------- | ------- |
-| "GBR".to_currency_code | Pound   |
-| "USD".to_currency_code | Dollars |
+| "GBR".to_currency_code | "Pound"   |
+| "USD".to_currency_code | "Dollars" |
 
 
 
@@ -597,8 +596,8 @@ Convert alpha-3 currency code or alpha-2/3 country code or country name to ISO42
 
 | Example                | Result |
 | ---------------------- | ------ |
-| "GBR".to_currency_code | £      |
-| "USD".to_currency_code | $      |
+| "GBR".to_currency_code | "£"      |
+| "USD".to_currency_code | "$"      |
 
 
 
