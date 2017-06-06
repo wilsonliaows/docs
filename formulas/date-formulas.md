@@ -50,6 +50,7 @@ In the following example, Workato carries out the action on on 2 April 2017, 12.
 | Example              | Result                             |
 | -------------------- | ---------------------------------- |
 | `3.days.from_now`    | "2017-04-05T12:30:00.000000-07:00" |
+| `4.days.from_now`    | "2017-04-06T12:30:00.000000-07:00" |
 | `3.minutes.from_now` | "2017-04-02T12:33:00.000000-07:00" |
 
 
@@ -220,7 +221,7 @@ To access the full list, check out the [Ruby documentation](http://ruby-doc.org/
 
 ## in_time_zone
 
-Converts a time stamp to a different time zone. Uses the list of time zone names from the IANA time zone database. Value of time will not change, only the time zone. Find out more [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+Converts a time value to a different time zone. This function uses the list of time zone names from the IANA time zone database. The output will be an equivalent time in a different time zone. Find out more [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 ### Example
 
