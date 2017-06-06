@@ -223,7 +223,7 @@ Results are returned as a list of a list:
 
 ## format_map
 
-Create an array of strings by formatting each row of given array of hashes. Allows you to add static text to the created strings as well. 
+Create an array of strings by formatting each row of given array of hashes. Allows you to add static text to the created strings as well. Fields to be represented in the formaat %{**\<field_name>**}
 
 ### Example
 
@@ -479,5 +479,5 @@ Returns a string representation for use as a URL query string.
 
 | Example                              | Result           |
 | ------------------------------------ | ---------------- |
-| `{name: 'Jake', age: '22'}.to_param` | name=Jake&age=22 |
+| `{name: 'Jake', age: '22'}.to_param` | "name=Jake&age=22" |
 
