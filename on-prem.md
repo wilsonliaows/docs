@@ -20,7 +20,7 @@ The following is a conceptual model of Workato's on-premise agent and how it int
 The on-prem agent is a lightweight module to be installed behind the company's firewall. The agent utilizes a secure tunnel over TLS to facilitate interaction between Workato and on-prem applications. These on-prem applications should have REST endpoints to be compatible with the on-prem agent. The on-prem agent also enables interaction with databases behind the firewall.
 
 # Supported operating systems
-The on-prem agent works with Windows, macOS and Linux.
+The on-prem agent works with Windows and Linux.
 
 # Setting up on-prem access
 On the **On-prem access** page, there is the option to create a new agent. Once created, detailed setup instructions can be found within the **How to use** tab.
@@ -29,12 +29,15 @@ On the **On-prem access** page, there is the option to create a new agent. Once 
 *Creating and setting up a new on-prem agent*
 
 # Working with the on-prem agent
-To interact with on-premise applications and databases, the on-prem agent has to be started and kept running. Additionally, follow the setup instructions to configure connection profiles for the database you wish to connect to. From the `<INSTALL_HOME>` directory, run the following command:
+To interact with on-premise applications and databases, the on-prem agent has to be started and kept running. Additionally, follow the setup instructions to configure connection profiles for the database you wish to connect to.
 
-Windows:
+**Windows**:
+Start `WorkatoAgent` service, e.g. by running the following command as administrator:
+`net start WorkatoAgent`
+or run in the foreground mode from the `<INSTALL_HOME>` directory:
 `bin\run.cmd`
 
-Linux:
+**Linux**: from the `<INSTALL_HOME>` directory, run the following command:
 `bin/run.sh`
 
 Verify that the agent is active on the **On-prem access* page.
