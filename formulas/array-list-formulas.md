@@ -231,10 +231,10 @@ Create an array of strings by formatting each row of given array of hashes. Allo
 
 ```ruby
 [
-  {'Name: Joe, Email: joe@abc.com, Company: ABC' },
-  {'Name: Jill, Email: jill@nbc.com, Company: NBC' },
-  {'Name: Joan, Email: joan@nbc.com, Company: NBC' },
-  {'Name: Jack, Email: jack@hbo.com, Company: HBO' },
+  'Name: Joe, Email: joe@abc.com, Company: ABC' ,
+  'Name: Jill, Email: jill@nbc.com, Company: NBC' ,
+  'Name: Joan, Email: joan@nbc.com, Company: NBC' ,
+  'Name: Jack, Email: jack@hbo.com, Company: HBO' ,
 ]
 ```
 
