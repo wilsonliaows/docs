@@ -4,11 +4,9 @@ date: 2017-05-31 15:00:00 Z
 ---
 
 # Packages
-A package refers to a grouping of assets. These assets could be recipes and the related assets needed for the recipes to work, for example connections, SDK connectors, lookup tables and account properties used in those recipes. With the packages feature, users can move these assets easily across different Workato accounts.
+A package refers to a grouping of assets, which refers to recipes and the related dependencies needed for recipes to work, e.g. connections, SDK connectors, lookup tables and account properties. With the packages feature, users can move these assets easily across different Workato accounts.
 
-This is useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team's Workato account, or to the production Workato account.
-
-Consultants can also utilize this feature to move comprehensive integrations into their clients' accounts.
+This is useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team's Workato account, or to the production Workato account. Consultants can also utilize this feature to move comprehensive integrations into their clients' accounts.
 
 The packages feature is enabled only for certain Workato plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
@@ -36,7 +34,7 @@ To begin exporting your recipes, ensure that all the recipes you wish to export 
 
 In the example below, 2 recipes can be found in the **Customer Sync** folder. In these recipes, the user utilizes assets such as callable recipes and lookup tables.
 
-To export a folder out as a package, click on the **Export** button. Select the folder to export into a package.
+To export a folder as a package, click on the **Export** button. Select the folder to export.
 
 ![Export packages - select folder to export](/assets/images/features/packages/export-packages-select-folder.gif)
 *Select a folder to export*
