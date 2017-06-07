@@ -48,7 +48,7 @@ In the job details screen, if you're viewing a job rerun which is not the latest
 
 # Common scenarios for rerunning jobs
 
-- Testing a new recipe
+- Testing a new recipe. Learn more about testing a recipe [here](http://docs.workato.com/recipes/start-and-stop.html)
 
 When testing your recipe after building or after editing, it's a good idea to test all scenarios. If your recipe has conditional actions, it is best practice to test out all logical branches in the recipe.
 

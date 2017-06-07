@@ -4,7 +4,7 @@ date: 2017-03-23 14:00:00 Z
 ---
 
 # Jobs
-When an active recipe processes a trigger event, i.e. actions in the recipe are executed, it results in a **job**. Each job conists of a trigger event and the sequence of actions it carried out, according to the recipe logic. This set and sequence of actions executed depends on the data of the specific trigger event.
+When an active recipe processes a trigger event, i.e. actions in the recipe are executed, it results in a **job**. Each job conists of a trigger event and the sequence of actions it carried out, according to the recipe logic. This set and sequence of actions executed depends on the data of the specific trigger event.[Learn more about triggers here](http://docs.workato.com/recipes/triggers.html)
 
 Workato provides complete details into the execution flow of a job, i.e. what steps were executed, and the data input and output from every step. Workato also supports rerunning of jobs, in cases whereby an error stops a job from full completion.
 

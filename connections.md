@@ -8,7 +8,7 @@ For every app your recipe interacts with, Workato needs to be authorized to comm
 
 This authorization is referred to as an **app connection**.
 
-In many cases recipes will require a valid app connection before triggers and actions can be configured, to retrieve custom objects and fields, picklist values and other information ('meta-data') that helps with recipe construction.
+In many cases recipes will require a valid app connection before [triggers](http://docs.workato.com/recipes/triggers.html) and [actions](http://docs.workato.com/recipes/actions.html) can be configured, to retrieve custom objects and fields, picklist values and other information ('meta-data') that helps with recipe construction.
 
 ![Unconnected Salesforce action](/assets/images/recipes/connections/unconnected-salesforce-action.png)
 *Recipe prompts user to connect to their Salesforce organization. You will notice that the picklist is greyed out. This is because the recipe needs a valid connection to Salesforce to get the list of available Salesforce objects.*
