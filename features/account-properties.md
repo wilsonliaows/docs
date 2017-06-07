@@ -35,3 +35,4 @@ When a recipe is active, the value for the property is lookedup in account prope
 
 ![Account properties datatree](/assets/images/features/account-properties/account_properties_datatree.png)
 *Using properties in a recipe*
+
