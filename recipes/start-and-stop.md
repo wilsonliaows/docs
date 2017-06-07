@@ -5,9 +5,9 @@ date: 2017-02-18 22:15:00 Z
 
 # Test, start and stop recipe
 In Workato, you can work with recipes in various ways:
-- test a recipe to run a single trigger event through the recipe logic
-- start a recipe to have it pick up trigger events
-- stop a recipe to have it stop processing new trigger events
+- [test a recipe to run a single trigger event through the recipe logic](http://docs.workato.com/recipes/start-and-stop.md#test-mode)
+- [start a recipe to have it pick up trigger events](http://docs.workato.com/recipes/start-and-stop.md#test-trigger-events)
+- [stop a recipe to have it stop processing new trigger events](http://docs.workato.com/recipes/start-and-stop.md#testing-tips)
 
 # Test mode
 It is best practice to test your recipe before starting it and letting it run with minimal supervision. You don't want to turn on an inaccurate automation that moves lots of data wrongly - that probably results in a lot of cleanup work to do!
