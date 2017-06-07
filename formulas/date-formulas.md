@@ -124,7 +124,10 @@ Firstly, turn on formula mode and we have access to the .beginning_of_month func
 
 ## Beginning of Next Month
 To retrieve a date for the beginning of the next month, we simply need to add a month to the input date, and use the previously mentioned function get the beginning of the month.
-![beginning of next month](/assets/images/formula-docs/beginning_of_next_month.png)
+
+```ruby
+(Created Date+ 1.months).beginning_of_north
+```
 
 ## End of Current or Next Month
 While the beginning_of_month function will always give you the first day of the month, retrieving the end of the month is a little trickier because some months have 31 days while others have less.
@@ -132,10 +135,14 @@ While the beginning_of_month function will always give you the first day of the 
 Instead, we can apply some simple arithmetic to obtain the last date of the month.
 
 To retrieve the last date of the current month:
-![last date of current month](/assets/images/formula-docs/last_date_current_month.png)
+```ruby
+(Created Date + 1.months).beggining_of_month - 1.days
+```
 
 To retrieve the last date of the next month:
-![last date of next month](/assets/images/formula-docs/last_date_next_month.png)
+```ruby
+(Created Date + 2.months).beggining_of_month - 1.days
+```
 
 # Converting datetime to date
 To convert a date data type into a datetime data, or vice versa, use the [to_date](#todate) or [to_time](#totime) formulas.
