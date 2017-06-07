@@ -60,7 +60,7 @@
   * [ServiceNow](connectors/servicenow.md)
   * [SurveyMonkey](connectors/surveymonkey.md)
   * [Workday](connectors/workday.md)
-    * [Workday RaaS](connectors/workday/workday_raas.md)
+    * [Report as a Service](connectors/workday/workday_raas.md)
 * [Developing connectors](developing-connectors.md)
   * [HTTP vs SDK](developing-connectors/http-vs-sdk.md)
   * [HTTP](developing-connectors/http.md)
