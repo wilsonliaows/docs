@@ -17,8 +17,13 @@ For Workato accounts with the packages feature enabled, users will be able to se
 ![Packages option](/assets/images/features/packages/packages-option.png)
 *Packages menu option*
 
+Upon clicking the Import/export option on the menu, you'll be brought into the packages page.
+
+![Import export page](/assets/images/features/packages/import-export-buttons.png)
+*Packages page with import and export functions*
+
 # Exporting packages
-Upon clicking the Import/export option on the menu, you'll be brought into the packages page. Here, you can export a folder of recipes as a zip file. Included within that zip file are:
+When you export a folder of recipes as a zip file, included within that zip file are:
 - recipes in that folder
 - subfolders and recipes in those subfolders
 - associated connections
@@ -27,12 +32,24 @@ Upon clicking the Import/export option on the menu, you'll be brought into the p
 - all account properties
 - all lookup tables
 
-![Import export page](/assets/images/features/packages/import-export-buttons.png)
-*Packages page with import and export functions*
-
 To begin exporting your recipes, ensure that all the recipes you wish to export are grouped together in a Workato folder. All associated connections, SDK connectors and callable recipes will also be bundled into the package automatically. All account properties and lookup tables in that Workato account are also bundled into the package. Once the package is created, the user can download the package in a zip file.
 
-In the example below, 2 recipes are bundled under the packages folder. In these recipes, the user utilizes connectors such as callable recipes and lookup tables which store additional information related to the recipes.
+In the example below, 2 recipes can be found in the **Customer Sync** folder. In these recipes, the user utilizes assets such as callable recipes and lookup tables.
+
+To export a folder out as a package, click on the **Export** button. Select the folder to export into a package.
+
+![Export packages - select folder to export](/assets/images/features/packages/export-packages-select-folder.gif)
+*Select a folder to export*
+
+Once a folder has been selected, the assets that will be exported to a package will be shown on screen for review. If it looks right, click **Next**.
+
+![Export packages - review assets](/assets/images/features/packages/export-packages-review.png)
+*Review the folder's assets to be exported*
+
+The folder will be exported once **Next** has been clicked. Workato will proceed to generate a zip file to be downloaded. This zip file will contain all the assets related to the recipe for it to work when imported into another account.
+
+![Export packages - export completed](/assets/images/features/packages/export-packages-complete.png)
+*Folder has been successfully exported as a package and is ready for download*
 
 # Importing packages
 Upon clicking the Import/export option on the menu, you'll be brought into the packages page.
