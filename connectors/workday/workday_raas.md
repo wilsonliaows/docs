@@ -7,7 +7,7 @@ date: 2017-06-06 06:38:00 Z
 
 ## Custom Reports
 
-Custom Reports (advanced type) can be exposed as a Web Service to be used programmatically. Workato uses this web service to automate report generation and run to integrate report data from Workday to other applications.
+Custom Reports (advanced type) can be exposed as a Web Service to be used programmatically. Workato uses this web service to automate report generation and to integrate report data from Workday to other applications.
 
 ### How to find JSON endpoint
 
