@@ -10,7 +10,7 @@ The Freshdesk connector works with all Freshdesk plans
 
 ## How to connect to Freshdesk on Workato
 
-![Freshdesk Connection](/assets/images/connectors/freshdesk/FD connection.JPG)
+![Freshdesk Connection](/assets/images/connectors/freshdesk/FD connection.png)
 
 * **Connection name**
 
@@ -21,12 +21,12 @@ The Freshdesk connector works with all Freshdesk plans
   Enter your API Key from your Freshdesk account. You may obtain the API key by following these steps:
 
   1. Navigate to "User Profile" under the dropdown menu on the top-right corner of your helpdesk
-  ![Freshdesk Connection](/assets/images/connectors/freshdesk/FD tab.JPG)
+  ![Freshdesk Connection](/assets/images/connectors/freshdesk/FD tab.png)
 
   2. Navigate to Profile Settings
 
   3. You will see your API Key at the top-right corner.
-  ![Freshdesk Connection](/assets/images/connectors/freshdesk/FD API.JPG)
+  ![Freshdesk Connection](/assets/images/connectors/freshdesk/FD API.png)
 
 
 * **Helpdesk name** *
