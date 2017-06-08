@@ -8,7 +8,7 @@ Callable recipes are a type of recipe that can be called from another recipe. It
 
 Unlike other recipes that are started by a trigger event, callable recipe steps are executed when the recipe is called from another recipe.
 
-Callable recipes can also be accessed via REST API.
+Callable recipes can also be accessed via [REST API](/service-catalog.md)
 
 Advantages of using callable recipes
 - Easier to test
