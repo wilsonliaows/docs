@@ -145,7 +145,7 @@ Using a combination of date formulas, and date arithmetics, we can easily obtain
 
 
 
----
+
 
 ## Beginning of Current Month
 
