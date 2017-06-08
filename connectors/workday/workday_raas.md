@@ -57,6 +57,6 @@ Apply logic to filter prompt values
 Use values from Prompt to compare against report column values. Example, assign Prompt parameter Base Pay as Prompt #1
 
 ![Add RaaS filters](/assets/images/workday/raas_add_filter.png)
-* Add RaaS filters*
+*Add RaaS filters*
 
 When generating a report, Base Pay parameter will be checked. If a value if provided, only records with Base Pay greater than the provided value will be included in the report.
