@@ -74,6 +74,6 @@ Wrap it in a parent `"response" object:
 
 Remove the default JSON example in the pop up and paste this JSON. Clicking `Generate` will create this output datatree:
 
-![JSON body output datatree](/assets/images/aws_lambda/primitive_output_datatree.png)
-*JSON body output datatree*
+![Primitive response output datatree](/assets/images/aws_lambda/primitive_output_datatree.png)
+*Primitive response datatree*
 
