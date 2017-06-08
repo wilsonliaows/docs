@@ -1,5 +1,5 @@
 ---
-title: Workato connectors - AWS Lambda
+title: AWS Lambda
 date: 2017-02-16 06:15:00 Z
 ---
 
@@ -7,7 +7,7 @@ date: 2017-02-16 06:15:00 Z
 
 ## Configure output schema
 
-Since output data from a Lambda function is not static, a sample response will be needed to generate an action output schema. This schema will be used to create the output datatree for mapping purposes in a recipe.
+Since the output data from a Lambda function is not static and varies with the function, a sample response is needed to generate an action's output schema, also known as [output datatree](/workato-concepts.md#data-tree-and-pills). This datatree allows you to map the output from the function into another recipe step.
 
 All you need to do is provide a sample response to the `Response body` input field. Now the format of your response will determine what the sample output should look like. We will explore how to format a sample response for 2 cases: JSON response body and single primitive data.
 
