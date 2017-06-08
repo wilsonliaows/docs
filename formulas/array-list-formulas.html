@@ -1847,7 +1847,7 @@
 <h1 id="formulas">Formulas</h1>
 <p>Workato supports a variety of list formulas. Formulas in Workato are whitelisted Ruby methods, and therefore not all Ruby methods are supported. You can always <a href="../contact-us.html">reach out to us</a> to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.</p>
 <h2 id="example-list-of-hashes">Example list of hashes</h2>
-<p>The following is an example of a list of hashes called Contacts.</p>
+<p>The following is an example of a list of hashes called <strong>Contacts</strong>.</p>
 <p>This is the Contacts list in a table form:</p>
 <table>
 <thead>
@@ -1898,6 +1898,7 @@
   { <span class="hljs-symbol">name:</span> <span class="hljs-string">&apos;Jack&apos;</span>, <span class="hljs-symbol">email:</span> &#x2019;jack@hbo.com&#x2019;, <span class="hljs-symbol">state:</span> &#x2019;CA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;HBO&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">30000</span>&#x2019; }
 ]
 </code></pre>
+<hr>
 <h2 id="where">where</h2>
 <p>Retrieves only the rows (hashes) which meet the WHERE condition specified.</p>
 <h3 id="example-of-simple-where-formula">Example of simple where formula</h3>
@@ -2041,6 +2042,7 @@
   { <span class="hljs-symbol">name:</span> &#x2019;Jack&#x2019;, <span class="hljs-symbol">email:</span> &#x2019;jack@hbo.com&#x2019;, <span class="hljs-symbol">state:</span> &#x2019;CA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;HBO&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">1000</span>&#x2019; }
 ]
 </code></pre>
+<hr>
 <h2 id="pluck">pluck</h2>
 <p>Retrieves only the columns which have been specified.</p>
 <h3 id="example">Example</h3>
@@ -2099,6 +2101,20 @@
 <p>Results are returned as a list of a list:</p>
 <pre><code class="lang-ruby">[[<span class="hljs-string">&quot;joe@abc.com&quot;</span>, <span class="hljs-string">&quot;ABC&quot;</span>], [<span class="hljs-string">&quot;jill@nbc.com, &quot;</span>NBC<span class="hljs-string">&quot;], [&quot;</span>joan@nbc.com, <span class="hljs-string">&quot;NBC&quot;</span>], [<span class="hljs-string">&quot;jack@hbo.com, &quot;</span>HBO<span class="hljs-string">&quot;]]
 </span></code></pre>
+<hr>
+<h2 id="formatmap">format_map</h2>
+<p>Create an array of strings by formatting each row of given array of hashes. Allows you to add static text to the created strings as well. Fields to be represented in the formaat %{<strong>\<field_name></field_name></strong>}</p>
+<h3 id="example">Example</h3>
+<p><code>contacts.format_map(&apos;Name: %{name}, Email: %{email}, Company: %{company}&apos;)</code>  returns</p>
+<pre><code class="lang-ruby">[
+  <span class="hljs-string">&apos;Name: Joe, Email: joe@abc.com, Company: ABC&apos;</span> ,
+  <span class="hljs-string">&apos;Name: Jill, Email: jill@nbc.com, Company: NBC&apos;</span> ,
+  <span class="hljs-string">&apos;Name: Joan, Email: joan@nbc.com, Company: NBC&apos;</span> ,
+  <span class="hljs-string">&apos;Name: Jack, Email: jack@hbo.com, Company: HBO&apos;</span> ,
+]
+</code></pre>
+<p>The above example will give you a list of strings, one string for each row of the list <strong>&quot;contacts&quot;</strong>, using data from 3 of the fields: name, email and company, as stated. </p>
+<hr>
 <h2 id="join">join</h2>
 <p>Works on a list to concatenate values together as a string. The values are joined together via the parameter defined.</p>
 <h3 id="example">Example</h3>
@@ -2132,27 +2148,7 @@
 <code>contacts.where(&#x201C;state ==&#x201D;: &#x201C;CA&#x201D;).pluck(&#x201C;email&#x201D;).join(&#x201C;, &#x201D;)</code>. This returns</p>
 <pre><code class="lang-ruby">&#x201C;joe@abc.com, jack@hbo.com&#x201D;
 </code></pre>
-<h2 id="reverse">reverse</h2>
-<p>Reverses the order of a list.</p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].reverse</code></td>
-<td>[&quot;Jack&quot;, &quot;Joan&quot;, &quot;Jill&quot;, &quot;Joe&quot;]</td>
-</tr>
-<tr>
-<td><code>[100, 101, 102, 103].reverse</code></td>
-<td>[103, 102, 101, 100]</td>
-</tr>
-</tbody>
-</table>
+<hr>
 <h2 id="smartjoin">smart_join</h2>
 <p>Joins array elements into a string. Removes empty and nil values and trims any white space before joining.</p>
 <h3 id="example">Example</h3>
@@ -2174,6 +2170,29 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="reverse">reverse</h2>
+<p>Reverses the order of a list.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[&quot;Joe&quot;, &quot;Jill&quot;, &quot;Joan&quot;, &quot;Jack&quot;].reverse</code></td>
+<td>[&quot;Jack&quot;, &quot;Joan&quot;, &quot;Jill&quot;, &quot;Joe&quot;]</td>
+</tr>
+<tr>
+<td><code>[100, 101, 102, 103].reverse</code></td>
+<td>[103, 102, 101, 100]</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <h2 id="sum">sum</h2>
 <p>For integers and decimals, the numbers will be added together and the total sum obtained. For strings, the strings will be concatenated together to form a longer string.</p>
 <h3 id="example">Example</h3>
@@ -2199,6 +2218,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="uniq">uniq</h2>
 <p>Returns a list containing unique items i.e. remove duplicate items.</p>
 <h3 id="example">Example</h3>
@@ -2224,6 +2244,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="flatten">flatten</h2>
 <p>Flattens a multi-dimensional array (i.e. array of arrays) to a single dimension array.</p>
 <h3 id="example">Example</h3>
@@ -2249,27 +2270,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="include">include?</h2>
-<p>Returns true if the given object is present, otherwise returns false.</p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;b&quot;)</code></td>
-<td>true</td>
-</tr>
-<tr>
-<td><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;z&quot;)</code></td>
-<td>false</td>
-</tr>
-</tbody>
-</table>
+<hr>
 <h2 id="length">length</h2>
 <p>Returns the number of elements in self. May be zero.</p>
 <h3 id="example">Example</h3>
@@ -2299,6 +2300,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="max">max</h2>
 <p>Returns largest value in an array. When comparing numbers, the largest number is returned. When comparing strings, the string with the largest ASCII value is returned.</p>
 <h3 id="example">Example</h3>
@@ -2324,6 +2326,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="min">min</h2>
 <p>Returns smallest value in an array. When comparing numbers, the smallest number is returned. When comparing strings, the string with the smallest ASCII value is returned.</p>
 <h3 id="example">Example</h3>
@@ -2349,6 +2352,30 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h1 id="conditionals">Conditionals</h1>
+<h2 id="include">include?</h2>
+<p>Returns true if the given object is present, otherwise returns false.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;b&quot;)</code></td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].include?(&quot;z&quot;)</code></td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <h2 id="present">present?</h2>
 <p>This function will check the input, returning true if there is a value present. If input is null, an empty string. or an empty array, formula returns false.</p>
 <h3 id="example">Example</h3>
@@ -2382,6 +2409,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="presence">presence</h2>
 <p>This function will check the input, returning its value if there is one present, else returning nil.</p>
 <h3 id="example">Example</h3>
@@ -2415,6 +2443,10 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h1 id="conversion">Conversion</h1>
+<p>The following formulas allows you to convert data from arrays to other data types</p>
+<hr>
 <h2 id="tocsv">to_csv</h2>
 <p>Generates CSV line from an array. This handles escaping. Nil values and empty strings will also be expressed within the csv line.</p>
 <h3 id="example">Example</h3>
@@ -2433,6 +2465,43 @@
 <tr>
 <td><code>[&quot;John Smith&quot;, &quot;No-Email&quot;, &quot; &quot;, nil, 1212].to_csv</code></td>
 <td>&quot;John Smith,No-Email, ,,1212&quot;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tojson">to_json</h2>
+<p>Converts hash or array to JSON string</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hash: <code>{&quot;pet&quot; =&gt; &quot;cat&quot;, &quot;color&quot; =&gt; &quot;gray&quot;}.to_json</code></td>
+<td>{&quot;pet&quot;:&quot;cat&quot;,&quot;color&quot;:&quot;gray&quot;}</td>
+</tr>
+<tr>
+<td>Array: <code>[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;].to_json</code></td>
+<td>[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="toparam">to_param</h2>
+<p>Returns a string representation for use as a URL query string.</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{name: &apos;Jake&apos;, age: &apos;22&apos;}.to_param</code></td>
+<td>&quot;name=Jake&amp;age=22&quot;</td>
 </tr>
 </tbody>
 </table>
@@ -2518,7 +2587,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"List formulas","date":"2017-03-30T05:00:00.000Z","level":"1.6.4","depth":2,"next":{"title":"Files and attachments","level":"1.7","depth":1,"path":"handling-files-and-attachments.md","ref":"handling-files-and-attachments.md","articles":[{"title":"CSV files","level":"1.7.1","depth":2,"path":"features/handling-csv-files.md","ref":"features/handling-csv-files.md","articles":[]},{"title":"JSON content","level":"1.7.2","depth":2,"path":"features/handling-json.md","ref":"features/handling-json.md","articles":[]},{"title":"XML content","level":"1.7.3","depth":2,"path":"features/handling-xml.md","ref":"features/handling-xml.md","articles":[]}]},"previous":{"title":"Date formulas","level":"1.6.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/array-list-formulas.md","mtime":"2017-06-08T18:00:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T18:01:19.924Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"List formulas","date":"2017-03-30T05:00:00.000Z","level":"1.6.4","depth":2,"next":{"title":"Files and attachments","level":"1.7","depth":1,"path":"handling-files-and-attachments.md","ref":"handling-files-and-attachments.md","articles":[{"title":"CSV files","level":"1.7.1","depth":2,"path":"features/handling-csv-files.md","ref":"features/handling-csv-files.md","articles":[]},{"title":"JSON content","level":"1.7.2","depth":2,"path":"features/handling-json.md","ref":"features/handling-json.md","articles":[]},{"title":"XML content","level":"1.7.3","depth":2,"path":"features/handling-xml.md","ref":"features/handling-xml.md","articles":[]}]},"previous":{"title":"Date formulas","level":"1.6.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/array-list-formulas.md","mtime":"2017-06-08T18:17:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T18:18:07.472Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

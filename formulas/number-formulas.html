@@ -1738,6 +1738,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="the---operator">The - operator</h2>
 <p>This operator subtracts the right hand operand from the left hand operand.</p>
 <h3 id="example">Example</h3>
@@ -1761,7 +1762,7 @@
 <td>Float</td>
 </tr>
 <tr>
-<td><code>4.0 + 7.0</code></td>
+<td><code>4.0 - 7.0</code></td>
 <td>-3.0</td>
 <td>Float</td>
 </tr>
@@ -1796,6 +1797,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="the--operator">The / operator</h2>
 <p>Divides left hand operand by right hand operand.</p>
 <h3 id="example">Example</h3>
@@ -1840,6 +1842,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="the--operator">The % operator</h2>
 <p>Divides left hand operand by right hand operand and returns the remainder.</p>
 <h3 id="example">Example</h3>
@@ -1879,6 +1882,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h1 id="other-number-formulas">Other number formulas</h1>
 <h2 id="abs">abs</h2>
 <p>This function returns the absolute (positive) value of a number.</p>
@@ -1914,6 +1918,37 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="round">round</h2>
+<p>Rounds off a numerical value to a specified after the formula. Accepts negative values.</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1234.567.round</code></td>
+<td>1235</td>
+<td>Fixnum</td>
+</tr>
+<tr>
+<td><code>1234.567.round(2)</code></td>
+<td>1234.57</td>
+<td>Float</td>
+</tr>
+<tr>
+<td><code>1234.567.round(-2)</code></td>
+<td>1200</td>
+<td>Fixnum</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="conditionals">Conditionals</h1>
 <h2 id="blank">blank?</h2>
 <p>This function checks the input and returns true if it is a null or an empty string.</p>
 <h3 id="example">Example</h3>
@@ -1943,6 +1978,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="presence">presence</h2>
 <p>This function will check the input number, returning its value if there is one present, else returning nil.</p>
 <h3 id="example">Example</h3>
@@ -1987,6 +2023,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="present">present?</h2>
 <p>This function will check the input, returning true if there is a value present. If input is null or an empty string, formula returns false.</p>
 <h3 id="example">Example</h3>
@@ -2020,8 +2057,9 @@
 </tr>
 </tbody>
 </table>
+<h1 id="conversions">Conversions</h1>
 <h2 id="toi">to_i</h2>
-<p>This function can be used on a number to only take its integer value. Floats will be rounded down.</p>
+<p>This function can be used on a number to only take its integer value. Floats will be rounded down. To round to closest integer, use the <code>round</code> formula instead.</p>
 <h3 id="example">Example</h3>
 <table>
 <thead>
@@ -2059,6 +2097,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="tof">to_f</h2>
 <p>This function can be used on a number to retain its decimal values. When applied to an integer, it converts the data type from fixnum to float.</p>
 <h3 id="example">Example</h3>
@@ -2098,6 +2137,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="tos">to_s</h2>
 <p>This function converts a number into a string.</p>
 <h3 id="example">Example</h3>
@@ -2137,55 +2177,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="round">round</h2>
-<p>This function will round up or down a number by regular rounding rules. The number of decimal places to round to can be defined with an additional parameter.</p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>45.5.round</code></td>
-<td>46</td>
-<td>Fixnum</td>
-</tr>
-<tr>
-<td><code>45.49.round</code></td>
-<td>45</td>
-<td>Fixnum</td>
-</tr>
-<tr>
-<td><code>-45.5.round</code></td>
-<td>-46</td>
-<td>Fixnum</td>
-</tr>
-<tr>
-<td><code>-45.49.round</code></td>
-<td>-45</td>
-<td>Fixnum</td>
-</tr>
-<tr>
-<td><code>45.49.round(1)</code></td>
-<td>45.5</td>
-<td>Float</td>
-</tr>
-<tr>
-<td><code>45.49.round(2)</code></td>
-<td>45.49</td>
-<td>Float</td>
-</tr>
-<tr>
-<td><code>45.49.round(4)</code></td>
-<td>45.49</td>
-<td>Float</td>
-</tr>
-</tbody>
-</table>
+<hr>
 <h2 id="tocurrency">to_currency</h2>
 <p>This function converts a number into a currency string. The number of decimal places to round to can be defined with an additional parameter.</p>
 <p>By adding a parameter with a locale and country code, it will add the appropriate currency symbol.</p>
@@ -2216,6 +2208,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="tophone">to_phone</h2>
 <p>This function converts a number into a formatted phone number. By default, the delimiter is a dash (-), but delimiters can be specified via a parameter.</p>
 <p>By adding a parameter with area code: true, the first three numbers will be enclosed in brackets, representing the area.</p>
@@ -2256,7 +2249,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="converting-other-data-types-to-numbers">Converting other data types to numbers</h1>
+<h2 id="converting-other-data-types-to-numbers">Converting other data types to numbers</h2>
 <p>To convert a value of other data types, e.g. string, date, into an integer or a float, use the <a href="#toi">to_i</a> and the <a href="#tof">to_f</a> formulas respectively.</p>
 
                                 
@@ -2340,7 +2333,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Number formulas","date":"2017-03-30T05:00:00.000Z","level":"1.6.2","depth":2,"next":{"title":"Date formulas","level":"1.6.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"previous":{"title":"String formulas","level":"1.6.1","depth":2,"path":"formulas/string-formulas.md","ref":"formulas/string-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/number-formulas.md","mtime":"2017-06-08T18:00:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T18:01:19.924Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Number formulas","date":"2017-03-30T05:00:00.000Z","level":"1.6.2","depth":2,"next":{"title":"Date formulas","level":"1.6.3","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"previous":{"title":"String formulas","level":"1.6.1","depth":2,"path":"formulas/string-formulas.md","ref":"formulas/string-formulas.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"formulas/number-formulas.md","mtime":"2017-06-08T18:17:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T18:18:07.472Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
