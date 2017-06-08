@@ -1699,7 +1699,7 @@
                                 
                                 <h1 id="workbot-for-slack">Workbot for Slack</h1>
 <p>Workbot from Workato helps you work with your business apps from within Slack. You can chat with your apps to access information or ask the the app to create or update business data. To cut down on traffic, apps can now send you smart notifications based on user specified filters.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 1.png" alt="Workbot1"></p>
+<p><img src="../assets/images/workbot/workbot/workbot-1.png" alt="Workbot1"></p>
 <p>We will cover four areas in this document to help you get started!</p>
 <ul>
 <li>Adding Workbot to Slack</li>
@@ -1710,68 +1710,65 @@
 <h2 id="adding-workbot-to-slack">Adding Workbot to Slack</h2>
 <p>You can add Workbot to your Slack <a href="https://www.workato.com/workbot-slack" target="_blank">here</a>. This brings you to the following screen to set up Workbot for Slack.</p>
 <p>Note: If you do not want to not make Workbot available to all your team members, or if you are doing your own testing, you can create a new Slack team and use that team to set up Workbot.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 2.png" alt="Workbot2">
+<p><img src="../assets/images/workbot/workbot/workbot-2.gif" alt="Workbot2">
 <em>Workbot introduction page</em></p>
 <p>Click on the <strong>Add to Slack</strong> button. This brings up a pop-up showing the Slack team you&apos;re connected to. To authorize Workbot to have access to that Slack team, click on <strong>Authorize</strong>.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 3.png" alt="Workbot3">
+<p><img src="../assets/images/workbot/workbot/workbot-3.png" alt="Workbot3">
 <em>Click on Authorize to let Workbot chat with and help your team on Slack</em></p>
-<p>If authorized, you should see the following screen:</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 4.png" alt="Workbot4">
-<em>Popup shown when authorization is successful</em></p>
-<p>That&apos;s cool, you&apos;ve now added Workbot to your Slack team!</p>
+<p>Congratulations! You have now succesfully connected to workbot! </p>
 <h2 id="connecting-workbot-to-apps">Connecting Workbot to Apps</h2>
 <p>Next, you have to connect to the apps you want Workbot to interact with. Toggle the switches to <strong>On</strong> if you wish to interact with that app.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 5.png" alt="Workbot5">
+<p><img src="../assets/images/workbot/workbot/workbot-5.png" alt="Workbot5">
 <em>List of available apps to connect Workbot to</em></p>
 <p>Authorize the connection by providing your user credentials or other required authentication information. For example, connecting to Salesforce brings up a popup to connect to Salesforce and authorize Salesforce access to Workato.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 6.png" alt="Workbot6">
+<p><img src="../assets/images/workbot/workbot/workbot-6.png" alt="Workbot6">
 <em>Popup generated when we turn on the Salesforce connection in Workbot</em></p>
 <p>Once connected, the switch turns <strong>On</strong>.</p>
 <p>Now you&apos;re ready to get Workbot to fetch or push data from your connected apps!</p>
 <h2 id="sending-commands-to-the-app">Sending commands to the app</h2>
 <p>There is a defined list of commands for each app that tells you what data you can retrieve or what data you can write to each app. Simply click on <strong>Commands</strong> right under the app name to view the list.</p>
 <p>For example, you can request Workbot to display the details of an opportunity in Salesforce, or list recent opportunities. You can even create accounts and cases from Slack with Workbot!</p>
-<p><img src="../assets/images/Workbot/workbot/Workbot 16.png" alt="Workbot16">
+<p><img src="../assets/images/workbot/workbot/workbot-16.png" alt="Workbot16">
 <em>List of commands available for Salesforce</em></p>
 <p>Note that direct messages (DMs) are private exchanges with Workbot and won&#x2019;t be seen by others.</p>
 <h3 id="example-of-using-commands">Example of using commands</h3>
 <p>Let&#x2019;s ask workbot to <strong>show details for a customer</strong> from QuickBooks.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 7.png" alt="Workbot7">
+<p><img src="../assets/images/workbot/workbot/workbot-7.png" alt="Workbot7">
 <em>Using show customer details command with Workbot in Slack</em></p>
 <p>Workbot checks if the QuickBooks customer GenePoint already exists. If it does, the customer details will be retrieved and posted on Slack. It also asks if we would want to create a corresponding account in Salesforce. if we want to do that, all we need to do is say &quot;@workbot Yes&quot;, and Workbot proceeds to create and display the data for the newly created Salesforce account.</p>
 <p>Workbot will do a search to check for duplicates - if the Salesforce account GenePoint already exists, the customer details will be retrieved and posted on Slack. If it does not exist yet, the account will be created and details will be posted on Slack.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 8.png" alt="Workbot8">
+<p><img src="../assets/images/workbot/workbot/workbot-8.png" alt="Workbot8">
 <em>If Workbot finds a duplicate record, it will not create the new Salesforce account</em></p>
 <h2 id="setting-up-notifications">Setting up notifications</h2>
 <p>Commands are one way to interact with Workbot. At the same time, you can get Workbot to monitor your apps for important events and notify you about them. Invite Workbot to any channel and configure notifications to be posted to that channel. To set up notifications in your channel for specific recipes, follow the steps below:</p>
 <ol>
 <li>Go to channel for Workbot to post notifications to</li>
 </ol>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 9.png" alt="Workbot9">
+<p><img src="../assets/images/workbot/workbot/workbot-9.png" alt="Workbot9">
 <em>Go to, or create, the channel where Workbot should post notifcations</em></p>
 <ol>
 <li>Invite Workbot to the channel</li>
 </ol>
-<p><img src="../assets/images/Workbot/workbot/workbot-adding-channel.gif" alt="Workbot10">
+<p><img src="../assets/images/workbot/workbot/workbot-adding-channel.gif" alt="Workbot10">
 <em>Invite Workbot to the channel</em></p>
 <ol>
 <li>Turn on notifications via Workbot command</li>
 </ol>
 <p>The command should follow this format:
-<code>@workbot appname start notifications name:\[document] [event]</code></p>
+<code>@workbot appname start notifications name:[document] [event]</code></p>
 <p>If the app has not been turned on, you will not be able to start notifications. But if the app has been turned on earlier, Workbot will confirm that notifications is started.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 12.png" alt="Workbot12">
+<p><img src="../assets/images/workbot/workbot/workbot-12.png" alt="Workbot12">
 <em>Workbot confirming that the specified notification has been turned on</em></p>
 <p>Subsequently, when the event occurs in your app, Workbot will send you notifications accordingly on this channel.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 13.png" alt="Workbot13">
+<p><img src="../assets/images/workbot/workbot/workbot-13.png" alt="Workbot13">
 <em>Notifications posted to the specified channel by Workbot</em></p>
 <ol>
 <li>Optionally, turn off notifications via Workbot command</li>
 </ol>
 <p>The command should follow this format:
-<code>@workbot appname stop notifications name:\[document] [event]</code></p>
+<code>@workbot appname stop notifications name:[document] [event]</code></p>
 <p>Workbot will confirm that it has stopped notifications for the specified event.</p>
-<p><img src="../assets/images/Workbot/Workbot/Workbot 15.png" alt="Workbot15">
+<p><img src="../assets/images/workbot/workbot/workbot-15.png" alt="Workbot15">
 <em>Workbot confirming that the specific notifications will be stopped</em></p>
 <h3 id="final-notes">Final notes</h3>
 <ol>
@@ -1863,7 +1860,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot","date":"2017-03-30T05:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Workbot actions","level":"1.13.1","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},"previous":{"title":"Data retention","level":"1.12.10","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot.md","mtime":"2017-06-08T18:17:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T18:18:34.079Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot","date":"2017-03-30T05:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Workbot actions","level":"1.13.1","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},"previous":{"title":"Data retention","level":"1.12.10","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"workbot/workbot.md","mtime":"2017-06-08T19:10:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T19:12:11.632Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
