@@ -40,7 +40,14 @@ Our documentation is on Github. If you spot something missing, or if you have ad
 1) Filing a Github issue and providing us with the information in that issue.
 ![Submit issues](/assets/images/contact-us/issues-workato.gif)
 *Submit Issues to Workato's Page*
+[Submit issues](/assets/images/contact-us/issues-workato-2.gif)
+*Submit Issues to Workato's Page*
 2) Make an edit to the documentation and submit a pull request! Our team will review and merge your pull requests.
-![Submit Edits](/assets/images/contact-us/edit-workato-page-1.gif)
+![Submit Edits](/assets/images/contact-us/edit-page-1.gif)
 *Submitting edits to Workato's page*
-![Submit Edits](/assets/images/contact-us/edit-workato-page-2.gif)
+![Submit Edits](/assets/images/contact-us/edit-page-2.gif)
+*Submitting edits to Workato's page*
+![Submit Edits](/assets/images/contact-us/edit-page-3.gif)
+*Submitting edits to Workato's page*
+![Submit Edits](/assets/images/contact-us/edit-page-4.gif)
+*Submitting edits to Workato's page*
