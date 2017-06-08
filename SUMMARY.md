@@ -59,6 +59,7 @@
   * [Salesforce](connectors/salesforce.md)
   * [ServiceNow](connectors/servicenow.md)
   * [SurveyMonkey](connectors/surveymonkey.md)
+  * [AWS Lambda](connectors/aws_lambda.md)
 * [Developing connectors](developing-connectors.md)
   * [HTTP vs SDK](developing-connectors/http-vs-sdk.md)
   * [HTTP](developing-connectors/http.md)
