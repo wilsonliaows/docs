@@ -9,7 +9,7 @@ The Parent Child Recipe Relationship is essentially a link between the parent re
 # Benefits of Parent Child Recipes
 The primary benefit that arises as a direct result of this new feature is the introduction of the software development life cycle. This cycle easily allows user to modify, update, and test out new changes in the original parent recipie. This thus facilitates the process of creating, testing, and sending the recipe to their production apps. 
 
-#How to use Parent Child Recipes
+# How to use Parent Child Recipes
 
 Let’s take into consideration this original recipe which allows the user to update their Zendesk organization when a Salesforce account is created or updated. 
 
@@ -45,16 +45,5 @@ Once you verify that you want to install the new version, your child recipe will
 
 ![New Child Recipe](/assets/images/features/Parent-child-recipes/new_modified_child_recipe.png)
 *New Child Recipe*
-
-
-
-
-
-
-
-
-
-
-
 
 
