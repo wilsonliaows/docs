@@ -152,3 +152,20 @@ Once SAML is enabled access to Team is controlled by SAML Identity Provider (Okt
 Another way to login directly into SAML-enabled team is by providing Team Id set during Team SAML configuration procedure. SAML Identity Provider authentication step is required as well.
 ![Team Login with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-login.gif)
 *Login into Team account with Team Id and Okta authentication*
+
+# SAML Just-In-Time provisioning
+
+Just-in-Time provisioning eliminates the needs for team admins to create Workato users accounts in advance on behalf of team members. When an employee signs up for a new Workato account via SAML SSO, they will automatically be added into the organization's team. When an employee with an existing Workato account logs in via SAML SSO for the first time, they will automatically be added into the organization's team as well. Team members will be given the role of `Operator` by default.
+
+Information about the new user is taken from the SAML attributes passed to Workato from the identity provider. If attributes are missing, default value are used. The following attributes are supported:
+
+| Workato user field  | SAML attribute | Default value |
+| ------------- | ------------- | ------------- |
+| User email | `workato_email` | SAML `NameID`<br>(in email format) |
+| User first and last name | `workato_full_name` | part of SAML `Name` |
+| User team role | `workato_role`<br>(could be `Admin`, `Analyst` or `Operator`, case-sensitive) | `Operator` |
+
+You may enable SAML Just-In-Time provisioning on **Team** > **Settings** page.
+
+![SAML JITP](/assets/images/user-accounts-and-teams/team-collaboration/saml-jitp.png)
+*Enable SAML Just-In-Time provisioning*

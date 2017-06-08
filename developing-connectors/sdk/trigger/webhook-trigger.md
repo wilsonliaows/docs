@@ -1,4 +1,4 @@
-# Webhook Trigger
+# Dynamic Webhook Trigger
 
 ```ruby
 triggers: {
