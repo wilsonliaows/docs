@@ -147,7 +147,7 @@ Using a combination of date formulas, and date arithmetics, we can easily obtain
 
 
 
-## Beginning of Current Month
+## Beginning of current month
 
 Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.
 ![beginning of current month](/assets/images/formula-docs/beginning_of_current_month.png)
@@ -165,7 +165,7 @@ To retrieve a date for the beginning of the next month, we simply need to add a 
 
 ---
 
-## End of Current or Next Month
+## End of current or next month
 
 While the beginning_of_month function will always give you the first day of the month, retrieving the end of the month is a little trickier because some months have 31 days while others have less.
 
@@ -179,7 +179,7 @@ To retrieve the last date of the next month:
 
 
 
-# Display Conversion
+# Display conversion
 
 ## strftime
 
