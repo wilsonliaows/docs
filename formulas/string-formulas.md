@@ -151,7 +151,7 @@ This function checks the input string on whether it begins with the stated keywo
 
 
 
-# Text Manipulation
+# Text manipulation
 
 This section will contain formula's which allows you to manipulate the text within strings
 
