@@ -23,7 +23,7 @@ With the use of the copy button located below the app logos, you can copy the or
 
 Your child recipe should look as follows. You can note that the child recipe will have the words “Copy of” before the title of the parent recipe.
 
-![Copied or installed recipe](/assets/images/features/Parent-child-recipes/copies_parent_recipe.png)
+![Copied or installed recipe](/assets/images/features/Parent-child-recipes/copied_parent_recipe.png)
 *Child Recipe*
 
 Let’s say for example, that you included a stop step after step 5 (Create organization in Zendesk)
