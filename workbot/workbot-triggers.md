@@ -44,3 +44,12 @@ Trigger has *Context* which contains useful information about command environmen
 |Thread ID| Thread ID if message was posted to thread or null otherwise|
 
 Triggers may contain **Message ID** in their output. Message ID has a value only when **New command** was triggered by a button action. If command was triggered as result of a manually typed command, this field will be empty.
+
+## New URL mention
+When you send a URL in slack, you can have workbot provide certain information into the channel for everyone to see. For example, you can send a Salseforce Lead URL into your sales channel and workbot will automatically send a message showing more information about that particular lead
+
+![workbot triggers](/assets/images/workbot/workbot-trigger/workbot-url.gif)
+
+Simply select the application in the trigger (Currently only Salesforce and Github), and select the Document, and set up your actions as you prefer. By default, giving a salesforce or github URL in a channel workbot is in will trigger a prompt from workbot asking you if you want to show details of the content of the URL that you have sent. CLick on yes to trigger the recipe. You can also edit the recipe in workato if you want to have more or less fields included in the message.
+
+![workbot triggers](/assets/images/workbot/workbot-trigger/workbot-url-mention.gif)
