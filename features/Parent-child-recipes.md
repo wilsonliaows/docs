@@ -3,13 +3,13 @@ title: Parent Child Recipe Relationships
 date: 2017-06-08 16:00:00 Z
 ---
 
-# Parent Child Recipes
+# Parent child recipes
 The Parent Child Recipe Relationship is essentially a link between the parent recipe (original) and the child recipe (copies or installed recipe). If the parent recipe has been altered or modified, Workato will automatically send a prompt to the child recipe which will in turn provide users with the option to update the child recipe with the latest version
 
-# Benefits of Parent Child Recipes
+# Benefits of parent child recipes
 The primary benefit that arises as a direct result of this new feature is the introduction of the software development life cycle. This cycle easily allows user to modify, update, and test out new changes in the original parent recipie. This thus facilitates the process of creating, testing, and sending the recipe to their production apps. 
 
-# How to use Parent Child Recipes
+# How to use parent child recipes
 
 Let’s take into consideration this original recipe which allows the user to update their Zendesk organization when a Salesforce account is created or updated. 
 
