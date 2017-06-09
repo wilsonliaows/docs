@@ -4,11 +4,68 @@ Not all ruby public instance methods are available. Methods are whitelisted to e
 
 Here is a list of methods available:
 
-REST verb methods
+## REST verb methods
 - get(url, input)
 - post(url, input)
 - put(url, input)
 - patch(url, input)
+- delete(url, input)
+
+### Argument types
+Each REST verb methods must be provided a `url` string as the first argument. The second argument (optional) can be in 2 forms.
+
+Firstly, `input` can be passed as a single Hash. This Hash can simply be the `input` of the `execute` or `poll` argument, like this:
+
+```ruby
+execute: lambda do |connection, input|
+  get("https://www.some_api_endpoint.com/api", input)
+end
+```
+
+The hash can also be formed before like this:
+
+```ruby
+execute: lambda do |connection, input|
+  params = {
+    "id" => input["id"]
+  }
+
+  get("https://www.some_api_endpoint.com/api", params)
+end
+```
+
+The SDK framework will process this Hash value and transform it into the respective data format. For GET requests, the Hash data is formed as part of URL parameters. For POST, PUT and PATCH, a payload body will be generated.
+
+The other method of passing request data is as a series of key/value pairs.
+
+```ruby
+execute: lambda do |connection, input|
+  post("https://www.some_api_endpoint.com/api", name: input["name"], email: input["email"])
+end
+```
+
+All arguments after the first (URL string) will be transformed into request data. In this case, since default data format is JSON, will form a request body like this:
+
+```json
+{
+  "name": "Ee Shan",
+  "email": "eeshan@workato.com"
+}
+```
+
+For a GET request, each request data will be formed as part of URL parameters.
+
+```ruby
+execute: lambda do |connection, input|
+  get("https://www.some_api_endpoint.com/api", name: input["name"], email: input["email"])
+end
+```
+
+The request URL squery tring will be:
+
+`?name%3DEe%20Shan%26email%3Deeshan%40workato.com`
+
+## Ruby methods
 
 Method | Description
 --- | ----------
