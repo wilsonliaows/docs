@@ -1,6 +1,6 @@
 ---
 title: AWS Lambda
-date: 2017-02-16 06:15:00 Z
+date: 2017-06-09 04:45:00 Z
 ---
 
 # AWS Lambda
@@ -16,7 +16,7 @@ All you need to do is provide a sample response to the `Response body` input fie
 ![Schema Designer](/assets/images/aws_lambda/response_body_input_field.png)
 *Response body input field*
 
-There are 2 ways to configure this input field: Using a sample JSON or creating a schema definition. This article will focus on using sample JSON.
+There are 2 ways to configure this input field: Using a sample JSON or creating a schema definition. This article focuses on using sample JSON.
 
 Clicking on `generate from JSON sample` will open a pop up which looks like this:
 
@@ -49,11 +49,9 @@ Wrap it in a parent `"response" object:
 }
 ```
 
-We recommend forming this JSON in a text editor before you copy/paste into the input field.
+Insert the output JSON and click `Generate`. This generates the following output datatree:
 
-Remove the default example and paste this formatted JSON over and click `Generate`. This will generate an output datatree which looks like this:
-
-![JSON body output datatree](/assets/images/aws_lambda/json_output_datatree.png)
+![JSON response output datatree](/assets/images/aws_lambda/json_sample_output.gif)
 *JSON body output datatree*
 
 ## Primitive data response
@@ -74,6 +72,5 @@ Wrap it in a parent `"response" object:
 
 Remove the default JSON example in the pop up and paste this JSON. Clicking `Generate` will create this output datatree:
 
-![Primitive response output datatree](/assets/images/aws_lambda/primitive_output_datatree.png)
-*Primitive response datatree*
-
+![Primitive response output datatree](/assets/images/aws_lambda/primitive_sample_output.gif)
+*Primitive response output datatree*
