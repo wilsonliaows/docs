@@ -70,7 +70,7 @@ Wrap it in a parent `"response" object:
 }
 ```
 
-Remove the default JSON example in the pop up and paste this JSON. Clicking `Generate` will create this output datatree:
+Insert the output JSON and click `Generate`. This generates the following output datatree:
 
 ![Primitive response output datatree](/assets/images/aws_lambda/primitive_sample_output.gif)
 *Primitive response output datatree*
