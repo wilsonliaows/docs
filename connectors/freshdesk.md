@@ -10,10 +10,22 @@ The Freshdesk connector works with all Freshdesk plans.
 
 ## How to connect to Freshdesk on Workato
 
+1. Add a new connection
+
+Go to your ["Connections" page](https://www.workato.com/integrations/freshdesk) and click on the "Create a New Connection" button on the top-right corner, as seen below.
+
+![Freshdesk connection configuration](/assets/images/connectors/freshdesk/freshdesk-add-connection.png)
+*Create a new connection in your Workato account*
+
+2. Choose "Freshdesk" as the new application to connect to.
+
+![Choose Freshdesk as your app](/assets/images/connectors/freshdesk/freshdesk-choose-app.png)
+*Create a new connection in your Workato account*
+
+3. Fill in the configuration input fields
+
 ![Freshdesk connection configuration](/assets/images/connectors/freshdesk/freshdesk-connection.png)
 *Freshdesk connection configuration on Workato*
-
-1. Fill in the configuration input fields
 
 * **Connection name**
 
@@ -39,14 +51,15 @@ The Freshdesk connector works with all Freshdesk plans.
 
   If your company's Freshdesk URL is https://yourcompany.freshdesk.com, then input "yourcompany" as the helpdesk name in the field.
   
-2. Click on connect
+4. Click on connect
 
  Once all required fields are filled, click connect. Once Freshdesk has been successfully connected, you would see the following page.
+
  ![Freshdesk Successful Connection](/assets/images/connectors/freshdesk/freshdesk-successful-connection.png)
 
  ## Recommended Recipes
    *[New/Updated Freshdesk Ticket to Salesforce Case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
-   
+
    *[New ticket in FreshDesk will post message to channel in Slack](https://www.workato.com/recipes/103170-new-ticket-in-freshdesk-will-post-message-to-channel-in-slack)
 
  ## For More Information 
