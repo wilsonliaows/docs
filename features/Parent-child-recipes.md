@@ -43,7 +43,7 @@ If you click on the notification that indicates a new version is available, you 
 
 Once you verify that you want to install the new version, your child recipe will resemble your modified parent recipe.
 
-![New Child Recipe](/assets/images/features/Parent-child-recipes/new_modified_child_recipe.png)
+![New Child Recipe](/assets/images/features/Parent-child-recipes/new-modified-child-recipe.png)
 *New Child Recipe*
 
 
