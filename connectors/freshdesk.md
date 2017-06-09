@@ -32,3 +32,20 @@ The Freshdesk connector works with all Freshdesk plans.
 
   3. You will see your API Key at the top-right corner.
   
+  ![Freshdesk Connection](/assets/images/connectors/freshdesk/freshdesk-api.png)
+  *Retrieve your API key from Freshdesk*
+
+* **Helpdesk name**
+
+  If your company's Freshdesk URL is https://yourcompany.freshdesk.com, then input "yourcompany" as the helpdesk name in the field.
+  
+2. Click on connect
+ Once all required fields are filled, click connect. Once Freshdesk has been successfully connected, you would see the following page.
+ ![Freshdesk Successful Connection](/assets/images/connectors/freshdesk/freshdesk-successful-connection.png)
+
+ ## Recommended Recipes
+   *[New/Updated Freshdesk Ticket to Salesforce Case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
+   *[New ticket in FreshDesk will post message to channel in Slack](https://www.workato.com/recipes/103170-new-ticket-in-freshdesk-will-post-message-to-channel-in-slack)
+
+ ## For More Information 
+   *[Freshdesk Adapter Page](https://www.workato.com/integrations/freshdesk)
