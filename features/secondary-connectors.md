@@ -10,6 +10,6 @@ At present Workato supports secondary connectors for the folowing apps
 * ServiceNow secondary
 * Slack secondary
 
-To use a secondary connector, simply build a recipe and look for the secondary connectors. The secondary behaves exactly the same as the primary.
+To use a secondary connector, select the secondary connector from the app picklist when choosing a trigger or action. The secondary connector has the same set of triggers and actions as the primary.
 
-**Note**: using a secondary connector counts as a serparate connection.
+**Note**: using a secondary connector counts as a separate connection.
