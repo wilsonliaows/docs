@@ -469,7 +469,7 @@ Let's look at the job details to see what happened exactly. If you had a success
 ![API request](/assets/images/http/API-request-sent.png)
 *API request sent, as viewed from the job input tab*
 
-![API request](/assets/images/http/AAPI-recieved-job.png)
+![API request](/assets/images/http/API-recieved-job.png)
 *API request recieved, as viewed from the job output tab*
 
 
