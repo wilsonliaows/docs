@@ -84,7 +84,6 @@ Eventbrite authorize URL:
 ```ruby
 https://www.eventbrite.com/oauth/authorize?response_type=code
 ```
-
 Eventbrite access token URL:
 ```ruby
 https://www.eventbrite.com/oauth/token
@@ -108,28 +107,28 @@ Establishing a non-OAuth2 connection is slightly more complex than establishing 
 
 ##None
 This allows you to create a connection without providing any authentication details. This is usually the case when you wish to just receive a webhook trigger from the app. Workato generates a URL for you to direct your webhooks to, and retrieves information from the webhook payload sent in.
-![HTTP connector authentification type: None](/assets/images/http/http-connector-type.png)
-*HTTP connector authentification type: None*
+![HTTP connector authentication type: None](/assets/images/http/http-connector-type.png)
+*HTTP connector authentication type: None*
 
 ##Basic
 This requires your username and password. An alternative to your username and password would be an API key or API token, retrieved from your account settings. This is encoded with Base64 in transit, over SSL. This is a common authentication flow.
-![HTTP connector authentification type: Basic](/assets/images/http/http-connector-basic.png)
-*HTTP connector authentification type: Basic*
+![HTTP connector authentication type: Basic](/assets/images/http/http-connector-basic.png)
+*HTTP connector authentication type: Basic*
 
 ##Header Auth
 For applications which require additional headers outside of the usual username and password or API key, or if you want to customize the headers sent in the request. Header authentication can be used when you have a generated token ready for use.
-![HTTP connector authentification type: Heade auth](/assets/images/http/http-connector-head.png)
-*HTTP connector authentification type: Header authority*
+![HTTP connector authentication type: Heade auth](/assets/images/http/http-connector-head.png)
+*HTTP connector authentication type: Header authority*
 
 ##Query params
 For applications where the authentication structure is based on validating an API key as a parameter. What you need to do is to add the parameter key/value pair in the params authorization field.
-![HTTP connector authentification type: query params](/assets/images/http/http-connnector-query.png)
-*HTTP connector authentification type: query params*
+![HTTP connector authentication type: query params](/assets/images/http/http-connnector-query.png)
+*HTTP connector authentication type: query params*
 
 ##Custom
 Custom simply allows you to use a combination of any of the above fields.
-![HTTP connector authentification type: custom](/assets/images/http/http-connector-custom.png)
-*HTTP connector authentification type: custom*
+![HTTP connector authentication type: custom](/assets/images/http/http-connector-custom.png)
+*HTTP connector authentication type: custom*
 
 ##Testing your non-OAuth2 connection
 After you've connected, you would need to test out your non-OAuth2 connection to ensure that it's valid. To do that, send out a test API request - a simple one would be a GET request. If it succeeds, you know that the connection is valid.
