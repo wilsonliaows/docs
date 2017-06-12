@@ -12,9 +12,9 @@ Here is a list of methods available:
 - delete(url, input)
 
 ### Argument types
-Each REST verb methods must be provided a `url` string as the first argument. The second argument (optional) can be in 2 forms.
+Each REST verb method must be provided a `url` string as the first argument. The second argument (optional) can be in 2 forms.
 
-Firstly, `input` can be passed as a single Hash. This Hash can simply be the `input` of the `execute` or `poll` argument, like this:
+Firstly, `input` can be passed as a single hash. This hash can simply be the `input` of the `execute` or `poll` argument, such as the following:
 
 ```ruby
 execute: lambda do |connection, input|
@@ -34,7 +34,7 @@ execute: lambda do |connection, input|
 end
 ```
 
-The SDK framework will process this Hash value and transform it into the respective data format. For GET requests, the Hash data is formed as part of URL parameters. For POST, PUT and PATCH, a payload body will be generated.
+The SDK framework processes this hash value and transforms it into the respective data format. For GET requests, the hash data is formed as part of URL parameters. For POST, PUT and PATCH, a payload body will be generated.
 
 The other method of passing request data is as a series of key/value pairs.
 
@@ -44,7 +44,7 @@ execute: lambda do |connection, input|
 end
 ```
 
-All arguments after the first (URL string) will be transformed into request data. In this case, since default data format is JSON, will form a request body like this:
+All arguments after the first (URL string) will be transformed into request data. In this case, since the default data format is JSON, the following request body is formed:
 
 ```json
 {
@@ -53,7 +53,7 @@ All arguments after the first (URL string) will be transformed into request data
 }
 ```
 
-For a GET request, each request data will be formed as part of URL parameters.
+For a GET request, the following URL parameters are formed.
 
 ```ruby
 execute: lambda do |connection, input|
@@ -61,7 +61,7 @@ execute: lambda do |connection, input|
 end
 ```
 
-The request URL squery tring will be:
+The request URL query string will be:
 
 `?name%3DEe%20Shan%26email%3Deeshan%40workato.com`
 
