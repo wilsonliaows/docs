@@ -41,7 +41,7 @@ In this case, the trigger picks up all 4 data lines in my Google sheet. You can 
 ![Customizing report](/assets/images/google-sheets/customize-report.png)
 *customizing the recipe's job report with data from google sheets*
 
-![Customized job report](/assets/images/google-sheets/updated-job-report.png)
+![Customized job report](/assets/images/google-sheets/updated-job-report.jpg)
 *customized job report displaying selected information about the trigger event processed
 
 While the recipe is running, any new rows added will be picked up almost immediately. If the recipe is stopped at any time, starting it again will cause the recipe to pick up trigger jobs where it left off. In other words, any new rows created while the recipe was stopped will also be picked up when the recipe is started again.
