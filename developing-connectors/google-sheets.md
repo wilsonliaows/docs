@@ -266,7 +266,7 @@ Now that we have the trigger and action configured, let's run our recipe!
 
 We'll take a quick look at the details of the job that was processed. In our sample sheet, it looks like there was a contact Anna Sharpay with a mismatched email address huilin@workato.com. It looked like the recipe managed to pick up an update made by a Salesforce user to edit the name of the contact to Huilin Yang instead, and it moved that update to our Google Sheets.
 
-![Trigger data](/assets/images/google-sheets/trigger-data.jpg)
+![Trigger data](/assets/images/google-sheets/trigger-datas.jpg)
 *The trigger data retrieved for an updated contact, as viewed in the job details page's output tab*
 
 ![Corresponding row](/assets/images/google-sheets/corresponding-row.jpg)
@@ -276,8 +276,49 @@ We'll take a quick look at the details of the job that was processed. In our sam
 *Updated row in example sheet*
 
 
+# Working with queries in Google Sheets
+
+## Example sheet
+
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain, at a minimum, a header line for the first row and a data line for the second row, as in the following screenshot. We'll be using this example sheet for our queries in this article.
+
+![Google spreadsheet sample](/assets/images/google-sheets/sample-google-sheet.jpg)
+*Sample Google Sheets spreadsheet with a header row and 4 data rows*
+
+## Query structure
+All queries have to be structured in a certain way for the API to process them. For example, if I wish to search for an attendee with the name "Andy Hermans", with shirt size of "M" and with an age smaller than 40, I'd pass in the following query.
 
 
+Query for an attendee named Andy Hermans with shirt size M who is younger than 40:
 
+```ruby
+name = "Andy Hermans" and shirtsize = "M" and age < 40
+```
 
+## The following are of the common things to take note when forming queries:
+
+### Column names
+Column names have to be a single word. Even if your column names have 2 or more words in them, simply remove the spaces, e.g. "Shirt size" column label becomes "shirtsize".
+
+### Queries are not case sensitive
+Column names or values doesn't have to be case sensitive.
+
+###Operators
+The common operators are equal to (=), greater than (>), greater than or equal to (>=), lesser than (<), lesser than or equal to (<=).
+
+All these operators can be used for numbers and datetime timestamps (e.g. comparing ages).
+
+Only equal to can be used for strings (e.g. comparing names and shirt sizes as in the example sheet). Only exact matches will be fetched in this case.
+
+### AND and OR
+Use ANDs as well as ORs for a variety of queries. You can combine them as well, using parentheses to signify order of operations (i.e. we evaluate whatever is within the parentheses first).
+
+For example, (age < 35 or age > 50) and name = "jennifer avery" will return nothing, but age < 35 or (age > 50 and name = "jennifer avery") will return you rows 3 and 5.
+
+## Query Errors
+
+If your query has the wrong structure, or if your operators are incorrect (e.g. if you tried using unsupported operators such as LIKE or CONTAINS, the search rows action will fail with the following error message.
+
+![Failed jobs](/assets/images/google-sheets/failed-jobs.jpg)
+*Failed job because of an incorrect search query*
 
