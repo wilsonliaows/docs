@@ -32,7 +32,7 @@ Want to create an invoice in your accounting system? Make a POST request with a 
 
 The HTTP (OAuth2) connector supports the authorization code grant variant of the OAuth2 standard, which is the current de facto authentication standard adopted by a number of cloud apps. It’s widely adopted because it allows you to give third parties access to your apps without having to disclose your username and password to the third party. In this case, Workato simply redirects you to your app, where you key in your login credentials, and that’s sufficient for the app to trust that Workato is acting on your behalf when it makes API requests.
 
-! [HTTP (OAuth2) connector's connection fields](/assets/images/http/connector-connection-fields.png)
+![HTTP (OAuth2) connector's connection fields](/assets/images/http/connector-connection-fields.png)
 *HTTP (OAuth2) connector's connection fields*
 
 ## Relevant components of OAuth2 connection 
@@ -283,7 +283,7 @@ That’s it! You have now created an Eventbrite trigger for yourself. Take note 
 *Configured Webhook Trigger*
 
 
-#Building your REST request action
+# Building your REST request action
 
 You’re able to build any actions supported by an API on the HTTP connector - for example, create, update, search, get, delete actions. The following screenshots show the input fields available in the HTTP REST request action. Let's run through the key fields to note when building your action.
 
