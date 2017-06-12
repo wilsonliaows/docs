@@ -429,6 +429,42 @@ Response body example to generate the datatree. Any sample data can be used here
 
 The following depicts the configured action we now have.
 
+! [configured JIRA](/assets/images/http/configured-jira-project.png)
+*Cofigured JIRA project REST request*
+
+! [configured JIRA](/assets/images/http/configured-request.png)
+*Cofigured JIRA project REST request*
+
+! [generated data tree](/assets/images/http/generated-data-tree.png)
+*Generated datatree from the response body example, as viewed from the next step*
+
+## Testing the configured action
+
+To test it out, we need to have a complete recipe and test the recipe. I'm using a Scheduler trigger "New scheduled event" here as it allows me to test my action quickly. With a completed recipe (with both trigger and action), let's click on "Test recipe". Test recipe will run a single sample job.
+
+
+! [complete recipe](/assets/images/http/complete-recipe.png)
+*completed recipe with a Scheduler trigger and our HTTP action*
+
+! [sample job](/assets/images/http/sample-job.png)
+*Run one sample job by clicking on "Test Recipe"*
+
+Let's look at the job details to see what happened exactly. If you had a successful job, you should be able to see your project created in JIRA.
+
+! [API request](/assets/images/http/API-request-sent.png)
+*API request sent, as viewed from the job input tab*
+
+! [API request](/assets/images/http/AAPI-recieved-job.png)
+*API request recieved, as viewed from the job output tab*
+
+
+
+
+
+
+
+
+
 
 
 
