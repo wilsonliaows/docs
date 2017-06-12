@@ -132,9 +132,6 @@ First, in order for us to retrieve the custom data in a sheet, the sheet must co
 
 To configure the action, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet, while selecting the sheet would generate your list of columns within that sheet.
 
-![App trigger](/assets/images/google-sheets/app-trigger.png)
-*Application and trigger set up*
-
 ![Trigger set up](/assets/images/google-sheets/app-trigger.png)
 *Application and trigger set up*
 
@@ -142,7 +139,7 @@ To configure the action, we need to select the spreadsheet and the actual sheet 
 ![Unconfigured row actions](/assets/images/google-sheets/unconfigured.png)
 *Unconfigured row actions*
 
-![configured row actions](/assets/images/google-sheets/configured-row-action.png)
+![configured row actions](/assets/images/google-sheets/configured-row-action.jpg)
 *Configured row actions*
 
 I've previously set my trigger to be a Scheduler new scheduled event trigger for speed to get to configuring my action, but to build a useful recipe, we need to build a template for how data will be processed when it is moved into Google Sheets.
@@ -175,8 +172,108 @@ The output of the recipe, as viewed from our sheet, is below.
 *Edited sample sheet with added row*
 
 
+# Search rows and update row action
+
+The search rows action allows you to pinpoint specific rows you would like to retrieve, by specifying search conditions via a query. The update row action allows you to change the values of cells in any existing row.
+
+These two actions are often used together to first search for the rows you'd like to update, then updating these rows.
+
+## Setting up the Google sheet
+
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain, at a minimum, a header line for the first row and a data line for the second row, as in the following screenshot.
+
+![sheet sample](/assets/images/google-sheets/five-row-sample.jpg)
+*Sample Google Sheets spreadsheet with a header row and 5 data rows*
+
+## Configuring the search rows action
+
+To configure the action, we need to select the spreadsheet and the actual sheet to search within.
 
 
+![unconfigured](/assets/images/google-sheets/unconfigured-search.jpg)
+*Unconfigured search action*
+
+![configured](/assets/images/google-sheets/configured-search.jpg)
+*Configured search rows action with selected spreadsheet and sheet*
+
+The query needs to be in a certain structure as defined by the Google Sheets API. In this case, I want to search for an attendee with the name "Jennifer Avery", with an age older than 30, and shirt size "M". I'll pass the following query into the action. For further details on how to work with queries, check out the following articles in this course.
+
+
+Query for search rows action:
+
+```ruby
+name = "jennifer avery" and age > 30 and shirtsize = "M"
+```
+
+## Testing the search rows action
+
+If configured correctly, the search rows action should return you a list of rows that match the search conditions. In this case, I have only one matching row.
+
+![Input for search](/assets/images/google-sheets/search-input.jpg)
+*Input for search rows action, as viewed form the job details page*
+
+![Output](/assets/images/google-sheets/job-results.jpg)
+*Results retrieved from the search rows action, as viewed from the job details page's output tab*
+
+Okay, we know that our specific query works. Now, we don't want to search for someone called Jennifer Avery every single time a new contact comes into Salesforce, so we need to replace these hardcoded values with variables (AKA pills from the datatree, in Workato context). We'll be replacing these hardcoded values with pills in the following scenario.
+
+## Configuring the update row action
+
+Once we have the search rows action working, it's time to configure our update row action. We have to select our specific spreadsheet and sheet, then pass in the row ID from the search rows action's datatree. This ID will tell the recipe the exact row to update.
+
+![Unconfigured row](/assets/images/google-sheets/unconfigured-row-action.jpg)
+*Unconfigured update row action*
+
+![Configured row](/assets/images/google-sheets/configured-row-actions.jpg)
+*Unconfigured update row action*
+
+![Row-ID](/assets/images/google-sheets/configured-row-action.jpg)
+*Provide row ID from the search rows action into the update row action. This lets the recipe know the row to update*
+
+I've previously set my trigger to be a Scheduler new scheduled event trigger for speed to get to configuring my action, but to build a useful recipe, we need to build a template for how data will be processed when it is moved into Google Sheets.
+
+## Example Scenario
+
+In this case, let's assume that we wish to move any new contacts created in Salesforce into a Google Sheet, as well as move any updates to that existing contact to Google Sheets. The following shows the recipe and data mapping I've done to ensure my search will find the right row in Google Sheets, and direct new data coming in from Salesforce (as provided by the datatree on the right) to the matching fields in Google Sheets.
+
+![Complete recipe](/assets/images/google-sheets/completed-recipe.jpg)
+*Completed recipe to move new or updated Salesforce contacts to selected google sheet*
+
+![Row searching](/assets/images/google-sheets/row-searching.jpg)
+*Searching for rows in my sheet with my query. Here, we search to see if the Salesforce contact already exists (assuming email is the unique ID).*
+
+![Data Tree](/assets/images/google-sheets/data-treee.jpg)
+*Mapping data from the Salesforce new/updated contact datatree into the update row action.*
+
+Be careful to pull data from the right datatree! A common mistake is to use the pills from the search sheet action, which would take the existing data (if it exists) from your Google Sheets row and write that back into the exact same row. That's essentially doing nothing at all, so it's not very useful!
+
+
+![Incorrect mapping](/assets/images/google-sheets/incorrect-mapping.jpg)
+*Incorrect mapping of the update row action with pills from the wrong data tree*
+
+## Running the recipe
+
+Now that we have the trigger and action configured, let's run our recipe!
+
+![Configured recipe](/assets/images/google-sheets/configured-recipe-test.jpg)
+*Configured recipe for testing*
+
+![Job report customized](/assets/images/google-sheets/customize-jobs.jpg)
+*Customizing my job report to show data from salesforce*
+
+![Customized report](/assets/images/google-sheets/new-updated-contact.jpg)
+*Customized job report with showing details of the job processed*
+
+We'll take a quick look at the details of the job that was processed. In our sample sheet, it looks like there was a contact Anna Sharpay with a mismatched email address huilin@workato.com. It looked like the recipe managed to pick up an update made by a Salesforce user to edit the name of the contact to Huilin Yang instead, and it moved that update to our Google Sheets.
+
+![Trigger data](/assets/images/google-sheets/trigger-data.jpg)
+*The trigger data retrieved for an updated contact, as viewed in the job details page's output tab*
+
+![Corresponding row](/assets/images/google-sheets/corresponding-row.jpg)
+*As we found a corresponding row in Step 1, we proceed to update the row containing the email hulin@workato.com. In Step 3, we pass the corresponding data from Salesforce into the update row action, sa viewed from the job details page.*
+
+![Update row](/assets/images/google-sheets/updated-row.jpg)
+*Updated row in example sheet*
 
 
 
