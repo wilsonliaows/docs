@@ -117,3 +117,70 @@ While the recipe is running, any new rows added or existing rows updated will be
 Take note that only the latest version of the row will be picked up. For example, if a row is created and updated thrice, all while the recipe is stopped, the recipe will only pick up the latest version of the row as a trigger event when it's started.
 
 
+# Create row action 
+
+The create row action allows you to add new rows to a selected spreadsheet.
+
+## Setting up the Google sheet
+
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain, at a minimum, a header line for the first row and a data line for the second row, as in the following screenshot.
+
+![Google spreadsheet sample](/assets/images/google-sheets/sample-google-sheet.jpg)
+*Sample Google Sheets spreadsheet with a header row and 4 data rows*
+
+## Configuring the create row action
+
+To configure the action, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet, while selecting the sheet would generate your list of columns within that sheet.
+
+![App trigger](/assets/images/google-sheets/app-trigger.png)
+*Application and trigger set up*
+
+![Trigger set up](/assets/images/google-sheets/app-trigger.png)
+*Application and trigger set up*
+
+
+![Unconfigured row actions](/assets/images/google-sheets/unconfigured.png)
+*Unconfigured row actions*
+
+![configured row actions](/assets/images/google-sheets/configured-row-action.png)
+*Configured row actions*
+
+I've previously set my trigger to be a Scheduler new scheduled event trigger for speed to get to configuring my action, but to build a useful recipe, we need to build a template for how data will be processed when it is moved into Google Sheets.
+
+# Example scenario
+
+In this case, let's assume that we wish to move any new contacts created in Salesforce into a Google Sheet. The following shows the data mapping I've done to direct data coming in from Salesforce (as provided by the datatree on the right) to the matching fields in Google Sheets.
+
+![available columns](/assets/images/google-sheets/available-columns.jpg)
+*Available columns are derived from the selected Google sheet in the trigger*
+
+# Running the action
+
+Now that we have the trigger and action configured, let's run our recipe!
+
+![configured recipe](/assets/images/google-sheets/configured recipe.jpg)
+*Configured recipe for testing*
+
+We'll take a quick look at the details of a specific job as follows, where we can see that a new contact, Anna Sharpay, was created in Salesforce. As we've mapped 'Name', 'Email' and 'Date created' in the recipe, we can see that these are the values passed to the create row action in Step 1.
+
+![trigger data](/assets/images/google-sheets/trigger-data.jpg)
+*The trigger data recieved for a specific contact, as viewed in the job details page's output rab*
+
+![data recieved](/assets/images/google-sheets/data-recieved.jpg)
+*The data input into the create row action, as viewed from the job detail's page input tab*
+
+The output of the recipe, as viewed from our sheet, is below.
+
+![edited sheet](/assets/images/google-sheets/edited-sample-sheet.jpg)
+*Edited sample sheet with added row*
+
+
+
+
+
+
+
+
+
+
+
