@@ -13,12 +13,14 @@ Sign in to the Microsoft Azure management portal by using an account with admini
 ## 2
 
 Click on Azure Active Directory in the left side menu.
+
 ![Azure Directory](/assets/images/connectors/Register-Dynamics-CRM-App/azure-directory.png)
 
 
 ## 3
 
 Click on App registrations.
+
 ![App Registration](/assets/images/connectors/Register-Dynamics-CRM-App/app-registrations.png)
 
 
@@ -30,7 +32,7 @@ If you already have an application use that application ID else click Add.
 
 ## 5
 
-Type a name and choose the application type as “Native” and redirect URI as https://www.workato.com/oauth/callback. And click create in the bottom of the page.
+Type a name and choose the application type as “Native” and redirect URI as https://www.workato.com/oauth/callback. Click create in the bottom of the page.
 
 ![Redirect URI](/assets/images/connectors/Register-Dynamics-CRM-App/microsoft.png)
 
