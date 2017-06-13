@@ -4,11 +4,68 @@ Not all ruby public instance methods are available. Methods are whitelisted to e
 
 Here is a list of methods available:
 
-REST verb methods
+## REST verb methods
 - get(url, input)
 - post(url, input)
 - put(url, input)
 - patch(url, input)
+- delete(url, input)
+
+### Argument types
+Each REST verb method must be provided a `url` string as the first argument. The second argument (optional) can be in 2 forms.
+
+Firstly, `input` can be passed as a single hash. This hash can simply be the `input` of the `execute` or `poll` argument, such as the following:
+
+```ruby
+execute: lambda do |connection, input|
+  get("https://www.some_api_endpoint.com/api", input)
+end
+```
+
+The hash can also be formed before like this:
+
+```ruby
+execute: lambda do |connection, input|
+  params = {
+    "id" => input["id"]
+  }
+
+  get("https://www.some_api_endpoint.com/api", params)
+end
+```
+
+The SDK framework processes this hash value and transforms it into the respective data format. For GET requests, the hash data is formed as part of URL parameters. For POST, PUT and PATCH, a payload body will be generated.
+
+The other method of passing request data is as a series of key/value pairs.
+
+```ruby
+execute: lambda do |connection, input|
+  post("https://www.some_api_endpoint.com/api", name: input["name"], email: input["email"])
+end
+```
+
+All arguments after the first (URL string) will be transformed into request data. In this case, since the default data format is JSON, the following request body is formed:
+
+```json
+{
+  "name": "Ee Shan",
+  "email": "eeshan@workato.com"
+}
+```
+
+For a GET request, the following URL parameters are formed.
+
+```ruby
+execute: lambda do |connection, input|
+  get("https://www.some_api_endpoint.com/api", name: input["name"], email: input["email"])
+end
+```
+
+The request URL query string will be:
+
+`?name%3DEe%20Shan%26email%3Deeshan%40workato.com`
+
+## Ruby methods
 
 Method | Description
 --- | ----------
@@ -34,4 +91,4 @@ utc | Convert Time to [utc](http://ruby-doc.org/core-2.2.0/Time.html#method-c-ut
 puts | ruby version of console.log/stdout, not the same as put
 while | [while loop statement](https://www.tutorialspoint.com/ruby/ruby_loops.htm)
 
-(This list can and will be expanded constantly, feel free to contact [us](support@workato.com) to update/add to this list)
+(This list can and will be expanded constantly, feel free to [contact us](support@workato.com) to update/add to this list)
