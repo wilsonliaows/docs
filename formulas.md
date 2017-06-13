@@ -79,3 +79,42 @@ Here is a detailed explanation of what the ternary formula does:
 4. If there is no value in the *Full name* pill when the job is ran, the value for *First name* will be used as the *Message*. Of course, if there's also no value in this *First name* pill, the job will fail at this step, as *Message* is a required field.
 
 For more information on Ruby's ternary syntax, check out this [article](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
+
+
+# Null, nil, clear, and skip
+
+## Clear
+
+When null/nil is entered into an input field, the value of the field remains unchanged. With 'clear', when null/nil is inputted, the value of of that field will be updated to null/nil.
+
+![Clear](/assets/images/formula-docs/clear.png)
+
+## Skip
+
+Skip will explicitly tell the connector NOT to pass any value into the app, essentially leaving the value as-is.
+
+![Skip](/assets/images/formula-docs/skip.png)
+
+## Null
+
+We used to only support ‘nil’ (Ruby for null), but now we support ‘null’ as well; it will automatically convert to ‘nil’ in the backend.
+
+![Null](/assets/images/formula-docs/null.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
