@@ -50,7 +50,7 @@ In the right side pane click on required permissions link.
 
 Click “Add” in the top of the page -> “Select an API” -> Click on “Dynamics CRM Online” -> Click on “Select”.
 
-![Dynamics CRM](/assets/images/conectors/Register-Dynamics-CRM-App/added.png)
+![Dynamics CRM](/assets/images/connectors/Register-Dynamics-CRM-App/dynamics.png)
 
 ## 9
 
