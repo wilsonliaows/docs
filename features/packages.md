@@ -4,7 +4,7 @@ date: 2017-05-31 15:00:00 Z
 ---
 
 # Packages
-A package refers to a grouping of assets, which refers to recipes and the related dependencies needed for recipes to work, e.g. connections, SDK connectors, lookup tables and account properties. With the packages feature, users can move these assets easily across different Workato accounts.
+A package refers to a grouping of assets, which refers to recipes and the related dependencies needed for recipes to work, e.g. connections, custom connectors, lookup tables and account properties. With the packages feature, users can move these assets easily across different Workato accounts.
 
 This is useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team's Workato account, or to the production Workato account. Consultants can also utilize this feature to move comprehensive integrations into their clients' accounts.
 
@@ -25,12 +25,12 @@ When you export a folder of recipes as a zip file, included within that zip file
 - recipes in that folder
 - subfolders and recipes in those subfolders
 - associated connections
-- associated SDK connectors
+- associated custom connectors
 - associated callable recipes
 - all account properties
 - all lookup tables
 
-To begin exporting your recipes, ensure that all the recipes you wish to export are grouped together in a Workato folder. All associated connections, SDK connectors and callable recipes will also be bundled into the package automatically. All account properties and lookup tables in that Workato account are also bundled into the package. Once the package is created, the user can download the package in a zip file.
+To begin exporting your recipes, ensure that all the recipes you wish to export are grouped together in a Workato folder. All associated connections, custom connectors and callable recipes will also be bundled into the package automatically. All account properties and lookup tables in that Workato account are also bundled into the package. Once the package is created, the user can download the package in a zip file.
 
 In the example below, 2 recipes can be found in the **Customer Sync** folder. In these recipes, the user utilizes assets such as callable recipes and lookup tables.
 
@@ -83,7 +83,7 @@ The following table details how an imported package's assets are moved into your
 | Dependency type | What Workato does when package is imported                                                                                                                                                   | Location        |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | Recipes         | Overwrites recipe if a recipe with the same name exists in the folder. Creates new recipe if no recipe with the same name exists in the folder                                               | Selected folder |
-| SDK connectors  | Overwrites existing SDK connector if connector with same name already exists in the Workato account. Creates new connector if no connector with the same name exists in the Workato account. | Developer       |
+| Custom connectors  | Overwrites existing custom connector if connector with same name already exists in the Workato account. Creates new connector if no connector with the same name exists in the Workato account. | Developer       |
 | Connections     | Creates a connection placeholder with no actual connection. This does nothing if a connection by the same name already exists.                                                               | Connections     |
 | Lookup tables   | Creates a lookup table placeholder. Does nothing if a lookup table by the same name already exists.                                                                                          | Lookup table    |
 | Properties      | Add properties to existing properties in the Workato account. Does nothing if a property with the same name already exists.                                                                  | Properties      |
