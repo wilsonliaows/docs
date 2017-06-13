@@ -81,7 +81,7 @@ Here is a detailed explanation of what the ternary formula does:
 For more information on Ruby's ternary syntax, check out this [article](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
 
 
-# Null, nil, clear, and skip
+# Working with Null values 
 
 ## Clear
 
@@ -100,21 +100,3 @@ Skip will explicitly tell the connector NOT to pass any value into the app, esse
 We used to only support ‘nil’ (Ruby for null), but now we support ‘null’ as well; it will automatically convert to ‘nil’ in the backend.
 
 ![Null](/assets/images/formula-docs/null.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
