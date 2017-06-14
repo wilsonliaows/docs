@@ -5,11 +5,11 @@ date: 2017-02-22 11:00:00 Z
 
 # Freshdesk
 
-To get started on a free 30-day trial, [Sign up here](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)!
+To get started on a free 30-day trial, [sign up here](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)!
 
 ## Introduction
 
-Workato can conduct bi-directional syncs between Freshdesk with up to 1000+ other apps, through various use cases. Popular apps that users have integrate with Freshdesk include Salesforce, Google Sheets, Trello, Intercom. 
+Workato allows for bi-directional syncs between Freshdesk and up to 1000+ other apps, through various use cases. Popular apps that users have integrate with Freshdesk include Salesforce, Google Sheets, Trello, Intercom. 
 
 Freshdesk integration scenarios include posting a new message in Slack when there is a new updated Freshdesk ticket or bi-directional syncs between new/updated:
 
@@ -18,7 +18,7 @@ Freshdesk integration scenarios include posting a new message in Slack when ther
 * Freshdesk contacts to Salesforce contacts
 * Freshdesk users to Intercom users
 
-[Get started with these recipes here](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
+[Get started with these recipes here!](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
 
 ## Supported editions and versions
 The Freshdesk connector works with all Freshdesk plans.
