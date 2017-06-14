@@ -156,6 +156,7 @@ Here is a list of common erros that you may encounter, and links to how to recti
 
 - [Input required for field or required field missing](https://support.workato.com/solution/articles/1000188418-salesforce-error-input-required-for-field-or-required-field-missing)
 
+
 # How to use Salesforce connectors
 
 Firstly, follow the following step in order to locate the Workflow Rules page. Click on the setup button located on the upper right corner and go to ‘Build’ which can be found on the left most column. Under Build, open ‘Create’ and then ‘Workflow and Approvals’. Under this section, you can find the Workflow Rules page.
@@ -177,7 +178,7 @@ Next, fill in the ‘edit rule’ section of the form, and the ‘evaluation cri
 
 After this, click on the ‘Save and Next’ button located on the bottom right hand corner. This will direct you to an ‘Edit rule page’ . From here, click on ‘Add Workflow Actions’ and then ‘New Outbound Message’.
 
-![New outbound message](/assets/images/connectors/salesforce-connector/new-messages.png)
+![New outbound message](/assets/images/connectors/salesforce-connector/new-message.png)
 *New outbound message*
 
 From here, you will see a page that allows you to edit your outbound message. Fill in all the fields in red and the optional fields if you chose to do so. 
@@ -187,7 +188,7 @@ From here, you will see a page that allows you to edit your outbound message. Fi
 
 Your filled message will resemble the following:
 
-![Completed message](/assets/images/connectors/salesforce-connector/filled-messages.png)
+![Completed message](/assets/images/connectors/salesforce-connector/filled-message.png)
 *Completed outbound message*
 
 After this you can use the real time trigger.
@@ -212,7 +213,6 @@ You will now see a page with numerous information about the organization. The hi
 
 ![IDL](/assets/images/connectors/salesforce-connector/url-id.png)
 *organization ID is highlighted*
-
 
 
 
