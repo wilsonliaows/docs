@@ -72,3 +72,61 @@ As the nature of this action can irreversibly lead to lost data, it is best to b
 
 ![delete](/assets/images/actions-docs/action_6.png)
 *Delete action*
+
+# Salesforce Approvals
+	
+The salesforce approval feature on Workato allows users to immediately approve any record from contacts and opportunities to products and deal requests. The salesforce approval goes through two checks and the proceeds to get approved by a designated approver. You can use a similar process to get approvals with Workato. 
+	
+Let’s walk through a specific scenario where we try and get an approval from salesforce with the help of Slack. 
+ 
+Once you login to Salesforce, click on the “Create new” button located on the top left corner of the home page.
+
+![Create new](/assets/images/recipes/salesforce-approvals/new-request.png)
+*Creating a New Deal request*
+
+After you click on the Create New button, numerous options will appear. Press on the “Deal support request” button
+
+![Create new Deal request](/assets/images/recipes/salesforce-approvals/create-deal.png)
+*Creating a New Deal request*
+
+You should be directed to this page once you click on the Deal support request button.
+
+![New support page](/assets/images/recipes/salesforce-approvals/new-support.png)
+*New support request*
+
+Next, fill in the fields of the Deal support Request.
+
+![Field fill in](/assets/images/recipes/salesforce-approvals/field-fill-in.gif)
+![Field fill in](/assets/images/recipes/salesforce-approvals/fill-in-field.gif)
+
+ 
+Once you have completed this step, you will receive a confirmation of the details in your deal support request.
+
+![Deal support details](/assets/images/recipes/salesforce-approvals/deal-confirm.png)
+*Deal support request confirmation*
+
+Checking the slack notification button sends a notification to a designated slack channel. A Workato recipe allows this notification to be sent.
+ 
+This notification will appear on a slack channel. Here, you can see the support request on the “deal-support-request” channel.
+
+![Slack Request](/assets/images/recipes/salesforce-approvals/slack-request.png)
+*Slack request*
+
+From here, an eligible approver will be able to approve or reject your deal request by clicking on the “approve” or “reject” button located below the summary of the deal request. From there, the approver will be redirected to a salesforce login. 
+
+![Salesforce login](/assets/images/recipes/salesforce-approvals/salesforce-login.png)
+*Slack link to Salesforce login*
+![Salesforce login](/assets/images/recipes/salesforce-approvals/log.png)
+*Salesforce login*
+
+
+Once logged in, a notification will appear asking the approver to close the tab and return to slack.
+
+![Redirection](/assets/images/recipes/salesforce-approvals/redirection.png)
+*Salesforce redirection*
+
+If we return to the slack channel, we can see that the request has been approved successfully. 
+
+![Approved](/assets/images/recipes/salesforce-approvals/approval.png)
+*Successful approval*
+
