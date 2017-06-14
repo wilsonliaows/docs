@@ -158,7 +158,7 @@ Here is a list of common erros that you may encounter, and links to how to recti
 
 # How to use Salesforce connectors
 
-    Firstly, follow the following step in order to locate the Workflow Rules page. Click on the setup button located on the upper right corner and go to ‘Build’ which can be found on the left most column. Under Build, open ‘Create’ and then ‘Workflow and Approvals’. Under this section, you can find the Workflow Rules page.
+Firstly, follow the following step in order to locate the Workflow Rules page. Click on the setup button located on the upper right corner and go to ‘Build’ which can be found on the left most column. Under Build, open ‘Create’ and then ‘Workflow and Approvals’. Under this section, you can find the Workflow Rules page.
 
 ![setup](/assets/images/connectors/salesforce-connector/setup-to-workflow.gif)
 *How to go from setup to the workflow page*
