@@ -5,6 +5,21 @@ date: 2017-02-22 11:00:00 Z
 
 # Freshdesk
 
+To get started on a free 30-day trial, [Sign up here](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)!
+
+## Introduction
+
+Workato can conduct bi-directional syncs between Freshdesk with up to 1000+ other apps, through various use cases. Popular apps that users have integrate with Freshdesk include Salesforce, Google Sheets, Trello, Intercom. 
+
+Freshdesk integration scenarios include posting a new message in Slack when there is a new updated Freshdesk ticket or bi-directional syncs between new/updated:
+
+* Freshdesk tickets to Salesforce cases
+* Freshdesk tickets to ServiceNow incident
+* Freshdesk contacts to Salesforce contacts
+* Freshdesk users to Intercom users
+
+[Get started with these recipes here](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
+
 ## Supported editions and versions
 The Freshdesk connector works with all Freshdesk plans.
 
@@ -55,12 +70,18 @@ Go to your ["Connections" page](https://www.workato.com/integrations/freshdesk) 
 
  Once all required fields are filled, click connect. Once Freshdesk has been successfully connected, you would see the following page.
 
- ![Freshdesk Successful Connection](/assets/images/connectors/freshdesk/freshdesk-successful-connection.png)
+ ![Freshdesk Successful Connection](/assets/images/connectors/freshdesk/freshdesk-connected.png)
 
  ## Recommended Recipes
-   *[New/Updated Freshdesk Ticket to Salesforce Case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
+   * [New/Updated Freshdesk Ticket to Salesforce Case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
 
-   *[New ticket in FreshDesk will post message to channel in Slack](https://www.workato.com/recipes/103170-new-ticket-in-freshdesk-will-post-message-to-channel-in-slack)
+   * [New FreshDesk ticket will post message to Slack channel](https://www.workato.com/recipes/103170-new-ticket-in-freshdesk-will-post-message-to-channel-in-slack)
+
+   * [FreshDesk new contact to Salesforce contact](https://www.workato.com/recipes/110070-freshdesk-new-contact-to-salesforce-contact#recipe)
+
+   * [Updated Intercom users will create/update FreshDesk users](https://www.workato.com/recipes/54393-updated-user-in-intercom-will-search-users-in-freshdesk#recipe)
 
  ## For More Information 
-   *[Freshdesk Adapter Page](https://www.workato.com/integrations/freshdesk)
+   [Supported Triggers and Actions](https://www.workato.com/integrations/freshdesk)
+
+   [Get started now!](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
