@@ -155,3 +155,60 @@ Here is a list of common erros that you may encounter, and links to how to recti
 - [Entered email ID is not valid, Incorrect format, input data too big](https://support.workato.com/solution/articles/1000188419-salesforce-error-entered-email-id-is-not-valid-incorrect-format-input-data-too-big)
 
 - [Input required for field or required field missing](https://support.workato.com/solution/articles/1000188418-salesforce-error-input-required-for-field-or-required-field-missing)
+
+# How to use Salesforce connectors
+
+Firstly, follow the following step in order to locate the Workflow Rules page. Click on the setup button located on the upper right corner and go to ‘Build’ which can be found on the left most column. Under Build, open ‘Create’ and then ‘Workflow and Approvals’. Under this section, you can find the Workflow Rules page.
+
+![setup](/assets/images/connectors/salesforce-connector/setup-to-workflow.gif)
+*How to go from setup to the workflow page*
+
+Once you locate the page, click on ‘New Rule’ and select an object. 
+
+![New rule](/assets/images/connectors/salesforce-connector/step-one.gif)
+
+Next, fill in the ‘edit rule’ section of the form, and the ‘evaluation criteria’.
+
+![Object](/assets/images/connectors/salesforce-connector/step-two-part-one.gif)
+*Edit the object*
+
+![Rule criteria](/assets/images/connectors/salesforce-connector/step-two-part-two.gif)
+*Rule criteria*
+
+After this, click on the ‘Save and Next’ button located on the bottom right hand corner. This will direct you to an ‘Edit rule page’ . From here, click on ‘Add Workflow Actions’ and then ‘New Outbound Message’.
+
+![New outbound message](/assets/images/connectors/salesforce-connector/new-messages.png)
+*New outbound message*
+
+From here, you will see a page that allows you to edit your outbound message. Fill in all the fields in red and the optional fields if you chose to do so. 
+
+![Fill in](/assets/images/connectors/salesforce-connector/outbound-messages.png)
+*Fill in the fields to configure the outbound message*
+
+Your filled message will resemble the following:
+
+![Completed message](/assets/images/connectors/salesforce-connector/filled-messages.png)
+*Completed outbound message*
+
+After this you can use the real time trigger.
+
+![recipe trigger](/assets/images/connectors/salesforce-connector/workato-connection.png)
+*Workato recipe with real time trigger*
+
+## Endpoint URL
+
+Use the base url https://www.workato.com/webhooks/notify/salesforce. To this base URL you will have to add 2 parameters which are separated from the base url with ‘?’.
+ 
+The first parameter is the sobject, and the second parameter is the org_id.
+ 
+The sobject is essentially the object that you are integrating with the real time trigger. In my case, this would be ‘Opportunity’. This is case sensitive, so do not use object, or OBJECT in your endpoint URL. 
+ 
+The second parameter is the org_id. To locate this id, go to setup. On the left column, under Administer, click on ‘Company Profile’ and then ‘Company Information’. 
+
+![location of URL](/assets/images/connectors/salesforce-connector/url-location.png)
+*You can find the location of the id by going to setup, administer, company profile, then company information*
+
+You will now see a page with numerous information about the organization. The highlighted section represents the Organization ID.
+
+![IDL](/assets/images/connectors/salesforce-connector/url-id.png)
+*organization ID is highlighted*
