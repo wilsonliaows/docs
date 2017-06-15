@@ -27,7 +27,7 @@ The Freshdesk connector works with all Freshdesk plans.
 
 1. Add a new connection
 
-You could either go to or your ["New Connection" page](https://www.workato.com/connections/new)
+You could either go to your ["New Connection" page](https://www.workato.com/connections/new)
 
 or go to your ["Connections" page](https://www.workato.com/connections) and click on the "Create a New Connection" button on the top-right corner, as seen below.
 
