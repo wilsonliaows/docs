@@ -7,7 +7,15 @@ date: 2017-02-21 12:00:00 Z
 
 Targeted mostly towards businesses and enterprises, [Box](https://www.box.com/home) enables users to easily store and maintain files and helps manage cloud content.
 
-With workato, you can link box to many different features which further facilitate storing and managing these files. Some triggers include 'New updated folder' or 'Webhook notification' which can be linked to another application such as mailchimp or google sheets.
+With workato, you can [link Box](https://www.workato.com/integrations/box) to many different features which further facilitate storing and managing these files. Some triggers include 'New updated folder' or 'Webhook notification' which can be linked to another application such as mailchimp or google sheets.
+
+On this page, we'll walk you through:
+	1. [Connector information](http://docs.workato.com/connectors/box.html#connector-information)
+	2. [How to connect to Box on Workato](http://docs.workato.com/connectors/box.html#how-to-connect-to-box-on-workato)
+	3. [Working with attatchments on Box](http://docs.workato.com/connectors/box.html#working-with-attachments-in-box)
+	4. [Articles on how to use additional features](http://docs.workato.com/connectors/box.html#articles-on-how-to-use-additional-special-actions-such-as-get-shared-link-etc)
+	5. [Generation information about Box](http://docs.workato.com/connectors/box.html#more-generation-information-on-box)
+
 
 ## Connector information
 
@@ -47,11 +55,6 @@ Click on connect and a Box dialog box will pop-up, requesting your Box Account c
 ### Roles and permissions required to connect
 Box users who can login to Box can connect to Box from Workato. The user will have the same [permissions](https://community.box.com/t5/Collaboration-and-Sharing/What-Are-The-Different-Access-Levels-For-Collaborators/ta-p/144) on Workato as in Box. This means that they will have the same capabilities to view, share, upload and download to those files and folders as per their respective permissions on the Box platform.
 
-## Working with the Box Connector
-
-## Working with generic triggers in Box
-
-## Working with generic create/update/search actions in Box
 
 ## [Working with attachments in Box](https://support.workato.com/support/solutions/articles/1000236818-box-working-with-attachments-in-box)
 
@@ -104,5 +107,3 @@ When creating a shared link for a file or folder in Box, you can choose from fou
 | Company  | Only Box users with a validated email address matching your company's domain can access the file or folder via the shared link.  |
 | Collaborators | Only Box users invited to the folder or file (collaborators) can access the file or folder via the shared link.  |
 | Default  | This option follows whatever the default setting for your account is. You can view and change this in your Box account settings under Content and Sharing.  |
-
-## Troubleshooting

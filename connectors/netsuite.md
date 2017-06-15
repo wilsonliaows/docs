@@ -5,6 +5,8 @@ date: 2017-04-28 06:15:00 Z
 
 # NetSuite
 
+[NetSuite](http://www.netsuite.com/portal/home.shtml) helps users have an organized way to approach their business or enterprise. It's cloud based information and data provide business intelligence to users.
+
 ## How to connect to NetSuite on Workato
 In order to connect to NetSuite and allow for data to flow to and from NetSuite via Workato, the following needs to be done in NetSuite. In this section, we'll be going through how to set these up in detail.
 
