@@ -50,20 +50,67 @@ Workato works with all versions and editions of Salesforce including Force.com a
 
 ### Using real-time triggers
 
-Workato offers real-time capabilities for 2 salesforce triggers, namely **New Object** and **New/Updated Object**. This allows workato to pick up any object that was created/updated in Salesforce immediately. To enable this, 
-1. Log in to your salesforce instance and click on 'Setup' on the top right of the page. 
-2. On the left hand panel, under Build, click on Create>Workflow & Approvals > Workflow rules. 
-3. Select the Object which you want to receive real time updates for and click Next
-4. Fill in the required and optional field
-  Rule name
+1.Log in to your salesforce organization and click on 'Setup' on the top right of the page. 
+2.On the left hand panel, under Build, click on Create> Workflow & Approvals > Workflow rules. 
+ 
+![setup](/assets/images/connectors/salesforce-connector/setup-to-workflow.gif)
+*How to go from setup to the workflow page*
+ 
+3.Select the Object which you want to receive real time updates for and click Next
+ 
+![New rule](/assets/images/connectors/salesforce-connector/step-one.gif)
+ 
+ Fill in the required and optional field
+ Rule name
   Rule Criteria (Rule criteria can be set based on your preference. For example, Only when Opportunity status equals “Closed-won")
-  Afrer you are done, click **Save & Next**
-
-5. Select New Outbound Message under Specify workflow actions
-  fill in the required and optional fields
-6. You are now set up for real-time integration! Simply go to your Workato recipe and choose real-time trigger. Note that you can only use these triggers with objects you have set up the above steps with. 
-
+  After you are done, click **Save & Next**
+ 
+![Object](/assets/images/connectors/salesforce-connector/step-two-part-one.gif)
+*Edit the object*
+ 
+![Rule criteria](/assets/images/connectors/salesforce-connector/step-two-part-two.gif)
+*Rule criteria*
+ 
+4.From here, click on ‘Add Workflow Actions’ and then ‘New Outbound Message’.
+ 
+![New outbound message](/assets/images/connectors/salesforce-connector/new-message.png)
+*New outbound message*
+ 
+5.You will see a page that allows you to edit your outbound message. Fill in all the fields in red and the optional fields if you chose to do so. 
+ 
+![Fill in](/assets/images/connectors/salesforce-connector/outbound-messages.png)
+*Fill in the fields to configure the outbound message*
+ 
+Your filled message will resemble the following:
+ 
+![Completed message](/assets/images/connectors/salesforce-connector/filled-message.png)
+*Completed outbound message*
+ 
+6.You are now set up for real-time integration! Simply go to your Workato recipe and choose real-time trigger. Note that you can only use these triggers with objects you have set up the above steps with
+ 
+![recipe trigger](/assets/images/connectors/salesforce-connector/workato-connection.png)
+*Workato recipe with real time trigger*
+ 
 To use Salesforce real-time triggers, the user needs to be on the **Workato Enteprise Plan**
+
+#### Endpoint URL
+
+Use the base url https://www.workato.com/webhooks/notify/salesforce. To this base URL you will have to add 2 parameters which are separated from the base url with ‘?’.
+ 
+The first parameter is the sobject, and the second parameter is the org_id.
+ 
+The sobject is essentially the object that you are integrating with the real time trigger. In my case, this would be ‘Opportunity’. This is case sensitive, so do not use object, or OBJECT in your endpoint URL. 
+ 
+The second parameter is the org_id. To locate this id, go to setup. On the left column, under Administer, click on ‘Company Profile’ and then ‘Company Information’. 
+ 
+![location of URL](/assets/images/connectors/salesforce-connector/url-location.png)
+*You can find the location of the id by going to setup, administer, company profile, then company information*
+ 
+You will now see a page with numerous information about the organization. The highlighted section represents the Organization ID.
+ 
+![IDL](/assets/images/connectors/salesforce-connector/url-id.png)
+*organization ID is highlighted*
+
 
 ### Working with generic triggers in Salesforce
 In workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created. 
@@ -155,75 +202,3 @@ Here is a list of common erros that you may encounter, and links to how to recti
 - [Entered email ID is not valid, Incorrect format, input data too big](https://support.workato.com/solution/articles/1000188419-salesforce-error-entered-email-id-is-not-valid-incorrect-format-input-data-too-big)
 
 - [Input required for field or required field missing](https://support.workato.com/solution/articles/1000188418-salesforce-error-input-required-for-field-or-required-field-missing)
-
-
-# How to use Salesforce connectors
-
-Firstly, follow the following step in order to locate the Workflow Rules page. Click on the setup button located on the upper right corner and go to ‘Build’ which can be found on the left most column. Under Build, open ‘Create’ and then ‘Workflow and Approvals’. Under this section, you can find the Workflow Rules page.
-
-![setup](/assets/images/connectors/salesforce-connector/setup-to-workflow.gif)
-*How to go from setup to the workflow page*
-
-Once you locate the page, click on ‘New Rule’ and select an object. 
-
-![New rule](/assets/images/connectors/salesforce-connector/step-one.gif)
-
-Next, fill in the ‘edit rule’ section of the form, and the ‘evaluation criteria’.
-
-![Object](/assets/images/connectors/salesforce-connector/step-two-part-one.gif)
-*Edit the object*
-
-![Rule criteria](/assets/images/connectors/salesforce-connector/step-two-part-two.gif)
-*Rule criteria*
-
-After this, click on the ‘Save and Next’ button located on the bottom right hand corner. This will direct you to an ‘Edit rule page’ . From here, click on ‘Add Workflow Actions’ and then ‘New Outbound Message’.
-
-![New outbound message](/assets/images/connectors/salesforce-connector/new-message.png)
-*New outbound message*
-
-From here, you will see a page that allows you to edit your outbound message. Fill in all the fields in red and the optional fields if you chose to do so. 
-
-![Fill in](/assets/images/connectors/salesforce-connector/outbound-messages.png)
-*Fill in the fields to configure the outbound message*
-
-Your filled message will resemble the following:
-
-![Completed message](/assets/images/connectors/salesforce-connector/filled-message.png)
-*Completed outbound message*
-
-After this you can use the real time trigger.
-
-![recipe trigger](/assets/images/connectors/salesforce-connector/workato-connection.png)
-*Workato recipe with real time trigger*
-
-## Endpoint URL
-
-Use the base url https://www.workato.com/webhooks/notify/salesforce. To this base URL you will have to add 2 parameters which are separated from the base url with ‘?’.
- 
-The first parameter is the sobject, and the second parameter is the org_id.
- 
-The sobject is essentially the object that you are integrating with the real time trigger. In my case, this would be ‘Opportunity’. This is case sensitive, so do not use object, or OBJECT in your endpoint URL. 
- 
-The second parameter is the org_id. To locate this id, go to setup. On the left column, under Administer, click on ‘Company Profile’ and then ‘Company Information’. 
-
-![location of URL](/assets/images/connectors/salesforce-connector/url-location.png)
-*You can find the location of the id by going to setup, administer, company profile, then company information*
-
-You will now see a page with numerous information about the organization. The highlighted section represents the Organization ID.
-
-![IDL](/assets/images/connectors/salesforce-connector/url-id.png)
-*organization ID is highlighted*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
