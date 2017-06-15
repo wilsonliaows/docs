@@ -11,15 +11,23 @@ A few triggers that Workato acts on include 'New Bill', 'New Account' and 'New E
 Through these triggers, you can easily link other applications to get more benefits from [QuickBooks Online](https://www.workato.com/integrations/quickbooks). For instance, you could build a recipe that a trigger on a specificed interval can get details of specific items from QuickBooks Online.
 
 On this page we'll walk you through:
-  1. [Connector information](http://docs.workato.com/connectors/quickbooks.html#connector-information)
-  2. [How to connect to QuickBooks on Workato](http://docs.workato.com/connectors/quickbooks.html#how-to-connect-to-quickbooks-on-workato)
-  3. [Connecting to Multiple Companies on QuickBooks](http://docs.workato.com/connectors/quickbooks.html#connecting-to-multiple-companies-on-quickbooks)
-  4. [QuickBooks Triggers](http://docs.workato.com/connectors/quickbooks.html#quickbooks-triggers)
-  5. [Action: Add Line to Invoice](http://docs.workato.com/connectors/quickbooks.html#action-add-line-to-invoice)
-  6. [Bank Deposit](http://docs.workato.com/connectors/quickbooks.html#bank-deposit)
-  7. [Exchange Rates](http://docs.workato.com/connectors/quickbooks.html#exchange-rate)
-  8. [Different Labels between profit and non-profit versions](http://docs.workato.com/connectors/quickbooks.html#different-labels-between-profit-and-non-profit-versions)
-  9. [Common Errors & Troubleshooting](http://docs.workato.com/connectors/quickbooks.html#common-errors--troubleshooting)
+1. [Connector information](http://docs.workato.com/connectors/quickbooks.html#connector-information)
+
+2. [How to connect to QuickBooks on Workato](http://docs.workato.com/connectors/quickbooks.html#how-to-connect-to-quickbooks-on-workato)
+
+3. [Connecting to Multiple Companies on QuickBooks](http://docs.workato.com/connectors/quickbooks.html#connecting-to-multiple-companies-on-quickbooks)
+
+4. [QuickBooks Triggers](http://docs.workato.com/connectors/quickbooks.html#quickbooks-triggers)
+
+5. [Action: Add Line to Invoice](http://docs.workato.com/connectors/quickbooks.html#action-add-line-to-invoice)
+
+6. [Bank Deposit](http://docs.workato.com/connectors/quickbooks.html#bank-deposit)
+
+7. [Exchange Rates](http://docs.workato.com/connectors/quickbooks.html#exchange-rate)
+
+8. [Different Labels between profit and non-profit versions](http://docs.workato.com/connectors/quickbooks.html#different-labels-between-profit-and-non-profit-versions)
+
+ 9. [Common Errors & Troubleshooting](http://docs.workato.com/connectors/quickbooks.html#common-errors--troubleshooting)
 
 
 ## Connector information

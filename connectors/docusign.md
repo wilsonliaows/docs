@@ -10,8 +10,9 @@ The main purpose of DocuSign (https://www.docusign.com/) is to provide a quick a
 Workato further expands the actions that can be taken through [DocuSign](https://www.workato.com/integrations/docusign). For example, you could easily sign a document or contract and share it with a contact through salesforce.
 
 On this page we'll walk you through:
-	1. [Connector information](http://docs.workato.com/connectors/docusign.html#connector-information)
-	2. [How to connect to Docusign on Workato](http://docs.workato.com/connectors/docusign.html#how-to-connect-to-docusign-on-workato)
+1. [Connector information](http://docs.workato.com/connectors/docusign.html#connector-information)
+
+2. [How to connect to Docusign on Workato](http://docs.workato.com/connectors/docusign.html#how-to-connect-to-docusign-on-workato)
 
 ## Connector information
 

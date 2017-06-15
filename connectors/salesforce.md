@@ -5,11 +5,16 @@
 One example in which Workato could help users is if a [Salesforce](https://www.workato.com/integrations/salesforce) user is looking to get a deal support request approved through a Slack Channel. Essentially, a designated approval will be prompted to sign in through Slack and can approve the request with seconds.
 
 On this page we'll walk you through:
-  1.[Connector information](http://docs.workato.com/connectors/salesforce.html#connector-information)
-  2.[How to connect to Salesforce on Workato](http://docs.workato.com/connectors/salesforce.html#how-to-connect-to-salesforce-on-workato)
-  3.[Working with the Salesforce connector](http://docs.workato.com/connectors/salesforce.html#working-with-the-salesforce-connector)
-  4.[Working with SOQL in Salesforce](http://docs.workato.com/connectors/salesforce.html#working-with-soql-in-salesforce)
-  5.[Troubleshooting](http://docs.workato.com/connectors/salesforce.html#troubleshooting)
+
+1.[Connector information](http://docs.workato.com/connectors/salesforce.html#connector-information)
+
+2.[How to connect to Salesforce on Workato](http://docs.workato.com/connectors/salesforce.html#how-to-connect-to-salesforce-on-workato)
+
+3.[Working with the Salesforce connector](http://docs.workato.com/connectors/salesforce.html#working-with-the-salesforce-connector)
+
+4.[Working with SOQL in Salesforce](http://docs.workato.com/connectors/salesforce.html#working-with-soql-in-salesforce)
+
+5.[Troubleshooting](http://docs.workato.com/connectors/salesforce.html#troubleshooting)
   
 
 ## Connector information

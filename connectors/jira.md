@@ -10,9 +10,11 @@ date: 2017-02-16 06:15:00 Z
 With Workato, you can use triggers such as 'New/update issue', 'New Project' or 'New Issue' and keep track of these issues and projects on [JIRA](https://www.workato.com/integrations/jira). For example, you can file new issues and projects into separate files on DropBox which can help further organize the process of developing software.
 
 On this page we'll walk you through:
-	1. [Connector information](http://docs.workato.com/connectors/jira.html#connector-information)
-	2. [How to connect to JIRA on Workato](http://docs.workato.com/connectors/jira.html#how-to-connect-to-jira-on-workato)
-	3. [Working with the JIRA connector](http://docs.workato.com/connectors/jira.html#working-with-the-jira-connector)
+1. [Connector information](http://docs.workato.com/connectors/jira.html#connector-information)
+
+2. [How to connect to JIRA on Workato](http://docs.workato.com/connectors/jira.html#how-to-connect-to-jira-on-workato)
+
+3. [Working with the JIRA connector](http://docs.workato.com/connectors/jira.html#working-with-the-jira-connector)
 
 ## Connector information
 

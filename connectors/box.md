@@ -10,11 +10,16 @@ Targeted mostly towards businesses and enterprises, [Box](https://www.box.com/ho
 With workato, you can [link Box](https://www.workato.com/integrations/box) to many different features which further facilitate storing and managing these files. Some triggers include 'New updated folder' or 'Webhook notification' which can be linked to another application such as mailchimp or google sheets.
 
 On this page, we'll walk you through:
-	1. [Connector information](http://docs.workato.com/connectors/box.html#connector-information)
-	2. [How to connect to Box on Workato](http://docs.workato.com/connectors/box.html#how-to-connect-to-box-on-workato)
-	3. [Working with attatchments on Box](http://docs.workato.com/connectors/box.html#working-with-attachments-in-box)
-	4. [Articles on how to use additional features](http://docs.workato.com/connectors/box.html#articles-on-how-to-use-additional-special-actions-such-as-get-shared-link-etc)
-	5. [Generation information about Box](http://docs.workato.com/connectors/box.html#more-generation-information-on-box)
+
+1. [Connector information](http://docs.workato.com/connectors/box.html#connector-information)
+
+2. [How to connect to Box on Workato](http://docs.workato.com/connectors/box.html#how-to-connect-to-box-on-workato)
+
+3. [Working with attatchments on Box](http://docs.workato.com/connectors/box.html#working-with-attachments-in-box)
+
+4. [Articles on how to use additional features](http://docs.workato.com/connectors/box.html#articles-on-how-to-use-additional-special-actions-such-as-get-shared-link-etc)
+
+5. [Generation information about Box](http://docs.workato.com/connectors/box.html#more-generation-information-on-box)
 
 
 ## Connector information
