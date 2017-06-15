@@ -1,5 +1,9 @@
 # Salesforce
 
+[Salesforce](https://www.salesforce.com/) helps integrate numerous applications that most businesses use. Applications within Salesforce such as 'Sales Cloud', 'Marketing Cloud', and 'Wave Analytics' provide an organized way to approach major elements in a business or enterprise.
+
+One example in which Workato could help users is if a Salesforce user is looking to get a deal support request approved through a Slack Channel. Essentially, a designated approval will be prompted to sign in through Slack and can approve the request with seconds.
+
 ## Connector information
 
 ### API version

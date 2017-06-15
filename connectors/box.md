@@ -5,6 +5,10 @@ date: 2017-02-21 12:00:00 Z
 
 # Box
 
+Targeted mostly towards businesses and enterprises, [Box](https://www.box.com/home) enables users to easily store and maintain files and helps manage cloud content.
+
+With workato, you can link box to many different features which further facilitate storing and managing these files. Some triggers include 'New updated folder' or 'Webhook notification' which can be linked to another application such as mailchimp or google sheets.
+
 ## Connector information
 
 ### API version

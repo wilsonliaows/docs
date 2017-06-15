@@ -5,6 +5,11 @@ date: 2017-02-16 06:15:00 Z
 
 # SurveyMonkey
 
+SurveyMonkey helps user build simple surveys for many uses including polls and market searchers.
+
+With Workato, users can link results of a poll to different applications. For example, users can build a recipe that can link a completed survey response to a spreadsheet on Google Sheets in order to easily organize these responses.
+
+
 ## Connector information
 
 ### API version
