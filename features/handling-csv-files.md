@@ -84,3 +84,10 @@ In order to iterate through this list of CSV lines, we have to use a Repeat step
 
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-mapping.png)
 *Mapping of datapills from the Repeat step datatree to the action*
+
+# Supported connectors
+
+1. [Dropbox](https://www.workato.com/integrations/dropbox)
+2. [Box](https://www.workato.com/integrations/box)
+3. [Salesforce](https://www.workato.com/integrations/salesforce)
+4. [CSV parser](https://www.workato.com/integrations/csv_parser)

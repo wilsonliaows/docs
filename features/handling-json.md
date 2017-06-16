@@ -22,3 +22,7 @@ Please refer to the main [Workato SDK documentation](/developing-connectors/sdk.
 ## Which should I use?
 
 Refer to our documentation on the [HTTP vs SDK](/developing-connectors/http-vs-sdk.md) for a detailed comparison of the two options.
+
+## Supported connectors
+
+1. [JSON parser](https://www.workato.com/integrations/json_parser)
