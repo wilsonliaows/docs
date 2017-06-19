@@ -57,6 +57,8 @@ Please make sure that TCP port 3000 is available for binding.
 3. By default, the agent is installed as a Windows service called `WorkatoAgent`. You can disable this feature by unchecking the corresponding option during install.
 4. Click on `Download key` button. Unzip the `cert.zip` file to `<INSTALL_HOME>\conf` directory (`<INSTALL_HOME>` is a target folder you've selected during install). This should copy `cert.key` and `cert.pem` files to the directory.
 
+An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be)
+
 ### Linux
 
 1. Click on `Linux agent` button. Unpack the agent package file to `<INSTALL_HOME>`.
