@@ -18,7 +18,7 @@ The newer version provides users with a more friendly way of defining their sche
 *Newly defined input and output fields*
 
 ![New fields](/assets/images/features/schema-designer/slack-imgs.gif)
-*New field on *
+*New field*
 
 There’s a default JSON sample available to set up the schema/gives example of how to define the schema. You can also access this JSON editor subsequently from the { } icon to the right of the label :
 
