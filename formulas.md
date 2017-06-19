@@ -81,19 +81,32 @@ Here is a detailed explanation of what the ternary formula does:
 For more information on Ruby's ternary syntax, check out this [article](http://www.w3resource.com/ruby/ruby-ternary-operator.php).
 
 
-# Working with Null values 
+## Working with Null values 
 
-## Clear
+### Clear
 
 When null/nil is entered into an input field, the value of the field remains unchanged. With 'clear', when null/nil is inputted, the value of of that field will be updated to null/nil.
 
 ![Clear](/assets/images/formula-docs/clear.png)
+
+**Application:**
+
+When there is an update on the existing customers’ contact in the QBO, you want to update phone number if it is changed and clear the existing one if it is not. 
+
+![ternary ](/assets/images/formula-docs/ternary.jpg)
+
+Check email if is equal to zhoukai@workato.com, if it is leave as it is, if not clear the field. 
 
 ## Skip
 
 Skip will explicitly tell the connector NOT to pass any value into the app, essentially leaving the value as-is.
 
 ![Skip](/assets/images/formula-docs/skip.png)
+
+**Application:**
+
+Similar case as clear. 
+Another use case could be that you want to update all the existing contact with a default email and clear the field if it does not contain the email
 
 ## Null
 
