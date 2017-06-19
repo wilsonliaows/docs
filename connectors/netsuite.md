@@ -378,4 +378,8 @@ At the end of most NetSuite lists, you will see the **Replace all** option. Sele
 
 When selecting the fields to update in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.
 
+## Search functions in NetSuite
+
+Netsuite names are typically unique within your Netsuite instance - i.e. you cannot have customers with the same name, items of the same name or invoices with the same number. As such, when you pass in your search criteria into the Netsuite search actions, you will usually only get one record back if the criteria matches that of a record in Netsuite, or get nothing back if your criteria does not match any record in Netsuite.
+
 If you can't find the field you're looking for, check with your NetSuite admin or with us!

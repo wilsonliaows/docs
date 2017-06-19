@@ -277,7 +277,3 @@ This error could mean that there were some connectivity issues with the app conn
 Disconnect your app by going to the connections tab at the bottom of your recipe page, and reconnect it again.
 
 ![QBO connect3](/assets/images/QBO_docs/QBO connect3.png)
-
-
-
-
