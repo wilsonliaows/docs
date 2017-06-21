@@ -139,6 +139,13 @@ You can use `Run Agent (console)` shortcut to ensure the agent is successfully c
 * Installer automatically registers the agent as a Windows service called `WorkatoAgent`.
 * Note: Workato agent is not auto-started by default. Open **Control Panel &rarr; System and Security &rarr; Administrative Tools &rarr; Services &rarr; WorkatoAgent** service configuration to configure service auto-start.
 
+### Upgrading 
+
+* To upgrade your on-premise agent, you can download a new installer and install over your current agent - your on-premise agent will be updated.
+* The config.yml file and the certificate files (`cert.key`, `cert.pem`) will remain unchanged in the conf directory
+* Navigate to the On-Prem page and select an agent. Download the new installer based on your operating system (either Windows or Linux) and run it.
+* Set the location of the new agent to be the location of your old on-premise agent (`<INSTALL_HOME>`). Finish the installation.
+
 #### Uninstalling
 * You need Administrator privileges to uninstall the agent.
 * Use `Workato` &rarr; `Uninstall` shortcut to uninstall.
