@@ -25,23 +25,23 @@ The Freshdesk connector works with all Freshdesk plans.
 
 ## How to connect to Freshdesk on Workato
 
-1. Add a new connection
+1. Search for Freshdesk Recipes
 
-You could either go to your ["New Connection" page](https://www.workato.com/connections/new)
+You could click on the ["Browse Recipes" tab](https://www.workato.com/recipes/browse) at the navigation bar above and search for "Freshdesk" to view [a list of pre-built Freshdesk recipes](https://www.workato.com/recipes/browse?q=Freshdesk).
 
-or go to your ["Connections" page](https://www.workato.com/connections) and click on the "Create a New Connection" button on the top-right corner, as seen below.
+![List of Pre-built Freshdesk Recipes](/assets/images/connectors/freshdesk/list-freshdesk-recipe.PNG)
+*A Pre-built Freshdesk Recipe*
 
-![Freshdesk connection configuration](/assets/images/connectors/freshdesk/freshdesk-add-connection.png)
-*Create a new connection in your Workato account*
+2. Choose a desired Freshdesk recipe to use
 
-2. Choose "Freshdesk" as the new application to connect to.
+Click on the recipe and then on the "Use this recipe" button at the top-right corner as seen below.
 
-![Choose Freshdesk as your app](/assets/images/connectors/freshdesk/freshdesk-choose-app.png)
-*Create a new connection in your Workato account*
+![Click to choose to use the recipe](/assets/images/connectors/freshdesk/freshdesk-recipe.PNG)
+*A Pre-built Freshdesk Recipe*
 
 3. Fill in the configuration input fields
 
-![Freshdesk connection configuration](/assets/images/connectors/freshdesk/freshdesk-connection.png)
+![Freshdesk connection configuration](/assets/images/connectors/freshdesk/freshdesk-config-fields.PNG)
 *Freshdesk connection configuration on Workato*
 
 * **Connection name**
