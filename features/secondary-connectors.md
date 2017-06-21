@@ -1,5 +1,5 @@
 # Secondary connectors
-There are use cases where you are required to move data between two different instances of the same app, e.g. An organization located in two different states might have two different salesforce accounts, but would have to sync the data between the two states.
+There are use cases where you are required to move data between two different instances of the same app, e.g. an organization located in two different states might have two different salesforce accounts, but would have to sync the data between the two states.
 
 To automate such use cases in Workato, we support the notion of a **secondary connector**. In the example above, you would connect the primary Salesforce connector to the corporate instance and the secondary Salesforce instance to the subsidiary.
 
