@@ -7,14 +7,15 @@ date: 2017-02-22 11:00:00 Z
 
 ## Introduction
 
-Workato allows for bi-directional syncs between Freshdesk and up to 1000+ other apps, through various use cases. Popular apps that users have integrate with Freshdesk include Salesforce, Google Sheets, Trello, Intercom. 
+Workato allows for bi-directional syncs between Freshdesk and up to 1000+ other apps, through various use cases. Popular apps that users have integrated with Freshdesk include Salesforce, Google Sheets, Trello, Intercom. 
 
-Freshdesk integration scenarios include posting a new message in Slack when there is a new updated Freshdesk ticket or bi-directional syncs between new/updated:
+Freshdesk integration scenarios include bi-directional syncs between new/updated:
 
 * Freshdesk tickets to Salesforce cases
 * Freshdesk tickets to ServiceNow incident
 * Freshdesk contacts to Salesforce contacts
 * Freshdesk users to Intercom users
+* Freshdesk ticket to a message posted on a Slack channel
 
 [Get started with these recipes here!](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
 
@@ -70,7 +71,7 @@ Click on the recipe. Thereafter, proceed to click on the "Use this recipe" butto
 
  Once all required fields are filled, click connect.
 
- ![Connect Freshdesk](/assets/images/connectors/freshdesk/freshdesk-connect.PNG)
+ ![Connect Freshdesk](/assets/images/connectors/freshdesk/freshdesk-connect.png)
 
  Once Freshdesk has been successfully connected, you may complete/skip the following steps, such as customization/testing. After these steps, you would see the following recipe page. You may choose to test or start the recipe by clicking on the corresponding button on the top-right corner.
 
