@@ -6,9 +6,9 @@ date: 2017-05-31 15:00:00 Z
 # Packages
 A package refers to a grouping of assets, which refers to recipes and the related dependencies needed for recipes to work, e.g. connections, custom connectors, lookup tables and account properties. With the packages feature, users can move these assets easily across different Workato accounts.
 
-This is useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team's Workato account, or to the production Workato account. Consultants can also utilize this feature to move comprehensive integrations into their clients' accounts.
+Packages are useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team's Workato account, or to the production Workato account. Consultants can also utilize this feature to move comprehensive integrations into their clients' accounts.
 
-The packages feature is enabled only for certain Workato plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+The packages feature is enabled only for certain Workato plans. Check the [Pricing and plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 For Workato accounts with the packages feature enabled, users will be able to see the import/export option on their account menu.
 
@@ -20,8 +20,8 @@ Upon clicking the Import/export option on the menu, you'll be brought into the p
 ![Import export page](/assets/images/features/packages/import-export-buttons.png)
 *Packages page with import and export functions*
 
-# Exporting packages
-When you export a folder of recipes as a zip file, included within that zip file are:
+## Exporting packages
+When you export a folder of recipes as a zip file, you will find:
 - recipes in that folder
 - subfolders and recipes in those subfolders
 - associated connections
@@ -49,7 +49,7 @@ The folder will be exported once **Next** has been clicked. Workato will proceed
 ![Export packages - export completed](/assets/images/features/packages/export-packages-complete.png)
 *Folder has been successfully exported as a package and is ready for download*
 
-# Importing packages
+## Importing packages
 Upon clicking the Import/export option on the menu, you'll be brought into the packages page.
 
 ![Import export page](/assets/images/features/packages/import-export-buttons.png)
