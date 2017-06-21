@@ -60,6 +60,7 @@ In the following example, Workato carries out the action on on 2 April 2017, 12.
 ## ago
 
 Produces a value that is backward in time from that point in time. Needs to be combined with \<value>.\<time-unit> eg. 3.days or 5.minutes
+<<<<<<< HEAD
 
 ### Example
 
@@ -344,7 +345,6 @@ To retrieve the last date of the next month:
 # Display conversion
 
 ## strftime
-
 To change the format of a datetime value to suit your preferences, you can use the .strftime formula to do so.
 
 ### Example
