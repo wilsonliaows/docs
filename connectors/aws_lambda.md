@@ -62,7 +62,7 @@ If the lambda function returns non-JSON data structure, like a single string, in
 4990
 ```
 
-Wrap it in a parent `"response" object:
+Wrap it in a parent `"response"` object:
 
 ```json
 {
