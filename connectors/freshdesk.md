@@ -28,11 +28,11 @@ The Freshdesk connector works with all Freshdesk plans.
 You could click on the ["Browse Recipes" tab](https://www.workato.com/recipes/browse) at the navigation bar above and search for "Freshdesk" to view [a list of pre-built Freshdesk recipes](https://www.workato.com/recipes/browse?q=Freshdesk).
 
 ![List of Pre-built Freshdesk Recipes](/assets/images/connectors/freshdesk/list-freshdesk-recipe.PNG)
-*A Pre-built Freshdesk Recipe*
+*List of Pre-built Freshdesk Recipes*
 
 2. Choose a desired Freshdesk recipe to use
 
-Click on the recipe and then on the "Use this recipe" button at the top-right corner as seen below.
+Click on the recipe. Thereafter, proceed to click on the "Use this recipe" button at the top-right corner as seen below.
 
 ![Click to choose to use the recipe](/assets/images/connectors/freshdesk/freshdesk-recipe.PNG)
 *A Pre-built Freshdesk Recipe*
@@ -68,9 +68,13 @@ Click on the recipe and then on the "Use this recipe" button at the top-right co
   
 4. Click connect
 
- Once all required fields are filled, click connect. Once Freshdesk has been successfully connected, you will see the following page.
+ Once all required fields are filled, click connect.
 
- ![Freshdesk successful connection](/assets/images/connectors/freshdesk/freshdesk-successful-connection.png)
+ ![Connect Freshdesk](/assets/images/connectors/freshdesk/freshdesk-connect.PNG)
+
+ Once Freshdesk has been successfully connected, you may complete/skip the following steps, such as customization/testing. After these steps, you would see the following recipe page. You may choose to test or start the recipe by clicking on the corresponding button on the top-right corner.
+
+  ![Start your Freshdesk recipe](/assets/images/connectors/freshdesk/freshdesk-start-recipe.PNG)
 
  ## Recommended Recipes
    * [New/updated Freshdesk ticket to Salesforce case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
