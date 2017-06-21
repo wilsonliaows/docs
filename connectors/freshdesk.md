@@ -17,26 +17,26 @@ Freshdesk integration scenarios include bi-directional syncs between new/updated
 * Freshdesk users to Intercom users
 * Freshdesk ticket to a message posted on a Slack channel
 
-[Get started with these recipes here!](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
+You can get started with these recipes [here](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic).
 
 ## Supported editions and versions
 The Freshdesk connector works with all Freshdesk plans.
 
 ## How to connect to Freshdesk on Workato
 
-1. Search for Freshdesk Recipes
+1. Search for Freshdesk recipes
 
-You could click on the ["Browse Recipes" tab](https://www.workato.com/recipes/browse) at the navigation bar above and search for "Freshdesk" to view [a list of pre-built Freshdesk recipes](https://www.workato.com/recipes/browse?q=Freshdesk).
+You could click on the [*Browse Recipes*](https://www.workato.com/recipes/browse) at the navigation bar above and search for "Freshdesk" to view a list of pre-built [Freshdesk recipes](https://www.workato.com/recipes/browse?q=Freshdesk).
 
-![List of Pre-built Freshdesk Recipes](/assets/images/connectors/freshdesk/list-freshdesk-recipe.PNG)
-*List of Pre-built Freshdesk Recipes*
+![List of pre-built Freshdesk recipes](/assets/images/connectors/freshdesk/list-freshdesk-recipe.PNG)
+*List of pre-built Freshdesk recipes*
 
 2. Choose a desired Freshdesk recipe to use
 
 Click on the recipe. Thereafter, proceed to click on the "Use this recipe" button at the top-right corner as seen below.
 
 ![Click to choose to use the recipe](/assets/images/connectors/freshdesk/freshdesk-recipe.PNG)
-*A Pre-built Freshdesk Recipe*
+*A pre-built Freshdesk recipe*
 
 3. Fill in the configuration input fields
 
@@ -47,13 +47,13 @@ Click on the recipe. Thereafter, proceed to click on the "Use this recipe" butto
 
   Give this Freshdesk connection a unique name which identifies the Freshdesk account you are connected to.
 
-* **API Key**
+* **API key**
 
   Enter your API key from your Freshdesk account. You may obtain the API key by following these steps:
 
   1. Navigate to *User Profile* under the dropdown menu on the top-right corner of your helpdesk
 
-  2. Navigate to Profile Settings
+  2. Navigate to *Profile Settings*
 
   ![Freshdesk profile settings](/assets/images/connectors/freshdesk/freshdesk-tab.png)
   *Go to Profile settings in Freshdesk*
@@ -89,4 +89,4 @@ Click on the recipe. Thereafter, proceed to click on the "Use this recipe" butto
  ## For more information 
    [Supported triggers and actions](https://www.workato.com/integrations/freshdesk)
 
-   [Get started now!](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
+   [Get started now](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
