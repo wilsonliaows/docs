@@ -5,17 +5,16 @@ date: 2017-03-30 05:00:00 Z
 
 # Workbot Examples 
 
-With Workbot, you can easily integrate applications in order to easily communicate, organize, or collaborate within an organization.
+With Workbot, you can easily integrate applications in order communicate, organize, or collaborate within an organization.
 
 In this article we'll walk you through:
-1. Sample recipes
-2. Detailed walkthrough of a sample recipe
-3. Defining key Workbot terms
-
+1. [Sample recipes](http://docs.workato.com/#sample-recipes)
+2. [Detailed walkthrough of a sample recipe](http://docs.workato.com/#detailed-walkthrough-of-a-sample-recipe)
+3. [Defining key Workbot terms](http://docs.workato.com/#defining-key-workbot-terms)
 
 ## Sample Recipes
 
-To get a start on building your own workbot recipes, take a look at these useful sample recipes that you can copy and adjust as you chose.  
+To get a start on building your own workbot recipes, take a look at these useful sample recipes that you can copy and adjust as you chose to get a glimpse of the possible workbot recipes you could build.
 
 * [New/updated deal support request on Salesforce posts notification on Slack](https://www.workato.com/recipes/539932-new-updated-dsrs-post-notifications-in-slack-acme360#recipe)
 
@@ -25,8 +24,7 @@ To get a start on building your own workbot recipes, take a look at these useful
 
 Let's go through [this recipe](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe) in detail.
 
-
-Once you open the link, click on **Use this recipe** button located on the top right hand corner of the page.
+Once you open the link, click on the *Use this recipe* button located on the top right hand corner of the page.
 
 ![Use this recipe](/assets/images/Workbot/workbot-examples/use-recipe.png)
 *Use this recipe button located on top right hand corner*
@@ -36,30 +34,30 @@ After you do this, you will be directed to a page where you will have to fill in
 ![Connecting Apps](/assets/images/Workbot/workbot-examples/connections.png)
 *Connect the applications and then press next*
 
-After you click on next, you will have the option to customize any fields you want to change. If you don't want to, proceed to click **Next**
+After you click on next, you will have the option to customize any fields you want to change. If you don't want to, proceed to click *Next*
 ![Customize fields](/assets/images/Workbot/workbot-examples/customize.png)
 *Modify, add, and remove anything from the original sample recipe*
 
-If you chose to do so, you can test your recipe. If not, click on **Skip & test later**
+If you chose to do so, you can test your recipe. If not, click on *Skip & test later*
 
 ![Testing](/assets/images/Workbot/workbot-examples/testing.png)
 * Click on test recipe located on the top right corner, or skip and test later.*
 
-Now, you have everything set up on Workato. To see Workbot in action, we need to set up deal support request.
+Now, you have everything set up on Workato. To see the Workbot recipe in action, we need to set up a deal support request.
 
 To do this, we need to go to Salesforce and create a new deal supoprt rqequest.
 
-Firstly, go to your home page and click on **Create New** on the top left corner of the page. In the drop down bar, click on **Deal Support Request.
+Firstly, go to your home page and click on *Create New* on the top left corner of the page. In the drop down bar, click on **Deal Support Request.
 
 ![Create new request](/assets/images/Workbot/workbot-examples/create-new.jpg)
-*Create new > Deal support request*
+**Create new* > *Deal support request**
 
 Once you click on this, you will be directed to a form.
 
 ![New Deal](/assets/images/Workbot/workbot-examples/new-deal-form.jpg)
 *Fill in the fields of the form and then hit save*
 
-Once you save the request, you will receive a confirmation.
+Once you save the request, you will receive a confirmation notification.
 ![Confirmation](/assets/images/Workbot/workbot-examples/confirmation.jpg)
 *Deal support request confirmation*
 
@@ -79,7 +77,7 @@ Once the approver hits approve, you will get the following message:
 
 The application section of the form refers to the app that is linked to the commands. For this reason, make sure you correctly fill in applications that are on our list of applications.
 
-Start typing in your application or scroll down to find the application. If you enter a correct app name, you will see an app icon. 
+Start typing in your application or scroll down to find the application you are looking for. If you enter a correct app name, you will see an app icon show up on your slack notification. 
 
 ![Correct application](/assets/images/Workbot/workbot-examples/correct.png)
 *Correct application fill-in*
@@ -88,10 +86,9 @@ If you put in an incorrect application name, you will not see an app icon.
 ![Incorrect application](/assets/images/Workbot/workbot-examples/incorrect-application.png)
 *Correct application fill-in*
 
-
 ### Buttons
 
-These buttons will show up on your slack notification through Workbot. 
+Buttons will show up on your slack message through Workbot. 
 
 For example, this deal support request has two buttons- approve or reject- for the designated approver to click on. 
 
@@ -137,6 +134,8 @@ Use the same text as inserting a button:
 ![Message drop down bar](/assets/images/Workbot/workbot-examples/message-drop.png)
 *Message drop down bar*
 
+Note that the button title is the name that will show up on the button and that the button command is a string of words that will do the same thing as a button click.
+
 ### Message ID
 
 The message ID refers to the main message on slack. Note that if you use the same message ID, you may overwrite the original.
@@ -144,17 +143,18 @@ The message ID refers to the main message on slack. Note that if you use the sam
 ![Message ID](/assets/images/Workbot/workbot-examples/message-id.png)
 *Message on Slack*
 
-### Message type
+### Message type 
 
-While building the recipe for Workbot, you have 3 different message types to chose from: good, warning, danger. These message types are color coded and show the severity of the action or how quickly to use the action.
+While building the recipe for Workbot, you have 3 different message types to chose from: good, warning, danger. These message types are color coded.
 
-![Message type drop down bar](/assets/images/Workbot/workbot-examples/message-type.png)
+Message type good is color coded green, warning is color coded yellow, and message type danger is color coded red.
+
+![Message type](/assets/images/Workbot/workbot-examples/message-type.png)
 *Message type drop bar*
-
 
 ### Thread ID 
 
-The thread ID refers to the thread on Slack. If you put in the Thread ID, you will add the message under an existing thread. If you put in the Message ID with not Thread, you will create a new thread. 
+The thread ID refers to the thread on Slack. If you put in the Thread ID, you will add the message under an existing thread. If you put in the Message ID with no Thread, you will create a new thread. 
 
 ![Thread ID](/assets/images/Workbot/workbot-examples/thread-id.png)
 *Thread on Slack can be seen when you click on replies*
