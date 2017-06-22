@@ -5,7 +5,7 @@ date: 2017-03-30 05:00:00 Z
 
 # Workbot Examples 
 
-With Workbot, you can easily integrate applications in order communicate, organize, or collaborate within an organization.
+With Workbot, you can easily integrate applications in order communicate, organize, or collaborate within an organization. One particular example where Workbot is useful is in a company where different groups (sales, product, and marketing) uses different applications. With Workbot, all these separate groups could be able to easily communicate and talk about their progress through Workbot's connection with Slack.
 
 In this article we'll walk you through:
 1. [Sample recipes](http://docs.workato.com/#sample-recipes)
@@ -82,7 +82,7 @@ Once the approver hits approve, you will get the following message:
 
 The application section of the form refers to the app that is linked to the commands. For this reason, make sure you correctly fill in applications that are on our list of applications.
 
-Start typing in your application or scroll down to find the application you are looking for. If you enter a correct app name, you will see an app icon show up on your slack notification. 
+Type in a valid connector's name in the application box. If you enter a correct app name, you will see an app icon show up on your slack notification. 
 
 ![Correct application](/assets/images/Workbot/workbot-examples/correct.png)
 *Correct application fill-in*
@@ -95,7 +95,7 @@ If you put in an incorrect application name, you will not see an app icon.
 
 Buttons will show up on your slack message through Workbot. 
 
-For example, this deal support request has two buttons- approve or reject- for the designated approver to click on. 
+For example, this deal support request has two buttons -approve or reject- for the designated approver to click on. 
 
 ![Button example](/assets/images/Workbot/workbot-examples/button.png)
 *Example of buttons in a deal support request on slack*
@@ -141,7 +141,6 @@ Use the same text as inserting a button:
 *Message drop down bar*
 
 Note that the button title is the name that will show up on the button and that the button command is a string of words that will do the same thing as a button click.
-
 
 
 ### Message ID
