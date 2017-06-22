@@ -83,7 +83,7 @@ params(id: 1234, api_token: 'xyz')
 
   - Methods to change the request/response (or both) formats from the JSON default:
 
-    `request_format_json`, `response_format_json`, `format_json`, `request_format_xml`, `response_format_xml`, `format_xml`, `request_format_www_form_urlencoded`
+    `request_format_json`, `response_format_json`, `format_json`, `request_format_xml`, `response_format_xml`, `format_xml`, `request_format_www_form_urlencoded`, `request_format_multipart_form`
 
   - HTTP authentication
 
