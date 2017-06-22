@@ -18,7 +18,7 @@ In order to connect to NetSuite and allow for data to flow to and from NetSuite 
 First, API Access needs to be enabled in NetSuite. Go to Setup > Company > Enable Features > SuiteCloud.
 
 ![Setup > Company > Enabled Features > SuiteCloud](/assets/images/connectors/netsuite/enable-web-services-1.png)
-*In NetSuite, go to Setup > Company > Enable Features > SuiteCloud*
+*In NetSuite, go to m  *Setup* > *Company* > *Enable Features* > *SuiteCloud**
 
 Check the Web Services checkbox, then save the settings.
 
@@ -32,13 +32,13 @@ We need to create a specialized role for our integration user. We need to enable
 
 In the example below, we're creating a new role and giving it the Full Web Services permission. However, if you wish to enable an existing role to be able to read from and write to NetSuite via the API, simply add the Full Web Services permission to the existing role.
 
-1. In NetSuite, go to Setup > Users/Roles > Manage Roles
+1. In NetSuite, go to *Setup* > *Users/Roles* > *Manage Roles*
 ![Setup > Users/Roles > Manage Roles](/assets/images/connectors/netsuite/setup-integration-role-1.png)
 
 2. Check the Web Services Only Role checkbox if you don't want this role to have the ability to login to NetSuite (i.e. only the ability to connect to NetSuite via the API)
 ![Check Web Services Only Role checkbox if relevant](/assets/images/connectors/netsuite/setup-integration-role-2.png)
 
-3. Under Permissions>Setup, this role needs to have the Web Services permissions with a Full level
+3. Under *Permissions* > *Setup*, this role needs to have the Web Services permissions with a Full level
 ![Give Full level Web Services permissions](/assets/images/connectors/netsuite/setup-integration-role-3.png)
 
 4. Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the Sales Order - Create permission level, and if you wish to be able to create and update and read sales order data, select the Full permission level.
@@ -47,10 +47,10 @@ In the example below, we're creating a new role and giving it the Full Web Servi
 ### 3. Set up an integration user
 Once we've set up our integration role, we need to assign this role to our integration user.
 
-In NetSuite, go to Setup > Users/Roles > Manage Users to edit an existing user or create a new user
+In NetSuite, go to *Setup* > *Users/Roles* > *Manage Users* to edit an existing user or create a new user
 
 ![Set up other permissions and permission levels](/assets/images/connectors/netsuite/setup-integration-user-1.png)
-*Navigate to Setup > Users/Roles > Manage Users*
+*Navigate to *Setup* > *Users/Roles* > *Manage Users**
 
 When editing a user, under the Access tab, ensure you assign this user the integration role you've just created/edited above.
 
