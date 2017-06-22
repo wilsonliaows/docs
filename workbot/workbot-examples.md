@@ -26,7 +26,7 @@ To get a start on building your own workbot recipes, take a look at these useful
 
 ## Detailed walkthrough of a sample recipe
 
-Let's go through [this recipe](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe) in detail.
+Let's go through [this recipe](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe) in detail to see a particular scenario where workbot helps the user.
 
 Once you open the link, click on the *Use this recipe* button located on the top right hand corner of the page.
 
@@ -49,7 +49,7 @@ If you chose to do so, you can test your recipe. If not, click on *Skip & test l
 
 Now, you have everything set up on Workato. To see the Workbot recipe in action, we need to set up a deal support request.
 
-To do this, we need to go to Salesforce and create a new deal supoprt rqequest.
+For this, we need to go to Salesforce and create a new deal supoprt rqequest.
 
 Firstly, go to your home page and click on *Create New* on the top left corner of the page. In the drop down bar, click on **Deal Support Request.
 
@@ -61,7 +61,7 @@ Once you click on this, you will be directed to a form.
 ![New Deal](/assets/images/Workbot/workbot-examples/new-deal-form.jpg)
 *Fill in the fields of the form and then hit save*
 
-Once you save the request, you will receive a confirmation notification.
+Once you save the request, you will receive a confirmation stating that a new request has been made.
 ![Confirmation](/assets/images/Workbot/workbot-examples/confirmation.jpg)
 *Deal support request confirmation*
 
@@ -78,7 +78,6 @@ Once the approver hits approve, you will get the following message:
 
 ## Defining key Workbot terms
 
-
 ### Application
 
 The application section of the form refers to the app that is linked to the commands. For this reason, make sure you correctly fill in applications that are on our list of applications.
@@ -91,7 +90,6 @@ Start typing in your application or scroll down to find the application you are 
 If you put in an incorrect application name, you will not see an app icon.
 ![Incorrect application](/assets/images/Workbot/workbot-examples/incorrect-application.png)
 *Correct application fill-in*
-
 
 ### Buttons
 
