@@ -12,6 +12,8 @@ In this article we'll walk you through:
 2. [Detailed walkthrough of a sample recipe](http://docs.workato.com/#detailed-walkthrough-of-a-sample-recipe)
 3. [Defining key Workbot terms](http://docs.workato.com/#defining-key-workbot-terms)
 
+
+
 ## Sample Recipes
 
 To get a start on building your own workbot recipes, take a look at these useful sample recipes that you can copy and adjust as you chose to get a glimpse of the possible workbot recipes you could build.
@@ -19,6 +21,8 @@ To get a start on building your own workbot recipes, take a look at these useful
 * [New/updated deal support request on Salesforce posts notification on Slack](https://www.workato.com/recipes/539932-new-updated-dsrs-post-notifications-in-slack-acme360#recipe)
 
 * [Approve or reject deal support request on Slack](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe)
+
+
 
 ## Detailed walkthrough of a sample recipe
 
@@ -71,7 +75,9 @@ Once the approver hits approve, you will get the following message:
 ![Approved request](/assets/images/Workbot/workbot-examples/approved.jpg)
 *Approved support request*
 
+
 ## Defining key Workbot terms
+
 
 ### Application
 
@@ -85,6 +91,7 @@ Start typing in your application or scroll down to find the application you are 
 If you put in an incorrect application name, you will not see an app icon.
 ![Incorrect application](/assets/images/Workbot/workbot-examples/incorrect-application.png)
 *Correct application fill-in*
+
 
 ### Buttons
 
@@ -106,8 +113,9 @@ Note that the button title is the name that will show up on the button and that 
 one example button could be:
 
 ```ruby
-[{"title":"Approve", "command":"Salesforce approve or reject deal support request status:approve dsr:#{_('data.salesforce.updated_custom_object_webhook.Id')} dsr_name:#{_('data.salesforce.updated_custom_object_webhook.Name')} salesrep:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Name')} message:#{_('data.slack_bot.post_bot_reply.ts')} account: #{_('data.salesforce.get_custom_object1.Name')} approver_slack_handle:#{_('data.salesforce.updated_custom_object_webhook.get_custom_object(Current_approver__c>id, sobject_name: User).Slack_username__c')} salesrep_slack_handle:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Slack_username__c')}"},
+[{"title":"Approve", "command":"Salesforce approve or reject deal support request status:approve dsr:#{_('data.salesforce.updated_custom_object_webhook.Id')} salesrep:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Name')} message:#{_('data.slack_bot.post_bot_reply.ts')} account: #{_('data.salesforce.get_custom_object1.Name')} salesrep_slack_handle:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Slack_username__c')}"},
 ```
+
 
 ### Help text
 
@@ -136,25 +144,29 @@ Use the same text as inserting a button:
 
 Note that the button title is the name that will show up on the button and that the button command is a string of words that will do the same thing as a button click.
 
+
+
 ### Message ID
 
-The message ID refers to the main message on slack. Note that if you use the same message ID, you may overwrite the original.
+The message ID refers to the main message on slack. Note that if you use the same message ID, you will overwrite the original.
 
 ![Message ID](/assets/images/Workbot/workbot-examples/message-id.png)
 *Message on Slack*
 
 ### Message type 
 
-While building the recipe for Workbot, you have 3 different message types to chose from: good, warning, danger. These message types are color coded.
+While building the recipe for Workbot, you have 3 different message types to chose from: good, warning, danger. These message types are color coded to signify its importance or priority.
 
-Message type good is color coded green, warning is color coded yellow, and message type danger is color coded red.
+Message type good is color coded green, warning is color coded amber, and message type danger is color coded red.
 
 ![Message type](/assets/images/Workbot/workbot-examples/message-type.png)
 *Message type drop bar*
 
+
+
 ### Thread ID 
 
-The thread ID refers to the thread on Slack. If you put in the Thread ID, you will add the message under an existing thread. If you put in the Message ID with no Thread, you will create a new thread. 
+The thread ID refers to the thread on Slack. If you put in the Thread ID, you will add the message under an existing thread. If you put in the Message ID with no Thread, you will create a new thread and your message will be located under the original message. 
 
 ![Thread ID](/assets/images/Workbot/workbot-examples/thread-id.png)
 *Thread on Slack can be seen when you click on replies*
