@@ -11,15 +11,15 @@ Data in lookup tables is typically organized like a database table, with columns
 * Any column
 * Multiple columns
 
-For example, if I'm trying to move accounting entries from my sales app, Salesforce, into my accounting app ,Intacct, I might find that both departments are using different account codes internally. In order to ensure data is synced accurately from Salesforce into Intacct, I would need to take the account codes from Salesforce, find the matching codes in Intacct, and create the Intacct accounting entries using the corresponding Intacct account codes. In the following table, any Salesforce entries coming in with the code 34267 will be written into Intacct under the code 6754.
+For example, if I'm trying to move accounting entries from my sales app, Salesforce, into my accounting app, Intacct, I might find that both departments are using different account codes internally. In order to ensure data is synced accurately from Salesforce into Intacct, I would need to take the account codes from Salesforce, find the matching codes in Intacct, and create the Intacct accounting entries using the corresponding Intacct account codes. In the following table, any Salesforce entries coming in with the code 34267 will be written into Intacct under the code 6754.
 
 ![Example lookup table](/assets/images/features/lookup-tables/example-lookup-table.png)
 *Lookup table with the account IDs in Salesforce, Intacct and account names*
 
 Some other scenarios where you might need lookup tables:
 * Given a city name, you want to get the zip code
-* Give a metric unit, you want to convert to SI for distances
-* Given a department, rank, retrieve vacation accrual rate
+* Given a metric unit, you want to convert to SI for distances
+* Given a department and rank, you want to retrieve vacation accrual rates
 
 Lookup tables are enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
@@ -54,7 +54,7 @@ There is a special **Lookup table** connector that allows you to work with your 
 * Add entry
 
 ### Lookup entry action
-The lookup entry action allows you to search for an entry (a row in the lookup table) by any of its values. The lookup entry action behaves like a search and retrieves a single entry; the first matching entry depending on the values passed in. If you have duplicated entries (i.e. your lookup will return more than one entry), only one entry will be retrieved.
+The lookup entry action allows you to search for an entry (a row in the lookup table) by any of its values. The lookup entry action behaves like a search and retrieves a single entry. The first matching entry depends on the values passed in. If you have duplicated entries (i.e. your lookup will return more than one entry), only one entry will be retrieved.
 
 In the example below, we have a table called **Vacation Rules** with 4 columns - vacation type, department ID, job code and job title.
 
