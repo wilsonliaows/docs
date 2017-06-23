@@ -43,5 +43,4 @@ To get the Google Calendar Event ID, here are two ideas:
 
 * Alternatively, you can simply do an event search in Google Calendar. You can search based on Calendar ID, Calendar Name, Event Name, Date From and Date to. Do note that this method is not as accurate as the first one provided above because your search result may yield more than one record. In that case, the recipe will simply update the first result returned by the API or you can use the Repeat Action to cycle through each of the records and take actions conditionally. Additionally, changing event names will not yield any results in your search action.
 
-![Search](/assets/images/connnectors/google-calendar/search-events.png)
-*correct form*
+![Correct message](/assets/images/connectors/google-calendar/search-events.png)
