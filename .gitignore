@@ -7,3 +7,8 @@
 # Ignore all static files
 /_book
 /node_modules
+assets/.DS_Store
+assets/images/Workbot/.DS_Store
+assets/images/connectors/.DS_Store
+assets/images/Workbot/workbot-examples/.DS_Store
+.DS_Store
