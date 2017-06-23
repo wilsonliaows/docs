@@ -80,7 +80,7 @@ You may also toggle it by clicking on the small error beside the field to use or
 
 ![Zendesk Assign Organization Name](/assets/images/zendesk-docs/assign_organization_name.png)
 
-### 2 ) Updating an exiting user's organisation
+### 2) Updating an exiting user's organisation
 Similar to the creation of a new user, you may also update a user's organisation by the update user action. If the user already belongs to an organisation, doing so will reallocate  the user's membership from the currently holding organisation to the new updated organisation.
 
 ### 3) Create organization membership action
