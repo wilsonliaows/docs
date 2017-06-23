@@ -7,7 +7,7 @@ date: 2017-04-28 06:15:00 Z
 
 With the help of Workato, you can easily link Google Calendar to organize and set up important meeting dates. One specific example where this could be useful is if an adminstrator wanted to set a meeting in an employee's calendar. 
 
-## Trouble shooting
+## Troubleshooting
 
 ### Google Calendar Error: 404 Resource not found
 
