@@ -68,3 +68,21 @@ Do note that the table has to be it's EXACT internal name, e.g. change_request, 
 ### ServiceNow error: 784: Unexpected Token
 
 This error means that the connected account is susupended. Contact your ServiceNow Sales contact or administrator to re-enable your instance 
+
+
+##What permissions do I need to connect to the ServiceNow connector?
+
+The Servicenow connector on Workato has generic object triggers and actions (that allows you to select the table you want from a picklist of any tables) as well as specific triggers and actions (that allows you to read/write to specific tables).
+
+![Configure trigger](/assets/images/connectors/servicenow/configure-trigger.png)
+*list of service now triggers*
+
+To use the generic triggers and actions on our ServiceNow connector, the connected ServiceNow user needs to have the **admin** role in order to access the full list of possible tables (ServiceNow objects, such as incidents), as well as the columns in that table (the fields in that ServiceNow object, such as incident ID and short description).
+
+To use non-generic triggers and actions, the connected ServiceNow user needs to have the **rest_service** role, as well as the roles for whatever object he wishes to read/write to. To write to incidents, that would be itil role and possibly **itil_admin** role. Here's a list of the possible default roles in Servicenow and the permissions they have: http://wiki.servicenow.com/index.php?title=Base_System_Roles#gsc.tab=0
+
+Here's a quick view of the user management screen in ServiceNow. More roles can be added to suit whatever ServiceNow tables/objects you wish to read/write to.
+
+![Management Screen](/assets/images/connectors/servicenow/configure-trigger.png)
+*management screen in ServiceNow*
+
