@@ -42,10 +42,10 @@ After you click on next, you will have the option to customize any fields you wa
 ![Customize fields](/assets/images/Workbot/workbot-examples/customize.png)
 *Modify, add, and remove anything from the original sample recipe*
 
-If you chose to do so, you can test your recipe. If not, click on *Skip & test later*
+If you chose to do so, you can test your recipe. If not, click on *Skip & test later**
 
 ![Testing](/assets/images/Workbot/workbot-examples/testing.png)
-* Click on test recipe located on the top right corner, or skip and test later.*
+*Click on test recipe located on the top right corner, or skip and test later*
 
 Now, you have everything set up on Workato. To see the Workbot recipe in action, we need to set up a deal support request.
 
@@ -114,7 +114,6 @@ one example button could be:
 [{"title":"Approve", "command":"Salesforce approve or reject deal support request status:approve dsr:#{_('data.salesforce.updated_custom_object_webhook.Id')} salesrep:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Name')} message:#{_('data.slack_bot.post_bot_reply.ts')} account: #{_('data.salesforce.get_custom_object1.Name')} salesrep_slack_handle:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Slack_username__c')}"},
 ```
 
-
 ### Help text
 
 The help text serves as guidelines or instructions which will be displayed as 'help' on Slack. 
@@ -137,11 +136,17 @@ Use the same text as inserting a button:
 ```ruby
 [{"title":"button title", "command":"button command"}]
 ```
+
 ![Message drop down bar](/assets/images/Workbot/workbot-examples/message-drop.png)
 *Message drop down bar*
 
 Note that the button title is the name that will show up on the button and that the button command is a string of words that will do the same thing as a button click.
 
+An example message option in the drop down bar could be:
+
+```ruby
+[{"title":"Approve", "command":"Salesforce approve or reject deal support request status:approve dsr:#{_('data.salesforce.updated_custom_object_webhook.Id')} salesrep:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Name')} message:#{_('data.slack_bot.post_bot_reply.ts')} account: #{_('data.salesforce.get_custom_object1.Name')} salesrep_slack_handle:#{_('data.salesforce.get_custom_object.get_custom_object(OwnerId>id, sobject_name: User).Slack_username__c')}"},
+```
 
 ### Message ID
 
@@ -158,7 +163,6 @@ Message type good is color coded green, warning is color coded amber, and messag
 
 ![Message type](/assets/images/Workbot/workbot-examples/message-type.png)
 *Message type drop bar*
-
 
 
 ### Thread ID 
