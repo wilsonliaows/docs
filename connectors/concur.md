@@ -1,5 +1,5 @@
 ---
-title: Workato connectors
+title: Concur
 date: 2017-02-16 06:15:00 Z
 ---
 
@@ -12,7 +12,8 @@ Some common reasons for your recipe failing at this step are:
 ### 1) Duplicated same-level code
 Concur does not allow codes to be duplicated at the same level, hence jobs that attempt to give a list item a code that already exists at that same level will fail.
 
-![Concur List Item](/assets/images/jira-docs/create_list_item.png)
+![Concur List Item](/assets/images/connectors/concur/create_list_item.png)
+*Create List Item*
 
 ### 2) Invalid parent codes
 If you are creating a Level 2 list item, you have to provide a valid Level 1 code that corresponds to the parent of the Level 2 list item you wish to create (for example, a Level 1 code corresponding to an existing client will need to be provided when you wish to create a Level 2 code corresponding to projects under that client).
@@ -36,7 +37,8 @@ If you're using the new expense sheet trigger in the Concur connector, you shoul
 
 However, if you're not seeing your custom fields, it might be because these custom fields were not configured in the Default Expense Entry type form. Workato currently pulls the custom fields out from the Expense Entry type form > Default form. For example, in the following screenshot, Project and Customer will show up as custom fields as they're found within the Default form.
 
-![Concur List Item](/assets/images/jira-docs/expense_entry.jpg)
+![Concur List Item](/assets/images/connectors/concur/expense_entry.jpg)
+*Concur List Item*
 
 If you can't view the custom fields you care about, check that:
 1) the form is named exactly "Default", and
