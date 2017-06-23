@@ -11,7 +11,7 @@ With the help of Workato, you can easily link Google Calendar to organize and se
 
 ### Google Calendar Error: 404 Resource not found
 
-![Error Resource](/assets/images/connnectors/google-calendar/error-404.png)
+![Error Resource](/assets/images/connnectors/google-calendars/error.png)
 *Error notification*
 
 If you recieve a 404 resource not found notification, this error means that the account connected to recipe cannot access to the particular event. Do ensure that your event ID is accessible to that particular account. When updating a Google Calendar Event, you would require a Google Calendar Event ID.
@@ -35,7 +35,7 @@ The Google Calendar Event ID is an automatically generated ID that is created wh
 In order to update a Google Calendar Event, you are required to provide Workato the ID of the Google Event that you would like us to update.
 
 
-![Event ID](/assets/images/connnectors/google-calendar/event-id.png)
+![Event ID](/assets/images/connnectors/google-calendars/event.png)
 
 
 To get the Google Calendar Event ID, here are two ideas:
@@ -44,5 +44,5 @@ To get the Google Calendar Event ID, here are two ideas:
 
 * Alternatively, you can simply do an event search in Google Calendar. You can search based on Calendar ID, Calendar Name, Event Name, Date From and Date to. Do note that this method is not as accurate as the first one provided above because your search result may yield more than one record. In that case, the recipe will simply update the first result returned by the API or you can use the Repeat Action to cycle through each of the records and take actions conditionally. Additionally, changing event names will not yield any results in your search action.
 
-![Search](/assets/images/connnectors/google-calendar/search-id.png)
+![Search](/assets/images/connnectors/google-calendar/search.png)
 *correct form*
