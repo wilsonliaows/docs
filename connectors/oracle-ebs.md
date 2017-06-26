@@ -1,5 +1,5 @@
 ---
-title: Workato connectors - Oracle EBS
+title: Oracle E-Business Suite
 date: 2017-02-16 06:15:00 Z
 ---
 
@@ -15,7 +15,7 @@ date: 2017-02-16 06:15:00 Z
 
 a.	Login to Oracle EBS
 
-b.  From the Main menu Click on “Integrated SOA Gateway” -> “Integration Repository"
+b.  From the Main menu Click on *Integrated SOA Gateway* > *Integration Repository*
 
 ![Oracle Applications Home page](/assets/images/connectors/oracle-ebs/oracle-applications.png)
 *Oracle Applications Home Page*
@@ -69,12 +69,3 @@ This is used only to test connectivity, as described in the (link to EBS setup s
 At this point, Workato will make a simple “hello world” test to your Oracle EBS instance, using the REST service specified in “User service name” above.
 
 If all goes well, you should get a green success message displayed next to the button.
-
-
-
-
-
-
-
-
-
