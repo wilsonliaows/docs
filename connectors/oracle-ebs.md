@@ -35,4 +35,46 @@ e. Go to the "REST Web Services" tab. Enter the service name as “user” and c
 ![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
 *Locate the REST web services and enter 'user'*
 
+## Creating Oracle EBS connections
+
+From within the recipe “Connections” tab, or from the account [connections page](https://www.workato.com/connections):
+
+1. Select “Oracle E-Business Suite”
+
+![Oracle recipe](/assets/images/connectors/oracle-ebs/oracle-recipe.jpg)
+*Oracle E-Business Suite recipe map*
+
+**Fields are as follows:**
+
+* Connection name:
+Use something that identifies the specific Oracle EBS instance, e.g. “HR Sandbox”.
+
+* On-prem secure agent:
+If your Oracle EBS instance is not accessible directly from the Internet, Workato will need to connect to it via an (on-premise agent) (insert OPA doc link here).  Select the appropriate, active on-premise agent that has network access to this Oracle EBS instance.
+
+* Instance URL:
+The base URL where the REST services enabled on your Oracle SOA gateway can be accessed.
+
+* Username:
+The username that Workato will use to access the REST services on your Oracle SOA gateway.
+
+* Password:
+Coressponding password
+
+* User service name
+This is used only to test connectivity, as described in the (link to EBS setup section of the docs)
+
+2. Click “Connect”
+
+At this point, Workato will make a simple “hello world” test to your Oracle EBS instance, using the REST service specified in “User service name” above.
+
+If all goes well, you should get a green success message displayed next to the button.
+
+
+
+
+
+
+
+
 
