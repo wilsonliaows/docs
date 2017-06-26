@@ -38,7 +38,6 @@ The on-prem agent runs on the following systems:
 
 - Windows 7, 10 (64-bit)
 
-For Windows, you need Administrator permissions to run the Workato agent as a Windows service.
 Please make sure that TCP port 3000 is available for binding.
 
 # Setting up on-prem access
@@ -57,6 +56,8 @@ Please make sure that TCP port 3000 is available for binding.
 2. By default, the agent is installed into `C:\Program Files\Workato Agent` folder and creates a `Workato` group in the Start Menu.
 3. By default, the agent is installed as a Windows service called `WorkatoAgent`. You can disable this feature by unchecking the corresponding option during install.
 4. Click on `Download key` button. Unzip the `cert.zip` file to `<INSTALL_HOME>\conf` directory (`<INSTALL_HOME>` is a target folder you've selected during install). This should copy `cert.key` and `cert.pem` files to the directory.
+
+An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
 
 ### Linux
 
@@ -92,18 +93,8 @@ The following databases are supported by the on-prem agent:
 A database type is specified either by `adapter` property or a complete JDBC URL provided in the `url` property.
 Port numbers can be omitted when matching defaults for a given database type.
 
-The example below has two `connection profiles`: `marketing` and `sales`. Do not use spaces or special characters in `connection profile` names.
+The example below has a `connection profile` named `marketing`. Do not use spaces or special characters in `connection profile` names.
 
-```YAML
-database:
-  marketing:
-    adapter: sqlserver
-    username: sa
-    password: PaSsWoRd
-    host: localhost
-    database: marketing
-    timeout: 30
-```
 PostgreSQL URL-based configuration:
 ```YAML
 database:
@@ -129,25 +120,28 @@ Note that you need to restart the on-prem agent for any configuration change to 
 ### Windows 64-bit
 
 The on-prem agent can be run as a Windows console application or as a Windows service.
-> NOTE: Installing and running the on-prem agent as a service require Administrator privileges.
 
 Run the on-prem agent in console mode by launching by `Workato` &rarr; `Run Agent (console)` shortcut in the Start Menu.
 You can use `Run Agent (console)` shortcut to ensure the agent is successfully connecting to Workato using the provided certificate.
 
 #### Using Windows Service
-* You need Administrator privileges to install the agent as a Windows service.
 * Installer automatically registers the agent as a Windows service called `WorkatoAgent`.
 * Note: Workato agent is not auto-started by default. Open **Control Panel &rarr; System and Security &rarr; Administrative Tools &rarr; Services &rarr; WorkatoAgent** service configuration to configure service auto-start.
 
+### Upgrading 
+
+* To upgrade your on-premise agent, you can download a new installer and install over your current agent - your on-premise agent will be updated.
+* The config.yml file and the certificate files (`cert.key`, `cert.pem`) will remain unchanged in the conf directory
+* Navigate to the On-Prem page and select an agent. Download the new installer based on your operating system (either Windows or Linux) and run it.
+* Set the location of the new agent to be the location of your old on-premise agent (`<INSTALL_HOME>`). Finish the installation.
+
 #### Uninstalling
-* You need Administrator privileges to uninstall the agent.
 * Use `Workato` &rarr; `Uninstall` shortcut to uninstall.
 * The service will shutdown automatically before uninstall.
 * Uninstalling the agent does not remove any configuration files that you've created or modified.
 
 #### Browsing log files
 * When the on-prem agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to Workato log directory in the `Workato` group found in Start Menu for convenience.
-* Service log files are only accessible to Administrators.
 
 ### Linux 64-bit
 
