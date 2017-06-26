@@ -11,7 +11,7 @@ date: 2017-02-16 06:15:00 Z
 
 2. Install [Workato on-prem agent](https://www.workato.com/secure_agents)
 
-3.	In the Oracle E-Business Suite, deploy User PL/SQL REST service (internal name: FND_USER_PKG) with name “user”. Below are the steps to install PL/SQL REST service
+3.	In the Oracle EBS, deploy User PL/SQL REST service (internal name: FND_USER_PKG) with name “user”. Below are the steps to install PL/SQL REST service
 
 a.	Login to Oracle EBS
 
@@ -20,7 +20,7 @@ b.  From the Main menu Click on *Integrated SOA Gateway* > *Integration Reposito
 ![Oracle Applications Home page](/assets/images/connectors/oracle-ebs/oracle-applications.png)
 *Oracle Applications Home Page*
 
-c.  Click on "Search"
+c.  Click on **Search**
 
 ![Search on page](/assets/images/connectors/oracle-ebs/search.png)
 *Click on Search*
@@ -35,9 +35,9 @@ e. Go to the **REST Web Services** tab. Enter the service name as **use** and cl
 ![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
 *Locate the REST web services and enter 'user'*
 
-## Creating Oracle EBS connections
+## Creating Oracle EBS Connections
 
-From within the recipe “Connections” tab, or from the account [connections page](https://www.workato.com/connections):
+From within the recipe **Connections** tab, or from the account [connections page](https://www.workato.com/connections):
 
 1. Select **Oracle E-Business Suite**
 
@@ -47,21 +47,27 @@ From within the recipe “Connections” tab, or from the account [connections p
 **Fields are as follows:**
 
 * Connection name:
+
 Use something that identifies the specific Oracle EBS instance, e.g. “HR Sandbox”.
 
 * On-prem secure agent:
-If your Oracle EBS instance is not accessible directly from the Internet, Workato will need to connect to it via an (on-premise agent) (insert OPA doc link here).  Select the appropriate, active on-premise agent that has network access to this Oracle EBS instance.
+
+If your Oracle EBS instance is not accessible directly from the Internet, Workato will need to connect to it via an (on-premise agent) (/on-prem.md).  Select the appropriate, active on-premise agent that has network access to this Oracle EBS instance.
 
 * Instance URL:
+
 The base URL where the REST services enabled on your Oracle SOA gateway can be accessed.
 
 * Username:
+
 The username that Workato will use to access the REST services on your Oracle SOA gateway.
 
 * Password:
-Coressponding password
+
+Corresponding password for the above username.
 
 * User service name:
+
 This is used only to test connectivity, as described in the (link to EBS setup section of the docs)
 
 2. Click **Connect**
