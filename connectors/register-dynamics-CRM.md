@@ -1,11 +1,12 @@
 ---
-title: Connecting to CRM Dynamics
+title: Microsoft CRM Dynamics
 date: 2017-06-13 06:15:00 Z
 ---
 
 # Microsoft CRM Dynamics
 
-## How to register Microsoft CRM Dynamics App with Azure Active Directory
+## How to connect to Microsoft CRM Dynamics
+In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Azure Active Directory. We walk through the process of registering Microsoft CRM Dynamics below.
 
 1.Sign in to the Microsoft Azure management portal by using an account with administrator permission. You must use an account in the same Office 365 subscription (tenant) as you intend to register the app with. You can also access the Microsoft Azure portal through the Office 365 admin center by expanding the ADMIN item in the left navigation pane and selecting Azure AD.
 
@@ -19,7 +20,7 @@ date: 2017-06-13 06:15:00 Z
 ![App Registration](/assets/images/connectors/microsoft-dynamics-CRM/app-registrations.png)
 *App registration can be located on the menu in the left column*
 
-4. If you already have an application use that ID. If not, proceed to click **Add**. Then, type a name. Choose the application type as “Native” and redirect URI as https://www.workato.com/oauth/callback. Click **create** in the bottom of the page.
+4. If you already have an application, use that ID. If not, proceed to click **Add**. Then, type a name. Choose the application type as “Native” and redirect URI as https://www.workato.com/oauth/callback. Click **create** in the bottom of the page.
 
 ![Add](/assets/images/connectors/microsoft-dynamics-CRM/add.gif)
 *fill in the application as directed*
