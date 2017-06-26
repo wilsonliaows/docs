@@ -65,7 +65,7 @@ When setting up your webhook in JIRA, provide this URL as the target URL so that
 You can upload a text file by entering your text into the File Content field. Specify a filename including the file extension you want to use (txt, doc, csv). You will also need to enter a JIRA Ticket ID or Key corresponding to the issue you are uploading the attachment for.
 
 ![JIRA](/assets/images/connectors/jira/upload-jira.png)
-*upload attatchment*
+*Upload attatchment*
 
 ### Download Attachment
 
@@ -100,7 +100,7 @@ To solve this issue, make sure the host name is in this format:
 
 ### How to Deal With JIRA Listbox Fields
 
-Sometimes, JIRA list box data **pills** come up looking strange. Here's an example:
+Sometimes, JIRA list box **datapills** come up looking strange. Here's an example:
 
 
 ```ruby 
@@ -108,7 +108,7 @@ Sometimes, JIRA list box data **pills** come up looking strange. Here's an examp
 ```
 
 
-What is it, and how do we fix it? 
+#### What is it, and how do we fix it? 
 
 Firstly, this means that your Workato recipe is getting a JIRA value from a list box like this:
 
