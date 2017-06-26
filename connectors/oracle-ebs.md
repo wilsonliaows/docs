@@ -25,12 +25,12 @@ c.  Click on "Search"
 ![Search on page](/assets/images/connectors/oracle-ebs/search.png)
 *Click on Search*
 
-d.  Search for Interface name "User" and Select the service with internal name "FND_USER_iPKG"
+d.  Search for Interface name **User** and Select the service with internal name **FND_USER_iPK**
 
 ![Search for User](/assets/images/connectors/oracle-ebs/interface.png)
 *Locate FND_USER_iPKG*
 
-e. Go to the "REST Web Services" tab. Enter the service name as “user” and click on “Deploy”.
+e. Go to the **REST Web Services** tab. Enter the service name as **use** and click on **Deploy**.
 
 ![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
 *Locate the REST web services and enter 'user'*
@@ -39,7 +39,7 @@ e. Go to the "REST Web Services" tab. Enter the service name as “user” and c
 
 From within the recipe “Connections” tab, or from the account [connections page](https://www.workato.com/connections):
 
-1. Select “Oracle E-Business Suite”
+1. Select **Oracle E-Business Suite**
 
 ![Oracle recipe](/assets/images/connectors/oracle-ebs/oracle-recipe.jpg)
 *Oracle E-Business Suite recipe map*
@@ -61,11 +61,11 @@ The username that Workato will use to access the REST services on your Oracle SO
 * Password:
 Coressponding password
 
-* User service name
+* User service name:
 This is used only to test connectivity, as described in the (link to EBS setup section of the docs)
 
-2. Click “Connect”
+2. Click **Connect**
 
-At this point, Workato will make a simple “hello world” test to your Oracle EBS instance, using the REST service specified in “User service name” above.
+At this point, Workato will make a simple “hello world” test to your Oracle EBS instance, using the REST service specified in **User service name** above.
 
 If all goes well, you should get a green success message displayed next to the button.
