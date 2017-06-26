@@ -68,7 +68,7 @@ Corresponding password for the above username.
 
 * User service name:
 
-"This is used only to test connectivity
+This is used only to test connectivity
 
 2. Click **Connect**
 
