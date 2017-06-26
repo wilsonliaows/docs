@@ -191,6 +191,101 @@ For more info on non-profit organization in QuickBooks, you can click [here](htt
 
 ## Basic concepts and information
 
+### QuickBooks What is : Bank Deposit
+
+Workato has several QuickBooks actions that are related to a Bank Deposit object : 
+
+* Create bank deposits
+* Search bank deposits
+* Update bank deposits
+
+The available fields for a Bank Deposits are : 
+
+* **Txn Date**
+Date of the transaction object
+
+* **Total amount**
+The total amount that the bank deposit should amount to. Note that this value cannot be negative.
+
+* **Cash back**
+Specify an account that should return a certain amount back to for this deposit
+  * Account
+  * Amount
+  * Memo
+
+* **Deposit To Account Reference**
+Specify an account that this bank deposit should be targeted to. Note that you cannot specify Undeposited Funds as the Deposit To Account here.
+  * Account
+  Account specified here must be of Bank or Other Current Asset Account type.
+
+* **Transaction tax detail**
+  * Tax code
+  * Total tax
+
+* **Line**
+  * Line Source list
+  Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, [see here](https://support.workato.com/support/solutions/articles/1000240753-quickbooks-online-working-with-line-items)
+
+  * Description
+  For each of the line item, specify its Description
+
+  * Amount
+  For each of the line item, specify its Amount
+
+* **Linked Transaction**
+If there are existing transactions that needs to be related, specify details here to record a deposit for an existing transaction. 
+  * Linked transaction source list
+  Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, [see here](https://support.workato.com/support/solutions/articles/1000240753-quickbooks-online-working-with-line-items)
+
+  * Transaction ID
+
+  * Transaction Type
+  Possible types of transactions that can be linked to a Deposit include: Transfer, Payment (for Cash, CreditCard, and Check payment method types), SalesReceipt,RefundReceipt, JournalEntry.
+
+  * Transaction Line ID
+
+* **Deposit Line Detail**
+
+  * Entity Name
+  Reference to a customer Display Name from which deposit was received
+  * Type
+  Specify if it is a Customer or Vendor
+  * Value
+  Reference to a customer ID from which deposit was received
+
+
+* **Class reference**
+
+  * Class Ref
+  Reference to the Class associated with the transaction
+
+* **Account Reference**
+
+  * Account
+  Account where the funds are deposited
+
+* **Payment method reference**
+  * Payment method
+
+* **Check num**
+Check number for the desposit.
+
+* **Tax reference**
+
+  * Tax code
+  Sales/Purchase tax code associated with the Line. For Non US Companies only
+
+  * Tax applicable on
+
+* **Private Note**
+
+* **Currency Reference**
+  * Value
+  * Name
+
+* Transaction source
+  A field used internally to specify originating source of a credit card transaction.
+
 ### Working with QuickBooks line items (Summary Line)
 
 Workato is able to retrieve line item data from within QuickBooks Online Estimates and Invoices. However, one unintended result from this process is that QuickBooks tend to produce an unexpected Summary Line as its last line item in the array which will cause the recipe to run into an error.
