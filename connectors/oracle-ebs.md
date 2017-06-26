@@ -9,7 +9,7 @@ date: 2017-02-16 06:15:00 Z
 
 1. Install [Oracle E-Business Suite Integrated SOA Gateway](https://docs.oracle.com/cd/E26401_01/doc.122/e20925/T511175T578675.htm)
 
-2. Install [Workato on-prem agent](https://www.workato.com/secure_agents
+2. Install [Workato on-prem agent](https://www.workato.com/secure_agents)
 
 3.	In the Oracle E-Business Suite, deploy User PL/SQL REST service (internal name: FND_USER_PKG) with name “user”. Below are the steps to install PL/SQL REST service
 
@@ -32,7 +32,7 @@ d.  Search for Interface name "User" and Select the service with internal name "
 
 e. Go to the "REST Web Services" tab. Enter the service name as “user” and click on “Deploy”.
 
-![User service name](/assets/images/connectors/oracle-ebs/web-services.png)
+![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
 *Locate the REST web services and enter 'user'*
 
 
