@@ -1,11 +1,11 @@
 ---
-title: Microsoft CRM Dynamics
+title: Microsoft Dynamics CRM
 date: 2017-06-13 06:15:00 Z
 ---
 
-# Microsoft CRM Dynamics
+# Microsoft Dynamics CRM
 
-## How to connect to a cloud Microsoft CRM Dynamics instance
+## How to connect to a cloud Microsoft Dynamics CRM instance
 In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Azure Active Directory. We walk through the process of registering Microsoft CRM Dynamics below.
 
 1. Sign in to the Microsoft Azure management portal by using an account with administrator permission. You must use an account in the same Office 365 subscription (tenant) as you intend to register the app with. You can also access the Microsoft Azure portal through the Office 365 admin center by expanding the ADMIN item in the left navigation pane and selecting Azure AD.
@@ -35,19 +35,20 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 ![Required permissions](/assets/images/connectors/microsoft-dynamics-CRM/permission.png)
 *Click on Required permissions link*
 
-
 7. Click *Add* > *Select an API* > *Dynamics CRM Online*
 
 ![Dynamics CRM](/assets/images/connectors/microsoft-dynamics-CRM/dynamics.gif)
 *Add Dynamics CRM Online API access*
 
-8. Click on *Access CRM online*. Select it and click on **Done**
+8. Check the *Access CRM Online as organization users* checkbox. Click on **Done**
 
 ![CRM online](/assets/images/connectors/microsoft-dynamics-CRM/access-crm.png)
+*Check the Access CRM Online as organization users checkbox*
 
 9. Use the application ID as client ID.
 
 ![Application ID](/assets/images/connectors/microsoft-dynamics-CRM/application.png)
+*Retrieve the Application ID*
 
 ## How to connect to an on-premise Microsoft Dynamics CRM instance
 In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Azure Active Directory. Click [here](https://technet.microsoft.com/itpro/powershell/windows/adfs/add-adfsclient) to read more on how to register an on-premise Dynamics app with Azure Active Directory.
