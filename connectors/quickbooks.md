@@ -18,13 +18,13 @@ Workato currently does not support QuickBooks Desktop/Enterprise versions.
 ## How to connect to QuickBooks on Workato
 
 ### QuickBooks connection 
-![QBO connect1](/assets/images/QBO connect1.JPG)
+![QBO connect1](/assets/images/QBO-connect1.jpg)
 
 * **Connection name**
 
   Give this QuickBooks Connection a unique name which identifies the QuickBooks account you are connected to and click 'Connect'. A pop-up will appear.
   
-  ![QBO connect2](/assets/images/QBO connect2.JPG)
+  ![QBO connect2](/assets/images/QBO-connect2.jpg)
   
 * **Username & Password**
 
@@ -44,15 +44,11 @@ The following triggers are currently available for the QuickBooks Connector:
 
 **UPDATED:** Bill, Credit Note, Customer, Employee, Estimate, Invoice, Item, Purchase, Vendor 
 
-If you wish to submit a request for a new Trigger not currently available, please visit: 
-
 ## Action: Add Line to Invoice
 ### Sales Item Detail vs. Discount Line Detail vs. Description only
 
 ##### Sales Item Detail
 As the name suggests, user is required to key in some of the details regarding the sales item. This includes Item ID, Total Amount, Unit Price/Quantity and also the Description. 
-
-##### Discount Line Detail
 
 ##### Description Only
 When user wants to include only the description of the items, he/she would choose this option.  
@@ -67,7 +63,11 @@ Workato QuickBooks actions for creating Transactional objects (Invoice, Sales re
 
 or 
 
-2) Creating an invoice with line items. The line items detail will be pulled dynamically from a list data pill. You can learn more about it here.
+
+
+
+
+2) Creating an invoice with line items. The line items detail will be pulled dynamically from a list datapill. 
 
 **When do I use 'Create with 1 line item'?** 
 
@@ -75,84 +75,9 @@ Creating a single invoice with only line items are great for Single sync ups, wh
 
 In all other cases, you should use 'Create with line items' and simply place the list of items where required. 
 
-![QBO mulltiline](/assets/images/QBO_docs/QBO mulltiline.png)
+![QBO mulltiline](/assets/images/QBO_docs/QBO-mulltiline.png)
 
 A 'list' type pill is marked with the list logo as can be seen above in red.
-
-## Bank Deposit
-
-Workato has several QuickBooks actions that are related to a Bank Deposit object : 
-  
-  * Create bank deposits
-  * Search bank deposits
-  * Update bank deposits
-
-The available fields for a Bank Deposits are : 
-
-* Txn Date
-  * Date of the transaction object
-
-* Total amount
-  * The total amount that the bank deposit should amount to. Note that this value cannot be negative.
-
-* Cash back
-  * Specify an account that should return a certain amount back to for this deposit
-    * Account
-    * Amount
-    * Memo
-
-* Deposit To Account Reference
-  * Specify an account that this bank deposit should be targeted to. Note that you cannot specify Undeposited Funds as the Deposit To Account here.
-  * Account
-    * Account specified here must be of Bank or Other Current Asset Account type.
-
-* Transaction tax detail
-  * Tax Code
-  * Total Tax
-
-* Line
-  * Line Source list
-    * Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
-  * Description
-    * For each of the line item, specify its Description
-  * Amount
-    * For each of the line items, specify its Amount
-
-* Linked Transaction
-  * If there are existing transactions that needs to be related, specify details here to record a deposit for an existing transaction. 
-  * Linked transaction source list
-    * Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, see here
-  * Transaction ID
-  * Transaction Type
-    * Possible types of transactions that can be linked to a Deposit include: `Transfer`, `Payment` (for Cash, CreditCard, and Check payment method types), `SalesReceipt`,`RefundReceipt`, `JournalEntry`.
-  * Transaction Line ID
-
-* Deposit Line Detail
-  * Entity Name
-    * Reference to a customer Display Name from which deposit was received
-  * Type
-    * Specify if it is a Customer or Vendor
-  * Value
-    * Reference to a customer ID from which deposit was received
-
-* Class reference
-  * Reference to the Class associated with the transaction
-* Account Reference
-  * Account where the funds are deposited
-* Payment method reference
-  * Payment method
-* Check num
-  * Check number for the desposit.
-* Tax reference
-  * Tax code
-    * Sales/Purchase tax code associated with the Line. For Non US Companies only
-  * Tax applicable on
-* Private Note
-* Currency Reference
-  * Value
-  * Name
-* Transaction source
-  * A field used internally to specify originating source of a credit card transaction.
 
 ## Exchange Rate
 
@@ -169,9 +94,9 @@ For dependent transaction documents such as Credit memo, the applied currency wi
 
 An Example:
 
-![QBO currency2](/assets/images/QBO_docs/QBO currency2.png)
+![QBO currency2](/assets/images/QBO_docs/QBO-currency2.png)
 
-This field means that it will take 1.5239475 to exchange for 1 unit of the specified currency of the transaction document
+This field means that it will take 1.5239475 units of home currency to exchange for 1 unit of the specified currency of the transaction document
 
 
 ## Different Labels between profit and non-profit versions
@@ -224,16 +149,16 @@ Specify an account that this bank deposit should be targeted to. Note that you c
 
 * **Line**
   * Line Source list
-  Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, [see here](https://support.workato.com/support/solutions/articles/1000240753-quickbooks-online-working-with-line-items)
+  Specify a line item object here where data will be accessed from. The total number of line item created will equal to the size of the source list. To learn more about source list, [see here](https://support.workato.com/support/solutions/articles/1000240753-quickbooks-online-working-with-line-items)
 
   * Description
-  For each of the line item, specify its Description
+  For each of the line items, specify its Description
 
   * Amount
-  For each of the line item, specify its Amount
+  For each of the line items, specify its Amount
 
 * **Linked Transaction**
-If there are existing transactions that needs to be related, specify details here to record a deposit for an existing transaction. 
+If there are existing transactions that need to be related, specify details here to record a deposit for an existing transaction. 
   * Linked transaction source list
   Specify a line item object here where data will be accessed from. The total number of line item created will equals to the size of the source list. To learn more about source list, [see here](https://support.workato.com/support/solutions/articles/1000240753-quickbooks-online-working-with-line-items)
 
@@ -306,22 +231,22 @@ What is sales tax and do you need to have it?
 
 *QuickBooks requires all Non-US accounts to have a tax code to be assigned into the tax code field.
 
-An error you may face could be similar to the following:
+An error be similar to the following:
 
 ![API error message](/assets/images/connectors/quick-books/api-error.png)
 *API error message*
 
 To solve this:
 
-1. Go to the Sales Tax under Taxes tab in QuickBooks 
+1. Go to Sales Tax under the Taxes tab in QuickBooks 
 ![Sales tax](/assets/images/connectors/quick-books/api-error.png)
 *Taxes > Sales Tax*
 
 2. Click on add/edit tax rates and agencies on the right
 ![Edit tax rates](/assets/images/connectors/quick-books/edit-tax.png)
-*click on Add/edit tax rates* 
+*Click on Add/edit tax rates* 
 
-3. In Workato recipe, ensure that it is mapped accordingly to the naming convention used in the other app, using the lookup function (13% is from salesforce, maps to HST ON in QuickBooks)
+3. In the Workato recipe, ensure that it is mapped accordingly to the naming convention used in the other app, using the lookup function (13% is from salesforce, maps to HST ON in QuickBooks)
 
 ![Mapped recipe on workato](/assets/images/connectors/quick-books/workato-mapped-recipe.png)
 *Mapped recipe*
@@ -352,16 +277,16 @@ For more info on non-profit organization in QuickBooks, you can click [here](htt
 When creating an invoice in QuickBooks, we could choose Sales Item Detail or Description Only under the Line Item Detail. below is the difference between them: 
 
 **Sales Item Detail**
-As the name suggests, user is required to key in some of the details regarding the sales item. This includes Item ID, Total Amount, Unit Price/Quantity and also the Description. 
+As the name suggests, the user is required to key in some of the details regarding the sales item. This includes Item ID, Total Amount, Unit Price/Quantity and also the Description. 
 
 ![Sales Items](/assets/images/connectors/quick-books/description.png)
 *Item ID, Total Amount, Unit Price/Quantity and also the Description*
 
 **Description only**
 
-When user wants to include only the description of the items, he/she would choose this option.  
+When the user wants to include only the description of the items, he/she would choose this option.  
 
-![Description only]](/assets/images/connectors/quick-books/option.png)
+![Description only](/assets/images/connectors/quick-books/option.png)
 *Subset of Sales Item Detail*
 
 In conclusion, Description only is a subset of Sales Item Detail, if the user wants to include more details in the invoice, he/she should choose Sales Item Detail.
@@ -374,7 +299,7 @@ QuickBooks vendor **Terms** can be selected manually in recipes.
 ![terms](/assets/images/connectors/quick-books/terms.png)
 *Manual selection on recipes*
 
-But when we are selecting data pills from a source app (click the blue dotted button at the right), the recipe asks for a **Terms ID**, as shown below. How do we deal with this?
+But when we are selecting datapills from a source app (click the blue dotted button at the right), the recipe asks for a **Terms ID**, as shown below. How do we deal with this?
 
 ![Terms ID](/assets/images/connectors/quick-books/terms-id.png)
 *Terms ID*
@@ -390,9 +315,9 @@ IMPORTANT: default IDs may change when Terms are customized. If you have changed
 What this means is that, using formula mode (with the lookup_table method), our resulting formula would need to look like this:
 
 ![Formula](/assets/images/connectors/quick-books/filled.png)
-*Formula that accpets the Term data pill*
+*Formula that accepts the Term datapill*
 
-The formula above accepts the Term data pill, and finds the ID associated with it. For example, if the Term was "Net 30", the formula would output "3" into the Terms ID field
+The formula above accepts the Term datapill, and finds the ID associated with it. For example, if the Term was "Net 30", the formula would output "3" into the Terms ID field
 
 ### How do I add shipping charges to Invoices and Sales Recipes in QuickBooks Online?
 
@@ -421,19 +346,19 @@ To add shipping charges using a Workato Automation Recipe to any invoice or sale
 
 ### Working with : Exchange Rate
 
-QuickBooks Online provides international trades to be done in multiple currencies. 
+QuickBooks Online allows international trades to be done in multiple currencies. 
 Workato adapts your business needs and supports all necessary changes needed to automate your business
 
 **Exchange Rate**
 
-QuickBooks Online allows you to support multiple currencies. To do so, you may enable it in your Accounts and Settings section. Do note that enabling multiple currency may incur setting changes. Please do seek consultation with QuickBooks Online support.
+QuickBooks Online allows you to support multiple currencies. To do so, you may enable it in your Accounts and Settings section. Do note that enabling multiple currencies may incur setting changes. Consult QuickBooks online support for any difficulties.
 
 ![Rates](/assets/images/connectors/quick-books/multi-rate.png)
 *Exchange rates*
 
-Exchange Rate field allows you to specify the exchange rate to your home currency from the specified currency. If no Currency is specified, the exchange rate will be defaulted to 1 in respect of the home currency.
+Exchange Rate field allows you to specify the exchange rate to your home currency from the specified currency. If no Currency is specified, the exchange rate will be defaulted to 1 with respect to the home currency.
 
-For dependent transaction documents such as Credit memo, the applied currency will depends on its parent transactions document, such as payment, or bank deposit.
+For dependent transaction documents such as Credit memo, the applied currency will depend on its parent transactions document, such as payment, or bank deposit.
 
 **Example:**
 
@@ -442,7 +367,7 @@ For dependent transaction documents such as Credit memo, the applied currency wi
 
 ### Object IDs
 
-QuickBooks Object IDs can be used for All Search, Update, and Get details action. These IDs uniquely identify each records in the application. One thing to note : IDs are not interchangeable. An ID from Salesforce cannot be used as an ID in QuickBooks. Each application stores their own record's identity in their own ID. Get details actions require you to input QuickBooks ID only. 
+QuickBooks Object IDs can be used for All Search, Update, and Get details action. These IDs uniquely identify each record in the application. One thing to note : IDs are not interchangeable. An ID from Salesforce cannot be used as an ID in QuickBooks. Each application stores their own record's identity in their own ID. Get details action requires you to input QuickBooks ID only. 
 
 #### How do I get the Document ID?
 
@@ -455,7 +380,7 @@ Notice txnId=4. That means for this specific TimeActivity Record, its ID is 4.
 
 When getting details for this specific TimeActivity using Workato, we will then need to specify 4 in the TimeSheet ID field.
 
-![Timesheet-ID](/assets/images/connectors/quick-books/timesheet-id.png)
+![Timesheet-ID](/assets/images/connectors/quick-books/timesheet-Id.png)
 *Timesheet ID*
 
 #### Getting QuickBooks Document ID Dynamically
@@ -465,8 +390,6 @@ Unless stored in a specific field that you know of, the most common way of getti
 1) Search for the object that you are looking for based on a few criteria.
 ![Object Criteria](/assets/images/connectors/quick-books/object-id.png)
 *Getting QuickBooks Document ID Dynamically.*
-
-Unless stored in a specific field that you know of, the most common way of getting a QuickBooks ID is from Search actions. No other ID from other applications will work.
 
 2.  In the next steps, the search action's output will appear on the App Data. Simply look for the ID data pill and place them in the field.
 
@@ -480,15 +403,15 @@ In Quickbooks, the display name is used as a unique identifier across Customer (
 
 As such, trying to add another record with the same display name which already exist in any of the three types will give you an error: Another tenant, vendor or employee is already using this name. Please use a different name.
 
-![QBO error1](/assets/images/QBO_docs/QBO error1.png)
+![QBO error1](/assets/images/QBO_docs/QBO-error1.png)
 
 On Workato, you will receive a Duplicate Name Exists Error.
 
-![QBO error2](/assets/images/QBO_docs/QBO error2.png)
+![QBO error2](/assets/images/QBO_docs/QBO-error2.png)
 
 One solution to this is to add a Prefix or Suffix before or after the Display name of the Customer, Employee or Vendor.
 
-![QBO error3](/assets/images/QBO_docs/QBO error3.png)
+![QBO error3](/assets/images/QBO_docs/QBO-error3.png)
 
 Do note however that QuickBooks does not allow for certain special characters in the Display Name including colon (:).
 
@@ -529,29 +452,29 @@ You get this error when you are trying to create a record in QuickBooks Online a
 
 ### App Already Purchased
 
-![QBO purchased](/assets/images/QBO_docs/QBO purchased.png)
+![QBO purchased](/assets/images/QBO_docs/QBO-purchased.png)
 
 If you receive the following error, there is someone else in your company who is already connected to Workato. Contact your colleague to delete their Workato connection to resolve this error.
 
 ### Object Not found. Error while accessing QuickBooks API
 
-![QBO errorobjnotfound1](/assets/images/QBO_docs/QBO errorobjnotfound1.png)
+![QBO errorobjnotfound1](/assets/images/QBO_docs/QBO-errorobjnotfound.png)
 
 What does this mean : This usually happens when you tried to get an object based on an ID in QuickBooks and that object does not exist. For example,
 
-![QBO errorobjnotfound3](/assets/images/QBO_docs/QBO errorobjnotfound3.png)
+![QBO errorobjnotfound3](/assets/images/QBO_docs/QBO-errorobjnotfound3.png)
 
 The recipe tries to get the item from QuickBooks based on the ID, unfortunately that object does not exist in your Quickbooks account. You would want to check again in your QuickBooks.
 
 You can find the ID of your object in the URL. It would usually shown up with an ID=6 where 6 is the ID of your object. 
 
-![QBO errorobjnotfound2](/assets/images/QBO_docs/QBO errorobjnotfound2.png)
+![QBO errorobjnotfound2](/assets/images/QBO_docs/QBO-errorobjnotfound2.png)
 
 You can always re-run the job again once it has been ensured, or you may have to change your recipe to make sure that the workflow is correct. 
 
 ### 784 QuickBooks API not responding
 
-![QBO APIerror](/assets/images/QBO_docs/QBO APIerror.png)
+![QBO APIerror](/assets/images/QBO_docs/QBO-APIerror.png)
 
 This usually happens when there is an API outage on QuickBooks side, or it has some intermittent issues
 Keep watch of http://status.developer.intuit.com, and try re-running the same job after a while
@@ -561,7 +484,7 @@ Keep watch of http://status.developer.intuit.com, and try re-running the same jo
 This error could mean that there were some connectivity issues with the app connection.
 Disconnect your app by going to the connections tab at the bottom of your recipe page, and reconnect it again.
 
-![QBO connect3](/assets/images/QBO_docs/QBO connect3.png)
+![QBO connect3](/assets/images/QBO_docs/QBO-connect3.png)
 
 ### Create Invoice
 
@@ -591,7 +514,7 @@ In this particular instance, the recipe failed at step 6 when it tried to create
 
 To solve this,
 
-Go back to the recipe, and check the field of the step with the error.  If no output pill was used in the mapping of the field, simply drag and drop one from the data tree on the right. If there was a mapping of an output pill, check to see the data of the pill used by clicking on it twice. In this case, the output pill was from the Salesforce Opportunity in the Trigger Step. Check Salesforce to see if the Opportunity Description was indeed filled up. If it is not, make the field a compulsory field so that it is always filled OR change the mapping. Use another output pill from the same step or even a different step. Alternatively, you can also add text within the input field mapping or use [formulas](https://support.workato.com/support/solutions/articles/1000173152).
+Go back to the recipe, and check the field of the step with the error.  If no output pill was used in the mapping of the field, simply drag and drop one from the datatree on the right. If there was a mapping of an output pill, check to see the data of the pill used by clicking on it twice. In this case, the output pill was from the Salesforce Opportunity in the Trigger Step. Check Salesforce to see if the Opportunity Description was indeed filled up. If it is not, make the field a compulsory field so that it is always filled OR change the mapping. Use another output pill from the same step or even a different step. Alternatively, you can also add text within the input field mapping or use [formulas](https://support.workato.com/support/solutions/articles/1000173152).
 
 ### Invalid Account Type used
 
