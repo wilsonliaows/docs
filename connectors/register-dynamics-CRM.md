@@ -47,6 +47,5 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 ![Application ID](/assets/images/connectors/microsoft-dynamics-CRM/application.png)
 
 ## How to connect to an on-premise Microsoft Dynamics CRM instance
-
 In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Azure Active Directory. Click [here](https://technet.microsoft.com/itpro/powershell/windows/adfs/add-adfsclient) to read more on how to register an on-premise Dynamics app with Azure Active Directory.
 
