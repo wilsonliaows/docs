@@ -23,29 +23,31 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 4. If you already have an application, use that ID. If not, proceed to click **Add**. Then, type a name. Choose the application type as “Native” and redirect URI as https://www.workato.com/oauth/callback. Click **create** in the bottom of the page.
 
 ![Add](/assets/images/connectors/microsoft-dynamics-CRM/add.gif)
-*fill in the application as directed*
+*Fill in the application as directed*
 
-6.Click on the newly created application. 
+5. Click on the newly created application. 
 
 ![Add](/assets/images/connectors/microsoft-dynamics-CRM/click-on-app.png)
+*Click on the newly created application*
 
-7. In the right side pane click on **required permissions** link.
+6. In the right side pane click on **Required permissions** link.
 
 ![Required permissions](/assets/images/connectors/microsoft-dynamics-CRM/permission.png)
+*Click on Required permissions link*
 
 
-8. Click Add > Select an API > Dynamics CRM online > Select
+7. Click *Add* > *Select an API* > *Dynamics CRM Online*
 
 ![Dynamics CRM](/assets/images/connectors/microsoft-dynamics-CRM/dynamics.gif)
+*Add Dynamics CRM Online API access*
 
-9. Click on Access CRM online > Select> Done 
+8. Click on *Access CRM online*. Select it and click on **Done**
 
 ![CRM online](/assets/images/connectors/microsoft-dynamics-CRM/access-crm.png)
 
-10. Use Application ID as client ID.
+9. Use the application ID as client ID.
 
 ![Application ID](/assets/images/connectors/microsoft-dynamics-CRM/application.png)
 
 ## How to connect to an on-premise Microsoft Dynamics CRM instance
 In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Azure Active Directory. Click [here](https://technet.microsoft.com/itpro/powershell/windows/adfs/add-adfsclient) to read more on how to register an on-premise Dynamics app with Azure Active Directory.
-
