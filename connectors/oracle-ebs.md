@@ -15,25 +15,25 @@ date: 2017-02-16 06:15:00 Z
 
 a.	Login to Oracle EBS
 
-b.  From the Main menu Click on *Integrated SOA Gateway* > *Integration Repository*
+b.  From the main menu, click on *Integrated SOA Gateway* > *Integration Repository*
 
 ![Oracle Applications Home page](/assets/images/connectors/oracle-ebs/oracle-applications.png)
-*Oracle Applications Home Page*
+*Oracle Applications home page*
 
 c.  Click on **Search**
 
 ![Search on page](/assets/images/connectors/oracle-ebs/search.png)
 *Click on Search*
 
-d.  Search for Interface name **User** and Select the service with internal name **FND_USER_iPK**
+d.  Search for Interface name **User** and Select the service with internal name **FND_USER_PKG**
 
 ![Search for User](/assets/images/connectors/oracle-ebs/interface.png)
-*Locate FND_USER_iPKG*
+*Locate FND_USER_PKG*
 
-e. Go to the **REST Web Services** tab. Enter the service name as **use** and click on **Deploy**.
+e. Go to the **REST Web Services** tab. Enter the service name as **user** and click on **Deploy**.
 
 ![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
-*Locate the REST web services and enter 'user'*
+*Locate the REST web services and enter "user"*
 
 ## Creating Oracle EBS Connections
 
@@ -42,9 +42,9 @@ From within the recipe **Connections** tab, or from the account [connections pag
 1. Select **Oracle E-Business Suite**
 
 ![Oracle recipe](/assets/images/connectors/oracle-ebs/oracle-recipe.jpg)
-*Oracle E-Business Suite recipe map*
+*Creating new Oracle E-Business Suite connection*
 
-**Fields are as follows:**
+Fields are as follows:
 
 * Connection name:
 
@@ -52,7 +52,7 @@ Use something that identifies the specific Oracle EBS instance, e.g. “HR Sandb
 
 * On-prem secure agent:
 
-If your Oracle EBS instance is not accessible directly from the Internet, Workato will need to connect to it via an (on-premise agent) (/on-prem.md).  Select the appropriate, active on-premise agent that has network access to this Oracle EBS instance.
+If your Oracle EBS instance is not accessible directly from the Internet, Workato will need to connect to it via an [on-premise agent](/on-prem.md).  Select the appropriate, active on-premise agent that has network access to this Oracle EBS instance.
 
 * Instance URL:
 
@@ -68,7 +68,7 @@ Corresponding password for the above username.
 
 * User service name:
 
-This is used only to test connectivity, as described in the (link to EBS setup section of the docs)
+"This is used only to test connectivity
 
 2. Click **Connect**
 
