@@ -3,9 +3,10 @@
 ## QuickBase: Getting Started with QuickBase + Workato 
 
 ![Getting Started](/assets/images/connectors/quickbase/getting-started.jpg)
+
 *Quickbase Integration by Workato*
 
-Workato now supports QuickBase extensively, including all custom objects and tables, standard CRUD-operations, as well as purging records using reports. Learn how to use Workato with QuickBase here.
+Workato now fully supports QuickBase, including all custom objects and tables, standard CRUD-operations, as well as purging records using reports. Learn how to use Workato with QuickBase here.
 
 [Visit here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
@@ -18,6 +19,7 @@ Workato now supports QuickBase extensively, including all custom objects and tab
 ### LEARN QUICKBASE ACTIONS AND TRIGGERS
 2. [QuickBase Triggers](https://support.workato.com/solution/articles/1000236163-quickbase-triggers)
 3. Actions
+
 i) [Search and Update actions](https://support.workato.com/solution/articles/1000236167-quickbase-search-and-update-actions)
 ii) [How do I update a record in Quickbase?](https://support.workato.com/solution/articles/1000236654-quickbase-how-do-i-update-a-record-%204) 
 
@@ -31,23 +33,24 @@ ii) [How do I update a record in Quickbase?](https://support.workato.com/solutio
 See what businesses are doing with QuickBase using Workato to automate their Business
 
 ![Quickbase Presentation](/assets/images/connectors/quickbase/quickbase-presentation.jpg)
+
 *[Workato and QuickBase Team Up to Empower Citizen Developers](https://www.workato.com/blog/2016/06/workato-and-quickbase-team-up-to-empower-citizen-developers/)*
 
 
 ## Quickbase: Triggers 
 
-Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 Configuring the Trigger:
 
 ![Trigger Configuration](/assets/images/connectors/quickbase/trigger-config.png)
 *Trigger configuration*
 
-There are 2 triggers which we can use with Quickbase: New record and Updated record. The records refer to a record within an table that is within an application. If the table requires an Application token, you will need to create one in Quickbase. 
+There are 2 triggers which we can use with Quickbase: 'New record' and 'Updated record'. The records refer to a record within an table that is within an application. If the table requires an Application token, you will need to create one in Quickbase. 
 
 To manage your Application Tokens in Quickbase: 
 
-Go to Settings (for your app) > App properties > Advanced settings > Application Tokens 
+Go to *Settings (for your app) > App properties > Advanced settings > Application Tokens* 
 
 The output field list refers to the fields that are required in the recipe. You will need to fill it up to pull the fields you want especially if you require access to many fields, or if the table has more than 150 fields. Once you have keyed in the exact names of the fields (one per line), refresh the schema.
 
@@ -61,7 +64,7 @@ The 'Since' parameter refers to the date and time at which you would like the re
 
 ## Quickbase: List of Actions 
 
-Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 The following actions are available for Quickbase: 
 
@@ -70,33 +73,33 @@ The following actions are available for Quickbase:
 
 Add record, Delete record, Purge records using report, search records and update record. All the records refer to a record within a table within an app. 
 
-*If you require an application token in that app, do create one and put it in the application token field
+If you require an application token in that app, do create one and put it in the application token field
 
 To manage your Application Tokens in Quickbase:
 
-Go to Settings (for your app) > App properties > Advanced settings > Application Tokens
+Go to *Settings (for your app) > App properties > Advanced settings > Application Tokens*
 
 The output field list refers to the fields that are required in the recipe. You will need to fill it up to pull the fields you want especially if you require access to many fields, or if the table has more than 150 fields. Once you have keyed in the exact names of the fields (one per line), refresh the schema.
 
 
 ## Quickbase: Search and Update actions 
 
-Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
-This article explains the Search action step and how to use it. It is usually required before the 'Update action' step. 
+This article explains the Search action step and how to use it. It is usually required before the "Update action"step. 
 
 Search Action:
 
 ![Search Action](/assets/images/connectors/quickbase/search-action.png)
 *QuickBase search action for recipe building*
 
-The Search step is required to find a specific record in Quickbase. You can search using 1 or multiple parameters by filling up the fields you are searching for. The Record ID# field is a standard identifier in Quickbase, meaning that each record will have its own unique Record ID. This is the best field to search with, although you can use any other unique field. 
+The 'Search' step is required to find a specific record in Quickbase. You can search using 1 or multiple parameters by filling up the fields you are searching for. The Record ID# field is a standard identifier in Quickbase, meaning that each record will have its own unique Record ID. This is the best field to search with, although you can use any other unique field. 
 
 Update field: 
 
 When updating a record, the Record ID# field is a required field. The record to be updated will thus be identified using that Record ID. 
 
-Therefore, you will require a Search step before the Update step to find this Record ID pill. In the picture below, see that the search step yields the Record ID as an output on the data tree (extreme right)  
+Therefore, you will require a Search step before the Update step to find this Record ID# pill. In the picture below, see that the search step yields the Record ID as an output on the data tree (extreme right)  
 
 ![Record ID from Search action](/assets/images/connectors/quickbase/record-id.png)
 *Record IF from Search action*
@@ -113,7 +116,7 @@ If you have multiple Quickbase accounts, we can help integrate data between thos
 
 To connect to a secondary Quickbase connection, simply choose it from the drop down of the list of applications. 
 
-### Q : I have a few QuickBase account syncing to the same destination application. What should be done?
+'### Q : I have a few QuickBase account syncing to the same destination application. What should be done?
 While a single recipe can only connect to one application connection, you may have different QuickBase account connections used in different recipes. Simply copy the recipe, and change the application connection. 
 
 ### QuickBase Secondary
@@ -138,9 +141,9 @@ Comparing values within a table (between multiple records) is useful when trying
 
 The first step should return an array of all the records you want to compare. You can do this by creating a field (checkbox) in Quickbase and check all the records which contain the values you would like to compare. 
 
-In the 2nd step, choose Utilities as the app and Log Message. In the message, click the toggle for "formula mode" at the end of the field. Choose the "records" array pill (demarcated by the array icon) and use the .pluck formula. 
+In the 2nd step, choose Utilities as the app and Log Message. In the message, click the toggle for 'formula mode' at the end of the field. Choose the 'records' array pill (demarcated by the array icon) and use the .pluck formula. 
 
-You should pluck the value in the specific field you want, and put in the record ID of that field behind "f_". This effectively creates an array of all the values that you want to compare. You may do other functions such as ".min" and ".max" to compare numerical values. 
+You should pluck the value in the specific field you want, and put in the record ID of that field behind 'f_'. This effectively creates an array of all the values that you want to compare. You may do other functions such as '.min' and '.max' to compare numerical values. 
 
 See [this recipe](https://www.workato.com/recipes/283949-copy-of-new-record-in-quickbase-will-search-records-in-a-quickbase-table) for an example of how this can be used.
 
@@ -189,7 +192,7 @@ Example: I have to explicitly define the required fields as well for Add record 
 
 Composite fields are essentially fields which may have multiple other fields that make it up - such as an address type field. In such cases, simply providing the main field name as an input will ensure that the multiple other fields that it comprises will be handled properly.
 
-For example, if I would also like to pull out a field "Home Address", which is an address type field, I'll simply put in the field name "Home Address" and the composite fields "Street 1", Street 2", "City", etc. will show up as generated input fields. Again, remember to refresh your schema after changing the input field list!
+For example, if I would also like to pull out a field 'Home Address', which is an address type field, I'll simply put in the field name 'Home Address' and the composite fields 'Street 1', 'Street 2', 'City', etc. will show up as generated input fields. Again, remember to refresh your schema after changing the input field list!
 
 ![Adding Input Fields](/assets/images/connectors/quickbase/adding-input-fields.png)
 *Adding input fields*
@@ -264,7 +267,7 @@ When ran, the recipe will delete those records that matches the Reports filter.
 *Records that will be deleted*
 
 
-## How do I find my Quickbase Access token? 
+'## How do I find my Quickbase Access token? 
 
 ### Do I need a Quickbase token?
 
@@ -277,30 +280,30 @@ In the following, we'll go through how to set up your token.
 
 ### First Time Activation
 
-For users who have already activated API access, skip to "Manage Application Token"
+For users who have already activated API access, skip to **Manage Application Token**
 
-If this is the first time setting  up API access, you will need to enable this feature before managing tokens. For such users, you will see a text box that says "Get more features and work smarter" in the App Settings page. This is what it looks like.
+If this is the first time setting  up API access, you will need to enable this feature before managing tokens. For such users, you will see a text box that says 'Get more features and work smarter' in the App Settings page. This is what it looks like.
 
 ![Enabling Advanced Features](/assets/images/connectors/quickbase/enabling-advanced-features.png)
 *Enabling advanced features*
 
-Click on Enable which will open a prompt:
+Click on **Enable** which will open a prompt:
 
 ![Advanced Features Prompt](/assets/images/connectors/quickbase/advanced-features-prompt.png)
 *Advanced features prompt*
 
-Select "OK, enabled these features". Now, API access is enabled for this App. Follow the remaining steps to retrieve the access token.
+Select **OK, enabled these features**. Now, API access is enabled for this App. Follow the remaining steps to retrieve the access token.
 
 ### Manage Application Tokens
 1.Select the App you wish to retrieve App token for
 2.Go to Settings > App properties
-3.Scroll to Advanced Settings (inspect the checkbox for "Require Application Tokens (normally checked)". If this is checked, an App token is required for API access)
-4.Click on the link "Manage Application Token page"
+3.Scroll to Advanced Settings (inspect the checkbox for Require Application Tokens (normally checked)". If this is checked, an App token is required for API access)
+4.Click on the link **Manage Application Token page**
 
 ![Manage Application Tokens](/assets/images/connectors/quickbase/manage-application-tokens.png)
 *Manage application tokens*
 
-5. You will be directed to the "Manage Application Tokens" page. Here - you can Assign an existing Application Token, or Create a new Application Token. Copy and use this token for your recipe step so as to be able to successfully access your Quickbase data.
+5. You will be directed to the 'Manage Application Tokens' page. Here - you can Assign an existing Application Token, or Create a new Application Token. Copy and use this token for your recipe step so as to be able to successfully access your Quickbase data.
 
 ![Adding Application Tokens]](/assets/images/connectors/quickbase/adding-application-tokens.png)
 *Adding application tokens*
