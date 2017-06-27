@@ -13,19 +13,19 @@ date: 2017-02-16 06:15:00 Z
 
 3.	In the Oracle EBS, deploy User PL/SQL REST service (internal name: FND_USER_PKG) with name “user”. Below are the steps to install PL/SQL REST service
 
-a.	Login to Oracle EBS
+a. Login to Oracle EBS
 
-b.  From the main menu, click on *Integrated SOA Gateway* > *Integration Repository*
+b. From the main menu, click on *Integrated SOA Gateway* > *Integration Repository*
 
 ![Oracle Applications Home page](/assets/images/connectors/oracle-ebs/oracle-applications.png)
 *Oracle Applications home page*
 
-c.  Click on **Search**
+c. Click on **Search**
 
 ![Search on page](/assets/images/connectors/oracle-ebs/search.png)
 *Click on Search*
 
-d.  Search for Interface name **User** and Select the service with internal name **FND_USER_PKG**
+d. Search for Interface name **User** and Select the service with internal name **FND_USER_PKG**
 
 ![Search for User](/assets/images/connectors/oracle-ebs/interface.png)
 *Locate FND_USER_PKG*
@@ -35,7 +35,7 @@ e. Go to the **REST Web Services** tab. Enter the service name as **user** and c
 ![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
 *Locate the REST web services and enter "user"*
 
-## Creating Oracle EBS Connections
+## Creating Oracle EBS connections
 
 From within the recipe **Connections** tab, or from the account [connections page](https://www.workato.com/connections):
 
