@@ -16,19 +16,19 @@ Visit [here](https://www.workato.com/integrations/quickbase) for information abo
 2. [Connecting more than one Quickbase account in a single Recipe](https://support.workato.com/support/solutions/articles/1000236168-quickbase-syncing-to-multiple-quickbase-instances)
 3. Choosing Table fields
 
-### LEARN QUICKBASE ACTIONS AND TRIGGERS
+### Learn Quickbase Actions and Triggers
 2. [Quickbase Triggers](https://support.workato.com/solution/articles/1000236163-quickbase-triggers)
 3. Actions
 
 i) [Search and Update actions](https://support.workato.com/solution/articles/1000236167-quickbase-search-and-update-actions)
 ii) [How do I update a record in Quickbase?](https://support.workato.com/solution/articles/1000236654-quickbase-how-do-i-update-a-record-%204) 
 
-### Tips and tricks with Quickbase 
+### Tips and Tricks with Quickbase 
  - [How to compare values within a Quickbase table](https://support.workato.com/solution/articles/1000236539-quickbase-how-to-compare-values-within-a-table)
  - [Syncing to multiple Quickbase instances](https://support.workato.com/solution/articles/1000236168-quickbase-syncing-to-multiple-quickbase-instances)
  - [Adding fields](https://support.workato.com/solution/articles/1000236540-quickbase-adding-fields)
 
-### Quickbase business use cases
+### Quickbase Business Use Cases
 
 See what businesses are doing with Quickbase using Workato to automate their business
 
@@ -68,7 +68,7 @@ Visit [here](https://www.workato.com/integrations/quickbase) for information abo
 The following actions are available for Quickbase: 
 
 ![Available Quickbase actions](/assets/images/connectors/quickbase/available-actions.png)
-b*QuickBase actions in Workato*
+*QuickBase actions in Workato*
 
 Add record, Delete record, Purge records using report, search records and update record. All the records refer to a record within a table within an app. 
 
@@ -81,7 +81,7 @@ Go to *Settings (for your app) > App properties > Advanced settings > Applicatio
 The output field list refers to the fields that are required in the recipe. You will need to fill it up to pull the fields you want especially if you require access to many fields, or if the table has more than 150 fields. Once you have keyed in the exact names of the fields (one per line), refresh the schema.
 
 
-## Quickbase: Search and Update actions 
+## Quickbase: Search and Update Actions 
 
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
@@ -106,16 +106,16 @@ Therefore, you will require a Search step before the Update step to find this Re
 Thereafter, fill in the other fields you wish to update within that record. Only those fills that are populated will be updated. 
 
 
-## Quickbase: Syncing to multiple Quickbase instances 
+## Quickbase: Syncing to Multiple Quickbase Instances 
 
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
-### Connecting Multiple Quickase account
+### Connecting Multiple Quickbase Accounts
 If you have multiple Quickbase accounts, we can help integrate data between those accounts with Workato. 
 
 To connect to a secondary Quickbase connection, simply choose it from the drop down of the list of applications. 
 
-'### Q : I have a few Quickbase account syncing to the same destination application. What should be done?
+### Q : I have a few Quickbase accounts syncing to the same destination application. What should be done?
 While a single recipe can only connect to one application connection, you may have different Quickbase account connections used in different recipes. Simply copy the recipe, and change the application connection. 
 
 ### Quickbase Secondary
@@ -129,7 +129,7 @@ Simply choose Quickbase Secondary as one of your recipe's steps, and use it the 
 Do note that Workato requires users to be on an Enterprise plan in order to enable a Secondary connection. Contact us at: +1 (844) 469-6752 or at info@workato.com if you require more information about this feature. 
 
 
-## Quickbase: How to compare values within a table 
+## Quickbase: How to Compare Values within a Table 
 
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
@@ -147,7 +147,7 @@ You should pluck the value in the specific field you want, and put in the record
 See [this recipe](https://www.workato.com/recipes/283949-copy-of-new-record-in-quickbase-will-search-records-in-a-quickbase-table) for an example of how this can be used.
 
 
-## Quickbase: Specifying input fields to display with the "Input field list" 
+## Quickbase: Specifying Input Fields to Display with the "Input Field List" 
 
 When your Quickbase table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases whereby your selected Quickbase table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
 
@@ -187,7 +187,7 @@ If the field I'm interested in writing to isn't available in the field selector 
 
 Example: I have to explicitly define the required fields as well for Add record action as they won't show up otherwise
 
-### Composite fields
+### Composite Fields
 
 Composite fields are essentially fields which may have multiple other fields that make it up - such as an address type field. In such cases, simply providing the main field name as an input will ensure that the multiple other fields that it comprises will be handled properly.
 
@@ -213,7 +213,7 @@ Connections can be established in 3 different areas:
 
 Connect your Quickbase account to Workato as how you would login to your Quickbase. We need the sub-domain, your username and password to make a successful connection.
 
-## Quickbase: How do I update a record?
+## Quickbase: How do I Update a Record?
 
 Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
@@ -229,7 +229,7 @@ Put in the Record ID# pill into the 'Required' field. If you do not find the pil
 Finally, if you update the Record ID# field label in Quickbase, do ensure that you enter the correct name of the field in the 'Input field list' and the correct field should appear.
 
 
-## Quickbase - Purge records using Report 
+## Quickbase - Purge Records using Report 
 
 ### Purge Records based on Reports
 
@@ -308,7 +308,7 @@ Select **OK, enabled these features**. Now, API access is enabled for this App. 
 *Adding application tokens*
 
 
-## Quickbase: Specifying datatree fields to display with the "Output field list" 
+## Quickbase: Specifying Datatree Fields to Display with the "Output Field List" 
 
 When your Quickbase table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases whereby your selected Quickbase table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
 
