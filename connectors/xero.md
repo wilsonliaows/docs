@@ -1,17 +1,24 @@
 # Xero
 
-## Xero - Triggers and Actions Supported. App Specific behavior
+## Triggers and Actions Supported
 
-The latest triggers and actions can be found on the Workato Xero page..
+The latest triggers and actions can be found on the Workato Xero page.
 
-The App page has the following format...To see the supported Triggers and Actions, scroll to the bottom.
+The App page has the following format:
 
-*1. Description
+1. Description
+
 2. Stats
+
 3. Connections
+
 4. Experts
+
 5. Recommended recipes
+
 6. Triggers and Actions
+
+To see the supported Triggers and Actions, scroll to the bottom.
 
 App Specific behavior
 
@@ -51,6 +58,7 @@ According to [Xero Developer Help Center](https://community.xero.com/developer/q
 An ID is a unique identifier for an object in the API. In Xero, some IDs such as Contact ID are required in creating an action and they can be easily obtained using "Search" or other actions. 
 
 ### Contact ID
+
 Contact ID is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
 
 ![Contact ID](/assets/images/connectors/xeno/contact-id.png)
