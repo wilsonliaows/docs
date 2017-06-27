@@ -11,7 +11,7 @@ date: 2017-02-16 06:15:00 Z
 
 2. Install [Workato on-prem agent](https://www.workato.com/secure_agents)
 
-3.	In the Oracle EBS, deploy User PL/SQL REST service (internal name: FND_USER_PKG) with name “user”. Below are the steps to install PL/SQL REST service
+3. In the Oracle EBS, deploy User PL/SQL REST service (internal name: FND_USER_PKG) with name “user”. Below are the steps to install PL/SQL REST service
 
 a. Login to Oracle EBS
 
