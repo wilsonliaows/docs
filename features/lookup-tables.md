@@ -47,11 +47,20 @@ You can manually enter additional lookup table entries.
 *A new blank row will be generated for values to be entered*
 
 ## Adding new entries via a recipe
-There is a special **Lookup table** connector that allows you to work with your tables via recipes. This connector supports these actions:
+There is a **Lookup table** connector that allows you to work with your tables via recipes. This connector supports [adding of new entries](#add-entry-action) via a recipe.
+
+## Using the lookup table connector
+The **Lookup table** utility connector allows you to work with your tables via recipes. This connector supports the following actions:
 
 * Lookup entry
 * Search entries
 * Add entry
+
+### Add entry action
+Add a new entry to an existing lookup table. You can use this action to keep your lookup tables updated, e.g. read newly created job titles from your human resources application and create a new entry for that job title in your lookup table.
+
+![Lookup7](/assets/images/features/lookup-tables/lookup-tables-7.gif)
+*Select the lookup table to write to and then input the values to provide for each cell of the row*
 
 ### Lookup entry action
 The lookup entry action allows you to search for an entry (a row in the lookup table) by any of its values. The lookup entry action behaves like a search and retrieves a single entry. The first matching entry depends on the values passed in. If you have duplicated entries (i.e. your lookup will return more than one entry), only one entry will be retrieved.
@@ -69,15 +78,9 @@ The following gif walks you through the flow of configuring the lookup entry act
 *Configuring the action to lookup entries with the matching department ID and job code*
 
 ### Search entries action
-The search entries action works similarly to the lookup action. The main difference between them is that where lookup action returns a single entry whereas the search entries action returns a list of entries.
+The search entries action works similarly to the lookup action. The main difference between them is that lookup action returns a single entry whereas the search entries action returns a list of entries.
 
 Use this if you expect a list of matching entries to be returned, and wish to process the list accordingly.
-
-### Add entry action
-Add a new entry to an existing lookup table. You can use this action to keep your lookup tables updated, e.g. read newly created job titles from your human resources application and create a new entry for that job title in your lookup table.
-
-![Lookup7](/assets/images/features/lookup-tables/lookup-tables-7.gif)
-*Select the lookup table to write to and then input the values to provide for each cell of the row*
 
 ## Lookup table formulas
 Instead of using an action step to carry out the entry lookup, you can also use a formula to lookup entries in your lookup table. This is efficient as the lookup can be done within the input field without requiring additional actions.
