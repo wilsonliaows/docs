@@ -4,17 +4,17 @@
 
 ### Payment plan details in Infusionsoft
 
-Workato's "Get payment plan" action details by Invoice ID in Infusionsoft, allowing users to get specific details regarding certain subscription plans for an order. 
+Workato's "Get Payment Plan" action details by Invoice ID in Infusionsoft, allowing users to get specific details regarding certain subscription plans for an order. 
 
 Here are some examples in both Infusionsoft and Workato:
 
-To view a payment plan, go to Infusionsoft > View an order > Payment plans : 
+To view a payment plan, go to *Infusionsoft > View an order > Payment plans* : 
 
 ![View payment plans](/assets/images/connectors/infusionsoft/view-payment-plan.png)
 
 *View payment plans*
 
-By clicking on "Edit Payment Plan", you will be able to see more details regarding the Order's Payment Plan.
+By clicking on **Edit Payment Plan**, you will be able to see more details regarding the Order's Payment Plan.
 
 ![Edit payment plans](/assets/images/connectors/infusionsoft/edit-payment-plan.png)
 
@@ -37,7 +37,7 @@ Payment plan details contain the ID of each payments for the order. With this, y
 
 ## Infusionsoft : List of Item types
 
-When receiving details of an invoice, each line item is tied with a field called item_type that marks the type of the item. These values are in integer form, and in case you need to receive only a certain type of items, here are the list of numbers and their respective item types :
+When receiving details of an invoice, each line item is tied with a field called "item_type" that marks the type of the item. These values are in integer form, and in case you need to receive only a certain type of items, here are the list of numbers and their respective item types :
 
 0 = Unknown Type
 1 = Shipping
@@ -95,7 +95,7 @@ Field not found.
 A field that was present when the recipe was last updated no longer exists.
 
 #### Solution: 
-Simply refresh your recipe's schema to get the most recent fields from your instance of Infusionsoft. Do so by stopping your recipe, scrolling to the bottom of your recipe, and clicking on "Refresh" on the bottom right hand corner.
+Simply refresh your recipe's schema to get the most recent fields from your instance of Infusionsoft. Do so by stopping your recipe, scrolling to the bottom of your recipe, and clicking on **Refresh** on the bottom right hand corner.
 
 ![Refresh recipe schema](/assets/images/connectors/infusionsoft/refresh-schema.png)
 *Refresh your recipe's schema*
