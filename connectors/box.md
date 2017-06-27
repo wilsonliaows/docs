@@ -1,31 +1,17 @@
 ---
-title: Workato connectors
+title: Box
 date: 2017-02-21 12:00:00 Z
 ---
 
 # Box
-
 Targeted mostly towards businesses and enterprises, [Box](https://www.box.com/home) enables users to easily store and maintain files and helps manage cloud content.
 
-With workato, you can [link Box](https://www.workato.com/integrations/box) to many different features which further facilitate storing and managing these files. Some triggers include 'New updated folder' or 'Webhook notification' which can be linked to another application such as mailchimp or google sheets.
-
-On this page, we'll walk you through:
-
-1. [Connector information](http://docs.workato.com/connectors/box.html#connector-information)
-
-2. [How to connect to Box on Workato](http://docs.workato.com/connectors/box.html#how-to-connect-to-box-on-workato)
-
-3. [Working with attatchments on Box](http://docs.workato.com/connectors/box.html#working-with-attachments-in-box)
-
-4. [Articles on how to use additional features](http://docs.workato.com/connectors/box.html#articles-on-how-to-use-additional-special-actions-such-as-get-shared-link-etc)
-
-5. [Generation information about Box](http://docs.workato.com/connectors/box.html#more-generation-information-on-box)
-
+With Workato, you can [connect Box](https://www.workato.com/integrations/box) to multiple apps to further facilitate the storage and management of these files.
 
 ## Connector information
 
 ### API version
-The Box connector uses [Box Rest API](https://docs.box.com/reference#cors). 
+The Box connector uses the [Box Rest API](https://docs.box.com/reference#cors). 
 
 ### Supported editions and versions
 The Box connector works with all Box Plans - Individual, Business, Platform. 
@@ -60,34 +46,36 @@ Click on connect and a Box dialog box will pop-up, requesting your Box Account c
 ### Roles and permissions required to connect
 Box users who can login to Box can connect to Box from Workato. The user will have the same [permissions](https://community.box.com/t5/Collaboration-and-Sharing/What-Are-The-Different-Access-Levels-For-Collaborators/ta-p/144) on Workato as in Box. This means that they will have the same capabilities to view, share, upload and download to those files and folders as per their respective permissions on the Box platform.
 
-
 ## [Working with attachments in Box](https://support.workato.com/support/solutions/articles/1000236818-box-working-with-attachments-in-box)
 
 ### Upload file content
 Plain text file content can be uploaded using this action. Enter the text for your file in the File Content field. You will also need to select the folder you want to upload to in Box and enter a name for your file (including the extension you want to give it).
+
 ![Box Attachment 1](/assets/images/box-docs/box_attachment_1.png)
 
 ### Upload file from URL
 This action can be used to upload a file directly from a URL rather than through entering text content. This allows you to upload non-text files such as images. In the Source URL field, enter the URL for the file you want to upload. Attachment URLs will typically end with the file extension for the file (in the example below, .jpg). You will also need to select the folder you want to upload to. Entering a file name is optional as the name of the file will be obtained from the URL by default.
+
 ![Box Attachment 2](/assets/images/box-docs/box_attachment_2.png)
 
 ### Upload file content
 These actions allow you to create a direct link to a file or folder in Box. First, you will need to enter the File ID/Folder ID for the file/folder you want to create a shared link for. Next, select an access level for the link (Open, Company, Collaborators, or Default). This will set restrictions on who can view your file/folder via the shared link. If you have a Premium Box subscription, you can also enter a password that link users will need to enter before they can access your file/folder.
+
 ![Box Attachment 3](/assets/images/box-docs/box_attachment_3.png)
 
 ## Articles on how to use additional special actions, such as get shared link, etc.
 
-### [Getting Shared Link of Box Folder/File](https://support.workato.com/support/solutions/articles/1000239285-box-how-to-get-shared-link-of-your-file-)
-You have to add action Create shared link for file in Box in order to make a file/folder sharable. In the example below, you can use the ID pill from the trigger step to identify the new file when creating shared URL link and post the URL in the schema(below) to your Slack Workbot. 
+### [Getting shared link of Box folder/file](https://support.workato.com/support/solutions/articles/1000239285-box-how-to-get-shared-link-of-your-file-)
+You have to use the action **Create shared link for file** in Box in order to make a file/folder sharable. In the example below, you can use the ID pill from the trigger step to identify the new file when creating shared URL link and post the URL in the schema (below) to your Slack Workbot. 
 
 ![Box Shared Link 1](/assets/images/box-docs/box_shared_link_1.png)
 ![Box Shared Link 2](/assets/images/box-docs/box_shared_link_2.png)
 
 ## Best practices in working with the Box connector
 
-## More Generation Information on Box
+## More general information on Box
 
-### [Box Role Privelleges](https://support.workato.com/support/solutions/articles/1000236807-box-collaborator-roles-and-permissions)
+### [Box role privileges](https://support.workato.com/support/solutions/articles/1000236807-box-collaborator-roles-and-permissions)
 When using Box with Workato, you will only be able to perform the actions that are allowed by the level of access of the Box account used to make the connection on Workato. The list below showcases the available Box role privelleges.
 
 | Levels  | Access |
@@ -103,7 +91,7 @@ When using Box with Workato, you will only be able to perform the actions that a
 
 
 
-### [Shared Link Permissions](https://support.workato.com/support/solutions/articles/1000236812-box-access-levels-for-shared-links)
+### [Shared link permissions](https://support.workato.com/support/solutions/articles/1000236812-box-access-levels-for-shared-links)
 When creating a shared link for a file or folder in Box, you can choose from four different options for access levels:
 
 | Levels  | Access |
