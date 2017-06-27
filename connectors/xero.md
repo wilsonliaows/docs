@@ -26,7 +26,7 @@ To get products to sync to specific accounts, simply create the products in Xero
 
 
 ## Sales Tax Type when using "Create/Update Items" Action in Xero 
-
+ 
 To find out what types of sales tax to key in when using the "Create/Update Items" action in Xero, users can click on the URL below the box (highlighted in image). 
 
 ![Sales tax list](/assets/images/connectors/xeno/sales-tax-list.png)
@@ -57,9 +57,9 @@ Contact ID is an unique identifier for each contact in the Xero. It can be found
 *Contact ID in the contact page URL*
 
 You can also make use of the output datapill from the following actions to obtain Contact ID, depending on your workflow:
-1.New/updated contact in Xero
-2. Search contacts
 
+1. New/updated contact in Xero
+2. Search contacts
 3. Create contact
 
 For example, when you want to add person(s) to a contact, you could conduct "Search Contact" by contact name or email and make use of the output datapill as shown below:
@@ -71,10 +71,9 @@ For example, when you want to add person(s) to a contact, you could conduct "Sea
 Manual Journal ID is an unique identifier for each manual journal in Xero.
 
 You can make use of the output data pill from the following actions to obtain manual journal ID, depending on your workflow:
+
 1. Create Manual Journal
-
 2. Search Manual Journal
-
 3. Update Manual Journal
 
 ![Manual Journal ID](/assets/images/connectors/xeno/manual-journal-id.png)
@@ -82,8 +81,8 @@ You can make use of the output data pill from the following actions to obtain ma
 
 ### Payment ID
 You can make use of the output datapill from the following actions to obtain payment ID, depending on your workflow:
-1. Create payment
 
+1. Create payment
 2. Search payments
 
 ![Payment](/assets/images/connectors/xeno/payment.png)
@@ -91,16 +90,15 @@ You can make use of the output datapill from the following actions to obtain pay
 
 ### Employee ID 
 You can make use of the output datapill from the following triggers/actions to obtain employee ID, depending on your workflow:
-1. New/updated employee
 
+1. New/updated employee
 2. Create employee
 
 ### Account ID
 You can make use of the output datapill from the following triggers/actions to obtain bank account ID, depending on your workflow:
+
 1. New/updated payment
-
 2. Create invoice payment
-
 3. Get payment
 
 Alternatively, you can change the toggle to "Account Code", which can be found in Xero Settings > Chart of Accounts
