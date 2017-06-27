@@ -1,40 +1,40 @@
 # Quickbase
 
-## QuickBase: Getting Started with QuickBase + Workato 
+## Quickbase: Getting Started with Quickbase and Workato 
 
 ![Getting Started](/assets/images/connectors/quickbase/getting-started.jpg)
 
 *Quickbase Integration by Workato*
 
-Workato now fully supports QuickBase, including all custom objects and tables, standard CRUD-operations, as well as purging records using reports. Learn how to use Workato with QuickBase here.
+Workato now fully supports Quickbase, including all custom objects and tables, standard CRUD-operations, and purging records using reports. Learn how to use Workato with Quickbase here.
 
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 
 ### Get Connected
 1. [How to connect your Quickbase account](https://support.workato.com/support/solutions/articles/1000236544-quickbase-connecting-your-quickbase-account)
-2. [Connecting more than one QuickBase account in a single Recipe](https://support.workato.com/support/solutions/articles/1000236168-quickbase-syncing-to-multiple-quickbase-instances)
+2. [Connecting more than one Quickbase account in a single Recipe](https://support.workato.com/support/solutions/articles/1000236168-quickbase-syncing-to-multiple-quickbase-instances)
 3. Choosing Table fields
 
 ### LEARN QUICKBASE ACTIONS AND TRIGGERS
-2. [QuickBase Triggers](https://support.workato.com/solution/articles/1000236163-quickbase-triggers)
+2. [Quickbase Triggers](https://support.workato.com/solution/articles/1000236163-quickbase-triggers)
 3. Actions
 
 i) [Search and Update actions](https://support.workato.com/solution/articles/1000236167-quickbase-search-and-update-actions)
 ii) [How do I update a record in Quickbase?](https://support.workato.com/solution/articles/1000236654-quickbase-how-do-i-update-a-record-%204) 
 
-### Tips and tricks with QuickBase 
+### Tips and tricks with Quickbase 
  - [How to compare values within a Quickbase table](https://support.workato.com/solution/articles/1000236539-quickbase-how-to-compare-values-within-a-table)
  - [Syncing to multiple Quickbase instances](https://support.workato.com/solution/articles/1000236168-quickbase-syncing-to-multiple-quickbase-instances)
  - [Adding fields](https://support.workato.com/solution/articles/1000236540-quickbase-adding-fields)
 
-### QuickBase business use cases
+### Quickbase business use cases
 
-See what businesses are doing with QuickBase using Workato to automate their Business
+See what businesses are doing with Quickbase using Workato to automate their business
 
 ![Quickbase Presentation](/assets/images/connectors/quickbase/quickbase-presentation.jpg)
 
-*[Workato and QuickBase Team Up to Empower Citizen Developers](https://www.workato.com/blog/2016/06/workato-and-quickbase-team-up-to-empower-citizen-developers/)*
+*[Workato and Quickbase Team Up to Empower Citizen Developers](https://www.workato.com/blog/2016/06/workato-and-quickbase-team-up-to-empower-citizen-developers/)*
 
 
 ## Quickbase: Triggers 
@@ -67,8 +67,8 @@ Visit [here](https://www.workato.com/integrations/quickbase) for information abo
 
 The following actions are available for Quickbase: 
 
-![Available QuickBase actions](/assets/images/connectors/quickbase/available-actions.png)
-*QuickBase actions in Workato*
+![Available Quickbase actions](/assets/images/connectors/quickbase/available-actions.png)
+b*QuickBase actions in Workato*
 
 Add record, Delete record, Purge records using report, search records and update record. All the records refer to a record within a table within an app. 
 
@@ -110,21 +110,21 @@ Thereafter, fill in the other fields you wish to update within that record. Only
 
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
-### Connecting Multiple QuickBase account
+### Connecting Multiple Quickase account
 If you have multiple Quickbase accounts, we can help integrate data between those accounts with Workato. 
 
 To connect to a secondary Quickbase connection, simply choose it from the drop down of the list of applications. 
 
-'### Q : I have a few QuickBase account syncing to the same destination application. What should be done?
-While a single recipe can only connect to one application connection, you may have different QuickBase account connections used in different recipes. Simply copy the recipe, and change the application connection. 
+'### Q : I have a few Quickbase account syncing to the same destination application. What should be done?
+While a single recipe can only connect to one application connection, you may have different Quickbase account connections used in different recipes. Simply copy the recipe, and change the application connection. 
 
-### QuickBase Secondary
-With QuickBase Secondary, you are able to connect up to two QuickBase instances in a single recipe. This allows a QuickBase primary -> QuickBase secondary sync.
+### Quickbase Secondary
+With Quickbase Secondary, you are able to connect up to two Quickbase instances in a single recipe. This allows a Quickbase primary -> Quickbase secondary sync.
 
-![QuickBase Secondary](/assets/images/connectors/quickbase/quickbase-secondary.png)
+![Quickbase Secondary](/assets/images/connectors/quickbase/quickbase-secondary.png)
 *QuickBase Secondary connection*
 
-Simply choose QuickBase Secondary as one of your recipe's steps, and use it the same way as the QuickBase Primary do.
+Simply choose Quickbase Secondary as one of your recipe's steps, and use it the same way as the Quickbase Primary do.
 
 Do note that Workato requires users to be on an Enterprise plan in order to enable a Secondary connection. Contact us at: +1 (844) 469-6752 or at info@workato.com if you require more information about this feature. 
 
@@ -147,11 +147,11 @@ You should pluck the value in the specific field you want, and put in the record
 See [this recipe](https://www.workato.com/recipes/283949-copy-of-new-record-in-quickbase-will-search-records-in-a-quickbase-table) for an example of how this can be used.
 
 
-## QuickBase: Specifying input fields to display with the "Input field list" 
+## Quickbase: Specifying input fields to display with the "Input field list" 
 
-When your QuickBase table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases whereby your selected QuickBase table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
+When your Quickbase table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases whereby your selected Quickbase table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
 
-In this article, we'll talk about the input field list, which is applicable for QuickBase actions. A largely similar concept for the QuickBase connector, the output field list, is covered in this other article, and is applicable for QuickBase triggers.
+In this article, we'll talk about the input field list, which is applicable for Quickbase actions. A largely similar concept for the Quickbase connector, the output field list, is covered in this other article, and is applicable for QuickBase triggers.
 
 ### Input Field List
 
@@ -163,14 +163,14 @@ Fetching only fields that you're interested in.
 With Input field list, only fields that are specified in this section will appear subsequently as input fields. Composite fields will also be included when using the top-level name.
 
 ### Notes
- - When specifying fields, only provide one field name per line. Field names are case sensitive, hence ensure that field names provided are an exact match as the QuickBase field names.
- - Any required fields in your QuickBase table should be displayed in the action by default. Required fields will not show up automatically if you fail to define them in the Input field list.
+ - When specifying fields, only provide one field name per line. Field names are case sensitive, hence ensure that field names provided are an exact match as the Quickbase field names.
+ - Any required fields in your Quickbase table should be displayed in the action by default. Required fields will not show up automatically if you fail to define them in the Input field list.
 - Always refresh your recipe schema after changing the Input field list.
 - There should NOT be additional spaces in front of or behind each field name 
 
 ### Example
 
-I have a QuickBase table, Event App, with more than 150 fields configured.
+I have a Quickbase table, Event App, with more than 150 fields configured.
 
 ![Table Selection](/assets/images/connectors/quickbase/table-selection.png)
 *Table Selection from QuickBase*
@@ -229,7 +229,7 @@ Put in the Record ID# pill into the 'Required' field. If you do not find the pil
 Finally, if you update the Record ID# field label in Quickbase, do ensure that you enter the correct name of the field in the 'Input field list' and the correct field should appear.
 
 
-## QuickBase - Purge records using Report 
+## Quickbase - Purge records using Report 
 
 ### Purge Records based on Reports
 
@@ -239,7 +239,7 @@ Warning : This Action deletes data out of your QuickBase. Please make sure you u
 
 ### What does the Action do?
 
-QuickBase actions available in Workato are straightforward data manipulators. You are able to access your basic CRUD actions (Create, Read, Update, or Delete Records), as well as a few others that are unique to QuickBase. One of them is Purge Records based on Reports.
+Quickbase actions available in Workato are straightforward data manipulators. You are able to access your basic CRUD actions (Create, Read, Update, or Delete Records), as well as a few others that are unique to QuickBase. One of them is Purge Records based on Reports.
 
 ### What are Reports?
 
@@ -308,13 +308,13 @@ Select **OK, enabled these features**. Now, API access is enabled for this App. 
 *Adding application tokens*
 
 
-## QuickBase: Specifying datatree fields to display with the "Output field list" 
+## Quickbase: Specifying datatree fields to display with the "Output field list" 
 
-When your QuickBase table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases whereby your selected QuickBase table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
+When your Quickbase table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases whereby your selected Quickbase table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
 
-In this article, we'll talk about the output field list, which is applicable for QuickBase triggers. A largely similar concept for the QuickBase connector, the input field list, is covered in this other article, and is applicable for QuickBase actions.
+In this article, we'll talk about the output field list, which is applicable for Quickbase triggers. A largely similar concept for the Quickbase connector, the input field list, is covered in this other article, and is applicable for Quickbase actions.
 
-For example, if I'm using a trigger and would like to retrieve data from a formula field "Attendee Name" and a composite address type field "Home Address", I'll type in the exact, case sensitive field names as in QuickBase:
+For example, if I'm using a trigger and would like to retrieve data from a formula field "Attendee Name" and a composite address type field "Home Address", I'll type in the exact, case sensitive field names as in Quickbase:
 
 ![Output Field List](/assets/images/connectors/quickbase/output-field-list.png)
 *Inputting names into the output field list*
@@ -325,7 +325,7 @@ And in the datatree, I'll be able to see the fields that make up the address fie
 *Associated data pills in the datatree*
 
 Notes
- - When specifying fields, only provide one field name per line. Field names are case sensitive, hence ensure that field names provided are an exact match as the QuickBase field names.
- - Any required fields in your QuickBase table should be displayed in the action by default. Required fields will not show up automatically if you fail to define them in the Input field list.
+ - When specifying fields, only provide one field name per line. Field names are case sensitive, hence ensure that field names provided are an exact match as the Quickbase field names.
+ - Any required fields in your Quickbase table should be displayed in the action by default. Required fields will not show up automatically if you fail to define them in the Input field list.
 - Always refresh your recipe schema after changing the Input field list.
 - There should NOT be additional spaces in front of or behind each field name 
