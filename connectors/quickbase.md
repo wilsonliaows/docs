@@ -8,7 +8,7 @@
 
 Workato now fully supports QuickBase, including all custom objects and tables, standard CRUD-operations, as well as purging records using reports. Learn how to use Workato with QuickBase here.
 
-[Visit here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 
 ### Get Connected
@@ -63,7 +63,6 @@ The 'Since' parameter refers to the date and time at which you would like the re
 
 
 ## Quickbase: List of Actions 
-
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 The following actions are available for Quickbase: 
@@ -109,7 +108,7 @@ Thereafter, fill in the other fields you wish to update within that record. Only
 
 ## Quickbase: Syncing to multiple Quickbase instances 
 
-Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 ### Connecting Multiple QuickBase account
 If you have multiple Quickbase accounts, we can help integrate data between those accounts with Workato. 
@@ -132,7 +131,7 @@ Do note that Workato requires users to be on an Enterprise plan in order to enab
 
 ## Quickbase: How to compare values within a table 
 
-Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quickbase pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 Comparing values within a table (between multiple records) is useful when trying to find a particular record with certain criteria. 
 
