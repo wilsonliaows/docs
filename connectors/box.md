@@ -11,10 +11,10 @@ With Workato, you can [connect Box](https://www.workato.com/integrations/box) to
 ## Connector information
 
 ### API version
-The Box connector uses the [Box Rest API](https://docs.box.com/reference#cors). 
+The Box connector uses Version 2.0 of the [Box REST API](https://developer.box.com/reference). 
 
 ### Supported editions and versions
-The Box connector works with all Box Plans - Individual, Business, Platform. 
+The Box connector works with all Box plans. 
 
 ## How to connect to Box on Workato
 
