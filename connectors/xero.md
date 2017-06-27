@@ -6,7 +6,7 @@ The latest triggers and actions can be found on the Workato Xero page..
 
 The App page has the following format...To see the supported Triggers and Actions, scroll to the bottom.
 
-1. Description
+*1. Description
 2. Stats
 3. Connections
 4. Experts
@@ -33,7 +33,7 @@ To find out what types of sales tax to key in when using the "Create/Update Item
 
 *List of different types of sales taxes*
 
-This will lead users to the "Tax Type" page(image below) and they will have to key it in manually.
+This will lead users to the **Tax Type** page (image below) and they will have to key it in manually.
 
 ![Tax types list](/assets/images/connectors/xeno/tax-type-list.png)
 
@@ -71,7 +71,6 @@ For example, when you want to add person(s) to a contact, you could conduct "Sea
 Manual Journal ID is an unique identifier for each manual journal in Xero.
 
 You can make use of the output data pill from the following actions to obtain manual journal ID, depending on your workflow:
-
 1. Create Manual Journal
 2. Search Manual Journal
 3. Update Manual Journal
@@ -124,7 +123,7 @@ Try this three steps:
 ## Xero Error: A validation exception occurred; Payments can only be made against Authorised documents; Payment amount exceeds the amount outstanding on this document
 
 #### Error: 
-A validation exception occurred; Payments can only be made against Authorised documents; Payment amount exceeds the amount outstanding on this document"
+A validation exception occurred; Payments can only be made against Authorised documents; Payment amount exceeds the amount outstanding on this document.
 
 #### What does this mean?: 
 This could mean that your payment was incorrectly applied, such as trying to apply a payment with an invoice with the status "DRAFT", or if the invoice to be paid was generated without a unit amount or quantity specified, leading to a $0 amount invoice.
