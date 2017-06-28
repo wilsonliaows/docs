@@ -6,7 +6,7 @@ Here you will find the documentation you need to build application Connectors us
 
 ## Connector
 
-An Connector is a connector to an application. Each Connector has one or more trigger and actions. When an action or trigger is executed, it performs it's respective function with the account instance connected to that application.
+A Connector is a connector to an application. Each Connector has one or more trigger and actions. When an action or trigger is executed, it performs it's respective function with the account instance connected to that application.
 
 Connectors built on the SDK are called **Custom Connectors**. These connectors have private scope. This means that they are only available to the connector owner.
 
