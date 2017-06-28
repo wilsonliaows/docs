@@ -6,7 +6,7 @@ Here you will find the documentation you need to build application connectors us
 
 ## Connector
 
-A connector allows you to interact with an application. Each connector have [triggers](/recipes/triggers.md) and/or [actions](/recipes/actions.md). Triggers monitor for events that happen in your app, while actions carry out read/write operations with the connected account. Users typically build [recipes](workato-concepts.md#recipes), which are sets of predefined instructions to be executed, with these triggers and actions.
+A connector allows you to interact with an application. Each connector have [triggers](/recipes/triggers.md) and/or [actions](/recipes/actions.md). Triggers monitor for events that happen in your app, while actions carry out read/write operations with the connected account. Users typically build [recipes](/workato-concepts.md#recipes), which are sets of predefined instructions to be executed, with these triggers and actions.
 
 Connectors built on the SDK are called **custom connectors**. These connectors have a private scope by default. This means that they are only visible and available to the connector owner.
 
