@@ -1,6 +1,6 @@
 # Developing connectors
 
-Workato supports over 200 out of the box connectors, but you may run into scenarios where Workato does not have a connector to an commercial app, or you may need to work with a custom app.
+Workato supports over 200 out of the box connectors, but you may run into scenarios where Workato does not have a connector to a commercial app, or you may need to work with a custom app.
 
 Workato supports several avenues for addressing this requirement:
 
