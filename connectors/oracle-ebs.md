@@ -25,21 +25,23 @@ c. Click on **Search**
 ![Search on page](/assets/images/connectors/oracle-ebs/search.png)
 *Click on Search*
 
-d. Search for Interface name **User** and Select the service with internal name **FND_USER_PKG**
+d. Search for interface name "user" and select the service with internal name **FND_USER_PKG**
 
 ![Search for User](/assets/images/connectors/oracle-ebs/interface.png)
 *Locate FND_USER_PKG*
 
-e. Go to the **REST Web Services** tab. Enter the service name as **user** and click on **Deploy**.
+e. Go to the **REST Web Services** tab. Enter the service name as "user" and click on **Deploy**.
 
 ![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
 *Locate the REST web services and enter "user"*
 
 ## Creating Oracle EBS connections
 
-From within the recipe **Connections** tab, or from the account [connections page](https://www.workato.com/connections):
+Create the Oracle EBS connection from within the recipe **Connections** tab, or from the account [connections page](https://www.workato.com/connections):
 
-1. Select **Oracle E-Business Suite**
+To create the connection, select **Oracle E-Business Suite**, fill in the fields required, and click **Connect**. At this point, Workato will make a simple “hello world” test to your Oracle EBS instance, using the REST service specified in **User service name** above.
+
+If all goes well, you should get a green success message displayed next to the button.
 
 ![Oracle recipe](/assets/images/connectors/oracle-ebs/oracle-recipe.jpg)
 *Creating new Oracle E-Business Suite connection*
@@ -68,10 +70,4 @@ Corresponding password for the above username.
 
 * User service name:
 
-This is used only to test connectivity
-
-2. Click **Connect**
-
-At this point, Workato will make a simple “hello world” test to your Oracle EBS instance, using the REST service specified in **User service name** above.
-
-If all goes well, you should get a green success message displayed next to the button.
+This is used only to test connectivity.
