@@ -2,41 +2,13 @@
 
 # Introduction
 
-Here you will find the documentation you need to build application Connectors using our SDK.
+Here you will find the documentation you need to build application connectors using our SDK.
 
 ## Connector
 
-A Connector is a connector to an application. Each Connector has one or more trigger and actions. When an action or trigger is executed, it performs it's respective function with the account instance connected to that application.
+A connector allows you to interact with an application. Each connector have [triggers](/recipes/triggers.md) and/or [actions](/recipes/actions.md). Triggers monitor for events that happen in your app, while actions carry out read/write operations with the connected account. Users typically build [recipes](workato-concepts.md#recipes), which are sets of predefined instructions to be executed, with these triggers and actions.
 
-Connectors built on the SDK are called **Custom Connectors**. These connectors have private scope. This means that they are only available to the connector owner.
-
-## Recipe
-
-A Workato recipe is a set of predefined instructions to be executed. It is made up of a trigger and one or more actions to one or more connectors.
-
-It execute a variety of tasks to all the applications supported by the Workato platform.
-
-## Trigger
-
-Defines an event that triggers the execution of a Workato recipe
-
-## Action
-
-Steps that will be executed when a recipe is triggered.
-
-There are 4 types of actions:
-
-1. **Action**
-  - Basic actions perform tasks like Search, Create, Update
-2. **Conditional action**
-  - These actions behave like traffic control. They provide users with the capability to restrict certain actions based on conditions.
-  - Example: Create a new Account only if it does not already exist
-3. **Repeat action**
-  - Repeat actions are simple loops. They perform predefined tasks multiple times based on an array (list) of records.
-  - Example: Add line items in QuickBooks for each opportunity item in Salesforce
-4. **Stop**
-  - Allows users to terminate a run of the recipe (a job). This is useful if you wish to stop performing any actions if a certain condition is met.
-  - Optionally, you can define an error for this action. What this does is let you generate exceptions in certain scenarios. These jobs that stops with errors will show up in job history as errors
+Connectors built on the SDK are called **custom connectors**. These connectors have a private scope by default. This means that they are only visible and available to the connector owner.
 
 ## Format
 
@@ -62,25 +34,27 @@ There are 3 modes of using a custom SDK based connector
 2. Shared connector 
 3. Public connector
 
-## Private connector
-When you create a SDK based connector, by default, it is available only in your account. i.e. it is private.
+## Build a private custom connector
+When you create a custom connector on the SDK, it is visible and available only in your account by default, i.e. it is private. You will be the only one who can use the triggers and actions of this custom connector when building recipes.
 
-## Shared connector
-SDK based connectors can be shared on an account by account basis i.e. as owner of shared connector you can allow specific accounts to use the connector.
+If someone else tries to install a copy of your recipe in their account to use it, they will be notified that this recipe utilizes a custom connector that they don't have access to.
 
-Please note, sharing is achieved by copying, i.e. each account you share the connector will have their own copy that they can modify.
+## Share your custom connector
+Custom connectors can be shared with other Workato accounts. As owner of the custom connector, you can allow specific Workato accounts to view and install the connector in their own account for use.
 
-### Install
-When copying a recipe that uses a private connector, the user will be asked to obtain a **share link** for the connector. As the connector owner you can choose to share this link. If you do, you can mail the **share link**. The end user can click through this link to install the connector to their account. 
+Sharing is achieved by copying. Each Workato account you share the connector with will have the ability to make a copy of your custom connector code at that point in time. Subsequently, these Workato accounts can make modifications on their copy of the custom connector.
 
-This creates a copy of the connector.
+### Install someone else's connector
+When users try to copy a recipe that uses a custom connector, they will be asked if they wish to request a **share link** for the custom connector. If they request for it, as the custom connector owner, you will be notified via email, and you can choose to share this link with them. Workato will send the requester a **share link**. The requester can click through this link to install the connector in their account. 
 
-### Upgrade
-When you make a change to the connector, the end user will see an upgrade link. They can choose to upgrade their installed connector by clicking through the link.
+This creates a copy of the connector in their account.
 
-Upgrade will overwrite any changes made by end user.
+### Upgrade your copied connector to the latest available version
+When the custom connector owner makes a change to the custom connector code, all Workato accounts with a copy of this custom connector will see an upgrade link. They can choose to upgrade their installed connector by clicking the link.
+
+The upgrade function will overwrite the copy of the custom connector code with the latest version of the master copy of the custom connector. This means that any changes to the custom connector code made by the requester will be overwritten. Do take note that this upgrade link appears whenever there is any change to the master copy of the custom connector, not necessarily when the custom connector owner has made a curated change.
 
 ## Public connector
-To enable global scope for your private connector, the code will need to submitted to Workato for review. Workato will usually approve or request for modifications within a few days. 
+To enable global scope for your private connector, and make it such that all Workato users will be able to view and use your custo connector, you have to submit your code to Workato for review. Our team will approve or request for modifications within a few days.
 
-You can begin this process by submitting a pull request to our [repository](https://github.com/workato/connector_sdk).
+You can begin this process by submitting a pull request to our [custom connectors repository](https://github.com/workato/connector_sdk).
