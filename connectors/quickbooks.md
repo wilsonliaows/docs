@@ -1,5 +1,5 @@
- ---
-title: Workato connectors - QuickBooks Online
+---
+title: QuickBooks Online
 date: 2017-02-16 06:15:00 Z
 ---
 
@@ -255,20 +255,6 @@ We currently work with all 3 editions available for small businesses - QuickBook
 
 We currently do not work with the edition for independent contractors - QuickBooks Self-Employed.
 
-### Different Labels between QBO profit and non-profit versions
-
-This article aims to match some of the labels that are used by the profit organization to those of non-profit ones.
-
-| ----------------- | ------------------------------- | 
-| For Profit        | Non-Profit                      | 
-| Invoice           | Pledge                          | 
-| Sales Receipt     | Donations (Sales)               | 
-| Expenses          | Expenditure                     |
-| Profit and loses  | Statement of Activity           |
-| Balance Sheet     | Statement of Finance Position   |
-
-Referring to the terms above, the functionality of the Invoice in a for-profit version is similar to that of the Pledge in the non-profit one and so on. 
-For more info on non-profit organization in QuickBooks, you can click [here](https://community.intuit.com/articles/1145585-quickbooks-online-for-nonprofits)
 
 ### QuickBooks Online: Line Item detail: Sales Item detail VS Description Only
 
