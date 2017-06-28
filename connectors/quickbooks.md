@@ -99,13 +99,15 @@ This field means that it will take 1.5239475 units of home currency to exchange 
 
 If you are using the non-profit version of QuickBooks, do note that on Workato, certain terms may be labelled differently from what appears in your QuickBooks account. Refer to the table below to know which triggers and actions to use:
 
-| For Profit      | Non-Profit                       |
-| -------------   | ---------------------------------|
-| Invoice         | Pledge                           |
-| Sales Receipt   | Donations (Sales)                |
-| Expenses        | Expenditure                      |
-| Profit & Loss   | Statement of Activity            |
-| Balance Sheet   | Statement of Financial Positions | 
+
+| For Profit                   | Non-Profit                     |
+|------------------------------|--------------------------------|
+| Invoice | Pacific/Midway     | Pledge                         |
+| Sales Receipt                | Donations (Sales)              |
+| Expenses                     | Expenditure                    |
+| Profit & Loss                | Statement of Activity          |
+| Balance Sheet                | Statement of Financial Position|                 
+|
 
 For more info on non-profit organization in QuickBooks, you can click [here](https://community.intuit.com/articles/1145585-quickbooks-online-for-nonprofits).
 
