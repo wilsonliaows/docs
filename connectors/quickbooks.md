@@ -107,7 +107,7 @@ If you are using the non-profit version of QuickBooks, do note that on Workato, 
 | Expenses                     | Expenditure                    |
 | Profit & Loss                | Statement of Activity          |
 | Balance Sheet                | Statement of Financial Position|                 
-|
+
 
 For more info on non-profit organization in QuickBooks, you can click [here](https://community.intuit.com/articles/1145585-quickbooks-online-for-nonprofits).
 
