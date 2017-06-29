@@ -32,7 +32,7 @@ This typically happens when the respective products do not already exist in Xero
 To get products to sync to specific accounts, simply create the products in Xero first, and place them under your preferred accounts. In order for the sync to work properly, the name of the product in Xero should match that in your source app. Workato's integration apps will automatically sync them over to the right accounts.
 
 
-## Sales tax type when using create/update Items action in Xero 
+## Sales tax type when using create/update items action in Xero 
  
 To find out what types of sales tax to key in when using the **create/update items** action in Xero, users can click on the URL below the box (highlighted in image). 
 
@@ -40,7 +40,7 @@ To find out what types of sales tax to key in when using the **create/update ite
 
 *List of different types of sales taxes*
 
-This will lead users to the **Tax Type** page (image below) and they will have to key it in manually.
+This will lead users to the **tax type** page (image below) and they will have to key it in manually.
 
 ![Tax types list](/assets/images/connectors/xeno/tax-type-list.png)
 
@@ -55,60 +55,60 @@ According to the [Xero Developer Help Center](https://community.xero.com/develop
 ## Xero - How to find different IDs in Xero
 
 ### What is an ID?
-An ID is a unique identifier for an object in the API. In Xero, some IDs such as Contact ID are required in creating an action and they can be easily obtained using **Search** or other actions. 
+An ID is a unique identifier for an object in the API. In Xero, some IDs such as **contact ID** are required in creating an action and they can be easily obtained using **search** or other actions. 
 
 ### Contact ID
 
-Contact ID is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
+**Contact ID** is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
 
 ![Contact ID](/assets/images/connectors/xeno/contact-id.png)
-*Contact ID in the contact page URL*
+***Contact ID** in the contact page URL*
 
-You can also make use of the output datapill from the following actions to obtain Contact ID, depending on your workflow:
+You can also make use of the output datapill from the following actions to obtain **contact ID**, depending on your workflow:
 
-1. New/updated contact in Xero
-2. Search contacts
-3. Create contact
+1. **New/updated contact** in Xero
+2. **Search contacts**
+3. **Create contact**
 
-For example, when you want to add person(s) to a contact, you could conduct "Search Contact" by contact name or email and make use of the output datapill as shown below:
+For example, when you want to add person(s) to a contact, you could conduct **search contact** by contact name or email and make use of the output datapill as shown below:
 
 ![Search for contacts](/assets/images/connectors/xeno/search-contact.png)
 *Search for contacts by name or email*
 
 ### Manual Journal ID
-Manual Journal ID is an unique identifier for each manual journal in Xero.
+**Manual journal ID** is an unique identifier for each manual journal in Xero.
 
-You can make use of the output data pill from the following actions to obtain manual journal ID, depending on your workflow:
-1. Create Manual Journal
-2. Search Manual Journal
-3. Update Manual Journal
+You can make use of the output datapill from the following actions to obtain **manual journal ID**, depending on your workflow:
+1. **Create manual journal**
+2. **Search manual journal**
+3. **Update manual journal**
 
 ![Manual Journal ID](/assets/images/connectors/xeno/manual-journal-id.png)
-*Manual Journal ID identifier*
+***Manual journal ID** identifier*
 
 ### Payment ID
-You can make use of the output datapill from the following actions to obtain payment ID, depending on your workflow:
+You can make use of the output datapill from the following actions to obtain **payment ID**, depending on your workflow:
 
-1. Create payment
-2. Search payments
+1. **Create payment**
+2. **Search payments**
 
 ![Payment](/assets/images/connectors/xeno/payment.png)
-*Payment ID*
+***Payment ID***
 
 ### Employee ID 
-You can make use of the output datapill from the following triggers/actions to obtain employee ID, depending on your workflow:
+You can make use of the output datapill from the following triggers/actions to obtain **employee ID**, depending on your workflow:
 
-1. New/updated employee
-2. Create employee
+1. **New/updated employee**
+2. **Create employee**
 
 ### Account ID
-You can make use of the output datapill from the following triggers/actions to obtain bank account ID, depending on your workflow:
+You can make use of the output datapill from the following triggers/actions to obtain bank **account ID**, depending on your workflow:
 
-1. New/updated payment
-2. Create invoice payment
-3. Get payment
+1. **New/updated payment**
+2. **Create invoice payment**
+3. **Get payment**
 
-Alternatively, you can change the toggle to "Account Code", which can be found in Xero Settings > Chart of Accounts
+Alternatively, you can change the toggle to **Account Code**, which can be found in *Xero Settings* > *Chart of Accounts*
 
 ## Troubleshooting
 
@@ -121,17 +121,18 @@ Alternatively, you can change the toggle to "Account Code", which can be found i
 *401 Unauthorized Error*
 
 #### What does this mean?: 
-This is a warning caused by the App connection somehow getting disconnected.
+This is a warning caused by the app connection somehow getting disconnected.
 
 #### Solution: 
 Try this three steps:
 1. Stop the recipe
 2. Reconnect to Xero
 3. Start the recipe again
-## Xero Error: A validation exception occurred; Payments can only be made against Authorised documents; Payment amount exceeds the amount outstanding on this document
+
+### Xero Error: A validation exception occurred; Payments can only be made against authorized documents; Payment amount exceeds the amount outstanding on this document
 
 #### Error: 
-A validation exception occurred; Payments can only be made against Authorised documents; Payment amount exceeds the amount outstanding on this document.
+A validation exception occurred; Payments can only be made against authorized documents; Payment amount exceeds the amount outstanding on this document.
 
 #### What does this mean?: 
 This could mean that your payment was incorrectly applied, such as trying to apply a payment with an invoice with the status "DRAFT", or if the invoice to be paid was generated without a unit amount or quantity specified, leading to a $0 amount invoice.
