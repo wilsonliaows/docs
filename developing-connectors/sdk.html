@@ -1024,7 +1024,22 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.5" data-path="../connectors/jira.html">
+    <li class="chapter " data-level="1.14.5" data-path="../connectors/freshdesk.html">
+      
+
+      
+        <a href="../connectors/freshdesk.html">
+      
+        
+        Freshdesk
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.6" data-path="../connectors/jira.html">
       
 
       
@@ -1039,7 +1054,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.6" data-path="../connectors/netsuite.html">
+    <li class="chapter " data-level="1.14.7" data-path="../connectors/netsuite.html">
       
 
       
@@ -1054,7 +1069,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.7" data-path="../connectors/quickbooks.html">
+    <li class="chapter " data-level="1.14.8" data-path="../connectors/quickbooks.html">
       
 
       
@@ -1069,7 +1084,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.8" data-path="../connectors/salesforce.html">
+    <li class="chapter " data-level="1.14.9" data-path="../connectors/salesforce.html">
       
 
       
@@ -1084,7 +1099,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.9" data-path="../connectors/servicenow.html">
+    <li class="chapter " data-level="1.14.10" data-path="../connectors/servicenow.html">
       
 
       
@@ -1099,7 +1114,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.10" data-path="../connectors/surveymonkey.html">
+    <li class="chapter " data-level="1.14.11" data-path="../connectors/surveymonkey.html">
       
 
       
@@ -1114,7 +1129,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.11" data-path="../connectors/workday.html">
+    <li class="chapter " data-level="1.14.12" data-path="../connectors/workday.html">
       
         <i class="fa fa-angle-right chapter__toggle"></i>
       
@@ -1132,7 +1147,7 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.14.11.1" data-path="../connectors/workday/workday_raas.html">
+    <li class="chapter " data-level="1.14.12.1" data-path="../connectors/workday/workday_raas.html">
       
 
       
@@ -1714,39 +1729,10 @@
                                 
                                 <p><a href="https://www.workato.com" target="_blank"><img src="../assets/images/workato_developer_program.png" alt="Workato"></a></p>
 <h1 id="introduction">Introduction</h1>
-<p>Here you will find the documentation you need to build application Connectors using our SDK.</p>
+<p>Here you will find the documentation you need to build application connectors using our SDK.</p>
 <h2 id="connector">Connector</h2>
-<p>An Connector is a connector to an application. Each Connector has one or more trigger and actions. When an action or trigger is executed, it performs it&apos;s respective function with the account instance connected to that application.</p>
-<p>Connectors built on the SDK are called <strong>Custom Connectors</strong>. These connectors have private scope. This means that they are only available to the connector owner.</p>
-<h2 id="recipe">Recipe</h2>
-<p>A Workato recipe is a set of predefined instructions to be executed. It is made up of a trigger and one or more actions to one or more connectors.</p>
-<p>It execute a variety of tasks to all the applications supported by the Workato platform.</p>
-<h2 id="trigger">Trigger</h2>
-<p>Defines an event that triggers the execution of a Workato recipe</p>
-<h2 id="action">Action</h2>
-<p>Steps that will be executed when a recipe is triggered.</p>
-<p>There are 4 types of actions:</p>
-<ol>
-<li><strong>Action</strong><ul>
-<li>Basic actions perform tasks like Search, Create, Update</li>
-</ul>
-</li>
-<li><strong>Conditional action</strong><ul>
-<li>These actions behave like traffic control. They provide users with the capability to restrict certain actions based on conditions.</li>
-<li>Example: Create a new Account only if it does not already exist</li>
-</ul>
-</li>
-<li><strong>Repeat action</strong><ul>
-<li>Repeat actions are simple loops. They perform predefined tasks multiple times based on an array (list) of records.</li>
-<li>Example: Add line items in QuickBooks for each opportunity item in Salesforce</li>
-</ul>
-</li>
-<li><strong>Stop</strong><ul>
-<li>Allows users to terminate a run of the recipe (a job). This is useful if you wish to stop performing any actions if a certain condition is met.</li>
-<li>Optionally, you can define an error for this action. What this does is let you generate exceptions in certain scenarios. These jobs that stops with errors will show up in job history as errors</li>
-</ul>
-</li>
-</ol>
+<p>A connector allows you to interact with an application. Each connector have <a href="../recipes/triggers.html">triggers</a> and/or <a href="../recipes/actions.html">actions</a>. Triggers monitor for events that happen in your app, while actions carry out read/write operations with the connected account. Users typically build <a href="../workato-concepts.html#recipes">recipes</a>, which are sets of predefined instructions to be executed, with these triggers and actions.</p>
+<p>Connectors built on the SDK are called <strong>custom connectors</strong>. These connectors have a private scope by default. This means that they are only visible and available to the connector owner.</p>
 <h2 id="format">Format</h2>
 <p>Presently, we support the following types</p>
 <ul>
@@ -1766,20 +1752,21 @@
 <li>Shared connector </li>
 <li>Public connector</li>
 </ol>
-<h2 id="private-connector">Private connector</h2>
-<p>When you create a SDK based connector, by default, it is available only in your account. i.e. it is private.</p>
-<h2 id="shared-connector">Shared connector</h2>
-<p>SDK based connectors can be shared on an account by account basis i.e. as owner of shared connector you can allow specific accounts to use the connector.</p>
-<p>Please note, sharing is achieved by copying, i.e. each account you share the connector will have their own copy that they can modify.</p>
-<h3 id="install">Install</h3>
-<p>When copying a recipe that uses a private connector, the user will be asked to obtain a <strong>share link</strong> for the connector. As the connector owner you can choose to share this link. If you do, you can mail the <strong>share link</strong>. The end user can click through this link to install the connector to their account. </p>
-<p>This creates a copy of the connector.</p>
-<h3 id="upgrade">Upgrade</h3>
-<p>When you make a change to the connector, the end user will see an upgrade link. They can choose to upgrade their installed connector by clicking through the link.</p>
-<p>Upgrade will overwrite any changes made by end user.</p>
+<h2 id="build-a-private-custom-connector">Build a private custom connector</h2>
+<p>When you create a custom connector on the SDK, it is visible and available only in your account by default, i.e. it is private. You will be the only one who can use the triggers and actions of this custom connector when building recipes.</p>
+<p>If someone else tries to install a copy of your recipe in their account to use it, they will be notified that this recipe utilizes a custom connector that they don&apos;t have access to.</p>
+<h2 id="share-your-custom-connector">Share your custom connector</h2>
+<p>Custom connectors can be shared with other Workato accounts. As owner of the custom connector, you can allow specific Workato accounts to view and install the connector in their own account for use.</p>
+<p>Sharing is achieved by copying. Each Workato account you share the connector with will have the ability to make a copy of your custom connector code at that point in time. Subsequently, these Workato accounts can make modifications on their copy of the custom connector.</p>
+<h3 id="install-someone-elses-connector">Install someone else&apos;s connector</h3>
+<p>When users try to copy a recipe that uses a custom connector, they will be asked if they wish to request a <strong>share link</strong> for the custom connector. If they request for it, as the custom connector owner, you will be notified via email, and you can choose to share this link with them. Workato will send the requester a <strong>share link</strong>. The requester can click through this link to install the connector in their account. </p>
+<p>This creates a copy of the connector in their account.</p>
+<h3 id="upgrade-your-copied-connector-to-the-latest-available-version">Upgrade your copied connector to the latest available version</h3>
+<p>When the custom connector owner makes a change to the custom connector code, all Workato accounts with a copy of this custom connector will see an upgrade link. They can choose to upgrade their installed connector by clicking the link.</p>
+<p>The upgrade function will overwrite the copy of the custom connector code with the latest version of the master copy of the custom connector. This means that any changes to the custom connector code made by the requester will be overwritten. Do take note that this upgrade link appears whenever there is any change to the master copy of the custom connector, not necessarily when the custom connector owner has made a curated change.</p>
 <h2 id="public-connector">Public connector</h2>
-<p>To enable global scope for your private connector, the code will need to submitted to Workato for review. Workato will usually approve or request for modifications within a few days. </p>
-<p>You can begin this process by submitting a pull request to our <a href="https://github.com/workato/connector_sdk" target="_blank">repository</a>.</p>
+<p>To enable global scope for your private connector, and make it such that all Workato users will be able to view and use your custo connector, you have to submit your code to Workato for review. Our team will approve or request for modifications within a few days.</p>
+<p>You can begin this process by submitting a pull request to our <a href="https://github.com/workato/connector_sdk" target="_blank">custom connectors repository</a>.</p>
 
                                 
                                 </section>
@@ -1862,7 +1849,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Connector SDK","level":"1.16","depth":1,"next":{"title":"Walk through","level":"1.16.1","depth":2,"path":"developing-connectors/sdk/walk-through.md","ref":"developing-connectors/sdk/walk-through.md","articles":[]},"previous":{"title":"HTTP","level":"1.15.2","depth":2,"path":"developing-connectors/http.md","ref":"developing-connectors/http.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk.md","mtime":"2017-06-21T23:38:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-21T23:39:28.371Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Connector SDK","level":"1.16","depth":1,"next":{"title":"Walk through","level":"1.16.1","depth":2,"path":"developing-connectors/sdk/walk-through.md","ref":"developing-connectors/sdk/walk-through.md","articles":[]},"previous":{"title":"HTTP","level":"1.15.2","depth":2,"path":"developing-connectors/http.md","ref":"developing-connectors/http.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/sdk.md","mtime":"2017-06-29T17:56:11.471Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-29T17:58:08.544Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
