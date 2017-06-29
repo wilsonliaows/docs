@@ -54,7 +54,7 @@ Firstly, your account in Intacct has to be subscribed to web services to get the
 
 Once subscribed, you have to set up and configure a user in your instance of Intacct to get integration access. The XML user provided by Intacct grants access to the **XML gateway**, and the user you set up grants access to your individual company. These 2 logins work in tandem to allow successful API calls. 
 
-![Set up and configure user](/assets/images/connector/intaact/set-up-user.png)
+![Set up and configure user](/assets/images/connectors/intaact/set-up-user.png)
 
 *Set up and configure a user in Intaact*
 
@@ -67,7 +67,7 @@ Next, enter the following information:
 •Admin Privileges: Full 
 •Check "Keep my password until I reset it" box
 
-![Fill in user information](/assets/images/connector/intaact/fill-in-info.png)
+![Fill in user information](/assets/images/connectors/intaact/fill-in-info.png)
 
 *Fill in the above user information*
 
