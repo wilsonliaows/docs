@@ -63,6 +63,7 @@
   * [SurveyMonkey](connectors/surveymonkey.md)
   * [Workday](connectors/workday.md)
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
+  * [Zendesk](connectors/zendesk.md)
 * [Developing connectors](developing-connectors.md)
   * [HTTP vs SDK](developing-connectors/http-vs-sdk.md)
   * [HTTP](developing-connectors/http.md)
