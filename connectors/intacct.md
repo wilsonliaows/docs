@@ -10,11 +10,11 @@ There are certain instances where you have multiple journal entry items in a sin
 To do so, simply follow the steps below. 
 
 
-1. We will have to use the "Create Object" action and select "GL Batch" as the object type. This involves creating journal entries with custom objects. (shown below)
+1. We will have to use the **create object** action and select **GL batch** as the object type. This involves creating journal entries with custom objects. (shown below)
 
 ![Create GL batch action](/assets/images/connectors/intaact/create-GL-batch-action.png)
 
-*Create a GL batch action*
+***Create a GL batch** action*
 
 2. In the entry source list field, we need to put in an array input of line items. For the credit/debit side that will exist as individual line items, we would add in the respective datapill. This would mean that we would create as many journal entry lines as are in the system we are taking the journal entries from.
 
@@ -28,31 +28,31 @@ To do so, simply follow the steps below.
 
 *Don't put any datapill in the opposite entry*
 
-3. In order to roll up the amount, we have to use the pluck function on the pill that we want to roll up. Here we want to roll up "UnitPrice" (do note that it is case sensitive) from the array input, which in this case is the opportunity product, and sum the entire amount.
+3. In order to roll up the amount, we have to use the **pluck** function on the pill that we want to roll up. Here we want to roll up "UnitPrice" (do note that it is case sensitive) from the array input, which in this case is the opportunity product, and sum the entire amount.
 
 ![Pluck function on pill to be rolled up](/assets/images/connectors/intaact/pluck-function-on-pill.png)
 
-*Use the pluck function on the pill you want to roll up*
+*Use the **pluck** function on the pill you want to roll up*
 
 
-## Enable auto numbering of Vendor/ Invoice/ Customer ID in Intacct 
+## Enable auto numbering of vendor/ invoice/ customer ID in Intacct 
 
-To determine whether Vendor Sequence numbering is used, or if Vendor IDs are entered manually:
-1.In Intacct, go to Account Payables > Configure AP 
-2.Under Document Sequencing click Vendors 
-3.If this is blank, no Vendor ID sequence is being used, and Vendor IDs are entered manually.
+To determine whether vendor sequence numbering is used, or if **vendor IDs** are entered manually:
+1.In Intacct, go to *account payables* > *configure AP* 
+2.Under **document sequencing** click **vendors** 
+3.If this is blank, no vendor ID sequence is being used, and **vendor IDs** are entered manually.
 
-Similarly, for Invoice Number and Customer ID:
-1.In Intacct, go to Account Receivable > Configure AP 
-2.Under Document Sequencing click Vendors 
+Similarly, for **invoice number** and **customer ID**:
+1.In Intacct, go to *account receivable* > *configure AP* 
+2.Under **document sequencing** click **vendors** 
 3.If this is blank, no ID sequence is being used, and the IDs are entered manually.
 
 
-## Establishing an Intacct Connection with Workato using a XML Gateway/API Access User
+## Establishing an Intacct connection with Workato using an XML gateway/API access user
 
-Firstly, your account in Intacct has to be subscribed to web services to get the associated credentials for the XML user. To add this to your list of subscription products, contact your account manager at Intacct.
+Firstly, your account in Intacct has to be subscribed to web services to get the associated credentials for the **XML user**. To add this to your list of subscription products, contact your account manager at Intacct.
 
-Once subscribed, you have to set up and configure a user in your instance of Intacct to get integration access. The XML user provided by Intacct grants access to the XML Gateway, and the user you set up grants access to your individual company. These 2 logins work in tandem to allow successful API calls. 
+Once subscribed, you have to set up and configure a user in your instance of Intacct to get integration access. The XML user provided by Intacct grants access to the **XML gateway**, and the user you set up grants access to your individual company. These 2 logins work in tandem to allow successful API calls. 
 
 ![Set up and configure user](/asset/images/connector/intaact/set-up-user.png)
 
@@ -61,7 +61,7 @@ Once subscribed, you have to set up and configure a user in your instance of Int
 Next, enter the following information:
   
 •User ID: xml_gateway 
-•Last and First name: use XML Gateway for easy access in the system
+•Last and First name: use **XML gateway** for easy access in the system
 •Valid Email Address
 •User Type: Business 
 •Admin Privileges: Full 
