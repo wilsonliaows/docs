@@ -37,7 +37,7 @@ Payment plan details contain the ID of each payments for the order. With this, y
 
 ## Infusionsoft : list of item types
 
-When receiving details of an invoice, each line item is tied with a field called "item_type" that marks the type of the item. These values are in integer form, and in case you need to receive only a certain type of items, here are the list of numbers and their respective item types :
+When receiving details of an invoice, each line item is tied with a field called **item_type** that marks the type of the item. These values are in integer form, and in case you need to receive only a certain type of items, here are the list of numbers and their respective item types :
 
 0 = Unknown type
 1 = Shipping
