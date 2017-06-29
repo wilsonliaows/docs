@@ -100,5 +100,3 @@ When creating a shared link for a file or folder in Box, you can choose from fou
 | Company  | Only Box users with a validated email address matching your company's domain can access the file or folder via the shared link.  |
 | Collaborators | Only Box users invited to the folder or file (collaborators) can access the file or folder via the shared link.  |
 | Default  | This option follows whatever the default setting for your account is. You can view and change this in your Box account settings under Content and Sharing.  |
-
-## Troubleshooting
