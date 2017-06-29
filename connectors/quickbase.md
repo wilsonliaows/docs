@@ -310,7 +310,7 @@ Select **ok, enable these features**. Now, API access is enabled for this app. F
 
 5. You will be directed to the 'Manage application tokens' page. Here, you can assign an existing application token, or create a new application token. Copy and use this token for your recipe step so as to be able to successfully access your Quick Base data.
 
-![Adding Application Tokens]](/assets/images/connectors/quickbase/adding-application-tokens.png)
+![Adding Application Tokens](/assets/images/connectors/quickbase/adding-application-tokens.png)
 *Adding application tokens*
 
 
@@ -328,6 +328,7 @@ For example, if I'm using a trigger and would like to retrieve data from a formu
 And in the datatree, I'll be able to see the fields that make up the address field type, such as street, city, postal code, etc.
 
 ![datatree](/assets/images/connectors/quickbase/datatree.png)
+
 *Associated datapills in the datatree*
 
 Notes
