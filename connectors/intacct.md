@@ -24,7 +24,7 @@ To do so, simply follow the steps below.
 
   However, for the opposite entry, we will not be adding in any datapill. This would mean that we will only be creating one entry. 
 
-![No data pill in opposite entry](/assets/images/connectors/inaact/opposite-entry-blank.png)
+![No data pill in opposite entry](/assets/images/connectors/intaact/opposite-entry-blank.png)
 
 *Don't put any datapill in the opposite entry*
 
@@ -54,7 +54,7 @@ Firstly, your account in Intacct has to be subscribed to web services to get the
 
 Once subscribed, you have to set up and configure a user in your instance of Intacct to get integration access. The XML user provided by Intacct grants access to the **XML gateway**, and the user you set up grants access to your individual company. These 2 logins work in tandem to allow successful API calls. 
 
-![Set up and configure user](/asset/images/connector/intaact/set-up-user.png)
+![Set up and configure user](/assets/images/connector/intaact/set-up-user.png)
 
 *Set up and configure a user in Intaact*
 
@@ -67,7 +67,7 @@ Next, enter the following information:
 •Admin Privileges: Full 
 •Check "Keep my password until I reset it" box
 
-![Fill in user information](/asset/images/connector/intaact/fill-in-info.png)
+![Fill in user information](/assets/images/connector/intaact/fill-in-info.png)
 
 *Fill in the above user information*
 
