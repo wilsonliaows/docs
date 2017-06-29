@@ -257,6 +257,7 @@ Reports are filters that are either there by default or by your creation. To acc
 2) Select **report & charts** below the application name
 
 ![Reports and charts](/assets/images/connectors/quickbase/report-and-charts.png)
+
 *Report and charts*
 
 These are the names of the report made available. Simply click on them to see with what criteria they operate, and if the records filtered are ideal.
@@ -264,11 +265,13 @@ These are the names of the report made available. Simply click on them to see wi
 If so, you are ready to use Workato with Quick Base. Simply specify the application and the table name in the action, together with the desired report name.
 
 ![Application and table name](/assets/images/connectors/quickbase/application-and-table-name.png)
+
 *Put the application and table name in the report name field*
 
 When ran, the recipe will delete those records that match the reports filter.
 
 ![Records Purged](/assets/images/connectors/quickbase/purged-records.png)
+
 *Records that will be deleted*
 
 
