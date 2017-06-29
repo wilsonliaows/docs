@@ -108,11 +108,11 @@ You can make use of the output datapill from the following triggers/actions to o
 2. **Create invoice payment**
 3. **Get payment**
 
-Alternatively, you can change the toggle to **Account Code**, which can be found in *Xero Settings* > *Chart of Accounts*
+Alternatively, you can change the toggle to **account code**, which can be found in *Xero settings* > *chart of accounts*
 
 ## Troubleshooting
 
-### Xero Error: 401 Unauthorized 
+### Xero error: 401 Unauthorized 
 
 #### Error: 
 401 Unauthorized
@@ -124,12 +124,12 @@ Alternatively, you can change the toggle to **Account Code**, which can be found
 This is a warning caused by the app connection somehow getting disconnected.
 
 #### Solution: 
-Try this three steps:
+Try these three steps:
 1. Stop the recipe
 2. Reconnect to Xero
 3. Start the recipe again
 
-### Xero Error: A validation exception occurred; Payments can only be made against authorized documents; Payment amount exceeds the amount outstanding on this document
+### Xero error: A validation exception occurred; Payments can only be made against authorized documents; Payment amount exceeds the amount outstanding on this document
 
 #### Error: 
 A validation exception occurred; Payments can only be made against authorized documents; Payment amount exceeds the amount outstanding on this document.
