@@ -55,6 +55,7 @@
   * [AWS Lambda](connectors/aws_lambda.md)
   * [Box](connectors/box.md)
   * [DocuSign](connectors/docusign.md)
+  * [Microsoft Dynamics CRM](connectors/dynamics-crm.md)
   * [Freshdesk](connectors/freshdesk.md)
   * [JIRA](connectors/jira.md)
   * [NetSuite](connectors/netsuite.md)
