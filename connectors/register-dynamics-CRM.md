@@ -35,7 +35,7 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 ![Required permissions](/assets/images/connectors/microsoft-dynamics-CRM/permission.png)
 *Click Required permissions*
 
-7. Add API access. Click *Add* > *Select an API* > *Dynamics CRM Online*. Then, check the *Access CRM Online as organization users* checkbox. Click on **Done**
+7. Add API access. Click *Add* > *Select an API* > *Dynamics CRM Online*. Then, check the **Access CRM Online as organization users** checkbox. Click on **Done**
 
 ![Dynamics CRM](/assets/images/connectors/microsoft-dynamics-CRM/dynamics.gif)
 *Add Dynamics CRM Online API access*
