@@ -1,10 +1,10 @@
 # Xero
 
-## Triggers and Actions Supported
+## Supported triggers and actions
 
 The latest triggers and actions can be found on the Workato Xero page.
 
-The App page has the following format:
+The app page has the following format:
 
 1. Description
 
@@ -16,14 +16,14 @@ The App page has the following format:
 
 5. Recommended recipes
 
-6. Triggers and Actions
+6. Triggers and actions
 
-To see the supported Triggers and Actions, scroll to the bottom.
+To see the supported triggers and actions, scroll to the bottom.
 
-App Specific behavior
+App specific behavior
 
 
-## How Do I Sync Products To Different Xero Accounts? 
+## How do I sync products to different Xero accounts? 
 
 Sometimes, when using Xero integration apps, such as the Infusionsoft-Xero integration app, products from the source app are synced to just one Xero account.
 
@@ -32,9 +32,9 @@ This typically happens when the respective products do not already exist in Xero
 To get products to sync to specific accounts, simply create the products in Xero first, and place them under your preferred accounts. In order for the sync to work properly, the name of the product in Xero should match that in your source app. Workato's integration apps will automatically sync them over to the right accounts.
 
 
-## Sales Tax Type when using "Create/Update Items" Action in Xero 
+## Sales tax type when using create/update Items action in Xero 
  
-To find out what types of sales tax to key in when using the "Create/Update Items" action in Xero, users can click on the URL below the box (highlighted in image). 
+To find out what types of sales tax to key in when using the **create/update items** action in Xero, users can click on the URL below the box (highlighted in image). 
 
 ![Sales tax list](/assets/images/connectors/xeno/sales-tax-list.png)
 
@@ -47,15 +47,15 @@ This will lead users to the **Tax Type** page (image below) and they will have t
 *List of tax types*
 
 
-## Xero API Usage Limit
+## Xero API usage limit
 
-According to [Xero Developer Help Center](https://community.xero.com/developer/question/17181), there is a daily limit of 1000 API calls that a provider can make against a particular Xero organization in a rolling 24 hour period. If you exceed this rate limit you will receive a HTTP 401 response with the message “oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api” in the http response body."
+According to the [Xero Developer Help Center](https://community.xero.com/developer/question/17181), there is a daily limit of 1000 API calls that a provider can make against a particular Xero organization in a rolling 24 hour period. If you exceed this rate limit you will receive a HTTP 401 response with the message “oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api” in the http response body."
 
 
-## Xero - How to find Different IDs in Xero
+## Xero - How to find different IDs in Xero
 
 ### What is an ID?
-An ID is a unique identifier for an object in the API. In Xero, some IDs such as Contact ID are required in creating an action and they can be easily obtained using "Search" or other actions. 
+An ID is a unique identifier for an object in the API. In Xero, some IDs such as Contact ID are required in creating an action and they can be easily obtained using **Search** or other actions. 
 
 ### Contact ID
 
