@@ -5,7 +5,7 @@ date: 2017-06-23 06:15:00 Z
 
 # Zendesk
 
-## Zendesk Search Tickets action
+## Zendesk search tickets action
 
 When searching for tickets by filters, you will get a list of tickets in return that correspond to your filters. Your filters can be specific, or a combination of two or more fields.
 A combination of fields will result in a more narrow search, where only tickets satisfying all specified filters will be returned.
@@ -34,7 +34,7 @@ First, you need to upload the attachment. You can upload a text file by entering
 ![Zendesk Attachment](/assets/images/connectors/zendesk/upload_attachment.png)
 *Upload Attachment*
 
-If you are transferring a file from another application, say Box, you will need to be able to provide the file's Body Content in this section. Here's an example of how you can do so : [1) JIRA -> Zendesk Attachment](https://www.workato.com/recipes/341176-new-issue-from-jira-will-search-for-tickets-in-zendesk-and-upload-attachment#recipe)
+If you are transferring a file from another application, say Box, you will need to be able to provide the file's Body Content in this section. Here's an example of how you can do so : [**1) JIRA -> Zendesk Attachment**](https://www.workato.com/recipes/341176-new-issue-from-jira-will-search-for-tickets-in-zendesk-and-upload-attachment#recipe)
 
 Note step 9, 10, and 11, where attachment from JIRA is downloaded using Workato's utility and uploaded into Zendesk.
 
@@ -63,7 +63,7 @@ One of the more prominent features of Zendesk is the distribution of tasks based
 
 ### 1) Assigning Organization during creation of the user
 
-You will be able to assign a newly created user to an organization based on the organization's ID or name. This is done by providing the value in the organization field in Create New User Step.
+You will be able to assign a newly created user to an organization based on the organization's ID or name. This is done by providing the value in the organization field in Create New User step.
 
 ![Zendesk Assign Organization ID](/assets/images/connectors/zendesk/assign_organization_id.png)
 If you do not see the Organization field, click on Add/Remove Optional field, and select Organization ID
@@ -89,16 +89,16 @@ There can be various situations where tickets of a certain type, belonging to on
 
 With Bulk Ticket Updates action, you will be able to save on your API usage, as well as make your recipes  more efficiently. Here are a few simple steps on how you can do so.
 
-### 1) Obtain a Tickets List Item Datapill
+### 1) Obtain a tickets list item datapill
 
-The Bulk Ticket Updates action requires a number of Ticket IDs concatenated by commas in order to work. If you'd like to auto-generate a list of those tickets under a specific filter, simply perform a Search Tickets action.
+The Bulk Ticket Updates action requires a number of **Ticket ID**s concatenated by commas in order to work. If you'd like to auto-generate a list of those tickets under a specific filter, simply perform a Search Tickets action.
 
 ![Zendesk Generate List](/assets/images/connectors/zendesk/generate_list.png)
 *Generate List*
 
 ### 2) Listing tickets in a comma separated format
 
-With its output, you can now use Workato's formula mode to extract its Ticket ID in a comma separated structure. First, click on the formula mode on beside the field. 
+With its output, you can now use Workato's formula mode to extract its **Ticket ID** in a comma separated structure. First, click on the formula mode on beside the field. 
 
 ![Zendesk Formula Mode](/assets/images/connectors/zendesk/formula_mode.png)
 *Formula Mode*
@@ -108,10 +108,10 @@ Then, simply drag the Tickets datapill from your Search ticket action. The Ticke
 ![Zendesk Tickets Datapill](/assets/images/connectors/zendesk/tickets_data_pill.png)
 *Tickets Datapill*
 
-Next, we are going to use the .pluck() formula to assist us in getting the Ticket IDs of all of the tickets. Simply copy and paste the following Formula below and place it right after the datapill in the field : 
+Next, we are going to use the .pluck() formula to assist us in getting the **Ticket ID**s of all of the tickets. Simply copy and paste the following Formula below and place it right after the datapill in the field : 
 
 ![Zendesk Ticket ID Formula](/assets/images/connectors/zendesk/ruby_code.png)
-*Ticket ID Formula in Ruby*
+***Ticket ID** Formula in Ruby*
 
 It should now look like this :  
 ![Zendesk Inputted Formula](/assets/images/connectors/zendesk/inputted_formula.png)
