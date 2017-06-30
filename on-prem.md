@@ -172,12 +172,15 @@ If connecting to on-prem databases fail, check that:
 <!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
 [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
 
+
 # On-prem file connector
 
-On-prem Files connector allows user to gain access to files that are located in their local machine using the Workato on-premise agent. The Workato on-premise agent provides a secure way for Workato to selectively access customer authorized on-prem apps and databases without having to open ‘ports’ in the corporate firewall. Click [here](http://docs.workato.com/on-prem.html) to learn more about the on-premise agent
+On-prem Files connector allows users to gain access to files that are located in their local machine using the Workato on-premise agent. The Workato on-premise agent provides a secure way for Workato to selectively access customer authorized on-prem apps and databases without having to open ‘ports’ in the corporate firewall. Click [here](http://docs.workato.com/on-prem.html) to learn more about the on-premise agent.
 
 
 ## Connecting On-prem files
+
+### Prerequisites 
 
 * Download On-prem agent (This is from how to use in OPA). The On-prem agent runs on the following systems:
 
@@ -195,13 +198,12 @@ On-prem Files connector allows user to gain access to files that are located in 
 
 * By default, the agent is installed as a Windows service called WorkatoAgent. You can disable this feature by unchecking the corresponding option during install.
 
-* Click on Download key button. Unzip the cert.zip file to <INSTALL_HOME>\conf directory (<INSTALL_HOME> is a target folder you've selected during install). This should copy cert.key and cert.pem files to the directory
+* Click on **Download key**. Unzip the cert.zip file to <INSTALL_HOME>\conf directory (<INSTALL_HOME> is a target folder you've selected during install). This should copy cert.key and cert.pem files to the directory
 
-### Linux install agent
 
-* Click on Linux agent button. Unpack the agent package file to <INSTALL_HOME>.
+* Click on the **Linux agent** button. Unpack the agent package file to <INSTALL_HOME>.
 
-* Click on Download key button. Unzip the cert.zip file to <INSTALL_HOME>/conf directory. 
+* Click on the **Download key** button. Unzip the cert.zip file to <INSTALL_HOME>/conf directory. 
 
 * This should copy cert.key and cert.pem files to the directory.
 
@@ -212,9 +214,12 @@ On-prem Files connector allows user to gain access to files that are located in 
 
 Working with on-prem files requires you to define a filesystem profile in the files section.
 You need to specify the base folder for file access; the base folder will be used for resolving relative paths.
+
+```YAML
 files:
   hrfiles:
     base: "C:/Documents/HR"
+```
  
 Note that you need to restart the on-prem agent for any configuration change to become effective.
  
@@ -224,7 +229,7 @@ For example, I would like to access the file in on-prem-file folder in Desktop, 
 *configuration of on-prem file in Desktop*
 
 
-The file path can be found when you right-click on the folder, and select get info or property.
+The file path can be found when you right-click on the folder, and select **get info** or **property**.
 
   * Run agent 
 
@@ -253,7 +258,3 @@ You can customize your connection name. Under the On-prem secure agent and conne
 ## Example recipes
 
 https://www.workato.com/recipes/381398-read-write-on-prem-files#recipe
-
-
-
-
