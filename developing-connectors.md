@@ -1,8 +1,6 @@
 # Developing connectors
 
-Workato supports over 200 out of the box connectors, but you may run into scenarios where Workato does not have a connector to an commercial app, or you may need to work with a custom app.
-
-Workato supports several avenues for addressing this requirement:
+Workato supports over 200 out-of-the-box connectors. If you run into scenarios where you require an unsupported connector to an app, or you need to work with a custom app, Workato supports several avenues to address this:
 
 1. **Database connector** Workato supports out of the box connectivity to several on-prem and cloud databases. If you can get access to the database used by the app, you can then use this connector to exchange data.
 
