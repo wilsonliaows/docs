@@ -171,3 +171,89 @@ If connecting to on-prem databases fail, check that:
 [Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
 <!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
 [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
+
+# On-prem file connector
+
+On-prem Files connector allows user to gain access to files that are located in their local machine using the Workato on-premise agent. The Workato on-premise agent provides a secure way for Workato to selectively access customer authorized on-prem apps and databases without having to open ‘ports’ in the corporate firewall. Click [here](http://docs.workato.com/on-prem.html) to learn more about the on-premise agent
+
+
+## Connecting On-prem files
+
+* Download On-prem agent (This is from how to use in OPA). The On-prem agent runs on the following systems:
+
+  * Windows 7, 10 (64-bit)
+
+  * Linux (64-bit)
+
+* For Windows, you need Administrator permissions to run the Workato agent as a Windows service. Please make sure that TCP port 3000 is available for binding.
+
+### Windows install agent
+
+* Click on **Windows agent** button to download and run the installer. Follow the installation instructions.
+
+* By default, the agent is installed into 'C:\Program Files\Workato Agent' folder and creates a Workato group in the Start Menu
+
+* By default, the agent is installed as a Windows service called WorkatoAgent. You can disable this feature by unchecking the corresponding option during install.
+
+* Click on Download key button. Unzip the cert.zip file to <INSTALL_HOME>\conf directory (<INSTALL_HOME> is a target folder you've selected during install). This should copy cert.key and cert.pem files to the directory
+
+### Linux install agent
+
+* Click on Linux agent button. Unpack the agent package file to <INSTALL_HOME>.
+
+* Click on Download key button. Unzip the cert.zip file to <INSTALL_HOME>/conf directory. 
+
+* This should copy cert.key and cert.pem files to the directory.
+
+* Create connection profile
+
+
+## Creating a filesystem profile 
+
+Working with on-prem files requires you to define a filesystem profile in the files section.
+You need to specify the base folder for file access; the base folder will be used for resolving relative paths.
+files:
+  hrfiles:
+    base: "C:/Documents/HR"
+ 
+Note that you need to restart the on-prem agent for any configuration change to become effective.
+ 
+For example, I would like to access the file in on-prem-file folder in Desktop, my configuration will look something like this: 
+
+![Acess on-prem-file](/assets/images/on-prem/config-on-prem-file-setup.png)
+*configuration of on-prem file in Desktop*
+
+
+The file path can be found when you right-click on the folder, and select get info or property.
+
+  * Run agent 
+
+(Same as OPA) 
+
+  * Create connection 
+
+Check your agent is successfully connected to Workato by refreshing the agent page, the agent status on the right should indicate ‘active’ 
+
+![Agent conenction](/assets/images/on-prem/agent-connection-page.png)
+*Agent status*
+
+Next, go to your connections page,  click on create new connection and key in On-prem Files. Select the connector and set up your configuration. 
+
+![On-prem files](/assets/images/on-prem/connection-configuration.gif)
+*Open-prem file setup on Workato*
+
+Connection configuration:
+
+![Connections](/assets/images/on-prem/connection-page.png)
+*Connection configuration on Workato*
+
+You can customize your connection name. Under the On-prem secure agent and connection profile, provide the corresponding agent name and connection profile respectively. Next, click on **connect**. Once your connection is successful, you can proceed to use the connector in your recipe. 
+
+
+## Example recipes
+
+https://www.workato.com/recipes/381398-read-write-on-prem-files#recipe
+
+
+
+
