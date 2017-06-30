@@ -212,7 +212,9 @@ Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/i
 Connections can be established in 3 different areas: 
 
 •In the top right corner of the Workato platform, click on your profile and choose **Connections**
+
 •When creating a new recipe, the connection is done after creating the trigger and the actions
+
 •Connections are available in the **Connection** tab in every recipe
 
 ![Establishing Quick Base connection](/assets/images/connectors/quickbase/establishing-quickbase-connection.png)
