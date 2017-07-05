@@ -10,7 +10,7 @@ There are certain instances where you have multiple journal entry items in a sin
 To do so, simply follow the steps below. 
 
 
-1. We will have to use the **create object** action and select **GL batch** as the object type. This involves creating journal entries with custom objects. (shown below)
+1. We will have to use the **Create object** action and select **GL batch** as the object type. This involves creating journal entries with custom objects. (shown below)
 
 ![Create GL batch action](/assets/images/connectors/intaact/create-GL-batch-action.png)
 
@@ -28,23 +28,23 @@ To do so, simply follow the steps below.
 
 *Don't put any datapill in the opposite entry*
 
-3. In order to roll up the amount, we have to use the **pluck** function on the pill that we want to roll up. Here we want to roll up "UnitPrice" (do note that it is case sensitive) from the array input, which in this case is the opportunity product, and sum the entire amount.
+3. In order to roll up the amount, we have to use the **Pluck** function on the pill that we want to roll up. Here we want to roll up "UnitPrice" (do note that it is case sensitive) from the array input, which in this case is the opportunity product, and sum the entire amount.
 
 ![Pluck function on pill to be rolled up](/assets/images/connectors/intaact/pluck-function-on-pill.png)
 
-*Use the **pluck** function on the pill you want to roll up*
+*Use the **Pluck** function on the pill you want to roll up*
 
 
-## Enable auto numbering of vendor/ invoice/ customer ID in Intacct 
+## Enable auto numbering of Vendor/ invoice/ customer ID in Intacct 
 
-To determine whether vendor sequence numbering is used, or if **vendor IDs** are entered manually:
-1.In Intacct, go to *account payables* > *configure AP* 
-2.Under **document sequencing** click **vendors** 
-3.If this is blank, no vendor ID sequence is being used, and **vendor IDs** are entered manually.
+To determine whether vendor sequence numbering is used, or if **Vendor IDs** are entered manually:
+1.In Intacct, go to *Account payables* > *Configure AP* 
+2.Under **Document sequencing** click **Vendors** 
+3.If this is blank, no **Vendor ID** sequence is being used, and **Vendor IDs** are entered manually.
 
-Similarly, for **invoice number** and **customer ID**:
-1.In Intacct, go to *account receivable* > *configure AP* 
-2.Under **document sequencing** click **vendors** 
+Similarly, for **Invoice number** and **Customer ID**:
+1.In Intacct, go to *Account receivable* > *Configure AP* 
+2.Under **Document sequencing** click **Vendors** 
 3.If this is blank, no ID sequence is being used, and the IDs are entered manually.
 
 
@@ -71,4 +71,4 @@ Next, enter the following information:
 
 *Fill in the above user information*
 
-Once done, click save and you are all set to connect this user with Workato. 
+Once done, click **Save** and you are all set to connect this user with Workato. 
