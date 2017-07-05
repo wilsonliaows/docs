@@ -1,5 +1,8 @@
-
 # Infusionsoft
+Primarily for small businesses, [Infusionsoft](https://www.infusionsoft.com/) offers a variety of functions for sales, marketing, and CRM.
+
+Connecting Infusionsoft to Workato would allow users to better organize the information stored in Infusionsoft as well as call up and update that information automatically whenever a specified action is done.
+
 
 ## Infusionsoft : What is a Payment plan?
 
