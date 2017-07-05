@@ -205,7 +205,7 @@ For example, if I would also like to pull out a field **Home Address**, which is
 
 ## Quick Base: connecting your Quick Base account
 
-Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 1) Making a connection: 
 
