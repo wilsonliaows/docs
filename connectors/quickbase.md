@@ -1,7 +1,7 @@
 # Quick Base
 [Quick Base](http://www.quickbase.com/) is an online platform used to help businesses connect multiple applications and automate their workflows.
 
-Connecting Quick Base wo Workato allows for the management of data in Quick Base and even allows users to sync data from multiple Quick Base accounts.
+Connecting Quick Base to Workato allows for the management of data in Quick Base and even allows users to sync data from multiple Quick Base accounts.
 
 
 ## Quick Base: getting started with Quick Base and Workato 
@@ -10,7 +10,7 @@ Connecting Quick Base wo Workato allows for the management of data in Quick Base
 
 *Quick Base integration by Workato*
 
-Workato now fully supports Quick Base, including all custom objects and tables, standard CRUD-operations, and purging records using reports. Learn how to use Workato with Quick Base here.
+Workato now fully supports Quick Base, including all custom objects and tables, standard CRUD-operations, and purging records using reports.
 
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
 
@@ -150,7 +150,7 @@ Comparing values within a table (between multiple records) is useful when trying
 
 The first step should return an array of all the records you want to compare. You can do this by creating a field (checkbox) in Quick Base and checking all the records which contain the values you would like to compare. 
 
-In the 2nd step, choose Utilities as the app and **Log message**. In the message, click the toggle for **Formula mode** at the end of the field. Choose the **Records** array pill (demarcated by the array icon) and use the `.pluck` formula. 
+In the 2nd step, choose **Utilities** as the app and select the **Log message** action. In the message, click the toggle for **Formula mode** at the end of the field. Choose the **Records** array pill (demarcated by the array icon) and use the `.pluck` formula. 
 
 You should pluck the value in the specific field you want, and put in the **Record ID** of that field behind `f_`. This effectively creates an array of all the values that you want to compare. You may do other functions such as `.min` and `.max` to compare numerical values. 
 
@@ -227,7 +227,7 @@ Connect your Quick Base account to Workato the same way that you would login to 
 
 ## Quick Base: how do I update a record?
 
-Visit [https://www.workato.com/integrations/quickbase](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
+Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
 
 Workato's Quick Base connector allows you to update a record in a table within an app. However, to perform an update, you need to tell Workato which specific record you would like to update. 
 
