@@ -90,7 +90,7 @@ The recipe will automatically handle the SELECT FROM portion of your query. It w
 For a list of standard fields for major Salesforce objects, see: [Salesforce Fields Reference](https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm).
 
 ### Inputting SOQL WHERE Conditions (Syntax):
-The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: <fieldName> <comparisonOperator> <value>.
+The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: **fieldName comparisonOperator value**.
 **Comparison operators:**
 Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
 
