@@ -1,3 +1,4 @@
+
 # Intacct
 
 
@@ -38,6 +39,7 @@ To do so, simply follow the steps below.
 ## Enable auto numbering of Vendor/ invoice/ customer ID in Intacct 
 
 To determine whether vendor sequence numbering is used, or if **Vendor IDs** are entered manually:
+
 1.In Intacct, go to *Account payables* > *Configure AP* 
 
 2.Under **Document sequencing** click **Vendors** 
@@ -45,6 +47,7 @@ To determine whether vendor sequence numbering is used, or if **Vendor IDs** are
 3.If this is blank, no **Vendor ID** sequence is being used, and **Vendor IDs** are entered manually.
 
 Similarly, for **Invoice number** and **Customer ID**:
+
 1.In Intacct, go to *Account receivable* > *Configure AP* 
 
 2.Under **Document sequencing** click **Vendors** 
