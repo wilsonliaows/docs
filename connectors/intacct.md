@@ -1,6 +1,8 @@
 
 # Intacct
+[Intacct](https://us.intacct.com/) is an ERP and finance managament software for companies.
 
+Connecting Intacct to Workato allows companies to automate processes set up in Intacct as well as organize the data stored in Intacct.
 
 ## Intacct: Rolling up of credit/debit lines in journal entries using recipes
 There are certain instances where you have multiple journal entry items in a single journal entry. You may also need to roll up multiple entries of credit or debit into a single line with a rolled up amount.
