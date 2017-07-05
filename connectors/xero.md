@@ -1,4 +1,7 @@
 # Xero
+[Xero](https://www.xero.com/us/) is a cloud-based accounting software aimed at small to medium-sized businesses. Xero can be used to manage processes like invoicing and bookkeeping.
+
+Connecting Xero to Workato allows users to sync data between Xero and other applications, as well as automating processes within Xero.
 
 ## Supported triggers and actions
 
@@ -52,12 +55,12 @@ This will lead users to the **Tax type** page (image below) and they will have t
 According to the [Xero Developer Help Center](https://community.xero.com/developer/question/17181), there is a daily limit of 1000 API calls that a provider can make against a particular Xero organization in a rolling 24 hour period. If you exceed this rate limit you will receive a HTTP 401 response with the message “oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api” in the http response body."
 
 
-## Xero - How to find different IDs in Xero
+## How to find different IDs in Xero
 
-### What is an ID?
+### Xero IDs
 An ID is a unique identifier for an object in the API. In Xero, some IDs such as **Contact ID** are required in creating an action and they can be easily obtained using **Search** or other actions. 
 
-### Contact ID
+#### Contact ID
 
 **Contact ID** is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
 
@@ -75,7 +78,7 @@ For example, when you want to add person(s) to a contact, you could conduct **Se
 ![Search for contacts](/assets/images/connectors/xeno/search-contact.png)
 *Search for contacts by name or email*
 
-### Manual Journal ID
+#### Manual Journal ID
 **Manual journal ID** is an unique identifier for each manual journal in Xero.
 
 You can make use of the output datapill from the following actions to obtain **Manual journal ID**, depending on your workflow:
@@ -86,7 +89,7 @@ You can make use of the output datapill from the following actions to obtain **M
 ![Manual Journal ID](/assets/images/connectors/xeno/manual-journal-id.png)
 ***Manual journal ID** identifier*
 
-### Payment ID
+#### Payment ID
 You can make use of the output datapill from the following actions to obtain **Payment ID**, depending on your workflow:
 
 1. **Create payment**
@@ -95,13 +98,13 @@ You can make use of the output datapill from the following actions to obtain **P
 ![Payment](/assets/images/connectors/xeno/payment.png)
 ***Payment ID***
 
-### Employee ID 
+#### Employee ID 
 You can make use of the output datapill from the following triggers/actions to obtain **Employee ID**, depending on your workflow:
 
 1. **New/updated employee**
 2. **Create employee**
 
-### Account ID
+#### Account ID
 You can make use of the output datapill from the following triggers/actions to obtain bank **Account ID**, depending on your workflow:
 
 1. **New/updated payment**
