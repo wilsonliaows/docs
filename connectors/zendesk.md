@@ -143,6 +143,6 @@ In Workato, a user's identities may be retrieved by providing a user ID. The out
 **Type** : The kind of identity that it is.
 **Value** : The value contained in this Identity field.
 
-If you'd like to populate all Identities to another application, remember to use a Repeat Action to go through every single User Identity available for this user. To learn more about how to use Repeat Action, check out this link for a detailed guide.
+If you'd like to populate all Identities to another application, remember to use a Repeat Action to go through every single User Identity available for this user. To learn more about how to use Repeat Action, check out [this link](https://support.workato.com/support/solutions/articles/1000235840-recipe-basics-understanding-action-3-repeat-actions) for a detailed guide.
 
 
