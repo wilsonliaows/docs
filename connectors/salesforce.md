@@ -116,7 +116,7 @@ To filter on date fields in a query, you must use Date only format. The syntax f
 To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:
 YYYY-MM-DDThh:mm:ss+hh:mm / 
 YYYY-MM-DDThh:mm:ss-hh:mm / 
-YYYY-MM-DDThh:mm:ssZ
+YYYY-MM-DDThh:mm:ssZ.
 In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values. 
 For date fields, add ‘.to_date’ to the end of your date formula to convert your date or timestamp to the correct format.
 
