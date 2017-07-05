@@ -1,3 +1,4 @@
+
 # Infusionsoft
 
 ## Infusionsoft : What is a Payment plan?
@@ -40,17 +41,31 @@ Payment plan details contain the ID of each payments for the order. With this, y
 When receiving details of an invoice, each line item is tied with a field called **item_type** that marks the type of the item. These values are in integer form, and in case you need to receive only a certain type of items, here are the list of numbers and their respective item types :
 
 0 = Unknown Type
+
 1 = Shipping
+
 2 = Tax
+
 3 = Service & Misc
+
 4 = Product
+
 5 = Upsell Product
+
 6 = Finance Charge
+
 7 = Special
+
 8 = Program
+
 9 = Subscription Plan
+
 10 = Special: Free Trial Days
+
 11 = Special: Order Total
+
 12 = Special: Product
+
 13 = Special: Category
+
 14 = Special: Shipping
