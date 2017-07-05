@@ -8,7 +8,7 @@ Connecting Infusionsoft to Workato would allow users to better organize the info
 
 ### Payment plan details in Infusionsoft
 
-Workato's **Get payment plan details** action by **Invoice ID** in Infusionsoft allows users to get specific details regarding certain subscription plans for an order. 
+Workato's **Get payment plan details** action via **Invoice ID** in Infusionsoft allows users to get specific details regarding certain subscription plans for an order. 
 
 Here are some examples in both Infusionsoft and Workato:
 
@@ -36,7 +36,7 @@ When using the action, the details available in Workato are displayed here:
 This allows you to understand the payment habits made by a client, which could be useful for making reports or inqueries in your CRM.
 
 #### 2) Syncing payments
-Payment plan details contain the ID of each payments for the order. With this, you will be able to sync all payments made for this order.
+Payment plan details contain the IDs of each payment for the order. With this, you will be able to sync all payments made for this order.
 
 
 ## Infusionsoft : List of Item types
