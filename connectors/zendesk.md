@@ -105,7 +105,7 @@ With its output, you can now use Workato's formula mode to extract its **Ticket 
 ![Zendesk Formula Mode](/assets/images/connectors/zendesk/formula_mode.png)
 *Formula Mode*
 
-Then, simply drag the Tickets datapill from your Search ticket action. The Tickets datapill will be the one accompanied by a List symbol (one with multiple stripes). 
+Then, simply drag the **Tickets** datapill from your **Search ticket** action. The **Tickets** datapill will be the one accompanied by a List symbol (one with multiple stripes). 
 
 ![Zendesk Tickets Datapill](/assets/images/connectors/zendesk/tickets_data_pill.png)
 *Tickets Datapill*
@@ -140,8 +140,8 @@ In Workato, a user's identities may be retrieved by providing a user ID. The out
 ![Zendesk List User Identities](/assets/images/connectors/zendesk/list_user_identities.png)
 *List User Identities*
 
-**Type** : The kind of identity that it is.
-**Value** : The value contained in this Identity field.
+Type: The kind of identity that it is.
+Value: The value contained in this Identity field.
 
 If you'd like to populate all Identities to another application, remember to use a Repeat Action to go through every single User Identity available for this user. To learn more about how to use Repeat Action, check out [this link](https://support.workato.com/support/solutions/articles/1000235840-recipe-basics-understanding-action-3-repeat-actions) for a detailed guide.
 
