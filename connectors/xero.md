@@ -23,8 +23,6 @@ The app page has the following format:
 
 To see the supported triggers and actions, scroll to the bottom.
 
-App specific behavior
-
 
 ## How do I sync products to different Xero accounts? 
 
