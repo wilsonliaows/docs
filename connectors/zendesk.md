@@ -143,16 +143,4 @@ In Workato, a user's identities may be retrieved by providing a user ID. The out
 
 If you'd like to populate all Identities to another application, remember to use a Repeat Action to go through every single User Identity available for this user. To learn more about how to use Repeat Action, check out this link for a detailed guide.
 
-## Troubleshooting
-
-### Zendesk error message: 422 Unprocessable Entity
-
-#### Error: 
-Exception: 422 Unprocessable Entity; Error ID bf46cd01-c700-4a3b-8c5a-06ea63106895
-
-#### What does this mean?: 
-Zendesk does not allow users with the same email address. Your recipe is most probably trying to create a user with the same email address.
-
-#### Solution: 
-Double check your data and make changes before restarting your recipe/re-running the job.
 
