@@ -94,14 +94,18 @@ The WHERE clause follows field expression syntax. A **fieldExpression** is defin
 **Comparison operators:**
 Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
 ![SOQL-1](/assets/images/salesforce-docs/salesforce-soql-example-1.png)
+
 For detailed information on how to use each comparison operator, see: [Comparison Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_comparisonoperators.htm).
+
 **Logical operators:**
 Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
 fieldExpressionX **AND** fieldExpressionY / 
 fieldExpressionX **OR** fieldExpressionY / 
 **NOT** fieldExpressionX.
+
 Here is an example showing two fieldExpressions joined by a logical operator:
 ![SOQL-2](/assets/images/salesforce-docs/salesforce-soql-example-2.png)
+
 For more information on logical operators, see: [Logical Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm).
  
 ### Date Formats and Date Literals:
