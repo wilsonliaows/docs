@@ -31,7 +31,7 @@ You could click on the [*Browse Recipes*](https://www.workato.com/recipes/browse
 ![List of pre-built Freshdesk recipes](/assets/images/connectors/freshdesk/list-freshdesk-recipe.PNG)
 *List of pre-built Freshdesk recipes*
 
-2. Choose a desired Freshdesk recipe to use
+2. Choose a desired Freshdesk recipe to use.
 
 Click on the recipe. Thereafter, proceed to click on the "Use this recipe" button at the top-right corner as seen below.
 
