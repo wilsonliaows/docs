@@ -123,7 +123,7 @@ With this, you can now specify the fields that you'd like to update with. In thi
 ![Zendesk Status](/assets/images/connectors/zendesk/status.png)
 *Zendesk Status*
 
-You have now successfully automated a long, repetitive work in only **two** simple Workato steps!
+You have now successfully automated a long, repetitive work in only two simple Workato steps!
 
 ![Zendesk Bulk Tickets Recipe](/assets/images/connectors/zendesk/bulk_tickets_final_recipe.png)
 *Bulk Tickets Final Recipe*
