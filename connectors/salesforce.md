@@ -42,10 +42,10 @@ Salesforce users who can login to Salesforce can connect to Salesforce from Work
 ## Working with the Salesforce connector
 
 ### Can I connect more that one Salesforce account in a single recipe?
-Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more [here](http://http://docs.workato.com/features/secondary-connectors.html)
+Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more [here](http://http://docs.workato.com/features/secondary-connectors.html).
 
 ### What versions and editions we work with or don't work with
-Workato works with all versions and editions of Salesforce including Force.com apps
+Workato works with all versions and editions of Salesforce including Force.com apps.
 
 
 ### Using real-time triggers
@@ -53,17 +53,17 @@ Workato works with all versions and editions of Salesforce including Force.com a
 Workato offers real-time capabilities for 2 salesforce triggers, namely **New Object** and **New/Updated Object**. This allows workato to pick up any object that was created/updated in Salesforce immediately. To enable this, 
 1. Log in to your salesforce instance and click on 'Setup' on the top right of the page. 
 2. On the left hand panel, under Build, click on Create > Workflow & Approvals > Workflow rules. 
-3. Select the Object which you want to receive real time updates for and click Next
-4. Fill in the required and optional field
-  Rule name
-  Rule Criteria (Rule criteria can be set based on your preference. For example, Only when Opportunity status equals “Closed-won".)
-  After you are done, click **Save & Next**
+3. Select the Object which you want to receive real time updates for and click Next.
+4. Fill in the required and optional field:
+  Rule name,
+  Rule Criteria (Rule criteria can be set based on your preference. For example, only when Opportunity status equals “Closed-won".)
+  After you are done, click **Save & Next**.
 
 5. Select New Outbound Message under Specify workflow actions
-  fill in the required and optional fields
+  and fill in the required and optional fields.
 6. You are now set up for real-time integration! Simply go to your Workato recipe and choose real-time trigger. Note that you can only use these triggers with objects you have set up the above steps with. 
 
-To use Salesforce real-time triggers, the user needs to be on the **Workato Enteprise Plan**
+To use Salesforce real-time triggers, the user needs to be on the **Workato Enteprise Plan**.
 
 ### Working with generic triggers in Salesforce
 In workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created. 
@@ -77,7 +77,7 @@ When working with Salesforce Actions on Workato, you should find it extremely ea
 
 #### Uploading
 
-To upload an attachment **to** Salesforce using Workato, you can use the **Create Object** Action, and select **Attachment** under the **Object** field. Before that however, you need to have a step that downloads the file that is to be uploaded to Salesforce. You may use the **box** action **get file download URL**, followed by using the **utilities** tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  You can check out [this example here](http://docs.workato.com/handling-files-and-attachments.html#example-of-using-utilities-to-download-file-from-public-url) on how to download a file to Workato.
+To upload an attachment **to** Salesforce using Workato, you can use the **Create Object** Action, and select **Attachment** under the **Object** field. Before that however, you need to have a step that downloads the file that is to be uploaded to Salesforce. You may use the **Box** action **get file download URL**, followed by using the **utilities** tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  You can check out [this example here](http://docs.workato.com/handling-files-and-attachments.html#example-of-using-utilities-to-download-file-from-public-url) on how to download a file to Workato.
 
 #### Downloading
 To download an attachment **from** Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previous step, usually from the get object details step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the **Upload file** action in the **Box** connector. 
@@ -87,14 +87,14 @@ To download an attachment **from** Salesforce, you can use the **Download file**
 In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting).
 
 The recipe will automatically handle the SELECT FROM portion of your query. It will SELECT all fields FROM the object you choose from the pick list. For optional clauses, the trigger currently only supports WHERE conditions.
-For a list of standard fields for major Salesforce objects, see: Salesforce Fields Reference
+For a list of standard fields for major Salesforce objects, see: [Salesforce Fields Reference](https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm).
 
 ### Inputting SOQL WHERE Conditions (Syntax):
-The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: fieldName comparisonOperator value.
+The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: <fieldName> <comparisonOperator> <value>.
 **Comparison operators:**
 Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
 ![SOQL-1](/assets/images/salesforce-docs/salesforce-soql-example-1.png)
-For detailed information on how to use each comparison operator, see: Comparison Operators.
+For detailed information on how to use each comparison operator, see: [Comparison Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_comparisonoperators.htm).
 **Logical operators:**
 Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
 fieldExpressionX **AND** fieldExpressionY / 
@@ -102,7 +102,7 @@ fieldExpressionX **OR** fieldExpressionY /
 **NOT** fieldExpressionX.
 Here is an example showing two fieldExpressions joined by a logical operator:
 ![SOQL-2](/assets/images/salesforce-docs/salesforce-soql-example-2.png)
-For more information on logical operators, see: [Logical Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm)
+For more information on logical operators, see: [Logical Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm).
  
 ### Date Formats and Date Literals:
 To filter on date fields in a query, you must use Date only format. The syntax for this is: YYYY-MM-DD.
