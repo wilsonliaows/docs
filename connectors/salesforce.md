@@ -93,6 +93,7 @@ For a list of standard fields for major Salesforce objects, see: [Salesforce Fie
 The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: <fieldName> <comparisonOperator> <value>.
 **Comparison operators:**
 Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
+
 ![SOQL-1](/assets/images/salesforce-docs/salesforce-soql-example-1.png)
 
 For detailed information on how to use each comparison operator, see: [Comparison Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_comparisonoperators.htm).
