@@ -5,12 +5,14 @@ date: 2017-06-23 06:15:00 Z
 
 # Zendesk
 
-## Zendesk search tickets action
+## Actions
+
+### Zendesk search tickets action
 
 When searching for tickets by filters, you will get a list of tickets in return that correspond to your filters. Your filters can be specific, or a combination of two or more fields.
 A combination of fields will result in a more narrow search, where only tickets satisfying all specified filters will be returned.
 
-### Search tickets by tags
+#### Search tickets by tags
 
 When searching for tickets by tags, partial matches will be returned as well in the result set of tickets. 
 
@@ -19,7 +21,7 @@ For example, if you searched for tickets by the tags: 'urgent' and 'important', 
 ![Zendesk Tags](/assets/images/connectors/zendesk/search_tickets_by_tags.png)
 *Search Tickets by Tags*
 
-## Uploading attachments into Zendesk
+### Uploading attachments into Zendesk
 
 With Workato, you will be able to upload attachment files onto Zendesk as an attachment, and provide that attachment to a ticket. This is particularly useful when syncing important screenshots or data files coming from your other applications such as Salesforce, JIRA Service Desk, or even cloud storages like Box or SFTP.
 
@@ -27,7 +29,7 @@ With Workato, you will be able to upload attachment files onto Zendesk as an att
 Uploading an attachment to a ticket in Zendesk requires two actions:
 
 
-### 1. Upload attachment
+#### 1. Upload attachment
 
 First, you need to upload the attachment. You can upload a text file by entering your text into the body field. Specify a filename including the file extension you want to use (txt, doc, csv). For text files, you can leave the Content type field blank.
 
@@ -41,27 +43,27 @@ Note step 9, 10, and 11, where attachment from JIRA is downloaded using Workato'
 ![Zendesk Download Attachment](/assets/images/connectors/zendesk/download_attachment.png)
 *Download Attachment*
 
-### 2. Update ticket
+#### 2. Update ticket
 
 In order to update the ticket, you must provide the attachment token from the upload attachment step output. Pass in this token to the Upload Attachment token field. You will also need to provide the ID for the ticket you want to update along with a comment that the attachment will be uploaded with.
 
 ![Zendesk Update Ticket](/assets/images/connectors/zendesk/update_ticket.png)
 *Update Ticket*
 
-## Zendesk update does not update the record if there is no change
+#### Zendesk update does not update the record if there is no change
 
 Zendesk is quite smart in how it handles updates. We have noticed that although we issued an update via the API, if the record was the same as before it does not generate a new trigger event. This is a good thing and helps in stopping update cascades going between two systems. The reason it is especially good is that zendesk does not expose the 'last updated by user' field and so there is no way to filter out updates made by the API.
 
 This is true of contacts, and we haven't verified if all records behave the same way. We don't believe tickets do.
 
-## Zendesk : Assigning user to Organization(s)
+### Zendesk : Assigning user to Organization(s)
 
-### Allocating Organization membership
+##### Allocating Organization membership
 Assigning New user/Reassigning existing user to Organizations
 
 One of the more prominent features of Zendesk is the distribution of tasks based on workplace environment for each user. When performing syncs between Zendesk and other applications, it is common that relocation of organization is needed. This section will show you various techniques on how you may allocate users to different organizations for different workplace environments.
 
-### 1) Assigning Organization during creation of the user
+##### 1) Assigning Organization during creation of the user
 
 You will be able to assign a newly created user to an organization based on the organization's ID or name. This is done by providing the value in the organization field in Create New User step.
 
@@ -74,29 +76,29 @@ You may also toggle it by clicking on the small error beside the field to use or
 ![Zendesk Assign Organization Name](/assets/images/connectors/zendesk/assign_organization_name.png)
 *Assign Organization Name*
 
-### 2) Updating an exiting user's organization
+##### 2) Updating an exiting user's organization
 Similar to the creation of a new user, you may also update a user's organization by the update user action. If the user already belongs to an organization, doing so will reallocate  the user's membership from the currently holding organization to the new updated organization.
 
-### 3) Create organization membership action
+##### 3) Create organization membership action
 If you have users that are enabled for multiple organization membership, you may use the Create Organization membership action to allocate the user to the organization
 
 ![Zendesk Create Organization Membership](/assets/images/connectors/zendesk/create_organization_membership.png)
 *Create Organization Membership*
 
-## Updating a batch of existing tickets
+### Updating a batch of existing tickets
 
 There can be various situations where tickets of a certain type, belonging to one organization, or applied of a certain tags, need to be updated. Whether it is a reassignment, a broadcasting comment, or simply closing these tickets, updating each ticket one by one can be taxing upon your Zendesk API limits each day.
 
 With Bulk Ticket Updates action, you will be able to save on your API usage, as well as make your recipes  more efficiently. Here are a few simple steps on how you can do so.
 
-### 1) Obtain a tickets list item datapill
+#### 1) Obtain a tickets list item datapill
 
 The Bulk Ticket Updates action requires a number of **Ticket ID**s concatenated by commas in order to work. If you'd like to auto-generate a list of those tickets under a specific filter, simply perform a Search Tickets action.
 
 ![Zendesk Generate List](/assets/images/connectors/zendesk/generate_list.png)
 *Generate List*
 
-### 2) Listing tickets in a comma separated format
+#### 2) Listing tickets in a comma separated format
 
 With its output, you can now use Workato's formula mode to extract its **Ticket ID** in a comma separated structure. First, click on the formula mode on beside the field. 
 
@@ -117,7 +119,7 @@ It should now look like this :
 ![Zendesk Inputted Formula](/assets/images/connectors/zendesk/inputted_formula.png)
 *Inputted Formula*
 
-### 3) Specify the fields to update
+#### 3) Specify the fields to update
 With this, you can now specify the fields that you'd like to update with. In this example, we are closing all tickets that have the tag 'completed'. 
 
 ![Zendesk Status](/assets/images/connectors/zendesk/status.png)
