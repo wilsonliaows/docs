@@ -1,4 +1,8 @@
 # Quick Base
+[Quick Base](http://www.quickbase.com/) is an online platform used to help businesses connect multiple applications and automate their workflows.
+
+Connecting Quick Base wo Workato allows for the management of data in Quick Base and even allows users to sync data from multiple Quick Base accounts.
+
 
 ## Quick Base: getting started with Quick Base and Workato 
 
