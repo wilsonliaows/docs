@@ -4,11 +4,11 @@ Primarily for small businesses, [Infusionsoft](https://www.infusionsoft.com/) of
 Connecting Infusionsoft to Workato would allow users to better organize the information stored in Infusionsoft as well as call up and update that information automatically whenever a specified action is done.
 
 
-## Infusionsoft : What is a Payment plan?
+## Infusionsoft : Payment plans
 
 ### Payment plan details in Infusionsoft
 
-Workato's **Get payment plan** action details by **Invoice ID** in Infusionsoft, allowing users to get specific details regarding certain subscription plans for an order. 
+Workato's **Get payment plan details** action by **Invoice ID** in Infusionsoft allows users to get specific details regarding certain subscription plans for an order. 
 
 Here are some examples in both Infusionsoft and Workato:
 
