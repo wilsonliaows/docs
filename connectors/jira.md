@@ -5,10 +5,19 @@ date: 2017-02-16 06:15:00 Z
 
 # JIRA
 
+[JIRA](https://www.atlassian.com/software/jira) gives users a simple way to organize and plan the release of any software. This allows any software developer to lay out key steps to follow when releasing the software including 'Plan', 'Track','Release','and Report' to guide users.
+
+With Workato, you can use triggers such as 'New/update issue', 'New Project' or 'New Issue' and keep track of these issues and projects on [JIRA](https://www.workato.com/integrations/jira). For example, you can file new issues and projects into separate files on DropBox which can help further organize the process of developing software.
+
+On this page we'll walk you through:
+1. [Connector information](http://docs.workato.com/connectors/jira.html#connector-information)
+2. [How to connect to JIRA on Workato](http://docs.workato.com/connectors/jira.html#how-to-connect-to-jira-on-workato)
+3. [Working with the JIRA connector](http://docs.workato.com/connectors/jira.html#working-with-the-jira-connector)
+
 ## Connector information
 
 ### API version
-The JIRA connector uses [JIRA Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/)
+The JIRA connector uses [JIRA Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
 
 ### Supported editions and versions
 The JIRA connector works only with JIRA cloud instances. These instances can be hosted on cloud or on-premise.
@@ -16,8 +25,7 @@ The JIRA connector works only with JIRA cloud instances. These instances can be 
 ## How to connect to JIRA on Workato
 
 ### JIRA connection
-The JIRA connector uses basic authentication.
-
+The JIRA connector uses basic authentication to authenticate with JIRA.
 ![Configured JIRA connection](/assets/images/jira-docs/configured_jira_connection.png)
 * **Connection name**
 
@@ -49,31 +57,5 @@ JIRA users who can login to JIRA can connect to JIRA from Workato. The user will
 To use JIRA real-time triggers (which [registers a JIRA webhook via the API](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-Registeringawebhook)), the authenticated user needs to have the **JIRA Administrators global permission**. To set up real-time triggers without requiring the **JIRA Administrators global permission**, use the HTTP connector, **New event via webhook** trigger to [set up a JIRA webhook trigger via the JIRA admin console](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-jiraadmin).
 
 ## Working with the JIRA connector
-
 ### Using real-time triggers
-
-To use JIRA real-time triggers (which registers a JIRA webhook via the API), the authenticated user needs to have the JIRA Administrators global permission. To set up real-time triggers without requiring the JIRA Administrators global permission, use the HTTP connector to set up a JIRA webhook trigger via the JIRA admin console.
-
-Select the Workato HTTP trigger **New event** via webhook and provide an event name to generate a unique webhook target URL.
-When setting up your webhook in JIRA, provide this URL as the target URL so that real-time notifications from JIRA will be directed specifically to this recipe.
-
-![JIRA](/assets/images/connectors/jira/jira.png)
-
-## Working with Attachments in JIRA
-
-### Upload attachments
-
-You can upload a text file by entering your text into the File Content field. Specify a filename including the file extension you want to use (txt, doc, csv). You will also need to enter a JIRA Ticket ID or Key corresponding to the issue you are uploading the attachment for.
-
-![JIRA](/assets/images/connectors/jira/upload-jira.png)
-*Upload attachment*
-
-### Download Attachment
-
-You can download a text file by entering the Attachment URI. The "downloaded" attachment can then be used in following steps by selecting the data pill from the Download attachment step output.
-
-![JIRA](/assets/images/connectors/jira/download-jira.png)
-*Download attachment*
-
-![JIRA](/assets/images/connectors/jira/log-message-jira.png)
-*In this example, the Attachment is being logged as a message to output to show how a downloaded attachment is read*
+To use JIRA real-time triggers (which [registers a JIRA webhook via the API](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-Registeringawebhook)), the authenticated user needs to have the **JIRA Administrators global permission**. To set up real-time triggers without requiring the **JIRA Administrators global permission**, use the HTTP connector, **New event via webhook** trigger to [set up a JIRA webhook trigger via the JIRA admin console](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-jiraadmin).
