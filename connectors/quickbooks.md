@@ -18,7 +18,7 @@ In this article we'll walk you through:
 4. [QuickBooks Triggers](http://docs.workato.com/connectors/quickbooks.html#quickbooks-triggers)
 5. [Actions](http://docs.workato.com/connectors/quickbooks.html#actions)
 6. [Different Labels between profit and non-profit versions](http://docs.workato.com/connectors/quickbooks.html#different-labels-between-profit-and-non-profit-versions)
-7. [Basic Information](http://docs.workato.com/connectors/quickbooks.html#basic-information)
+7. [Basic concepts and information](http://docs.workato.com/connectors/quickbooks.html#basic-concepts-and-information)
 
 ## Connector information
 
