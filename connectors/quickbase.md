@@ -89,7 +89,6 @@ The output field list refers to the fields that are required in the recipe. You 
 
 
 ## Quick Base: Search and Update actions 
-
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
 
 This article explains the **Search** action step and how to use it. It is usually required before the **Update** action step. 
@@ -114,7 +113,6 @@ Thereafter, fill in the other fields you wish to update within that record. Only
 
 
 ## Quick Base: syncing to multiple Quick Base instances 
-
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
 
 ### Connecting multiple Quick Base accounts
@@ -137,7 +135,6 @@ Do note that Workato requires users to be on an Enterprise plan in order to enab
 
 
 ## Quick Base: how to compare values within a table 
-
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
 
 Comparing values within a table (between multiple records) is useful when trying to find a particular record with certain criteria. 
@@ -155,13 +152,11 @@ See [this recipe](https://www.workato.com/recipes/283949-copy-of-new-record-in-q
 
 
 ## Quick Base: specifying input fields to display with the "Input field list" 
-
 When your Quick Base table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases whereby your selected Quick Base table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
 
 In this article, we'll talk about the **Input field list**, which is applicable for Quick Base actions. A largely similar concept for the Quick Base connector, the **Output field list**, is covered in this other article, and is applicable for Quick Base triggers.
 
 ### Input field list
-
 Fetching only fields that you're interested in.
 
 ![Input Field List](/assets/images/connectors/quickbase/input-field-list.png)
@@ -176,7 +171,6 @@ With **Input field list**, only fields that are specified in this section will a
 - There should NOT be additional spaces in front of or behind each field name 
 
 ### Example
-
 I have a Quick Base table, **Event app**, with more than 150 fields configured.
 
 ![Table Selection](/assets/images/connectors/quickbase/table-selection.png)
@@ -195,7 +189,6 @@ If the field I'm interested in writing to isn't available in the field selector 
 Example: I have to explicitly define the required fields as well for **Add record** action as they won't show up otherwise
 
 ### Composite fields
-
 **Composite fields** are essentially fields which may have multiple other fields that make it up - such as an address type field. In such cases, simply providing the main field name as an input will ensure that the multiple other fields that it comprises will be handled properly.
 
 For example, if I would also like to pull out a field **Home address**, which is an address type field, I'll simply put in the field name **Home address** and the composite fields **Street 1**, **Street 2**, **City**, etc. will show up as generated input fields. Again, remember to refresh your schema after changing the **Input field list**!
@@ -205,7 +198,6 @@ For example, if I would also like to pull out a field **Home address**, which is
 
 
 ## Quick Base: connecting your Quick Base account
-
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quickbase webinar.
 
 1) Making a connection: 
@@ -223,7 +215,6 @@ Connections can be established in 3 different areas:
 Connect your Quick Base account to Workato the same way that you would login to your Quick Base account. We need the sub-domain, username, and password to make a successful connection.
 
 ## Quick Base: how do I update a record?
-
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
 
 Workato's Quick Base connector allows you to update a record in a table within an app. However, to perform an update, you need to tell Workato which specific record you would like to update. 
@@ -241,17 +232,14 @@ Finally, if you update the **Record ID#** field label in Quick Base, make sure y
 ## Quick Base: purge records using report 
 
 ### Purge records based on reports
-
 Delete a range of data that fits the criteria
 
 Warning : This action deletes data out of your Quick Base. Please make sure you understand its implications, and are made aware of the data that will be purged.
 
 ### What does the action do?
-
 Quick Base actions available in Workato are straightforward data manipulators. You are able to access your basic CRUD actions (Create, Read, Update, or Delete Records), as well as a few others that are unique to Quick Base. One of them is **Purge records** based on reports.
 
 ### What are reports?
-
 Reports are filters that are either there by default or by your creation. To access reports, simply click on your application, and choose a table. 
 
 ![Table selection](/assets/images/connectors/quickbase/report-selection.png)
@@ -281,7 +269,6 @@ When ran, the recipe will delete those records that match the reports filter.
 ## How do I find my Quick Base access token? 
 
 ### Do I need a Quick Base token?
-
 In Quick Base, applications can be configured to require application tokens before their data can be accessed. In such cases, you will be able to select an option from the **Application** and the **Table** picklists, but you will see the following error pop up.
 
 ![Application Token](/assets/images/connectors/quickbase/application-token.png)
@@ -290,7 +277,6 @@ In Quick Base, applications can be configured to require application tokens befo
 In the following, we'll go through how to set up your token.
 
 ### First time activation
-
 For users who have already activated API access, skip to **Manage application token**.
 
 If this is the first time setting  up API access, you will need to enable this feature before managing tokens. For such users, you will see a text box that says "Get more features and work smarter" in the **App settings** page. This is what it looks like.
@@ -321,7 +307,6 @@ Select **Ok, enable these features**. Now, API access is enabled for this app. F
 
 
 ## Quick Base: specifying datatree fields to display with the Output field list 
-
 When your Quick Base table contains more than 150 fields, not all fields will be retrieved by Workato for performance optimization. For cases where your selected Quick Base table has massive, multi-layered tables and contains more than 150 fields, you would need to specify which fields you're interested in using in your recipe.
 
 In this article, we'll talk about the **Output field list**, which is applicable for Quick Base triggers. A largely similar concept for the Quick Base connector, the **Input field list**, is covered in another article, and is applicable for Quick Base actions.
