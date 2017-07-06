@@ -7,3 +7,4 @@
 # Ignore all static files
 /_book
 /node_modules
+**/.DS_Store
