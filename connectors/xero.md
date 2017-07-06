@@ -32,7 +32,7 @@ An ID is a unique identifier for an object in the API. All IDs can be obtained i
 
 IDs can be found in one of two ways. One way is to take them directly from the Xero site. The ID of a specific item, such as a **Contact** or **Manual journal** can be found at the end of the URL of its respective page in Xero.
 
-Another method is by using the **Search** action, in which case Workato will search for an item based on some specified criteria and find its ID. Then in your next action, you can use the datapill for the item ID put out by the **Search** action to specify what item Workato should interact with in this step. Some examples are given below:
+Another method is by using the **Search**, **Create**, or **Update** action, in which case Workato will find or output the ID of the item it created or found. Then in your next action, you can use the datapill for the item ID put out by the preceding action to specify what item Workato should interact with in this step. Some examples are given below:
 
 #### Contact ID
 **Contact ID** is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
