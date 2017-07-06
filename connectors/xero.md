@@ -28,7 +28,11 @@ According to the [Xero Developer Help Center](https://community.xero.com/develop
 ## How to find different IDs in Xero
 
 ### Xero IDs
-An ID is a unique identifier for an object in the API. In Xero, some IDs such as **Contact ID** are required in creating an action and they can be easily obtained using **Search** or other actions. 
+An ID is a unique identifier for an object in the API. All IDs can be obtained in one of two ways.
+
+IDs can be found in one of two ways. One way is to take them directly from the Xero site. The ID of a specific item, such as a **Contact** or **Manual journal** can be found at the end of the URL of its respective page in Xero.
+
+Another method is by using the **Search** action, in which case Workato will search for an item based on some specified criteria and find its ID. Then in your next action, you can use the datapill for the item ID put out by the **Search** action to specify what item Workato should interact with in this step. Some examples are given below:
 
 #### Contact ID
 **Contact ID** is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
