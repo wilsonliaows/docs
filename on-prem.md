@@ -183,11 +183,9 @@ If connecting to on-prem databases fail, check that:
 - Credentials provided in the connection profile are correct
 - Database name and type provided in the connection profile is correct
 
-# Example recipes
+## Example recipes
+
+### Example on-premise database recipes
 [Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
 <!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
 [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
-
-## Example recipes
-
-https://www.workato.com/recipes/381398-read-write-on-prem-files#recipe
