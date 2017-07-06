@@ -1,40 +1,13 @@
 # Xero
-[Xero](https://www.xero.com/us/) is a cloud-based accounting software aimed at small to medium-sized businesses. Xero can be used to manage processes like invoicing and bookkeeping.
+[Xero](https://www.xero.com/us/) is a cloud-based accounting software for small to medium businesses. Xero can be used to manage processes like invoicing and bookkeeping.
 
-Connecting Xero to Workato allows users to sync data between Xero and other applications, as well as automating processes within Xero.
+Workato allows you to synchronize data between Xero and the other apps you use in your organization. For example, you can sync customer data with your CRM app, sales data with your point-of-sales app, or inventory data with your ERP app.
 
 ## Supported triggers and actions
-
-The latest triggers and actions can be found on the Workato Xero page.
-
-The app page has the following format:
-
-1. Description
-
-2. Stats
-
-3. Connections
-
-4. Experts
-
-5. Recommended recipes
-
-6. Triggers and actions
-
-To see the supported triggers and actions, scroll to the bottom.
+The latest triggers and actions can be found on the Xero connector page.
 
 
-## How do I sync products to different Xero accounts? 
-
-Sometimes, when using Xero integration apps, such as the Infusionsoft-Xero integration app, products from the source app are synced to just one Xero account.
-
-This typically happens when the respective products do not already exist in Xero, and thus do not exist under the preferred accounts in Xero.
-
-To get products to sync to specific accounts, simply create the products in Xero first, and place them under your preferred accounts. In order for the sync to work properly, the name of the product in Xero should match that in your source app. Workato's integration apps will automatically sync them over to the right accounts.
-
-
-## Sales tax type when using Create/update items action in Xero 
- 
+## Sales tax type when using create/update items action in Xero 
 To find out what types of sales tax to key in when using the **Create/update items** action in Xero, users can click on the URL below the box (highlighted in image). 
 
 ![Sales tax list](/assets/images/connectors/xeno/sales-tax-list.png)
@@ -49,8 +22,7 @@ This will lead users to the **Tax type** page (image below) and they will have t
 
 
 ## Xero API usage limit
-
-According to the [Xero Developer Help Center](https://community.xero.com/developer/question/17181), there is a daily limit of 1000 API calls that a provider can make against a particular Xero organization in a rolling 24 hour period. If you exceed this rate limit you will receive a HTTP 401 response with the message “oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api” in the http response body."
+According to the [Xero Developer Help Center](https://community.xero.com/developer/question/17181), there is a daily limit of 1000 API calls that a provider can make against a particular Xero organization in a rolling 24 hour period. If you exceed this rate limit you will receive a HTTP 401 response with the message “oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api” in the http response body.
 
 
 ## How to find different IDs in Xero
@@ -59,7 +31,6 @@ According to the [Xero Developer Help Center](https://community.xero.com/develop
 An ID is a unique identifier for an object in the API. In Xero, some IDs such as **Contact ID** are required in creating an action and they can be easily obtained using **Search** or other actions. 
 
 #### Contact ID
-
 **Contact ID** is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
 
 ![Contact ID](/assets/images/connectors/xeno/contact-id.png)
