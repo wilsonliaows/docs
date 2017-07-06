@@ -105,13 +105,13 @@ QuickBooks Online allows you to support multiple currencies. To do so, you may e
 
 Exchange Rate field allows you to specify the exchange rate to your home currency from the specified currency. If no Currency is specified, the exchange rate will be defaulted to 1 in respect of the home currency.
 
-For dependent transaction documents such as Credit memo, the applied currency will depends on its parent transactions document, such as payment, or bank deposit.
+For dependent transaction documents such as Credit memo, the applied currency will depend on its parent transactions document, such as payment, or bank deposit.
 
 An Example:
 
 ![QBO currency2](/assets/images/QBO_docs/QBO-currency2.png)
 
-This field means that it will take 1.5239475 units of home currency to exchange for 1 unit of the specified currency of the transaction document
+This field means that it will take 1.5239475 units of home currency to exchange for 1 unit of the specified currency of the transaction document.
 
 
 ## Different Labels between profit and non-profit versions
@@ -273,7 +273,7 @@ When the user wants to include only the description of the items, he/she would c
 ![Description only](/assets/images/connectors/quick-books/option.png)
 *Subset of Sales Item Detail*
 
-In conclusion, Description only is a subset of Sales Item Detail, if the user wants to include more details in the invoice, he/she should choose Sales Item Detail.
+In conclusion, Description only is a subset of Sales Item Detail- if the user wants to include more details in the invoice, he/she should choose Sales Item Detail.
 
 
 ### How do I create Purchase Order with Vendor Terms mapped dynamically in QuickBooks?
