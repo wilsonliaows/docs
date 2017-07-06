@@ -5,7 +5,6 @@ Connecting Quick Base to Workato allows for the management of data in Quick Base
 
 
 ## Quick Base: getting started with Quick Base and Workato 
-
 ![Getting started](/assets/images/connectors/quickbase/getting-started.jpg)
 
 *Quick Base integration by Workato*
@@ -33,7 +32,6 @@ ii) [How do I update a record in Quick Base?](https://support.workato.com/soluti
  - [Adding fields](https://support.workato.com/solution/articles/1000236540-quickbase-adding-fields)
 
 ### Quick Base business use cases
-
 See what businesses are doing with Quick Base using Workato to automate their business
 
 ![Quick Base presentation](/assets/images/connectors/quickbase/quickbase-presentation.jpg)
@@ -42,7 +40,6 @@ See what businesses are doing with Quick Base using Workato to automate their bu
 
 
 ## Quick Base: triggers 
-
 Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
 
 Configuring the trigger:
@@ -50,7 +47,7 @@ Configuring the trigger:
 ![Trigger configuration](/assets/images/connectors/quickbase/trigger-config.png)
 *Trigger configuration*
 
-There are 2 triggers which we can use with Quick Base: **New record** and **Updated record**. The records refer to a record within a table that is within an application. If the table requires an application token, you will need to create one in Quick Base. 
+There are 2 types of triggers which we can use with Quick Base, checking for either a **New record** or **Updated record** (or checking for both). The records refer to a record within a table that is within an application. If the table requires an application token, you will need to create one in Quick Base. 
 
 To manage your application tokens in Quick Base: 
 
