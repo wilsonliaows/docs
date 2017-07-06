@@ -1759,7 +1759,7 @@
                                 
                                 <h1 id="on-premise-access">On-premise access</h1>
 <p>Enterprises have on-premises applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore typically not easily accessible to cloud services like Workato.</p>
-<p>The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps and databases without having to open &#x2018;ports&#x2019; in the corporate firewall.</p>
+<p>The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open &#x2018;ports&#x2019; in the corporate firewall.</p>
 <p>On-premise access is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
 <p>For Workato accounts with on-prem access, users are able to view the on-prem option on their account menu.</p>
 <p><img src="assets/images/on-prem/on_prem_access_option.png" alt="On-prem option">
@@ -1824,6 +1824,7 @@
 <span class="hljs-attr">  profile2:</span>
     ...
 </code></pre>
+<h3 id="database-connection-profile">Database connection profile</h3>
 <p>Database connection profiles are located in the <code>database</code> section of <code>&lt;INSTALL_HOME&gt;/conf/config.yml</code>.
 The following databases are supported by the on-prem agent:</p>
 <ul>
@@ -1843,6 +1844,7 @@ Port numbers can be omitted when matching defaults for a given database type.</p
 <span class="hljs-attr">    password:</span> Secret123
 <span class="hljs-attr">    ApplicationName:</span> workato
 </code></pre>
+<h3 id="on-premise-files-connection-profile">On-premise files connection profile</h3>
 <p>Working with on-prem files requires you to define a filesystem profile in the <code>files</code> section.
 You need to specify the base folder for file access; the base folder will be used for resolving relative paths.</p>
 <pre><code class="lang-YAML"><span class="hljs-attr">files:</span>
@@ -1850,6 +1852,10 @@ You need to specify the base folder for file access; the base folder will be use
 <span class="hljs-attr">    base:</span> <span class="hljs-string">&quot;C:/Documents/HR&quot;</span>
 </code></pre>
 <p>Note that you need to restart the on-prem agent for any configuration change to become effective.</p>
+<p>For example, if we were to access the on-prem-file folder on the Desktop, the configuration will have a file path that looks something like this: </p>
+<p><img src="assets/images/on-prem/config-on-prem-file-setup.png" alt="Acess on-prem-file">
+<em>Configuration of on-prem-file folder on Desktop</em></p>
+<p>The file path can be found when you right-click on the folder, and select <strong>get info</strong> or <strong>property</strong>.</p>
 <h2 id="start-agent">Start agent</h2>
 <h3 id="windows-64-bit">Windows 64-bit</h3>
 <p>The on-prem agent can be run as a Windows console application or as a Windows service.</p>
@@ -1880,10 +1886,15 @@ You can use <code>Run Agent (console)</code> shortcut to ensure the agent is suc
 <h3 id="linux-64-bit">Linux 64-bit</h3>
 <p>Run the on-prem agent using the following bash script:</p>
 <pre><code>&lt;INSTALL_HOME&gt;/bin/run.sh
-</code></pre><h2 id="creating-recipes">Creating recipes</h2>
+</code></pre><h2 id="creating-connections">Creating connections</h2>
 <p>There are no differences in how you work with on-prem apps within your recipe, but on-prem app connections do require special configuration. An on-prem app connection needs to point to a on-prem agent and a specific <code>connection profile</code>.</p>
+<h3 id="connecting-to-database-profiles">Connecting to database profiles</h3>
+<p>Select the correct on-prem agent from the pick list. Once you select the on-prem agent, enter the <code>connection profile</code> name as entered in the <code>database</code> section of the <code>config.yml</code> configuration file.</p>
 <p><img src="https://docs.google.com/drawings/d/1ubb-7QbGbGtTxFUmyCoEZsYRVrR9wkgcjsqrz-OgShs/pub?w=962&amp;h=394" alt=""></p>
-<p>You can select the right on-prem agent from the pick list. Once you select the on-prem agent, enter the <code>connection profile</code> name as entered in the <code>database</code> section of the <code>config.yml</code> configuration file.</p>
+<h3 id="connecting-to-on-premise-file-system-profiles">Connecting to on-premise file system profiles</h3>
+<p>You can customize your connection name. Under the on-prem secure agent and connection profile, provide the corresponding agent name and connection profile respectively. Next, click on <strong>connect</strong>. Once your connection is successful, you can proceed to use the connector in your recipe.</p>
+<p><img src="assets/images/on-prem/connection-page.png" alt="Connections">
+<em>Connection configuration on Workato</em></p>
 <h2 id="common-errors-when-using-the-on-prem-agent">Common errors when using the on-prem agent</h2>
 <p>If connecting to on-prem applications fail, check that:</p>
 <ul>
@@ -1897,7 +1908,8 @@ You can use <code>Run Agent (console)</code> shortcut to ensure the agent is suc
 <li>Credentials provided in the connection profile are correct</li>
 <li>Database name and type provided in the connection profile is correct</li>
 </ul>
-<h1 id="example-recipes">Example recipes</h1>
+<h2 id="example-recipes">Example recipes</h2>
+<h3 id="example-on-premise-database-recipes">Example on-premise database recipes</h3>
 <p><a href="https://www.workato.com/recipes/280605" target="_blank">Salesforce case sync with on-prem SQL Server</a>
 <!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
 <a href="https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe" target="_blank">Quickbase data sync with SQL Server</a></p>
@@ -1983,7 +1995,7 @@ You can use <code>Run Agent (console)</code> shortcut to ensure the agent is suc
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"On premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.11","depth":1,"next":{"title":"Key features","level":"1.12","depth":1,"path":"features.md","ref":"features.md","articles":[{"title":"Scheduler","level":"1.12.1","depth":2,"path":"features/scheduler.md","ref":"features/scheduler.md","articles":[]},{"title":"Secondary connectors","level":"1.12.2","depth":2,"path":"features/secondary-connectors.md","ref":"features/secondary-connectors.md","articles":[]},{"title":"Lookup tables","level":"1.12.3","depth":2,"path":"features/lookup-tables.md","ref":"features/lookup-tables.md","articles":[]},{"title":"Callable recipes","level":"1.12.4","depth":2,"path":"features/callable-recipes.md","ref":"features/callable-recipes.md","articles":[]},{"title":"Account properties","level":"1.12.5","depth":2,"path":"features/account-properties.md","ref":"features/account-properties.md","articles":[]},{"title":"Utility","level":"1.12.6","depth":2,"path":"features/utilities.md","ref":"features/utilities.md","articles":[]},{"title":"Data masking","level":"1.12.7","depth":2,"path":"features/data-masking.md","ref":"features/data-masking.md","articles":[]},{"title":"Single Sign-On (SSO)","level":"1.12.8","depth":2,"path":"signing-up/sso.md","ref":"signing-up/sso.md","articles":[]},{"title":"List management","level":"1.12.9","depth":2,"path":"features/list-management.md","ref":"features/list-management.md","articles":[]},{"title":"Data retention","level":"1.12.10","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]}]},"previous":{"title":"People Task","level":"1.10","depth":1,"path":"workflow.md","ref":"workflow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"on-prem.md","mtime":"2017-07-06T18:35:50.704Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-06T18:36:49.537Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"On premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.11","depth":1,"next":{"title":"Key features","level":"1.12","depth":1,"path":"features.md","ref":"features.md","articles":[{"title":"Scheduler","level":"1.12.1","depth":2,"path":"features/scheduler.md","ref":"features/scheduler.md","articles":[]},{"title":"Secondary connectors","level":"1.12.2","depth":2,"path":"features/secondary-connectors.md","ref":"features/secondary-connectors.md","articles":[]},{"title":"Lookup tables","level":"1.12.3","depth":2,"path":"features/lookup-tables.md","ref":"features/lookup-tables.md","articles":[]},{"title":"Callable recipes","level":"1.12.4","depth":2,"path":"features/callable-recipes.md","ref":"features/callable-recipes.md","articles":[]},{"title":"Account properties","level":"1.12.5","depth":2,"path":"features/account-properties.md","ref":"features/account-properties.md","articles":[]},{"title":"Utility","level":"1.12.6","depth":2,"path":"features/utilities.md","ref":"features/utilities.md","articles":[]},{"title":"Data masking","level":"1.12.7","depth":2,"path":"features/data-masking.md","ref":"features/data-masking.md","articles":[]},{"title":"Single Sign-On (SSO)","level":"1.12.8","depth":2,"path":"signing-up/sso.md","ref":"signing-up/sso.md","articles":[]},{"title":"List management","level":"1.12.9","depth":2,"path":"features/list-management.md","ref":"features/list-management.md","articles":[]},{"title":"Data retention","level":"1.12.10","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]}]},"previous":{"title":"People Task","level":"1.10","depth":1,"path":"workflow.md","ref":"workflow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"on-prem.md","mtime":"2017-07-06T18:37:35.284Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-06T18:38:54.782Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
