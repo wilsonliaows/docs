@@ -99,13 +99,13 @@ A 'list' type pill is marked with the list logo as can be seen above in red.
 QuickBooks Online provides international trades to be done in multiple currencies. 
 Workato adapts your business needs and supports all necessary changes needed to automate your business.
 
-QuickBooks Online allows you to support multiple currencies. To do so, you may enable it in your Accounts and Settings section. Do note that enabling multiple currency may incur setting changes. Please do seek consultation with QuickBooks Online support.
+QuickBooks Online allows you to support multiple currencies. To do so, you may enable it in your Accounts and Settings section. Note that enabling multiple currency may incur setting changes. Seek consultation with QuickBooks Online support.
 
 ![QBO currency](/assets/images/QBO_docs/QBO currency.png)
 
 Exchange Rate field allows you to specify the exchange rate to your home currency from the specified currency. If no Currency is specified, the exchange rate will be defaulted to 1 in respect of the home currency.
 
-For dependent transaction documents such as Credit memo, the applied currency will depend on its parent transactions document, such as payment, or bank deposit.
+For dependent transaction documents such as Credit memo, the applied currency will depend on its parent transactions document- such as payment or bank deposit.
 
 An Example:
 
@@ -116,7 +116,7 @@ This field means that it will take 1.5239475 units of home currency to exchange 
 
 ## Different Labels between profit and non-profit versions
 
-If you are using the non-profit version of QuickBooks, do note that on Workato, certain terms may be labelled differently from what appears in your QuickBooks account. Refer to the table below to know which triggers and actions to use:
+If you are using the non-profit version of QuickBooks, note that on Workato, certain terms may be labelled differently from what appears in your QuickBooks account. Refer to the table below to know which triggers and actions to use:
 
 
 | For Profit                   | Non-Profit                     |
@@ -335,7 +335,7 @@ Workato adapts your business needs and supports all necessary changes needed to 
 
 **Exchange Rate**
 
-QuickBooks Online allows you to support multiple currencies. To do so, you may enable it in your Accounts and Settings section. Do note that enabling multiple currencies may incur setting changes. Consult QuickBooks online support for any difficulties.
+QuickBooks Online allows you to support multiple currencies. To do so, you may enable it in your Accounts and Settings section. Note that enabling multiple currencies may incur setting changes. Consult QuickBooks online support for any difficulties.
 
 ![Rates](/assets/images/connectors/quick-books/multi-rate.png)
 *Exchange rates*
@@ -351,7 +351,7 @@ For dependent transaction documents such as Credit memo, the applied currency wi
 
 ### Object IDs
 
-QuickBooks Object IDs can be used for All Search, Update, and Get details action. These IDs uniquely identify each record in the application. One thing to note : IDs are not interchangeable. An ID from Salesforce cannot be used as an ID in QuickBooks. Each application stores their own record's identity in their own ID. Get details action requires you to input QuickBooks ID only. 
+QuickBooks Object IDs can be used for All Search, Update, and Get details action. These IDs uniquely identify each record in the application. Note that IDs are not interchangeable. An ID from Salesforce cannot be used as an ID in QuickBooks. Each application stores their own record's identity in their own ID. Get details action requires you to input QuickBooks ID only. 
 
 #### How do I get the Document ID?
 
