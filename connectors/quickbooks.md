@@ -5,6 +5,11 @@ date: 2017-02-16 06:15:00 Z
 
 # QuickBooks Online
 
++[QuickBooks Online](https://search2.quickbooks.com/get-quickbooks/) easily integregates numerous aspects necessary in many businesses. The user can then download this data onto their own account.
+ +
+ +A few triggers that Workato acts on include 'New Bill', 'New Account' and 'New Employee'.
+ +Through these triggers, you can easily link other applications to get more benefits from [QuickBooks Online](https://www.workato.com/integrations/quickbooks). For instance, you could build a recipe that a trigger on a specificed interval can get details of specific items from QuickBooks Online.
+
 In this article we'll walk you through: 
 
 1. [Connector information](http://docs.workato.com/connectors/quickbooks.html#connector-information)
