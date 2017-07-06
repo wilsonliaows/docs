@@ -10,13 +10,13 @@ The latest triggers and actions can be found on the Xero connector page.
 ## Sales tax type when using create/update items action in Xero 
 To find out what types of sales tax to key in when using the **Create/update items** action in Xero, users can click on the URL below the box (highlighted in image). 
 
-![Sales tax list](/assets/images/connectors/xeno/sales-tax-list.png)
+![Sales tax list](/assets/images/connectors/xero/sales-tax-list.png)
 
 *List of different types of sales taxes*
 
 This will lead users to the **Tax type** page (image below) and they will have to key it in manually.
 
-![Tax types list](/assets/images/connectors/xeno/tax-type-list.png)
+![Tax types list](/assets/images/connectors/xero/tax-type-list.png)
 
 *List of tax types*
 
@@ -33,7 +33,7 @@ An ID is a unique identifier for an object in the API. In Xero, some IDs such as
 #### Contact ID
 **Contact ID** is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
 
-![Contact ID](/assets/images/connectors/xeno/contact-id.png)
+![Contact ID](/assets/images/connectors/xero/contact-id.png)
 ***Contact ID** in the contact page URL*
 
 You can also make use of the output datapill from the following actions to obtain **Contact ID**, depending on your workflow:
@@ -44,7 +44,7 @@ You can also make use of the output datapill from the following actions to obtai
 
 For example, when you want to add person(s) to a contact, you could conduct **Search contact** by contact name or email and make use of the output datapill as shown below:
 
-![Search for contacts](/assets/images/connectors/xeno/search-contact.png)
+![Search for contacts](/assets/images/connectors/xero/search-contact.png)
 *Search for contacts by name or email*
 
 #### Manual Journal ID
@@ -55,7 +55,7 @@ You can make use of the output datapill from the following actions to obtain **M
 2. **Search manual journal**
 3. **Update manual journal**
 
-![Manual Journal ID](/assets/images/connectors/xeno/manual-journal-id.png)
+![Manual Journal ID](/assets/images/connectors/xero/manual-journal-id.png)
 ***Manual journal ID** identifier*
 
 #### Payment ID
@@ -64,7 +64,7 @@ You can make use of the output datapill from the following actions to obtain **P
 1. **Create payment**
 2. **Search payments**
 
-![Payment](/assets/images/connectors/xeno/payment.png)
+![Payment](/assets/images/connectors/xero/payment.png)
 ***Payment ID***
 
 #### Employee ID 
