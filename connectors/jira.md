@@ -4,6 +4,9 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # JIRA
+[JIRA](https://www.atlassian.com/software/jira) gives users a simple way to organize and plan the release of any software. This allows development teams to lay out key steps to follow when releasing the software including 'Plan', 'Track','Release','and Report' to guide users.
+
+With Workato, you can keep projects and issues in sync between JIRA and other issues or tickets tracking apps used by other departments such as Zendesk, ServiceNow, Salesforce's Desk.com.
 
 ## Connector information
 
@@ -48,5 +51,6 @@ JIRA users who can login to JIRA can connect to JIRA from Workato. The user will
 To use JIRA real-time triggers (which [registers a JIRA webhook via the API](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-Registeringawebhook)), the authenticated user needs to have the **JIRA Administrators global permission**. To set up real-time triggers without requiring the **JIRA Administrators global permission**, use the HTTP connector, **New event via webhook** trigger to [set up a JIRA webhook trigger via the JIRA admin console](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-jiraadmin).
 
 ## Working with the JIRA connector
+
 ### Using real-time triggers
 To use JIRA real-time triggers (which [registers a JIRA webhook via the API](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-Registeringawebhook)), the authenticated user needs to have the **JIRA Administrators global permission**. To set up real-time triggers without requiring the **JIRA Administrators global permission**, use the HTTP connector, **New event via webhook** trigger to [set up a JIRA webhook trigger via the JIRA admin console](https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-jiraadmin).
