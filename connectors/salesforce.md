@@ -41,7 +41,7 @@ Salesforce users who can login to Salesforce can connect to Salesforce from Work
 
 ## Working with the Salesforce connector
 
-### Can I connect more that one Salesforce account in a single recipe?
+### Can I connect more than one Salesforce account in a single recipe?
 Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more [here](http://http://docs.workato.com/features/secondary-connectors.html).
 
 ### What versions and editions we work with or don't work with
@@ -50,37 +50,35 @@ Workato works with all versions and editions of Salesforce including Force.com a
 
 ### Using real-time triggers
 
-Workato offers real-time capabilities for 2 salesforce triggers, namely **New Object** and **New/Updated Object**. This allows workato to pick up any object that was created/updated in Salesforce immediately. To enable this, 
-1. Log in to your salesforce instance and click on 'Setup' on the top right of the page. 
+Workato offers real-time capabilities for 2 Salesforce triggers, namely **New Object** and **New/Updated Object**. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this, 
+1. Log in to your Salesforce instance and click on 'Setup' at the top right of the page. 
 2. On the left hand panel, under Build, click on Create > Workflow & Approvals > Workflow rules. 
 3. Select the Object which you want to receive real time updates for and click Next.
 4. Fill in the required and optional field:
   Rule name,
-  Rule Criteria (Rule criteria can be set based on your preference. For example, only when Opportunity status equals “Closed-won".)
+  Rule Criteria (Rule criteria can be set based on your preference. For example, only when Opportunity status equals “Closed Won".)
   After you are done, click **Save & Next**.
 
-5. Select New Outbound Message under Specify workflow actions
-  and fill in the required and optional fields.
+5. Select New Outbound Message under Specify workflow actions and fill in the required and optional fields.
 6. You are now set up for real-time integration! Simply go to your Workato recipe and choose real-time trigger. Note that you can only use these triggers with objects you have set up the above steps with. 
 
-To use Salesforce real-time triggers, the user needs to be on the **Workato Enteprise Plan**.
+Salesforce real-time triggers is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ### Working with generic triggers in Salesforce
-In workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created. 
+In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created. 
 
 
 ### Working with generic create/update/search actions in Salesforce
-When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields in the objects on your salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose **Lead** you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action. 
+When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields in the objects on your Salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose **Lead** you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action. 
 
 
 ### Working with attachments in Salesforce
 
 #### Uploading
-
 To upload an attachment **to** Salesforce using Workato, you can use the **Create Object** Action, and select **Attachment** under the **Object** field. Before that however, you need to have a step that downloads the file that is to be uploaded to Salesforce. You may use the **Box** action **get file download URL**, followed by using the **utilities** tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  You can check out [this example here](http://docs.workato.com/handling-files-and-attachments.html#example-of-using-utilities-to-download-file-from-public-url) on how to download a file to Workato.
 
 #### Downloading
-To download an attachment **from** Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previous step, usually from the get object details step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the **Upload file** action in the **Box** connector. 
+To download an attachment **from** Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previous step, usually from the **get object details** step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the **Upload file** action in the **Box** connector. 
 
 ## Working with SOQL in Salesforce
 **Salesforce Object Query Language (SOQL)** is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
@@ -101,9 +99,9 @@ For detailed information on how to use each comparison operator, see: [Compariso
 
 **Logical operators:**
 Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
-fieldExpressionX **AND** fieldExpressionY / 
-fieldExpressionX **OR** fieldExpressionY / 
-**NOT** fieldExpressionX.
+- fieldExpressionX **AND** fieldExpressionY 
+- fieldExpressionX **OR** fieldExpressionY 
+- **NOT** fieldExpressionX.
 
 Here is an example showing two fieldExpressions joined by a logical operator:
 
@@ -114,9 +112,10 @@ For more information on logical operators, see: [Logical Operators](https://deve
 ### Date Formats and Date Literals:
 To filter on date fields in a query, you must use Date only format. The syntax for this is: YYYY-MM-DD.
 To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:
-YYYY-MM-DDThh:mm:ss+hh:mm / 
-YYYY-MM-DDThh:mm:ss-hh:mm / 
-YYYY-MM-DDThh:mm:ssZ.
+- YYYY-MM-DDThh:mm:ss+hh:mm 
+- YYYY-MM-DDThh:mm:ss-hh:mm 
+- YYYY-MM-DDThh:mm:ssZ.
+
 In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values. 
 For date fields, add ‘.to_date’ to the end of your date formula to convert your date or timestamp to the correct format.
 
@@ -135,7 +134,7 @@ For additional help, see Salesforce documentation
 * [WHERE Clause Syntax](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_conditionexpression.htm)
 
 ## Best practices
-When starting to use Workato with your salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. 
+When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. 
 ### Working with Sandbox on Workato
 Salesforce Sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don’t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see [Sandbox Setup Tips and Considerations](https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&language=en_US).
 ## Troubleshooting
