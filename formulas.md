@@ -85,31 +85,26 @@ For more information on Ruby's ternary syntax, check out this [article](http://w
 
 ### Clear
 
-When null/nil is entered into an input field, the value of the field remains unchanged. With 'clear', when null/nil is inputted, the value of of that field will be updated to null/nil.
+When null/nil is entered into an input field, the value of the field remains unchanged. With this function, the value of the field will be cleared when applying updates.
 
 ![Clear](/assets/images/formula-docs/clear.png)
 
-**Application:**
-
-When there is an update on the existing customers’ contact in the QBO, you want to update phone number if it is changed and clear the existing one if it is not. 
+For example, if there is an update on the existing customers’ contact in the QBO, you may want to update a phone number if it is changed and clear the existing one if it is not. 
 
 ![ternary ](/assets/images/formula-docs/ternary.jpg)
 
-Check email if is equal to zhoukai@workato.com, if it is leave as it is, if not clear the field. 
+Check email if is equal to samplemail@workato.com, if it is leave as it is, if not clear the field. 
 
 ## Skip
 
-Skip will explicitly tell the connector NOT to pass any value into the app, essentially leaving the value as-is.
+The Skip formula function will explicitly tell the connector NOT to pass any value into the app. Essentially, the function allows users to use specfic conditions to skip values.
 
 ![Skip](/assets/images/formula-docs/skip.png)
 
-**Application:**
-
-Similar case as clear. 
-Another use case could be that you want to update all the existing contact with a default email and clear the field if it does not contain the email
+An example where **Skip** could help is if you want to update all the existing contacts with a default email and clear the field if it does not contain the email
 
 ## Null
 
-We used to only support ‘nil’ (Ruby for null), but now we support ‘null’ as well; it will automatically convert to ‘nil’ in the backend.
+We used to only support ‘nil’ (Ruby for null), but now we support ‘null’ as well; it will automatically convert to ‘nil’ in the backend. Null and nil are used for updating fields in recipes that are indeterminate. 
 
 ![Null](/assets/images/formula-docs/null.png)
