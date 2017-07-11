@@ -95,7 +95,7 @@ For example, if there is an update on the existing customers’ contact in the Q
 
 Check email if is equal to samplemail@workato.com, if it is leave as it is, if not clear the field. 
 
-## Skip
+### Skip
 
 The Skip formula function will explicitly tell the connector NOT to pass any value into the app. Essentially, the function allows users to use specfic conditions to skip values.
 
@@ -103,7 +103,7 @@ The Skip formula function will explicitly tell the connector NOT to pass any val
 
 An example where **Skip** could help is if you want to update all the existing contacts with a default email and clear the field if it does not contain the email
 
-## Null
+### Null
 
 We used to only support ‘nil’ (Ruby for null), but now we support ‘null’ as well; it will automatically convert to ‘nil’ in the backend. Null and nil are used for updating fields in recipes that are indeterminate. 
 
