@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Connectors documentation · GitBook</title>
+        <title>Software development lifecycle · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="connectors/s3.html" />
+    <link rel="next" href="on-prem.html" />
     
     
-    <link rel="prev" href="workbot/workbot-latebinding.html" />
+    <link rel="prev" href="workflow.html" />
     
 
     
@@ -98,7 +98,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href=".">Connectors documentation</a>
+          <a href=".">Software development lifecycle</a>
         </h1>
       </div>
     </div>
@@ -675,7 +675,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.11" data-path="sdlc.html">
+    <li class="chapter active" data-level="1.11" data-path="sdlc.html">
       
 
       
@@ -961,7 +961,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.15" data-path="connectors.html">
+    <li class="chapter " data-level="1.15" data-path="connectors.html">
       
         <i class="fa fa-angle-right chapter__toggle"></i>
       
@@ -1772,18 +1772,96 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="connectors">Connectors</h1>
-<p>This section contains documentation on the connectors supported on the Workato platform, covering aspects such as:</p>
+                                <h1 id="software-development-lifecycle">Software development lifecycle</h1>
+<p>Organizations typically plan, develop, test and deploy new integrations via their software development lifecycle. This would involve moving recipes from a development environment to a testing environment, or from a testing environment to a production/deployment environment.</p>
+<p>On Workato, teams can move sets of recipes and their related assets (e.g. connections, callable recipes, custom connectors) from one environment to another, via the use of packages. This allows teams to maintain their integration recipes across their different teams&apos; environments.</p>
+<h2 id="packages">Packages</h2>
+<p>A package refers to a grouping of assets, which refers to recipes and the related dependencies needed for recipes to work, e.g. connections, custom connectors, lookup tables and account properties. With the packages feature, users can move these assets easily across different Workato accounts.</p>
+<p>Packages are useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team&apos;s Workato account, or to the production Workato account. Consultants can also utilize this feature to move comprehensive integrations into their clients&apos; accounts.</p>
+<p>The packages feature is enabled only for certain Workato plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
+<p>For Workato accounts with the packages feature enabled, users will be able to see the import/export option on their account menu.</p>
+<p><img src="assets/images/features/packages/packages-option.png" alt="Packages option">
+<em>Packages menu option</em></p>
+<p>Upon clicking the Import/export option on the menu, you&apos;ll be brought into the packages page.</p>
+<p><img src="assets/images/features/packages/import-export-buttons.png" alt="Import export page">
+<em>Packages page with import and export functions</em></p>
+<h3 id="exporting-packages">Exporting packages</h3>
+<p>When you export a folder of recipes as a zip file, you will find:</p>
 <ul>
-<li>API version</li>
-<li>Supported editions and versions</li>
-<li>How to connect to the connector on Workato</li>
-<li>Roles and permissions required to connect</li>
-<li>Details on using the triggers</li>
-<li>Details on using the actions</li>
-<li>Troubleshooting the common errors</li>
+<li>recipes in that folder</li>
+<li>subfolders and recipes in those subfolders</li>
+<li>associated connections</li>
+<li>associated custom connectors</li>
+<li>associated callable recipes</li>
+<li>all account properties</li>
+<li>all lookup tables</li>
 </ul>
-<p>This documentation does not comprehensively cover all our connectors. We&apos;re constantly building new connectors and adding to the documentation. Let us know if there&apos;s any connector in particular you&apos;d like to see covered, and you can always help to add to our documentation!</p>
+<p>To begin exporting your recipes, ensure that all the recipes you wish to export are grouped together in a Workato folder. All associated connections, custom connectors and callable recipes will also be bundled into the package automatically. All account properties and lookup tables in that Workato account are also bundled into the package. Once the package is created, the user can download the package in a zip file.</p>
+<p>In the example below, 2 recipes can be found in the <strong>Customer Sync</strong> folder. In these recipes, the user utilizes assets such as callable recipes and lookup tables.</p>
+<p>To export a folder as a package, click on the <strong>Export</strong> button. Select the folder to export.</p>
+<p><img src="assets/images/features/packages/export-packages-select-folder.gif" alt="Export packages - select folder to export">
+<em>Select a folder to export</em></p>
+<p>Once a folder has been selected, the assets that will be exported to a package will be shown on screen for review. If it looks right, click <strong>Next</strong>.</p>
+<p><img src="assets/images/features/packages/export-packages-review.png" alt="Export packages - review assets">
+<em>Review the folder&apos;s assets to be exported</em></p>
+<p>The folder will be exported once <strong>Next</strong> has been clicked. Workato will proceed to generate a zip file to be downloaded. This zip file will contain all the assets related to the recipe for it to work when imported into another account.</p>
+<p><img src="assets/images/features/packages/export-packages-complete.png" alt="Export packages - export completed">
+<em>Folder has been successfully exported as a package and is ready for download</em></p>
+<h3 id="importing-packages">Importing packages</h3>
+<p>Upon clicking the Import/export option on the menu, you&apos;ll be brought into the packages page.</p>
+<p><img src="assets/images/features/packages/import-export-buttons.png" alt="Import export page">
+<em>Packages page with import and export functions</em></p>
+<p>To import a package, simply upload the zip file of the package containing the assets, and select a destination Workato folder to import these recipes into.</p>
+<p><img src="assets/images/features/packages/import-packages-select-folder.gif" alt="Import packages - select destination folder">
+<em>Select a destination folder to import your packages into</em></p>
+<p>Once a zip file has been uploaded, you will be able to preview the assets which will be imported into your Workato folder. For each asset, details about whether the asset will be created, or whether it would overwrite an existing asset (with the same name), is included in italics.</p>
+<p>When importing a package for the first time, or when importing a package into a new folder, all assets will be created as below.</p>
+<p><img src="assets/images/features/packages/import-packages-create.png" alt="Importing a new package or a package in an empty folder">
+<em>Importing a new package or a package in an empty folder</em></p>
+<p>When importing a package for the second (or more) time into the same folder, as long as the assets have the same names, the imported assets will overwrite existing assets in the target folder, as below.</p>
+<p><img src="assets/images/features/packages/import-packages-update.png" alt="Importing an existing/updated package into the same folder again">
+<em>Importing an existing/updated package into the same folder again</em></p>
+<p>Once the package has been imported into your Workato account, the success screen shows up. You&apos;ll be able to find the recipes in the selected folder.</p>
+<p><img src="assets/images/features/packages/import-packages-successful.png" alt="Successfully importing a package">
+<em>Success screen for package import</em></p>
+<h2 id="packages-import-behaviour">Packages import behaviour</h2>
+<p>The following table details how an imported package&apos;s assets are moved into your Workato account.</p>
+<table>
+<thead>
+<tr>
+<th>Dependency type</th>
+<th>What Workato does when package is imported</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recipes</td>
+<td>Overwrites recipe if a recipe with the same name exists in the folder. Creates new recipe if no recipe with the same name exists in the folder</td>
+<td>Selected folder</td>
+</tr>
+<tr>
+<td>Custom connectors</td>
+<td>Overwrites existing custom connector if connector with same name already exists in the Workato account. Creates new connector if no connector with the same name exists in the Workato account.</td>
+<td>Developer</td>
+</tr>
+<tr>
+<td>Connections</td>
+<td>Creates a connection placeholder with no actual connection. This does nothing if a connection by the same name already exists.</td>
+<td>Connections</td>
+</tr>
+<tr>
+<td>Lookup tables</td>
+<td>Creates a lookup table placeholder. Does nothing if a lookup table by the same name already exists.</td>
+<td>Lookup table</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>Add properties to existing properties in the Workato account. Does nothing if a property with the same name already exists.</td>
+<td>Properties</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -1866,7 +1944,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Connectors documentation","date":"2017-03-04T18:00:00.000Z","level":"1.15","depth":1,"next":{"title":"Amazon S3","level":"1.15.1","depth":2,"path":"connectors/s3.md","ref":"connectors/s3.md","articles":[]},"previous":{"title":"Workbot personal connections","level":"1.14.4","depth":2,"path":"workbot/workbot-latebinding.md","ref":"workbot/workbot-latebinding.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"connectors.md","mtime":"2017-07-17T20:25:19.658Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-17T20:27:02.475Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Software development lifecycle","date":"2017-05-31T15:00:00.000Z","level":"1.11","depth":1,"next":{"title":"On premise connectivity","level":"1.12","depth":1,"path":"on-prem.md","ref":"on-prem.md","articles":[]},"previous":{"title":"People Task","level":"1.10","depth":1,"path":"workflow.md","ref":"workflow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sdlc.md","mtime":"2017-07-17T20:25:19.662Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-17T20:27:02.475Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
