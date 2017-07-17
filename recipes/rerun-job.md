@@ -10,7 +10,7 @@ Workato allows for jobs to be rerun. In such cases, the trigger event will run t
 
 - An error occured in a job, you've fixed the recipe/data and wish to rerun the job
 
-**Note:** When jobs are reran, the trigger event is ran through the entire recipe. Duplication may occur, so be sure to check and remove duplicates (if present) before re-running the job. Also, see our guide on how to create a strong and sturdy recipe to prevent duplication [here](https://support.workato.com/support/solutions/articles/1000200234-general-best-practices-how-to-prevent-duplicate-records-from-being-created).
+**Note:** When jobs are reran, the trigger event is ran through the entire recipe. Duplication may occur, so be sure to check and remove duplicates (if present) before re-running the job. Also, see our guide on how to create a robust recipe to prevent duplication [here](https://support.workato.com/support/solutions/articles/1000200234-general-best-practices-how-to-prevent-duplicate-records-from-being-created).
 
 To rerun jobs from the jobs report page, check the jobs to rerun and click on the rerun button.
 
