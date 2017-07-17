@@ -1,9 +1,14 @@
 ---
-title: Packages
+title: Software development lifecycle
 date: 2017-05-31 15:00:00 Z
 ---
 
-# Packages
+# Software development lifecycle
+Organizations typically plan, develop, test and deploy new integrations via their software development lifecycle. This would involve moving recipes from a development environment to a testing environment, or from a testing environment to a production/deployment environment.
+
+On Workato, teams can move sets of recipes and their related assets (e.g. connections, callable recipes, custom connectors) from one environment to another, via the use of packages. This allows teams to maintain their integration recipes across their different teams' environments.
+
+## Packages
 A package refers to a grouping of assets, which refers to recipes and the related dependencies needed for recipes to work, e.g. connections, custom connectors, lookup tables and account properties. With the packages feature, users can move these assets easily across different Workato accounts.
 
 Packages are useful when teams are collaborating across different Workato accounts, for example, if the development team wishes to move recipes over to the QA team's Workato account, or to the production Workato account. Consultants can also utilize this feature to move comprehensive integrations into their clients' accounts.
@@ -20,7 +25,7 @@ Upon clicking the Import/export option on the menu, you'll be brought into the p
 ![Import export page](/assets/images/features/packages/import-export-buttons.png)
 *Packages page with import and export functions*
 
-## Exporting packages
+### Exporting packages
 When you export a folder of recipes as a zip file, you will find:
 - recipes in that folder
 - subfolders and recipes in those subfolders
@@ -49,7 +54,7 @@ The folder will be exported once **Next** has been clicked. Workato will proceed
 ![Export packages - export completed](/assets/images/features/packages/export-packages-complete.png)
 *Folder has been successfully exported as a package and is ready for download*
 
-## Importing packages
+### Importing packages
 Upon clicking the Import/export option on the menu, you'll be brought into the packages page.
 
 ![Import export page](/assets/images/features/packages/import-export-buttons.png)
@@ -77,7 +82,7 @@ Once the package has been imported into your Workato account, the success screen
 ![Successfully importing a package](/assets/images/features/packages/import-packages-successful.png)
 *Success screen for package import*
 
-# Packages import behaviour
+## Packages import behaviour
 The following table details how an imported package's assets are moved into your Workato account.
 
 | Dependency type | What Workato does when package is imported                                                                                                                                                   | Location        |
