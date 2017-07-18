@@ -18,11 +18,11 @@ When you're configuring a recipe step, all data from the preceeding steps will b
 
 # Data types
 Data pills can be of the following data types
-- [String](docs/formulas/string-formulas.md)
-- [Integer or number](docs/formulas/number-formulas.md)
-- [Date or datetime](docs/formulas/date-formulas.md)
+- [String](http://docs.workato.com/recipes/docs/formulas/string-formulas.md)
+- [Integer or number](http://docs.workato.com/recipes/docs/formulas/number-formulas.md)
+- [Date or datetime](http://docs.workato.com/recipes/docs/formulas/date-formulas.md)
 - Boolean
-- [Array/hash (list)](docs/formulas/array-list-formulas.md)
+- [Array/hash (list)](http://docs.workato.com/recipes/docs/formulas/array-list-formulas.md)
 
 When mapping (i.e. assigning data pill to an input field) it is important that they are 'type' compatible. Workato will do default type conversions where it can be done with no ambioguity or loss of information.
 

@@ -120,7 +120,7 @@ This field is a standard field in NetSuite, but typically not visible by default
 
 - IDs
 
-When linking an object to another object via Workato (e.g. when creating a transaction and trying to link this transaction to a class, department or subsidiary), NetSuite usually asks for the IDs of the object you wish to link to. To find these IDs, you would typically need to search for these objects (e.g. in this case, to search for your class, department or subsidiary). Alternatively, you might want to store these values in a [lookup table](features/lookup-tables.md) for easy reference without having to execute a search in your NetSuite instance.
+When linking an object to another object via Workato (e.g. when creating a transaction and trying to link this transaction to a class, department or subsidiary), NetSuite usually asks for the IDs of the object you wish to link to. To find these IDs, you would typically need to search for these objects (e.g. in this case, to search for your class, department or subsidiary). Alternatively, you might want to store these values in a [lookup table](http://docs.workato.com/connectors/features/lookup-tables.md) for easy reference without having to execute a search in your NetSuite instance.
 
 - Custom fields
 
