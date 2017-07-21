@@ -1773,21 +1773,21 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="rerunning-jobs">Rerunning jobs</h1>
-<p>Workato allows for jobs to be reran. In such cases, the trigger event will run through the sequence of actions in the recipe again. This feature is useful when:</p>
+<p>Workato allows for jobs to be rerun. In such cases, the trigger event will run through the sequence of actions in the recipe again. This feature is useful when:</p>
 <ul>
 <li><p>You&apos;ve edited the recipe and want to test it</p>
 </li>
 <li><p>An error occured in a job, you&apos;ve fixed the recipe/data and wish to rerun the job</p>
 </li>
 </ul>
-<p><strong>Note:</strong> When jobs are reran, the trigger event is ran through the entire recipe. Duplication may occur, so be sure to check and remove duplicates (if present) before re-running the job.</p>
+<p><strong>Note:</strong> When jobs are reran, the trigger event is ran through the entire recipe. Duplication may occur, so be sure to check and remove duplicates (if present) before re-running the job. Also, see our guide on how to create a robust recipe to prevent duplication <a href="https://support.workato.com/support/solutions/articles/1000200234-general-best-practices-how-to-prevent-duplicate-records-from-being-created" target="_blank">here</a>.</p>
 <p>To rerun jobs from the jobs report page, check the jobs to rerun and click on the rerun button.</p>
 <p><img src="../assets/images/rerun-jobs/job-rerun-from-report.gif" alt="Job rerun from jobs report page">
 <em>Rerunning jobs from jobs report page</em></p>
 <p>You can also rerun jobs when within the job details page. Simply click on the rerun button.</p>
 <p><img src="../assets/images/rerun-jobs/job-rerun-from-details.gif" alt="Job rerun from job details page">
 <em>Job rerun from job details page</em></p>
-<p>Job reruns are in-place - meaning that the position of the job will not change within hte jobs report. A job which was first processed in August and reran in September will retain its position amongst the other jobs processed in August.</p>
+<p>Job reruns are in-place - meaning that the position of the job will not change within the jobs report. A job which was first processed in August and reran in September will retain its position amongst the other jobs processed in August.</p>
 <h1 id="cached-trigger-data-in-job-reruns">Cached trigger data in job reruns</h1>
 <p>All job reruns use cached data. This means that the original trigger event&apos;s data is reused for the rerun, and any changes made to the trigger event in the trigger app will not be picked up by a job rerun. This means that there are scenarios whereby a job rerun will not resolve your issues:</p>
 <ul>
@@ -1796,14 +1796,15 @@
 <li><p>when you update the trigger event and wish to see how the recipe processes the new trigger event</p>
 </li>
 </ul>
-<p>In such cases, if you have a <strong>New object</strong> trigger, you might need to delete the existing trigger event and recreate a new trigger event, e.g. if you have a <strong>New Salesforce account</strong> trigger, you would have to delete that newly created Salesforce account and recreate a new Salesforce account for the recipe to pick up the Salesforce account with the correct data.</p>
+<p>In such cases, if you are using a <strong>New object</strong> trigger, you might need to delete the existing trigger event (data from your app) and recreate a new trigger event, e.g. if you have a <strong>New Salesforce account</strong> trigger, you would have to delete that newly created Salesforce account and recreate a new Salesforce account for the recipe to pick up the Salesforce account with the correct data.</p>
 <p>However, if you have a <strong>New/updated object</strong> trigger, you wouldn&apos;t have to delete the record with the wrong data, but simply update the record and let the recipe pick up the update, e.g. if you have a <em>New/updated Salesforce account*</em> trigger, you can update the newly created/updated Salesforce account to fix the wrong data, and the recipe will pick up that account again with the correct data.</p>
+<p>For both cases above, a new job will be picked up.</p>
 <h1 id="job-rerun-history">Job rerun history</h1>
 <p>Within the job details page, you can view the rerun history of the job.</p>
 <p><img src="../assets/images/rerun-jobs/jobs-history.png" alt="Jobs history">
 <em>Jobs history</em></p>
 <p>In the job details screen, if you&apos;re viewing a job rerun which is not the latest version of the job reran, the <em>Rerun</em> button will be greyed out.</p>
-<p><img src="../assets/images/recipes/rerun-jobs/non-latest-job-rerun.png" alt="Deactivated rerun jobs button">
+<p><img src="../assets/images/rerun-jobs/non-latest-job-rerun.png" alt="Deactivated rerun jobs button">
 <em>Rerun button is greyed out if you&apos;re not in the latest ran job details screen</em></p>
 <h1 id="common-scenarios-for-rerunning-jobs">Common scenarios for rerunning jobs</h1>
 <ul>
@@ -1813,8 +1814,8 @@
 <p>For example, in the following recipe, a trigger event carries out either steps 2-3, or steps 4-5. In this case, we should test out the recipe flow for a Salesforce account which has no matching Zendesk organization, as well as a Salesforce account which has a matching Zendesk organization.</p>
 <p><img src="../assets/images/rerun-jobs/example-recipe.png" alt="Example recipe">
 <em>Recipe with two logical branches. <a href="https://www.workato.com/recipes/480358" target="_blank">Example recipe</a> </em></p>
-<p>Because the trigger is <strong>New/updated Salesforce account</strong>, we can simply create a new Salesforce account and let the recipe pick it up and process it through steps 2-3 to create a corresponding Zendesk account. After that, we can make a quick edit to the Salesforce acccount for the recipe to pick up the updated record, in which case it will run this Salesforce account through steps 4-5 as it will now have a matching Zendesk organization.</p>
-<p>Had the trigger been <strong>New Salesforce account</strong>, we would have to stage our tests differently. We would need to create a Salesforce account with a matching Zendesk organization, as well as a Salesforce account with no matching Zendesk organization, adn check that both jobs are carried out correctly.</p>
+<p>Because the trigger is <strong>New/updated Salesforce account</strong>, we can simply create a new Salesforce account and let the recipe pick it up and process it through steps 4-5 to create a corresponding Zendesk account. After that, we can make a quick edit to the Salesforce acccount for the recipe to pick up the updated record, in which case it will run this Salesforce account through steps 2-3 as it will now have a matching Zendesk organization.</p>
+<p>Had the trigger been <strong>New Salesforce account</strong>, we would have to stage our tests differently. We would need to create a Salesforce account with a matching Zendesk organization, as well as a Salesforce account with no matching Zendesk organization, and check that both jobs are carried out correctly.</p>
 <p>For any times, during testing, people incrementally build and test a recipe with the same job. During the testing phase, rerunning jobs is commonly used to fix the errors encountered in recipes.</p>
 <p>Rather than creating new trigger events, rerunning the same job will allow you to fix the errors 1 step at a time with the same event.</p>
 <ul>
@@ -1905,7 +1906,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rerun job","date":"2017-02-18T22:15:00.000Z","level":"1.5.3","depth":2,"next":{"title":"Operations","level":"1.5.4","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]},"previous":{"title":"Jobs","level":"1.5.2","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/rerun-job.md","mtime":"2017-07-17T20:25:19.662Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-17T20:27:02.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rerun job","date":"2017-02-18T22:15:00.000Z","level":"1.5.3","depth":2,"next":{"title":"Operations","level":"1.5.4","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]},"previous":{"title":"Jobs","level":"1.5.2","depth":2,"path":"recipes/jobs.md","ref":"recipes/jobs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/rerun-job.md","mtime":"2017-07-21T16:32:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-21T16:33:49.256Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

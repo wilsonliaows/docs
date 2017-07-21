@@ -1805,79 +1805,82 @@
 <h3 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h3>
 <p>Salesforce users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same <a href="https://help.salesforce.com/articleView?id=admin_userperms.htm&amp;language=en_US&amp;type=0" target="_blank">permissions</a> on Workato as in Salesforce, and will be able to read and write to the same projects and issues.</p>
 <h2 id="working-with-the-salesforce-connector">Working with the Salesforce connector</h2>
-<h3 id="can-i-connect-more-that-one-salesforce-account-in-a-single-recipe">Can I connect more that one Salesforce account in a single recipe?</h3>
-<p>Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more <a href="http://http://docs.workato.com/features/secondary-connectors.html" target="_blank">here</a></p>
+<h3 id="can-i-connect-more-than-one-salesforce-account-in-a-single-recipe">Can I connect more than one Salesforce account in a single recipe?</h3>
+<p>Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more <a href="http://http://docs.workato.com/features/secondary-connectors.html" target="_blank">here</a>.</p>
 <h3 id="what-versions-and-editions-we-work-with-or-dont-work-with">What versions and editions we work with or don&apos;t work with</h3>
-<p>Workato works with all versions and editions of Salesforce including Force.com apps</p>
+<p>Workato works with all versions and editions of Salesforce including Force.com apps.</p>
 <h3 id="using-real-time-triggers">Using real-time triggers</h3>
-<p>Workato offers real-time capabilities for 2 salesforce triggers, namely <strong>New Object</strong> and <strong>New/Updated Object</strong>. This allows workato to pick up any object that was created/updated in Salesforce immediately. To enable this, </p>
+<p>Workato offers real-time capabilities for 2 Salesforce triggers, namely <strong>New Object</strong> and <strong>New/Updated Object</strong>. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this, </p>
 <ol>
-<li>Log in to your salesforce instance and click on &apos;Setup&apos; on the top right of the page. </li>
-<li>On the left hand panel, under Build, click on Create&gt;Workflow &amp; Approvals &gt; Workflow rules. </li>
-<li>Select the Object which you want to receive real time updates for and click Next</li>
-<li><p>Fill in the required and optional field
-Rule name
-Rule Criteria (Rule criteria can be set based on your preference. For example, Only when Opportunity status equals &#x201C;Closed-won&quot;)
-Afrer you are done, click <strong>Save &amp; Next</strong></p>
+<li>Log in to your Salesforce instance and click on &apos;Setup&apos; at the top right of the page. </li>
+<li>On the left hand panel, under Build, click on Create &gt; Workflow &amp; Approvals &gt; Workflow rules. </li>
+<li>Select the Object which you want to receive real time updates for and click Next.</li>
+<li><p>Fill in the required and optional field:
+Rule name,
+Rule Criteria (Rule criteria can be set based on your preference. For example, only when Opportunity status equals &#x201C;Closed Won&quot;.)
+After you are done, click <strong>Save &amp; Next</strong>.</p>
 </li>
-<li><p>Select New Outbound Message under Specify workflow actions
-fill in the required and optional fields</p>
+<li><p>Select New Outbound Message under Specify workflow actions and fill in the required and optional fields.</p>
 </li>
 <li>You are now set up for real-time integration! Simply go to your Workato recipe and choose real-time trigger. Note that you can only use these triggers with objects you have set up the above steps with. </li>
 </ol>
-<p>To use Salesforce real-time triggers, the user needs to be on the <strong>Workato Enteprise Plan</strong></p>
+<p>Salesforce real-time triggers is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
 <h3 id="working-with-generic-triggers-in-salesforce">Working with generic triggers in Salesforce</h3>
-<p>In workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with <strong>Objects</strong>. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term &quot;object&quot; is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field&apos;s dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger <strong>&quot;New Object&quot;</strong> and select <strong>Lead</strong> as the object. Your recipe will trigger every time a new lead is created. </p>
+<p>In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with <strong>Objects</strong>. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term &quot;object&quot; is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field&apos;s dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger <strong>&quot;New Object&quot;</strong> and select <strong>Lead</strong> as the object. Your recipe will trigger every time a new lead is created. </p>
 <h3 id="working-with-generic-createupdatesearch-actions-in-salesforce">Working with generic create/update/search actions in Salesforce</h3>
-<p>When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields in the objects on your salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose <strong>Lead</strong> you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action. </p>
+<p>When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields in the objects on your Salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose <strong>Lead</strong> you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action. </p>
 <h3 id="working-with-attachments-in-salesforce">Working with attachments in Salesforce</h3>
 <h4 id="uploading">Uploading</h4>
-<p>To upload an attachement <strong>to</strong> Salesforce using Workato, you can use the <strong>Create Object</strong> Action, and select <strong>Attachement</strong> under the <strong>Object</strong> field. Before that however, you need to have a step that downloads an the file to be uploaded to saleforce. You may use the <strong>box</strong> action <strong>get file download URL</strong>, followed by using the  <strong>utilities</strong> tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  You can check out <a href="http://docs.workato.com/handling-files-and-attachments.html#example-of-using-utilities-to-download-file-from-public-url" target="_blank">this example here</a> on how to download a file to Workato.</p>
+<p>To upload an attachment <strong>to</strong> Salesforce using Workato, you can use the <strong>Create Object</strong> Action, and select <strong>Attachment</strong> under the <strong>Object</strong> field. Before that however, you need to have a step that downloads the file that is to be uploaded to Salesforce. You may use the <strong>Box</strong> action <strong>get file download URL</strong>, followed by using the <strong>utilities</strong> tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  You can check out <a href="http://docs.workato.com/handling-files-and-attachments.html#example-of-using-utilities-to-download-file-from-public-url" target="_blank">this example here</a> on how to download a file to Workato.</p>
 <h4 id="downloading">Downloading</h4>
-<p>To download an attachment <strong>from</strong> Salesforce, you can use the <strong>Download file</strong> Action.  The <strong>file ID</strong> must be obtained from a previos step, usually from the get object details step. Once that step is properly set up, you will be able to use the attachment as a pill in oth#er steps of the recipe, for example, you can use the <strong>Upload file</strong> action in the <strong>box</strong> connector. </p>
+<p>To download an attachment <strong>from</strong> Salesforce, you can use the <strong>Download file</strong> Action.  The <strong>file ID</strong> must be obtained from a previous step, usually from the <strong>Get object details</strong> step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the <strong>Upload file</strong> action in the <strong>Box</strong> connector. </p>
 <h2 id="working-with-soql-in-salesforce">Working with SOQL in Salesforce</h2>
 <p><strong>Salesforce Object Query Language (SOQL)</strong> is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
 In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting).</p>
 <p>The recipe will automatically handle the SELECT FROM portion of your query. It will SELECT all fields FROM the object you choose from the pick list. For optional clauses, the trigger currently only supports WHERE conditions.
-For a list of standard fields for major Salesforce objects, see: Salesforce Fields Reference</p>
+For a list of standard fields for major Salesforce objects, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm" target="_blank">Salesforce Fields Reference</a>.</p>
 <h3 id="inputting-soql-where-conditions-syntax">Inputting SOQL WHERE Conditions (Syntax):</h3>
-<p>The WHERE clause follows field expression syntax. A <strong>fieldExpression</strong> is defined as follows: fieldName comparisonOperator value.
-<strong>Comparison operators:</strong>
-Comparison operators include the following: =, !=, &lt;, &lt;=, &gt;, &gt;=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
-<img src="../assets/images/salesforce-docs/salesforce-soql-example-1.png" alt="SOQL-1">
-For detailed information on how to use each comparison operator, see: Comparison Operators
-<strong>Logical operators:</strong>
-Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
-fieldExpressionX <strong>AND</strong> fieldExpressionY
-fieldExpressionX <strong>OR</strong> fieldExpressionY
-<strong>NOT</strong> fieldExpressionX
-Here is an example showing two fieldExpressions joined by a logical operator:
-<img src="../assets/images/salesforce-docs/salesforce-soql-example-2.png" alt="SOQL-2">
-For more information on logical operators, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm" target="_blank">Logical Operators</a></p>
+<p>The WHERE clause follows field expression syntax. A <strong>fieldExpression</strong> is defined as follows: \<fieldname\> \<comparisonoperator\> \<value\>.</value\></comparisonoperator\></fieldname\></p>
+<p><strong>Comparison operators:</strong>
+Comparison operators include the following: =, !=, &lt;, &lt;=, &gt;, &gt;=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:</p>
+<p><img src="../assets/images/salesforce-docs/salesforce-soql-example-1.png" alt="SOQL-1"></p>
+<p>For detailed information on how to use each comparison operator, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_comparisonoperators.htm" target="_blank">Comparison Operators</a>.</p>
+<p><strong>Logical operators:</strong>
+Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:</p>
+<ul>
+<li>fieldExpressionX <strong>AND</strong> fieldExpressionY </li>
+<li>fieldExpressionX <strong>OR</strong> fieldExpressionY </li>
+<li><strong>NOT</strong> fieldExpressionX.</li>
+</ul>
+<p>Here is an example showing two fieldExpressions joined by a logical operator:</p>
+<p><img src="../assets/images/salesforce-docs/salesforce-soql-example-2.png" alt="SOQL-2"></p>
+<p>For more information on logical operators, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm" target="_blank">Logical Operators</a>.</p>
 <h3 id="date-formats-and-date-literals">Date Formats and Date Literals:</h3>
 <p>To filter on date fields in a query, you must use Date only format. The syntax for this is: YYYY-MM-DD.
-To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:
-YYYY-MM-DDThh:mm:ss+hh:mm
-YYYY-MM-DDThh:mm:ss-hh:mm
-YYYY-MM-DDThh:mm:ssZ
-In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values. 
+To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:</p>
+<ul>
+<li>YYYY-MM-DDThh:mm:ss+hh:mm </li>
+<li>YYYY-MM-DDThh:mm:ss-hh:mm </li>
+<li>YYYY-MM-DDThh:mm:ssZ.</li>
+</ul>
+<p>In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values. 
 For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to convert your date or timestamp to the correct format.</p>
 <p><img src="../assets/images/salesforce-docs/salesforce-soql-example-3.png" alt="SOQL-3"></p>
 <p><img src="../assets/images/salesforce-docs/salesforce-soql-example-4.png" alt="SOQL-4"></p>
 <p>For dateTime fields, the third syntax format is the simplest to use. After entering the formula to get your desired timestamp (eg: now, 2.weeks.ago.beginning_of_day, etc.), add &#x2018;.strftime(&quot;%Y-%m-%dT%H:%M:%S%z&quot;)&#x2019; to the end of it.</p>
 <p><img src="../assets/images/salesforce-docs/salesforce-soql-example-5.png" alt="SOQL-5"></p>
 <p>For more information on date formats and date literals, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm" target="_blank">Date Formats and Date Literals</a></p>
-<p>For additional hlp, see Salesforce documentation</p>
+<p>For additional help, see Salesforce documentation</p>
 <ul>
 <li><a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm" target="_blank">SOQL</a> </li>
 <li><a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_conditionexpression.htm" target="_blank">WHERE Clause Syntax</a></li>
 </ul>
 <h2 id="best-practices">Best practices</h2>
-<p>When starting to use Workato with your salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. </p>
+<p>When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. </p>
 <h3 id="working-with-sandbox-on-workato">Working with Sandbox on Workato</h3>
 <p>Salesforce Sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don&#x2019;t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see <a href="https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&amp;language=en_US" target="_blank">Sandbox Setup Tips and Considerations</a>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p>Here is a list of common erros that you may encounter, and links to how to rectify them.</p>
+<p>Here is a list of common errors that you may encounter, and links to how to rectify them.</p>
 <ul>
 <li><p>400 Bad Request</p>
 <p><a href="https://support.workato.com/solution/articles/1000166841-salesforce-error-400-bad-request-errorcode-malformed-id-wrong-field-is-mapped" target="_blank">errorCode: MALFORMED_ID. Wrong Field is mapped</a></p>
@@ -1979,7 +1982,7 @@ For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Salesforce","level":"1.15.11","depth":2,"next":{"title":"ServiceNow","level":"1.15.12","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[]},"previous":{"title":"QuickBooks Online","level":"1.15.10","depth":2,"path":"connectors/quickbooks.md","ref":"connectors/quickbooks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"connectors/salesforce.md","mtime":"2017-07-17T20:25:19.658Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-17T20:27:02.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Salesforce","level":"1.15.11","depth":2,"next":{"title":"ServiceNow","level":"1.15.12","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[]},"previous":{"title":"QuickBooks Online","level":"1.15.10","depth":2,"path":"connectors/quickbooks.md","ref":"connectors/quickbooks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"connectors/salesforce.md","mtime":"2017-07-21T16:32:41.353Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-21T16:33:49.256Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
