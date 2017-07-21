@@ -33,7 +33,7 @@
   * [Logging into SAML-enabled team](user-accounts-and-teams/team-collaboration.md#logging-into-saml-enabled-team)
   * [SAML Just-In-Time provisioning](user-accounts-and-teams/team-collaboration.md#saml-just-in-time-provisioning)
 * [People Task](workflow.md)
-* [Software development lifecycle](sdlc.md)
+* [Recipe development lifecycle](recipe-development-lifecycle.md)
 * [On premise connectivity](on-prem.md)
 * [Key features](features.md)
   * [Scheduler](features/scheduler.md)
