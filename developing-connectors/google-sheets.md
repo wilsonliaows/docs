@@ -4,7 +4,9 @@ date: 2017-6-12 23:00:00 Z
 ---
 
 # Google Sheets
-Google Sheets is a powerful cloud application that enables real-time team collaboration on spreadsheets, available from any device, even when offline.
+[Google Sheets](https://www.google.com/sheets/about/) is a powerful cloud application that enables real-time team collaboration on spreadsheets, available from any device, even when offline.
+
+Workato enables you to write data to a Google spreadsheet automatically as part of a workflow, e.g. leads filling out a form will be moved to a spreadsheet. You can also read rows of data from Google spreadsheets and move it to another app, e.g. moving respondents who had filled out a Google Form from Google Sheets into a marketing campaign app, or into a CRM.
 
 ## New row trigger
 The new row trigger is able to pick up newly added rows in your selected spreadsheet.
@@ -16,16 +18,20 @@ First, in order for us to retrieve the custom data in a sheet, the sheet must co
 *Sample Google Sheets spreadsheet with a header row and 4 data rows*
 
 ### Configuring the new sheet row trigger
-To configure the trigger, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet.
+Select the **New sheet row** trigger. 
 
 ![set up application](/assets/images/google-sheets/application-and-trigger.png)
 *Set up the application and the trigger*
 
+To configure the trigger, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet.
+
 ![Blank Trigger](/assets/images/google-sheets/trigger-setup-blank.png)
-*Blank trigger form*
+*Select the spreadsheet to monitor for new rows*
+
+Select the specific sheet to monitor for new rows.
 
 ![Filled trigger](/assets/images/google-sheets/trigger-setup-filled.png)
-*Filled trigger form*
+*Once the spreadsheet has been selected, an additional picklist is generated asking for the specific sheet to monitor*
 
 Set up your action:
 
@@ -39,10 +45,12 @@ Your new recipe should look as follows:
 ![Google spreadsheet sample](/assets/images/google-sheets/configured-recipe.jpg)
 *configured recipe with scheduler action for testing*
 
-In this case, the trigger picks up all 4 data lines in my Google sheet. You can configure the jobs report to display the information relevant to you, as below
+In this case, the trigger picks up all 4 data lines in my Google sheet.
 
 ![Customizing report](/assets/images/google-sheets/customize-report.png)
 *Customizing the recipe's job report with data from google sheets*
+
+You can configure the jobs report to display the information relevant to you, as below.
 
 ![Customized job report](/assets/images/google-sheets/updated-job-report.jpg)
 *Customized job report displaying selected information about the trigger event processed
@@ -55,14 +63,14 @@ The new/updated row trigger is able to pick up changes made to rows in your sele
 ### Setting up the Google Sheet 
 First, in order for us to retrieve the custom data in a sheet, the sheet must contain, at a minimum, a header line for the first row and a data line for the second row, as in the following screenshot.
 
-![Google spreadsheet sample](/assets/images/google-sheets/sample-google- sheets.jpg)
+![Google spreadsheet sample](/assets/images/google-sheets/sample-google-sheets.jpg)
 *Sample Google Sheets spreadsheet with a header row and 4 data rows*
 
 ### Configuring the new/updated sheet row trigger
 To configure the trigger, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet, while selecting the sheet would generate your list of columns within that sheet.
 
 ![recipe action](/assets/images/google-sheets/application-filling.gif)
-*Fill up the application and trigger*
+*Select the application and trigger*
 
 ![unconfigured sheet trigger](/assets/images/google-sheets/unconfigured-sheet-trigger.jpg)
 *Unconfigured new/updated sheet row trigger*
@@ -70,31 +78,27 @@ To configure the trigger, we need to select the spreadsheet and the actual sheet
 ![configured sheet trigger](/assets/images/google-sheets/configured-sheet-trigger.jpg)
 *Configured new/updated sheet row trigger*
 
-In order to pick up updated rows as trigger events, we need to know that an existing row has changed. The column that you select in the "Column to monitor" field, which is driven off your selected sheet, will be monitored for changes. Every time the data in a cell in this column changes, the entire row of data will be picked up by the recipe. In this case, we had selected "Date registered".
+In order to pick up updated rows as trigger events, we need to know that an existing row has changed. The column that you select in the **Column to monitor** field, which is driven off your selected sheet, will be monitored for changes. Every time the data in a cell in this column changes, the entire row of data will be picked up by the recipe. In this case, we had selected "Date registered".
 
 Alternatively, you can also select the option "All", in which any changes made to a row will cause it to be picked up by the trigger.
 
-![columns to monitor](/assets/images/google-sheets/column-to-monitor.png)
-*Available columns are derived from the selected Google sheet in the trigger*
-
 ### Running the trigger
-Now that we have the trigger configured, let's complete our recipe and run it! For testing, we can simply select the Scheduler action "Get current time". Alternatively, putting a "Stop" step works too. Let's start the below recipe.
+Now that we have the trigger configured, let's complete our recipe and run it! For testing, we can simply select the Scheduler action **Get current time**. Alternatively, putting a "Stop" step works too. Let's start the below recipe.
 
 ![configured recipe](/assets/images/google-sheets/configured-recipe-with-scheduler-action.png)
 *Configured recipe with Scheduler action for testing*
 
 In this case, the trigger picks up all 4 data lines in my Google sheet. You can configure the jobs report to display the information relevant to you, as below.
 
-![customize job report](/assets/images/google-sheets/customization-job-report.jpg)
-*Customizing the job recipe's job reoprt with data from google sheets*
-
 ![new job report](/assets/images/google-sheets/customized-job-report.jpg)
-*customized job report displaying selected information about the trigger event processed*
+*Customized job report displaying selected information about the trigger event processed*
+
+The following shows the customization of the job report.
+
+![customize job report](/assets/images/google-sheets/customization-job-report.jpg)
+*Customizing the job recipe's job reoprt with data from Google Sheets*
 
 As we've configured the sheet to monitor only changes to the date registered column, the change I've made to Andy's shirt size (as highlighted) will not cause the recipe to pick up any trigger events.
-
-![original sheet](/assets/images/google-sheets/original-sheet.jpg)
-*Orginal sample sheet*
 
 ![modified google sheets](/assets/images/google-sheets/modified-sheet.jpg)
 *Edited sample sheet with changed field highlighted*
@@ -102,7 +106,9 @@ As we've configured the sheet to monitor only changes to the date registered col
 However, if I were to further edit Xander's date registered value (in row 5), then the recipe will process row 5 again as a trigger event, and provide me with the latest data.
 
 ![edited sheet](/assets/images/google-sheets/edited-sheet.jpg)
-*Edit sheet. Cells in row 3 and 5 (highlighted) have been updated with new values*
+*Edited sheet. Cells in row 3 and 5 (highlighted) have been updated with new values*
+
+Row 5 will be picked up as a trigger event, as seen in the recipe. Let's click on the job line to examine the job details.
 
 ![date sheet](/assets/images/google-sheets/date-sheet.jpg)
 *Only row 5 will be picked up as "Date registered"- the only column we are monitoring changes for*
@@ -121,13 +127,12 @@ First, in order for us to retrieve the custom data in a sheet, the sheet must co
 *Sample Google Sheets spreadsheet with a header row and 4 data rows*
 
 ### Configuring the create row action
-To configure the action, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet, while selecting the sheet would generate your list of columns within that sheet.
+To configure the action, we need to select the spreadsheet and the actual sheet to process.
 
-![Trigger set up](/assets/images/google-sheets/app-trigger.png)
-*Application and trigger set up*
+![Trigger set up](/assets/images/google-sheets/add-row-action.png)
+*Select the new row in sheet trigger*
 
-![Unconfigured row actions](/assets/images/google-sheets/unconfigured.png)
-*Unconfigured row actions*
+Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet, while selecting the sheet would generate your list of columns within that sheet.
 
 ![configured row actions](/assets/images/google-sheets/configured-row-action.jpg)
 *Configured row actions*
