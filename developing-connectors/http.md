@@ -20,9 +20,12 @@ For non-OAuth2 connections, an additional test API request is required to ascert
 ## What is the HTTP connector and what is it useful for?
 Our generic HTTP and HTTP (OAUTH2) connector allows you to chat with all (well, almost!) cloud applications with an application program interface (API for short). This means that, outside of the Workato-built connectors that comes out of the box, you can build whatever triggers or actions you need to power your integration recipes. 
 
-With the HTTP connector, it takes less than 20 minutes to build your own trigger or action on Workato. This course will walk you through: 
+With the HTTP connector, it takes less than 20 minutes to build your own trigger or action on Workato. This course will walk you through:
+
 - How to set up a connection (Oauth2 and non OAuth2) to your app
+
 - How to build your own Workato triggers to get notified when something happens in your apps
+
 - How to build your own Workato actions to execute certain steps in your apps automatically
 
 Want to create an invoice in your accounting system? Make a POST request with a JSON request body. Want to retrieve metrics from your analytics application? Make a GET request with your query parameters. Want to trigger off upon new leads filling out your online form? Create a webhook trigger that notifies Workato immediately whenever a new lead completes your form. Want help getting started? Simply read on, or chat with one of our Customer Success superheros :)
