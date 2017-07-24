@@ -14,10 +14,10 @@ Arrays are ordered, integer-indexed collections of any object. List indexing sta
 Let's take the example of a list with 4 list items: 100, 101, 102, 103. This list is expressed as:
 
 ```ruby
-number_list = [100, 101, 102, 103]
+number_list = [100, 101, 102, 103, 104]
 ```
 
-As lists are ordered, we can use the following formula to get the values:
+As lists are ordered, we can use the following formula to get the values. Workato only supports retrieving up to the fifth item in the list:
 
 | Example              | Result |
 | -------------------- | ------ |
@@ -25,7 +25,8 @@ As lists are ordered, we can use the following formula to get the values:
 | `number_list.second` | 101    |
 | `number_list.third`  | 102    |
 | `number_list.fourth` | 103    |
-| `number_list.last`   | 103    |
+| `number_list.fifth`  | 104    |
+| `number_list.last`   | 104    |
 
 We can also use indexes to get corresponding values. Remember, indexes start at 0:
 
@@ -39,18 +40,18 @@ We can also use indexes to get corresponding values. Remember, indexes start at 
 Lists in Ruby supports negative indexes.
 
 | Example           | Result |
-| ----------------- | ------ |
-| `number_list[-1]` | 103    |
-| `number_list[-2]` | 102    |
-| `number_list[-3]` | 101    |
-| `number_list[-4]` | 100    |
+|-------------------|--------|
+| `number_list[-1]` | 104    |
+| `number_list[-2]` | 103    |
+| `number_list[-3]` | 102    |
+| `number_list[-4]` | 101    |
 
 Lists also support ranges as indexes. This returns another list, instead of returning only a value.
 
 | Example               | Result          |
 | --------------------- | --------------- |
 | `number_list[0..2]`   | [100, 101, 102] |
-| `number_list[-3..-1]` | [101, 102, 103] |
+| `number_list[-3..-1]` | [102, 103, 104] |
 | `number_list[0..-2]`  | [100, 101, 102] |
 
 # Hashes
@@ -238,7 +239,7 @@ Create an array of strings by formatting each row of given array of hashes. Allo
 ]
 ```
 
-The above example will give you a list of strings, one string for each row of the list **"contacts"**, using data from 3 of the fields: name, email and company, as stated. 
+The above example will give you a list of strings, one string for each row of the list **"contacts"**, using data from 3 of the fields: name, email and company, as stated.
 
 
 
