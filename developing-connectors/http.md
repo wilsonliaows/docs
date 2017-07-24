@@ -41,7 +41,7 @@ The HTTP (OAuth2) connector supports the authorization code grant variant of the
 #### Authorization URL
 URL that Workato redirects you to when you click on the ‘Connect’ button. This usually brings you to the login screen of your app.
 
-Some APIs require that you include certain parameters in the authorization URL. Common examples are response_type (“code” or “token”) and scope (“read”, “write”, “admin”, etc).
+Some APIs require that you include certain parameters in the authorization URL. Common examples are response_type (`code` or `token`) and scope (`read`, `write`, `admin`, etc).
 
 This should be publicly available from the API documentation of the app you’re connecting to, under the Authentication section.
 
@@ -87,7 +87,7 @@ https://www.eventbrite.com/oauth/token
 In order to connect to your Eventbrite account successfully, you would also need a set of client ID and client secret. To obtain this, you will need to register an app with Eventbrite so that they can assign the app with a client ID and secret. Log into Eventbrite and navigate to Account Settings > App Management. 
 
 ![Eventbrite's App Management screen](/assets/images/http/eventbrite-app-management.png)
-*Eventbrite's App Management screen*
+*Eventbrite's app management screen*
 
 In the app management page, you will be able to find your client ID (also called key). Expand the Show Client Secret and OAuth Token section to retrieve the client secret, and navigate to the App Extension section to input the callback URL `https://www.workato.com/oauth/callback` into Eventbrite.
 
@@ -110,17 +110,17 @@ This requires your username and password. An alternative to your username and pa
 ### Header Auth
 For applications which require additional headers outside of the usual username and password or API key, or if you want to customize the headers sent in the request. Header authentication can be used when you have a generated token ready for use.
 ![HTTP connector authentication type: Heade auth](/assets/images/http/http-connector-head.png)
-*HTTP connector authentication type: Header authority*
+*HTTP connector authentication type: Header authorization*
 
 ### Query params
 For applications where the authentication structure is based on validating an API key as a parameter. What you need to do is to add the parameter key/value pair in the params authorization field.
 ![HTTP connector authentication type: query params](/assets/images/http/http-connnector-query.png)
-*HTTP connector authentication type: query params*
+*HTTP connector authentication type: Query params*
 
 ### Custom
 Custom simply allows you to use a combination of any of the above fields.
 ![Custom http connector](/assets/images/http/http-connector-custom.jpg)
-*HTTP connector authentication type: custom*
+*HTTP connector authentication type: Custom*
 
 ### Testing your non-OAuth2 connection
 After you've connected, you would need to test out your non-OAuth2 connection to ensure that it's valid. To do that, send out a test API request - a simple one would be a GET request. If it succeeds, you know that the connection is valid.
@@ -137,7 +137,7 @@ I’ve also created a project in my new JIRA instance, named PPP, to be used for
 ![Jira Connection](/assets/images/http/jira-connection.png)
 *JIRA screenshot with subdomain workato321.atlassian.net and existing project PPP*
 
-We can provide our username and password in the connection settings as below. For the field On-prem secure agent, I selected no gateway as my JIRA instance is on the cloud.
+We can provide our username and password in the connection settings as below. For the field **On-prem secure agent**, I selected no gateway as my JIRA instance is on the cloud.
 
 ![Jira Connection settings](/assets/images/http/connection-settings-jira.png)
 *JIRA connection settings*
@@ -145,7 +145,7 @@ We can provide our username and password in the connection settings as below. Fo
 #### Testing our JIRA connection by running a GET action
 We're not done yet! Let's test out our connection. In the case of JIRA, the instance (subdomain) information needs to be sent in within the API endpoint, therefore it doesn’t need to be provided in your connection settings.
 
-To test out my connection, I’m just going to ask Workato to fetch me all the projects in my JIRA instance with this [GET all projects endpoint](https://workato321.atlassian.net/rest/api/2/project)
+To test out my connection, I’m just going to ask Workato to fetch me all the projects in my JIRA instance with this GET all projects endpoint: `https://workato321.atlassian.net/rest/api/2/project`.
 
 This is how my test recipe looks - it has a Scheduler trigger (New scheduled event, so that a job will be ran immediately when I click on run recipe, and it simply calls the API endpoint. We didn’t fill in the sample response body as this is simply a quick test - we’re not really interested in building the datatree for use in subsequent steps yet.
 
@@ -160,9 +160,9 @@ Now let’s run the recipe and click on the job that’s carried out. You should
 And if the API endpoint as well as username and password is correct, you should be able to see the data that’s returned under the output tab - in this case, my PPP project.
 
 ![Configured http action](/assets/images/http/API-recieved.png)
-*API response received from JIRA, as viewed from the job details output tab
+*API response received from JIRA, as viewed from the job details output tab*
 
-## Building Triggers
+## Building webhook triggers
 If the app you wish to integrate with supports webhooks, that should be listed in the app’s API documentation. Webhooks are notifications sent out immediately by your app to a target URL when an event happens. Usually, you’re able to define what specific event you wish to receive notifications for. To build a webhook trigger in Workato, we’ll direct these notifications to your Workato recipe, so that it will trigger and execute the recipe actions whenever the event happens in your app.
 
 For example, you can choose to build a webhook trigger that notifies your recipe whenever new customer tickets are marked with status ‘Urgent’, and have an action to send out an SMS to the account manager for this customer. In this case, the recipe will help to ensure urgent tickets are responded to in a timely fashion.
@@ -198,7 +198,7 @@ This payload example provided does not affect the actual payload being sent to W
 *Example of a configured webhook trigger*
 
 ![trigger datatree](/assets/images/http/trigger-datatree.png)
-*The trigger data schema coressponds to the webhook payload example provided in configuratiom*
+*The trigger data schema corresponds to the webhook payload example provided in configuration*
 
 ### Example - building a new order trigger in Eventbrite
 Perhaps we would like to build a real-time webhook trigger that triggers whenever a new order is placed in Eventbrite for your event “Christmas Marathon”. Let’s check out [Eventbrite’s webhook](https://www.eventbrite.com/developer/v3/reference/webhooks/)
@@ -212,7 +212,7 @@ I've entered an empty JSON schema into the webhook payload example as I'm not to
 *Configuring webhook trigger with the event name and empty payload example*
 
 #### Setting up the Eventbrite webhook
-In Eventbrite, navigate to Account Settings > Webhooks to add a webhook. Input the payload URL obtained from Workato, and select the event you wish to monitor (‘All events’ is also available as an option). You can see that you’re able to select a variety of events to listen to and trigger upon, but in this case we just want to monitor new order for our Christmas Marathon even
+In Eventbrite, navigate to *Account Settings* > *Webhooks* to add a webhook. Input the payload URL obtained from Workato, and select the event you wish to monitor (‘All events’ is also available as an option). You can see that you’re able to select a variety of events to listen to and trigger upon, but in this case we just want to monitor new order for our Christmas Marathon event.
 
 ![Configuring Web Hook](/assets/images/http/creating-a-webhook.png)
 *Creating webhook to monitor new orders placed in Eventbrite*
@@ -251,13 +251,15 @@ JSON formatted webhook payload example:
 ```
 
 #### Completed webhook trigger
-That’s it! You have now created an Eventbrite trigger for yourself. Take note that this trigger only passes you the API URL to fetch the actual data of the order that has been placed. To fetch this data, you can create a quick REST action to GET an order with this API URL, which we will be covering later in this course.
+That’s it! You have now created an Eventbrite webhook trigger for yourself. Take note that this trigger only passes you the API URL to fetch the actual data of the order that has been placed. To fetch this data, you can create a quick REST action to GET an order with this API URL, which we will be covering later in this course.
 
 ![Configured Webhook Trigger](/assets/images/http/configured-web-hook-trigger.png)
-*Configured Webhook Trigger*
+*Configured webhook trigger*
+
+We can see the datatree of this webhook trigger, which is generated by the sample webhook payload provided in the trigger configuration.
 
 ![Webhook Data Tree trigger](/assets/images/http/webhook-trigger-datatree.png)
-*Configured Webhook Trigger*
+*Webhook datatree*
 
 ## Building your REST request action
 You’re able to build any actions supported by an API on the HTTP connector - for example, create, update, search, get, delete actions. The following screenshots show the input fields available in the HTTP REST request action. Let's run through the key fields to note when building your action.
