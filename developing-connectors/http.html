@@ -1783,8 +1783,275 @@
 <h2 id="difference-between-http-and-http-oauth2-connector">Difference between HTTP and HTTP (OAuth2) connector</h2>
 <p>Apart from the authentication flow for the connection, the functionalities of both connectors are the same. The process of configuring webhook triggers, polling triggers and REST actions are identical.</p>
 <p>For non-OAuth2 connections, an additional test API request is required to ascertain that the connection is valid.</p>
-<h2 id="further-information">Further information</h2>
-<p>Refer to our <a href="http://resources.workato.com/http-connector/#/?_k=1szm77" target="_blank">HTTP connector course</a> for a detailed guide and examples on building HTTP triggers and actions</p>
+<h2 id="what-is-the-http-connector-and-what-is-it-useful-for">What is the HTTP connector and what is it useful for?</h2>
+<p>Our generic HTTP and HTTP (OAUTH2) connector allows you to chat with all (well, almost!) cloud applications with an application program interface (API for short). This means that, outside of the Workato-built connectors that comes out of the box, you can build whatever triggers or actions you need to power your integration recipes. </p>
+<p>With the HTTP connector, it takes less than 20 minutes to build your own trigger or action on Workato. This course will walk you through:</p>
+<ul>
+<li><p>How to set up a connection (Oauth2 and non OAuth2) to your app</p>
+</li>
+<li><p>How to build your own Workato triggers to get notified when something happens in your apps</p>
+</li>
+<li><p>How to build your own Workato actions to execute certain steps in your apps automatically</p>
+</li>
+</ul>
+<p>Want to create an invoice in your accounting system? Make a POST request with a JSON request body. Want to retrieve metrics from your analytics application? Make a GET request with your query parameters. Want to trigger off upon new leads filling out your online form? Create a webhook trigger that notifies Workato immediately whenever a new lead completes your form. Want help getting started? Simply read on, or chat with one of our Customer Success superheros :)</p>
+<h2 id="set-up-your-oauth2-connection">Set up your OAuth2 connection</h2>
+<p>The HTTP (OAuth2) connector supports the authorization code grant variant of the OAuth2 standard, which is the current de facto authentication standard adopted by a number of cloud apps. It&#x2019;s widely adopted because it allows you to give third parties access to your apps without having to disclose your username and password to the third party. In this case, Workato simply redirects you to your app, where you key in your login credentials, and that&#x2019;s sufficient for the app to trust that Workato is acting on your behalf when it makes API requests.</p>
+<p><img src="../assets/images/http/connector-connection-fields.png" alt="HTTP (OAuth2) connector&apos;s connection fields">
+<em>HTTP (OAuth2) connector&apos;s connection fields</em></p>
+<h3 id="relevant-components-of-oauth2-connection">Relevant components of OAuth2 connection</h3>
+<h4 id="authorization-url">Authorization URL</h4>
+<p>URL that Workato redirects you to when you click on the &#x2018;Connect&#x2019; button. This usually brings you to the login screen of your app.</p>
+<p>Some APIs require that you include certain parameters in the authorization URL. Common examples are response_type (<code>code</code> or <code>token</code>) and scope (<code>read</code>, <code>write</code>, <code>admin</code>, etc).</p>
+<p>This should be publicly available from the API documentation of the app you&#x2019;re connecting to, under the Authentication section.</p>
+<h4 id="token-url">Token URL</h4>
+<p>URL that Workato will retrieve an auth token from. This auth token is used to verify that we have permission to access your app and its data.</p>
+<p>This should be publicly available from the API documentation of the app you&#x2019;re connecting to, under the Authentication section.</p>
+<h4 id="client-id-and-client-secret">Client ID and client secret</h4>
+<p>The client ID identifies you as the user who&#x2019;s sending these API calls, while the client secret authenticates that you as this user.</p>
+<p>This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.</p>
+<h4 id="credentials">Credentials</h4>
+<p>A set of username and password for logging into your app to give permission for Workato to access the data in the app.</p>
+<p>This user (to whom the credentials belong) should have the correct permissions to read/write to the records (e.g. customer records, sales invoice records) you want to access.</p>
+<h4 id="redirectcallback-url-to-be-configured-in-the-app">Redirect/callback URL (to be configured in the app)</h4>
+<p>The URL provided to the app for redirection back to Workato after going through the authentication flow and credentials/token exchange.</p>
+<p>Provide this URL <code>https://www.workato.com/oauth/callback</code> to the app if it asks for it in the Integration setup screen.</p>
+<h3 id="example---connecting-to-eventbrite-via-oauth2">Example - connecting to Eventbrite via OAuth2</h3>
+<p>Let us run through an example of how we can connect to an OAuth2 application. In this case, we&#x2019;ll use Eventbrite, an events management and ticketing application. </p>
+<p><img src="../assets/images/http/eventbrite-authentication.png" alt="Eventbrite OAuth2 authentication page">
+<em>Eventbrite OAuth2 authentication page</em></p>
+<p>From the documentation page, we can obtain 2 of the required fields for our connection - the authorize URL and the access token URL. We would need to append further parameters to the URL. Eventbrite&apos;s documentation mentions that we&apos;d need to post to this URL: <code>https://www.eventbrite.com/oauth/authorize?response_type=code&amp;client_id=YOUR_CLIENT_KEY</code></p>
+<p>But as Workato will handle the client key, the following is what&apos;s needed in the input field to connect.</p>
+<p>Eventbrite authorize URL:</p>
+<pre><code class="lang-ruby">https://www.eventbrite.com/oauth/authorize?response_type=code
+</code></pre>
+<p>Eventbrite access token URL:</p>
+<pre><code class="lang-ruby">https://www.eventbrite.com/oauth/token
+</code></pre>
+<p>In order to connect to your Eventbrite account successfully, you would also need a set of client ID and client secret. To obtain this, you will need to register an app with Eventbrite so that they can assign the app with a client ID and secret. Log into Eventbrite and navigate to Account Settings &gt; App Management. </p>
+<p><img src="../assets/images/http/eventbrite-app-management.png" alt="Eventbrite&apos;s App Management screen">
+<em>Eventbrite&apos;s app management screen</em></p>
+<p>In the app management page, you will be able to find your client ID (also called key). Expand the Show Client Secret and OAuth Token section to retrieve the client secret, and navigate to the App Extension section to input the callback URL <code>https://www.workato.com/oauth/callback</code> into Eventbrite.</p>
+<p><img src="../assets/images/http/complete-eventbrite-connection.png" alt="Completed Eventbrite connection">
+<em>Completed Eventbrite connection</em></p>
+<h2 id="set-up-your-non-oauth2-connection">Set up your non-OAuth2 connection</h2>
+<p>Establishing a non-OAuth2 connection is slightly more complex than establishing an OAuth2 connection - you would have to select the authentication type specific to the application you&apos;re attempting to integrate with. In this segment, we&#x2019;ll be going through the various options available.</p>
+<h3 id="none">None</h3>
+<p>This allows you to create a connection without providing any authentication details. This is usually the case when you wish to just receive a webhook trigger from the app. Workato generates a URL for you to direct your webhooks to, and retrieves information from the webhook payload sent in.
+<img src="../assets/images/http/http-connector-type.png" alt="HTTP connector authentication type: None">
+<em>HTTP connector authentication type: None</em></p>
+<h3 id="basic">Basic</h3>
+<p>This requires your username and password. An alternative to your username and password would be an API key or API token, retrieved from your account settings. This is encoded with Base64 in transit, over SSL. This is a common authentication flow.
+<img src="../assets/images/http/http-connector-basic.png" alt="HTTP connector authentication type: Basic">
+<em>HTTP connector authentication type: Basic</em></p>
+<h3 id="header-auth">Header Auth</h3>
+<p>For applications which require additional headers outside of the usual username and password or API key, or if you want to customize the headers sent in the request. Header authentication can be used when you have a generated token ready for use.
+<img src="../assets/images/http/http-connector-head.png" alt="HTTP connector authentication type: Heade auth">
+<em>HTTP connector authentication type: Header authorization</em></p>
+<h3 id="query-params">Query params</h3>
+<p>For applications where the authentication structure is based on validating an API key as a parameter. What you need to do is to add the parameter key/value pair in the params authorization field.
+<img src="../assets/images/http/http-connnector-query.png" alt="HTTP connector authentication type: query params">
+<em>HTTP connector authentication type: Query params</em></p>
+<h3 id="custom">Custom</h3>
+<p>Custom simply allows you to use a combination of any of the above fields.
+<img src="../assets/images/http/http-connector-custom.jpg" alt="Custom http connector">
+<em>HTTP connector authentication type: Custom</em></p>
+<h3 id="testing-your-non-oauth2-connection">Testing your non-OAuth2 connection</h3>
+<p>After you&apos;ve connected, you would need to test out your non-OAuth2 connection to ensure that it&apos;s valid. To do that, send out a test API request - a simple one would be a GET request. If it succeeds, you know that the connection is valid.</p>
+<h3 id="example---connecting-to-jira-via-basic-authentication-and-testing-the-connection-via-a-get-action">Example - connecting to JIRA via basic authentication and testing the connection via a GET action</h3>
+<p>Let&#x2019;s try to connect to JIRA using basic authentication - JIRA&#x2019;s documentation for basic authentication can be found <a href="https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-basic-authentication/?_ga=1.137752242.320850437.1478498822" target="_blank">here</a>. In the case of JIRA, we need to provide several things: subdomain (which tells us what JIRA company instance to connect to, essentially - your company&#x2019;s JIRA database), username, password.</p>
+<p>For this example, I&#x2019;ve created a company instance in JIRA with a company name Workato321, and JIRA has automatically assigned my subdomain to be workato321.atlassian.net</p>
+<p>I&#x2019;ve also created a project in my new JIRA instance, named PPP, to be used for testing out my connection later.</p>
+<h4 id="setting-up-your-jira-connection">Setting up your JIRA connection</h4>
+<p><img src="../assets/images/http/jira-connection.png" alt="Jira Connection">
+<em>JIRA screenshot with subdomain workato321.atlassian.net and existing project PPP</em></p>
+<p>We can provide our username and password in the connection settings as below. For the field <strong>On-prem secure agent</strong>, I selected no gateway as my JIRA instance is on the cloud.</p>
+<p><img src="../assets/images/http/connection-settings-jira.png" alt="Jira Connection settings">
+<em>JIRA connection settings</em></p>
+<h4 id="testing-our-jira-connection-by-running-a-get-action">Testing our JIRA connection by running a GET action</h4>
+<p>We&apos;re not done yet! Let&apos;s test out our connection. In the case of JIRA, the instance (subdomain) information needs to be sent in within the API endpoint, therefore it doesn&#x2019;t need to be provided in your connection settings.</p>
+<p>To test out my connection, I&#x2019;m just going to ask Workato to fetch me all the projects in my JIRA instance with this GET all projects endpoint: <code>https://workato321.atlassian.net/rest/api/2/project</code>.</p>
+<p>This is how my test recipe looks - it has a Scheduler trigger (New scheduled event, so that a job will be ran immediately when I click on run recipe, and it simply calls the API endpoint. We didn&#x2019;t fill in the sample response body as this is simply a quick test - we&#x2019;re not really interested in building the datatree for use in subsequent steps yet.</p>
+<p><img src="../assets/images/http/configured-action.png" alt="Configured http action">
+<em>Configured HTTP action to get list of JIRA projects</em></p>
+<p>Now let&#x2019;s run the recipe and click on the job that&#x2019;s carried out. You should be able to see what&#x2019;s been sent by the HTTP connector under the input tab.</p>
+<p><img src="../assets/images/http/sent-api-request.png" alt="Sent Api Request">
+<em>API request sent, as viewed from the job details input tab</em></p>
+<p>And if the API endpoint as well as username and password is correct, you should be able to see the data that&#x2019;s returned under the output tab - in this case, my PPP project.</p>
+<p><img src="../assets/images/http/API-recieved.png" alt="Configured http action">
+<em>API response received from JIRA, as viewed from the job details output tab</em></p>
+<h2 id="building-webhook-triggers">Building webhook triggers</h2>
+<p>If the app you wish to integrate with supports webhooks, that should be listed in the app&#x2019;s API documentation. Webhooks are notifications sent out immediately by your app to a target URL when an event happens. Usually, you&#x2019;re able to define what specific event you wish to receive notifications for. To build a webhook trigger in Workato, we&#x2019;ll direct these notifications to your Workato recipe, so that it will trigger and execute the recipe actions whenever the event happens in your app.</p>
+<p>For example, you can choose to build a webhook trigger that notifies your recipe whenever new customer tickets are marked with status &#x2018;Urgent&#x2019;, and have an action to send out an SMS to the account manager for this customer. In this case, the recipe will help to ensure urgent tickets are responded to in a timely fashion.</p>
+<p>If you&#x2019;re interested only in receiving webhooks from your app, you won&#x2019;t even need to set up any connection or go through the authentication flow.</p>
+<p>These are the input fields in Workato&apos;s webhook trigger. Let&apos;s run through the key fields to note when building a webhook trigger.</p>
+<p><img src="../assets/images/http/http-webhook-trigger.png" alt="HTTP connector&apos;s webhook trigger">
+<em>HTTP connector&apos;s webhook trigger</em></p>
+<h3 id="workato-generated-target-url">Workato-generated target URL</h3>
+<p>URL address to direct your app-generated webhooks. The string of 36 characters generated in this URL is unique to your account, so keep it safe - otherwise anyone else on the internet can send you random data!</p>
+<p>By default, this URL is incomplete. Provide an event name in order to generate a full URL to be used as a target URL.</p>
+<h3 id="event-name">Event name</h3>
+<p>Used to describe what you&#x2019;re doing in this trigger. Put a descriptive name here so that you remember what is the specific event you&#x2019;re receiving notifications for.</p>
+<p>The event name will also be appended to the end of the Workato-generated URL in order to generate an URL which is unique to this recipe. </p>
+<h3 id="webhook-type">Webhook type</h3>
+<p>Tell the recipe what is the type of webhook to expect, as well as the format of the data coming in, so that it knows how to decipher and process the payload. This depends on the specifications provided in the API documentation.</p>
+<p>Some APIs may be able to send you webhook payloads in various formats - in that case, select the one you&#x2019;re more comfortable with, and make sure to provide the payload in the correct format in the Webhook payload example input field.</p>
+<h3 id="webhook-payload-example">Webhook payload example</h3>
+<p>Provide a sample of the webhook payload that&#x2019;s expected to be sent by your app to Workato. Typically found in the API documentation - simply copy and paste it in the appropriate JSON, XML or form encoded format as you&apos;ve defined previously. You can also add additional fields to this, in the correct format, if you know that there are custom values that will be sent by your app.</p>
+<p>This payload example provided does not affect the actual payload being sent to Workato when a trigger event occurs. Instead, this sample schema is used to build the output datatree and its data pills, thus ensuring that you&#x2019;re able to map the data coming in with your webhook properly to subsequent steps in your datatree.</p>
+<p><img src="../assets/images/http/configured-webhook.png" alt="Configured Web Hook">
+<em>Example of a configured webhook trigger</em></p>
+<p><img src="../assets/images/http/trigger-datatree.png" alt="trigger datatree">
+<em>The trigger data schema corresponds to the webhook payload example provided in configuration</em></p>
+<h3 id="example---building-a-new-order-trigger-in-eventbrite">Example - building a new order trigger in Eventbrite</h3>
+<p>Perhaps we would like to build a real-time webhook trigger that triggers whenever a new order is placed in Eventbrite for your event &#x201C;Christmas Marathon&#x201D;. Let&#x2019;s check out <a href="https://www.eventbrite.com/developer/v3/reference/webhooks/" target="_blank">Eventbrite&#x2019;s webhook</a></p>
+<h4 id="setting-up-the-workato-http-trigger">Setting up the Workato HTTP trigger</h4>
+<p>We need to first get an URL from Workato to send our webhooks to. To do that, let&#x2019;s start creating a webhook trigger on Workato. I&apos;ve filled in the event name I want to create a complete target URL, and I&apos;ve selected a PUT/POST with JSON payload as I know that&apos;s the format for Eventbrite webhooks.</p>
+<p>I&apos;ve entered an empty JSON schema into the webhook payload example as I&apos;m not too sure what my payload looks like yet.</p>
+<p><img src="../assets/images/http/configuring-webhook-trigger.png" alt="Configuring Web Hook">
+<em>Configuring webhook trigger with the event name and empty payload example</em></p>
+<h4 id="setting-up-the-eventbrite-webhook">Setting up the Eventbrite webhook</h4>
+<p>In Eventbrite, navigate to <em>Account Settings</em> &gt; <em>Webhooks</em> to add a webhook. Input the payload URL obtained from Workato, and select the event you wish to monitor (&#x2018;All events&#x2019; is also available as an option). You can see that you&#x2019;re able to select a variety of events to listen to and trigger upon, but in this case we just want to monitor new order for our Christmas Marathon event.</p>
+<p><img src="../assets/images/http/creating-a-webhook.png" alt="Configuring Web Hook">
+<em>Creating webhook to monitor new orders placed in Eventbrite</em></p>
+<p>You can send in a test order to test the trigger, either via the webhook configuration page, or by creating an order on the event you&#x2019;re monitoring. If you&#x2019;ve set up the webhook trigger successfully, you should receive a job.</p>
+<p>In this case, I&apos;ve successfully ran a test job, and I can view the webhook payload by going to the trigger output tab in my job details page.</p>
+<p><img src="../assets/images/http/job-details-output.png" alt="Job details output">
+<em>Job details output tab showing the actual JSON response from Eventbrite</em></p>
+<h4 id="testing-the-trigger--retrieving-api-response-to-generate-datatree">Testing the trigger &amp; retrieving API response to generate datatree</h4>
+<p>We&apos;re almost done with our webhook, but we still need to be able to generate a datatree for use in subsequent steps in our recipe. With the empty payload we had entered above, there&apos;s no trigger datatree available in subsequent recipe steps.</p>
+<p><img src="../assets/images/http/empty-webhook.png" alt="Empty Webhook">
+<em>With an empty webhook payload example, no datatree is generated in the action steps</em></p>
+<p>We can move the JSON response we obtained in the job history details to the payload example section with some tweaking to ensure it&apos;s formatted in JSON. Alternatively, we can also simply retrieve the JSON from the API documentation, if available.</p>
+<p><img src="../assets/images/http/request-payload.png" alt="Manage Webhook">
+<em>Request payload can be retrieved via the webhook management console in Eventbrite</em></p>
+<p>The following is the JSON response that we should be inputting into the webhook payload example field.</p>
+<p>JSON formatted webhook payload example:</p>
+<pre><code class="lang-ruby">{
+<span class="hljs-string">&quot;config&quot;</span><span class="hljs-symbol">:</span> {
+<span class="hljs-string">&quot;action&quot;</span><span class="hljs-symbol">:<span class="hljs-string">&quot;order.placed&quot;</span></span>,
+<span class="hljs-string">&quot;user_id&quot;</span><span class="hljs-symbol">:<span class="hljs-string">&quot;144138753572&quot;</span></span>,
+<span class="hljs-string">&quot;endpoint_url&quot;</span><span class="hljs-symbol">:<span class="hljs-string">&quot;https://www.workato.com/webhooks/rest/4c364864-e1f8-4c58-b6af-29127d1f6b60/order&quot;</span></span>,
+<span class="hljs-string">&quot;webhook_id&quot;</span><span class="hljs-symbol">:<span class="hljs-string">&quot;287968&quot;</span></span>
+},
+<span class="hljs-string">&quot;api_url&quot;</span><span class="hljs-symbol">:<span class="hljs-string">&quot;https://www.eventbriteapi.com/v3/orders/579759447/&quot;</span></span>
+}
+</code></pre>
+<h4 id="completed-webhook-trigger">Completed webhook trigger</h4>
+<p>That&#x2019;s it! You have now created an Eventbrite webhook trigger for yourself. Take note that this trigger only passes you the API URL to fetch the actual data of the order that has been placed. To fetch this data, you can create a quick REST action to GET an order with this API URL, which we will be covering later in this course.</p>
+<p><img src="../assets/images/http/configured-web-hook-trigger.png" alt="Configured Webhook Trigger">
+<em>Configured webhook trigger</em></p>
+<p>We can see the datatree of this webhook trigger, which is generated by the sample webhook payload provided in the trigger configuration.</p>
+<p><img src="../assets/images/http/webhook-trigger-datatree.png" alt="Webhook Data Tree trigger">
+<em>Webhook datatree</em></p>
+<h2 id="building-your-rest-request-action">Building your REST request action</h2>
+<p>You&#x2019;re able to build any actions supported by an API on the HTTP connector - for example, create, update, search, get, delete actions. The following screenshots show the input fields available in the HTTP REST request action. Let&apos;s run through the key fields to note when building your action.</p>
+<p><img src="../assets/images/http/input-fields-request.png" alt="REST input fields"></p>
+<p><img src="../assets/images/http/input-fields.png" alt="REST input fields 2">
+<em>Input fields for REST actions</em></p>
+<h3 id="request-name">Request name</h3>
+<p>This is used to describe what you&#x2019;re doing in this action. Put a descriptive name here so that you remember what this action will execute.</p>
+<h3 id="method">Method</h3>
+<p>The specific HTTP method to call. The API documents will typically tell you what is the HTTP method associated with the API endpoint you want to call.</p>
+<h3 id="request-url">Request URL</h3>
+<p>The API endpoint to send your request to.</p>
+<h3 id="request-body">Request body</h3>
+<p>The data to send in with the request, in JSON format. This is typically only required for create and update actions (PUT, POST or PATCH methods), as you would need to provide the data of the record to be created or updated.</p>
+<h3 id="response-type">Response type</h3>
+<p>This specifies the format of the expected API response. If we&#x2019;re not interested in converting the response into a datatree for subsequent use downstream in the recipe, simply select the option &#x201C;Raw HTTP response body&#x201D;. Otherwise, select JSON or XML accordingly.</p>
+<h3 id="response-body-example">Response body example</h3>
+<p>This will be converted into a datatree for subsequent use in the recipe. If you have selected &#x201C;Parse response as JSON&#x201D; above, you should input the expected schema in JSON format. If you have selected &#x201C;Parse response as XML&#x201D;, you should input the expected schema in XML format.</p>
+<h3 id="example---building-a-get-order-details-action-in-eventbrite">Example - building a get order details action in Eventbrite</h3>
+<p>Following from the Eventbrite new order webhook trigger we&apos;ve previously configured, we now have a API endpoint to <a href="https://www.eventbrite.com/developer/v3/endpoints/orders/#ebapi-get-orders-id" target="_blank">get order details</a> for a specific order that has just been placed.</p>
+<h4 id="setting-up-the-http-action">Setting up the HTTP action</h4>
+<p>The relevant input fields for this action would only be the following. We can pass the API URL pill into the request URL input field to make the call to get the specific order details. We can leave the response body example empty for now, which means that no datatree will be generated for this step as of yet.</p>
+<p><img src="../assets/images/http/partially-configured-GET.png" alt="Partially configure GET">
+<em>Partially configured GET request missing the optional response body example for generating the datatree</em></p>
+<h4 id="testing-the-action">Testing the action</h4>
+<p>If you hadn&apos;t previously set up the trigger, you can simply pass a hardcoded URL into the request URL, replacing the specific order ID 579759447 with the ID of an Eventbrite order that exists in your Eventbrite account.</p>
+<p>Eventbrite&apos;s GET order details API call:</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/www.eventbriteapi.com/v</span>3/orders/<span class="hljs-number">579759447</span>/
+</code></pre>
+<p>Alternatively, if you had previously configured the webhook trigger and ran a couple of sample jobs, you can simply rerun a job again. As the trigger data is cached in Workato, rerunning the job will simply reuse the payload data that had been received in the trigger and execute this GET action.</p>
+<p><img src="../assets/images/http/API-URL.png" alt="API-URL">
+<em>The API URL from the trigger is passed to the action as the request URL</em></p>
+<h4 id="retrieving-api-response-to-generate-datatree">Retrieving API response to generate datatree</h4>
+<p>Look in the job history and you should be able to view the response. The text in the body is formatted precisely in JSON, so if you like you can simply copy that and put it into the <strong>Response body example</strong> input field (without the first and last double quotes).</p>
+<p><img src="../assets/images/http/order-api-call.png" alt="API order">
+<em>API response for Eventbrite&apos;s GET order API call, as viewed in the job history output tab</em></p>
+<p>API response for Eventbrite&apos;s GET order API call:</p>
+<pre><code class="lang-ruby">{<span class="hljs-string">&quot;costs&quot;</span><span class="hljs-symbol">:</span> {<span class="hljs-string">&quot;base_price&quot;</span><span class="hljs-symbol">:</span> {<span class="hljs-string">&quot;display&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;$0.00&quot;</span>, <span class="hljs-string">&quot;currency&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;USD&quot;</span>, <span class="hljs-string">&quot;value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-number">0</span>, <span class="hljs-string">&quot;major_value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;0.00&quot;</span>}, <span class="hljs-string">&quot;eventbrite_fee&quot;</span><span class="hljs-symbol">:</span> {<span class="hljs-string">&quot;display&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;$0.00&quot;</span>, <span class="hljs-string">&quot;currency&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;USD&quot;</span>, <span class="hljs-string">&quot;value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-number">0</span>, <span class="hljs-string">&quot;major_value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;0.00&quot;</span>}, <span class="hljs-string">&quot;gross&quot;</span><span class="hljs-symbol">:</span> {<span class="hljs-string">&quot;display&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;$0.00&quot;</span>, <span class="hljs-string">&quot;currency&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;USD&quot;</span>, <span class="hljs-string">&quot;value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-number">0</span>, <span class="hljs-string">&quot;major_value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;0.00&quot;</span>}, <span class="hljs-string">&quot;payment_fee&quot;</span><span class="hljs-symbol">:</span> {<span class="hljs-string">&quot;display&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;$0.00&quot;</span>, <span class="hljs-string">&quot;currency&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;USD&quot;</span>, <span class="hljs-string">&quot;value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-number">0</span>, <span class="hljs-string">&quot;major_value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;0.00&quot;</span>}, <span class="hljs-string">&quot;tax&quot;</span><span class="hljs-symbol">:</span> {<span class="hljs-string">&quot;display&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;$0.00&quot;</span>, <span class="hljs-string">&quot;currency&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;USD&quot;</span>, <span class="hljs-string">&quot;value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-number">0</span>, <span class="hljs-string">&quot;major_value&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;0.00&quot;</span>}}, <span class="hljs-string">&quot;resource_uri&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;https://www.eventbriteapi.com/v3/orders/579759447/&quot;</span>, <span class="hljs-string">&quot;id&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;579759447&quot;</span>, <span class="hljs-string">&quot;changed&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;2016-12-16T00:40:47Z&quot;</span>, <span class="hljs-string">&quot;created&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;2016-12-16T00:40:46Z&quot;</span>, <span class="hljs-string">&quot;name&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;hl y&quot;</span>, <span class="hljs-string">&quot;first_name&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;hl&quot;</span>, <span class="hljs-string">&quot;last_name&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;y&quot;</span>, <span class="hljs-string">&quot;email&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;huilin@workato.com&quot;</span>, <span class="hljs-string">&quot;status&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;placed&quot;</span>, <span class="hljs-string">&quot;time_remaining&quot;</span><span class="hljs-symbol">:</span> null, <span class="hljs-string">&quot;event_id&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;30343163218&quot;</span>}
+</code></pre>
+<h4 id="completed-action">Completed action</h4>
+<p>This is what your action should look like in the end:</p>
+<p><img src="../assets/images/http/configured-action.png" alt="configured GET action">
+<em>Configured GET action</em></p>
+<p><img src="../assets/images/http/response-body.png" alt="configured GET action">
+<em>Configured GET action</em></p>
+<p><img src="../assets/images/http/data-tree-body.png" alt="datatree">
+<em>Step 1 output data tree generated from the provided response body example</em></p>
+<h3 id="example---building-a-create-project-action-in-jira">Example - building a create project action in JIRA</h3>
+<p>Let&apos;s create a new project in JIRA via the HTTP connector. The API endpoint to refer to can be found <a href="https://docs.atlassian.com/jira/REST/cloud/#api/2/project-createProject" target="_blank">here</a></p>
+<h4 id="configuring-the-rest-action">Configuring the REST action</h4>
+<p>We&apos;ll configure the action with the minimal set of values needed. The following shows the unconfigured HTTP REST action.</p>
+<p><img src="../assets/images/http/unconfigured-http.png" alt="unconfigured http"></p>
+<p><img src="../assets/images/http/unconfigured.png" alt="unconfigured http">
+<em>Unconfigured HTTP REST action</em></p>
+<h5 id="request-name">Request name</h5>
+<p>Create project.</p>
+<h5 id="http-method">HTTP method</h5>
+<p>POST, as specified in the API documentation.</p>
+<h5 id="request-url">Request URL</h5>
+<p><code>https://[subdomain here]/rest/api/[version number here]/project</code></p>
+<h5 id="request-body">Request body</h5>
+<p>Required in this case as we need to provide data to create the project. See below for the request we&apos;re sending in.</p>
+<h5 id="response-type">Response type</h5>
+<p>JSON, as that&apos;s the format JIRA API works with.</p>
+<h5 id="response-body-example">Response body example</h5>
+<p>We&apos;re retrieving that from the API documentation as well. See below for the response we&apos;re providing.</p>
+<h5 id="request-and-response-body">Request and response body</h5>
+<p>For the request body, you need to send in the actual values. We&apos;ve included a JSON representation of the request body as follows, but as it&apos;s unlikely that you would want to create projects with the key EX and the name Example, you would need to replace the hardcoded values with pills from previous steps in the recipe.</p>
+<p>Request body for creating a new JIRA project. Actual data for creating the new project should be inserted here:</p>
+<pre><code class="lang-ruby">{
+    <span class="hljs-string">&quot;key&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;EX&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;Example&quot;</span>,
+    <span class="hljs-string">&quot;projectTypeKey&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;business&quot;</span>,
+    <span class="hljs-string">&quot;projectTemplateKey&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;com.atlassian.jira-core-project-templates:jira-core-project-management&quot;</span>,
+    <span class="hljs-string">&quot;description&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;Example Project description&quot;</span>,
+    <span class="hljs-string">&quot;lead&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;admin&quot;</span>,
+    <span class="hljs-string">&quot;assigneeType&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;PROJECT_LEAD&quot;</span>
+}
+</code></pre>
+<p>For the response body, we just need an example JSON to generate the datatree with, so simply using the response example from the API documentation is fine.</p>
+<p>Response body example to generate the datatree. Any sample data can be used here:</p>
+<pre><code class="lang-ruby">{
+    <span class="hljs-string">&quot;self&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;http://example/jira/rest/api/2/project/10042&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-number">10010</span>,
+    <span class="hljs-string">&quot;key&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;EX&quot;</span>
+}
+</code></pre>
+<h5 id="configured-action">Configured action</h5>
+<p>The following depicts the configured action we now have:</p>
+<p><img src="../assets/images/http/configured-jira-project.png" alt="configured JIRA"></p>
+<p><img src="../assets/images/http/configured-request.png" alt="configured JIRA">
+<em>Cofigured JIRA project REST request</em></p>
+<p>The following shows the datatree of the configured GET action, which is generated from the <strong>Response body example</strong>.</p>
+<p><img src="../assets/images/http/generated-data-tree.png" alt="generated data tree">
+<em>Generated datatree from the response body example, as viewed from the next step</em></p>
+<h5 id="testing-the-configured-action">Testing the configured action</h5>
+<p>To test it out, we need to have a complete recipe and test the recipe. I&apos;m using a Scheduler trigger &quot;New scheduled event&quot; here as it allows me to test my action quickly.</p>
+<p><img src="../assets/images/http/complete-recipe.png" alt="complete recipe">
+<em>Completed recipe with a Scheduler trigger and our HTTP action</em></p>
+<p>With a completed recipe (with both trigger and action), let&apos;s click on &quot;Test recipe&quot;. Test recipe will run a single sample job as shown below.</p>
+<p><img src="../assets/images/http/sample-job.png" alt="sample job">
+<em>Run one sample job by clicking on &quot;Test Recipe&quot;</em></p>
+<p>Click on the job to examine the job details to see what happened exactly. If you had a successful job, you should be able to see your project created in JIRA.</p>
+<p>The job input tab shows what data was passed into the GET action.</p>
+<p><img src="../assets/images/http/API-request-sent.png" alt="API request">
+<em>API request sent, as viewed from the job input tab</em></p>
+<p>The job output tab shows what data was received as an API response.</p>
+<p><img src="../assets/images/http/API-recieved-job.png" alt="API request">
+<em>API request recieved, as viewed from the job output tab</em></p>
 
                                 
                                 </section>
@@ -1867,7 +2134,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTTP","date":"2017-02-22T23:00:00.000Z","level":"1.16.2","depth":2,"next":{"title":"Connector SDK","level":"1.17","depth":1,"path":"developing-connectors/sdk.md","ref":"developing-connectors/sdk.md","articles":[{"title":"Walk through","level":"1.17.1","depth":2,"path":"developing-connectors/sdk/walk-through.md","ref":"developing-connectors/sdk/walk-through.md","articles":[]},{"title":"Authentication","level":"1.17.2","depth":2,"path":"developing-connectors/sdk/authentication.md","ref":"developing-connectors/sdk/authentication.md","articles":[{"title":"Basic auth","level":"1.17.2.1","depth":3,"path":"developing-connectors/sdk/authentication/basic-authentication.md","ref":"developing-connectors/sdk/authentication/basic-authentication.md","articles":[]},{"title":"OAuth 2.0","level":"1.17.2.2","depth":3,"path":"developing-connectors/sdk/authentication/oauth2-authentication.md","ref":"developing-connectors/sdk/authentication/oauth2-authentication.md","articles":[]},{"title":"Custom auth","level":"1.17.2.3","depth":3,"path":"developing-connectors/sdk/authentication/custom-authentication.md","ref":"developing-connectors/sdk/authentication/custom-authentication.md","articles":[]},{"title":"Test","level":"1.17.2.4","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]}]},{"title":"Object definition","level":"1.17.3","depth":2,"path":"developing-connectors/sdk/object-definition.md","ref":"developing-connectors/sdk/object-definition.md","articles":[]},{"title":"Toggle field","level":"1.17.4","depth":2,"path":"developing-connectors/sdk/toggle-field.md","ref":"developing-connectors/sdk/toggle-field.md","articles":[]},{"title":"Action","level":"1.17.5","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},{"title":"Trigger","level":"1.17.6","depth":2,"path":"developing-connectors/sdk/trigger.md","ref":"developing-connectors/sdk/trigger.md","articles":[{"title":"Poll trigger","level":"1.17.6.1","depth":3,"path":"developing-connectors/sdk/trigger/poll-trigger.md","ref":"developing-connectors/sdk/trigger/poll-trigger.md","articles":[]},{"title":"Dynamic webhook trigger","level":"1.17.6.2","depth":3,"path":"developing-connectors/sdk/trigger/webhook-trigger.md","ref":"developing-connectors/sdk/trigger/webhook-trigger.md","articles":[]},{"title":"Static webhook trigger","level":"1.17.6.3","depth":3,"path":"developing-connectors/sdk/trigger/static-webhook-trigger.md","ref":"developing-connectors/sdk/trigger/static-webhook-trigger.md","articles":[]}]},{"title":"Data format","level":"1.17.7","depth":2,"path":"developing-connectors/sdk/data-format.md","ref":"developing-connectors/sdk/data-format.md","articles":[{"title":"JSON","level":"1.17.7.1","depth":3,"path":"developing-connectors/sdk/data-format/json-format.md","ref":"developing-connectors/sdk/data-format/json-format.md","articles":[]},{"title":"XML","level":"1.17.7.2","depth":3,"path":"developing-connectors/sdk/data-format/xml-format.md","ref":"developing-connectors/sdk/data-format/xml-format.md","articles":[]}]},{"title":"Methods","level":"1.17.8","depth":2,"path":"developing-connectors/sdk/methods.md","ref":"developing-connectors/sdk/methods.md","articles":[]},{"title":"Pick lists","level":"1.17.9","depth":2,"path":"developing-connectors/sdk/pick-list.md","ref":"developing-connectors/sdk/pick-list.md","articles":[]},{"title":"Configuration fields","level":"1.17.10","depth":2,"path":"developing-connectors/sdk/config-fields.md","ref":"developing-connectors/sdk/config-fields.md","articles":[]},{"title":"Examples","level":"1.17.11","depth":2,"path":"developing-connectors/sdk/examples.md","ref":"developing-connectors/sdk/examples.md","articles":[]},{"title":"Publishing process","level":"1.17.12","depth":2,"path":"developing-connectors/sdk/publishing-process.md","ref":"developing-connectors/sdk/publishing-process.md","articles":[]}]},"previous":{"title":"HTTP vs SDK","level":"1.16.1","depth":2,"path":"developing-connectors/http-vs-sdk.md","ref":"developing-connectors/http-vs-sdk.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/http.md","mtime":"2017-07-25T19:56:11.668Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-25T19:58:08.378Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP","date":"2017-02-22T23:00:00.000Z","level":"1.16.2","depth":2,"next":{"title":"Connector SDK","level":"1.17","depth":1,"path":"developing-connectors/sdk.md","ref":"developing-connectors/sdk.md","articles":[{"title":"Walk through","level":"1.17.1","depth":2,"path":"developing-connectors/sdk/walk-through.md","ref":"developing-connectors/sdk/walk-through.md","articles":[]},{"title":"Authentication","level":"1.17.2","depth":2,"path":"developing-connectors/sdk/authentication.md","ref":"developing-connectors/sdk/authentication.md","articles":[{"title":"Basic auth","level":"1.17.2.1","depth":3,"path":"developing-connectors/sdk/authentication/basic-authentication.md","ref":"developing-connectors/sdk/authentication/basic-authentication.md","articles":[]},{"title":"OAuth 2.0","level":"1.17.2.2","depth":3,"path":"developing-connectors/sdk/authentication/oauth2-authentication.md","ref":"developing-connectors/sdk/authentication/oauth2-authentication.md","articles":[]},{"title":"Custom auth","level":"1.17.2.3","depth":3,"path":"developing-connectors/sdk/authentication/custom-authentication.md","ref":"developing-connectors/sdk/authentication/custom-authentication.md","articles":[]},{"title":"Test","level":"1.17.2.4","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]}]},{"title":"Object definition","level":"1.17.3","depth":2,"path":"developing-connectors/sdk/object-definition.md","ref":"developing-connectors/sdk/object-definition.md","articles":[]},{"title":"Toggle field","level":"1.17.4","depth":2,"path":"developing-connectors/sdk/toggle-field.md","ref":"developing-connectors/sdk/toggle-field.md","articles":[]},{"title":"Action","level":"1.17.5","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},{"title":"Trigger","level":"1.17.6","depth":2,"path":"developing-connectors/sdk/trigger.md","ref":"developing-connectors/sdk/trigger.md","articles":[{"title":"Poll trigger","level":"1.17.6.1","depth":3,"path":"developing-connectors/sdk/trigger/poll-trigger.md","ref":"developing-connectors/sdk/trigger/poll-trigger.md","articles":[]},{"title":"Dynamic webhook trigger","level":"1.17.6.2","depth":3,"path":"developing-connectors/sdk/trigger/webhook-trigger.md","ref":"developing-connectors/sdk/trigger/webhook-trigger.md","articles":[]},{"title":"Static webhook trigger","level":"1.17.6.3","depth":3,"path":"developing-connectors/sdk/trigger/static-webhook-trigger.md","ref":"developing-connectors/sdk/trigger/static-webhook-trigger.md","articles":[]}]},{"title":"Data format","level":"1.17.7","depth":2,"path":"developing-connectors/sdk/data-format.md","ref":"developing-connectors/sdk/data-format.md","articles":[{"title":"JSON","level":"1.17.7.1","depth":3,"path":"developing-connectors/sdk/data-format/json-format.md","ref":"developing-connectors/sdk/data-format/json-format.md","articles":[]},{"title":"XML","level":"1.17.7.2","depth":3,"path":"developing-connectors/sdk/data-format/xml-format.md","ref":"developing-connectors/sdk/data-format/xml-format.md","articles":[]}]},{"title":"Methods","level":"1.17.8","depth":2,"path":"developing-connectors/sdk/methods.md","ref":"developing-connectors/sdk/methods.md","articles":[]},{"title":"Pick lists","level":"1.17.9","depth":2,"path":"developing-connectors/sdk/pick-list.md","ref":"developing-connectors/sdk/pick-list.md","articles":[]},{"title":"Configuration fields","level":"1.17.10","depth":2,"path":"developing-connectors/sdk/config-fields.md","ref":"developing-connectors/sdk/config-fields.md","articles":[]},{"title":"Examples","level":"1.17.11","depth":2,"path":"developing-connectors/sdk/examples.md","ref":"developing-connectors/sdk/examples.md","articles":[]},{"title":"Publishing process","level":"1.17.12","depth":2,"path":"developing-connectors/sdk/publishing-process.md","ref":"developing-connectors/sdk/publishing-process.md","articles":[]}]},"previous":{"title":"HTTP vs SDK","level":"1.16.1","depth":2,"path":"developing-connectors/http-vs-sdk.md","ref":"developing-connectors/http-vs-sdk.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"developing-connectors/http.md","mtime":"2017-07-25T20:29:06.682Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-25T20:31:07.186Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
