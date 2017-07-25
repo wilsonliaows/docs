@@ -5,9 +5,11 @@ date: 2017-06-13 06:15:00 Z
  
 # Slack
 
-[Slack](https://api.slack.com) provides users with an easy to use platform to communicate within groups and has numerous other beneficial aspects such as creating application on Slack as well as internal integration. 
+<<<<<<< HEAD
+<<<<<<< HEAD
+[Slack](https://api.slack.com) provides users with an easy to use platform to communicate within groups and provides numerous other beneficial programs such as creating applications on Slack as well as internal integration. 
 
-Through Workato, users can benefit from many triggers and actions that further facilitate Slack integration. Some triggers and actions include “Button Action”, “Post message” and“Invite User to Channel”. With the help of these fundamental actions and triggers, users can build recipes that could post a message on Slack each time a new contact is created on Google Contacts.
+Through Workato, users can benefit from many triggers and actions that further facilitate Slack integration. Some triggers and actions include “Button Action”, “Post message” and “Invite User to Channel”. With the help of these fundamental actions and triggers, users can build recipes that could, for example, post a message on Slack each time a new contact is created on Google Contacts.
 
 Workato also provides users with Workbot which helps automate work in businesses and enterprises. To learn more about Workbot, click [here](https://www.workato.com/workbot-slack). 
 
@@ -16,22 +18,41 @@ Workato also provides users with Workbot which helps automate work in businesses
 To get started on building some recipes with Slack integration on Workato, take a look at some of our sample recipes for the following triggers and actions.
 
 New Button
+
 https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
 
 Respond to Button action
 https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
 
 Post message
+
 https://www.workato.com/recipes/563608-new-user-in-zendesk-will-post-message-create-channel-and-send-email?st=a9e632#recipe
 
 Create channel
+
 https://www.workato.com/recipes/563608-new-user-in-zendesk-will-post-message-create-channel-and-send-email?st=a9e632#recipe
 
 Archive channel
+
 https://www.workato.com/recipes/563728-new-or-updated-card-in-trello-will-post-message-in-slack?st=81e932#recipe
 
 Set channel topic
+
 https://www.workato.com/recipes/567067-new-updated-issue-in-jira-will-invite-user-to-channel-in-slack?st=d42723#recipe
+=======
+[Slack](https://slack.com/) is a modern team communication platform that enables users to work more productively in their teams and organizations by sharing tools and resources.
+
+Slack teams can utilize Workato to integrate their other apps with Slack, such as by posting notifications in Slack whenever a lead fills out a form on their website, or when a new users signs up. Slack teams can also use Workato to automate processes such as creating project-based channels for new projects and inviting the project team members to join the channel.
+
+In addition to the Slack connector, Workato also has a Slack chatbot, called Workbot for Slack, which comes with a prebuilt set of integrations which enables Slack teams to retrieve data from and interact with their other business apps from within Slack. Learn more about Workbot [here](https://www.workato.com/workbot-slack). 
+>>>>>>> 6d48d16d9ea37bd82a28737b8561c722336279af
+=======
+[Slack](https://slack.com/) is a modern team communication platform that enables users to work more productively in their teams and organizations by sharing tools and resources.
+
+Slack teams can utilize Workato to integrate their other apps with Slack, such as by posting notifications in Slack whenever a lead fills out a form on their website, or when a new users signs up. Slack teams can also use Workato to automate processes such as creating project-based channels for new projects and inviting the project team members to join the channel.
+
+In addition to the Slack connector, Workato also has a Slack chatbot, called Workbot for Slack, which comes with a prebuilt set of integrations which enables Slack teams to retrieve data from and interact with their other business apps from within Slack. Learn more about Workbot [here](https://www.workato.com/workbot-slack). 
+>>>>>>> 6d48d16d9ea37bd82a28737b8561c722336279af
 
 ## Building recipes
 
@@ -44,10 +65,10 @@ Let’s walk through a sample recipe- a new google contact will post a message o
 This refers to the slack channel where you want the message to be displayed. 
 
 **Message**
-This is the message you want to post on Slack. In this example, we’ll include the new contact’s ID, Full name, and Email.
+This is the message you want to post on Slack. In this example, we’ll include the new contact’s ID, full name, and email.
 
 **Title URL**
-This is the link user will be directed to when the title is clicked. 
+This is the link that the user will be directed to when the title is clicked. 
  
 
 Next, we’ll fill in the Button action handler recipe, Button actions, Message type, Slack formating, Thread ID and User name. 
@@ -71,7 +92,7 @@ Slack formatting allows parsing of <URL link|title> <user|name> <channel|name>. 
 This is the account that the Slack message will be posted from. 
 
 **Thumb URL**
-Images that are displayed on the right side of the message.
+The Thumb URL is the image that is displayed on the right side of the message.
 
 **Image URL**
 The image URL is shown in the body of the message. 
