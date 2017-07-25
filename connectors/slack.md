@@ -19,7 +19,8 @@ To get started on building some recipes with Slack integration on Workato, take 
 
 https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
 
-Respond to Button action
+**Respond to Button action**
+
 https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
 
 **Post message**
