@@ -7,6 +7,3 @@
 # Ignore all static files
 /_book
 /node_modules
-assets/images/connectors/microsoft-dynamics/ms-azure-signup.PNG
-assets/images/connectors/microsoft-dynamics/ms-dynamics-365-signup.PNG
-ms-dynamics.md
