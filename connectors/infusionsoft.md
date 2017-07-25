@@ -34,11 +34,11 @@ When using the action, the details available in Workato are displayed here:
 
 #### What can I do with payment plan information?
 
-1) Getting invoices made by a specific user for a range of dates
+1) Get invoices made by a specific user for a range of dates
 
 This allows you to understand the payment habits made by a client, which could be useful for making reports or inqueries in your CRM.
 
-2) Syncing payments
+2) Sync payments
 
 Payment plan details contain the IDs of each payment for the order. With this, you will be able to sync all payments made for this order.
 
