@@ -1,16 +1,18 @@
 # Infusionsoft
-Primarily for small businesses, [Infusionsoft](https://www.infusionsoft.com/) offers a variety of functions for sales, marketing, and CRM.
+[Infusionsoft](https://www.infusionsoft.com/) is an email marketing and sales platform that enables sales and marketing automation for small businesses.
 
-Connecting Infusionsoft to Workato would allow users to better organize the information stored in Infusionsoft as well as call up and update that information automatically whenever a specified action is done.
+Via Workato, you can integrate Infusionsoft with other business apps uses by your organization, such as ERP or accounting apps, to sync invoice or customer data.
 
+## API version
+The Infusionsoft connector uses the [XML-RPC API](https://developer.infusionsoft.com/docs/xml-rpc/), with the base URL `https://api.infusionsoft.com/crm/xmlrpc/v1`, and [OAuth2 authentication](https://developer.infusionsoft.com/authentication/).
 
-## Infusionsoft : Payment plans
+## Supported editions and versions
+Workato works with all Infusionsoft plans.
 
-### Payment plan details in Infusionsoft
+## Working with the Infusionsoft connector
 
-Workato's **Get payment plan details** action via **Invoice ID** in Infusionsoft allows users to get specific details regarding certain subscription plans for an order. 
-
-Here are some examples in both Infusionsoft and Workato:
+### Understanding payment plans
+The **Get payment plan details by invoice ID** action in Infusionsoft allows users to get specific details regarding certain subscription plans for an order.
 
 To view a **Payment plan**, go to *Infusionsoft > View an order > Payment plans* : 
 
@@ -30,18 +32,18 @@ When using the action, the details available in Workato are displayed here:
 
 *Payment plan details on Workato*
 
-### What can I do with this information?
+#### What can I do with payment plan information?
 
-#### 1) Getting invoices made by a specific user for a range of dates
+1) Getting invoices made by a specific user for a range of dates
+
 This allows you to understand the payment habits made by a client, which could be useful for making reports or inqueries in your CRM.
 
-#### 2) Syncing payments
+2) Syncing payments
+
 Payment plan details contain the IDs of each payment for the order. With this, you will be able to sync all payments made for this order.
 
-
-## Infusionsoft : List of Item types
-
-When receiving details of an invoice, each line item is tied with a field called **item_type** that marks the type of the item. These values are in integer form, and in case you need to receive only a certain type of items, here are the list of numbers and their respective item types :
+### Item types
+When retrieving details of an invoice, each line item has a field called **item_type** marking the type of the item. These values are in integer form. If you wish to retrieve only certain types of items, you can refer to the following list of numbers and their respective item types:
 
 0 = Unknown Type
 
