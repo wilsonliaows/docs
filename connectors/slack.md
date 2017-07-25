@@ -64,7 +64,7 @@ Next, we’ll fill in the Button action handler recipe, Button actions, Message 
 **Thread ID**
 The Thread ID can be found in the URL of the thread. 
 
-![Thread ID](/assets/images/connectors/slack/thread-id.png)
+![Thread ID](/assets/images/connectors/slack/thread-id.gif)
 *Locate Thread ID*
 
 **Message Type**
