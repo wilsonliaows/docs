@@ -1,38 +1,33 @@
 # Xero
-[Xero](https://www.xero.com/us/) is a cloud-based accounting software for small to medium businesses. Xero can be used to manage processes like invoicing and bookkeeping.
+[Xero](https://www.xero.com/us/) is a cloud-based accounting software for small to medium businesses, used to manage invoicing, bank reconciliation, bookkeeping and more.
 
-Workato allows you to synchronize data between Xero and the other apps you use in your organization. For example, you can sync customer data with your CRM app, sales data with your point-of-sales app, or inventory data with your ERP app.
+Workato allows you to synchronize data between Xero and the other apps you use in your organization. For example, you can sync Xero contact data into your CRM app as customer data, Xero sales data into your point-of-sales app, or Xero inventory data into your ERP app.
 
 ## Supported triggers and actions
-The latest triggers and actions can be found on the Xero connector page.
-
+The latest triggers and actions can be found on the [Xero connector page](https://www.workato.com/integrations/xero).
 
 ## Sales tax type when using create/update items action in Xero 
-To find out what types of sales tax to key in when using the **Create/update items** action in Xero, users can click on the URL below the box (highlighted in image). 
+To find out what types of sales tax to key in when using the **Create/update items** action in Xero, users can click on the URL below the box (highlighted in image).
 
 ![Sales tax list](/assets/images/connectors/xero/sales-tax-list.png)
 
 *List of different types of sales taxes*
 
-This will lead users to the **Tax type** page (image below) and they will have to key it in manually.
+This will lead users to the **Tax type** page as below, and they will have to key it in manually.
 
 ![Tax types list](/assets/images/connectors/xero/tax-type-list.png)
 
 *List of tax types*
 
-
-## Xero API usage limit
-According to the [Xero Developer Help Center](https://community.xero.com/developer/question/17181), there is a daily limit of 1000 API calls that a provider can make against a particular Xero organization in a rolling 24 hour period. If you exceed this rate limit you will receive a HTTP 401 response with the message “oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api” in the http response body.
-
+## Xero API rate limiting
+According to the [Xero Developer Help Center](https://community.xero.com/developer/question/17181), there is a daily limit of 1000 API calls that a provider can make against a particular Xero organization in a rolling 24 hour period. If you exceed this rate limit you will receive a HTTP 401 response with the message `oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api` in the http response body.
 
 ## How to find different IDs in Xero
+A Xero ID is a unique identifier for a record in the API. All IDs can be obtained in one of two ways.
 
-### Xero IDs
-An ID is a unique identifier for an object in the API. All IDs can be obtained in one of two ways.
+IDs can be found in one of two ways. The first way is less common when it comes to Workato recipes - to retrieve IDs directly from the Xero site. The ID of a specific item, such as a **Contact** or **Manual journal** can be found at the end of the URL of its respective page in Xero. By using this method, you would be hardcoding the recipe to always use this ID - this is typically only used for testing.
 
-IDs can be found in one of two ways. One way is to take them directly from the Xero site. The ID of a specific item, such as a **Contact** or **Manual journal** can be found at the end of the URL of its respective page in Xero.
-
-Another method is by using the **Search**, **Create**, or **Update** action, in which case Workato will find or output the ID of the item it created or found. Then in your next action, you can use the datapill for the item ID put out by the preceding action to specify what item Workato should interact with in this step. Some examples are given below:
+The second, more common way is to use the **Search**, **Create**, or **Update** actions. Whenever Workato interacts with a record in Xero, it will receive in the API response the ID of the record. In your next action, you can use the datapill from the Xero datatree for the ID returned by the preceding action to specify what record Workato should interact with in this step. Some examples are given below.
 
 #### Contact ID
 **Contact ID** is an unique identifier for each contact in the Xero. It can be found at the end of the URL of a particular contact page. 
@@ -85,4 +80,3 @@ You can make use of the output datapill from the following triggers/actions to o
 3. **Get payment**
 
 Alternatively, you can change the toggle to **Account code**, which can be found in *Xero settings* > *Chart of accounts*
-
