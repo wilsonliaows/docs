@@ -103,18 +103,18 @@ The message on Slack will look as follows:
 
 ## Using lookup tables to build Slack recipes
 
-You can use lookup tables in two different ways- manual entry or by uploading a CSV file.  To learn more about populating lookup tables with CSV files, click [here](http://docs.workato.com/features/lookup-tables.html#importing-an-existing-csv-file)
+You can use lookup tables in two different ways - manual entry or by uploading a CSV file. To learn more about populating lookup tables with CSV files, click [here](http://docs.workato.com/features/lookup-tables.html#importing-an-existing-csv-file)
 
 Let’s go through a sample recipe for Slack where lookup tables would be useful. For this recipe, a new issue on JIRA will invite all users in the lookup table to a Slack channel. To start building a lookup table, locate your name on the top right hand corner and click on it.  Next, go to lookup tables and create a new one. 
 
 ![Lookup tables](/assets/images/connectors/slack/create.gif)
 *Create a lookup table*
 
-Let’s start populating a lookup tables.
+Let’s start populating a lookup table.
 
 ![Lookup table](/assets/images/connectors/slack/add-new.jpg)
 *Filled lookup table*
 
-With the help of the **repeat step**, you can look through every user in the lookuptable, find their corressponding slack handles and invite them to your channel.
+With the help of the **repeat step**, you can look through every user in the lookup table, find their corresponding Slack handles and invite them to your channel.
 
-Using lookup tables for slack can further facilitate the recipe building process. The oranized tables can be reffered to throughout the recipes for easier access. 
+Using lookup tables for Slack can further facilitate the recipe building process. These tables can be referred to throughout the recipes for easier access. 
