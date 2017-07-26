@@ -1,27 +1,34 @@
 # Quick Base
-[Quick Base](http://www.quickbase.com/) is an online platform used to help businesses connect multiple applications and automate their workflows.
+[Quick Base](http://www.quickbase.com/) is a powerful, low-code application management platform that allows organizations to easily build database applications to manage business information and processes.
 
-Connecting Quick Base to Workato allows for the management of data in Quick Base and even allows users to sync data from multiple Quick Base accounts.
+Workato enables organizations to write to Quick Base database applications or read from Quick Base database applications with ease via a similar low-code approach. This allows organizations to keep their Quick Base apps in sync with the other apps used in their business.
 
+## API version
+The Quick Base connector uses the [HTTP API](https://help.quickbase.com/api-guide/index.html) with XML data, and with the base URL `https://target_domain/db/`.
 
-## Quick Base: getting started with Quick Base and Workato 
+## Quick Base connector features
 ![Getting started](/assets/images/connectors/quickbase/getting-started.jpg)
 
 *Quick Base integration by Workato*
 
-Workato now fully supports Quick Base, including all custom objects and tables, standard CRUD-operations, and purging records using reports.
+The following highlights the Quick Base connector features: 
+- reading and writing to all custom tables and fields via standard CRUD operations
+- real-time triggers powered by Quick Base webhooks
+- support for Quick Base query language
+- support for attachment upload and download
 
-Visit [here](https://www.workato.com/integrations/quickbase) for information about our Quick Base pricing plans, customer stories, examples of recipes and to sign-up for our Quick Base webinar.
+Workato also supports authentication to Quick Base via both user tokens (recommended) and application tokens.
 
+Click [here](https://www.workato.com/integrations/quickbase) for more information about our Quick Base pricing plans, customer stories, example recipes and to sign-up for our Quick Base webinar.
 
-### Get connected
+### How to connect to Quick Base on Workato
 1. [How to connect your Quick Base account](https://support.workato.com/support/solutions/articles/1000236544-quickbase-connecting-your-quickbase-account)
 2. [Connecting more than one Quick Base account in a single recipe](https://support.workato.com/support/solutions/articles/1000236168-quickbase-syncing-to-multiple-quickbase-instances)
 3. Choosing table fields
 
-### Learn Quick Base actions and triggers
-2. [Quick Base triggers](https://support.workato.com/solution/articles/1000236163-quickbase-triggers)
-3. Actions
+### Working with the Quick Base connector
+1. [Quick Base triggers](https://support.workato.com/solution/articles/1000236163-quickbase-triggers)
+2. Actions
 
 i) [Search and update actions](https://support.workato.com/solution/articles/1000236167-quickbase-search-and-update-actions)
 ii) [How do I update a record in Quick Base?](https://support.workato.com/solution/articles/1000236654-quickbase-how-do-i-update-a-record-%204) 
