@@ -53,7 +53,7 @@ In this case, the trigger picks up all 4 data lines in my Google sheet.
 You can configure the jobs report to display the information relevant to you, as below.
 
 ![Customized job report](/assets/images/connectors/google-sheets/updated-job-report.jpg)
-*Customized job report displaying selected information about the trigger event processed
+*Customized job report displaying selected information about the trigger event processed*
 
 While the recipe is running, any new rows added will be picked up almost immediately. If the recipe is stopped at any time, starting it again will cause the recipe to pick up trigger jobs where it left off. In other words, any new rows created while the recipe was stopped will also be picked up when the recipe is started again.
 
@@ -129,8 +129,8 @@ First, in order for us to retrieve the custom data in a sheet, the sheet must co
 ### Configuring the create row action
 To configure the action, we need to select the spreadsheet and the actual sheet to process.
 
-![Trigger set up](/assets/images/connectors/google-sheets/add-row-action.png)
-*Select the new row in sheet trigger*
+![Add row action](/assets/images/connectors/google-sheets/add-row-action.png)
+*Use the add row action*
 
 Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet, while selecting the sheet would generate your list of columns within that sheet.
 
