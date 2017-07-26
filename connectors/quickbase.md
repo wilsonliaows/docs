@@ -334,3 +334,41 @@ Notes
  - Any required fields in your Quick Base table should be displayed in the action by default. Required fields will not show up automatically if you fail to define them in the **Input field list**.
 - Always refresh your recipe schema after changing the **Input field list**.
 - There should not be additional spaces in front of or behind each field name 
+
+
+## Quick Base: using queries
+
+Queries are criteria which users can set to search for specific records in Quick Base, similar to advanced search options in Google. In Quick Base recipes, there will be several instances where users are given the option to use a query to filter trigger inputs.
+
+### Query format
+
+When using queries in Quick Base recipes, they should look as follows: {‘fid’.operator.‘value’}. In this case, **fid** or **Field ID** denotes the numerical ID of the field you want to test. **Operator** is the condition you want to test for, such as **equal to (EX)**, **contains (CT)**, or **less than (LT)**. Finally, **value** is what you are comparing whatever is in the field to.
+
+In order to find the fid of the fields you want to test, go to your desired table for the Quick Base application you are using. 
+
+![Complete sales manager](/assets/images/connectors/quickbase/sales-manager.jpg)
+***Opportunities** table for **Complete sales manager** app in Quick Base*
+
+Then go to *Settings* > *Fields* and the column on the right will show the fid for every field in the table you chose.
+
+![Field labels](/assets/images/connectors/quickbase/field-labels.jpg)
+*Field labels and their respective IDs*
+
+### Using queries in Quick Base triggers
+
+When you have all the necessary information for your query, you can either input it into the Quick Base **Scheduled record search using query** trigger, or in the optional **Query** field in any other Quick Base trigger to filter your trigger outputs.
+
+For example, if I want to record all **Expenditures** for which the **Individual** field contains “Tentacles, Squidward” on a Lookup table, I would use a **New record** trigger with the optional **Query** field selected, and input as follows: {‘8’.CT.‘Tentacles, Squidward’}
+
+![New Record](/assets/images/connectors/quickbase/new-record.jpg)
+*This **New record** trigger will only trigger if records from the individual “Tentacles, Squidward” are added*
+
+Quick Base also has a **Scheduled record search using query** trigger specifically meant to gather all records matching the criteria set by your query on a regular time interval. So, if every hour I want to track all **Opportunities** for which the **Company name** is “Major Electric,” I would input the following: {‘33’.EX.‘Major Electric’}.
+
+![Query field](/assets/images/connectors/quickbase/query-field.jpg)
+*Here, **Query** is a required field, so you must specify that you only want records involving Major Electric*
+
+Keep in mind that queries look for exact matches, so they are case sensitive, and misplaced spaces will mess up results.
+
+
+
