@@ -11,34 +11,24 @@ Through Workato, users can benefit from many triggers and actions that further f
 
 Workato also provides users with Workbot which helps automate work in businesses and enterprises. To learn more about Workbot, click [here](https://www.workato.com/workbot-slack). 
 
-## Sample slack recipes
-
-To get started on building some recipes with Slack integration on Workato, take a look at some of our sample recipes for the following triggers and actions.
-
-**New Button**
-
-https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
-
-**Respond to Button action**
-
-https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
+## Slack actions
 
 **Post message**
 
-https://www.workato.com/recipes/563608-new-user-in-zendesk-will-post-message-create-channel-and-send-email?st=a9e632#recipe
+The post message action posts a customizable Slack message in any channel, under a thread, or as a direct message to a specified user. This action may be useful if you want to notify a group of users or a specific channel about a new Salesforce deal support request. You can also add buttons to your message on Slack which are linked to another recipe.
 
-**Create channel**
+![Slack Post message notification](/assets/images/connectors/slack/slack-notification.jpg)
+*Message posted on Slack to approve or reject a deal support request*
 
-https://www.workato.com/recipes/563608-new-user-in-zendesk-will-post-message-create-channel-and-send-email?st=a9e632#recipe
+**Respond to button action**
 
-**Archive channel**
+This action allows users to link response URLs and response types.
 
-https://www.workato.com/recipes/563728-new-or-updated-card-in-trello-will-post-message-in-slack?st=81e932#recipe
+## Slack triggers
 
-**Set channel topic**
+**New Button action**
 
-https://www.workato.com/recipes/567067-new-updated-issue-in-jira-will-invite-user-to-channel-in-slack?st=d42723#recipe
-
+This trigger allows you to complete a set of actions each time the action in a pre existing button is executed. This could be applicable for users who have a message on Slack with buttons that accept and reject deal support requests. Each time this button is clicked, the updated information could be sent as an email. 
 
 ## Building recipes
 
@@ -102,7 +92,9 @@ The message on Slack will look as follows:
 ![Slack Message](/assets/images/connectors/slack/final.png)
 *Slack message*
 
-## Using lookup tables to build Slack recipes
+## Using lookup tables to connect users
+
+When trying to automate certain integration recipes, certain users run into a problem. When building a recipe you may need a user's Slack handle given their email address. This may be hard to do since this information is not readily available. In order to solve this problem, you will need to use lookup tables.
 
 You can use lookup tables in two different ways - manual entry or by uploading a CSV file. To learn more about populating lookup tables with CSV files, click [here](http://docs.workato.com/features/lookup-tables.html#importing-an-existing-csv-file)
 
@@ -119,3 +111,31 @@ Let’s start populating a lookup table.
 With the help of the **repeat step**, you can look through every user in the lookup table, find their corresponding Slack handles and invite them to your channel.
 
 Using lookup tables for Slack can further facilitate the recipe building process. These tables can be referred to throughout the recipes for easier access. 
+
+## Sample slack recipes
+
+To get started on building some recipes with Slack integration on Workato, take a look at some of our sample recipes for the following triggers and actions.
+
+**New button action**
+
+https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
+
+**Respond to button action**
+
+https://www.workato.com/recipes/569291-new-button-action-from-slack-will-send-email-via-workato?st=78ded7#recipe
+
+**Post message**
+
+https://www.workato.com/recipes/563608-new-user-in-zendesk-will-post-message-create-channel-and-send-email?st=a9e632#recipe
+
+**Create channel**
+
+https://www.workato.com/recipes/563608-new-user-in-zendesk-will-post-message-create-channel-and-send-email?st=a9e632#recipe
+
+**Archive channel**
+
+https://www.workato.com/recipes/563728-new-or-updated-card-in-trello-will-post-message-in-slack?st=81e932#recipe
+
+**Set channel topic**
+
+https://www.workato.com/recipes/567067-new-updated-issue-in-jira-will-invite-user-to-channel-in-slack?st=d42723#recipe
