@@ -7,7 +7,7 @@ date: 2017-06-13 06:15:00 Z
 
 [Slack](https://api.slack.com) provides users with an easy to use platform to communicate within groups and provides numerous other beneficial programs such as creating applications on Slack as well as internal integration. 
 
-Through Workato, users can benefit from many triggers and actions that further facilitate Slack integration. Some triggers and actions include “Button Action”, “Post message” and “Invite User to Channel”. With the help of these fundamental actions and triggers, users can build recipes that could, for example, post a message on Slack each time a new contact is created on Google Contacts.
+Through Workato, users can benefit from many triggers and actions that further facilitate [Slack integration](https://www.workato.com/integrations/slack). Some triggers and actions include “Button Action”, “Post message” and “Invite User to Channel”. With the help of these fundamental actions and triggers, users can build recipes that could, for example, post a message on Slack each time a new contact is created on Google Contacts.
 
 Workato also provides users with Workbot which helps automate work in businesses and enterprises. To learn more about Workbot, click [here](https://www.workato.com/workbot-slack). 
 
@@ -107,7 +107,12 @@ Let’s go through a sample recipe for Slack where lookup tables would be useful
 Let’s start populating a lookup table.
 
 ![Lookup table](/assets/images/connectors/slack/add-new.jpg)
-*Filled lookup table*
+*Add new table*
+
+Once you complete the lookup table, it should look similar to the following.
+
+![Complete lookup table](/assets/images/connectors/slack/slack-completed-table.png)
+*Completed lookup table*
 
 With the help of the **repeat step**, you can look through every user in the lookup table, find their corresponding Slack handles and invite them to your channel.
 
