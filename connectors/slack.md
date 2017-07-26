@@ -89,12 +89,13 @@ The button action defines what exactly the button should do and how it will look
 Use the format **action name, id, [style], confirmation text, ok button title, dismiss button title]**. The button in this example will send an email stating that a contact has been created.
 
 The message on Slack will look as follows:
+
 ![Slack Message](/assets/images/connectors/slack/final.png)
 *Slack message*
 
 ## Using lookup tables to connect users
 
-When trying to automate certain integration recipes, certain users run into a problem. When building a recipe you may need a user's Slack handle given their email address. This may be hard to do since this information is not readily available. In order to solve this problem, you will need to use lookup tables.
+When trying to automate certain integration recipes, certain users run into a problem. When building a recipe you may need a user's Slack handle given their email address. This may be hard to do since this information is not readily available. In order to solve this problem, you can use lookup tables on Workato.
 
 You can use lookup tables in two different ways - manual entry or by uploading a CSV file. To learn more about populating lookup tables with CSV files, click [here](http://docs.workato.com/features/lookup-tables.html#importing-an-existing-csv-file)
 
@@ -110,7 +111,7 @@ Let’s start populating a lookup table.
 
 With the help of the **repeat step**, you can look through every user in the lookup table, find their corresponding Slack handles and invite them to your channel.
 
-Using lookup tables for Slack can further facilitate the recipe building process. These tables can be referred to throughout the recipes for easier access. 
+Using lookup tables for Slack can further facilitate the recipe building process. These tables can be referred to throughout the recipe to easily access more information. 
 
 ## Sample slack recipes
 
