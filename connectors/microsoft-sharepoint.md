@@ -33,7 +33,7 @@ In order to connect to Microsoft Sharepoint on Workato, you need to obtain a cli
 
 6. In the right menu click Required permissions.
 
-![Required permission](/assets/images/connectors/microsoft-sharepoint/required-permission.jpg)
+![Required permission](/assets/images/connectors/microsoft-sharepoint/required.jpg)
 *Required permission*
 
 7. Add API access. Click Add -> Select  an API -> Office 365 sharepoint Online. Then, check the Delegated permissions checkbox. Click on Done
