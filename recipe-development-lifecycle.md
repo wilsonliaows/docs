@@ -1,10 +1,10 @@
 ---
-title: Software development lifecycle
+title: Recipe development lifecycle
 date: 2017-05-31 15:00:00 Z
 ---
 
-# Software development lifecycle
-Organizations typically plan, develop, test and deploy new integrations via their software development lifecycle. This would involve moving recipes from a development environment to a testing environment, or from a testing environment to a production/deployment environment.
+# Recipe development lifecycle
+Organizations typically plan, develop, test and deploy new integrations via their recipe development lifecycle. This would involve moving recipes from a development environment to a testing environment, or from a testing environment to a production/deployment environment.
 
 On Workato, teams can move sets of recipes and their related assets (e.g. connections, callable recipes, custom connectors) from one environment to another, via the use of packages. This allows teams to maintain their integration recipes across their different teams' environments.
 
