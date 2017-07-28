@@ -5,28 +5,18 @@ date: 2017-03-30 05:00:00 Z
 
 # Workbot Examples 
 
-With Workbot, you can easily integrate applications in order communicate, organize, or collaborate within an organization. One particular example where Workbot is useful is in a company where different groups (sales, product, and marketing) uses different applications. With Workbot, all these separate groups could be able to easily communicate and talk about their progress through Workbot's connection with Slack.
+With Workbot, you can easily integrate applications in order communicate, organize, or collaborate within an organization. One particular example where Workbot is useful is in a company where different teams (sales, product, and marketing) use different applications. With Workbot, all these separate groups could be able to  communicate and talk about their progress through Workbot's connection with Slack.
 
 In this article we'll walk you through:
-1. [Sample recipes](http://docs.workato.com/#sample-recipes)
-2. [Detailed walkthrough of a sample recipe](http://docs.workato.com/#detailed-walkthrough-of-a-sample-recipe)
-3. [Defining key Workbot terms](http://docs.workato.com/#defining-key-workbot-terms)
 
-
-
-## Sample Recipes
-
-To get a start on building your own workbot recipes, take a look at these useful sample recipes that you can copy and adjust as you chose to get a glimpse of the possible workbot recipes you could build.
-
-* [New/updated deal support request on Salesforce posts notification on Slack](https://www.workato.com/recipes/539932-new-updated-dsrs-post-notifications-in-slack-acme360#recipe)
-
-* [Approve or reject deal support request on Slack](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe)
-
+1. [Detailed walkthrough of a sample recipe](http://docs.workato.com/#detailed-walkthrough-of-a-sample-recipe)
+2. [Defining key Workbot terms](http://docs.workato.com/#defining-key-workbot-terms)
+3. [Sample recipes](http://docs.workato.com/#sample-recipes)
 
 
 ## Detailed walkthrough of a sample recipe
 
-Let's go through [this recipe](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe) in detail to see a particular scenario where workbot helps the user.
+Let's go through [this recipe](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe) in detail to see where workbot could potentially help the user.
 
 Once you open the link, click on the *Use this recipe* button located on the top right hand corner of the page.
 
@@ -38,7 +28,8 @@ After you do this, you will be directed to a page where you will have to fill in
 ![Connecting Apps](/assets/images/Workbot/workbot-examples/connections.png)
 *Connect the applications and then press next*
 
-After you click on next, you will have the option to customize any fields you want to change. If you don't want to, proceed to click *Next*
+After you click on next, you will have the option to customize any fields you want to change. If you don't want to, proceed to click *Next*.
+
 ![Customize fields](/assets/images/Workbot/workbot-examples/customize.png)
 *Modify, add, and remove anything from the original sample recipe*
 
@@ -70,7 +61,7 @@ When you go back to the slack channel, you will have received this notification:
 ![Slack notification](/assets/images/Workbot/workbot-examples/slack-notification.jpg)
 *Slack notification of deal support request, pending approval*
 
-Once the approver hits approve, you will get the following message:
+Once the designated approver hits the approve button, you will get the following message:
 
 ![Approved request](/assets/images/Workbot/workbot-examples/approved.jpg)
 *Approved support request*
@@ -131,7 +122,7 @@ When you type @ workbot help in slack, the command will not show up.
 
 Message drop down bars are very similar to buttons. They serve the same function but come in the form of a picklist as opposed to specified buttons.
 
-Use the same text as inserting a button:
+Use the same text you would use to insert a button.
 
 ```ruby
 [{"title":"button title", "command":"button command"}]
@@ -169,5 +160,18 @@ Message type good is color coded green, warning is color coded amber, and messag
 
 The thread ID refers to the thread on Slack. If you put in the Thread ID, you will add the message under an existing thread. If you put in the Message ID with no Thread, you will create a new thread and your message will be located under the original message. 
 
+The thread ID can be located in the URL.
+
+![Locate Thread ID](/assets/images/Workbot/workbot-)
+
 ![Thread ID](/assets/images/Workbot/workbot-examples/thread-id.png)
 *Thread on Slack can be seen when you click on replies*
+
+
+## Sample Recipes
+
+To get a start on building your own workbot recipes, take a look at these useful sample recipes that you can copy and adjust as you chose to get a glimpse of the possible workbot recipes you could build.
+
+* [New/updated deal support request on Salesforce posts notification on Slack](https://www.workato.com/recipes/539932-new-updated-dsrs-post-notifications-in-slack-acme360#recipe)
+
+* [Approve or reject deal support request on Slack](https://www.workato.com/recipes/539920-approve-reject-dsr-acme360#recipe)
