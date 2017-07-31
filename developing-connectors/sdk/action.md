@@ -72,4 +72,4 @@ execute: lambda do |connection, input|
 end
 ```
 
-See [Methods](/docs/developer/sdk/methods.md) section for list of methods available for use in your custom connector actions.
+See [Methods](/docs/developing-connectors/sdk/methods.md) section for list of methods available for use in your custom connector actions.
