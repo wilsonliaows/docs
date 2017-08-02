@@ -38,6 +38,8 @@ The on-prem agent runs on the following systems:
 
 - Windows 7, 10 (64-bit)
 
+- Mac OS X
+
 Please make sure that TCP port 3000 is available for binding.
 
 # Setting up on-prem access
@@ -117,14 +119,33 @@ files:
     base: "C:/Documents/HR"
 ```
 
-Note that you need to restart the on-prem agent for any configuration change to become effective.
-
 For example, if we were to access the on-prem-file folder on the Desktop, the configuration will have a file path that looks something like this: 
 
 ![Acess on-prem-file](/assets/images/on-prem/config-on-prem-file-setup.png)
 *Configuration of on-prem-file folder on Desktop*
 
 The file path can be found when you right-click on the folder, and select **get info** or **property**.
+
+### Proxy server support
+
+The on-prem agent can be run in the environment with limited internet connectivity by using a proxy server.
+Proxy settings can be defined by adding a top-level `proxy` section to the configuration file:
+
+```YAML
+proxy:
+  host: 192.168.1.1
+  port: 8080
+  username: proxy_user
+  password: proxy_password
+```
+
+(username and password are optional)
+
+Using a proxy server for establishing a secure tunnel requires a support for [CONNECT](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_tunneling) feature; make sure the proxy server is configured to allow `CONNECT` requests to the Workato gateway (`sg.workato.com`).
+
+### Applying new configuration
+
+A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Start agent
 
@@ -152,7 +173,7 @@ You can use `Run Agent (console)` shortcut to ensure the agent is successfully c
 #### Browsing log files
 * When the on-prem agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to Workato log directory in the `Workato` group found in Start Menu for convenience.
 
-### Linux 64-bit
+### Linux 64-bit and Mac OS X
 Run the on-prem agent using the following bash script:
 ```
 <INSTALL_HOME>/bin/run.sh
@@ -186,6 +207,6 @@ If connecting to on-prem databases fail, check that:
 ## Example recipes
 
 ### Example on-premise database recipes
-[Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
+- [Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
+- [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
 <!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
-[Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
