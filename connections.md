@@ -4,7 +4,7 @@ date: 2017-03-04 18:00:00 Z
 ---
 
 # App connections
-For every app your recipe interacts with, Workato needs to be authorized to communicate with the apps on your behalf. Workato typically uses the apps API and it may require Oauth based authorization, or API keys, etc.
+For every app your recipe interacts with, Workato needs to be authorized to communicate with the apps on your behalf. Workato typically uses the app's API, and it may require Oauth based authorizatio, API keys, etc.
 
 This authorization is referred to as an **app connection**.
 
@@ -13,10 +13,10 @@ In many cases recipes will require a valid app connection before triggers and ac
 ![Unconnected Salesforce action](/assets/images/recipes/connections/unconnected-salesforce-action.png)
 *Recipe prompts user to connect to their Salesforce organization. You will notice that the picklist is greyed out. This is because the recipe needs a valid connection to Salesforce to get the list of available Salesforce objects.*
 
-Connections are created when a user authenticates with the app via Workato, and gives permission to Workato to access the data. Each connection should correspond to one app instance, hence multiple recipes can and should utilize the same connection if working with the same app instance.
+A connection is created when a user authenticates with the app via Workato, and gives Workato permission to access the data. Each connection should correspond to one app instance, hence multiple recipes can and should utilize the same connection if working with the same app instance.
 
 # Authentication
-Authentication (or authorization) usually occur the following standard ways, although there are some apps with custom authentication flows.
+Authentication (or authorization) usually occurs in the following standard ways, although there are some apps with custom authentication flows.
 - OAuth2
 - OAuth1 (and variations)
 - Basic authentication
@@ -48,13 +48,13 @@ After providing credentials, Salesforce will show up as connected. Now the recip
 *Recipe with Salesforce and Zendesk connections established*
 
 # Integration user
-Workato recipes typically automate workflows for a company or a department, on behalf of many users. i.e. the integrations will work no matter who created an invoice or a ticket. This requires that the connection used has broader permission that spans multiple users. As a result, the connected user is typically a special integration user created just for integration purposes.
+Workato recipes typically automate workflows for a company or a department on behalf of many users. i.e. the integrations will work no matter who created an invoice or a ticket. This requires that the connection used has broader permission that spans multiple users. As a result, the connected user is typically a special integration user created just for integration purposes.
 
 For example:
-- A recipe that moves new Salesforce accounts into Zendesk as new organizations will need read access to Salesforce accounts and write access for Zendesk organizations.
-- A recipe that moves new Salesforce cases into JIRA as new issues will need read access to Salesforce cases and write access for JIRA issues.
+- A recipe that moves new accounts in Salesforce to Zendesk as new organizations will need read access to Salesforce accounts and write access for Zendesk organizations.
+- A recipe that moves new cases in Salesforce to JIRA as new issues will need read access to Salesforce cases and write access for JIRA issues.
 
-Apps have different granularity when it comes to defining user roles and permissions. Refer to the specific connector documentation for more information on required permissions to connect to the app.
+Apps have different granularity when it comes to defining user roles and permissions. Refer to the specific connector documentation ![here](http://docs.workato.com/connectors.html) for more information on required permissions to connect to the app.
 
 # Using connections
 Typically a company may only have a single instance of an app and they may have another instance a sandbox for testing, etc. So a user would need just one connection for multiple recipes that work with the same app instance.
@@ -68,7 +68,7 @@ Here is an example where the same recipe works with two Saleforce instances i.e.
 ![Secondary Salesforce connections](/assets/images/recipes/connections/primary-secondary-connectors.gif)
 *Recipe with primary and secondary Salesforce connectors. [Example recipe](https://www.workato.com/recipes/487648)*
 
-The recipe requires two Salesforce separate connections.
+The recipe requires two separate Salesforce connections.
 
 ![Secondary Salesforce connections](/assets/images/recipes/connections/secondary-app-connections.png)
 *Primary and secondary Salesforce connections*
