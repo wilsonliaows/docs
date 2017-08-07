@@ -73,4 +73,4 @@ The recipe requires two Salesforce separate connections.
 ![Secondary Salesforce connections](/assets/images/recipes/connections/secondary-app-connections.png)
 *Primary and secondary Salesforce connections*
 
-Refer to the [secondary connectors article](docs/features/secondary-connectors.md) to find out more.
+Refer to the [secondary connectors article](/features/secondary-connectors.md) to find out more.
