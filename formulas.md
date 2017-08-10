@@ -4,7 +4,7 @@ date: 2017-03-07 05:00:00 Z
 ---
 
 # Formulas
-Users can use formulas to transform data using Workato. Formulas allow users to easily work with data and format data. Formulas in Workato are whitelisted Ruby methods. Not all Ruby methods are supported, but you can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
+Users can use formulas in Workato to transform app data that wouldn't regularly be compatible for integration. Formulas allow users to easily work with data and format data. Formulas in Workato are whitelisted Ruby methods. Not all Ruby methods are supported, but you can always [reach out to us](contact-us.md) to add additional formulas to the whitelist. Syntax and functionality for these formulas are generally unchanged.
 
 # Formula mode
 To start using formulas, you need to be in formula mode. Formula mode needs to be switched on at the field level, and most input fields support formula mode. To toggle from text mode into formula mode, click on the text/formula mode switch button. This also changes the type icon of the input field into the "fx" icon.
@@ -16,19 +16,19 @@ To start using formulas, you need to be in formula mode. Formula mode needs to b
 In formula mode, the formula editor provides the set of whitelisted formulas available for data transformation/manipulation, and provides additional help on how to use these formulas.
 
 ## Filter formulas displayed by data type
-The formula editor should always display the type specific formulas for your data pills. Refer to [this article](/recipes/data-pills-and-mapping.md) for more on the different types of data pills.
+The formula editor should always display the type specific formulas for your datapills. Refer to [this article](/recipes/data-pills-and-mapping.md) for more on the different types of datapills.
 
-When a string type data pill, the pill *Full name* is inserted into an input field in formula mode, the formula editor prompts for a period (.) to be added behind the pill, as per Ruby syntax. Subsequently, the editor shows the list of formulas applicable to strings.
+When a string type datapill, the pill *Full name* is inserted into an input field in formula mode, the formula editor prompts for a period (.) to be added behind the pill, as per Ruby syntax. Subsequently, the editor shows the list of formulas applicable to strings.
 
 ![String formula list](/assets/images/formula-docs/string-formula-list.gif)
 *Formula editor showing the list of string formulas*
 
-Similarly, when a date type data pill is inserted into the input field in formula mode, the formula editor prompts for a period (.) to be added behind the pill, subsequently displaying the list of formulas applicable to dates.
+Similarly, when a date type datapill is inserted into the input field in formula mode, the formula editor prompts for a period (.) to be added behind the pill, subsequently displaying the list of formulas applicable to dates.
 
 ![Date formula list](/assets/images/formula-docs/date-formula-list.gif)
 *Formula editor showing the list of date formulas*
 
-When there is no data pill within the input field, however, the formula list displayed contains only formulas and operators which are independent of data pills or data pill types.
+When there is no datapill within the input field, however, the formula list displayed contains only formulas and operators which are independent of datapills or datapill types.
 
 ![Default formula list](/assets/images/formula-docs/default-formula-list.gif)
 *Formula editor showing the list of default formulas*
@@ -42,7 +42,7 @@ When a formula is selected to be used, it will be auto-completed in the input fi
 ## Text VS formula mode
 In text mode, text and pills can be inserted into the input fields easily, and they will show up as-is. On the other hand, text needs to be explicitly formatted when in formula mode.
 
-Let's take the case whereby we have a recipe that sends an email to new leads in Salesforce. If a new lead called Madison Diaz is created, we wish to send the following email:
+Let's take the case whereby we have a recipe that automatically sends an email to new leads in Salesforce. If a new lead called Madison Diaz is created, we wish to send the following email:
 
 ```
 Hi Madison,
