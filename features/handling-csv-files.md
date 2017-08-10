@@ -80,7 +80,7 @@ The **Parse CSV** action's datatree returns a list of CSV lines.
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-output-datatree.png)
 *Output datatree for Parse CSV action showing the variables defined in the header line*
 
-In order to iterate through this list of CSV lines, we have to use a Repeat step. The following shows the mapping from the Repeat step's foreach datatree to the input fields of the **Create Netsuite inventory item** action.
+In order to iterate through this list of CSV lines, we have to use a Repeat step, which you can learn about [here](http://docs.workato.com/recipes/steps.html). The following shows the mapping from the Repeat step's foreach datatree to the input fields of the **Create Netsuite inventory item** action.
 
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-mapping.png)
 *Mapping of datapills from the Repeat step datatree to the action*
