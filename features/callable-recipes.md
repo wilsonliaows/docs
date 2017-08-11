@@ -45,11 +45,11 @@ Lastly, you may choose to enable REST endpoint for your recipe. This defaults to
 
 [
 
-Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication stpes, Run a search, and if search gives no results, create a customer, if exisiting customer found, update customer. For a sample recipe, click here https://www.workato.com/recipes/485991
+Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication steps, Run a search, and if search gives no results, create a customer, if exisiting customer found, update customer. For a sample recipe, click [here](https://www.workato.com/recipes/485991).
 
 **Step 2: Call recipe**
 
-Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and when created the actions you need. When you need to call the callable recipe, simply click on Add a new step, select **call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go!
+Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and then create the actions you need. When you need to call the callable recipe, simply click on Add a new step, select **call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go!
 
 ![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Call Recipe Action.png)
 
@@ -61,7 +61,7 @@ Enabling a REST endpoint for recipes makes it available to be called by any appl
 
 1. Bring Information Into An App
 
-  You can connect any app that has an API available with a REST Endpoint even if Workato doesn’t have a connector for that app. For example, if you want to bring in information from Zillow.com so you know how much a real estate property is worth, you can create a REST Endpoint that will populate your fields in QuickBase every time an employee run the recipe.You can also create a button that will start the REST Endpoint recipe. You can place the button wherever you would like, for example inside of Salesforce, so employees can tell the recipe to run without logging into Workato.
+  You can integrate with any app that has an API available with a REST Endpoint even if Workato doesn’t have a connector for that app. For example, if you want to bring in information from Zillow.com so you know how much a real estate property is worth, you can create a REST Endpoint that will populate your fields in QuickBase every time an employee run the recipe.You can also create a button that will start the REST Endpoint recipe. You can place the button wherever you would like, for example inside of Salesforce, so employees can tell the recipe to run without logging into Workato.
 
 2. Send Information Out Of An App
 
