@@ -11,7 +11,7 @@ Data in lookup tables is typically organized like a database table, with columns
 * Any column
 * Multiple columns
 
-For example, if I'm trying to move accounting entries from my sales app, Salesforce, into my accounting app, Intacct, I might find that both departments are using different account codes internally. In order to ensure data is synced accurately from Salesforce into Intacct, I would need to take the account codes from Salesforce, find the matching codes in Intacct, and create the Intacct accounting entries using the corresponding Intacct account codes. In the following table, any Salesforce entries coming in with the code 34267 will be written into Intacct under the code 6754.
+For example, if I'm trying to move accounting entries from my sales app into my accounting app i.e. Salesforce to Intacct, I might find that both departments are using different account codes internally. In order to ensure data is synced accurately from Salesforce into Intacct, I would need to take the account codes from Salesforce, find the matching codes in Intacct, and create the Intacct accounting entries using the corresponding Intacct account codes. In the following table, any Salesforce entries coming in with the code 34267 will be written into Intacct under the code 6754.
 
 ![Example lookup table](/assets/images/features/lookup-tables/example-lookup-table.png)
 *Lookup table with the account IDs in Salesforce, Intacct and account names*
@@ -47,7 +47,7 @@ You can manually enter additional lookup table entries.
 *A new blank row will be generated for values to be entered*
 
 ## Adding new entries via a recipe
-There is a **Lookup table** connector that allows you to work with your tables via recipes. This connector supports [adding of new entries](#add-entry-action) via a recipe.
+There is a **Lookup table** connector that allows you to automate your work with lookup tables. This connector supports [adding of new entries](#add-entry-action) via a recipe.
 
 ## Using the lookup table connector
 The **Lookup table** utility connector allows you to work with your tables via recipes. This connector supports the following actions:
@@ -63,7 +63,7 @@ Add a new entry to an existing lookup table. You can use this action to keep you
 *Select the lookup table to write to and then input the values to provide for each cell of the row*
 
 ### Lookup entry action
-The lookup entry action allows you to search for an entry (a row in the lookup table) by any of its values. The lookup entry action behaves like a search and retrieves a single entry. The first matching entry depends on the values passed in. If you have duplicated entries (i.e. your lookup will return more than one entry), only one entry will be retrieved.
+The lookup entry action allows you to search for an entry (a row in the lookup table) by any of its values. The lookup entry action behaves like a search and retrieves a single entry. The first matching entry depends on the values passed in. If you have duplicate entries (i.e. your lookup will return more than one entry), only one entry will be retrieved.
 
 In the example below, we have a table called **Vacation Rules** with 4 columns - vacation type, department ID, job code and job title.
 
@@ -83,7 +83,7 @@ The search entries action works similarly to the lookup action. The main differe
 Use this if you expect a list of matching entries to be returned, and wish to process the list accordingly.
 
 ## Lookup table formulas
-Instead of using an action step to carry out the entry lookup, you can also use a formula to lookup entries in your lookup table. This is efficient as the lookup can be done within the input field without requiring additional actions.
+Instead of using an action step to carry out the entry lookup, you can also use a formula to lookup entries in your lookup table. This is as efficient as the lookup action and can be done within the input field without requiring additional actions.
 
 To use the formula, set the input field to formula mode, and enter the formula in this format:
 
