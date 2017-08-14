@@ -135,8 +135,23 @@ The list connector is a Workato utility built for users to create custom lists a
 ## Using the accumulator action to create a custom list
 
 ### Defining the list fields
-A custom list has to be created before data can be accumulated and stored within it. To create the list, select the **List** connector and its default action **
-Append item to list**.
+A custom list has to be created before data can be accumulated and stored within it. To create the list, select the **List** connector and its default action 
+
+**Append item to list**
+
+Appending an item is a way to manually add items to a list, thereby creating a new list.
+
+To carry out this action, you need to input the **list name** as well as the **name** and **data type** of each field.
+
+![Append Action Select](/assets/images/connectors/list/append_action.png)
+*Choosing which list to append to*
+
+![Append Action Select](/assets/images/connectors/list/append_add_new_field.png)
+*Selecting data for a new field*
+
+To implement this in your recipe, you will want to use a for-each loop. This is important because it allows you to filter the items that you want to add to your list. For example, if you are searching through a spreadsheet for rows to add to a list, you can set a condition that must be met in order to append to the list.
+
+When you deploy your new recipe, the list you have selected will have the new items added to it.
 
 ![Empty accumulator](/assets/images/features/list-management/empty-accumulator.png)
 *Accumulator with no fields configured*
