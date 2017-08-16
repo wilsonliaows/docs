@@ -53,4 +53,4 @@ Create a recipe that requires the logic from the callable recipe we created earl
 ## Calling recipes from other apps with REST API
 Enabling a REST endpoint for callable recipes allows you to execute the recipe from anywhere, simply by calling that REST endpoint. You can utilize this REST endpoints to easily carry out a sequence of actions or kickstart a business workflow upon a defined action, e.g. when someone clicks on a custom button in Salesforce or a custom app.
 
-To manage your REST endpoints and API tokens, go to [**Service Catalog**](service-catalog.md) under your username on the right hand corner of the screen. Here, you can view and test your REST endpoints.
+To manage your REST endpoints and API tokens, go to [**Service Catalog**](/service-catalog.md) under your username on the right hand corner of the screen. Here, you can view and test your REST endpoints.
