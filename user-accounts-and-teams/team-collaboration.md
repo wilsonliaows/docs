@@ -38,7 +38,7 @@ The admin role is typically given to users managing the Workato team account.
 ## Analyst role
 Analysts have no access to team administration nor API keys. They are able to add and edit recipes, connections, SDK, as well as start and stop the on-prem agents.
 
-The analyst role is typically given to users building and testing recipes or custom connectors on Workato.
+The analyst role is typically given to users building and testing integration recipes or custom connectors on Workato.
 
 ## Operator role
 Operators only have access to view recipes and jobs, as well as start and stop recipes and rerun jobs.
@@ -145,17 +145,17 @@ Also SAML settings could be configured manually. In this case you need to get fr
 
 # Logging into SAML-enabled team
 
-Once SAML is enabled access to Team is controlled by SAML Identity Provider (Okta, OneLogin, etc). In order to switch from personal account to the SAML-enabled team you need to go through SAML Identity Provider authentication procedure.
+Once SAML is enabled, access to Team is controlled by SAML Identity Provider (Okta, OneLogin, etc). In order to switch from personal account to the SAML-enabled team you need to go through SAML Identity Provider authentication procedure.
 ![Team Switch with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-switch.gif)
 *Switch to Team account with Okta authorization*
 
-Another way to login directly into SAML-enabled team is by providing Team Id set during Team SAML configuration procedure. SAML Identity Provider authentication step is required as well.
+Another way to login directly into SAML-enabled team is by providing a Team ID set during Team SAML configuration procedure. SAML Identity Provider authentication step is required as well.
 ![Team Login with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-login.gif)
 *Login into Team account with Team Id and Okta authentication*
 
 # SAML Just-In-Time provisioning
 
-Just-in-Time provisioning eliminates the needs for team admins to create Workato users accounts in advance on behalf of team members. When an employee signs up for a new Workato account via SAML SSO, they will automatically be added into the organization's team. When an employee with an existing Workato account logs in via SAML SSO for the first time, they will automatically be added into the organization's team as well. Team members will be given the role of `Operator` by default.
+Just-in-Time provisioning eliminates the needs for team admins to create Workato user accounts in advance on behalf of team members. When an employee signs up for a new Workato account via SAML SSO, they will automatically be added into the organization's team. When an employee with an existing Workato account logs in via SAML SSO for the first time, they will automatically be added into the organization's team as well. Team members will be given the role of `Operator` by default.
 
 Information about the new user is taken from the SAML attributes passed to Workato from the identity provider. If attributes are missing, default value are used. The following attributes are supported:
 
