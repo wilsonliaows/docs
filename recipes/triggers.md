@@ -59,7 +59,7 @@ Scheduled triggers are executed at specified days and times, hourly, daily, mont
 
 At the scheduled time or interval, this trigger will fetch all events matching the specified criteria. Also, unlike other triggers, scheduled triggers will return events that have already been picked up previously.
 
-Scheduled triggers will return events in batches, similar to how batch triggers work. Users can specify the maximum batch size e.g. if the batch size is set to 100 and 420 new events are identified, 5 new jobs will be created. The first four jobs will have 100 events each and the fifth will have 20 jobs.
+Scheduled triggers will return events in batches, similar to how batch triggers work. Users can specify the maximum batch size, e.g. if the batch size is set to 100 and 420 new events are identified, 5 new jobs will be created. The first four jobs will have 100 events each and the fifth will have 20 jobs.
 
 ## Scheduler/clock/timer
 Scheduler triggers allows you to schedule when exactly your recipe will run. There are two triggers:
