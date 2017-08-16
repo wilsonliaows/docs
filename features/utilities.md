@@ -23,6 +23,8 @@ Repeat actions can only be carried out on a list, so as to repeat a set of actio
 
 First, configure the **Create list** action to set the list size. Use this list created for the repeat action to carry out the actions indented within the repeat loop.
 
+![repeat_list_action](/assets/images/features/Utilities/repeat-list-action.png)
+
 ## Download file from URL
 Downloading a file in a recipe allows you to use that file later in the recipe, usually to upload onto another app. However, downloaded text content can be used directly in the recipe. Downloading a file **does not mean** that you will see that file on your computer. It is merely download for use in a recipe. Take note the maximum file size you can download is **25MB**.
 
