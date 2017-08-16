@@ -4,7 +4,7 @@ date: 2017-03-04 18:00:00 Z
 ---
 
 # App connections
-For every app your recipe interacts with, Workato needs to be authorized to communicate with the apps on your behalf. Workato typically uses the app's API, and it may require Oauth based authorizatio, API keys, etc.
+For every app your recipe interacts with, Workato needs to be authorized to communicate with the apps on your behalf. Workato typically uses the app's API, and it may require OAuth based authorization, API keys, etc.
 
 This authorization is referred to as an **app connection**.
 
@@ -54,7 +54,7 @@ For example:
 - A recipe that moves new accounts in Salesforce to Zendesk as new organizations will need read access to Salesforce accounts and write access for Zendesk organizations.
 - A recipe that moves new cases in Salesforce to JIRA as new issues will need read access to Salesforce cases and write access for JIRA issues.
 
-Apps have different granularity when it comes to defining user roles and permissions. Refer to the specific connector documentation ![here](http://docs.workato.com/connectors.html) for more information on required permissions to connect to the app.
+Apps have different granularity when it comes to defining user roles and permissions. Refer to the specific connector documentation ![here](/connectors.md) for more information on required permissions to connect to the app.
 
 # Using connections
 Typically a company may only have a single instance of an app and they may have another instance a sandbox for testing, etc. So a user would need just one connection for multiple recipes that work with the same app instance.
