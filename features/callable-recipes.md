@@ -38,6 +38,7 @@ Create a recipe as you normally would, and for the trigger, select **Callable Re
 *Select callable recipe connector and call recipe action*
 
 Provide a name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about JSON [here](https://support.workato.com/support/solutions/articles/1000234879-schema-definition).
+
 ![CallableRecipeTrigger1](/assets/images/features/Callable Recipes/Callable Recipe Trigger 1.png)
 In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
@@ -48,7 +49,7 @@ Next, create your set of actions for the recipe. For this example you would crea
 **Step 2: Call recipe**
 Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and then create the actions you need. When you need to call the callable recipe, simply click on **Add a new step**, select **Call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go!
 
-![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Call Recipe Action.png)
+![CallableRecipeTrigger0](/assets/images/features/callable-recipes/call-recipe-action.png)
 
 ## Calling recipes from other apps with REST API
 Enabling a REST endpoint for callable recipes allows you to execute the recipe from anywhere, simply by calling that REST endpoint. You can utilize this REST endpoints to easily carry out a sequence of actions or kickstart a business workflow upon a defined action, e.g. when someone clicks on a custom button in Salesforce or a custom app.
