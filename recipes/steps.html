@@ -1777,9 +1777,9 @@
 <p><img src="../assets/images/recipes/steps/available_steps.png" alt="Available steps">
 <em>Various recipe steps available in recipe editor</em></p>
 <h2 id="action-step">Action step</h2>
-<p>Actions carry out an operation in your target app, usually a create, update, or search operation. Each action requires a set of input fields and typically return data i.e. output data tree.</p>
+<p>Actions carry out an operation in your target app, usually a create, update, or search operation. Each action requires a set of input fields and typically returns data i.e. output data tree.</p>
 <h3 id="example-action">Example: Action</h3>
-<p>The following step carries out a <strong>Search organizations</strong> action in Zendesk. The input fields on the left shows the available fields to search for a Zendesk organization by:</p>
+<p>The following step carries out a <strong>Search organizations</strong> action in a Zendesk integration. The input fields on the left shows the available fields to search for a Zendesk organization by:</p>
 <ul>
 <li>Name</li>
 <li>Tags</li>
@@ -1806,12 +1806,12 @@
 <p>In this example, any job can only proceed through either one of the conditional steps, as the Zendesk organization must have either been found or not.</p>
 <h2 id="repeat-step">Repeat step</h2>
 <p>When working with a list of items (e.g. a list of invoice line items), you may need to carry out a set of actions for every item in the list. The repeat step helps you do that. Actions indented within a repeat block will be carried out for all items in the list.</p>
-<p>The input to the repeat step is a list. Actions within a repeat block, should  use data output by the <strong>Foreach</strong> datatree. This ensures that every item in the list is processed.</p>
+<p>The input to the repeat step is a list. Actions within a repeat block should use data output from the <strong>Repeat</strong> step&apos;s datatree. This ensures that every item in the list is processed.</p>
 <h3 id="example-repeat">Example: Repeat</h3>
 <p>Refer to the example scenario of syncing Salesforce accounts (using the batch trigger) to Zendesk as organizations.</p>
 <p><img src="../assets/images/recipes/steps/foreach_example_scenario.png" alt="Foreach step example scenario">
 <em>Recipe that uses the Repeat step to iterate through list of Salesforce accounts. <a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></em></p>
-<p>In this example, the trigger returns a list of Salesforce accounts. Since Zendesk does not support batch actions, each Salesforce account must be added one at a time to Zendesk.</p>
+<p>In this example, the trigger returns a list of Salesforce accounts. Since Zendesk does not support batch actions, each Salesforce account must be added one at a time from Salesforce to Zendesk.</p>
 <p>The list datapill has to be passed into the repeat step. When the input list field is selected, only list type datapills are usable in the datatree, as shown below. List type pills can be identified via their stack icon.</p>
 <p><img src="../assets/images/recipes/steps/map-list-pill-into-repeat-step.gif" alt="Map list data pill into the Repeat step">
 <em>Mapping a list data pill into the Repeat step&apos;s input list field. <a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></em></p>
@@ -1823,7 +1823,7 @@
 <em>Datapills are mapped from the Repeat step&apos;s datatree. <a href="https://www.workato.com/recipes/480695" target="_blank">Example recipe</a></em></p>
 <p>For further Repeat step examples or more info about list processing, refer to the <a href="http://docs.workato.com/features/list-management.html" target="_blank">list management article</a>.</p>
 <h2 id="call-recipe-step">Call recipe step</h2>
-<p>Call recipe will run another recipe (named a callable recipe). Callable recipes are like functional calls in programming languages. They offer an easy way to resuse recipe logic.</p>
+<p>Call recipe will run another recipe (named a callable recipe). Callable recipes are like functional calls in programming languages. They offer an easy way to reuse recipe logic.</p>
 <p>You should note that callable recipes are executed synchronously. i.e. the calling recipe will be blocked waiting for the called recipe to finish processing.</p>
 <p>Callable recipes are an advanced feature in Workato that you can read more about in the <a href="http://docs.workato.com/features/callable-recipes.html" target="_blank">callable recipes article</a>.</p>
 <h2 id="stop-step">Stop step</h2>
@@ -1842,7 +1842,7 @@
 <p>Common remedial steps are to notify users of the error via email or error messages in the app, or to carry out a rollback (i.e. reversing the job by deleting any created or half-created records).</p>
 <p>This step consists of 2 blocks: the <strong>Monitor actions for error</strong> and the <strong>On error</strong> block. Actions to be monitored for errors should be within the <strong>Monitor</strong> block. If all actions are successful, the <strong>On error</strong> block will be ignored. However, if any action in the <strong>Monitor</strong> block results in an error, the actions within the <strong>On error</strong> block will be executed.</p>
 <h2 id="example-error-handler">Example: Error handler</h2>
-<p>The following recipe tries to update the Zendesk organization right after the search step, irrespective of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the <strong>Update organization</strong> action will fail.</p>
+<p>The following recipe tries to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the <strong>Update organization</strong> action will fail.</p>
 <p><img src="../assets/images/recipes/steps/error_monitor_example.png" alt="Error monitor step example">
 <em>Recipe that uses the error monitor to monitor failures in updating Zendesk organizations. <a href="https://www.workato.com/recipes/480361" target="_blank">Example recipe</a></em></p>
 <p>As the recipe catches failed actions within the error monitor block, failed <strong>Update organization</strong> actions will be caught, and the recipe proceeds to carry out steps within the <strong>On error</strong> block. In this case, it seems that the only reason for the update failing is because no matching Zendesk organization was found. Hence the remedial step creates a new Zendesk organization.</p>
@@ -1928,7 +1928,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Steps","date":"2017-02-20T13:00:00.000Z","level":"1.4.2","depth":2,"next":{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},"previous":{"title":"Triggers","level":"1.4.1","depth":2,"path":"recipes/triggers.md","ref":"recipes/triggers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/steps.md","mtime":"2017-08-16T18:14:34.389Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T18:16:50.278Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Steps","date":"2017-02-20T13:00:00.000Z","level":"1.4.2","depth":2,"next":{"title":"Actions","level":"1.4.3","depth":2,"path":"recipes/actions.md","ref":"recipes/actions.md","articles":[]},"previous":{"title":"Triggers","level":"1.4.1","depth":2,"path":"recipes/triggers.md","ref":"recipes/triggers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.2.2","theme":"default","variables":{},"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters"],"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"recipes/steps.md","mtime":"2017-08-16T18:16:20.774Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T18:17:21.953Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
