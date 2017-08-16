@@ -18,7 +18,7 @@ When you're configuring a recipe step, all data from the preceeding steps will b
 
 # Data types
 Data pills can be of the following data types
-- [String](/docs/formulas/string-formulas.md)
+- [String](/formulas/string-formulas.md)
 - [Integer or number](/formulas/number-formulas.md)
 - [Date or datetime](/formulas/date-formulas.md)
 - Boolean
