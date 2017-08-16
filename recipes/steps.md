@@ -47,7 +47,7 @@ In this example, any job can only proceed through either one of the conditional 
 ## Repeat step
 When working with a list of items (e.g. a list of invoice line items), you may need to carry out a set of actions for every item in the list. The repeat step helps you do that. Actions indented within a repeat block will be carried out for all items in the list.
 
-The input to the repeat step is a list. Actions within a repeat block should  use data output by the **Foreach** datatree. This ensures that every item in the list is processed.
+The input to the repeat step is a list. Actions within a repeat block should use data output from the **Repeat** step's datatree. This ensures that every item in the list is processed.
 
 ### Example: Repeat
 Refer to the example scenario of syncing Salesforce accounts (using the batch trigger) to Zendesk as organizations.
