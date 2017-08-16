@@ -34,12 +34,12 @@ In order to create a QBO invoice, you’ll need to create a new customer if the 
 
 Create a recipe as you normally would, and for the trigger, select **Callable Recipe** under the application picklist.
 
-![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/callable-recipe-trigger-0.png)
+![CallableRecipeTrigger0](/assets/images/features/callable-recipes/callable-recipe-trigger-0.png)
 *Select callable recipe connector and call recipe action*
 
 Provide a name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about JSON [here](https://support.workato.com/support/solutions/articles/1000234879-schema-definition).
 
-![CallableRecipeTrigger1](/assets/images/features/Callable Recipes/callable-recipe-trigger-1.png)
+![CallableRecipeTrigger1](/assets/images/features/callable-recipes/callable-recipe-trigger-1.png)
 In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
 Lastly, you may choose to enable REST endpoint for your recipe. This defaults to **No**.
