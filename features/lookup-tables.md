@@ -24,7 +24,7 @@ Some other scenarios where you might need lookup tables:
 Lookup tables are enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 ## Setting up your lookup tables
-There are two ways to upload data into your lookup tables:
+There are three ways to upload data into your lookup tables:
 - Import an existing CSV file
 - Add new entries manually
 - Add new entries via a recipe
