@@ -14,7 +14,7 @@ Data in lookup tables is typically organized like a database table, with columns
 For example, if I'm trying to move accounting entries from my sales app into my accounting app i.e. Salesforce to Intacct, I might find that both departments are using different account codes internally. In order to ensure data is synced accurately from Salesforce into Intacct, I would need to take the account codes from Salesforce, find the matching codes in Intacct, and create the Intacct accounting entries using the corresponding Intacct account codes. In the following table, any Salesforce entries coming in with the code 34267 will be written into Intacct under the code 6754.
 
 ![Example lookup table](/assets/images/features/lookup-tables/example-lookup-table.png)
-*Lookup table with the account IDs in Salesforce, Intacct and account names*
+*Lookup table with the account ID in Salesforce, account ID in Intacct, and the account names*
 
 Some other scenarios where you might need lookup tables:
 * Given a city name, you want to get the zip code
