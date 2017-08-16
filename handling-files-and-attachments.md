@@ -3,7 +3,7 @@ title: Handling files and attachments
 date: 2017-02-22 12:00:00 Z
 ---
 # Working with files and attachments in Workato
-Files and attachments are a key aspect of many integrations. e.g. Uploading  CSV files to Redshift, moving Salesforce attachments to Zendesk, etc. Workato supports working with file and attachments of different formats (i.e. JSON, XML, etc.) across different access/transport mechanism (e.g. FTP, file system, APIs, S3, etc.)
+Files and attachments are a key aspect of many integrations. e.g. Uploading  CSV files to Redshift, moving attachments from Salesforce to Zendesk, etc. Workato supports working with file and attachments of different formats (i.e. JSON, XML, etc.) across different access/transport mechanism (e.g. FTP, file system, APIs, S3, etc.)
 
 ## Text files
 Text files refers to files which can be opened with any text editor and is generally human-readable. Workato can act as the intermediary to move files from one app to another, as well as extract data from text files and parse it for use in Workato. For example, a recipe can retrieve CSV file content, parse it and make it available within Workato so it can be transformed and moved to another app.
@@ -51,7 +51,7 @@ This is typically a 2-step process:
 2. Pass in this public URL to the destination app. Generally a **Upload file via content** action.
 
 ### Example of moving text/binary files via file content
-Let's take the scenario where Gmail email attachments need to be moved to Box. This is how the recipe looks.
+Let's take the scenario where email attachments need to be moved from Gmail to Box. This is how the recipe looks.
 
 ![Example recipe - moving files between apps](/assets/images/features/files-and-attachments/moving-files-betwen-apps-recipe.png)
 *Recipe moves Gmail attachments to Box. [Example recipe](https://www.workato.com/recipes/485773)*
