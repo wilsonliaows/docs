@@ -4,7 +4,7 @@ date: 2017-03-06 15:30:00 Z
 ---
 
 # Batch processing
-Typically, [Workato triggers](http://docs.workato.com/recipes/triggers.html) deliver a single trigger event at a time. i.e. each trigger event results in one job. Batch processing triggers allow users to process a groups of trigger events at a time i.e. a group of events results in one job. The group size is usually configurable with typical values between 1 and 500 depending on the app you are integrating.
+Typically, [Workato triggers](http://docs.workato.com/recipes/triggers.html) deliver a single trigger event at a time. i.e. each trigger event results in one job. Batch processing triggers allow users to process groups of trigger events at a time i.e. a group of events results in one job. The group size is usually configurable with typical values between 1 and 500 depending on the app you are integrating with.
 
 Batch processing can provide higher throughput when you are moving a large number of records from one app to another. To get high throughput you want to match batch triggers with batch actions.
 
