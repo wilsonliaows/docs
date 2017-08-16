@@ -4,7 +4,7 @@ date: 2017-02-22 12:00:00 Z
 ---
 
 # On-premise access
-Enterprises have on-premises applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore typically not easily accessible to cloud services like Workato.
+Enterprises have on-premise applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.
 
 The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open ‘ports’ in the corporate firewall.
 
