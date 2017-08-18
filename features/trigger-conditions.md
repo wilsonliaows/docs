@@ -142,7 +142,7 @@ The **Greater than** trigger condition will pick up events that have a value in 
  
 If the **Value** is set to a number, and the specified field is left blank in the application you use, the recipe will throw an error, as Workato cannot compare a null value with zero (kind of like asking if a banana is greater than or less than 5). This can be circumvented by adding an **Is present** condition along with **Greater than**.
 
-![Example is present and greater than recipe](/assets/images/features/trigger-conditions/example-is-present-and-hreater-than-recipe.png)
+![Example is present and greater than recipe](/assets/images/features/trigger-conditions/example-is-present-and-greater-than-recipe.png)
 
 *Trigger if Salesforce opportunity **Amount** is present and greater than “0”*
 
