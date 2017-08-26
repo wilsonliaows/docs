@@ -4,11 +4,11 @@ date: 2017-03-06 15:30:00 Z
 ---
 
 # Batch processing
-Typically [Workato triggers](http://docs.workato.com/recipes/triggers.html) deliver a single trigger event at a time. i.e. each trigger event, results in a job. Batch processing triggers allow processing a group of trigger events at a time i.e. a group of events, results in a job. The group size is usually configurable with typical values between 1 and 500 depending on the app.
+Typically, [Workato triggers](http://docs.workato.com/recipes/triggers.html) deliver a single trigger event at a time. i.e. each trigger event results in one job. Batch processing triggers allow users to process groups of trigger events at a time i.e. a group of events results in one job. The group size is usually configurable with typical values between 1 and 500 depending on the app you are integrating with.
 
-Batch processing can provide higher throuhput when you are moving large number of records from one app to another. To get high throughput you want to match batch triggers with batch actions.
+Batch processing can provide higher throughput when you are moving a large number of records from one app to another. To get high throughput you want to match batch triggers with batch actions.
 
-Batch processing triggers and actions are supported in certain connectors, such as database connectors (SQL Server, MySQL, etc.), cloud storage connectors that works with CSV files (e.g. Box, Amazon S3), Salesforce connector, etc.
+Batch processing triggers and actions are supported in certain connectors, such as database connectors (SQL Server, MySQL, etc.), cloud storage connectors that work with CSV files (e.g. Box, Amazon S3), Salesforce connector, etc.
 
 ## Batch triggers
 Batch triggers are similar to polling triggers in fetching trigger events. However, where polling triggers have trigger events corresponding to a single record, batch triggers have trigger events corresponding to a list of records. Maximum batch size can usually be defined in the trigger configuration.

@@ -4,7 +4,7 @@ date: 2017-02-22 12:00:00 Z
 ---
 
 # On-premise access
-Enterprises have on-premises applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore typically not easily accessible to cloud services like Workato.
+Enterprises have on-premise applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.
 
 The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open ‘ports’ in the corporate firewall.
 
@@ -29,7 +29,7 @@ Workato on-premise connectivity has 2 core components:
 
 The on-prem agent runs within the customer’s data center, behind the firewall, and establishes a TLS websocket tunnel to connect out to Workato.
 
-The on-prem agent can be configured to access the selected databases and filesystems behind the firewall.
+The on-prem agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to JMS-compliant systems.
 
 # Supported operating systems
 The on-prem agent runs on the following systems:
@@ -106,6 +106,37 @@ database:
     password: Secret123
     ApplicationName: workato
 ```
+
+### JMS connection profile
+JMS connection profiles are located in the `jms` section of `<INSTALL_HOME>/conf/config.yml`.
+A JMS provider is specified by `provider` property of a connection profile.
+The following JMS providers are supported by the on-prem agent:
+* `amazon-sqs` or `sqs` for Amazon Simple Queue Service
+* `activemq` for Apache ActiveMQ.
+
+#### Amazon SQS
+You need the following configuration properties when connecting to Amazon SQS:
+```YAML
+jms:
+  MyAmazonProfile:
+    provider: amazon-sqs
+    region: <Your Amazon API region, eg 'us-east-2'>
+    accessKey: <Your Amazon API access key>
+    secretKey: <Your Amazon API secret>
+```
+
+Note that you need to make sure your SQS queue is created before sending messages.
+
+#### Apache ActiveMQ
+For connecting to a running ActiveMQ broker you only need to specify broker URL:
+```YAML
+jms:
+  MyActiveMQProfile:
+    provider: activemq
+    url: tcp://localhost:61616
+```
+
+ActiveMQ broker cannot be embedded into the agent. Using any `vm://` broker connections is not supported.
 
 ### On-premise files connection profile
 Working with on-prem files requires you to define a filesystem profile in the `files` section.

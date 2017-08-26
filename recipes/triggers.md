@@ -59,7 +59,7 @@ Scheduled triggers are executed at specified days and times, hourly, daily, mont
 
 At the scheduled time or interval, this trigger will fetch all events matching the specified criteria. Also, unlike other triggers, scheduled triggers will return events that have already been picked up previously.
 
-Scheduled triggers will return events in batches, similar to how batch triggers work. Users can specificy the maximum batch size. For e.g. if the batch size is set to 100 and 420 new events are identified, 5 new jobs will be created. The first four jobs will have 100 events each and the fifth will have 20 jobs.
+Scheduled triggers will return events in batches, similar to how batch triggers work. Users can specify the maximum batch size, e.g. if the batch size is set to 100 and 420 new events are identified, 5 new jobs will be created. The first four jobs will have 100 events each and the fifth will have 20 jobs.
 
 ## Scheduler/clock/timer
 Scheduler triggers allows you to schedule when exactly your recipe will run. There are two triggers:
@@ -78,7 +78,7 @@ This trigger allows you to specify the days of the week the recipe should trigge
 ![Advanced scheduler trigger](/assets/images/recipes/triggers/advanced-scheduler-trigger.gif) *Advanced scheduler trigger that triggers every Monday at midnight 0000*
 
 ## Since/From
-The **Since** or **From** setting enables fetching of historical trigger events from a specified date and time. i.e. instead of picking up new trigger events (events created since recipe was started) this enables picking events that have already occurred.
+The **Since** or **From** setting enables recipes to fetch past trigger events from a specified date and time. i.e. instead of picking up new trigger events (events created since recipe was started) this enables picking events that have already occurred.
 
 In the example below, the **New Salesforce object** trigger has a **From** date as 1 Jan 2017, midnight PST and the 'accounts' object is selected.
 
@@ -118,7 +118,7 @@ Define the trigger condition. The following ensures that only Salesforce account
 ![Define trigger filter](/assets/images/recipes/triggers/define-trigger-condition.gif)
 *Define the trigger condition*
 
-To add an additional trigger conditions, select from the OR or AND in the picklist. The selected operator will define how all additional trigger conditions will be added.
+To add an additional trigger condition, select from the OR or AND in the picklist. The selected operator will define how all additional trigger conditions will be added.
 
 ![Adding trigger filter](/assets/images/recipes/triggers/adding-trigger-filter-with-or.gif)
 *Adding another trigger condition with the OR operator*
