@@ -1,22 +1,31 @@
 # Trigger conditions
-You can set conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Warm" and "Hot". 
+You can set conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Hot". 
 
 ![Example Trigger IF recipe](/assets/images/features/trigger-conditions/example-trigger-if-recipe.png)
-*The Salesforce trigger has the trigger condition set to only process new/updated cases with the status of "Closed”.*
+*The Salesforce trigger has the trigger condition set to only process new/updated cases with the status of "Closed”*
 
 ## Conditions
-Every trigger condition compares a given value to one that you specify. All **Trigger data** and **Values** are case sensitive and must be entered exactly as they appear in the application you are using. There are a total of 14 conditions you can choose from, and you can combine multiple conditions with the **Add condition** option using either an **And** or an **Or** from the picklist.
+Each trigger condition consists of 3 parts - trigger data, condition and value. Conventionally, the trigger data (left-hand-side) is the variable data from your app, e.g. case status, or lead rating. Accordingly, the value (right-hand-side) is the static value you wish to check against, e.g. "Closed" or "Hot", correspondingly. Trigger data and values are case sensitive.
+
+In this article, we go through the 14 conditions you can choose from. Additionally, you can combine multiple conditions with the *AND* or *OR* operators to set up complex trigger conditions.
+
+Each condition will be valid for different data types. If a condition is attempted to be used for invalid data types, it might:
+- prevent the recipe from starting successfully,
+- throw a trigger error after the recipe has started, resulting in the inability to pick up trigger events, or
+- result in the recipe filtering out all trigger events.
 
 ---
 
 ## contains
-The **Contains** trigger condition tells Workato to look out for any activities where a field you specify has a certain value in it like a word or a number. For example, if you wanted a recipe to run any time Zendesk tickets involving bugs are created, you could set a trigger condition where the **Subject** field contains “bug”. 
+This condition checks if the trigger data contains the value. This condition is case-sensitive - make sure to downcase or upcase both before comparison if you are not concerned about case sensitivity.
 
 ![Example contains recipe](/assets/images/features/trigger-conditions/example-contains-recipe.png)
+*The trigger condition tells the recipe to only process new Zendesk tickets with subjects containing the word "bug"*
 
-*Trigger if **Subject** field contains “bug”*
+This condition can be used for any characters numbers, words, letters, and symbols. That said, if the field you search for is left blank in the application you are using, the **Contains** condition will not be met, and no event will be picked up.
 
-The **Contains** condition can be used for numbers, words, letters, and symbols. It can be seen as similar to a whitelist. That said, if the field you search for is left blank in the application you are using, the **Contains** condition will not be met, and no event will be picked up.
+### Valid types
+This condition is only valid for array and string data types.
 
 ### Examples
 | Input                  | Condition      | Output |
