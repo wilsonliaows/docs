@@ -4,7 +4,7 @@ date: 2017-03-16 10:00:00 Z
 ---
 
 # Datapills
-Datapills are output data from a trigger or an action step. They are variables that you can use in mapping business logic into recipe steps. e.g. to create a Zendesk organization from a Salesforce account you will assign datapills from Salesforce account to the Zendesk organization action input fields.
+Datapills are output data from a trigger or an action step. They are variables that you can use in mapping business logic into recipe steps. e.g. to move new accounts from Salesforce into Zendesk as organizations, you will assign datapills from the Salesforce account to the Zendesk create organization action's input fields.
 
 Datapills are contained within datatrees, within the **App Data** section. At an recipe step, the **App Data** section contains the output from the trigger and every action preceeding this step.
 
