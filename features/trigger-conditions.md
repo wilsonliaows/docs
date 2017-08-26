@@ -45,6 +45,9 @@ The **Starts with** trigger condition searches for values in the specified field
 
 The **Starts with** condition searches only for exact matches, and null values will not be picked up.
 
+### Valid types
+This condition is only valid for string data types.
+
 ### Examples
 | Input            | Condition                      | Output |
 |------------------|--------------------------------|--------|
@@ -62,6 +65,9 @@ The **Ends with** trigger condition makes your recipe run only when it finds an 
 *Trigger if sender’s email address ends with “@workato.com”*
 
 This trigger condition works with numbers, letters, and symbols. If the field you specify in your condition is left blank in the application you’re using, no event will be picked up. 
+
+### Valid types
+This condition is only valid for string data types.
 
 ### Examples
 | Input                     | Condition                | Output |
@@ -81,6 +87,9 @@ Recipes with the **Doesn’t contain** trigger condition will only run when the 
 
 If the field you specify is left blank in the application you are using, the **Doesn’t contain** condition will not count it, and no event will be picked up. This can be circumvented by using the **Is true** or **Is not true** conditions with a string formula, as shown in the **Is true** section below, or by pairing it with the **Is present** condition.
 
+### Valid types
+This condition is only valid for array and string data types.
+
 ### Examples
 | Input             | Condition               | Output |
 |-------------------|-------------------------|--------|
@@ -98,6 +107,9 @@ Similar to the **Doesn’t contain** trigger condition, the **Doesn’t start wi
 *Trigger if **Opportunity** doesn’t start with “B”*
 
 If the field you specify is left blank in the application you are using, the **Doesn’t start with** condition will not count it, and no event will be picked up. As with the **Doesn’t contain** trigger condition, this can be circumvented by using a string formula with the **Is true** formula as shown in the **Is true** section below, or by pairing it with the **Is present** condition.
+
+### Valid types
+This condition is only valid for string data types.
 
 ### Examples
 | Input     | Condition              | Output |
@@ -117,6 +129,9 @@ The **Doesn’t end with** trigger condition makes Workato search for events whe
 
 If the field you specify is left blank in the application you are using, the **Doesn’t end with** condition will not count it, and no event will be picked up. Similar to the **Doesn’t contain** trigger condition, this can be circumvented by using a string formula with the **Is true** formula as shown in the **Is true** section below, or by pairing it with the **Is present** condition.
 
+### Valid types
+This condition is only valid for string data types.
+
 ### Examples
 | Input              | Condition                    | Output |
 |--------------------|------------------------------|--------|
@@ -133,6 +148,9 @@ The **Equals** trigger condition looks for events where the field you specify co
 
 *Trigger if case **Status** equals “Closed”*
 
+### Valid types
+This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
+
 ### Examples
 | Input    | Condition       | Output |
 |----------|-----------------|--------|
@@ -148,6 +166,9 @@ This trigger condition will only pick up events if the value in your specified f
 ![Example does not equal recipe](/assets/images/features/trigger-conditions/example-doesnt-equal-recipe.png)
 
 *Trigger if **Priority** does not equal “Low”*
+
+### Valid types
+This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
 
 ### Examples
 | Input  | Condition            | Output |
@@ -171,6 +192,9 @@ If the **Value** is set to a number, and the specified field is left blank in th
 
 *Trigger if Salesforce opportunity **Amount** is present and greater than “0”*
 
+### Valid types
+This condition is valid for string, date, timestamp, integer, number and boolean data types.
+
 ### Examples
 | Input        | Condition                    | Output |
 |--------------|------------------------------|--------|
@@ -188,6 +212,9 @@ The **Less than** trigger condition is the opposite of the **Greater than** cond
 *Trigger if **Price** is less than “50”*
 
 If you set the **Value** field to a number, and the specified field in the application you are using contains a null value, the recipe will throw an error. To circumvent this, you can add an **Is present** condition alongside the **Less than** condition.
+
+### Valid types
+This condition is valid for string, date, timestamp, integer, number and boolean data types.
 
 ### Examples
 | Input            | Condition      | Output |
@@ -210,6 +237,9 @@ Alternatively, you can use regular data pills and convert them into booleans wit
 ![Example boolean recipe](/assets/images/features/trigger-conditions/example-boolean-recipe.png)
 
 *Trigger if the **Amount** field is blank*
+
+### Valid types
+This condition is only valid for boolean data types.
 
 ### Examples
 | Input                       | Condition                   | Output |
@@ -243,6 +273,9 @@ The **Is present** trigger condition checks for whether or not the field you cho
 
 *Trigger if **Name** is present*
 
+### Valid types
+This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
+
 ### Examples
 | Input                   | Condition       | Output |
 |-------------------------|-----------------|--------|
@@ -257,6 +290,9 @@ Like the **Is present** trigger condition, the **Is not present** trigger condit
 ![Example is not present recipe](/assets/images/features/trigger-conditions/example-is-not-present-recipe.png)
 
 *Trigger if **Assignee ID** is not present*
+
+### Valid types
+This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
 
 ### Examples
 | Input                  | Condition                    | Output |
