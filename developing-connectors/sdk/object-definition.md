@@ -67,6 +67,16 @@ object_definitions: {
             </td>
         </tr>
         <tr>
+            <td>label</td>
+            <td>The Title of this field.
+            </td>
+        </tr>
+        <tr>
+            <td>stick</td>
+            <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>stick: :true</code>.
+            </td>
+        </tr>
+        <tr>
             <td>type</td>
             <td>
               The data type of this field. Default value is <code>:string</code>. 
