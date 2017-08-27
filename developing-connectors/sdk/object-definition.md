@@ -68,11 +68,11 @@ object_definitions: {
         </tr>
         <tr>
             <td>label</td>
-            <td>The Title of this field.
+            <td>An optional key. All fields will have default labels based on the field name. Use this to change the default value of the field label.
             </td>
         </tr>
         <tr>
-            <td>stick</td>
+            <td>sticky</td>
             <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
             </td>
         </tr>
