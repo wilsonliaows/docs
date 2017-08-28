@@ -5,13 +5,17 @@
     "-sharing",
     "-fontsettings",
     "favicon",
-    "toggle-chapters"
+    "toggle-chapters",
+    "ga"
   ],
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/workato/docs/edit/master/",
       "label": "",
       "multilingual": false
+    },
+    "ga": {
+      "token": "UA-104783574-1"
     },
     "favicon": {
       "shortcut": "/assets/images/favicon/favicon.ico",
