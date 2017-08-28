@@ -70,12 +70,7 @@ object_definitions: {
             <td>label</td>
             <td>An optional key. All fields will have default labels based on the field name. Use this to change the default value of the field label.
             </td>
-        </tr>
-        <tr>
-            <td>sticky</td>
-            <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
-            </td>
-        </tr>
+        </tr>        
         <tr>
             <td>type</td>
             <td>
@@ -121,6 +116,11 @@ object_definitions: {
             <td>
               When defining nested objects, use the <code>properties</code> key to define the fields in the object.
               Remember to define the type as <code>:array</code> or <code>:object</code>
+            </td>
+        </tr>
+        <tr>
+            <td>sticky</td>
+            <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
             </td>
         </tr>
     </tbody>
