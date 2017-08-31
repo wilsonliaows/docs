@@ -65,7 +65,7 @@ This condition is only valid for string data types.
 | [numeric_type_pill] | `starts with` "123"   | Yes   #if pill=12345 |
 
 ### Special non-string data type cases
-When we try to compare non-string data types with a `starts with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+When we try to compare non-string data types with a `starts with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
 ![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-starts-with.png)
 *Comparing number types for starts with condition will throw a trigger error*
@@ -102,7 +102,7 @@ This condition is only valid for string data types.
 | [numeric_type_pill] | `ends with` "345"    | No   #if pill=123    |
 
 ### Special non-string data type cases
-When we try to compare non-string data types with a `ends with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+When we try to compare non-string data types with a `ends with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
 ![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-ends-with.png)
 *Comparing number types for ends with condition will throw a trigger error*
@@ -169,7 +169,7 @@ This condition is only valid for string data types.
 
 1) Non-string data types
 
-When we try to compare non-string data types with a `doesn't start with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+When we try to compare non-string data types with a `doesn't start with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
 ![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-start-with.png)
 *Comparing number types for doesn't start with condition will throw a trigger error*
@@ -213,7 +213,7 @@ This condition is only valid for string data types.
 
 1) Non-string data types
 
-When we try to compare non-string data types with a `doesn't end with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+When we try to compare non-string data types with a `doesn't end with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
 ![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-end-with.png)
 *Comparing number types for doesn't end with condition will throw a trigger error*
@@ -335,7 +335,7 @@ This condition checks that the trigger data is true.
 ![Example is true recipe](/assets/images/features/trigger-conditions/example-is-true-recipe.png)
 *The trigger condition tells the recipe to only process new Shopify product variants if the variant's requires shipping field is marked as true*
 
-It can also be used to check that the formula provided in the trigger data input field evaluates to true. For example, you can convert string type datapills via string formulas into conditions that evaluates to a boolean, which can be found [here](http://docs.workato.com/formulas/string-formulas.html), with an example as follows.
+It can also be used to check that the formula provided in the trigger data input field evaluates to true. For example, you can convert string type datapills via string formulas into conditions that evaluates to a boolean, which can be found [here](/formulas/string-formulas.md), with an example as follows.
 
 ![Example boolean recipe](/assets/images/features/trigger-conditions/example-boolean-recipe.png)
 *The trigger condition tells the recipe to only process new Quick Base opportunity records if the formula **amount.blank?** evaluates to true (i.e. if the amount field is blank)*
