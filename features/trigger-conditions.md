@@ -1,5 +1,5 @@
 # Trigger conditions
-You can set conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Hot". 
+You can set conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Hot".
 
 ![Example Trigger IF recipe](/assets/images/features/trigger-conditions/example-trigger-if-recipe.png)
 *The Salesforce trigger has the trigger condition set to only process new/updated cases with the status of "Closed”*
@@ -26,18 +26,18 @@ This condition checks if the trigger data contains the value. It is case-sensiti
 This condition is only valid for array and string data types.
 
 ### Examples
-| Trigger data           | Condition/value         | Picked up by recipe? |
-|------------------------|-------------------------|----------------------|
-| "UI bug"               | Contains "bug"          | Yes                  |
-| "UI BUG"               | Contains "bug"          | No                   |
-| "Instructions unclear" | Contains "bug"          | No                   |
-| ""                     | Contains "bug"          | No                   |
-| null                   | Contains "bug"          | No                   |
-| 12345                  | Contains 123            | No                   |
-| [1, 2, 3]              | Contains 1              | Yes                  |
-| [1, 2, 3]              | Contains [1, 3]         | No                   |
-| ["abc", "pqr", "xyz"]  | Contains "abc"          | Yes                  |
-| ["abc", "pqr", "xyz"]  | Contains ["abc", "pqr"] | No                   |
+| Trigger data            | Condition/value           | Picked up by recipe? |
+|-------------------------|---------------------------|----------------------|
+| "UI bug"                | `contains` "bug"          | Yes                  |
+| "UI BUG"                | `contains` "bug"          | No                   |
+| "Instructions unclear"  | `contains` "bug"          | No                   |
+| ""                      | `contains` "bug"          | No                   |
+| `nil`                   | `contains` "bug"          | No                   |
+| 12345                   | `contains` 123            | No                   |
+| [1, 2, 3]               | `contains` 1              | Yes                  |
+| [1, 2, 3]               | `contains` [1, 3]         | No                   |
+| ["abc", "pqr", "xyz"]   | `contains` "abc"          | Yes                  |
+| ["abc", "pqr", "xyz"]   | `contains` ["abc", "pqr"] | No                   |
 
 ---
 
@@ -53,11 +53,27 @@ The **Starts with** condition searches only for exact matches, and null values w
 This condition is only valid for string data types.
 
 ### Examples
-| Input            | Condition                      | Output |
-|------------------|--------------------------------|--------|
-| "(408) 555-6928" | Starts with "(408)" or "(669)" | True   |
-| ""               | Starts with "(408)" or "(669)" | False  |
-| "(650) 555-2395" | Starts with "(408)" or "(669)" | False  |
+| Trigger data        | Condition/value       | Picked up by recipe? |
+|---------------------|-----------------------|----------------------|
+| "(408) 555-6928"    | `starts with` "(408)" | Yes                  |
+| "408 555-6928"      | `starts with` "(408)" | No                   |
+| "(650) 555-2395"    | `starts with` "(408)" | No                   |
+| ""                  | `starts with` "(408)" | No                   |
+| `nil`               | `starts with` "(408)" | No                   |
+| 12345               | `starts with` 123     | Trigger error thrown |
+| [numeric_type_pill] | `starts with` 123     | Trigger error thrown |
+| [numeric_type_pill] | `starts with` "123"   | Yes   #if pill=12345 |
+
+### Special non-string data type cases
+When we try to compare non-string data types with a `starts with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-starts-with.png)
+*Comparing number types for starts with condition will throw a trigger error*
+
+However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-starts-with.png)
+*Non-string datapills will be converted to a string for comparison if value is a string*
 
 ---
 
@@ -67,17 +83,34 @@ This condition checks if the trigger data ends with the value. It is case-sensit
 ![Example ends with recipe](/assets/images/features/trigger-conditions/example-ends-with-recipe.png)
 *The trigger condition tells the recipe to only process new emails if the sender's email address ends with the string “@workato.com”*
 
-If the field you specify in your condition is left blank in the application you’re using, no event will be picked up. 
+If the field you specify in your condition is left blank in the application you’re using, no event will be picked up.
 
 ### Valid types
 This condition is only valid for string data types.
 
 ### Examples
-| Input                     | Condition                | Output |
-|---------------------------|--------------------------|--------|
-| "barry.allen@workato.com" | Ends with "@workato.com" | True   |
-| ""                        | Ends with "@workato.com" | False  |
-| "customer@example.com"    | Ends with "@workato.com" | False  |
+| Trigger data        | Condition/value      | Picked up by recipe? |
+|---------------------|----------------------|----------------------|
+| "(408) 555-6928"    | `ends with` "6928"   | Yes                  |
+| "408 555-6928"      | `ends with` "(6928)" | No                   |
+| "(650) 555-2395"    | `ends with` "6928"   | No                   |
+| ""                  | `ends with` "6928"   | No                   |
+| `nil`               | `ends with` "6928"   | No                   |
+| 12345               | `ends with` 345      | Trigger error thrown |
+| [numeric_type_pill] | `ends with` 345      | Trigger error thrown |
+| [numeric_type_pill] | `ends with` "345"    | Yes   #if pill=12345 |
+| [numeric_type_pill] | `ends with` "345"    | No   #if pill=123    |
+
+### Special non-string data type cases
+When we try to compare non-string data types with a `ends with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-ends-with.png)
+*Comparing number types for ends with condition will throw a trigger error*
+
+However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-ends-with.png)
+*Non-string datapills will be converted to a string for comparison if value is a string*
 
 ---
 
@@ -93,11 +126,18 @@ If the field you specify is left blank in the application you are using, the **D
 This condition is only valid for array and string data types.
 
 ### Examples
-| Input             | Condition               | Output |
-|-------------------|-------------------------|--------|
-| "Striped Sweater" | Doesn't contain "Shirt" | True   |
-| ""                | Doesn't contain "Shirt" | False  |
-| "Blue Shirt"      | Doesn't contain "Shirt" | False  |
+| Trigger data           | Condition/value                  | Picked up by recipe?  |
+|------------------------|----------------------------------|-----------------------|
+| "UI bug"               | `doesn't contain` "bug"          | No                    |
+| "UI BUG"               | `doesn't contain` "bug"          | Yes                   |
+| "Instructions unclear" | `doesn't contain` "bug"          | Yes                   |
+| ""                     | `doesn't contain` "bug"          | Yes                   |
+| `nil`                  | `doesn't contain` "bug"          | No                    |
+| 12345                  | `doesn't contain` 123            | No                    |
+| [1, 2, 3]              | `doesn't contain` 1              | No                    |
+| [1, 2, 3]              | `doesn't contain` [1, 3]         | Yes                   |
+| ["abc", "pqr", "xyz"]  | `doesn't contain` "abc"          | No                    |
+| ["abc", "pqr", "xyz"]  | `doesn't contain` ["abc", "pqr"] | Yes                   |
 
 ---
 
@@ -113,11 +153,35 @@ If the field you specify is left blank in the application you are using, the **D
 This condition is only valid for string data types.
 
 ### Examples
-| Input     | Condition              | Output |
-|-----------|------------------------|--------|
-| "Randon"  | Doesn't start with "B" | True   |
-| ""        | Doesn't start with "B" | False  |
-| "Brandon" | Doesn't start with "B" | False  |
+| Trigger data        | Condition/value                         | Picked up by recipe? |
+|---------------------|-----------------------------------------|----------------------|
+| "(408) 555-6928"    | `doesn't start with` "(408)" or "(669)" | No                   |
+| "408 555-6928"      | `doesn't start with` "(408)" or "(669)" | Yes                  |
+| "(650) 555-2395"    | `doesn't start with` "(408)" or "(669)" | Yes                  |
+| ""                  | `doesn't start with` "(408)" or "(669)" | Yes                  |
+| `nil`               | `doesn't start with` "(408)" or "(669)" | No                   |
+| 12345               | `doesn't start with` 123                | Trigger error thrown |
+| [numeric_type_pill] | `doesn't start with` 123                | Trigger error thrown |
+| [numeric_type_pill] | `doesn't start with` "123"              | No   #if pill=12345  |
+| [numeric_type_pill] | `doesn't start with` "123"              | Yes   #if pill=345   |
+
+### Special cases
+
+1) Non-string data types
+
+When we try to compare non-string data types with a `doesn't start with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-start-with.png)
+*Comparing number types for doesn't start with condition will throw a trigger error*
+
+However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-doesnt-start-with.png)
+*Non-string datapills will be converted to a string for comparison if value is a string*
+
+2) Nil/null
+
+When the trigger data is nil (also known as null), the trigger event will not be picked up by the recipe, even if it seems like it matches the condition, e.g. `nil` doesn't end with "345".
 
 ---
 
@@ -133,16 +197,40 @@ If the field you specify is left blank in the application you are using, the **D
 This condition is only valid for string data types.
 
 ### Examples
-| Input              | Condition                    | Output |
-|--------------------|------------------------------|--------|
-| "Darth Vader" | Doesn't end with "Skywalker" | True   |
-| ""                 | Doesn't end with "Skywalker" | False  |
-| "Anakin Skywalker" | Doesn't end with "Skywalker" | False  |
+| Trigger data        | Condition/value              | Picked up by recipe? |
+|---------------------|------------------------------|----------------------|
+| "(408) 555-6928"    | `doesn't ends with` "6928"   | No                   |
+| "408 555-6928"      | `doesn't ends with` "(6928)" | Yes                  |
+| "(650) 555-2395"    | `doesn't ends with` "6928"   | Yes                  |
+| ""                  | `doesn't ends with` "6928"   | Yes                  |
+| `nil`               | `doesn't ends with` "6928"   | No                   |
+| 12345               | `doesn't ends with` 345      | Trigger error thrown |
+| [numeric_type_pill] | `doesn't ends with` 345      | Trigger error thrown |
+| [numeric_type_pill] | `doesn't ends with` "345"    | No   #if pill=12345  |
+| [numeric_type_pill] | `doesn't ends with` "345"    | Yes   #if pill=123   |
+
+### Special cases
+
+1) Non-string data types
+
+When we try to compare non-string data types with a `doesn't end with` condition, it will throw a [trigger error](/recipes/error-notifications.html#trigger-errors). For example, comparing a number type with a number type will throw an error.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-end-with.png)
+*Comparing number types for doesn't end with condition will throw a trigger error*
+
+However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
+
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-doesnt-end-with.png)
+*Non-string datapills will be converted to a string for comparison if value is a string*
+
+2) Nil/null
+
+When the trigger data is nil (also known as null), the trigger event will not be picked up by the recipe, even if it seems like it matches the condition, e.g. `nil` doesn't end with "345".
 
 ---
 
 ## equals
-This condition checks if the trigger data equals the value. It is case-sensitive - make sure to downcase or upcase both before comparison if you are not concerned about case sensitivity. It works with any characters, numbers, words, letters, and symbols.
+This condition checks if the trigger data equals to the value. It is case-sensitive - make sure to downcase or upcase both before comparison if you are not concerned about case sensitivity. It works with any characters, numbers, words, letters, and symbols.
 
 ![Example equals recipe](/assets/images/features/trigger-conditions/example-equals-recipe.png)
 *The trigger condition tells the recipe to only process new/updated Salesforce cases with the case-sensitive status of “Closed”*
@@ -151,11 +239,23 @@ This condition checks if the trigger data equals the value. It is case-sensitive
 This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
 
 ### Examples
-| Input    | Condition       | Output |
-|----------|-----------------|--------|
-| "Closed" | Equals "Closed" | True   |
-| ""       | Equals "Closed" | False  |
-| "New"    | Equals "Closed" | False  |
+| Trigger data      | Condition/value   | Picked up by recipe? |
+|-------------------|-------------------|----------------------|
+| "Closed"          | `equals` "Closed" | Yes                  |
+| "Closed"          | `equals` "closed" | No                   |
+| ""                | `equals` "Closed" | No                   |
+| ""                | `equals` `null`   | No                   |
+| 'null'            | `equals` `nil`    | Yes                  |
+| `nil`             | `equals` "Closed" | No                   |
+| 12345             | `equals` 12345    | Yes                  |
+| 12345             | `equals` "12345"  | Yes                  |
+| 6 - 1             | `equals` 5        | Yes                  |
+| "Closed".present? | `equals` `true`   | Yes                  |
+| "Closed".present? | `equals` "true"   | No                   |
+| "Closed".present? | `equals` 1        | No                   |
+
+### Special string conversion cases
+When we try to compare a non-string data type trigger data to a string data type value, Workato will convert the trigger data into string for comparison, e.g. 12345 equals "12345" will evaluate to true.
 
 ---
 
@@ -169,11 +269,20 @@ This condition is the opposite of the [equal condition](#equals). It checks if t
 This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
 
 ### Examples
-| Input  | Condition            | Output |
-|--------|----------------------|--------|
-| "High" | Does not equal "Low" | True   |
-| ""     | Does not equal "Low" | False  |
-| "Low"  | Does not equal "Low" | False  |
+| Trigger data      | Condition/value           | Picked up by recipe? |
+|-------------------|---------------------------|----------------------|
+| "Closed"          | `does not equal` "Closed" | No                   |
+| "Closed"          | `does not equal` "closed" | Yes                  |
+| ""                | `does not equal` "Closed" | Yes                  |
+| ""                | `does not equal` `null`   | Yes                  |
+| 'null'            | `does not equal` `nil`    | No                   |
+| `nil`             | `does not equal` "Closed" | Yes                  |
+| 12345             | `does not equal` 12345    | No                   |
+| 12345             | `does not equal` "12345"  | No                   |
+| 6 - 1             | `does not equal` 5        | No                   |
+| "Closed".present? | `does not equal` `true`   | No                   |
+| "Closed".present? | `does not equal` "true"   | Yes                  |
+| "Closed".present? | `does not equal` 1        | Yes                  |
 
 ---
 
@@ -182,7 +291,7 @@ This conditions checks if the trigger data is greater than the value.
 
 ![Example is greater than recipe](/assets/images/features/trigger-conditions/example-is-greater-than-recipe.png)
 *The trigger condition tells the recipe to only process new Box files if their created date is greater than the date of “12/31/2017”. This means that the Box file was created after 31 December 2017.*
- 
+
 If **value** is set to a number, and the **trigger data** field has a null value, the recipe will raise a trigger error, as computationally, a number cannot be compared with a null value. To resolve this issue, add an **is present** condition along with the **greater than** condition.
 
 ![Example is present and greater than recipe](/assets/images/features/trigger-conditions/example-is-present-and-greater-than-recipe.png)
@@ -249,7 +358,7 @@ This condition is the opposite of the [is true condition](#is-true). It checks t
 *The trigger condition tells the recipe to only process new Salesforce cases if they are not closed*
 
 It can also be used to check that the formula provided in the trigger data input field evaluates to false. For example, you can convert string type datapills via string formulas into conditions that evaluates to a boolean, which can be found ![here](http://docs.workato.com/formulas/string-formulas.html), with an example as follows.
- 
+
 ### Examples
 | Input    | Condition            | Output |
 |----------|----------------------|--------|
@@ -268,10 +377,11 @@ This condition will check the trigger data. If there is data present, the trigge
 This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
 
 ### Examples
-| Input                   | Condition       | Output |
-|-------------------------|-----------------|--------|
-| "Creative Example Name" | Name is present | True   |
-| ""                      | Name is present | False  |
+| Trigger data         | Condition/value | Picked up by recipe? |
+|----------------------|-----------------|----------------------|
+| "Advanced Solutions" | `is present`    | Yes                  |
+| ""                   | `is present`    | No                   |
+| `nil`                | `is present`    | No                   |
 
 ---
 
@@ -285,7 +395,8 @@ This condition will check the trigger data. If there is data present, the trigge
 This condition is valid for all data types, e.g. booleans, string, integers and floats, dates, arrays.
 
 ### Examples
-| Input                  | Condition                    | Output |
-|------------------------|------------------------------|--------|
-| Assignee ID: ""        | "Assignee ID" is not present | True   |
-| Assignee ID: "2038765" | "Assignee ID" is not present | False  |
+| Trigger data         | Condition/value  | Picked up by recipe?  |
+|----------------------|------------------|-----------------------|
+| "Advanced Solutions" | `is not present` | No                    |
+| ""                   | `is not present` | Yes                   |
+| `nil`                | `is not present` | Yes                   |
