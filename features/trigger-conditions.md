@@ -67,12 +67,12 @@ This condition is only valid for string data types.
 ### Special non-string data type cases
 When we try to compare non-string data types with a `starts with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-starts-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-starts-with-condition.png)
 *Comparing number types for starts with condition will throw a trigger error*
 
 However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-starts-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-starts-with-condition.png)
 *Non-string datapills will be converted to a string for comparison if value is a string*
 
 ---
@@ -104,12 +104,12 @@ This condition is only valid for string data types.
 ### Special non-string data type cases
 When we try to compare non-string data types with a `ends with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-ends-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-ends-with-condition.png)
 *Comparing number types for ends with condition will throw a trigger error*
 
 However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-ends-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-ends-with-condition.png)
 *Non-string datapills will be converted to a string for comparison if value is a string*
 
 ---
@@ -171,12 +171,12 @@ This condition is only valid for string data types.
 
 When we try to compare non-string data types with a `doesn't start with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-start-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-start-with-condition.png)
 *Comparing number types for doesn't start with condition will throw a trigger error*
 
 However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-doesnt-start-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-doesnt-start-with-condition.png)
 *Non-string datapills will be converted to a string for comparison if value is a string*
 
 2) Nil/null
@@ -215,12 +215,12 @@ This condition is only valid for string data types.
 
 When we try to compare non-string data types with a `doesn't end with` condition, it will throw a [trigger error](/recipes/error-notifications.md#trigger-errors). For example, comparing a number type with a number type will throw an error.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-end-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/comparing-number-types-doesnt-end-with-condition.png)
 *Comparing number types for doesn't end with condition will throw a trigger error*
 
 However, if the trigger data input field is a non-string datapill, and the value is a string, Workato converts the datapill's value into a string value for you and does the comparison, evaluating to true if the converted value meets the condition.
 
-![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-doesnt-end-with.png)
+![Comparing number types for starts with condition](/assets/images/features/trigger-conditions/string-conversion-doesnt-end-with-condition.png)
 *Non-string datapills will be converted to a string for comparison if value is a string*
 
 2) Nil/null
