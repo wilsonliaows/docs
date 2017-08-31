@@ -298,15 +298,26 @@ If **value** is set to a number, and the **trigger data** field has a null value
 *The trigger condition tells the recipe to only process new Salesforce opportunities with an existing amount field (i.e. amount is present) and with a value greater than 0*
 
 ### Valid types
-This condition is valid for string, date, timestamp, integer, number and boolean data types.
+This condition is valid for string, date, timestamp, integer and number data types.
 
 ### Examples
-| Input        | Condition                    | Output |
-|--------------|------------------------------|--------|
-| "1/24/2018"  | Is greater than "12/31/2017" | True   |
-| ""           | Is greater than "12/31/2017" | Error  |
-| "12/14/2017" | Is greater than "12/31/2017" | False  |
-
+| Trigger data                       | Condition/value                                   | Picked up by recipe?         |
+|------------------------------------|---------------------------------------------------|------------------------------|
+| "2017-06-31T12:00:00.252805-07:00" | `greater than` "2017-12-31T12:00:00.252805-07:00" | No                           |
+| "2017-06-30T12:00:00.252805-07:00" | `greater than` "2017-01-31T12:00:00.252805-07:00" | Yes                          |
+| "2017-06-31"                       | `greater than` "2017-12-31"                       | No                           |
+| "2017-06-31"                       | `greater than` "2017-01-31"                       | Yes                          |
+| 5                                  | `greater than` 10                                 | No                           |
+| 5                                  | `greater than` 1                                  | Yes                          |
+| 1.5                                | `greater than` 10.5                               | No                           |
+| 1.5                                | `greater than` 1.23                               | Yes                          |
+| "abc"                              | `greater than` "abcde"                            | No  #ASCII value comparison  |
+| "abc"                              | `greater than` "a"                                | Yes  #ASCII value comparison |
+| `nil`                              | `greater than` "2017-01-31T22:00:00.252805-07:00" | Trigger error thrown         |
+| "2017-06-31"                       | `greater than` `nil`                              | Trigger error thrown         |
+| `nil`                              | `greater than` 10                                 | Trigger error thrown         |
+| 1.5                                | `greater than` `nil`                              | Trigger error thrown         |
+| "abc"                              | `greater than` `nil`                              | Trigger error thrown         |
 ---
 
 ## less than
@@ -318,14 +329,26 @@ This conditions checks if the trigger data is less than the value.
 If **value** is set to a number, and the **trigger data** field has a null value, the recipe will raise a trigger error, as computationally, a number cannot be compared with a null value. To resolve this issue, add an **is present** condition along with the **less than** condition.
 
 ### Valid types
-This condition is valid for string, date, timestamp, integer, number and boolean data types.
+This condition is valid for string, date, timestamp, integer and number data types.
 
 ### Examples
-| Input            | Condition      | Output |
-|------------------|----------------|--------|
-| "42"             | Less than "50" | True   |
-| ""               | Less than "50" | Error  |
-| "12908457130982" | Less than "50" | False  |
+| Trigger data                       | Condition/value                                | Picked up by recipe?         |
+|------------------------------------|------------------------------------------------|------------------------------|
+| "2017-06-31T12:00:00.252805-07:00" | `less than` "2017-12-31T12:00:00.252805-07:00" | Yes                          |
+| "2017-06-30T12:00:00.252805-07:00" | `less than` "2017-01-31T12:00:00.252805-07:00" | No                           |
+| "2017-06-31"                       | `less than` "2017-12-31"                       | Yes                          |
+| "2017-06-31"                       | `less than` "2017-01-31"                       | No                           |
+| 5                                  | `less than` 10                                 | Yes                          |
+| 5                                  | `less than` 1                                  | No                           |
+| 1.5                                | `less than` 10.5                               | Yes                          |
+| 1.5                                | `less than` 1.23                               | No                           |
+| "abc"                              | `less than` "abcde"                            | Yes  #ASCII value comparison |
+| "abc"                              | `less than` "a"                                | No  #ASCII value comparison  |
+| `nil`                              | `less than` "2017-01-31T22:00:00.252805-07:00" | Trigger error thrown         |
+| "2017-06-31"                       | `less than` `nil`                              | Trigger error thrown         |
+| `nil`                              | `less than` 10                                 | Trigger error thrown         |
+| 1.5                                | `less than` `nil`                              | Trigger error thrown         |
+| "abc"                              | `less than` `nil`                              | Trigger error thrown         |
 
 ---
 
@@ -341,13 +364,15 @@ It can also be used to check that the formula provided in the trigger data input
 *The trigger condition tells the recipe to only process new Quick Base opportunity records if the formula **amount.blank?** evaluates to true (i.e. if the amount field is blank)*
 
 ### Valid types
-This condition is only valid for boolean data types.
+This condition is only valid for boolean data types. We can use this condition to check against a boolean datapill, or check against formula that evaluates to `true` or `false`.
 
 ### Examples
-| Input                       | Condition                   | Output |
-|-----------------------------|-----------------------------|--------|
-| "Requires shipping = True"         | "Requires shipping" is true | True   |
-| "Does not require shipping = False" | "Requires shipping" is true | False  |
+| Trigger data                               | Condition/value | Picked up by recipe?                                               |
+|--------------------------------------------|-----------------|--------------------------------------------------------------------|
+| [pill].present?                            | `is true`       | No  #if [pill] has a `nil` or `null value or is an empty string "" |
+| [pill].present?                            | `is true`       | Yes  #if [pill] has a value                                        |
+| "Advanced Solutions".include?("Solutions") | `is true`       | Yes                                                                |
+| "Advanced Solutions".include?("solutions") | `is true`       | No                                                                 |
 
 ---
 
@@ -360,10 +385,12 @@ This condition is the opposite of the [is true condition](#is-true). It checks t
 It can also be used to check that the formula provided in the trigger data input field evaluates to false. For example, you can convert string type datapills via string formulas into conditions that evaluates to a boolean, which can be found ![here](http://docs.workato.com/formulas/string-formulas.html), with an example as follows.
 
 ### Examples
-| Input    | Condition            | Output |
-|----------|----------------------|--------|
-| “Closed = False"    | "Closed" is not true | True   |
-| "Closed = True" | "Closed" is not true | False  |
+| Trigger data                               | Condition/value | Picked up by recipe?                                               |
+|--------------------------------------------|-----------------|--------------------------------------------------------------------|
+| [pill].present?                            | `is not true`   | No  #if [pill] has a `nil` or `null value or is an empty string "" |
+| [pill].present?                            | `is not true`   | No  #if [pill] has a value                                         |
+| "Advanced Solutions".include?("Solutions") | `is not true`   | No                                                                 |
+| "Advanced Solutions".include?("solutions") | `is not true`   | Yes                                                                |
 
 ---
 
@@ -380,6 +407,7 @@ This condition is valid for all data types, e.g. booleans, string, integers and 
 | Trigger data         | Condition/value | Picked up by recipe? |
 |----------------------|-----------------|----------------------|
 | "Advanced Solutions" | `is present`    | Yes                  |
+| 12345                | `is present`    | Yes                  |
 | ""                   | `is present`    | No                   |
 | `nil`                | `is present`    | No                   |
 
@@ -398,5 +426,6 @@ This condition is valid for all data types, e.g. booleans, string, integers and 
 | Trigger data         | Condition/value  | Picked up by recipe?  |
 |----------------------|------------------|-----------------------|
 | "Advanced Solutions" | `is not present` | No                    |
+| 12345                | `is not present` | Yes                   |
 | ""                   | `is not present` | Yes                   |
 | `nil`                | `is not present` | Yes                   |
