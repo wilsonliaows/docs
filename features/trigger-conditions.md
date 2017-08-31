@@ -335,7 +335,7 @@ This condition checks that the trigger data is true.
 ![Example is true recipe](/assets/images/features/trigger-conditions/example-is-true-recipe.png)
 *The trigger condition tells the recipe to only process new Shopify product variants if the variant's requires shipping field is marked as true*
 
-It can also be used to check that the formula provided in the trigger data input field evaluates to true. For example, you can convert string type datapills via string formulas into conditions that evaluates to a boolean, which can be found ![here](http://docs.workato.com/formulas/string-formulas.html), with an example as follows.
+It can also be used to check that the formula provided in the trigger data input field evaluates to true. For example, you can convert string type datapills via string formulas into conditions that evaluates to a boolean, which can be found [here](http://docs.workato.com/formulas/string-formulas.html), with an example as follows.
 
 ![Example boolean recipe](/assets/images/features/trigger-conditions/example-boolean-recipe.png)
 *The trigger condition tells the recipe to only process new Quick Base opportunity records if the formula **amount.blank?** evaluates to true (i.e. if the amount field is blank)*
