@@ -4,6 +4,7 @@
 * [Connecting apps](connections.md)
 * [Building recipes](recipes/building-recipes.md)
   * [Triggers](recipes/triggers.md)
+  * [Trigger conditions](features/trigger-conditions.md)
   * [Steps](recipes/steps.md)
   * [Actions](recipes/actions.md)
   * [Data pills and mapping](recipes/data-pills-and-mapping.md)
