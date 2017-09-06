@@ -426,6 +426,6 @@ This condition is valid for all data types, e.g. booleans, string, integers and 
 | Trigger data         | Condition/value  | Picked up by recipe?  |
 |----------------------|------------------|-----------------------|
 | "Advanced Solutions" | `is not present` | No                    |
-| 12345                | `is not present` | Yes                   |
+| 12345                | `is not present` | No                    |
 | ""                   | `is not present` | Yes                   |
 | `nil`                | `is not present` | Yes                   |
