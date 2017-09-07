@@ -48,7 +48,7 @@ Operators only have access to view recipes and jobs, as well as start and stop r
 The operator role is typically given to users maintaining the recipe and ensuring the recipes are running well.
 
 ## Custom roles
-In addition to the default team roles, you can also define custom roles. These allow you to assign fine-grained permission sets to collaborators. You can create new roles when on the team page.
+In addition to the default team roles, you can also define custom roles. These allow you to assign fine-grained permission sets to collaborators. You can create new roles on the team page.
 
 ![Roles management](/assets/images/user-accounts-and-teams/team-collaboration/roles-management.png)
 *Manage your roles and create new roles in the roles tab within the Team feature*
@@ -58,7 +58,7 @@ When creating a new role, select the specific create, edit and delete rights for
 ![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/role-permissons.gif)
 *Additional role access to Workato features*
 
-You can also define the folders, and correspondingly the recipes and connections contained in that folder, that the role will have access to. This is useful when there are multiple teams working on the same Workato account, such as development, QA and production teams in the [recipe development lifecycle](/recipe-development-lifecycle.md), or when different departments in the company wishes to manage their recipes separately.
+You can also define the folders, and correspondingly the recipes and connections contained in that folder, that the role will have access to. This is useful when there are multiple teams working on the same Workato account, such as development, QA and production teams in the [recipe development lifecycle](/recipe-development-lifecycle.md), or when different departments in the company wishes to manage their recipes separately. Users assigned to those folders will not have access to other folders nor to the `Home` folder.
 
 ![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/folder-permissions.gif)
 *Define folder permissions for the new role*
