@@ -226,7 +226,7 @@ To form this, the equivalent hash should not have `content!` defined immediately
 ]
 ```
 
-Notice that all elements immediately under the `<control>` element are primitive types, containing only a value and optionally, attributes.
+Notice that all elements immediately under the `<control>` element are primitive types. Each of these elements contain only a value and optionally, attributes.
 
 Now, we know how to define values for primitive XML elements. What about XML attributes? Let's look at the `<content>` element in the XML body to see how it's done.
 
@@ -238,7 +238,7 @@ Now, we know how to define values for primitive XML elements. What about XML att
 </content>
 ```
 
-This XML element has attributes defined in 2 elements. First, in the `<function>` element which is a complex XML element as well as a primitive element `<get_list>`. To form this XML, the equivalent hash structure looks like this:
+This XML element has attributes defined in 2 elements. First, in a complex element `<function>` as well as a primitive element `<get_list>`. To form this XML, the equivalent hash structure looks like this:
 
 ```ruby
 "content": [
@@ -260,7 +260,7 @@ This XML element has attributes defined in 2 elements. First, in the `<function>
 
 Attributes and nested elements in a complex XML element are defined with the same hierarchy, but with the `@` prefix to indicate an attribute. (`"get_list"` key for `<get_list>` element and `"@controlid"` key for `controlid` attribute)
 
-Similarly, attributes in a primitive XML element as well as value are defined with the same hierarchy. (`"content!"` key for value of `<get_list>` element and `"@object"` key for `object` attribute)
+Similarly, element value and attributes in a primitive XML element are defined with the same hierarchy. (`"content!"` key for value of `<get_list>` element and `"@object"` key for `object` attribute)
 In this example, the `<get_list>` element is not assigned a value. If we were to assign one, the equivalent hash will look like this:
 
 ```ruby
