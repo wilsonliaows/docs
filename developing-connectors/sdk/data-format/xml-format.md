@@ -297,12 +297,14 @@ Next, we add the necessary headers with the headers shorthand method:
 .headers("Content-type": "x-intacct-xml-request")
 ```
 
-Finally, we use the `format_xml` method (since we require both request and response in XML) and pass it the root element name as an argument, `request` in this case.
+Finally, we use the `format_xml` method (since we require both request and response in XML) and pass it the root element name as an argument, `<request>`)
 ```ruby
 .format_xml("request")
 ```
 
-Now, the response will be in this form:
+## Handling XML from response
+
+Now, the response from the same request will be in this form:
 ```xml
 <response>
   <control>
@@ -353,7 +355,10 @@ Now, the response will be in this form:
 </response>
 ```
 
-Which will be returned to the connector as an equivalent hash (Similar to request, elements are represented by arrays of hashes, since XML elements can repeat without any extra notation).
+Because `format_xml` was called in the request, Workato SDK returns an equivalent hash. Similar to request:
+- elements are represented by arrays of hashes, since XML elements can repeat without any extra notation
+- elements attributes has `@` prefixed with the same heirarchy as nested elements and element values
+- element values are passed as values of the `"content!"` key
 ```ruby
 {
   "response"=>[
