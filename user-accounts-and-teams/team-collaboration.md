@@ -20,6 +20,8 @@ In the team admin screen, team owners can view current collaborators on their te
 *View collaborators, pending invites to collaborators, and invite collaborators*
 
 # Team roles
+Each collaborator you invite to a team will have a role. Roles define the permissions a user has when logged into the team account, such as the ability to access particular folders, or the ability to create, edit, delete recipe assets.
+
 The default roles for teams are:
 - Admin
 - Analyst
@@ -44,6 +46,22 @@ The analyst role is typically given to users building and testing integration re
 Operators only have access to view recipes and jobs, as well as start and stop recipes and rerun jobs.
 
 The operator role is typically given to users maintaining the recipe and ensuring the recipes are running well.
+
+## Custom roles
+In addition to the default team roles, you can also define custom roles. These allow you to assign fine-grained permission sets to collaborators. You can create new roles on the team page.
+
+![Roles management](/assets/images/user-accounts-and-teams/team-collaboration/roles-management.png)
+*Manage your roles and create new roles in the roles tab within the Team feature*
+
+When creating a new role, select the specific create, edit and delete rights for recipe assets. In addition, select the additional Workato features within the team account you would like the collaborators to have access to.
+
+![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/role-permissons.gif)
+*Additional role access to Workato features*
+
+You can also define the folders, and correspondingly the recipes and connections contained in that folder, that the role will have access to. This is useful when there are multiple teams working on the same Workato account, such as development, QA and production teams in the [recipe development lifecycle](/recipe-development-lifecycle.md), or when different departments in the company wishes to manage their recipes separately. Users assigned to those folders will not have access to other folders nor to the `Home` folder.
+
+![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/folder-permissions.gif)
+*Define folder permissions for the new role*
 
 # Invite collaborators
 To invite collaborators, provide the full name of the collaborator and their email.
