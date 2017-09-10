@@ -106,9 +106,12 @@ get_GL_account: {
                         "data", 0,
                         "glaccount", 0) || {}
 
-    response.map do |key, value|
-      { key => value&.first&.[]("content!") }
-    end.inject(:merge)
+    response.inject({}) do |hash (key, value)|
+      hash.merge(
+        {
+          key => value.dig(0, "content!")
+        })
+    end
   end,
 
   output_fields: lambda do |object_definitions|
@@ -468,9 +471,12 @@ This returns us the hash:
 
 Lastly, we convert the hash here back to a recipe-friendly output schema:
 ```ruby
-response.map do |key, value|
-  { key => value&.first&.[]("content!") }
-end.inject(:merge)
+response.inject({}) do |hash, (key, value)|
+  hash.merge(
+    {
+      key => value.dig(0, "content!")
+    })
+end
 ```
 
 The output of this action is then:
