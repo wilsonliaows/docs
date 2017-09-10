@@ -59,7 +59,7 @@ Natural
 ```
 
 ### Example
-In the following recipe, Dropbox files triggered upon are not being parsed in the trigger, hence the additional need to download the content of the file and parse the CSV content for Workato to use. Parsing the CSV lines provides us with a list of lines (with each line having their own set of inventory item values) to utlize, hence we use a Repeat step to iterate through the list of lines and to create an inventory item with each set of values.
+In the following recipe, Dropbox files triggered upon are not being parsed in the trigger, hence the additional need to download the content of the file and parse the CSV content for Workato to use. Parsing the CSV lines provides us with a list of lines (with each line having their own set of inventory item values) to utlize, hence we use a [Repeat step](/recipes/steps.md#repeat-step) to iterate through the list of lines and to create an inventory item with each set of values.
 
 ![Example recipe - CSV file parsing with utilities](/assets/images/features/files-and-attachments/utilitites-parse-csv-example-recipe.png)
 *Recipe that uses CSV file parsing utility. [Example recipe](https://www.workato.com/recipes/492685)*
@@ -80,7 +80,7 @@ The **Parse CSV** action's datatree returns a list of CSV lines.
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-output-datatree.png)
 *Output datatree for Parse CSV action showing the variables defined in the header line*
 
-In order to iterate through this list of CSV lines, we have to use a Repeat step. The following shows the mapping from the Repeat step's foreach datatree to the input fields of the **Create Netsuite inventory item** action.
+In order to iterate through this list of CSV lines, we have to use a [Repeat step](/recipes/steps.md#repeat-step). The following shows the mapping from the Repeat step's foreach datatree to the input fields of the **Create Netsuite inventory item** action.
 
 ![Utilities action - Parse CSV](/assets/images/features/files-and-attachments/parse-csv-mapping.png)
 *Mapping of datapills from the Repeat step datatree to the action*

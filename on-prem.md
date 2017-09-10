@@ -4,9 +4,9 @@ date: 2017-02-22 12:00:00 Z
 ---
 
 # On-premise access
-Enterprises have on-premises applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore typically not easily accessible to cloud services like Workato.
+Enterprises have on-premise applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.
 
-The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps and databases without having to open ‘ports’ in the corporate firewall.
+The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open ‘ports’ in the corporate firewall.
 
 On-premise access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
@@ -29,7 +29,7 @@ Workato on-premise connectivity has 2 core components:
 
 The on-prem agent runs within the customer’s data center, behind the firewall, and establishes a TLS websocket tunnel to connect out to Workato.
 
-The on-prem agent can be configured to access the selected databases and filesystems behind the firewall.
+The on-prem agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to JMS-compliant systems.
 
 # Supported operating systems
 The on-prem agent runs on the following systems:
@@ -38,7 +38,8 @@ The on-prem agent runs on the following systems:
 
 - Windows 7, 10 (64-bit)
 
-For Windows, you need Administrator permissions to run the Workato agent as a Windows service.
+- Mac OS X
+
 Please make sure that TCP port 3000 is available for binding.
 
 # Setting up on-prem access
@@ -57,6 +58,8 @@ Please make sure that TCP port 3000 is available for binding.
 2. By default, the agent is installed into `C:\Program Files\Workato Agent` folder and creates a `Workato` group in the Start Menu.
 3. By default, the agent is installed as a Windows service called `WorkatoAgent`. You can disable this feature by unchecking the corresponding option during install.
 4. Click on `Download key` button. Unzip the `cert.zip` file to `<INSTALL_HOME>\conf` directory (`<INSTALL_HOME>` is a target folder you've selected during install). This should copy `cert.key` and `cert.pem` files to the directory.
+
+An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
 
 ### Linux
 
@@ -82,6 +85,7 @@ files:
     ...
 ```
 
+### Database connection profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
 The following databases are supported by the on-prem agent:
 * `mysql` for MySQL
@@ -92,19 +96,10 @@ The following databases are supported by the on-prem agent:
 A database type is specified either by `adapter` property or a complete JDBC URL provided in the `url` property.
 Port numbers can be omitted when matching defaults for a given database type.
 
-The example below has two `connection profiles`: `marketing` and `sales`. Do not use spaces or special characters in `connection profile` names.
+The example below has a `connection profile` named `marketing`. Do not use spaces or special characters in `connection profile` names.
 
-```YAML
-database:
-  marketing:
-    adapter: sqlserver
-    username: sa
-    password: PaSsWoRd
-    host: localhost
-    database: marketing
-    timeout: 30
-```
 PostgreSQL URL-based configuration:
+
 ```YAML
 database:
   sales:
@@ -114,54 +109,121 @@ database:
     ApplicationName: workato
 ```
 
+### JMS connection profile
+JMS connection profiles are located in the `jms` section of `<INSTALL_HOME>/conf/config.yml`.
+A JMS provider is specified by `provider` property of a connection profile.
+The following JMS providers are supported by the on-prem agent:
+* `amazon-sqs` or `sqs` for Amazon Simple Queue Service
+* `activemq` for Apache ActiveMQ.
+
+#### Amazon SQS
+You need the following configuration properties when connecting to Amazon SQS:
+```YAML
+jms:
+  MyAmazonProfile:
+    provider: amazon-sqs
+    region: <Your Amazon API region, eg 'us-east-2'>
+    accessKey: <Your Amazon API access key>
+    secretKey: <Your Amazon API secret>
+```
+
+Note that you need to make sure your SQS queue is created before sending messages.
+
+#### Apache ActiveMQ
+For connecting to a running ActiveMQ broker you only need to specify broker URL:
+```YAML
+jms:
+  MyActiveMQProfile:
+    provider: activemq
+    url: tcp://localhost:61616
+```
+
+ActiveMQ broker cannot be embedded into the agent. Using any `vm://` broker connections is not supported.
+
+### On-premise files connection profile
 Working with on-prem files requires you to define a filesystem profile in the `files` section.
 You need to specify the base folder for file access; the base folder will be used for resolving relative paths.
+
 ```YAML
 files:
   hrfiles:
     base: "C:/Documents/HR"
 ```
 
-Note that you need to restart the on-prem agent for any configuration change to become effective.
+For example, if we were to access the on-prem-file folder on the Desktop, the configuration will have a file path that looks something like this: 
+
+![Acess on-prem-file](/assets/images/on-prem/config-on-prem-file-setup.png)
+*Configuration of on-prem-file folder on Desktop*
+
+The file path can be found when you right-click on the folder, and select **get info** or **property**.
+
+### Proxy server support
+
+The on-prem agent can be run in the environment with limited internet connectivity by using a proxy server.
+Proxy settings can be defined by adding a top-level `proxy` section to the configuration file:
+
+```YAML
+proxy:
+  host: 192.168.1.1
+  port: 8080
+  username: proxy_user
+  password: proxy_password
+```
+
+(username and password are optional)
+
+Using a proxy server for establishing a secure tunnel requires a support for [CONNECT](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_tunneling) feature; make sure the proxy server is configured to allow `CONNECT` requests to the Workato gateway (`sg.workato.com`).
+
+### Applying new configuration
+
+A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Start agent
 
 ### Windows 64-bit
-
 The on-prem agent can be run as a Windows console application or as a Windows service.
-> NOTE: Installing and running the on-prem agent as a service require Administrator privileges.
 
 Run the on-prem agent in console mode by launching by `Workato` &rarr; `Run Agent (console)` shortcut in the Start Menu.
 You can use `Run Agent (console)` shortcut to ensure the agent is successfully connecting to Workato using the provided certificate.
 
 #### Using Windows Service
-* You need Administrator privileges to install the agent as a Windows service.
 * Installer automatically registers the agent as a Windows service called `WorkatoAgent`.
 * Note: Workato agent is not auto-started by default. Open **Control Panel &rarr; System and Security &rarr; Administrative Tools &rarr; Services &rarr; WorkatoAgent** service configuration to configure service auto-start.
 
+### Upgrading 
+* To upgrade your on-premise agent, you can download a new installer and install over your current agent - your on-premise agent will be updated.
+* The config.yml file and the certificate files (`cert.key`, `cert.pem`) will remain unchanged in the conf directory
+* Navigate to the On-Prem page and select an agent. Download the new installer based on your operating system (either Windows or Linux) and run it.
+* Set the location of the new agent to be the location of your old on-premise agent (`<INSTALL_HOME>`). Finish the installation.
+
 #### Uninstalling
-* You need Administrator privileges to uninstall the agent.
 * Use `Workato` &rarr; `Uninstall` shortcut to uninstall.
 * The service will shutdown automatically before uninstall.
 * Uninstalling the agent does not remove any configuration files that you've created or modified.
 
 #### Browsing log files
 * When the on-prem agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to Workato log directory in the `Workato` group found in Start Menu for convenience.
-* Service log files are only accessible to Administrators.
 
-### Linux 64-bit
-
+### Linux 64-bit and Mac OS X
 Run the on-prem agent using the following bash script:
 ```
 <INSTALL_HOME>/bin/run.sh
 ```
 
-## Creating recipes
+## Creating connections
 There are no differences in how you work with on-prem apps within your recipe, but on-prem app connections do require special configuration. An on-prem app connection needs to point to a on-prem agent and a specific `connection profile`.
+
+### Connecting to database profiles
+Select the correct on-prem agent from the pick list. Once you select the on-prem agent, enter the `connection profile` name as entered in the `database` section of the `config.yml` configuration file.
 
 ![](https://docs.google.com/drawings/d/1ubb-7QbGbGtTxFUmyCoEZsYRVrR9wkgcjsqrz-OgShs/pub?w=962&h=394)
 
-You can select the right on-prem agent from the pick list. Once you select the on-prem agent, enter the `connection profile` name as entered in the `database` section of the `config.yml` configuration file.
+### Connecting to on-premise file system profiles
+You can customize your connection name. Under the on-prem secure agent and connection profile, provide the corresponding agent name and connection profile respectively. Next, click on **connect**. Once your connection is successful, you can proceed to use the connector in your recipe.
+
+![Connections](/assets/images/on-prem/connection-page.png)
+*Connection configuration on Workato*
+
 ## Common errors when using the on-prem agent
 If connecting to on-prem applications fail, check that:
 - Selected agent is active
@@ -173,7 +235,9 @@ If connecting to on-prem databases fail, check that:
 - Credentials provided in the connection profile are correct
 - Database name and type provided in the connection profile is correct
 
-# Example recipes
-[Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
+## Example recipes
+
+### Example on-premise database recipes
+- [Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
+- [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
 <!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
-[Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)

@@ -10,10 +10,10 @@ Recipe steps can be actions, or control flow statements that help you describe b
 *Various recipe steps available in recipe editor*
 
 ## Action step
-Actions carry out an operation in your target app, usually a create, update, or search operation. Each action requires a set of input fields and typically return data i.e. output data tree.
+Actions carry out an operation in your target app, usually a create, update, or search operation. Each action requires a set of input fields and typically returns data i.e. output data tree.
 
 ### Example: Action
-The following step carries out a **Search organizations** action in Zendesk. The input fields on the left shows the available fields to search for a Zendesk organization by:
+The following step carries out a **Search organizations** action in a Zendesk integration. The input fields on the left shows the available fields to search for a Zendesk organization by:
 - Name
 - Tags
 - Notes
@@ -47,7 +47,7 @@ In this example, any job can only proceed through either one of the conditional 
 ## Repeat step
 When working with a list of items (e.g. a list of invoice line items), you may need to carry out a set of actions for every item in the list. The repeat step helps you do that. Actions indented within a repeat block will be carried out for all items in the list.
 
-The input to the repeat step is a list. Actions within a repeat block, should  use data output by the **Foreach** datatree. This ensures that every item in the list is processed.
+The input to the repeat step is a list. Actions within a repeat block should use data output from the **Repeat** step's datatree. This ensures that every item in the list is processed.
 
 ### Example: Repeat
 Refer to the example scenario of syncing Salesforce accounts (using the batch trigger) to Zendesk as organizations.
@@ -55,7 +55,7 @@ Refer to the example scenario of syncing Salesforce accounts (using the batch tr
 ![Foreach step example scenario](/assets/images/recipes/steps/foreach_example_scenario.png)
 *Recipe that uses the Repeat step to iterate through list of Salesforce accounts. [Example recipe](https://www.workato.com/recipes/480695)*
 
-In this example, the trigger returns a list of Salesforce accounts. Since Zendesk does not support batch actions, each Salesforce account must be added one at a time to Zendesk.
+In this example, the trigger returns a list of Salesforce accounts. Since Zendesk does not support batch actions, each Salesforce account must be added one at a time from Salesforce to Zendesk.
 
 The list datapill has to be passed into the repeat step. When the input list field is selected, only list type datapills are usable in the datatree, as shown below. List type pills can be identified via their stack icon.
 
@@ -72,14 +72,14 @@ The following displays the mapping from the **Foreach** datatree.
 ![Foreach step example](/assets/images/recipes/steps/foreach_example.png)
 *Datapills are mapped from the Repeat step's datatree. [Example recipe](https://www.workato.com/recipes/480695)*
 
-For further Repeat step examples or more info about list processing, refer to the List management article.
+For further Repeat step examples or more info about list processing, refer to the [list management article](http://docs.workato.com/features/list-management.html).
 
 ## Call recipe step
-Call recipe will run another recipe (named a callable recipe). Callable recipes are like functional calls in programming languages. They offer an easy way to resuse recipe logic.
+Call recipe will run another recipe (named a callable recipe). Callable recipes are like functional calls in programming languages. They offer an easy way to reuse recipe logic.
 
 You should note that callable recipes are executed synchronously. i.e. the calling recipe will be blocked waiting for the called recipe to finish processing.
 
-Callable recipes are an advanced feature in Workato that you can read more about in the Callable recipes article.
+Callable recipes are an advanced feature in Workato that you can read more about in the [callable recipes article](http://docs.workato.com/features/callable-recipes.html).
 
 ## Stop step
 The stop step ends a single job from being processed any further. It is usually used in cases when there is a an error in the business logic and further processing of the job is not required.
@@ -107,7 +107,7 @@ Common remedial steps are to notify users of the error via email or error messag
 This step consists of 2 blocks: the **Monitor actions for error** and the **On error** block. Actions to be monitored for errors should be within the **Monitor** block. If all actions are successful, the **On error** block will be ignored. However, if any action in the **Monitor** block results in an error, the actions within the **On error** block will be executed.
 
 ## Example: Error handler
-The following recipe tries to update the Zendesk organization right after the search step, irrespective of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
+The following recipe tries to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
 
 ![Error monitor step example](/assets/images/recipes/steps/error_monitor_example.png)
 *Recipe that uses the error monitor to monitor failures in updating Zendesk organizations. [Example recipe](https://www.workato.com/recipes/480361)*

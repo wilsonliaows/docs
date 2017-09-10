@@ -66,9 +66,9 @@ The Salesforce upsert action will perform a search for the object based on the o
 *Upsert action*
 
 ## Delete
-Delete actions allows you to delete any object. The input to this action is usually an ID that identifies the object to be deleted. Most apps do not support delete, consequently, Workato does not have broad support for deletes.
+Delete actions allows you to delete any object. The input to this action is usually an ID that identifies the object to be deleted. However, most apps do not support delete, so Workato does not have broad support for deletes.
 
-As the nature of this action can irreversibly lead to lost data, it is best to be cautious and understand the implications when using this action in Workato recipes.
+As the nature of this action can lead to permanently lost data, it is best to be cautious and understand the implications when using this action in Workato recipes.
 
 ![delete](/assets/images/actions-docs/action_6.png)
 *Delete action*
