@@ -53,7 +53,7 @@
   * [Single Sign-On \(SSO\)](signing-up/sso.md)
   * [List management](features/list-management.md)
   * [Data retention](data-retention.md)
-* [Workbot](workbot/workbot.md)
+* [Workbot for Slack](workbot/workbot.md)
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
