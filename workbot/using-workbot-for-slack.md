@@ -32,42 +32,68 @@ If the account does not exist, Workbot will return with an error message.
 *Using the Salesforce show account command in Slack. Workbot responds with an error if the accoun is not found.*
 
 ## 2. Set up smart notifications
-You can configure Workbot to monitor your apps for important events and notify your team about them. You have to [invite Workbot to the channel](#3-invite-workbot-to-channels) you wish for the notifications to be posted to, before configuring notifications to be posted to that channel.
+After [setting up Workbot](/workbot/workbot-for-slack-setup.md) in your Slack organization, you can configure Workbot to monitor your apps for important events and notify your team about them. Workato recipes with the **Workbot for Slack** action **Post bot notification** will post messages in channels where:
 
-To set up notifications, follow the steps below:
+- [Workbot has been invited](/workbot/workbot-for-slack-setup.md#3-invite-workbot-to-channels), and
+- notifications for that recipe has been turned on
 
-1. Go to the channel where notifications should be posted to. Make sure Workbot is a member of the channel.
+### Notification configuration example
+We go through how to create the Workato recipe and turn on notifications below.
 
-2. Turn on the notification via Workbot command
+1. Create a Workato recipe with the Workbot action **Post bot notification**
+We're using a simple recipe with a Salesforce trigger **New Salesforce account** and a Workbot for Slack action **Post bot notification**. Whenever a new account is created in Salesforce, we want to post a notification to Slack.
 
+![New Salesforce account notification recipe](/assets/images/workbot/workbot/new-sf-account-notification-example-recipe.png)
+*Recipe that posts notifications in Slack when new Salesforce accounts are created. [Example recipe](https://www.workato.com/recipes/601229)*
+
+We have configured the input fields for the **Post bot notification** action as follows:
+
+![Salesforce notification configuration 1](/assets/images/workbot/workbot/added-salesforce-account-notification-command-1.png)
+![Salesforce notification configuration 2](/assets/images/workbot/workbot/added-salesforce-account-notification-command-2.png)
+*Input fields configuration for post bot notification action*
+
+2. Check that Workbot is a member of the channel to post notifications to.
+If Workbot isn't a member, [invite it to the channel](/workbot/workbot-for-slack-setup.md#3-invite-workbot-to-channels).
+
+2. Turn on the notifications via Workbot command
 The command should follow this format:
 
-```@workbot appname start notifications name:[document] [event]```
+`@workbot [appname] start notifications name:[document] [event]`
 
-If you have not [toggled the app on and connected successfully](#2-connect-workbot-to-your-apps), you will not be able to start notifications. But if the app has been turned on earlier, Workbot will confirm that notifications is started.
+If you look at the **Post bot notification** action configuration again, you can use the values from the first 3 input fields to build the Workbot command to start notifications.
 
-![Workbot12](/assets/images/workbot/workbot/workbot-12.png)
-*Workbot confirming that the specified notification has been turned on*
+![Salesforce notification configuration 1](/assets/images/workbot/workbot/added-salesforce-account-notification-command-1.png)
+*Workbot for Slack command configuration in post bot notification action*
 
-Subsequently, when the event occurs in your app, Workbot will send you notifications accordingly on this channel.
+In this case, the command will be:
 
-![Workbot13](/assets/images/workbot/workbot/workbot-13.png)
-*Notifications posted to the specified channel by Workbot*
+`@workbot salesforce start notifications name:account added`
 
-4. Optionally, turn off the notification via Workbot command
+If you have not [toggled the app on and connected successfully](/workbot/workbot-for-slack-setup.md#2-connect-workbot-to-your-apps), you will not be able to start notifications. But if the app has been turned on earlier, Workbot will confirm that notifications is started.
 
+![Workbot notifications started](/assets/images/workbot/workbot/workbot-notifications-started.png)
+*Workbot command to start notifications*
+
+Subsequently, whenever new accounts are created in Salesforce, Workbot posts a notifications on this channel.
+
+![Workbot notification example](/assets/images/workbot/workbot/workbot-notification-example.png)
+*New Salesforce account notification posted to the specified channel by Workbot*
+
+You can configure multipl channels to receive the Workbot notifications by using the same command in multiple channels.
+
+4. Optionally, turn off the notifications via Workbot command
 The command should follow this format:
-```@workbot appname stop notifications name:[document] [event]```
 
-Workbot will confirm that it has stopped notifications for the specified event.
+`@workbot [appname] stop notifications name:[document] [event]`
 
-![Workbot15](/assets/images/workbot/workbot/workbot-15.png)
-*Workbot confirming that the specific notifications will be stopped*
+Workbot will confirm that it has stopped notifications for the specified event. In this case, the command will be:
 
-### Final notes
+`@workbot salesforce stop notifications name:account added`
 
-1. Make sure that Workbot is always in the channel to run commands. Do this by inviting it to the channel.
-2. Just like talking to a real person, always use @workbot because you want it to be alerted.
-3. When you talk to Workbot in his direct message channel, you do not need to use @workbot because it knows you are talking to it.
-4. When you invite Workbot into the channel, **anyone** in that channel can interact with Workbot via commands.
-5. When first installing Workbot into your Slack team, Workbot will detect the **latest** app connections you have made in your Workato account and automatically connect to them.
+![Turn Workbot notifications off via Workbot command](/assets/images/workbot/workbot/workbot-notifications-stopped.png)
+*Turning Workbot notifications off via Workbot command*
+
+Alternatively, you can also turn off the notifications via the button generated when you first started the notifications.
+
+![Turn Workbot notifications off via buttons](/assets/images/workbot/workbot/turning-workbot-notifications-off-via-button.gif)
+*Turning Workbot notifications off via buttons*
