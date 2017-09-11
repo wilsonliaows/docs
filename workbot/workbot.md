@@ -14,7 +14,7 @@ You can also retrieve information from your apps and post it to Slack, or create
 
 By default, Workbot comes with a set of pre-built recipes that allows you to interact with your applications and enable notifications with minimal setup.
 
-### Final notes
+## Notes
 
 1. Make sure that Workbot is always in the channel to run commands. Do this by inviting it to the channel.
 2. Just like talking to a real person, always use @workbot because you want it to be alerted.
