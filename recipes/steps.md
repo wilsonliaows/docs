@@ -119,7 +119,7 @@ You have the option of retrying up to 3 times, and of selecting the time interva
 ![Retry configuration fields](/assets/images/recipes/steps/retry-configuration.png)
 *Retry configuration fields*
 
-You can also define a condition that has to be met before the **Monitor** block can be auto-retried.
+You can also define a condition that has to be met before the **Monitor** block can be auto-retried. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article.
 
 ![Retry condition](/assets/images/recipes/steps/retry-condition.png)
 *Configuring the retry condition field. In this example, the actions in the Monitor block will only be carried out again if the error message does not contain the 401 error code.*
