@@ -104,16 +104,16 @@ The **Since/From** value can only be set once, and will be locked from further c
 *Trigger hint regarding the default offset of 1 hour ago for Google Calendar*
 
 ## Trigger conditions
-Trigger conditions are additional rules that define what kind of trigger events should be selected for processing. e.g. You can specify that only Salesforce accounts from California must be procssed.
+Trigger conditions are additional rules that define what kind of trigger events should be selected for processing, e.g. You can specify that only Salesforce accounts from California must be procssed.
 
-Trigger filters are evaluated by Workato i.e. Workato retrieves all trigger events, and then filters out the ones that do not meet the rules specified in the trigger condition.
+Trigger conditions are evaluated by Workato i.e. Workato retrieves all trigger events, and then filters out the ones that do not meet the rules specified in the trigger condition.
 
 To add a trigger condition, check the **Trigger IF** checkbox. The trigger datatree will appear, displaying the variables that can be used to formulate the trigger condition.
 
 ![Configure trigger filter](/assets/images/recipes/triggers/configure-trigger-filter.gif)
 *Checking the Trigger IF checkbox brings up trigger condition fields to be configured*
 
-Define the trigger condition. The following ensures that only Salesforce accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
+Define the trigger condition. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article. The following ensures that only Salesforce accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
 
 ![Define trigger filter](/assets/images/recipes/triggers/define-trigger-condition.gif)
 *Define the trigger condition*

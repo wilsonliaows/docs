@@ -32,7 +32,7 @@ In the following case, the **Update organization** action uses the ID field from
 *Updating Zendesk organization identified by ID. [Example recipe](https://www.workato.com/recipes/480358)*
 
 ## Conditional action step
-Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true.
+Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article.
 
 ### Example: Conditional
 The following recipe has two conditional steps:
@@ -100,7 +100,7 @@ This recipe marks the job as an error, so that the recipe owner will take notice
 *Configuring the Step step's error message. [Example recipe](https://www.workato.com/recipes/480360)*
 
 ## Action with error handler step
-This step allows you watch for errors in actions and take remedial actions when an error occurs. It is similar to try/catch concept in programming lanaguages.
+This step allows you watch for errors in actions and take remedial actions when an error occurs. It is similar to try/catch concept in programming languages.
 
 Common remedial steps are to notify users of the error via email or error messages in the app, or to carry out a rollback (i.e. reversing the job by deleting any created or half-created records).
 

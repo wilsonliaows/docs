@@ -1,23 +1,48 @@
-# Trigger conditions
-You can set conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Hot".
+---
+title: IF conditions
+date: 2017-02-23 15:15:00 Z
+---
+
+# IF conditions
+IF conditions can be found in multiple features in Workato:
+
+- Trigger conditions
+
+You can set IF conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Hot".
 
 ![Example Trigger IF recipe](/assets/images/features/trigger-conditions/example-trigger-if-recipe.png)
 *The Salesforce trigger has the trigger condition set to only process new/updated cases with the status of "Closed”*
 
+- [Conditional action step](/recipes/steps.md#conditional-action-step)
+
+You can set IF conditions within your recipes to better define the workflow procesing logic, e.g. update the Zendesk organization if found, otherwise create new Zendesk organization.
+
+![Example conditional step recipe](/assets/images/features/trigger-conditions/conditional_step_examples.png)
+*Recipe that uses conditional steps to decide whether to create or update Zendesk organization. [Example recipe](https://www.workato.com/recipes/480358)*
+
+- [Auto-retry feature](/recipes/steps.md#auto-retry) in [error monitor step](/recipes/steps.md#action-with-error-handler-step)
+
+You can set IF conditions to determine when to carry out auto-retries, e.g. only auto-retry the steps in the **Monitor** block again if the error thrown is a timeout or a temporary network issue.
+
+![Auto-retry condition](/assets/images/features/trigger-conditions/retry-condition.png)
+*Configuring the retry condition field. In this example, the actions in the Monitor block will only be carried out again if the error message does not contain the 401 error code. [Example recipe](https://www.workato.com/recipes/599962)*
+
 ## Conditions
-Each trigger condition consists of 3 parts - trigger data, condition and value. Conventionally, the trigger data (left-hand-side) is the variable data from your app, e.g. case status, or lead rating. Accordingly, the value (right-hand-side) is the static value you wish to check against, e.g. "Closed" or "Hot", correspondingly. Trigger data and values are case sensitive.
+Each condition consists of 3 parts - data, condition and value. Conventionally, the data (left-hand-side) is the variable data from your app, e.g. case status, or lead rating. Accordingly, the value (right-hand-side) is the static value you wish to check against, e.g. "Closed" or "Hot", correspondingly. Data and values are case sensitive.
 
-In this article, we go through the 14 conditions you can choose from. Additionally, you can combine multiple conditions with the **AND** or **OR** operators to set up complex trigger conditions.
+In this article, we go through the 14 conditions you can choose from. We will be using trigger conditions as examples. Additionally, you can combine multiple conditions with the **AND** or **OR** operators to set up complex conditions.
 
-Each condition will be valid for different data types. If a condition is attempted to be used for invalid data types, it might:
-- prevent the recipe from starting successfully,
+Each condition will be valid for different data types. If a condition is attempted to be used for invalid data types, it might prevent the recipe from starting successfully.
+
+Furthermore, if an invalid IF condition was set up for triggers, the recipe might:
+
 - throw a trigger error after the recipe has started, resulting in the inability to pick up trigger events, or
 - result in the recipe filtering out all trigger events.
 
 ---
 
 ## contains
-This condition checks if the trigger data contains the value. It is case-sensitive - make sure to downcase or upcase both before comparison if you are not concerned about case sensitivity. It works with any characters, numbers, words, letters, and symbols.
+This condition checks if the data contains the value. It is case-sensitive - make sure to downcase or upcase both before comparison if you are not concerned about case sensitivity. It works with any characters, numbers, words, letters, and symbols.
 
 ![Example contains recipe](/assets/images/features/trigger-conditions/example-contains-recipe.png)
 *The trigger condition tells the recipe to only process new Zendesk tickets with a subject that contains the word "bug"*
