@@ -1856,8 +1856,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="example-xml-action">Example XML action</h2>
-<p>Since custom adapter actions receive data in the form of ruby hashes, you will have to convert data into xml by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.</p>
+<h2 id="forming-xml-payload-in-request">Forming XML payload in request</h2>
+<p>Since custom adapter actions receive data in the form of ruby hashes, you will have to convert these hashes into an XML by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.</p>
 <p>According to the <a href="https://developer.intacct.com/wiki/web-services-api-30-calls" target="_blank">Intacct documentation</a>, all requests should be made to the same endpoint as a POST request: <code>https://api.intacct.com/ia/xml/xmlgw.phtml</code></p>
 <p>Authentication and payload are expected in the XML payload. Example:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">request</span>&gt;</span>
@@ -1886,8 +1886,8 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">operation</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">request</span>&gt;</span>
 </code></pre>
-<p>Here is a sample action to retrieve GL Account information, <strong>Get GL Account</strong>.</p>
-<pre><code class="lang-ruby"><span class="hljs-symbol">get_gl_account:</span> {
+<p>Here is a sample action to retrieve GL Account information, <strong>Get GL account</strong>.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">get_GL_account:</span> {
   <span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
     [
       {
@@ -1947,9 +1947,12 @@
                         <span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-number">0</span>,
                         <span class="hljs-string">&quot;glaccount&quot;</span>, <span class="hljs-number">0</span>) || {}
 
-    response.map <span class="hljs-keyword">do</span> |key, value|
-      { key =&gt; value&amp;.first&amp;.[](<span class="hljs-string">&quot;content!&quot;</span>) }
-    <span class="hljs-keyword">end</span>.inject(<span class="hljs-symbol">:merge</span>)
+    response.inject({}) <span class="hljs-keyword">do</span> |hash (key, value)|
+      hash.merge(
+        {
+          key =&gt; value.dig(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;content!&quot;</span>)
+        })
+    <span class="hljs-keyword">end</span>
   <span class="hljs-keyword">end</span>,
 
   <span class="hljs-symbol">output_fields:</span> lambda <span class="hljs-keyword">do</span> |object_definitions|
@@ -1982,7 +1985,7 @@
                  }
                ]
              }
-           ]
+           ],
            <span class="hljs-string">&quot;content&quot;</span><span class="hljs-symbol">:</span> [
              {
                <span class="hljs-string">&quot;function&quot;</span><span class="hljs-symbol">:</span> [
@@ -1990,8 +1993,8 @@
                    <span class="hljs-string">&quot;@controlid&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;testControlId&quot;</span>,
                    <span class="hljs-string">&quot;get_list&quot;</span><span class="hljs-symbol">:</span> [
                      {
-                     <span class="hljs-string">&quot;@object&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;glaccount&quot;</span>,
-                     <span class="hljs-string">&quot;@maxitems&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;1&quot;</span>
+                       <span class="hljs-string">&quot;@object&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;glaccount&quot;</span>,
+                       <span class="hljs-string">&quot;@maxitems&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;1&quot;</span>
                      }
                    ]
                  }
@@ -2002,13 +2005,114 @@
        ])
 </code></pre>
 <p>Elements are represented by arrays of hashes, since XML elements can repeat without any extra notation. Element data is defined using the <code>content!</code> key and attributes using <code>@</code> prefix (example: <code>@object</code> and <code>@maxitems</code>).</p>
+<p>The resultant XML body looks like this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">control</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">senderid</span>&gt;</span>SENDER_ID<span class="hljs-tag">&lt;/<span class="hljs-name">senderid</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">controlid</span>&gt;</span>testControlId<span class="hljs-tag">&lt;/<span class="hljs-name">controlid</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">uniqueid</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">uniqueid</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dtdversion</span>&gt;</span>3.0<span class="hljs-tag">&lt;/<span class="hljs-name">dtdversion</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">control</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">operation</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">authentication</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">login</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">userid</span>&gt;</span>USER_ID<span class="hljs-tag">&lt;/<span class="hljs-name">userid</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">companyid</span>&gt;</span>COMPANY_ID<span class="hljs-tag">&lt;/<span class="hljs-name">companyid</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">login</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">authentication</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">function</span> <span class="hljs-attr">controlid</span>=<span class="hljs-string">&quot;testControlId&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">get_list</span> <span class="hljs-attr">object</span>=<span class="hljs-string">&quot;glaccount&quot;</span> <span class="hljs-attr">maxitems</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">function</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">operation</span>&gt;</span>
+</code></pre>
+<p>Defining value for an XML element is done using the <code>content!</code> key. For example, to assign password to the <code>&lt;senderid&gt;</code> element, the hash looks like this:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-string">&quot;senderid&quot;</span><span class="hljs-symbol">:</span> [{ <span class="hljs-string">&quot;content!&quot;</span><span class="hljs-symbol">:</span> connection[<span class="hljs-string">&quot;sender_id&quot;</span>] }]
+}
+</code></pre>
+<p>Next, how do we form a complex XML element? First, let&apos;s form an XML element that has a single occurrence (object type). For example, the <code>&lt;control&gt;</code> element in the request body is a complex element type with a number of elements nested within. The resultant partial XML should look like this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">control</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">senderid</span>&gt;</span>SENDER_ID<span class="hljs-tag">&lt;/<span class="hljs-name">senderid</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">controlid</span>&gt;</span>testControlId<span class="hljs-tag">&lt;/<span class="hljs-name">controlid</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">uniqueid</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">uniqueid</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dtdversion</span>&gt;</span>3.0<span class="hljs-tag">&lt;/<span class="hljs-name">dtdversion</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">control</span>&gt;</span>
+</code></pre>
+<p>To form this, the equivalent hash should not have <code>content!</code> defined immediately in the <code>control</code> hash. Instead, defind an array of a single hash that contains nested keys, one for each element that belongs in the <code>&lt;control&gt;</code> element.</p>
+<pre><code class="lang-ruby"><span class="hljs-string">&quot;control&quot;</span><span class="hljs-symbol">:</span> [
+  {
+    <span class="hljs-string">&quot;senderid&quot;</span><span class="hljs-symbol">:</span> [{ <span class="hljs-string">&quot;content!&quot;</span><span class="hljs-symbol">:</span> connection[<span class="hljs-string">&quot;sender_id&quot;</span>] }],
+    <span class="hljs-string">&quot;password&quot;</span><span class="hljs-symbol">:</span> [{ <span class="hljs-string">&quot;content!&quot;</span><span class="hljs-symbol">:</span> connection[<span class="hljs-string">&quot;sender_password&quot;</span>] }],
+    <span class="hljs-string">&quot;controlid&quot;</span><span class="hljs-symbol">:</span> [{ <span class="hljs-string">&quot;content!&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;testControlId&quot;</span> }],
+    <span class="hljs-string">&quot;uniqueid&quot;</span><span class="hljs-symbol">:</span> [{ <span class="hljs-string">&quot;content!&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-keyword">false</span> }],
+    <span class="hljs-string">&quot;dtdversion&quot;</span><span class="hljs-symbol">:</span> [{ <span class="hljs-string">&quot;content!&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-number">3.0</span> }]
+  }
+]
+</code></pre>
+<p>Notice that all elements immediately under the <code>&lt;control&gt;</code> element are primitive types. Each of these elements contain only a value and optionally, attributes.</p>
+<p>Now, we know how to define values for primitive XML elements. What about XML attributes? Let&apos;s look at the <code>&lt;content&gt;</code> element in the XML body to see how it&apos;s done.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">function</span> <span class="hljs-attr">controlid</span>=<span class="hljs-string">&quot;testControlId&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">get_list</span> <span class="hljs-attr">object</span>=<span class="hljs-string">&quot;glaccount&quot;</span> <span class="hljs-attr">maxitems</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">function</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span>
+</code></pre>
+<p>This XML element has attributes defined in 2 elements. First, in a complex element <code>&lt;function&gt;</code> as well as a primitive element <code>&lt;get_list&gt;</code>. To form this XML, the equivalent hash structure looks like this:</p>
+<pre><code class="lang-ruby"><span class="hljs-string">&quot;content&quot;</span><span class="hljs-symbol">:</span> [
+  {
+    <span class="hljs-string">&quot;function&quot;</span><span class="hljs-symbol">:</span> [
+      {
+        <span class="hljs-string">&quot;@controlid&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;testControlId&quot;</span>,
+        <span class="hljs-string">&quot;get_list&quot;</span><span class="hljs-symbol">:</span> [
+          {
+            <span class="hljs-string">&quot;@object&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;glaccount&quot;</span>,
+            <span class="hljs-string">&quot;@maxitems&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;1&quot;</span>
+          }
+        ]
+      }
+    ]
+  }
+]
+</code></pre>
+<p>Attributes and nested elements in a complex XML element are defined with the same hierarchy, but with the <code>@</code> prefix to indicate an attribute. (<code>&quot;get_list&quot;</code> key for <code>&lt;get_list&gt;</code> element and <code>&quot;@controlid&quot;</code> key for <code>controlid</code> attribute)</p>
+<p>Similarly, element value and attributes in a primitive XML element are defined with the same hierarchy. (<code>&quot;content!&quot;</code> key for value of <code>&lt;get_list&gt;</code> element and <code>&quot;@object&quot;</code> key for <code>object</code> attribute)
+In this example, the <code>&lt;get_list&gt;</code> element is not assigned a value. If we were to assign one, the equivalent hash will look like this:</p>
+<pre><code class="lang-ruby"><span class="hljs-string">&quot;content&quot;</span><span class="hljs-symbol">:</span> [
+  {
+    <span class="hljs-string">&quot;function&quot;</span><span class="hljs-symbol">:</span> [
+      {
+        <span class="hljs-string">&quot;@controlid&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;testControlId&quot;</span>,
+        <span class="hljs-string">&quot;get_list&quot;</span><span class="hljs-symbol">:</span> [
+          {
+            <span class="hljs-string">&quot;@object&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;glaccount&quot;</span>,
+            <span class="hljs-string">&quot;@maxitems&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;1&quot;</span>,
+            <span class="hljs-string">&quot;content!&quot;</span><span class="hljs-symbol">:</span> input[<span class="hljs-string">&quot;key&quot;</span>]
+          }
+        ]
+      }
+    ]
+  }
+]
+</code></pre>
+<p>Which will be converted into this XML:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">function</span> <span class="hljs-attr">controlid</span>=<span class="hljs-string">&quot;testControlId&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">get_list</span> <span class="hljs-attr">object</span>=<span class="hljs-string">&quot;glaccount&quot;</span> <span class="hljs-attr">maxitems</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>KEY_VALUE<span class="hljs-tag">&lt;<span class="hljs-name">get_list</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">function</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span>
+</code></pre>
 <p>Next, we add the necessary headers with the headers shorthand method:</p>
 <pre><code class="lang-ruby">.headers(<span class="hljs-string">&quot;Content-type&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;x-intacct-xml-request&quot;</span>)
 </code></pre>
-<p>Finally, we use the <code>format_xml</code> method (since we require both request and response in XML) and pass it the root element name as an argument, <code>request</code> in this case.</p>
+<p>Finally, we use the <code>format_xml</code> method (since we require both request and response in XML) and pass it the root element name as an argument, <code>&lt;request&gt;</code>)</p>
 <pre><code class="lang-ruby">.format_xml(<span class="hljs-string">&quot;request&quot;</span>)
 </code></pre>
-<p>Now, the response will be in this form:</p>
+<h2 id="handling-xml-from-response">Handling XML from response</h2>
+<p>Now, the response from the same request will be in this form:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">response</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">control</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>success<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
@@ -2057,85 +2161,89 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">operation</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">response</span>&gt;</span>
 </code></pre>
-<p>Which will be returned to the connector as an equivalent hash (Similar to request, elements are represented by arrays of hashes, since XML elements can repeat without any extra notation).</p>
-<pre><code class="lang-ruby">{
-  <span class="hljs-string">&quot;response&quot;</span>=&gt;[
-    {
-      <span class="hljs-string">&quot;control&quot;</span>=&gt;[
-        {
-          <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;success&quot;</span> }],
-          <span class="hljs-string">&quot;senderid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;SENDER_ID&quot;</span> }],
-          <span class="hljs-string">&quot;controlid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;testControlId&quot;</span> }],
-          <span class="hljs-string">&quot;uniqueid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-          <span class="hljs-string">&quot;dtdversion&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;3.0&quot;</span> }]
-        }
-      ],
-      <span class="hljs-string">&quot;operation&quot;</span>=&gt;[
-        {
-          <span class="hljs-string">&quot;authentication&quot;</span>=&gt;[
-            {
-              <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;success&quot;</span> }],
-              <span class="hljs-string">&quot;userid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;USER_ID&quot;</span> }],
-              <span class="hljs-string">&quot;companyid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;COMPANY_ID&quot;</span> }],
-              <span class="hljs-string">&quot;sessiontimestamp&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;2017-03-26T08:25:12-07:00&quot;</span> }]
-            }
-          ],
-          <span class="hljs-string">&quot;result&quot;</span>=&gt;[
-            {
-              <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;success&quot;</span> }],
-              <span class="hljs-string">&quot;function&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;get_list&quot;</span> }],
-              <span class="hljs-string">&quot;controlid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;testControlId&quot;</span> }],
-              <span class="hljs-string">&quot;listtype&quot;</span>=&gt;[
-                {
-                  <span class="hljs-string">&quot;@start&quot;</span>=&gt;<span class="hljs-string">&quot;0&quot;</span>,
-                  <span class="hljs-string">&quot;@end&quot;</span>=&gt;<span class="hljs-string">&quot;0&quot;</span>,
-                  <span class="hljs-string">&quot;@total&quot;</span>=&gt;<span class="hljs-string">&quot;107&quot;</span>,
-                  <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;glaccount&quot;</span>
-                }
-              ],
-              <span class="hljs-string">&quot;data&quot;</span>=&gt;[
-                {
-                  <span class="hljs-string">&quot;glaccount&quot;</span>=&gt;[
-                    {
-                      <span class="hljs-string">&quot;recordno&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;1&quot;</span> }],
-                      <span class="hljs-string">&quot;glaccountno&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;1000&quot;</span> }],
-                      <span class="hljs-string">&quot;title&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;Chase Operating Account&quot;</span> }],
-                      <span class="hljs-string">&quot;normalbalance&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;debit&quot;</span> }],
-                      <span class="hljs-string">&quot;accounttype&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;balancesheet&quot;</span> }],
-                      <span class="hljs-string">&quot;closingtype&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;closed to account&quot;</span> }],
-                      <span class="hljs-string">&quot;closingaccountno&quot;</span>=&gt;[{}],
-                      <span class="hljs-string">&quot;whenmodified&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;06/03/2016 20:19:30&quot;</span> }],
-                      <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;active&quot;</span> }],
-                      <span class="hljs-string">&quot;requiredept&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-                      <span class="hljs-string">&quot;requireloc&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-                      <span class="hljs-string">&quot;taxable&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-                      <span class="hljs-string">&quot;taxcode&quot;</span>=&gt;[{}],
-                      <span class="hljs-string">&quot;mrccode&quot;</span>=&gt;[{}],
-                      <span class="hljs-string">&quot;alternativeaccount&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;None&quot;</span> }],
-                      <span class="hljs-string">&quot;requireproject&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-                      <span class="hljs-string">&quot;requirecustomer&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-                      <span class="hljs-string">&quot;requirevendor&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-                      <span class="hljs-string">&quot;requireemployee&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
-                      <span class="hljs-string">&quot;requireitem&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
+<p>Because <code>format_xml</code> was called in the request, Workato SDK returns an equivalent hash. Similar to request:</p>
+<ul>
+<li>elements are represented by arrays of hashes, since XML elements can repeat without any extra notation</li>
+<li>elements attributes has <code>@</code> prefixed with the same heirarchy as nested elements and element values</li>
+<li>element values are passed as values of the <code>&quot;content!&quot;</code> key<pre><code class="lang-ruby">{
+<span class="hljs-string">&quot;response&quot;</span>=&gt;[
+  {
+    <span class="hljs-string">&quot;control&quot;</span>=&gt;[
+      {
+        <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;success&quot;</span> }],
+        <span class="hljs-string">&quot;senderid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;SENDER_ID&quot;</span> }],
+        <span class="hljs-string">&quot;controlid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;testControlId&quot;</span> }],
+        <span class="hljs-string">&quot;uniqueid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+        <span class="hljs-string">&quot;dtdversion&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;3.0&quot;</span> }]
+      }
+    ],
+    <span class="hljs-string">&quot;operation&quot;</span>=&gt;[
+      {
+        <span class="hljs-string">&quot;authentication&quot;</span>=&gt;[
+          {
+            <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;success&quot;</span> }],
+            <span class="hljs-string">&quot;userid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;USER_ID&quot;</span> }],
+            <span class="hljs-string">&quot;companyid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;COMPANY_ID&quot;</span> }],
+            <span class="hljs-string">&quot;sessiontimestamp&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;2017-03-26T08:25:12-07:00&quot;</span> }]
+          }
+        ],
+        <span class="hljs-string">&quot;result&quot;</span>=&gt;[
+          {
+            <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;success&quot;</span> }],
+            <span class="hljs-string">&quot;function&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;get_list&quot;</span> }],
+            <span class="hljs-string">&quot;controlid&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;testControlId&quot;</span> }],
+            <span class="hljs-string">&quot;listtype&quot;</span>=&gt;[
+              {
+                <span class="hljs-string">&quot;@start&quot;</span>=&gt;<span class="hljs-string">&quot;0&quot;</span>,
+                <span class="hljs-string">&quot;@end&quot;</span>=&gt;<span class="hljs-string">&quot;0&quot;</span>,
+                <span class="hljs-string">&quot;@total&quot;</span>=&gt;<span class="hljs-string">&quot;107&quot;</span>,
+                <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;glaccount&quot;</span>
+              }
+            ],
+            <span class="hljs-string">&quot;data&quot;</span>=&gt;[
+              {
+                <span class="hljs-string">&quot;glaccount&quot;</span>=&gt;[
+                  {
+                    <span class="hljs-string">&quot;recordno&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;1&quot;</span> }],
+                    <span class="hljs-string">&quot;glaccountno&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;1000&quot;</span> }],
+                    <span class="hljs-string">&quot;title&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;Chase Operating Account&quot;</span> }],
+                    <span class="hljs-string">&quot;normalbalance&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;debit&quot;</span> }],
+                    <span class="hljs-string">&quot;accounttype&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;balancesheet&quot;</span> }],
+                    <span class="hljs-string">&quot;closingtype&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;closed to account&quot;</span> }],
+                    <span class="hljs-string">&quot;closingaccountno&quot;</span>=&gt;[{}],
+                    <span class="hljs-string">&quot;whenmodified&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;06/03/2016 20:19:30&quot;</span> }],
+                    <span class="hljs-string">&quot;status&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;active&quot;</span> }],
+                    <span class="hljs-string">&quot;requiredept&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+                    <span class="hljs-string">&quot;requireloc&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+                    <span class="hljs-string">&quot;taxable&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+                    <span class="hljs-string">&quot;taxcode&quot;</span>=&gt;[{}],
+                    <span class="hljs-string">&quot;mrccode&quot;</span>=&gt;[{}],
+                    <span class="hljs-string">&quot;alternativeaccount&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;None&quot;</span> }],
+                    <span class="hljs-string">&quot;requireproject&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+                    <span class="hljs-string">&quot;requirecustomer&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+                    <span class="hljs-string">&quot;requirevendor&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+                    <span class="hljs-string">&quot;requireemployee&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }],
+                    <span class="hljs-string">&quot;requireitem&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;false&quot;</span> }]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
 }
 </code></pre>
-<p>Hence, we will need to extract the desired data using the <code>dig</code> method.</p>
-<pre><code class="lang-ruby">.dig(<span class="hljs-string">&quot;response&quot;</span>, <span class="hljs-number">0</span>,
-     <span class="hljs-string">&quot;operation&quot;</span>, <span class="hljs-number">0</span>,
-     <span class="hljs-string">&quot;result&quot;</span>, <span class="hljs-number">0</span>,
-     <span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-number">0</span>,
-     <span class="hljs-string">&quot;glaccount&quot;</span>, <span class="hljs-number">0</span>)
+Hence, we will need to extract the desired data using the <code>dig</code> method.<pre><code class="lang-ruby">.dig(<span class="hljs-string">&quot;response&quot;</span>, <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;operation&quot;</span>, <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;result&quot;</span>, <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;glaccount&quot;</span>, <span class="hljs-number">0</span>)
 </code></pre>
+</li>
+</ul>
 <p>This returns us the hash:</p>
 <pre><code class="lang-ruby">{
   <span class="hljs-string">&quot;recordno&quot;</span>=&gt;[{ <span class="hljs-string">&quot;content!&quot;</span>=&gt;<span class="hljs-string">&quot;1&quot;</span> }],
@@ -2161,9 +2269,12 @@
 }
 </code></pre>
 <p>Lastly, we convert the hash here back to a recipe-friendly output schema:</p>
-<pre><code class="lang-ruby">response.map <span class="hljs-keyword">do</span> |key, value|
-  { key =&gt; value&amp;.first&amp;.[](<span class="hljs-string">&quot;content!&quot;</span>) }
-<span class="hljs-keyword">end</span>.inject(<span class="hljs-symbol">:merge</span>)
+<pre><code class="lang-ruby">response.inject({}) <span class="hljs-keyword">do</span> |hash, (key, value)|
+  hash.merge(
+    {
+      key =&gt; value.dig(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;content!&quot;</span>)
+    })
+<span class="hljs-keyword">end</span>
 </code></pre>
 <p>The output of this action is then:</p>
 <pre><code class="lang-json">{
@@ -2380,7 +2491,7 @@ Content-type  x-intacct-xml-request
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"XML","level":"1.18.7.2","depth":3,"next":{"title":"Methods","level":"1.18.8","depth":2,"path":"developing-connectors/sdk/methods.md","ref":"developing-connectors/sdk/methods.md","articles":[]},"previous":{"title":"JSON","level":"1.18.7.1","depth":3,"path":"developing-connectors/sdk/data-format/json-format.md","ref":"developing-connectors/sdk/data-format/json-format.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/data-format/xml-format.md","mtime":"2017-09-15T21:30:58.505Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-15T21:32:09.627Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"XML","level":"1.18.7.2","depth":3,"next":{"title":"Methods","level":"1.18.8","depth":2,"path":"developing-connectors/sdk/methods.md","ref":"developing-connectors/sdk/methods.md","articles":[]},"previous":{"title":"JSON","level":"1.18.7.1","depth":3,"path":"developing-connectors/sdk/data-format/json-format.md","ref":"developing-connectors/sdk/data-format/json-format.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/data-format/xml-format.md","mtime":"2017-09-15T22:35:12.425Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-15T22:36:13.277Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
