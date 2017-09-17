@@ -12,7 +12,7 @@ Recipe steps can be actions, or control flow statements that help you describe b
 ## Action step
 Actions carry out an operation in your target app, usually a create, update, or search operation. Each action requires a set of input fields and typically returns data i.e. output data tree.
 
-### Example: Action
+### Example: Action step
 The following step carries out a **Search organizations** action in a Zendesk integration. The input fields on the left shows the available fields to search for a Zendesk organization by:
 - Name
 - Tags
@@ -32,9 +32,9 @@ In the following case, the **Update organization** action uses the ID field from
 *Updating Zendesk organization identified by ID. [Example recipe](https://www.workato.com/recipes/480358)*
 
 ## Conditional action step
-Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true.
+Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article.
 
-### Example: Conditional
+### Example: Conditional action step
 The following recipe has two conditional steps:
 - If Zendesk organization was found, update Zendesk organization
 - If Zendesk organization was not found, create new Zendesk organization
@@ -49,7 +49,7 @@ When working with a list of items (e.g. a list of invoice line items), you may n
 
 The input to the repeat step is a list. Actions within a repeat block should use data output from the **Repeat** step's datatree. This ensures that every item in the list is processed.
 
-### Example: Repeat
+### Example: Repeat step
 Refer to the example scenario of syncing Salesforce accounts (using the batch trigger) to Zendesk as organizations.
 
 ![Foreach step example scenario](/assets/images/recipes/steps/foreach_example_scenario.png)
@@ -86,7 +86,7 @@ The stop step ends a single job from being processed any further. It is usually 
 
 The stop step can be configured to mark the job as a failed or a successful, depending on business logic.
 
-### Example: Stop
+### Example: Stop step
 The following recipe expects all Salesforce accounts to be present in Zendesk as organizations. In cases where no corresponding Zendesk organization is found, the recipe will stop processing further actions.
 
 ![Stop step example](/assets/images/recipes/steps/stop_step_example.png)
@@ -100,16 +100,44 @@ This recipe marks the job as an error, so that the recipe owner will take notice
 *Configuring the Step step's error message. [Example recipe](https://www.workato.com/recipes/480360)*
 
 ## Action with error handler step
-This step allows you watch for errors in actions and take remedial actions when an error occurs. It is similar to try/catch concept in programming lanaguages.
+This step allows you to monitor for errors in actions, similar to the try/catch concept in programming lanaguages.. When an error occurs, you have the chance to:
 
-Common remedial steps are to notify users of the error via email or error messages in the app, or to carry out a rollback (i.e. reversing the job by deleting any created or half-created records).
+1) retry the sequence of actions again, in case it was a temporary error such as network issues, or
 
-This step consists of 2 blocks: the **Monitor actions for error** and the **On error** block. Actions to be monitored for errors should be within the **Monitor** block. If all actions are successful, the **On error** block will be ignored. However, if any action in the **Monitor** block results in an error, the actions within the **On error** block will be executed.
+2) take remedial actions, such as notifying users of the error via email or error messages in the app, or to carry out a rollback (i.e. reversing the job by deleting any created or half-created records).
 
-## Example: Error handler
+This step consists of 2 blocks: the **Monitor** block and the **Error** block. Actions to be monitored for errors should be within the **Monitor** block. If all actions are successful, the **Error** block will be ignored. However, if any action in the **Monitor** block results in an error, the actions within the **Error** block will be executed.
+
+### Auto-retry
+When using the error monitor step, you can setup the actions within the **Monitor** block to be auto-retried by Workato in cases of action failures. By default, the **Monitor** block actions will not be reran.
+
+![Do not retry default configuration](/assets/images/recipes/steps/do-not-retry-default.png)
+*Error block defaults to the do-not-retry selection*
+
+You have the option of retrying up to 3 times, and of selecting the time interval to wait between each retry.
+
+![Retry configuration fields](/assets/images/recipes/steps/retry-configuration.png)
+*Retry configuration fields*
+
+You can also define a condition that has to be met before the **Monitor** block can be auto-retried. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article.
+
+![Retry condition](/assets/images/recipes/steps/retry-condition.png)
+*Configuring the retry condition field. In this example, the actions in the Monitor block will only be carried out again if the error message does not contain the 401 error code.*
+
+## Example: Error monitor step
 The following recipe tries to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
 
 ![Error monitor step example](/assets/images/recipes/steps/error_monitor_example.png)
 *Recipe that uses the error monitor to monitor failures in updating Zendesk organizations. [Example recipe](https://www.workato.com/recipes/480361)*
 
-As the recipe catches failed actions within the error monitor block, failed **Update organization** actions will be caught, and the recipe proceeds to carry out steps within the **On error** block. In this case, it seems that the only reason for the update failing is because no matching Zendesk organization was found. Hence the remedial step creates a new Zendesk organization.
+As the recipe catches failed actions within the error monitor block, failed **Update organization** actions will be caught, and the recipe proceeds to carry out steps within the **Error** block immediately, as no auto-retry was configured. In this case, it seems that the only reason for the update failing is because no matching Zendesk organization was found. Hence the remedial step creates a new Zendesk organization.
+
+## Example: Error monitor with retry step
+If the actions in your **Monitor** block tends for fail for temporary reasons such as network issues or timeout issues, it would make sense to use auto-retry, such that the recipe will attempt to execute the steps again until it succeeds, for a maximum of 3 tries.
+
+We will reuse the same same error monitor exmaple recipe from above, where we try to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
+
+![Auto-retry example](/assets/images/recipes/steps/recipe-with-error-monitor-and-retry.png)
+*Recipe that uses the auto-retry to recover from action failures in updating Zendesk organizations. [Example recipe](https://www.workato.com/recipes/599962)*
+
+If updating the Zendesk organization fails, the recipe will check to see if the error message contains a 401 error code (i.e. unauthorized error). If the error is an unauthorized error message, we know that further attempts will still fail as this means we don't have the right permissions to update the Zendesk organization, perhaps because of changed permissions. If the error is not an unauthorized error message, we will proceed to retry the update organization action again after the specified period of time, e.g. 5 seconds, up to a maximum of 3 tries.
