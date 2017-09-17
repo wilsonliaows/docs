@@ -33,7 +33,7 @@ The following shows an example of how the different fields show up in Slack. As 
 ![Post message basic example](/assets/images/connectors/slack/post-message-basic-example.png)
 *Basic example of the post message action*
 
-The corresponding configuration of the action step can be seen below.
+The corresponding configuration of the action step can be seen below. In addition, the **Message type** has been configured to **Good**.
 
 ![Post message basic configuration 1](/assets/images/connectors/slack/post-basic-message-config-1.png)
 
