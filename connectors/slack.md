@@ -6,14 +6,14 @@ date: 2017-09-12 12:00:00 Z
 # Slack
 [Slack](https://slack.com/) is a team collaboration platform that consolidates your team's communication and resources, and integrates easily with the enterprise and productivity products used across your organization. It provides a shared workspace where conversations are organized and accessible, and creates alignment and shared understanding across your team.
 
-## Slack VS Workbot for Slack
+## Slack VS Workbot for Slack connectors
 Workato supports both the Slack connector and the Workbot for Slack connector.
 
 The Slack connector allows you to authorize to your Slack team as a team member, and immediately post messages onto channels, send direct messages to Slack team members, and manage channels and groups. It does not require any app installation onto your Slack team. Recipes built on the Slack connector allows you to respond to message buttons and menus.
 
 The Workbot for Slack connector enables you to build additional recipes on top of Workbot for Slack, which is an app that needs to be installed onto your Slack team, and comes with pre-built recipes. Messages posted in Slack via this connector will show up as being posted by **Workbot**. Recipes built on top of the Workbot connector has the ability to facilitate more complex interactions and communicate with Workbot to read or write data to other connected apps.
 
-The comparison table for both the Slack connector and the Workbot for Slack connector is below.
+A detailed comparison table for both the Slack connector and the Workbot for Slack connector is below.
 
 | Features                                                      | Slack connector                                                                                                                   | Slack for Workbot connector                                                                                                                                                                                                     |
 |---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -77,7 +77,7 @@ The corresponding configuration of the action step can be seen below.
 ![Post message advanced configuration 2](/assets/images/connectors/slack/post-advanced-message-config.png)
 *Post message action configuration - message with attachment, customized app name and images. [Example recipe](https://www.workato.com/recipes/604145)*
 
-### Using Slack buttons
+### Using Slack message buttons
 You can interact with messages in Slack via [Slack buttons](https://api.slack.com/docs/message-buttons). To use Slack buttons in Slack, you need:
 
 1) A recipe with a **Post mesage** action that has buttons configured. This recipe needs to specifically refer to the second recipe below in its button configuration.
@@ -166,3 +166,54 @@ An example of the values can be viewed in the job output, as follows.
 
 ![Button action data output](/assets/images/connectors/slack/button-action-output-data.png)
 *Button action data output*
+
+### Using Slack threads
+[Slack threads](https://api.slack.com/docs/message-threading) allow you to group related messages together, making it easier to follow conversations in Slack channels or groups. To use Slack threads, you can either:
+
+1) continue a conversation by replying to a message ID and starting a thread,
+2) continue a conversation by replying to the parent message ID (the very first message of the thread), or
+3) continue an existing thread by replying to the thread ID.
+
+You need to specify the message ID, parent message ID or thread ID in the **Thread ID** input field in order to start or continue a thread.
+
+#### Example recipe #1: recipe that replies to a message ID and starts a thread
+Let us relook at the [above example recipe](#example-recipe-2-recipe-with-a-new-button-action-trigger-with-logic-defining-the-actions-to-carry-out-upon-each-button-click) that responds to a button click.
+
+![Button action example recipe](/assets/images/connectors/slack/button-action-example-recipe.png)
+*Button response [example recipe](https://www.workato.com/recipes/602058)*
+
+If a Slack user clicks on the **Notify BizDev** button, we can see that it creates a new thread by posting under the original message,
+
+![Notify BD thread example](/assets/images/connectors/slack/notify-bd-thread.png)
+*Thread created and message posted if Slack user clicks on the Notify BizDev button*
+
+The configuration in the recipe is as follows. We're passing the message ID of the original Slack message into the **Thread ID** input field. As the message has no thread currently, it will create a new thread.
+
+![Notify BD thread configuration](/assets/images/connectors/slack/notify-bd-thread-config.png)
+*Action configuration for the Notify BizDev action. Message ID is used in the **Thread ID** input field.*
+
+Correspondingly, if a Slack user clicks on the **Notify Sales** button, we can see that it creates a new thread by posting under the original message.
+
+![Notify sales thread example](/assets/images/connectors/slack/notify-sales-thread.png)
+*Thread created and message posted if Slack user clicks on the Notify Sales button*
+
+The configuration in the recipe is as follows. We're passing the message ID of the original Slack message into the **Thread ID** input field. As the message has no thread currently, it will create a new thread.
+
+![Notify sales thread configuration](/assets/images/connectors/slack/notify-sales-thread-config.png)
+*Action configuration for the Notify Sales action. Message ID is used in the **Thread ID** input field.*
+
+#### Example recipe #2: recipe that replies to a parent message ID and continues a thread
+Using the [same recipe](https://www.workato.com/recipes/602058) as [above](#example-recipe-1-recipe-that-replies-to-a-message-ID-and-starts-a-thread), we can see that putting the parent message ID also works to post to an existing thread.
+
+![Button action example recipe](/assets/images/connectors/slack/button-action-example-recipe.png)
+*Button response [example recipe](https://www.workato.com/recipes/602058)*
+
+For example, when I click on the **Notify BizDev** button for the second time, it posts to the same thread.
+
+![Messages are posted under the same thread via parent message ID](/assets/images/connectors/slack/posting-to-existing-thread-via-parent-id.gif)
+*Messages are posted under the same thread via parent message ID*
+
+Referring back to the action's thread configuration, we see that we're specifying the parent message ID in the **Thread ID** input field, which is the initial message that the thread is under.
+
+![Notify BD thread configuration](/assets/images/connectors/slack/notify-bd-thread-config.png)
+*Action configuration for the Notify BizDev action. Message ID is used in the **Thread ID** input field.*
