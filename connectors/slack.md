@@ -6,6 +6,10 @@ date: 2017-09-12 12:00:00 Z
 # Slack
 [Slack](https://slack.com/) is a team collaboration platform that consolidates your team's communication and resources, and integrates easily with the enterprise and productivity products used across your organization. It provides a shared workspace where conversations are organized and accessible, and creates alignment and shared understanding across your team.
 
+## Slack VS Workbot for Slack
+The Slack connector and the Workbot for Slack connector.
+
+
 ## Connector information
 
 ### API version
@@ -138,7 +142,7 @@ The following table elaborates upon these datapill variables and what they can b
 | Action timestamp | The epoch time when the button click occurred.                                                                                                   |
 | Message ID       | The epoch time when the message with buttons was sent. Can be used to populate **Thread ID** input fields to create a thread under this message. |
 | Attachment ID    | ID of the attachment sent with the initial Slack message with buttons, if any.                                                                   |
-| Response URL     | Instead of clicking a Slack button, you can send an API call to this URL to simulate the clicking of the button.                                 |
+| Response URL     | Used by Workato to respond to the button click.                                 |
 
 An example of the values can be viewed in the job output, as follows.
 
