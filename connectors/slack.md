@@ -75,10 +75,15 @@ There are two available styles for buttons - non-danger and danger style. The no
 ![Interacting with non-danger style button](/assets/images/connectors/slack/interacting-with-normal-button.gif)
 *Interacting with non-danger styled button*
 
-The danger styled buttons, when clicked, generates a popup prompt that asks the Slack user for confirmation of their click. The prompt that pops up can be completely configured in the recipe.
+The danger styled buttons, when clicked, generates a popup prompt that asks the Slack user for confirmation of their click.
 
 ![Interacting with danger style button](/assets/images/connectors/slack/interacting-with-danger-button.gif)
 *Interacting with danger styled button*
+
+The prompt that pops up can be completely configured in the button configuration in the Slack action **Post message**.
+
+![Popup prompt example](/assets/images/connectors/slack/popup-prompt-example.png)
+*Popup prompt*
 
 The button configuration for both button styles is in the following screenshot. We're calling a recipe we have pre-built [**New Salesforce account button response recipe - Notify BizDev & Notify Sales**](https://www.workato.com/recipes/602058). All recipes with the Slack trigger **New button action** should show up in this picklist - select the recipe you have built to respond to this particular set of buttons.
 
