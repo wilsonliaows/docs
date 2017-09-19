@@ -18,9 +18,7 @@ For example:
 - If float values are provided, a float value will be returned.
 - If both float and integer values are provided, a float value will be returned, as that is more precise.
 
-
-
-## The + operator
+## The add (+) operator
 
 This operator allows the addition of operands on either side.
 
@@ -31,11 +29,9 @@ This operator allows the addition of operands on either side.
 | `4.0 + 7`   | 11.0   | Float  |
 | `4.0 + 7.0` | 11.0   | Float  |
 
-
-
 ---
 
-## The - operator
+## The subtract (-) operator
 
 This operator subtracts the right hand operand from the left hand operand.
 
@@ -46,7 +42,9 @@ This operator subtracts the right hand operand from the left hand operand.
 | `4.0 - 7`   | -3.0   | Float  |
 | `4.0 - 7.0` | -3.0   | Float  |
 
-## The * operator
+---
+
+## The multiply (*) operator
 This operator multiplies the operands on either side.
 
 ### Example
@@ -56,11 +54,9 @@ This operator multiplies the operands on either side.
 | `4.0 * 7`   | 28.0   | Float  |
 | `4.0 * 7.0` | 28.0   | Float  |
 
-
-
 ---
 
-## The / operator
+## The divide (/) operator
 
 Divides left hand operand by right hand operand.
 
@@ -74,11 +70,9 @@ Divides left hand operand by right hand operand.
 | `7.0 / 4`   | 1.75        | Float  |
 | `7.0 / 4.0` | 1.75        | Float  |
 
-
-
 ---
 
-## The % operator
+## The modulo (%) operator
 
 Divides left hand operand by right hand operand and returns the remainder.
 
@@ -90,8 +84,6 @@ Divides left hand operand by right hand operand and returns the remainder.
 | `4 % 7.0`   | 4.0    | Float  |
 | `7 % 4`     | 3      | Fixnum |
 | `7.0 % 4.0` | 3.0    | Float  |
-
-
 
 ---
 
@@ -108,8 +100,6 @@ This function returns the absolute (positive) value of a number.
 | `-45.0.abs`  | 45.0   | Float  |
 | `-45.67.abs` | 45.67  | Float  |
 
-
-
 ---
 
 ## round
@@ -121,8 +111,6 @@ Rounds off a numerical value to a specified after the formula. Accepts negative 
 | `1234.567.round`     | 1235    | Fixnum |
 | `1234.567.round(2)`  | 1234.57 | Float  |
 | `1234.567.round(-2)` | 1200    | Fixnum |
-
-
 
 ---
 
@@ -140,8 +128,6 @@ This function checks the input and returns true if it is a null or an empty stri
 | `-45.blank?`  | false  |
 | `0.blank?`    | false  |
 
-
-
 ---
 
 ## presence
@@ -158,8 +144,6 @@ This function will check the input number, returning its value if there is one p
 | `45.0.presence`  | 45.0   | Float  |
 | `-45.0.presence` | -45.0  | Float  |
 
-
-
 ---
 
 ## present?
@@ -174,8 +158,6 @@ This function will check the input, returning true if there is a value present. 
 | `-45.present?`  | true   |
 | `0.present?`    | true   |
 | `45.0.present?` | true   |
-
-
 
 # Conversions
 
@@ -192,8 +174,6 @@ This function can be used on a number to only take its integer value. Floats wil
 | `-45.to_i`    | -45    | Fixnum |
 | `0.to_i`      | 0      | Fixnum |
 
-
-
 ---
 
 ## to_f
@@ -208,8 +188,6 @@ This function can be used on a number to retain its decimal values. When applied
 | `45.to_f`     | 45.0   | Float |
 | `-45.to_f`    | -45.0  | Float |
 | `0.to_f`      | 0      | Float |
-
-
 
 ---
 
@@ -226,8 +204,6 @@ This function converts a number into a string.
 | `-45.to_s`    | "-45"    | String |
 | `0.to_s`      | "0"      | String |
 
-
-
 ---
 
 ## to_currency
@@ -241,8 +217,6 @@ By adding a parameter with a locale and country code, it will add the appropriat
 | `45.678.to_currency`               | $45.68  | Currency |
 | `45.6789.to_currency(precision:3)` | $45.678 | Currency |
 | `45.67.to_currency(locale: fr)`    | 45.67 € | Currency |
-
-
 
 ---
 
@@ -265,8 +239,6 @@ By adding a parameter with country_code: number, the formatted phone number will
 | `1112223333.to_phone(country_code: 1)`   | "+1-111-222-3333"    |
 | `1112223333.to_phone(area_code: true, country_code: 1)` | "+1-(111) 222-3333"  |
 | `1112223333.to_phone(extension: 444)`    | "111-222-3333 x 444" |
-
-
 
 ## Converting other data types to numbers
 
