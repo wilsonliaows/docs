@@ -134,13 +134,15 @@ Upon receiving a the request, the API returns a JSON response. These can be acce
   "settings": "no"
 }
 ```
-we can retrieve the `access_token` from `response[access_token]`
+we can retrieve the `access_token` from `response[access_token]`. These parameters are also appended into the original `connection` object.
 
-The `acquire` block must return an array of
+The `acquire` hook must return an array of
 
 - Hash: Access token, [Refresh token](#refresh-tokens) (optional)
 - Owner ID for clobber detection (optional, substitute with `nil`)
 - Hash: Other settings to merge (optional, substitute with `nil`)
+
+The `acquire` hook is also used in [Custom Authentication](custom-authentication.md#acquire).
 
 ### Refresh tokens
 There may be situations in which the API expires the access token after a prescribed amount of time. In these cases, the refresh token is used to obtain a new access token. Refresh tokens do not usually expire.
@@ -199,19 +201,51 @@ connection: {
 ```
 
 #### `refresh_on`
-When tokens expire, APIs return HTTP errors signaling the need to reacquire credentials. This is optional; if missing, any error will result in one attempt to re-authorize.
+This is an optional array of signals that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals.
 
-There are four ways to match:
+This list is optional. If not defined, will default to one attempt at re-acquiring credentials for all errors.
 
-- Integer HTTP response code: `401, 403`
-- String that equals the whole body or whole title of the error response: `'Unauthorized'`
-- Regex that matches with the body or title of the error response: `/Unauthorized/`
-- The actual "signal" that we need to re-authorize: `/Invalid Ticket Id/`
+```ruby
+refresh_on: [
+  401,
+  'Unauthorized',
+  /Unauthorized/,
+  /Invalid Ticket Id/
+]
+```
+
+The example here shows multiple ways that we can define "signals" to watch.
+
+- `401`: The response status code
+- `"Unauthorized"`: The exact string matching the whole body or title of response
+- `/Unauthorized/`: Regex matching the body or title of response
+- `/Invalid Ticket Id/`: The actual "message" to watch for
+
+If a match is found, it triggers a re-authorization (execute `refresh`, otherwise `acquire`).
 
 #### `detect_on`
-Some APIs don't signal errors with an explicit error response like a 401. Instead, they return a 200 with a payload that signals the error. This optional hook lets us detect that and raise it as an exception, so that the refresh framework can match it.
+Certain APIs don't signal errors with explicit response status code like a 401. Instead, they return a 200 (pseudo successful response) with a payload that signals the error.
+
+For such APIs, an error (expired credentials, bad requests etc.) will not be picked up since it is interpreted as a successful request (Status code 200). A match with the signals defined here will raise an error.
+
+When there is a match here, two things can happen.
+
+Firstly, there can also be a match against refresh_on signals. When that happens, a re-authorization is triggered (acquire block is executed) instead of raising an error. In this case, detect_on is used to match errors hidden behind responses with status code 200, then used to identify that a credentials refresh is required.
+
+If a match here does not match any of the signals defined in refresh_on, an error will be raised.
+
+```ruby
+detect_on: [
+  "sample error message",
+  /^\{"response":\{"error".+$/
+]
+```
 
 There are two ways to match:
 
-- String that equals the whole body of the response: `'Unauthorized'`
-- Regex that matches with the body of the response: `/^\{"response":\{"error"/`
+- `'Unauthorized'`: The exact string matching the whole body of response
+- `/^\{"response":\{"error".+$/`: Regex matching the body of response
+
+This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.
+
+The `refresh_on`, `refresh` and `detect_on` hooks are also used in [Custom Authentication](custom-authentication.md#refresh_on).
