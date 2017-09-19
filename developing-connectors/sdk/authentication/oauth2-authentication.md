@@ -104,23 +104,23 @@ connection: {
 
     acquire: lambda do |connection, auth_code|
       response = post("https://login.mypurecloud.com/oauth/token").
-      	payload(
-      		grant_type: "authorization_code",
-      		code: auth_code,
-      		redirect_uri: "https://www.workato.com/oauth/callback"
+      payload(
+        grant_type: "authorization_code",
+        code: auth_code,
+        redirect_uri: "https://www.workato.com/oauth/callback"
         ).
         user(connection['client_id']).
         password(connection['client_secret']).
         request_format_www_form_urlencoded
 
-      [ response, nil, nil ]
-    end,
+        [ response, nil, nil ]
+      end,
 
-    apply: lambda do |connection, access_token|
-      headers('Authorization': "Bearer #{connection["access_token"]}")
-    end
+      apply: lambda do |connection, access_token|
+        headers('Authorization': "Bearer #{connection["access_token"]}")
+      end
+    }
   }
-}
 ```
 
 The methods `.user` and `.password` are the equivalent of appending `Authorization: BASIC ` and `<user>:<password>` in BASE-64 String encoding in the `POST` request header. Note that the request must be sent with `request_format_www_form_urlencoded`.
@@ -151,52 +151,51 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
 
 ```ruby
 connection: {
-     fields: [
-      { name: 'domain', control_type: 'text', optional: false },
-      { name: 'client_id', control_type: 'password', optional: false },
-      { name: 'client_secret', control_type: 'password', optional: false }
-     ],
+  fields: [
+    { name: 'domain', control_type: 'text', optional: false },
+    { name: 'client_id', control_type: 'password', optional: false },
+    { name: 'client_secret', control_type: 'password', optional: false }
+  ],
 
-     authorization: {
-       type: "oauth2",
+  authorization: {
+    type: "oauth2",
 
-       authorization_url: lambda do |connection|
-		 params = {
-           response_type: "code",
-           client_id: connection["client_id"],
-           redirect_uri: "https://www.workato.com/oauth/callback",
-         }.to_param
+    authorization_url: lambda do |connection|
+      params = {
+        response_type: "code",
+        client_id: connection["client_id"],
+        redirect_uri: "https://www.workato.com/oauth/callback",
+      }.to_param
 
-         "https://#{connection["domain"]}.namely.com/api/v1/oauth2/authorize?" + params
-       end,
+      "https://#{connection["domain"]}.namely.com/api/v1/oauth2/authorize?" + params
+    end,
 
-       acquire: lambda do |connection, auth_code|
-         response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
-           payload(
-	           grant_type: "authorization_code",
-    	       client_id: connection["client_id"],
-        	   client_secret: connection["client_secret"],
-             code: auth_code
-           ).
-           request_format_www_form_urlencoded
-         [ { access_token: response['access_token'], refresh_token: response['refresh_token'] }, nil, nil ]
-       end,
+    acquire: lambda do |connection, auth_code|
+      response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
+      payload(
+        grant_type: "authorization_code",
+        client_id: connection["client_id"],
+        client_secret: connection["client_secret"],
+        code: auth_code
+        ).
+        request_format_www_form_urlencoded
+        [ { access_token: response['access_token'], refresh_token: response['refresh_token'] }, nil, nil ]
+      end,
 
-       refresh_on: [401, 403],
+      refresh_on: [401, 403],
 
-       refresh: lambda do |connection, refresh_token|
-         post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
-           payload(
-	           grant_type: "refresh_token",
-    	       client_id: connection["client_id"],
-        	   client_secret: connection["client_secret"],
-             refresh_token: refresh_token,
-             redirect_uri: "https://www.workato.com/oauth/callback"
-           ).
-           request_format_www_form_urlencoded
-       end,
-   },
-
+      refresh: lambda do |connection, refresh_token|
+        post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
+        payload(
+          grant_type: "refresh_token",
+          client_id: connection["client_id"],
+          client_secret: connection["client_secret"],
+          refresh_token: refresh_token,
+          redirect_uri: "https://www.workato.com/oauth/callback"
+          ).
+          request_format_www_form_urlencoded
+        end,
+      },
 ```
 
 #### `refresh_on`
