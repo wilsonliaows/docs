@@ -2,6 +2,9 @@
 
 For a more secure method of authentication, we recommend using [OAuth 2.0](https://tools.ietf.org/html/rfc6749). It is an open standard and is generally a more secure way for users to log into third party websites without exposing their credentials.
 
+There are many variants of the OAuth2 standard. By default, the Workato connector SDK supports the [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) variant.
+
+
 ```ruby
 connection: {
 
@@ -27,9 +30,8 @@ connection: {
 }
 ```
 
-The Workato connector SDK currently supports the [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) variant of the OAuth2 standard.
-
-Required components in OAuth 2.0 type connection:
+## Authorization Code Variant
+Required components in OAuth 2.0 Authorization Code Grant type connection:
 
 1. type (use 'oauth2')
 2. authorization_url
