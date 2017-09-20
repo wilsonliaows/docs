@@ -17,7 +17,7 @@ Freshdesk integration scenarios include bi-directional syncs between new/updated
 * Freshdesk users to Intercom users
 * Freshdesk ticket to a message posted on a Slack channel
 
-[Get started with a 30-day free trial here.](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic).
+[Get started with a 30-day free trial here.](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
 
  ## Recommended Recipes
    * [New/updated Freshdesk ticket to Salesforce case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
