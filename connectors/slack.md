@@ -137,7 +137,7 @@ The following is an elaboration on each field in the definition of a button.
 | Ok button title      | Button label in the popup prompt to confirm the button click.                                                                                                                                                                |
 | Dismiss button title | Button label in the popup prompt to cancel the button click.
 
-#### Example recipe #2: recipe with a new button action trigger with logic defining the actions to carry out upon each button click
+#### Example recipe #2: button action handler recipe - recipe with a new button action trigger with logic defining the actions to carry out upon each button click
 This following recipe has been built for the above scenario. It posts different messages as a thread under the first Salesforce account notification message, depending on which button has been clicked.
 
 ![Button action example recipe](/assets/images/connectors/slack/button-action-example-recipe.png)
