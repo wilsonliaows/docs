@@ -82,7 +82,7 @@ You can interact with messages in Slack via [Slack buttons](https://api.slack.co
 
 1) A recipe with a **Post mesage** action that has buttons configured. This recipe needs to specifically refer to the second recipe below in its button configuration.
 
-2) A recipe with a **New button action** trigger, which picks up button clicks. In the actions, there should be recipe logic that carries out actions depending on which button has been clicked.
+2) A button action handler recipe - a recipe with a **New button action** trigger, which picks up button clicks. In the actions, there should be recipe logic that carries out actions depending on which button has been clicked.
 
 #### Example recipe #1: recipe with a post message action with buttons configured
 We're going to add buttons configuration to the [basic recipe](https://www.workato.com/recipes/604131) we had [above](#example-message-with-attachment). The recipe we will be using can be found [here](https://www.workato.com/recipes/604149).
