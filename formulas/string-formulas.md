@@ -333,42 +333,6 @@ Splits up a string based on certain characters. Character is case sensitive. If 
 | `"Jean Marie".split("M")`  | ["Jean ", "arie"] |
 | `"Marie, Jean".split(",")` | ["Marie", "Jean"] |
 
-## join
-
-Joins elements in a list by a specified character to form a string. If no character is defined, by default, elements will just be joined together.
-
-### Example
-
-| Example                             | Result          |
-| ----------------------------------- | --------------- |
-| `["Jean", "Marie"].join`            | "JeanMarie"     |
-| `["Jean", "Marie"].join(", ")`      | "Jean, Marie"   |
-| `["Ms", "Jean", "Marie"].join(" ")` | "Ms Jean Marie" |
-
-## first
-
-Returns the first item in a list. Can also be used to return the first n items in a list, as a list.
-
-### Example
-
-| Example                            | Result         |
-| ---------------------------------- | -------------- |
-| `["Jean", "Marie"].first`          | "Jean"         |
-| `["Ms", "Jean", "Marie"].first`    | "Ms"           |
-| `["Ms", "Jean", "Marie"].first(2)` | ["Ms", "Jean"] |
-
-## last
-
-Returns the last item in a list. Can also be used to return the last n items in a list, as a list.
-
-### Example
-
-| Example                           | Result            |
-| --------------------------------- | ----------------- |
-| `["Jean", "Marie"].last`          | "Marie"           |
-| `["Ms", "Jean", "Marie"].last`    | "Marie"           |
-| `["Ms", "Jean", "Marie"].last(2)` | ["Jean", "Marie"] |
-
 ---
 
 # Conversion formulas
