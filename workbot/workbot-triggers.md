@@ -18,7 +18,7 @@ This trigger allows you to build a custom command for Workbot in a Workato recip
 
 This trigger monitors certain types of URLs in Slack, and pulls pre-defined, formatted data into the channel when such an URL is mentioned. Currently, Salesforce and Github URLs are supported.
 
-## New command trigger (build custom Workbot commands)
+## New command trigger (building custom commands)
 This trigger requires you to configure a custom Workbot command. When this recipe is started, Workbot will monitor for that command. Whenever the command is called, Workbot proceeds to carry out the recipe actions.
 
 The following table lists the configurable input fields in the trigger, and what each field does.
