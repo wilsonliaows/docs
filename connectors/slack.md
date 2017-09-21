@@ -97,6 +97,7 @@ The buttons configured in this recipe show up in Slack as follows.
 ![Button display](/assets/images/connectors/slack/buttons-display.png)
 *Corresponding buttons generated from the above configuration*
 
+###### Button styles: danger and non-danger
 There are two available styles for buttons - non-danger and danger style. The non-danger styled buttons, once clicked, records the button click immediately and triggers the second recipe with the **New button action** trigger.
 
 ![Interacting with non-danger style button](/assets/images/connectors/slack/interacting-with-normal-button.gif)
@@ -111,6 +112,8 @@ The prompt that pops up can be completely configured in the button configuration
 
 ![Popup prompt example](/assets/images/connectors/slack/popup-prompt-example.png)
 *Popup prompt*
+
+###### Button definitions
 
 The button configuration for both button styles is in the following screenshot. We're calling a recipe we have pre-built: [**New Salesforce account button response recipe - Notify BizDev & Notify Sales**](https://www.workato.com/recipes/602058). All recipes with the Slack trigger **New button action** should show up in this picklist - select the recipe you have built to respond to this particular set of buttons.
 
@@ -150,6 +153,7 @@ In this recipe, to check which button has been clicked, we use the IF condition 
 ![Button action example recipe](/assets/images/connectors/slack/button-action-example-recipe.png)
 *Button response using IF conditions. [Example recipe](https://www.workato.com/recipes/602058)*
 
+###### Output of the Slack trigger - new button action
 The datapills used in the IF conditions come from the Slack trigger **New button action**. The following screenshot shows the output datatree from the Slack trigger **New button action**. The datapills are variables that the recipe builder can use while building the recipe actions.
 
 ![Button action datatree output](/assets/images/connectors/slack/button-action-datatree-output.png)
@@ -202,6 +206,7 @@ With the **Respond to button** action, we can simply pass in the **button respon
 ![Respond to button action configuration](/assets/images/connectors/slack/respond-to-button-action-config.png)
 *Respond to button action configuration*
 
+###### Input of the Slack action - respond to button action
 The following are the new input fields that the Slack action **Respond to button** introduces to the usual input fields in the **Post message** action.
 
 | Name                         | Details                                                                                                                                                                                                                                                                                                                           |
