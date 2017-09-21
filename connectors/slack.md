@@ -87,7 +87,7 @@ You can interact with messages in Slack via [Slack buttons](https://api.slack.co
 There are 2 ways we can build interactive Slack buttons recipes, either [via IF conditions](#using-if-conditions-to-build-interactive-slack-buttons-recipes), or [via the Slack action **Respond to button**](#using-slack-respond-to-button-action-to-build-interactive-slack-buttons-recipes).
 
 #### Using IF conditions to build interactive Slack buttons recipes
-Possible use cases for building your recipe in this way would be scenarios whereby you're okay with multiple clicks of the buttons, such as team polls.
+Possible use cases for building your recipe via IF conditional recipe steps would be scenarios whereby you're okay with multiple clicks of the buttons, such as team polls.
 
 ##### Example recipe #1A: recipe with a post message action with buttons configured
 We're going to add buttons configuration to the [basic recipe](https://www.workato.com/recipes/604131) we had [above](#example-message-with-attachment). The recipe we will be using can be found [here](https://www.workato.com/recipes/604149).
@@ -182,7 +182,7 @@ An example of the values can be viewed in the job output, as follows.
 Possible use cases for building your recipe in this way would be scenarios whereby you only wish the button to be clicked once, such as approval workflows, e.g. approving leave, approving expenses.
 
 ##### Example recipe #2A: recipe with 2 post message actions with buttons configured
-We're going to use almost exactly the same recipe as [example recipe #1A](), except that we're breaking up the single Slack action **Post message** into 2 separate **Post message** actions. The first action will post notification information (in this case, my Salesforce account information), while the second action will only post button data. The recipe we will be using can be found [here](https://www.workato.com/recipes/605784).
+We're going to use almost exactly the same recipe as [example recipe #1A](/connectors/slack.md#example-recipe-1a-recipe-with-a-post-message-action-with-buttons-configured), except that we're breaking up the single Slack action **Post message** into 2 separate **Post message** actions. The first action will post notification information (in this case, my Salesforce account information), while the second action will only post button data. The recipe we will be using can be found [here](https://www.workato.com/recipes/605784).
 
 The buttons configured in this recipe show up in Slack as follows.
 
