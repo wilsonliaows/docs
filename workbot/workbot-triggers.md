@@ -7,8 +7,8 @@ date: 2017-03-30 05:00:00 Z
 Workbot for Slack allows you to send commands to your apps to do things, such as display details of a customer account or closing opportunities, display a list of invoices or tickets, or create/update existing records.
 
 To do this, you need to build a Workbot trigger to configure the command to Workbot. There are 2 triggers available for Workbot recipes:
-- New command
-- New URL mention
+- [New command](/workbot/workbot-triggers.md#new-commands-building-custom-commands)
+- [New URL mention](/workbot/workbot-triggers.md#new-url-mention)
 
 Every command in Workbot is processed using a Workato recipe. This recipe determines what Workbot does when a command is sent. This means that you can create your own custom workflows that carry out a sequence of actions, given a Workbot command.
 
