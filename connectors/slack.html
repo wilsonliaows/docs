@@ -1009,7 +1009,22 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.15.1" data-path="../workbot/workbot-for-slack-setup.html">
+    <li class="chapter " data-level="1.15.1" data-path="../workbot/workbot.html">
+      
+
+      
+        <a href="../workbot/workbot.html#slack-vs-workbot-for-slack-connectors">
+      
+        
+        Slack VS Workbot
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.2" data-path="../workbot/workbot-for-slack-setup.html">
       
 
       
@@ -1024,7 +1039,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.15.2" data-path="../workbot/using-workbot-for-slack.html">
+    <li class="chapter " data-level="1.15.3" data-path="../workbot/using-workbot-for-slack.html">
       
 
       
@@ -1039,7 +1054,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.15.3" data-path="../workbot/workbot-actions.html">
+    <li class="chapter " data-level="1.15.4" data-path="../workbot/workbot-actions.html">
       
 
       
@@ -1054,7 +1069,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.15.4" data-path="../workbot/workbot-triggers.html">
+    <li class="chapter " data-level="1.15.5" data-path="../workbot/workbot-triggers.html">
       
 
       
@@ -1069,7 +1084,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.15.5" data-path="../workbot/workbot-troubleshooting.html">
+    <li class="chapter " data-level="1.15.6" data-path="../workbot/workbot-troubleshooting.html">
       
 
       
@@ -1084,7 +1099,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.15.6" data-path="../workbot/workbot-latebinding.html">
+    <li class="chapter " data-level="1.15.7" data-path="../workbot/workbot-latebinding.html">
       
 
       
@@ -1902,72 +1917,11 @@
                                 
                                 <h1 id="slack">Slack</h1>
 <p><a href="https://slack.com/" target="_blank">Slack</a> is a team collaboration platform that consolidates your team&apos;s communication and resources, and integrates easily with the enterprise and productivity products used across your organization. It provides a shared workspace where conversations are organized and accessible, and creates alignment and shared understanding across your team.</p>
-<h2 id="slack-vs-workbot-for-slack-connectors">Slack VS Workbot for Slack connectors</h2>
+<h2 id="slack-connector-vs-workbot-for-slack-connector">Slack connector VS Workbot for Slack connector</h2>
 <p>Workato supports both the Slack connector and the Workbot for Slack connector.</p>
 <p>The Slack connector allows you to authorize to your Slack team as a team member, and immediately post messages onto channels, send direct messages to Slack team members, and manage channels and groups. It does not require any app installation onto your Slack team. Recipes built on the Slack connector allows you to respond to message buttons and menus.</p>
 <p>The Workbot for Slack connector enables you to build additional recipes on top of Workbot for Slack, which is an app that needs to be installed onto your Slack team, and comes with pre-built recipes. Messages posted in Slack via this connector will show up as being posted by <strong>Workbot</strong>. Recipes built on top of the Workbot connector has the ability to facilitate more complex interactions and communicate with Workbot to read or write data to other connected apps.</p>
-<p>A detailed comparison table for both the Slack connector and the Workbot for Slack connector is below.</p>
-<table>
-<thead>
-<tr>
-<th>Features</th>
-<th>Slack connector</th>
-<th>Slack for Workbot connector</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://api.slack.com/docs/message-attachments" target="_blank">Attachment</a></td>
-<td><a href="slack.html#example-message-with-attachment">Yes</a></td>
-<td><a href="../workbot/workbot-actions.html#post-command-reply">Yes</a></td>
-</tr>
-<tr>
-<td><a href="https://api.slack.com/docs/message-buttons" target="_blank">Message buttons</a></td>
-<td><a href="slack.html#using-slack-message-buttons">Yes</a></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://api.slack.com/docs/message-menus" target="_blank">Message menus</a></td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr>
-<td><a href="https://api.slack.com/docs/message-threading" target="_blank">Threads</a></td>
-<td><a href="connectors/slack.md#using-slack-threads">Yes</a></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Need to install into Slack team?</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Post as user customization</td>
-<td><a href="slack.html#example-message-with-attachment-customized-app-name-and-images">Yes</a></td>
-<td>No, always posts as Workbot</td>
-</tr>
-<tr>
-<td>Pre-built recipes/commands?</td>
-<td>No</td>
-<td><a href="https://www.workato.com/workbot-slack" target="_blank">Yes</a></td>
-</tr>
-<tr>
-<td>Notifications need to be set up?</td>
-<td>No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel.</td>
-<td><a href="../workbot/using-workbot-for-slack.html#2-set-up-smart-notifications">Yes</a>. Recipes that post Workbot notifications have to be started, and notifications turned on in the Slack channels that should receive these notifications.</td>
-</tr>
-<tr>
-<td>Verified user access?</td>
-<td>No</td>
-<td><a href="../workbot/workbot-latebinding.html">Yes</a></td>
-</tr>
-<tr>
-<td>Pass data (parameters) to subsequent messages/recipes</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
+<p>A detailed comparison table for both the Slack connector and the Workbot for Slack connector can be found <a href="../workbot/workbot.html#slack-connector-vs-workbot-for-slack-connector">here</a>.</p>
 <h2 id="connector-information">Connector information</h2>
 <h3 id="api-version">API version</h3>
 <p>The Slack connector uses the <a href="https://api.slack.com/web" target="_blank">Slack API</a> with the endpoint URLs <code>https://slack.com/api/METHOD</code>.</p>
@@ -2002,11 +1956,15 @@
 <p>You can interact with messages in Slack via <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack buttons</a>. To use Slack buttons in Slack, you need:</p>
 <p>1) A recipe with a <strong>Post mesage</strong> action that has buttons configured. This recipe needs to specifically refer to the second recipe below in its button configuration.</p>
 <p>2) A button action handler recipe - a recipe with a <strong>New button action</strong> trigger, which picks up button clicks. In the actions, there should be recipe logic that carries out actions depending on which button has been clicked.</p>
-<h4 id="example-recipe-1-recipe-with-a-post-message-action-with-buttons-configured">Example recipe #1: recipe with a post message action with buttons configured</h4>
+<p>There are 2 ways we can build interactive Slack buttons recipes, either <a href="#using-if-conditions-to-build-interactive-slack-buttons-recipes">via IF conditions</a>, or <a href="#using-slack-respond-to-button-action-to-build-interactive-slack-buttons-recipes">via the Slack action <strong>Respond to button</strong></a>.</p>
+<h4 id="using-if-conditions-to-build-interactive-slack-buttons-recipes">Using IF conditions to build interactive Slack buttons recipes</h4>
+<p>Possible use cases for building your recipe via IF conditional recipe steps would be scenarios whereby you&apos;re okay with multiple clicks of the buttons, such as team polls.</p>
+<h5 id="example-recipe-1a-recipe-with-a-post-message-action-with-buttons-configured">Example recipe #1A: recipe with a post message action with buttons configured</h5>
 <p>We&apos;re going to add buttons configuration to the <a href="https://www.workato.com/recipes/604131" target="_blank">basic recipe</a> we had <a href="#example-message-with-attachment">above</a>. The recipe we will be using can be found <a href="https://www.workato.com/recipes/604149" target="_blank">here</a>.</p>
 <p>The buttons configured in this recipe show up in Slack as follows.</p>
 <p><img src="../assets/images/connectors/slack/buttons-display.png" alt="Button display">
 <em>Corresponding buttons generated from the above configuration</em></p>
+<h6 id="button-styles-danger-and-non-danger">Button styles: danger and non-danger</h6>
 <p>There are two available styles for buttons - non-danger and danger style. The non-danger styled buttons, once clicked, records the button click immediately and triggers the second recipe with the <strong>New button action</strong> trigger.</p>
 <p><img src="../assets/images/connectors/slack/interacting-with-normal-button.gif" alt="Interacting with non-danger style button">
 <em>Interacting with non-danger styled button</em></p>
@@ -2016,6 +1974,7 @@
 <p>The prompt that pops up can be completely configured in the button configuration in the Slack action <strong>Post message</strong>.</p>
 <p><img src="../assets/images/connectors/slack/popup-prompt-example.png" alt="Popup prompt example">
 <em>Popup prompt</em></p>
+<h6 id="button-definitions">Button definitions</h6>
 <p>The button configuration for both button styles is in the following screenshot. We&apos;re calling a recipe we have pre-built: <a href="https://www.workato.com/recipes/602058" target="_blank"><strong>New Salesforce account button response recipe - Notify BizDev &amp; Notify Sales</strong></a>. All recipes with the Slack trigger <strong>New button action</strong> should show up in this picklist - select the recipe you have built to respond to this particular set of buttons.</p>
 <p><img src="../assets/images/connectors/slack/button-config.png" alt="Button configuration for action">
 <em>Button configuration for post message action step</em></p>
@@ -2029,7 +1988,7 @@ Notify Sales, sales, danger, Confirm, Are you sure?, Yes, Cancel
 <thead>
 <tr>
 <th>Name</th>
-<th>Explanation</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -2063,11 +2022,13 @@ Notify Sales, sales, danger, Confirm, Are you sure?, Yes, Cancel
 </tr>
 </tbody>
 </table>
-<h4 id="example-recipe-2-button-action-handler-recipe---recipe-with-a-new-button-action-trigger-with-logic-defining-the-actions-to-carry-out-upon-each-button-click">Example recipe #2: button action handler recipe - recipe with a new button action trigger with logic defining the actions to carry out upon each button click</h4>
-<p>This following recipe has been built for the above scenario. It posts different messages as a thread under the first Salesforce account notification message, depending on which button has been clicked.</p>
+<h5 id="example-recipe-1b-button-action-handler-recipe---recipe-with-a-new-button-action-trigger-with-if-conditional-logic-defining-the-actions-to-carry-out-upon-each-button-click">Example recipe #1B: button action handler recipe - recipe with a new button action trigger with IF conditional logic defining the actions to carry out upon each button click</h5>
+<p>This following recipe has been built for the above scenario. It posts different messages as a thread under the first Salesforce account notification message, depending on which button has been clicked. Using IF conditions is more versatile than using the Slack action <strong>Respond to button</strong>, because you can carry out multiple steps in the IF condition and in multiple apps.</p>
+<p>In this recipe, to check which button has been clicked, we use the IF condition to check the button name. If it matches &quot;Notify BizDev&quot;, we post a message for the business development team, and if it matches &quot;Notify Sales&quot;, we post a message for the sales team.</p>
 <p><img src="../assets/images/connectors/slack/button-action-example-recipe.png" alt="Button action example recipe">
-<em>Button response <a href="https://www.workato.com/recipes/602058" target="_blank">example recipe</a></em></p>
-<p>This is the output datatree from the Slack trigger <strong>New button action</strong>. It shows the variables that the recipe builder can use while building the recipe actions.</p>
+<em>Button response using IF conditions. <a href="https://www.workato.com/recipes/602058" target="_blank">Example recipe</a></em></p>
+<h6 id="output-of-the-slack-trigger---new-button-action">Output of the Slack trigger - new button action</h6>
+<p>The datapills used in the IF conditions come from the Slack trigger <strong>New button action</strong>. The following screenshot shows the output datatree from the Slack trigger <strong>New button action</strong>. The datapills are variables that the recipe builder can use while building the recipe actions.</p>
 <p><img src="../assets/images/connectors/slack/button-action-datatree-output.png" alt="Button action datatree output">
 <em>Output datatree of the new button trigger</em></p>
 <p>The following table elaborates upon these datapill variables and what they can be used for.</p>
@@ -2075,7 +2036,7 @@ Notify Sales, sales, danger, Confirm, Are you sure?, Yes, Cancel
 <thead>
 <tr>
 <th>Name</th>
-<th>Explanation</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -2113,13 +2074,58 @@ Notify Sales, sales, danger, Confirm, Are you sure?, Yes, Cancel
 </tr>
 <tr>
 <td>Response URL</td>
-<td>Used by Workato to respond to the button click.</td>
+<td>Used by Workato to respond to the button click. Also used in Slack action <strong>Respond to button</strong>.</td>
 </tr>
 </tbody>
 </table>
 <p>An example of the values can be viewed in the job output, as follows.</p>
 <p><img src="../assets/images/connectors/slack/button-action-output-data.png" alt="Button action data output">
 <em>Button action data output</em></p>
+<h4 id="using-slack-respond-to-button-action-to-build-interactive-slack-buttons-recipes">Using Slack respond to button action to build interactive Slack buttons recipes</h4>
+<p>Possible use cases for building your recipe in this way would be scenarios whereby you only wish the button to be clicked once, such as approval workflows, e.g. approving leave, approving expenses.</p>
+<h5 id="example-recipe-2a-recipe-with-2-post-message-actions-with-buttons-configured">Example recipe #2A: recipe with 2 post message actions with buttons configured</h5>
+<p>We&apos;re going to use almost exactly the same recipe as <a href="slack.html#example-recipe-1a-recipe-with-a-post-message-action-with-buttons-configured">example recipe #1A</a>, except that we&apos;re breaking up the single Slack action <strong>Post message</strong> into 2 separate <strong>Post message</strong> actions. The first action will post notification information (in this case, my Salesforce account information), while the second action will only post button data. The recipe we will be using can be found <a href="https://www.workato.com/recipes/605784" target="_blank">here</a>.</p>
+<p>The buttons configured in this recipe show up in Slack as follows.</p>
+<p><img src="../assets/images/connectors/slack/post-notification-and-buttons-separately.png" alt="Salesforce account information and button posted via separate actions">
+<em>Salesforce account information and button posted via separate actions</em></p>
+<p>When the button is clicked on, it is immediately replaced by a message notifying either the business development or the sales team.</p>
+<p><img src="../assets/images/connectors/slack/respond-to-button-action-replace-original.gif" alt="Salesforce account information and button posted via separate actions"></p>
+<p>This is because the input field <strong>Replace original?</strong> has been marked as true in the <strong>Respond to button</strong> action configuration. We will cover this action in the following section. This allows us to remove the buttons from the Slack channel once they have been clicked on - so as to prevent multiple clicks on the buttons. This is also why the first recipe breaks up the notification information and the buttons data into 2 separate actions - we want to replace only the buttons with the new message, and not replace the notification information.</p>
+<h5 id="example-recipe-2b-button-action-handler-recipe---recipe-with-a-new-button-action-trigger-with-slack-action-respond-to-button-that-responds-to-each-button-click-with-a-slack-message">Example recipe #2B: button action handler recipe - recipe with a new button action trigger with Slack action <strong>Respond to button</strong> that responds to each button click with a Slack message</h5>
+<p>This following recipe is an alternative way we can build the interactive scenario on Slack. Similarly, it posts different messages back in the channel depending on which button has been clicked. We use the Slack action <strong>Respond to button</strong> to immediately post a message back onto the channel.</p>
+<p><img src="../assets/images/connectors/slack/respond-to-button-action-example-recipe.png" alt="Respond to button action example recipe">
+<em>Respond to button action. <a href="https://www.workato.com/recipes/605785" target="_blank">Example recipe</a></em></p>
+<p>With the <strong>Respond to button</strong> action, we can simply pass in the <strong>button response URL</strong>, and the recipe will know, at run-time, which button has been clicked. Therefore, if we wish to do something like post a generic message that tells the channel which button has been clicked, this action is suited to handle that easily.</p>
+<p><img src="../assets/images/connectors/slack/respond-to-button-action-config.png" alt="Respond to button action configuration">
+<em>Respond to button action configuration</em></p>
+<h6 id="input-of-the-slack-action---respond-to-button-action">Input of the Slack action - respond to button action</h6>
+<p>The following are the new input fields that the Slack action <strong>Respond to button</strong> introduces to the usual input fields in the <strong>Post message</strong> action.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Button response URL</td>
+<td>Provide this from the output datatree of the Slack trigger <strong>New button action</strong>. This tells the action what button click to respond to.</td>
+</tr>
+<tr>
+<td>Response type</td>
+<td><strong>In channel</strong> will post the message like a normal chat message. <strong>Ephemeral</strong> will post the message in greyed out text.</td>
+</tr>
+<tr>
+<td>Replace original</td>
+<td>If <strong>yes</strong>, the new message will overwrite the original message with buttons and be posted in the same position in the channel. If <strong>no</strong>, the original message with buttons will remain in the same position in the channel. The new message will be added to the end of the channel conversation.</td>
+</tr>
+<tr>
+<td>Delete original</td>
+<td>If <strong>yes</strong>, the original message with buttons will be removed from the channel. The new The new message will be added to the end of the channel conversation. If <strong>no</strong>, the original message with buttons will remain in the same position in the channel. The new message will be added to the end of the channel conversation.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="using-slack-threads">Using Slack threads</h3>
 <p><a href="https://api.slack.com/docs/message-threading" target="_blank">Slack threads</a> allow you to group related messages together, making it easier to follow conversations in Slack channels or groups. To use Slack threads, you can either:</p>
 <p>1) continue a conversation by replying to a message ID and starting a thread,
@@ -2234,7 +2240,7 @@ Notify Sales, sales, danger, Confirm, Are you sure?, Yes, Cancel
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Slack","date":"2017-09-12T12:00:00.000Z","level":"1.16.13","depth":2,"next":{"title":"Slack VS Workbot","level":"1.16.13.1","depth":3,"anchor":"#slack-vs-workbot-for-slack-connectors","path":"connectors/slack.md","ref":"connectors/slack.md#slack-vs-workbot-for-slack-connectors","articles":[]},"previous":{"title":"ServiceNow","level":"1.16.12","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/slack.md","mtime":"2017-09-20T21:50:21.326Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-20T21:52:21.342Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Slack","date":"2017-09-12T12:00:00.000Z","level":"1.16.13","depth":2,"next":{"title":"Slack VS Workbot","level":"1.16.13.1","depth":3,"anchor":"#slack-vs-workbot-for-slack-connectors","path":"connectors/slack.md","ref":"connectors/slack.md#slack-vs-workbot-for-slack-connectors","articles":[]},"previous":{"title":"ServiceNow","level":"1.16.12","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/slack.md","mtime":"2017-09-21T16:51:02.785Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-21T16:53:17.140Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
