@@ -54,6 +54,7 @@
   * [List management](features/list-management.md)
   * [Data retention](data-retention.md)
 * [Workbot for Slack](workbot/workbot.md)
+  * [Slack VS Workbot](workbot/workbot.md#slack-vs-workbot-for-slack-connectors)
   * [Workbot for Slack setup](workbot/workbot-for-slack-setup.md)
   * [Using Workbot for Slack](workbot/using-workbot-for-slack.md)
   * [Workbot actions](workbot/workbot-actions.md)
