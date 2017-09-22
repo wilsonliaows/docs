@@ -122,7 +122,7 @@ action name, action ID, style, confirmation title, confirmation text, ok button 
 
 The following is an elaboration on each field in the definition of a button.
 
-| Name                 | Details                                                                                                                                                                                                                  |
+| Button definition input fields                 | Description                                                                                                                                                                                                                  |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Action name          | Button label visible to Slack user interacting with the buttons.                                                                                                                                                             |
 | Action ID            | Internal value of the button. This needs to be unique. Not visible on Slack to anyone.                                                                                                                                       |
@@ -148,7 +148,7 @@ The datapills used in the IF conditions come from the Slack trigger **New button
 
 The following table elaborates upon these datapill variables and what they can be used for.
 
-| Name             | Details                                                                                                                                      |
+| New button click trigger output datapills             | Description                                                                                                                                      |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | Action name      | Button label visible to Slack user interacting with the buttons.                                                                                 |
 | Action ID        | Internal value of the button. This needs to be unique. Not visible on Slack to anyone.                                                           |
@@ -196,7 +196,7 @@ With the **Respond to button** action, we can simply pass in the **button respon
 ###### Input of the Slack action - respond to button action
 The following are the new input fields that the Slack action **Respond to button** introduces to the usual input fields in the **Post message** action.
 
-| Name                         | Details                                                                                                                                                                                                                                                                                                                           |
+| Respond to button action input field                         | Description                                                                                                                                                                                                                                                                                                                           |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Button response URL          | Provide this from the output datatree of the Slack trigger **New button action**. This tells the action what button click to respond to.                                                                                                                                                                                          |
 | Response type                | **In channel** will post the message like a normal chat message. **Ephemeral** will post the message in greyed out text.                                                                                                                                                                                                          |
