@@ -2008,8 +2008,252 @@
 </tbody>
 </table>
 <hr>
-<h2 id="intimezone">in_timezone</h2>
-<p>This function converts a timestamp expressed in a certain timezone to be expressed in another timezone. Refer to the following table for the timezone name to use in the formula.</p>
+<h2 id="wday">wday</h2>
+<p>Returns day of the week (numbering starts with Monday = 1)</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;Tue, 12 July 2016&quot;.wday</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>&quot;Fri, 15 July 2016&quot;.wday</code></td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="yday">yday</h2>
+<p>Returns the day number of the year</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-01-01&quot;.yday</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>&quot;2017-02-01&quot;.yday</code></td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="yweek">yweek</h2>
+<p>Returns the week number of the year</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-01-01&quot;.yweek</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>&quot;2017-02-01&quot;.yweek</code></td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="date-arithmetics">Date arithmetics</h1>
+<p>We can make use of certain keywords such as <strong>days</strong>, <strong>months</strong>, <strong>years</strong>, <strong>minutes</strong> and <strong>seconds</strong> to perform date arithmetics to add or subtract days, months, years, minutes and seconds from dates and datetimes.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Date Arithmetic</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date + 2.days</code></td>
+<td>Wed, 22 Apr 2015</td>
+</tr>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date - 2.days</code></td>
+<td>Sat, 18 Apr 2015</td>
+</tr>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date + 2.weeks</code></td>
+<td>Mon, 04 May 2015</td>
+</tr>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date - 2.weeks</code></td>
+<td>Mon, 06 Apr 2015</td>
+</tr>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date + 2.months</code></td>
+<td>Sat, 20 Jun 2015</td>
+</tr>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date - 2.months</code></td>
+<td>Fri, 20 Feb 2015</td>
+</tr>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date + 2.years</code></td>
+<td>Thu, 20 Apr 2017</td>
+</tr>
+<tr>
+<td><code>&apos;2015/04/20&apos;.to_date - 2.years</code></td>
+<td>Sat, 20 Apr 2013</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="getting-firstlast-days-of-the-current-and-next-month">Getting first/last days of the current and next month</h1>
+<p>Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of the current and next months.</p>
+<h2 id="beginning-of-current-month">Beginning of current month</h2>
+<p>Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.</p>
+<p><img src="../assets/images/formula-docs/beginning_of_current_month.png" alt="beginning of current month"></p>
+<hr>
+<h2 id="beginning-of-next-month">Beginning of Next Month</h2>
+<p>To retrieve a date for the beginning of the next month, we simply need to add a month to the input date, and use the previously mentioned function get the beginning of the month.</p>
+<p><img src="../assets/images/formula-docs/beginning_of_next_month.png" alt="beginning of next month"></p>
+<hr>
+<h2 id="end-of-current-or-next-month">End of current or next month</h2>
+<p>While the beginning_of_month function will always give you the first day of the month, retrieving the end of the month is a little trickier because some months have 31 days while others have less.</p>
+<p>Instead, we can apply some simple arithmetic to obtain the last date of the month.</p>
+<p>To retrieve the last date of the current month:</p>
+<p><img src="../assets/images/formula-docs/last_date_current_month.png" alt="last date of current month"></p>
+<p>To retrieve the last date of the next month:</p>
+<p><img src="../assets/images/formula-docs/last_date_next_month.png" alt="last date of next month"></p>
+<h1 id="display-conversion">Display conversion</h1>
+<h2 id="strftime">strftime</h2>
+<p>To change the format of a datetime value to suit your preferences, you can use the .strftime formula to do so.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-06-05T17:13:27+00:00&quot;.strftime(&quot;%B %e, %I:%M%p&quot;)</code></td>
+<td>June 5, 5:13pm</td>
+</tr>
+<tr>
+<td><code>&quot;2017-06-05T17:13:27+00:00&quot;.strftime(&quot;%A, %d %B %Y %k:%M&quot;)</code></td>
+<td>Monday, 05 June 2017 17:13</td>
+</tr>
+</tbody>
+</table>
+<p>As shown above, each code (%B, %e, %I etc.) refers to a specific element of datetime. Static text and punctuation can also be added, such as commas (,), slashes (/), and colons (:). Here&apos;s a list of commonly used codes in Workato:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Example (Using 2017-06-05T17:13:27+00:00)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%Y</td>
+<td>Year with century</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>Month with zero-prefix</td>
+<td>06</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>Full month name</td>
+<td>June</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>Abbreviated month name</td>
+<td>Jun</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>Day of the month with zero-prefix</td>
+<td>05</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>Day of the month without zero-prefix</td>
+<td>5</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>Hour of the day (24-hour)</td>
+<td>17</td>
+</tr>
+<tr>
+<td>%k</td>
+<td>Hour of day without 0 prefix (24-hour)</td>
+<td>17</td>
+</tr>
+<tr>
+<td>%I (capital i)</td>
+<td>Hour of the day (12-hour)</td>
+<td>05</td>
+</tr>
+<tr>
+<td>%l (lowercase L)</td>
+<td>Hour of day without 0 prefix (12-hour)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>AM or PM</td>
+<td>PM</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>Minute of the hour</td>
+<td>13</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>Second of the minute</td>
+<td>27</td>
+</tr>
+<tr>
+<td>%z</td>
+<td>Time zone offset from UTC</td>
+<td>+00:00</td>
+</tr>
+<tr>
+<td>%Z</td>
+<td>Time zone abbrev. name</td>
+<td>UTC</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>Full day name</td>
+<td>Monday</td>
+</tr>
+</tbody>
+</table>
+<p>To access the full list, check out the <a href="http://ruby-doc.org/core-2.3.3/Time.html#method-i-strftime" target="_blank">Ruby documentation</a></p>
+<h2 id="intimezone">in_time_zone</h2>
+<p>Converts a time value to a different time zone. This function uses the list of time zone names from the IANA time zone database. The output will be an equivalent time in a different time zone. Find out more <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">here</a></p>
+<p>Refer to the following table for the timezone name to use in the formula.</p>
 <table>
 <thead>
 <tr>
@@ -2639,271 +2883,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="wday">wday</h2>
-<p>Returns day of the week (numbering starts with Monday = 1)</p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&quot;Tue, 12 July 2016&quot;.wday</code></td>
-<td>2</td>
-</tr>
-<tr>
-<td><code>&quot;Fri, 15 July 2016&quot;.wday</code></td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="yday">yday</h2>
-<p>Returns the day number of the year</p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&quot;2017-01-01&quot;.yday</code></td>
-<td>1</td>
-</tr>
-<tr>
-<td><code>&quot;2017-02-01&quot;.yday</code></td>
-<td>32</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="yweek">yweek</h2>
-<p>Returns the week number of the year</p>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&quot;2017-01-01&quot;.yweek</code></td>
-<td>1</td>
-</tr>
-<tr>
-<td><code>&quot;2017-02-01&quot;.yweek</code></td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h1 id="date-arithmetics">Date arithmetics</h1>
-<p>We can make use of certain keywords such as <strong>days</strong>, <strong>months</strong>, <strong>years</strong>, <strong>minutes</strong> and <strong>seconds</strong> to perform date arithmetics to add or subtract days, months, years, minutes and seconds from dates and datetimes.</p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Date Arithmetic</th>
-<th>Output</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date + 2.days</code></td>
-<td>Wed, 22 Apr 2015</td>
-</tr>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date - 2.days</code></td>
-<td>Sat, 18 Apr 2015</td>
-</tr>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date + 2.weeks</code></td>
-<td>Mon, 04 May 2015</td>
-</tr>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date - 2.weeks</code></td>
-<td>Mon, 06 Apr 2015</td>
-</tr>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date + 2.months</code></td>
-<td>Sat, 20 Jun 2015</td>
-</tr>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date - 2.months</code></td>
-<td>Fri, 20 Feb 2015</td>
-</tr>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date + 2.years</code></td>
-<td>Thu, 20 Apr 2017</td>
-</tr>
-<tr>
-<td><code>&apos;2015/04/20&apos;.to_date - 2.years</code></td>
-<td>Sat, 20 Apr 2013</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h1 id="getting-firstlast-days-of-the-current-and-next-month">Getting first/last days of the current and next month</h1>
-<p>Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of the current and next months.</p>
-<h2 id="beginning-of-current-month">Beginning of current month</h2>
-<p>Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.</p>
-<p><img src="../assets/images/formula-docs/beginning_of_current_month.png" alt="beginning of current month"></p>
-<hr>
-<h2 id="beginning-of-next-month">Beginning of Next Month</h2>
-<p>To retrieve a date for the beginning of the next month, we simply need to add a month to the input date, and use the previously mentioned function get the beginning of the month.</p>
-<p><img src="../assets/images/formula-docs/beginning_of_next_month.png" alt="beginning of next month"></p>
-<hr>
-<h2 id="end-of-current-or-next-month">End of current or next month</h2>
-<p>While the beginning_of_month function will always give you the first day of the month, retrieving the end of the month is a little trickier because some months have 31 days while others have less.</p>
-<p>Instead, we can apply some simple arithmetic to obtain the last date of the month.</p>
-<p>To retrieve the last date of the current month:</p>
-<p><img src="../assets/images/formula-docs/last_date_current_month.png" alt="last date of current month"></p>
-<p>To retrieve the last date of the next month:</p>
-<p><img src="../assets/images/formula-docs/last_date_next_month.png" alt="last date of next month"></p>
-<h1 id="display-conversion">Display conversion</h1>
-<h2 id="strftime">strftime</h2>
-<p>To change the format of a datetime value to suit your preferences, you can use the .strftime formula to do so.</p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&quot;2017-06-05T17:13:27+00:00&quot;.strftime(&quot;%B %e, %I:%M%p&quot;)</code></td>
-<td>June 5, 5:13pm</td>
-</tr>
-<tr>
-<td><code>&quot;2017-06-05T17:13:27+00:00&quot;.strftime(&quot;%A, %d %B %Y %k:%M&quot;)</code></td>
-<td>Monday, 05 June 2017 17:13</td>
-</tr>
-</tbody>
-</table>
-<p>As shown above, each code (%B, %e, %I etc.) refers to a specific element of datetime. Static text and punctuation can also be added, such as commas (,), slashes (/), and colons (:). Here&apos;s a list of commonly used codes in Workato:</p>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Meaning</th>
-<th>Example (Using 2017-06-05T17:13:27+00:00)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%Y</td>
-<td>Year with century</td>
-<td>2017</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>Month with zero-prefix</td>
-<td>06</td>
-</tr>
-<tr>
-<td>%B</td>
-<td>Full month name</td>
-<td>June</td>
-</tr>
-<tr>
-<td>%b</td>
-<td>Abbreviated month name</td>
-<td>Jun</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>Day of the month with zero-prefix</td>
-<td>05</td>
-</tr>
-<tr>
-<td>%e</td>
-<td>Day of the month without zero-prefix</td>
-<td>5</td>
-</tr>
-<tr>
-<td>%H</td>
-<td>Hour of the day (24-hour)</td>
-<td>17</td>
-</tr>
-<tr>
-<td>%k</td>
-<td>Hour of day without 0 prefix (24-hour)</td>
-<td>17</td>
-</tr>
-<tr>
-<td>%I (capital i)</td>
-<td>Hour of the day (12-hour)</td>
-<td>05</td>
-</tr>
-<tr>
-<td>%l (lowercase L)</td>
-<td>Hour of day without 0 prefix (12-hour)</td>
-<td>5</td>
-</tr>
-<tr>
-<td>%p</td>
-<td>AM or PM</td>
-<td>PM</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>Minute of the hour</td>
-<td>13</td>
-</tr>
-<tr>
-<td>%S</td>
-<td>Second of the minute</td>
-<td>27</td>
-</tr>
-<tr>
-<td>%z</td>
-<td>Time zone offset from UTC</td>
-<td>+00:00</td>
-</tr>
-<tr>
-<td>%Z</td>
-<td>Time zone abbrev. name</td>
-<td>UTC</td>
-</tr>
-<tr>
-<td>%A</td>
-<td>Full day name</td>
-<td>Monday</td>
-</tr>
-</tbody>
-</table>
-<p>To access the full list, check out the <a href="http://ruby-doc.org/core-2.3.3/Time.html#method-i-strftime" target="_blank">Ruby documentation</a></p>
-<h2 id="intimezone">in_time_zone</h2>
-<p>Converts a time value to a different time zone. This function uses the list of time zone names from the IANA time zone database. The output will be an equivalent time in a different time zone. Find out more <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">here</a></p>
-<h3 id="example">Example</h3>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&quot;2017-06-05T17:13:27+00:00&quot;.in_time_zone(&quot;US/Pacific&quot;)</code></td>
-<td>2017-06-05T17:13:27-07:00</td>
-</tr>
-<tr>
-<td><code>&quot;2017-06-05T17:13:27+00:00&quot;.in_time_zone(&quot;Asia/Singapore&quot;)</code></td>
-<td>2017-06-05T17:13:27+08:00</td>
-</tr>
-</tbody>
-</table>
 <h1 id="converting-datetime-to-date">Converting datetime to date</h1>
 <p>To convert a date data type into a datetime data, or vice versa, use the <a href="#todate">to_date</a> or <a href="#totime">to_time</a> formulas.</p>
 <h2 id="todate">to_date</h2>
@@ -3124,7 +3103,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Date formulas","date":"2017-03-30T05:00:00.000Z","level":"1.7.3","depth":2,"next":{"title":"List formulas","level":"1.7.4","depth":2,"path":"formulas/array-list-formulas.md","ref":"formulas/array-list-formulas.md","articles":[]},"previous":{"title":"Number formulas","level":"1.7.2","depth":2,"path":"formulas/number-formulas.md","ref":"formulas/number-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/date-formulas.md","mtime":"2017-09-22T00:18:42.769Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T00:19:43.781Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Date formulas","date":"2017-03-30T05:00:00.000Z","level":"1.7.3","depth":2,"next":{"title":"List formulas","level":"1.7.4","depth":2,"path":"formulas/array-list-formulas.md","ref":"formulas/array-list-formulas.md","articles":[]},"previous":{"title":"Number formulas","level":"1.7.2","depth":2,"path":"formulas/number-formulas.md","ref":"formulas/number-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/date-formulas.md","mtime":"2017-09-25T18:16:29.709Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-25T18:18:01.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
