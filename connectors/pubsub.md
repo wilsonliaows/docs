@@ -54,7 +54,7 @@ We would need to update our recipe as follows.
 ![Modified recipe](/assets/images/connectors/pubsub/modified-original-recipe.png)
 *Modified recipe to add rows to Redshift instead of PostgreSQL and add subscribers to MailChimp*
 
-The change to the original recipe would require a additional iterations of the recipe development lifecycle, as the recipe would need to be modified, tested for backward compatibility, and pushed to production. Any bugs slipping through QA would result in downtime for the production recipe.
+The change to the original recipe would require additional iterations of the recipe development lifecycle, as the recipe would need to be modified, tested for backward compatibility, and pushed to production. Any bugs slipping through QA would result in downtime for the production recipe.
 
 2) Use the PubSub connector
 
