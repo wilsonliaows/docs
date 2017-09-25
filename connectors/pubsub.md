@@ -9,7 +9,7 @@ The PubSub connector enables you to implement integration solutions that require
 This connector allows us to add or modify recipes which are consumers without affecting recipes which are publishers. This enables zero downtime for the publisher recipe as we can add new consumers without impacting or requiring changes in the publisher recipe. This decoupling results in simpler recipes and reduces the time required to create, test, and maintain recipes.
 
 ## How to connect to the PubSub connector on Workato
-There is no connection required to use the Mapper connector, as schemas are stored in the Workato account for recipes to interact with.
+There is no connection required to use the PubSub connector, as schemas are stored in the Workato account for recipes to interact with.
 
 ## Working with the PubSub connector
 In order to work with the PubSub connector, users require access to the PubSub topics feature, which is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
