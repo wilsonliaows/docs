@@ -24,12 +24,11 @@ The following is a conceptual model of Workato's on-premise agent and how it int
 Workato on-premise connectivity has 2 core components:
 
 - Tunneling
-
 - Database and filesystem access.
 
 The on-prem agent runs within the customer’s data center, behind the firewall, and establishes a TLS websocket tunnel to connect out to Workato.
 
-The on-prem agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to JMS-compliant systems.
+The on-prem agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to [JMS-compliant systems](/connectors/jms.md).
 
 # Supported operating systems
 The on-prem agent runs on the following systems:
