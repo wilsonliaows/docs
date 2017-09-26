@@ -11,7 +11,7 @@ date: 2017-02-16 06:15:00 Z
 The ServiceNow connector uses [ServiceNow REST API V1](http://wiki.servicenow.com/index.php?title=REST_API#ServiceNow_REST_API_Resources).
 
 ### Supported editions and versions
-The ServiceNow connector works with ServiceNow and ServiceNow instances.
+The ServiceNow connector works with ServiceNow and ServiceNow Express instances.
 
 ## How to connect to ServiceNow on Workato
 
