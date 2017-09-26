@@ -22,7 +22,6 @@ This trigger monitors certain types of URLs in Slack, and pulls pre-defined, for
 This trigger requires you to configure a custom Workbot command. When this recipe is started, Workbot will monitor for that command. Whenever the command is called, Workbot proceeds to carry out the recipe actions.
 
 ### New command trigger input fields
-
 The following table lists the configurable input fields in the trigger, and what each field does.
 
 | New command trigger input field | Description                                                                                                                                                                                                                                                                                                                                                                                |
@@ -64,6 +63,7 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
 | Type                  | Not required. If not defined, defaults to `type:string`. Possible types are `string`, `file`, and `date_time`. |
 | Hint                  | Not required. If not defined, defaults to no hint.                                                             |
 | Sample                | Not required. If not defined, defaults to no sample data.                                                      |
+
 In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user.
 
 ```
