@@ -60,7 +60,7 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
 | Name                  | Required. Needs to be a single word.                                                                           |
 | Optional              | Not required. If not defined, defaults to `optional:true`. Input parameter will be optional.                   |
 | Prompt                | Not required. If not defined, defaults to `prompt:false`. No prompt will be generated.                         |
-| Type                  | Not required. If not defined, defaults to `type:string`. Possible types are `string`, `file`, and `date_time`. |
+| Type                  | Not required. If not defined, defaults to `type:string`. Possible types are `string`, `boolean`, `number,` `file`, and `date_time`. |
 | Hint                  | Not required. If not defined, defaults to no hint.                                                             |
 | Sample                | Not required. If not defined, defaults to no sample data.                                                      |
 
