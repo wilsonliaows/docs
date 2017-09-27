@@ -21,6 +21,7 @@ This trigger monitors certain types of URLs in Slack, and pulls pre-defined, for
 ## New command trigger (building custom commands)
 This trigger requires you to configure a custom Workbot command. When this recipe is started, Workbot will monitor for that command. Whenever the command is called, Workbot proceeds to carry out the recipe actions.
 
+### New command trigger input fields
 The following table lists the configurable input fields in the trigger, and what each field does.
 
 | New command trigger input field | Description                                                                                                                                                                                                                                                                                                                                                                                |
@@ -32,6 +33,49 @@ The following table lists the configurable input fields in the trigger, and what
 | Help text                       | Short description of what the command does. Shows up in the Workbot app page under **Commands**.                                                                                                                                                                                                                                                                                           |
 | Hide command                    | If **yes**, command will not show up as a button in the Slack channel when the user types app name. If **no**, command will show up as a button in the Slack channel when the user types app name.                                                                                                                                                                                         |
 
+#### Workbot command format
+The Workbot command is created by piecing 3 elements together, the `application`, `command action` and `business data`:
+
+```
+application command-action business-data
+```
+
+In the following case, the application is "Salesforce", command action is "Show", and business data is "Account". The command that Workbot will respond to is therefore:
+
+```
+Salesforce show account
+```
+
+#### Workbot command input parameters format
+The **input parameters** field lets you decide what data is needed from the user to carry out the recipe actions successfully.
+
+Each input parameter has to be provided in the following format:
+
+```
+param_name optional:true prompt:false type:string hint:hint_to_help_users sample:example_data
+```
+
+| Input parameter field | Description                                                                                                    |
+|-----------------------|----------------------------------------------------------------------------------------------------------------|
+| Name                  | Required. Needs to be a single word.                                                                           |
+| Optional              | Not required. If not defined, defaults to `optional:true`. Input parameter will be optional.                   |
+| Prompt                | Not required. If not defined, defaults to `prompt:false`. No prompt will be generated.                         |
+| Type                  | Not required. If not defined, defaults to `type:string`. Possible types are `string`, `boolean`, `number,` `file`, and `date_time`. |
+| Hint                  | Not required. If not defined, defaults to no hint.                                                             |
+| Sample                | Not required. If not defined, defaults to no sample data.                                                      |
+
+In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user.
+
+```
+name optional: false prompt: false type: string hint: Exact account name sample: IBM
+```
+
+The configured input parameters will be displayed as follow up questions for the user after the Workbot command.
+
+![Salesforce show account input parameters](/assets/images/workbot/workbot-trigger/salesforce-show-account-input-params-display.png)
+*Input parameters display on Slack*
+
+### New command trigger output datapills
 The **New command** trigger also provides a set of datapill variables as that holds data about the command, such as the user making the command, the channel the command was made it, etc. The following table details these datapill variables.
 
 ![New bot command output datatree](/assets/images/workbot/workbot-trigger/new-bot-command-trigger-datatree.png)
@@ -80,15 +124,9 @@ The trigger configuration for the `Salesforce show account` command is as follow
 ![Salesforce show account command trigger configuration 2](/assets/images/workbot/workbot-trigger/salesforce-show-account-config-2.png)
 *Salesforce show account command trigger configuration*
 
-From the configuration, you see that the Workbot command is created by piecing 3 elements together, the `application`, `command action` and `business data`:
+We know that Workbot commands are created by piecing 3 elements together, the `application`, `command action` and `business data`. In this case, application is "Salesforce", command action is "Show", and business data is "Account". The command that Workbot will respond to is therefore `Salesforce show account`.
 
-```
-application command-action business-data
-```
-
-In this case, application is "Salesforce", command action is "Show", and business data is "Account". The command that Workbot will respond to is therefore `Salesforce show account`.
-
-The **input parameters** field lets you decide what data is needed from the user to carry out the recipe actions successfully. In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user.
+The **input parameters** field lets you decide what data is needed from the user to carry out the recipe actions successfully. In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user, so we define the parameter as follows:
 
 ```
 name optional: false prompt: false type: string hint: Exact account name sample: IBM
