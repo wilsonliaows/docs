@@ -46,6 +46,7 @@ Docusgn users who can login to Docusign can connect to Docusign from Workato. Th
 ## Working with generic triggers in Docusign
 
 ## Working with generic create/update/search actions in Docusign
+When using a Create/Send Document for Signing action in Docusign, the File URL must be in a downloadable format. For example, if you're linking to a Google Drive document, you must follow https://drive.google.com/uc?export=download&id=FILE_ID and replace FILE_ID.
 
 ## Articles on how to use additional special actions
 
