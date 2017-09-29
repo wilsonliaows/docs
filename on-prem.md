@@ -39,6 +39,12 @@ The on-prem agent runs on the following systems:
 
 - Mac OS X
 
+Minimum hardware requirements for the system running the on-prem agent are:
+
+- 8GB of RAM
+- 250 MB of disk space
+- 800 Mhz 64-bit CPU (Intel/AMD).
+
 Please make sure that TCP port 3000 is available for binding.
 
 # Setting up on-prem access
