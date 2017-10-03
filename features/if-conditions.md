@@ -6,7 +6,7 @@ date: 2017-02-23 15:15:00 Z
 # IF conditions
 IF conditions can be found in multiple features in Workato:
 
-- Trigger conditions
+- [Trigger conditions](/recipes/triggers.md#trigger-conditions)
 
 You can set IF conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Hot".
 
@@ -32,10 +32,10 @@ Each condition consists of 3 parts - data, condition and value. Conventionally, 
 
 In this article, we go through the 14 conditions you can choose from. We will be using trigger conditions as examples. Additionally, you can combine multiple conditions with the **AND** or **OR** operators to set up complex conditions.
 
-Each condition will be valid for different data types. If a condition is attempted to be used for invalid data types, it might prevent the recipe from starting successfully.
+## Invalid conditions: incorrect datatypes and null cases
+Each condition will be valid for different data types and conditions cannot be used for types it is invalid for. Furthermore, you need to handle cases whereby datapills have a null value at runtime. If the condition is invalid due to incorrect datatypes or datapills having null values, it might:
 
-Furthermore, if an invalid IF condition was set up for triggers, the recipe might:
-
+- prevent the recipe from starting successfully,
 - throw a trigger error after the recipe has started, resulting in the inability to pick up trigger events, or
 - result in the recipe filtering out all trigger events.
 
