@@ -81,6 +81,7 @@ object_definitions: {
                 <li><code>:integer</code></li>
                 <li><code>:datetime</code></li>
                 <li><code>:date</code></li>
+                <li><code>:timestamp</code></li>
                 <li><code>:boolean</code></li>
                 <li><code>:object</code> Must be accompanied with <code>:properties</code></li>
                 <li><code>:array</code> Must be accompanied with <code>:properties</code></li>
