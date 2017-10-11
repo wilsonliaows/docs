@@ -97,7 +97,7 @@ object_definitions: {
                 <li><code>:number</code></li>
                 <li><code>:url</code></li>
                 <li><code>:select</code> Make sure to include the <code>:pick_list</code> property.</li>
-                <li><code>:timestamp</code></li>
+                <li><code>:date_time</code></li>
                 <li><code>:checkbox</code></li>
                 <li><code>:phone</code></li>
                 <li><code>:email</code></li>
