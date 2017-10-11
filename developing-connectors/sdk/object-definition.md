@@ -79,7 +79,7 @@ object_definitions: {
               <ul>
                 <li><code>:string</code></li>
                 <li><code>:integer</code></li>
-                <li><code>:datetime</code></li>
+                <li><code>:date_time</code></li>
                 <li><code>:date</code></li>
                 <li><code>:timestamp</code></li>
                 <li><code>:boolean</code></li>
