@@ -203,6 +203,19 @@ proxy:
 
 Using a proxy server for establishing a secure tunnel requires a support for [CONNECT](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_tunneling) feature; make sure the proxy server is configured to allow `CONNECT` requests to the Workato gateway (`sg.workato.com`).
 
+### Accessing HTTPS resources
+
+`http` configuration section allows configuring agent access to internal HTTPS resources:
+```YAML
+http:
+  trustAll: true
+  verifyHost: true
+```
+
+The agent may be configured to allow accessing internal HTTPS resources which use self-signed certificates. To enable self-signed certificates set `trustAll` property to `true`.
+
+Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
+
 ### Applying new configuration
 
 A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
