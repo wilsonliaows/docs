@@ -2203,6 +2203,25 @@ You need to specify the base folder for file access; the base folder will be use
 <p><img src="assets/images/on-prem/config-on-prem-file-setup.png" alt="Acess on-prem-file">
 <em>Configuration of on-prem-file folder on Desktop</em></p>
 <p>The file path can be found when you right-click on the folder, and select <strong>get info</strong> or <strong>property</strong>.</p>
+<h3 id="password-encryption">Password encryption</h3>
+<p>To avoid exposure of any sensitive data (like passwords) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:</p>
+<ul>
+<li>Make sure you have your agent keys properly downloaded and placed into <code>conf</code> folder. They are required for encryption.</li>
+<li>Run the encryptor tool. Use <code>bin\encryptor.cmd</code> in Windows, <code>bin/encryptor.sh</code> script for Unix/MacOS.</li>
+<li>When prompted, enter your secret value twice.</li>
+<li>The script will print an encrypted text.
+Example:<pre><code>{encrypted: &apos;RCVtuGPjJWNqwkFQvhT...&apos;}
+</code></pre></li>
+<li>Copy and paste the provided text as a value inside <code>config.yml</code>. Make sure your value is one-line.
+For example, in a database profile:<pre><code class="lang-YAML"><span class="hljs-attr">database:</span>
+<span class="hljs-attr">  sales:</span>
+<span class="hljs-attr">    url:</span> jdbc:postgresql://sales.database:<span class="hljs-number">5432</span>/sales
+<span class="hljs-attr">    username:</span> joe
+<span class="hljs-attr">    password:</span> {encrypted: <span class="hljs-string">&apos;RCVtuGPjJWNqwkFQvhT...&apos;</span>}
+</code></pre>
+</li>
+</ul>
+<p>The encryption is based on your agent&apos;s private key. You cannot use encrypted value from one agent inside another agent&apos;s configuration. Note that only YAML values can be encrypted (you cannot encrypt YAML property keys).</p>
 <h3 id="proxy-server-support">Proxy server support</h3>
 <p>The on-prem agent can be run in the environment with limited internet connectivity by using a proxy server.
 Proxy settings can be defined by adding a top-level <code>proxy</code> section to the configuration file:</p>
@@ -2214,6 +2233,14 @@ Proxy settings can be defined by adding a top-level <code>proxy</code> section t
 </code></pre>
 <p>(username and password are optional)</p>
 <p>Using a proxy server for establishing a secure tunnel requires a support for <a href="https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_tunneling" target="_blank">CONNECT</a> feature; make sure the proxy server is configured to allow <code>CONNECT</code> requests to the Workato gateway (<code>sg.workato.com</code>).</p>
+<h3 id="accessing-https-resources">Accessing HTTPS resources</h3>
+<p><code>http</code> configuration section allows configuring agent access to internal HTTPS resources:</p>
+<pre><code class="lang-YAML"><span class="hljs-attr">http:</span>
+<span class="hljs-attr">  trustAll:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  verifyHost:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<p>The agent may be configured to allow accessing internal HTTPS resources which use self-signed certificates. To enable self-signed certificates set <code>trustAll</code> property to <code>true</code>.</p>
+<p>Normally a server certificate&apos;s Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting <code>verifyHost</code> property to <code>false</code> (defaults to <code>true</code>).</p>
 <h3 id="applying-new-configuration">Applying new configuration</h3>
 <p>A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.</p>
 <h2 id="start-agent">Start agent</h2>
@@ -2229,7 +2256,7 @@ You can use <code>Run Agent (console)</code> shortcut to ensure the agent is suc
 <h3 id="upgrading">Upgrading</h3>
 <ul>
 <li>To upgrade your on-premise agent, you can download a new installer and install over your current agent - your on-premise agent will be updated.</li>
-<li>The config.yml file and the certificate files (<code>cert.key</code>, <code>cert.pem</code>) will remain unchanged in the conf directory</li>
+<li>The <code>config.yml</code> file and the certificate files (<code>cert.key</code>, <code>cert.pem</code>) will remain unchanged in the conf directory</li>
 <li>Navigate to the On-Prem page and select an agent. Download the new installer based on your operating system (either Windows or Linux) and run it.</li>
 <li>Set the location of the new agent to be the location of your old on-premise agent (<code>&lt;INSTALL_HOME&gt;</code>). Finish the installation.</li>
 </ul>
@@ -2357,7 +2384,7 @@ You can use <code>Run Agent (console)</code> shortcut to ensure the agent is suc
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"On premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Agent setup","level":"1.13.1","depth":2,"anchor":"#setting-up-on-prem-access","path":"on-prem.md","ref":"on-prem.md#setting-up-on-prem-access","articles":[]},"previous":{"title":"Recipe development lifecycle","level":"1.12","depth":1,"path":"recipe-development-lifecycle.md","ref":"recipe-development-lifecycle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem.md","mtime":"2017-09-29T19:44:18.018Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-29T19:46:12.570Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"On premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Agent setup","level":"1.13.1","depth":2,"anchor":"#setting-up-on-prem-access","path":"on-prem.md","ref":"on-prem.md#setting-up-on-prem-access","articles":[]},"previous":{"title":"Recipe development lifecycle","level":"1.12","depth":1,"path":"recipe-development-lifecycle.md","ref":"recipe-development-lifecycle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem.md","mtime":"2017-10-17T22:26:48.417Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-10-17T22:28:34.878Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
