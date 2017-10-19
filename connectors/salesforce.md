@@ -133,18 +133,27 @@ For additional help, see Salesforce documentation
 * [SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 
 * [WHERE Clause Syntax](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_conditionexpression.htm)
 
-## Fields input
-Fields input is a way to tell the Salesforce connector to only query for selected fields, instead of making a request to write/read all the fields related to the object(s) involved in the trigger/action.
+### Avoid schema errors
+When a Salesforce trigger/action is configured in a recipe, all relevant fields (standard as well as custom) are included in the backend API request, **even if none of the custom fields are invovled as an input/output**. This request is made in every trigger poll or action invocation in a recipe job.
+
+Occassionally, Salesforce admins will change the Salesforce object settings. These changes may include deleting unused custom fields. When this happens, the object will no longer have the original custom field associated with it. As a result, Salesforce will respond with schema errors when a request is made with these old custom fields in the request body.
+
+Going back to the default behaviour of Salesforce triggers/actions. We see that this presents a problem because the original request will cause the recipe to throw up schema errors. So how do we tell Workato not to query for unused custom fields? The answer is to use `Fields` input to explicitly use only a subset of all fields in a particular object.
+
+## Fields list
+Using the `Fields` list input field is a way to tell the Salesforce connector to only use selected fields, instead of making a request to write/read all the fields related to the object(s) involved in the trigger/action.
 
 This serves 2 purpose:
-1. Work only with a subset of fields in a Salesforce trigger/action
+1. Work only with a subset of fields in a Salesforce trigger/action to improve performance and usability
 2. Prevent schema errors when custom fields are removed over time
+
+### Using Fields list
 
 When you select a Salesforce trigger/action, there will be an optional input field called `Fields`. This is a multiselect field where you can select one or more object fields involved in this action.
 
 ![Empty fields input](/assets/images/salesforce-docs/salesforce-field-list-empty.png)
 
-Once selected, the input fields and output fields will be reduce from the full list to the chosen sublist. If leave blank, the action will revert to a default behaviour of using writing/reading all fields.
+Once selected, the input fields and output fields will be reduce from the full list to the selected sublist. If left blank, the action will revert to the default behaviour. (use all fields for writing/reading)
 
 ![Fields input](/assets/images/salesforce-docs/salesforce-field-list.png)
 
