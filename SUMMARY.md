@@ -113,6 +113,7 @@
     * [XML](developing-connectors/sdk/data-format/xml-format.md)
   * [Methods](developing-connectors/sdk/methods.md)
   * [Pick lists](developing-connectors/sdk/pick-list.md)
+  * [Dependent pick lists](developing-connectors/sdk/dependent-pick-list.md)
   * [Configuration fields](developing-connectors/sdk/config-fields.md)
   * [Examples](developing-connectors/sdk/examples.md)
   * [Publishing process](developing-connectors/sdk/publishing-process.md)
