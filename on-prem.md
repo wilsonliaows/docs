@@ -103,7 +103,18 @@ Port numbers can be omitted when matching defaults for a given database type.
 
 The example below has a `connection profile` named `marketing`. Do not use spaces or special characters in `connection profile` names.
 
-PostgreSQL URL-based configuration:
+SQL Server URL-based sample configuration for connecting to specific instance:
+
+```YAML
+database:
+  sales:
+    url: jdbc:sqlserver://server\instance;databaseName=sales
+    username: joe
+    password: Secret123
+    ApplicationName: workato
+```
+
+PostgreSQL URL-based sample configuration:
 
 ```YAML
 database:
