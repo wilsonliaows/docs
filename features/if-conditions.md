@@ -6,7 +6,7 @@ date: 2017-02-23 15:15:00 Z
 # IF conditions
 IF conditions can be found in multiple features in Workato:
 
-- Trigger conditions
+- [Trigger conditions](/recipes/triggers.md#trigger-conditions)
 
 You can set IF conditions for your triggers to define what subset of trigger events should be processed by the recipe, e.g. only new Salesforce accounts with the type "Customer", or only Salesforce leads with the rating "Hot".
 

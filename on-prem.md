@@ -39,6 +39,12 @@ The on-prem agent runs on the following systems:
 
 - Mac OS X
 
+Minimum hardware requirements for the system running the on-prem agent are:
+
+- 8GB of RAM
+- 250 MB of disk space
+- 800 Mhz 64-bit CPU (Intel/AMD).
+
 Please make sure that TCP port 3000 is available for binding.
 
 # Setting up on-prem access
@@ -156,6 +162,30 @@ For example, if we were to access the on-prem-file folder on the Desktop, the co
 
 The file path can be found when you right-click on the folder, and select **get info** or **property**.
 
+### Password encryption
+
+To avoid exposure of any sensitive data (like passwords) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:
+
+- Make sure you have your agent keys properly downloaded and placed into `conf` folder. They are required for encryption.
+- Run the encryptor tool. Use `bin\encryptor.cmd` in Windows, `bin/encryptor.sh` script for Unix/MacOS.
+- When prompted, enter your secret value twice.
+- The script will print an encrypted text.
+  Example:
+  ```
+  {encrypted: 'RCVtuGPjJWNqwkFQvhT...'}
+  ```
+- Copy and paste the provided text as a value inside `config.yml`. Make sure your value is one-line.
+  For example, in a database profile:
+  ```YAML
+  database:
+    sales:
+      url: jdbc:postgresql://sales.database:5432/sales
+      username: joe
+      password: {encrypted: 'RCVtuGPjJWNqwkFQvhT...'}
+  ```
+
+The encryption is based on your agent's private key. You cannot use encrypted value from one agent inside another agent's configuration. Note that only YAML values can be encrypted (you cannot encrypt YAML property keys).
+
 ### Proxy server support
 
 The on-prem agent can be run in the environment with limited internet connectivity by using a proxy server.
@@ -172,6 +202,19 @@ proxy:
 (username and password are optional)
 
 Using a proxy server for establishing a secure tunnel requires a support for [CONNECT](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_tunneling) feature; make sure the proxy server is configured to allow `CONNECT` requests to the Workato gateway (`sg.workato.com`).
+
+### Accessing HTTPS resources
+
+`http` configuration section allows configuring agent access to internal HTTPS resources:
+```YAML
+http:
+  trustAll: true
+  verifyHost: true
+```
+
+The agent may be configured to allow accessing internal HTTPS resources which use self-signed certificates. To enable self-signed certificates set `trustAll` property to `true`.
+
+Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
 
 ### Applying new configuration
 
@@ -191,7 +234,7 @@ You can use `Run Agent (console)` shortcut to ensure the agent is successfully c
 
 ### Upgrading 
 * To upgrade your on-premise agent, you can download a new installer and install over your current agent - your on-premise agent will be updated.
-* The config.yml file and the certificate files (`cert.key`, `cert.pem`) will remain unchanged in the conf directory
+* The `config.yml` file and the certificate files (`cert.key`, `cert.pem`) will remain unchanged in the conf directory
 * Navigate to the On-Prem page and select an agent. Download the new installer based on your operating system (either Windows or Linux) and run it.
 * Set the location of the new agent to be the location of your old on-premise agent (`<INSTALL_HOME>`). Finish the installation.
 
