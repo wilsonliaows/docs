@@ -91,4 +91,4 @@ utc | Convert Time to [utc](http://ruby-doc.org/core-2.2.0/Time.html#method-c-ut
 puts | ruby version of console.log/stdout, not the same as put
 while | [while loop statement](https://www.tutorialspoint.com/ruby/ruby_loops.htm)
 
-(This list can and will be expanded constantly, feel free to [contact us](support@workato.com) to update/add to this list)
+(This list can and will be expanded constantly, feel free to [contact us](mailto:support@workato.com) to update/add to this list)

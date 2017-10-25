@@ -20,6 +20,8 @@ In the team admin screen, team owners can view current collaborators on their te
 *View collaborators, pending invites to collaborators, and invite collaborators*
 
 # Team roles
+Each collaborator you invite to a team will have a role. Roles define the permissions a user has when logged into the team account, such as the ability to access particular folders, or the ability to create, edit, delete recipe assets.
+
 The default roles for teams are:
 - Admin
 - Analyst
@@ -38,12 +40,28 @@ The admin role is typically given to users managing the Workato team account.
 ## Analyst role
 Analysts have no access to team administration nor API keys. They are able to add and edit recipes, connections, SDK, as well as start and stop the on-prem agents.
 
-The analyst role is typically given to users building and testing recipes or custom connectors on Workato.
+The analyst role is typically given to users building and testing integration recipes or custom connectors on Workato.
 
 ## Operator role
 Operators only have access to view recipes and jobs, as well as start and stop recipes and rerun jobs.
 
 The operator role is typically given to users maintaining the recipe and ensuring the recipes are running well.
+
+## Custom roles
+In addition to the default team roles, you can also define custom roles. These allow you to assign fine-grained permission sets to collaborators. You can create new roles on the team page.
+
+![Roles management](/assets/images/user-accounts-and-teams/team-collaboration/roles-management.png)
+*Manage your roles and create new roles in the roles tab within the Team feature*
+
+When creating a new role, select the specific create, edit and delete rights for recipe assets. In addition, select the additional Workato features within the team account you would like the collaborators to have access to.
+
+![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/role-permissons.gif)
+*Additional role access to Workato features*
+
+You can also define the folders, and correspondingly the recipes and connections contained in that folder, that the role will have access to. This is useful when there are multiple teams working on the same Workato account, such as development, QA and production teams in the [recipe development lifecycle](/recipe-development-lifecycle.md), or when different departments in the company wishes to manage their recipes separately. Users assigned to those folders will not have access to other folders nor to the `Home` folder.
+
+![Additional role access to features](/assets/images/user-accounts-and-teams/team-collaboration/folder-permissions.gif)
+*Define folder permissions for the new role*
 
 # Invite collaborators
 To invite collaborators, provide the full name of the collaborator and their email.
@@ -145,17 +163,17 @@ Also SAML settings could be configured manually. In this case you need to get fr
 
 # Logging into SAML-enabled team
 
-Once SAML is enabled access to Team is controlled by SAML Identity Provider (Okta, OneLogin, etc). In order to switch from personal account to the SAML-enabled team you need to go through SAML Identity Provider authentication procedure.
+Once SAML is enabled, access to Team is controlled by SAML Identity Provider (Okta, OneLogin, etc). In order to switch from personal account to the SAML-enabled team you need to go through SAML Identity Provider authentication procedure.
 ![Team Switch with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-switch.gif)
 *Switch to Team account with Okta authorization*
 
-Another way to login directly into SAML-enabled team is by providing Team Id set during Team SAML configuration procedure. SAML Identity Provider authentication step is required as well.
+Another way to login directly into SAML-enabled team is by providing a Team ID set during Team SAML configuration procedure. SAML Identity Provider authentication step is required as well.
 ![Team Login with Okta](/assets/images/user-accounts-and-teams/team-collaboration/okta-team-login.gif)
 *Login into Team account with Team Id and Okta authentication*
 
 # SAML Just-In-Time provisioning
 
-Just-in-Time provisioning eliminates the needs for team admins to create Workato users accounts in advance on behalf of team members. When an employee signs up for a new Workato account via SAML SSO, they will automatically be added into the organization's team. When an employee with an existing Workato account logs in via SAML SSO for the first time, they will automatically be added into the organization's team as well. Team members will be given the role of `Operator` by default.
+Just-in-Time provisioning eliminates the needs for team admins to create Workato user accounts in advance on behalf of team members. When an employee signs up for a new Workato account via SAML SSO, they will automatically be added into the organization's team. When an employee with an existing Workato account logs in via SAML SSO for the first time, they will automatically be added into the organization's team as well. Team members will be given the role of `Operator` by default.
 
 Information about the new user is taken from the SAML attributes passed to Workato from the identity provider. If attributes are missing, default value are used. The following attributes are supported:
 

@@ -3,7 +3,7 @@ There are use cases where you are required to move data between two different in
 
 To automate such use cases in Workato, we support the notion of a **secondary connector**. In the example above, you would connect the primary Salesforce connector to the corporate instance and the secondary Salesforce instance to the subsidiary.
 
-At present Workato supports secondary connectors for the folowing apps
+At present Workato supports secondary connectors for the following apps
 * [JIRA](https://www.workato.com/integrations/jira)
 * [QuickBase](https://www.workato.com/integrations/quickbase) 
 * [Salesforce](https://www.workato.com/integrations/salesforce)

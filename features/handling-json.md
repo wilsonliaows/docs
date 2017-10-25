@@ -7,7 +7,7 @@ date: 2017-04-05 16:00:00 Z
 
 JSON (JavaScript Object Notation) is a syntax for storing data. It is perhaps the most popular and widely used data format in the world of APIs. JSON is based on name/value pairs and arrays, put together in a simple format which makes it highly readable and easily transmitted.
 
-JSON is mostly hidden from regular Workato users because we expose data as input fields and output datapills in the recipe. However, you may occassionally have to work with JSON data for your use case. Workato provides a few options for handling such instances.
+JSON is mostly hidden from regular Workato users because we expose data as input fields and output datapills in the recipe. However, you may occassionally have to work with JSON data in your specific workflow automation. Workato provides a few options for handling such instances.
 
 ## HTTP connector
 

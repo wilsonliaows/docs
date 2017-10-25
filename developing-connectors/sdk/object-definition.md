@@ -67,6 +67,11 @@ object_definitions: {
             </td>
         </tr>
         <tr>
+            <td>label</td>
+            <td>An optional key. All fields will have default labels based on the field name. Use this to change the default value of the field label.
+            </td>
+        </tr>        
+        <tr>
             <td>type</td>
             <td>
               The data type of this field. Default value is <code>:string</code>. 
@@ -74,8 +79,9 @@ object_definitions: {
               <ul>
                 <li><code>:string</code></li>
                 <li><code>:integer</code></li>
-                <li><code>:datetime</code></li>
+                <li><code>:date_time</code></li>
                 <li><code>:date</code></li>
+                <li><code>:timestamp</code></li>
                 <li><code>:boolean</code></li>
                 <li><code>:object</code> Must be accompanied with <code>:properties</code></li>
                 <li><code>:array</code> Must be accompanied with <code>:properties</code></li>
@@ -92,7 +98,7 @@ object_definitions: {
                 <li><code>:number</code></li>
                 <li><code>:url</code></li>
                 <li><code>:select</code> Make sure to include the <code>:pick_list</code> property.</li>
-                <li><code>:timestamp</code></li>
+                <li><code>:date_time</code></li>
                 <li><code>:checkbox</code></li>
                 <li><code>:phone</code></li>
                 <li><code>:email</code></li>
@@ -111,6 +117,11 @@ object_definitions: {
             <td>
               When defining nested objects, use the <code>properties</code> key to define the fields in the object.
               Remember to define the type as <code>:array</code> or <code>:object</code>
+            </td>
+        </tr>
+        <tr>
+            <td>sticky</td>
+            <td>Use this property to make the optional field visible on the Input section. For Ex: Since is optional field but to be displayed always under Input fields. Use <code>sticky: true</code>.
             </td>
         </tr>
     </tbody>

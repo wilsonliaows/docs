@@ -7,7 +7,7 @@ date: 2017-02-22 11:00:00 Z
 
 ## Introduction
 
-Workato allows for bi-directional syncs between Freshdesk and up to 1000+ other apps, through various use cases. Popular apps that users have integrated with Freshdesk include Salesforce, Google Sheets, Trello, Intercom. 
+Workato allows for bi-directional syncs between Freshdesk and up to 1000+ other apps, through various use cases. Popular apps that users have integrated with Freshdesk include Salesforce, Google Sheets, Trello, Intercom.
 
 Freshdesk integration scenarios include bi-directional syncs between new/updated:
 
@@ -17,7 +17,17 @@ Freshdesk integration scenarios include bi-directional syncs between new/updated
 * Freshdesk users to Intercom users
 * Freshdesk ticket to a message posted on a Slack channel
 
-You can get started with these recipes [here](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic).
+[Get started with a 30-day free trial here.](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
+
+ ## Recommended Recipes
+   * [New/updated Freshdesk ticket to Salesforce case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
+
+   * [New Freshdesk ticket will post message to Slack channel](https://www.workato.com/recipes/103170-new-ticket-in-freshdesk-will-post-message-to-channel-in-slack)
+
+   * [Freshdesk new contact to Salesforce contact](https://www.workato.com/recipes/110070-freshdesk-new-contact-to-salesforce-contact#recipe)
+
+   * [Updated Intercom users will create/update Freshdesk users](https://www.workato.com/recipes/54393-updated-user-in-intercom-will-search-users-in-freshdesk#recipe)
+
 
 ## Supported editions and versions
 The Freshdesk connector works with all Freshdesk plans.
@@ -59,14 +69,14 @@ Click on the recipe. Thereafter, proceed to click on the "Use this recipe" butto
   *Go to Profile settings in Freshdesk*
 
   3. You will see your API key at the top-right corner.
-  
+
   ![Freshdesk Connection](/assets/images/connectors/freshdesk/freshdesk-api.png)
   *Retrieve your API key from Freshdesk*
 
 * **Helpdesk name**
 
   If your company's Freshdesk URL is https://yourcompany.freshdesk.com, then input "yourcompany" as the helpdesk name in the field.
-  
+
 4. Click connect
 
  Once all required fields are filled, click connect.
@@ -77,16 +87,8 @@ Click on the recipe. Thereafter, proceed to click on the "Use this recipe" butto
 
   ![Start your Freshdesk recipe](/assets/images/connectors/freshdesk/freshdesk-start-recipe.PNG)
 
- ## Recommended Recipes
-   * [New/updated Freshdesk ticket to Salesforce case](https://www.workato.com/recipes/120619-salesforce-new-updated-case-to-freshdesk-ticket#recipe)
 
-   * [New Freshdesk ticket will post message to Slack channel](https://www.workato.com/recipes/103170-new-ticket-in-freshdesk-will-post-message-to-channel-in-slack)
-
-   * [Freshdesk new contact to Salesforce contact](https://www.workato.com/recipes/110070-freshdesk-new-contact-to-salesforce-contact#recipe)
-
-   * [Updated Intercom users will create/update Freshdesk users](https://www.workato.com/recipes/54393-updated-user-in-intercom-will-search-users-in-freshdesk#recipe)
-
- ## For more information 
+ ## For more information
    [Supported triggers and actions](https://www.workato.com/integrations/freshdesk)
 
    [Get started now](https://www.workato.com/users/sign_up?utm_source=marketplaces&utm_campaign=freshdesk-generic)
