@@ -33,7 +33,7 @@ connection: {
 ## Authorization Code Variant
 Required components in OAuth 2.0 Authorization Code Grant type connection:
 
-1. type (use 'oauth2')
+1. type (use "oauth2")
 2. authorization_url
 3. token_url
 4. client_id and client_secret
@@ -104,20 +104,27 @@ connection: {
 
     acquire: lambda do |connection, auth_code|
       response = post("https://login.mypurecloud.com/oauth/token").
-      payload(
-        grant_type: "authorization_code",
-        code: auth_code,
-        redirect_uri: "https://www.workato.com/oauth/callback"
+        payload(
+          grant_type: "authorization_code",
+          code: auth_code,
+          redirect_uri: "https://www.workato.com/oauth/callback"
         ).
-        user(connection['client_id']).
-        password(connection['client_secret']).
+        user(connection["client_id"]).
+        password(connection["client_secret"]).
         request_format_www_form_urlencoded
 
-        [ response, nil, nil ]
+        [
+          {
+            access_token: response["access_token"],
+            refresh_token: response["refresh_token"],
+          },
+          nil,
+          { instance_id: nil }
+        ]
       end,
 
       apply: lambda do |connection, access_token|
-        headers('Authorization': "Bearer #{connection["access_token"]}")
+        headers("Authorization": "Bearer #{connection["access_token"]}")
       end
     }
   }
@@ -154,9 +161,9 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
 ```ruby
 connection: {
   fields: [
-    { name: 'domain', control_type: 'text', optional: false },
-    { name: 'client_id', control_type: 'password', optional: false },
-    { name: 'client_secret', control_type: 'password', optional: false }
+    { name: "domain", control_type: "text", optional: false },
+    { name: "client_id", control_type: "password", optional: false },
+    { name: "client_secret", control_type: "password", optional: false }
   ],
 
   authorization: {
@@ -174,26 +181,34 @@ connection: {
 
     acquire: lambda do |connection, auth_code|
       response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
-      payload(
-        grant_type: "authorization_code",
-        client_id: connection["client_id"],
-        client_secret: connection["client_secret"],
-        code: auth_code
+        payload(
+          grant_type: "authorization_code",
+          client_id: connection["client_id"],
+          client_secret: connection["client_secret"],
+          code: auth_code
         ).
         request_format_www_form_urlencoded
-        [ { access_token: response['access_token'], refresh_token: response['refresh_token'] }, nil, nil ]
+
+        [
+          {
+            access_token: response["access_token"],
+            refresh_token: response["refresh_token"]
+          },
+          nil,
+          nil
+        ]
       end,
 
       refresh_on: [401, 403],
 
       refresh: lambda do |connection, refresh_token|
         post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
-        payload(
-          grant_type: "refresh_token",
-          client_id: connection["client_id"],
-          client_secret: connection["client_secret"],
-          refresh_token: refresh_token,
-          redirect_uri: "https://www.workato.com/oauth/callback"
+          payload(
+            grant_type: "refresh_token",
+            client_id: connection["client_id"],
+            client_secret: connection["client_secret"],
+            refresh_token: refresh_token,
+            redirect_uri: "https://www.workato.com/oauth/callback"
           ).
           request_format_www_form_urlencoded
         end,
@@ -208,7 +223,7 @@ This list is optional. If not defined, will default to one attempt at re-acquiri
 ```ruby
 refresh_on: [
   401,
-  'Unauthorized',
+  "Unauthorized",
   /Unauthorized/,
   /Invalid Ticket Id/
 ]
@@ -243,7 +258,7 @@ detect_on: [
 
 There are two ways to match:
 
-- `'Unauthorized'`: The exact string matching the whole body of response
+- `"Unauthorized"`: The exact string matching the whole body of response
 - `/^\{"response":\{"error".+$/`: Regex matching the body of response
 
 This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.
