@@ -143,13 +143,54 @@ Upon receiving a the request, the API returns a JSON response. These can be acce
 ```
 we can retrieve the `access_token` from `response[access_token]`. These parameters are also appended into the original `connection` object.
 
-The `acquire` hook must return an array of
+When using custom OAuth2 type connection, the `acquire` hook must return an array with the following values in sequence:
 
-- Hash: Access token, [Refresh token](#refresh-tokens) (optional)
-- Owner ID for clobber detection (optional, substitute with `nil`)
-- Hash: Other settings to merge (optional, substitute with `nil`)
+- Tokens
+- Owner ID
+- Other values
 
-The `acquire` hook is also used in [Custom Authentication](custom-authentication.md#acquire).
+#### Tokens
+Tokens provided must be a hash with the exact key names (`access_token`, `refresh_token`). If the API returns tokens with other keys (eg: `id_access` and `id_refresh` respectively), you can map them here like so:
+
+```ruby
+{
+  access_token: response["id_access"],
+  refresh_token: response["id_refresh"]
+}
+```
+
+Refresh tokens are optional. You can read more about them [here](#refresh-tokens).
+
+#### Owner ID
+This is an optional value used for clobber detection (substitute with `nil` if not used)
+
+#### Other values
+Here you can supply an optional hash that will be merged with the **original connection hash**. Assuming you have this original connection hash:
+
+```ruby
+{
+  client_id: "CLIENT_ID",
+  client_secret: "CLIENT_SECRET"
+}
+```
+
+and you wish to merge the `company_id` value from the response, you can pass it here with the following hash:
+
+```ruby
+{ company_id: response["company_id"] }
+```
+
+The resulting connection hash will look like this:
+
+```ruby
+{
+  client_id: "CLIENT_ID",
+  client_secret: "CLIENT_SECRET",
+  company_id: response["company_id"]
+}
+```
+
+In the rest of the custom adapter, this value can be referenced with `connection["company_id"]`.
 
 ### Refresh tokens
 There may be situations in which the API expires the access token after a prescribed amount of time. In these cases, the refresh token is used to obtain a new access token. Refresh tokens do not usually expire.
