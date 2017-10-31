@@ -292,7 +292,8 @@ Follow the instructions below for upgrading an existing agent:
 - Download the distribution package
 - Verify that the agent process is stopped
 - Delete `lib/`, `bin/` and `jre/` folders inside the agent installation home
-- Unpack the distribution package to your agent installation home. This should not change the `config.yml` file and the certificate files (`cert.key`, `cert.pem`) in the conf directory.
+- Unpack the distribution package to your agent installation home.
+- Verify that the `config.yml` file is still set up properly and that the certificate files (`cert.key`, `cert.pem`) are in the conf directory.
 - Run the agent (e.g. `bin/run.sh`)
 - Make sure your agent is active and verify its version number on the agent page (**Workato.com &rarr; Tools &rarr; On-prem agent**).
 
