@@ -84,7 +84,7 @@ CSV data guidelines available [here](https://developer.salesforce.com/docs/atlas
 
 Requirements:
 - Create InsightsExternalDataPart objects (<10MB each)
-- External data must be in form of CSV file and base64 encoded. Documentation
+- External data must be in form of CSV file and base64 encoded.
 
 ### Initiate data upload
 After successfully completing all desired Insights External Data Parts, Update `Requested Action` field in the InsightsExternalData record to "Process".
