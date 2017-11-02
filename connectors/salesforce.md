@@ -133,34 +133,38 @@ For additional help, see Salesforce documentation
 * [SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 
 * [WHERE Clause Syntax](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_conditionexpression.htm)
 
-### Avoid schema errors
-When a Salesforce trigger/action is configured in a recipe, all relevant fields (standard as well as custom) are included in the backend API request, **even if none of the custom fields are invovled as an input/output**. This request is made in every trigger poll or action invocation in a recipe job.
+### Prevent schema errors with Fields list
+When using a Salesforce trigger/action in a recipe, all object fields (standard and custom fields) are requested from Salesforce by default, **even if these fields are not used in the recipe**.
 
-Occassionally, Salesforce admins will change the Salesforce object settings. These changes may include deleting unused custom fields. When this happens, the object will no longer have the original custom field associated with it. As a result, Salesforce will respond with schema errors when a request is made with these old custom fields in the request body.
+If a Salesforce admin changes the Salesforce object schema, e.g. deletes object fields, the recipe will throw an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.
 
-Going back to the default behaviour of Salesforce triggers/actions. We see that this presents a problem because the original request will cause the recipe to throw up schema errors. So how do we tell Workato not to query for unused custom fields? The answer is to use `Fields` input to explicitly use only a subset of all fields in a particular object.
+Such schema differences between Salesforce and Workato can be resolved by a schema refresh. However, if frequent schema changes are expected, we can utilize the `Fields` input field to control the fields that we request from Salesforce. This will ensure that schema changes unrelated to the recipe will not cause the recipe to break or experience errors.
 
 ## Fields list
-Using the `Fields` list input field is a way to tell the Salesforce connector to only use selected fields, instead of making a request to write/read all the fields related to the object(s) involved in the trigger/action.
+The `Fields` list input field allows users to select the fields they wish to use in the recipe. This ensures that the recipe will be affected only by changes to these subset of fields, and therefore minimize impact on the recipe due to schema changes.
 
-This serves 2 purpose:
-1. Work only with a subset of fields in a Salesforce trigger/action to improve performance and usability
-2. Prevent schema errors when custom fields are removed over time
+The benefits of using the `Fields` list are:
+1. Improved recipe performance
+2. Improved recipe usability due to smaller datatree with only relevant datapills
+2. Minimizes impact on recipe by Salesforce object schema changes
 
-### Using Fields list
-
-When you select a Salesforce trigger/action, there will be an optional input field called `Fields`. This is a multiselect field where you can select one or more object fields involved in this action.
+### How to use Fields list
+Salesforce triggers and actions have an optional input field called `Fields`. This is a multiselect field for you to select the data fields you want to use in the recipe. If left blank, the Salesforce trigger/action will retrieve all data fields in the datatree by default.
 
 ![Empty fields input](/assets/images/salesforce-docs/salesforce-field-list-empty.png)
+*Unconfigured Fields input. In this case, the Salesforce trigger/action will retrieve all data fields by default.*
 
-Once selected, the input fields and output fields will be reduce from the full list to the selected sublist. If left blank, the action will revert to the default behaviour. (use all fields for writing/reading)
+Once selected, the output datatree will be reloaded to show only the selected fields.
 
 ![Fields input](/assets/images/salesforce-docs/salesforce-field-list.png)
+*Configured Fields input. The datatree will be reloaded to show only the selected fields.*
 
 ## Best practices
 When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. 
-### Working with Sandbox on Workato
-Salesforce Sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don’t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see [Sandbox Setup Tips and Considerations](https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&language=en_US).
+
+### Working with sandboxes on Workato
+Salesforce sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don’t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see [Sandbox Setup Tips and Considerations](https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&language=en_US).
+
 ## Troubleshooting
 Here is a list of common errors that you may encounter, and links to how to rectify them.
 
