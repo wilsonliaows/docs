@@ -154,10 +154,13 @@ Salesforce triggers and actions have an optional input field called `Fields`. Th
 ![Empty fields input](/assets/images/salesforce-docs/salesforce-field-list-empty.png)
 *Unconfigured Fields input. In this case, the Salesforce trigger/action will retrieve all data fields by default.*
 
-Once selected, the output datatree will be reloaded to show only the selected fields.
+Once selected, the input fields and output datatree will be reloaded to show only the selected fields. Only Search action will have output datatree with field values. Update and Create actions will only return record IDs.
 
 ![Fields input](/assets/images/salesforce-docs/salesforce-field-list.png)
-*Configured Fields input. The datatree will be reloaded to show only the selected fields.*
+*Configured Fields input. The Create action input fields will be reloaded to show only the selected fields.*
+
+![Fields output](/assets/images/salesforce-docs/salesforce-field-list-output.png)
+*Configured Fields output. The Search action output datatree will be reloaded to show only the selected fields.*
 
 ## Best practices
 When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. 
