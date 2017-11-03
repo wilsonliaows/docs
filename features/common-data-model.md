@@ -19,10 +19,10 @@ When using the PubSub connector, you can listen to messages in a topic or publis
 
 You can create and manage your shared schema on the shared schema feature page.
 
-![Shared schema management](/assets/images/features/data-masking/shared-schema-management.png)
+![Shared schema management](/assets/images/features/common-data-model/shared-schema-management.png)
 *Create and manage shared schema on the shared schema page*
 
 When creating shared schemas, you will need to define what the data structure of the schema will look like. This structure can be subsequently edited.
 
-![Editing shared schema](/assets/images/features/data-masking/editing-schema.gif)
+![Editing shared schema](/assets/images/features/common-data-model/editing-schema.gif)
 *Editing the shared schema definition*
