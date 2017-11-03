@@ -145,9 +145,6 @@ This offset is usually communicated in the trigger hint for the connector.
 
 The **Since/From** value can only be set once, and will be locked from further changing after the recipe has been started for the first time.
 
-![From parameter enables recipes to pick up trigger events from the past](/assets/images/recipes/triggers/from-parameter-example.png)
-*Recipe is started at 10/19/2017, 11am, but the From parameter is set for it to pick up historical trigger events from 1/2/2016, 12am*
-
 ## Trigger conditions
 Trigger conditions are additional rules that define what kind of trigger events should be selected for processing, e.g. You can specify that only Salesforce accounts from California must be procssed.
 
