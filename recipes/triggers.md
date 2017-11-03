@@ -24,24 +24,29 @@ Workato recipes pick up and queue trigger events in-sequence to be processed as 
 Workato triggers have the following behaviour.
 
 - In-sequence delivery
+
 Triggers will be delivered in chronological order, e.g. oldest records will be processed first, or in the sequence they were delivered to Workato.
 
 - Durable cursor position
+
 Recipes remember the jobs it has processed even across stopped and running states. Whenever a recipe is started, it will pick up where it stopped and begin processing all trigger events since it was stopped.
 
 ![Durable cursor position](/assets/images/recipes/triggers/durable-cursor-position.png)
 *When the recipe is stopped at 10/21/2017, 11.30am and started again days or weeks later, it will pick up trigger events from when it stopped at 10/21/2017, 11.30am*
 
 - No duplication
-Each recipe maintains a record of the trigger events it has seen, and will not process duplicate records. 
+
+Each recipe maintains a record of the trigger events it has seen, and will not process duplicate events. 
 
 - Flow control
+
 Recipes process trigger events synchronously, e.g. only process a second job when the first job has been completed. Workato provides flow control over recipes by enabling multiple jobs to be processed concurrently.
 
 - Guaranteed delivery
+
 For Workato polling triggers, Workato guarantees trigger event delivery. Even if servers experience temporary downtime, or if the network is unstable, Workato ensures that triggers are picked up and processed in-sequence.
 
-Webhook events, which powers most real-time Workato triggers, has the possibility of being lost. To mitigate this, most Workato-built real-time triggers (a notiable exception is the HTTP webhook trigger) have a backup polling mechanism that ensures missed webhook trigger events will be picked up.
+Webhook events, which powers most real-time Workato triggers, inherently have the possibility of being lost. To mitigate this, most Workato-built real-time triggers (a notable exception is the HTTP webhook trigger) have a backup polling mechanism that ensures missed webhook trigger events will be picked up.
 
 ## Trigger mechanisms
 Trigger mechanisms determine when a trigger will fire. In this section, we cover polling triggers, real-time triggers and scheduled triggers.
