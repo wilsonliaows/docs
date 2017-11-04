@@ -26,7 +26,6 @@
     * [Upsert action](recipes/actions.md#upsert)
     * [Delete action](recipes/actions.md#delete)
   * [IF conditions](features/if-conditions.md)
-    * [Conditions](features/if-conditions.md#conditions)
   * [Data pills and mapping](recipes/data-pills-and-mapping.md)
     * [Data types](recipes/data-pills-and-mapping.md#data-types)
     * [Type conversion](recipes/data-pills-and-mapping.md#type-conversions)
@@ -56,7 +55,7 @@
     * [Get account details action](recipe-ops.md#get-account-details-action)
     * [Get recipe details action](recipe-ops.md#get-recipe-details-action)
     * [List jobs created by recipe action](recipe-ops.md#list-jobs-created-by-recipe-action)
-    * [List recipes action](recipe-ops.md#list-recipes-action
+    * [List recipes action](recipe-ops.md#list-recipes-action)
     * [Start recipe action](recipe-ops.md#start-recipe-action)
     * [Stop recipe action](recipe-ops.md#stop-recipe-action)
 * [Troubleshooting](troubleshooting.md)
