@@ -24,7 +24,7 @@ All recipes have a unique ID that identifies them.
 The recipe above has a trigger and just one action. The trigger is **New Salesforce account** - this trigger will fire whenever a new account is created in Salesforce. The action **Create Zendesk organization** will create an organization in Zendesk each time the trigger event occurs (i.e. when a new account is created in Salesforce).
 
 ## Triggers
-Triggers determine what event to listen to in order to execute the actions described in a recipe
+Triggers determine what event to listen to in order to execute the actions described in a recipe.
 
 Trigger events can be set off in apps (e.g. Salesforce, JIRA) when a certain event happens (e.g. new contact is created, existing ticket is updated), when a new line is added in a file, or according to a schedule (fires at a certain time or interval), etc.
 
