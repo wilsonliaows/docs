@@ -12,5 +12,6 @@ REST API
 Report-as-a-Service (RaaS)
 
 Workday documentation contains the following chapters:
-1. [Get report](workday/workday_raas.md)
+1. [Get report](workday/get_report.md)
 2. [Scheduled Report](workday/scheduled_report.md)
+3. [Workday RaaS](workday/workday_raas.md)
