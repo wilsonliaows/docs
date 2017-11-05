@@ -151,13 +151,7 @@ The benefits of using the `Fields` list are:
 ### How to use Fields list
 Salesforce triggers and actions have an optional input field called `Fields`. This is a multiselect field for you to select the data fields you want to use in the recipe. If left blank, the Salesforce trigger/action will retrieve all data fields in the datatree by default.
 
-![Empty fields input](/assets/images/salesforce-docs/salesforce-field-list-empty.png)
-*Unconfigured Fields input. In this case, the Salesforce trigger/action will retrieve all data fields by default.*
-
-Once selected, the input fields and output datatree will be reloaded to show only the selected fields. Only Search action will have output datatree with field values. Update and Create actions will only return record IDs.
-
-![Fields input](/assets/images/salesforce-docs/salesforce-field-list.png)
-*Configured Fields input. The Create action input fields will be reloaded to show only the selected fields.*
+In the following example, we selected the `Last name`, `Company` and `Email` fields. The datatree on the right is regenerated to only show these fields for use in the recipe. By limiting the datatree to only the fields we're interested in using, we mitigate the effects of Salesforce schema changes on our recipe.
 
 ![Fields output](/assets/images/salesforce-docs/salesforce-field-list-output.png)
 *Configured Fields output. The Search action output datatree will be reloaded to show only the selected fields.*
