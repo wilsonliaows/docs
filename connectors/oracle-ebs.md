@@ -1,5 +1,5 @@
 ---
-title: Oracle E-Business Suite
+title: Workato connectors - Oracle E-Business Suite
 date: 2017-02-16 06:15:00 Z
 ---
 

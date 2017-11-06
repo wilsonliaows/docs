@@ -1,9 +1,9 @@
 ---
-title: Mapper
+title: Workato connectors - Mapper by Workato
 date: 2017-09-07 14:00:00 Z
 ---
 
-# Mapper
+# Mapper by Workato
 The Mapper connector is a way for users to interact with schemas defined in the [common data model](/features/common-data-model.md).
 
 The Mapper connector's **Map to object** action is typically used as a temporary step to store data in a predefined structure before publishing the data somewhere for a subscriber to consume, or before moving the data to another application. It would typically be used with the [JMS connector](/connectors/jms.md) or the [PubSub connector](/connectors/pubsub.md).

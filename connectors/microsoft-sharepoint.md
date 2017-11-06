@@ -1,12 +1,13 @@
 ---
-title: Microsoft Sharepoint
+title: Workato connectors - Microsoft Sharepoint
 date: 2017-02-22 11:00:00 Z
 ---
 
 # Microsoft Sharepoint
 
-**How to connect to a cloud Microsoft Sharepoint instance**
+## How to connect to Microsoft Sharepoint on Workato
 
+## Connecting to a cloud Microsoft Sharepoint instance
 In order to connect to Microsoft Sharepoint on Workato, you need to obtain a client ID by registering your Microsoft Sharepoint app with Azure Active Directory. We walk through the process of registering Microsoft Sharepoint below.
 
 1. Sign into the Microsoft Azure management portal by using an account with administrator permission. You must use an account in the same Office 365 subscription (tenant) as you intend to register the app with. You can also access the Microsoft Azure portal through the Office365 admin center by expanding the ADMIN item in the left navigation pane and selecting Azure AD.

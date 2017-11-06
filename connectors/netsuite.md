@@ -1,5 +1,5 @@
 ---
-title: NetSuite
+title: Workato connectors - NetSuite
 date: 2017-04-28 06:15:00 Z
 ---
 
