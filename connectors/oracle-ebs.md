@@ -5,7 +5,9 @@ date: 2017-02-16 06:15:00 Z
 
 # Oracle E-Business Suite
 
-## Pre-requisites
+## How to connect to Oracle E-Business Suite on Workato
+
+### Pre-requisites
 
 1. Install [Oracle E-Business Suite Integrated SOA Gateway](https://docs.oracle.com/cd/E26401_01/doc.122/e20925/T511175T578675.htm)
 
@@ -35,8 +37,7 @@ e. Go to the **REST Web Services** tab. Enter the service name as "user" and cli
 ![User service name](/assets/images/connectors/oracle-ebs/web-service.png)
 *Locate the REST web services and enter "user"*
 
-## Creating Oracle EBS connections
-
+### Establishing the connection on Workato
 Create the Oracle EBS connection from within the recipe **Connections** tab, or from the account [connections page](https://www.workato.com/connections):
 
 To create the connection, select **Oracle E-Business Suite**, fill in the fields required, and click **Connect**. At this point, Workato will make a simple “hello world” test to your Oracle EBS instance, using the REST service specified in **User service name** above.
