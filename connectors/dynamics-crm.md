@@ -1,5 +1,5 @@
 ---
-title: Microsoft Dynamics CRM
+title: Workato connectors - Microsoft Dynamics CRM
 date: 2017-06-13 06:15:00 Z
 ---
 
@@ -28,7 +28,7 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 ![Add application](/assets/images/connectors/microsoft-dynamics-CRM/add.gif)
 *Create the application*
 
-5. Click on the newly created application to look at the app details. 
+5. Click on the newly created application to look at the app details.
 
 ![Add](/assets/images/connectors/microsoft-dynamics-CRM/click-on-app.png)
 *Click on the newly created application*

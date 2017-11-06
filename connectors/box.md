@@ -1,12 +1,10 @@
 ---
-title: Box
+title: Workato connectors - Box
 date: 2017-02-21 12:00:00 Z
 ---
 
 # Box
 [Box](https://www.box.com/home) is a cloud content management and file sharing service for businesses. The Box platform enables secure and easy team collaboration on-the-go.
-
-## Connector information
 
 ### API version
 The Box connector uses [Box Rest API](https://docs.box.com/reference#cors).
@@ -44,7 +42,7 @@ Click on connect and a Box dialog box will pop-up, requesting your Box Account c
 ### Roles and permissions required to connect
 Box users who can login to Box can connect to Box from Workato. The user will have the same [permissions](https://community.box.com/t5/Collaboration-and-Sharing/What-Are-The-Different-Access-Levels-For-Collaborators/ta-p/144) on Workato as in Box. This means that they will have the same capabilities to view, share, upload and download to those files and folders as per their respective permissions on the Box platform.
 
-## Working with the Box Connector
+## Working with the Box connector
 
 ## Working with attachments in Box
 

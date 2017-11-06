@@ -1,5 +1,5 @@
 ---
-title: AWS Lambda
+title: Workato connectors - AWS Lambda
 date: 2017-06-09 04:45:00 Z
 ---
 

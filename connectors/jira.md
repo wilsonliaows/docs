@@ -1,5 +1,5 @@
 ---
-title: Workato connectors - JIRA
+title: Workato connectors - Jira
 date: 2017-02-16 06:15:00 Z
 ---
 
@@ -8,19 +8,16 @@ date: 2017-02-16 06:15:00 Z
 
 With Workato, you can keep projects and issues in sync between JIRA and other issues or tickets tracking apps used by other departments such as Zendesk, ServiceNow, Salesforce's Desk.com.
 
-## Connector information
-
-### API version
+## API version
 The JIRA connector uses [JIRA Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
 
-### Supported editions and versions
+## Supported editions and versions
 The JIRA connector works only with JIRA cloud instances. These instances can be hosted on cloud or on-premise.
 
 ## How to connect to JIRA on Workato
-
-### JIRA connection
 The JIRA connector uses basic authentication to authenticate with JIRA.
 ![Configured JIRA connection](/assets/images/jira-docs/configured_jira_connection.png)
+
 * **Connection name**
 
   Give this JIRA connection a unique name that identifies which JIRA instance it is connected to.

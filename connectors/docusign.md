@@ -1,22 +1,18 @@
 ---
-title: Docusign
+title: Workato connectors - Docusign
 date: 2017-02-22 11:00:00 Z
 ---
 
 # Docusign
 [Docusign](https://www.docusign.com/) is a secure eSignature solution that provides electronic signature technology and digital transaction management services that enables fully digital workflows for businesses.
 
-## Connector information
-
-### API version
+## API version
 The Docusign connector uses the [V2 REST API](https://docs.docusign.com/esign/) with the base URL of `https://{server}.docusign.net/restapi/v2`.
 
-### Supported editions and versions
+## Supported editions and versions
 The Docusign connector works with all Docusign plans - Personal, Standard, Business Pro.
 
 ## How to connect to Docusign on Workato
-
-### Docusign connection
 The Docusign connector uses HTTP Header authentication to authenticate to Docusign. Learn more about it [here](https://www.docusign.com/p/APIGuide/Content/Introduction+Changes/Authentication.htm).
 
 To connect, simply fill up the fields the given fields.
