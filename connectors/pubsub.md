@@ -27,13 +27,13 @@ When creating topics, you will need to define what the data structure of the mes
 ![Defining topic schema](/assets/images/connectors/pubsub/defining-topic-schema.gif)
 *Editing the topic message schema definition*
 
-### Using the new message trigger
+### New message trigger
 The new message trigger allows us to subscribe to a specific topic in Workato. Any messages published to that topic will be picked up by the trigger as a single trigger event.
 
 ![New message trigger configuration](/assets/images/connectors/pubsub/new-message-trigger.png)
 *Select the topic to configure the new message trigger*
 
-### Using the publish message action
+### Publish message action
 The publish action allows us to publish messages to a specific topic in Workato. Any messages published to that topic will be picked up by the new message trigger as a single trigger event.
 
 ![Publish message action configuration](/assets/images/connectors/pubsub/publish-message-action.gif)
