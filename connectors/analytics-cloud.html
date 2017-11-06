@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ServiceNow · Workato Docs</title>
+        <title>Analytics Cloud (Wave Analytics) · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="slack.html" />
+    <link rel="next" href="s3.html" />
     
     
-    <link rel="prev" href="salesforce.html" />
+    <link rel="prev" href="../connectors.html" />
     
 
     
@@ -98,7 +98,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="..">ServiceNow</a>
+          <a href="..">Analytics Cloud (Wave Analytics)</a>
         </h1>
       </div>
     </div>
@@ -1220,7 +1220,7 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.16.1" data-path="analytics-cloud.html">
+    <li class="chapter active" data-level="1.16.1" data-path="analytics-cloud.html">
       
 
       
@@ -1475,7 +1475,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.16.18" data-path="servicenow.html">
+    <li class="chapter " data-level="1.16.18" data-path="servicenow.html">
       
 
       
@@ -2088,36 +2088,96 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="servicenow">ServiceNow</h1>
+                                <h1 id="analytics-cloud">Analytics Cloud</h1>
+<p><a href="https://www.salesforce.com/products/einstein-analytics/features/" target="_blank">Analytics Cloud</a> is a cloud based analytic tool that creates powerful visualizations and dashboards from large sets of enterprise data. It is previously known as Wave Analytics.</p>
+<p>Workato makes use of the standard Saleforce connector to upload data from external sources like ERP systems or databases.</p>
 <h2 id="connector-information">Connector information</h2>
-<h3 id="api-version">API version</h3>
-<p>The ServiceNow connector uses <a href="http://wiki.servicenow.com/index.php?title=REST_API#ServiceNow_REST_API_Resources" target="_blank">ServiceNow REST API V1</a>.</p>
-<h3 id="supported-editions-and-versions">Supported editions and versions</h3>
-<p>The ServiceNow connector works with ServiceNow and ServiceNow Express instances.</p>
-<h2 id="how-to-connect-to-servicenow-on-workato">How to connect to ServiceNow on Workato</h2>
-<h3 id="servicenow-connection">ServiceNow connection</h3>
-<p>The ServiceNow connector uses basic authentication to authenticate with ServiceNow.
-<img src="../assets/images/connectors/servicenow/configured_servicenow_connection.png" alt="Configured ServiceNow connection"></p>
+<p>Refer to the <a href="salesforce.html">Salesforce connector</a> page for connector information.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="insights-external-data-and-insights-external-data-part">Insights External Data and Insights External Data Part</h3>
+<p>The InsightsExternalData object allows you to upload data from external sources. This object is used to provide <code>metadata</code>, and manage the upload process actions like <code>start</code>, <code>cancel</code>, <code>cleanup</code> and <code>check status</code>.</p>
+<p>The InsightsExternalData object is used together with the InsightsExternalDataPart object (which contains one or more subsets of the entire data to be uploaded). Together, they can be used to programmatically upload large datasets in parts. Finally, an upload is triggered to process the data parts into a dataset in your Analytics Cloud instance.</p>
+<p>More information is available from the <a href="https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_ext_data.meta/bi_dev_guide_ext_data/bi_ext_data_object_externaldatapart.htm" target="_blank">Analytics External Data API Developer Guide</a>.</p>
+<h2 id="insights-external-data-object">Insights External Data Object</h2>
+<p>Data uploads must be accompanied by JSON Metadata definition and must be base64 encoded. More information is available from the <a href="https://developer.salesforce.com/docs/atlas.en-us.206.0.bi_dev_guide_ext_data_format.meta/bi_dev_guide_ext_data_format/bi_ext_data_schema_reference.htm" target="_blank">External Data Format Reference</a>.</p>
+<h3 id="data-format">Data Format</h3>
+<p>The following is an example dataset in CSV format.</p>
+<pre><code class="lang-csv">Id,Email,Name
+123,john@doe.com,John Doe
+124,marry@poppins.com,Mary Poppins
+</code></pre>
+<p>CSV data guidelines are available <a href="https://developer.salesforce.com/docs/atlas.en-us.206.0.bi_dev_guide_ext_data_format.meta/bi_dev_guide_ext_data_format/bi_ext_data_schema_overview.htm" target="_blank">here</a>.</p>
+<h3 id="metadata-json">Metadata JSON</h3>
+<p>The following is an example of the metadata in JSON format.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;fileFormat&quot;</span>: {
+    <span class="hljs-string">&quot;charsetName&quot;</span>: <span class="hljs-string">&quot;UTF-8&quot;</span>,
+    <span class="hljs-string">&quot;fieldsEnclosedBy&quot;</span>: <span class="hljs-string">&quot;\&quot;&quot;</span>,
+    <span class="hljs-string">&quot;fieldsDelimitedBy&quot;</span>: <span class="hljs-string">&quot;,&quot;</span>,
+    <span class="hljs-string">&quot;numberOfLinesToIgnore&quot;</span>: <span class="hljs-number">1</span>
+  },
+  <span class="hljs-string">&quot;objects&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;connector&quot;</span>: <span class="hljs-string">&quot;Wave_Analytics_Sample&quot;</span>,
+      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+      <span class="hljs-string">&quot;fullyQualifiedName&quot;</span>: <span class="hljs-string">&quot;Lead&quot;</span>,
+      <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Lead&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Lead&quot;</span>,
+      <span class="hljs-string">&quot;fields&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;fullyQualifiedName&quot;</span>: <span class="hljs-string">&quot;Lead.Id&quot;</span>,
+          <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Lead ID&quot;</span>,
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Id&quot;</span>,
+          <span class="hljs-string">&quot;isSystemField&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;isUniqueId&quot;</span>: <span class="hljs-literal">true</span>,
+          <span class="hljs-string">&quot;isMultiValue&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Text&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;fullyQualifiedName&quot;</span>: <span class="hljs-string">&quot;Lead.Email&quot;</span>,
+          <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Lead Email&quot;</span>,
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Email&quot;</span>,
+          <span class="hljs-string">&quot;isSystemField&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;isUniqueId&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;isMultiValue&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Text&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;fullyQualifiedName&quot;</span>: <span class="hljs-string">&quot;Lead.Name&quot;</span>,
+          <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Lead Name&quot;</span>,
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Name&quot;</span>,
+          <span class="hljs-string">&quot;isSystemField&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;isUniqueId&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Text&quot;</span>
+        }
+      ]
+    }
+ ]
+}
+</code></pre>
+<h3 id="insights-external-data-part-object">Insights External Data Part Object</h3>
+<p>Requirements:</p>
 <ul>
-<li><p><strong>Connection name</strong></p>
-<p>Give this ServiceNow connection a unique name that identifies which ServiceNow instance it is connected to.</p>
-</li>
-<li><p><strong>Username</strong></p>
-<p>Username to connect to ServiceNow.</p>
-</li>
-<li><p><strong>Password</strong></p>
-<p>Password to connect to ServiceNow.</p>
-</li>
-<li><p><strong>Instance name</strong></p>
-<p>Complete ServiceNow instance URL used to login to ServiceNow.</p>
-</li>
+<li>Create InsightsExternalDataPart objects (&lt;10MB each)</li>
+<li>External data must be in form of CSV file and base64 encoded.</li>
 </ul>
-<h3 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h3>
-<p>ServiceNow users need the <strong>rest_service</strong> role in order to connect to ServiceNow on Workato.</p>
-<p>In addition, to use the generic triggers and actions on our ServiceNow connector, the connected ServiceNow user needs to have the <strong>admin</strong> role in order to access the full list of possible tables (ServiceNow objects, such as incidents), as well as the columns in that table (the fields in that ServiceNow object, such as incident ID and short description).</p>
-<h2 id="working-with-the-servicenow-connector">Working with the ServiceNow connector</h2>
-<h3 id="using-generic-triggers-and-actions">Using generic triggers and actions</h3>
-<p>In addition, to use the generic triggers and actions on our ServiceNow connector, the connected ServiceNow user needs to have the <strong>admin</strong> role in order to access the full list of possible tables (ServiceNow objects, such as incidents), as well as the columns in that table (the fields in that ServiceNow object, such as incident ID and short description).</p>
+<h3 id="initiate-data-upload">Initiate data upload</h3>
+<p>After successfully completing all desired Insights External Data Parts, Update the <code>Requested Action</code> field in the InsightsExternalData record to &quot;Process&quot;.</p>
+<h3 id="managing-upload-process">Managing upload process</h3>
+<p>After initiating a data upload process (updating <code>Requested Action</code> field to &quot;Process&quot;), no more edits are allowed on the objects, except to request a cancelation.</p>
+<h2 id="example-recipe">Example recipe</h2>
+<p>Let&apos;s put everything together into the following recipe.</p>
+<p><img src="../assets/images/analytics_cloud/analytics-cloud-sample-recipe.png" alt="Analytics Cloud sample recipe">
+<em>Analytics Cloud recipe. <a href="https://www.workato.com/recipes/607500" target="_blank">Example recipe</a></em></p>
+<p>This recipe performs a daily upload from SQL Server database to a dataset in Analytics Cloud. The recipe can be broken down to the various steps mentioned before.</p>
+<ol>
+<li>Retrieving data from external data source</li>
+<li>Defining a metadata JSON</li>
+<li>Preparing data from external data source into CSV format</li>
+<li>Create an External Data record</li>
+<li>Upload Insights External Data Part(s)</li>
+<li>Initial upload process by updating <code>Requested Action</code> field to &quot;Process&quot; in External Data record.</li>
+</ol>
 
                                 
                                 </section>
@@ -2200,7 +2260,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ServiceNow","date":"2017-02-16T06:15:00.000Z","level":"1.16.18","depth":2,"next":{"title":"Slack","level":"1.16.19","depth":2,"path":"connectors/slack.md","ref":"connectors/slack.md","articles":[{"title":"Slack VS Workbot","level":"1.16.19.1","depth":3,"anchor":"#slack-vs-workbot-for-slack-connectors","path":"connectors/slack.md","ref":"connectors/slack.md#slack-vs-workbot-for-slack-connectors","articles":[]},{"title":"Message buttons","level":"1.16.19.2","depth":3,"anchor":"#using-slack-message-buttons","path":"connectors/slack.md","ref":"connectors/slack.md#using-slack-message-buttons","articles":[]},{"title":"Message threads","level":"1.16.19.3","depth":3,"anchor":"#using-slack-threads","path":"connectors/slack.md","ref":"connectors/slack.md#using-slack-threads","articles":[]}]},"previous":{"title":"Salesforce","level":"1.16.17","depth":2,"path":"connectors/salesforce.md","ref":"connectors/salesforce.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/servicenow.md","mtime":"2017-11-06T07:27:26.337Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-06T07:29:11.697Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Analytics Cloud (Wave Analytics)","level":"1.16.1","depth":2,"next":{"title":"Amazon S3","level":"1.16.2","depth":2,"path":"connectors/s3.md","ref":"connectors/s3.md","articles":[]},"previous":{"title":"Connectors","level":"1.16","depth":1,"path":"connectors.md","ref":"connectors.md","articles":[{"title":"Analytics Cloud (Wave Analytics)","level":"1.16.1","depth":2,"path":"connectors/analytics-cloud.md","ref":"connectors/analytics-cloud.md","articles":[]},{"title":"Amazon S3","level":"1.16.2","depth":2,"path":"connectors/s3.md","ref":"connectors/s3.md","articles":[]},{"title":"AWS Lambda","level":"1.16.3","depth":2,"path":"connectors/aws_lambda.md","ref":"connectors/aws_lambda.md","articles":[]},{"title":"Box","level":"1.16.4","depth":2,"path":"connectors/box.md","ref":"connectors/box.md","articles":[]},{"title":"DocuSign","level":"1.16.5","depth":2,"path":"connectors/docusign.md","ref":"connectors/docusign.md","articles":[]},{"title":"Microsoft Dynamics CRM","level":"1.16.6","depth":2,"path":"connectors/dynamics-crm.md","ref":"connectors/dynamics-crm.md","articles":[]},{"title":"Freshdesk","level":"1.16.7","depth":2,"path":"connectors/freshdesk.md","ref":"connectors/freshdesk.md","articles":[]},{"title":"JIRA","level":"1.16.8","depth":2,"path":"connectors/jira.md","ref":"connectors/jira.md","articles":[]},{"title":"Java messaging service","level":"1.16.9","depth":2,"path":"connectors/jms.md","ref":"connectors/jms.md","articles":[]},{"title":"Mapper by Workato","level":"1.16.10","depth":2,"path":"connectors/mapper.md","ref":"connectors/mapper.md","articles":[]},{"title":"NetSuite","level":"1.16.11","depth":2,"path":"connectors/netsuite.md","ref":"connectors/netsuite.md","articles":[]},{"title":"Oracle EBS","level":"1.16.12","depth":2,"path":"connectors/oracle-ebs.md","ref":"connectors/oracle-ebs.md","articles":[]},{"title":"People Task by Workato","level":"1.16.13","depth":2,"path":"workflow.md","ref":"workflow.md","articles":[]},{"title":"PubSub by Workato","level":"1.16.14","depth":2,"path":"connectors/pubsub.md","ref":"connectors/pubsub.md","articles":[]},{"title":"QuickBooks Online","level":"1.16.15","depth":2,"path":"connectors/quickbooks.md","ref":"connectors/quickbooks.md","articles":[]},{"title":"RecipeOps by Workato","level":"1.16.16","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]},{"title":"Salesforce","level":"1.16.17","depth":2,"path":"connectors/salesforce.md","ref":"connectors/salesforce.md","articles":[]},{"title":"ServiceNow","level":"1.16.18","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[]},{"title":"Slack","level":"1.16.19","depth":2,"path":"connectors/slack.md","ref":"connectors/slack.md","articles":[{"title":"Slack VS Workbot","level":"1.16.19.1","depth":3,"anchor":"#slack-vs-workbot-for-slack-connectors","path":"connectors/slack.md","ref":"connectors/slack.md#slack-vs-workbot-for-slack-connectors","articles":[]},{"title":"Message buttons","level":"1.16.19.2","depth":3,"anchor":"#using-slack-message-buttons","path":"connectors/slack.md","ref":"connectors/slack.md#using-slack-message-buttons","articles":[]},{"title":"Message threads","level":"1.16.19.3","depth":3,"anchor":"#using-slack-threads","path":"connectors/slack.md","ref":"connectors/slack.md#using-slack-threads","articles":[]}]},{"title":"SurveyMonkey","level":"1.16.20","depth":2,"path":"connectors/surveymonkey.md","ref":"connectors/surveymonkey.md","articles":[]},{"title":"Workday","level":"1.16.21","depth":2,"path":"connectors/workday.md","ref":"connectors/workday.md","articles":[{"title":"Report-as-a-Service","level":"1.16.21.1","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/analytics-cloud.md","mtime":"2017-11-06T07:27:26.333Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-06T07:29:11.697Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
