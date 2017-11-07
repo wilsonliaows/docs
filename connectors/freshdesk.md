@@ -4,6 +4,7 @@ date: 2017-02-22 11:00:00 Z
 ---
 
 # Freshdesk
+[Freshdesk](https://freshdesk.com/) is a customer support software and ticketing system that helps companies provide a greater customer support experience. It enables ease of collaboration across agents, equips customers with the ability to self-service, and provides reporting and analytics for greater insights into your team's performance.
 
 ## Introduction
 

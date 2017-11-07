@@ -1,3 +1,8 @@
+---
+title: Workato connectors - Analytics Cloud
+date: 2017-11-06 17:00:00 Z
+---
+
 # Analytics Cloud
 [Analytics Cloud](https://www.salesforce.com/products/einstein-analytics/features/) is a cloud based analytic tool that creates powerful visualizations and dashboards from large sets of enterprise data. It is previously known as Wave Analytics.
 
