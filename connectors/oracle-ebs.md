@@ -4,6 +4,7 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # Oracle E-Business Suite
+[Oracle's E-Business Suite](http://www.oracle.com/us/products/applications/ebusiness/overview/index.html) (also known as Applications/Apps or EB-Suite/EBS), is a collection of enterprise resource planning (ERP), customer relationship management (CRM), and supply-chain management (SCM) computer applications that enables organizations of any size to operate and perform effectively.
 
 ## How to connect to Oracle E-Business Suite on Workato
 

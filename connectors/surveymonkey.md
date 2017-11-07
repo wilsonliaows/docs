@@ -4,6 +4,7 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # SurveyMonkey
+[SurveyMonkey](https://www.surveymonkey.com) is a widely used online forms and survey software that allows users to easily design and send surveys and forms, as well as analyze the results.
 
 ## API version
 The SurveyMonkey connector uses [SurveyMonkey REST API V3](https://developer.surveymonkey.com/api/v3/#getting-started).

@@ -4,6 +4,7 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # QuickBooks Online
+[QuickBooks Online](https://quickbooks.intuit.com/) is an easy-to-use accounting software package that enables businesses to manage business payments, bills, and payroll functions.
 
 ## API version
 The QuickBooks Online connector uses the [V3 REST API](https://developer.intuit.com/docs/api/accounting).

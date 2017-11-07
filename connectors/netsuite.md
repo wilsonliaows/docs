@@ -4,6 +4,7 @@ date: 2017-04-28 06:15:00 Z
 ---
 
 # NetSuite
+[NetSuite](http://www.netsuite.com/) is a cloud business management suite that offers comprehensive software for an organization, with software products encompassing ERP/Financials, CRM, and ecommerce.
 
 ## How to connect to NetSuite on Workato
 In order to connect to NetSuite and allow for data to flow to and from NetSuite via Workato, the following needs to be done in NetSuite. In this section, we'll be going through how to set these up in detail.

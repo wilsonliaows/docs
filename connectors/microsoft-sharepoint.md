@@ -4,6 +4,7 @@ date: 2017-02-22 11:00:00 Z
 ---
 
 # Microsoft Sharepoint
+[Microsoft Sharepoint](https://products.office.com/en-us/sharepoint/collaboration) is a collaborative platform that enables document management and storage across teams and organizations. It is a part of the [Microsoft Office](https://products.office.com/en-US/) software products suite.
 
 ## How to connect to Microsoft Sharepoint on Workato
 

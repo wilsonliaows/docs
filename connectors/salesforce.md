@@ -4,6 +4,7 @@ date: 2017-02-16 06:15:00 Z
 ---
 
 # Salesforce
+[Salesforce](https://www.salesforce.com/) is a best-of-breed cloud customer relationship management app, enabling organizations to easily manage and track leads, contacts and opportunities. It is built on the Force.com platform, and can be readily extended with an expansive range of third-party marketplace apps and other Salesforce products that encompasses sales, marketing, customer service and commerce.
 
 ## API version
 The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
