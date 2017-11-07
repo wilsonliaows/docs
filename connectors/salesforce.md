@@ -9,7 +9,7 @@ date: 2017-02-16 06:15:00 Z
 The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
 
 ## Supported editions and versions
-The Salesforce connector works with all Salesforce cloud instances.
+The Salesforce connector works with all Salesforce cloud instances. It also works with Force.com apps.
 
 ## How to connect to Salesforce on Workato
 The Salesforce connector uses OAuth2 authentication to authenticate with Salesforce.
@@ -47,9 +47,6 @@ Salesforce users who can login to Salesforce can connect to Salesforce from Work
 ### Can I connect more than one Salesforce account in a single recipe?
 Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more [here](http://http://docs.workato.com/features/secondary-connectors.html).
 
-### What versions and editions we work with or don't work with
-Workato works with all versions and editions of Salesforce including Force.com apps.
-
 ### Using real-time triggers
 
 Workato offers real-time capabilities for 2 Salesforce triggers, namely **New Object** and **New/Updated Object**. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this, 
@@ -84,9 +81,11 @@ To download an attachment **from** Salesforce, you can use the **Download file**
 
 ## Working with SOQL in Salesforce
 **Salesforce Object Query Language (SOQL)** is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
+
 In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting).
 
 The recipe will automatically handle the SELECT FROM portion of your query. It will SELECT all fields FROM the object you choose from the pick list. For optional clauses, the trigger currently only supports WHERE conditions.
+
 For a list of standard fields for major Salesforce objects, see: [Salesforce Fields Reference](https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm).
 
 ### Inputting SOQL WHERE Conditions (Syntax):
@@ -137,8 +136,10 @@ For additional help, see Salesforce documentation
 
 ## Best practices
 When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. 
+
 ### Working with Sandbox on Workato
 Salesforce Sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don’t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see [Sandbox Setup Tips and Considerations](https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&language=en_US).
+
 ## Troubleshooting
 Here is a list of common errors that you may encounter, and links to how to rectify them.
 
