@@ -5,41 +5,39 @@ date: 2017-02-16 06:15:00 Z
 
 # Salesforce
 
-## Connector information
-
-### API version
+## API version
 The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
 
-### Supported editions and versions
+## Supported editions and versions
 The Salesforce connector works with all Salesforce cloud instances.
 
 ## How to connect to Salesforce on Workato
+The Salesforce connector uses OAuth2 authentication to authenticate with Salesforce.
 
-### Salesforce connection
-The Salesforce connector uses basic authentication to authenticate with Salesforce.
 ![Configured Salesforce connection](/assets/images/salesforce-docs/salesforce-new-connection.PNG)
-* **Connection name**
+*Configured Salesforce connection*
 
-  Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
+- **Connection name**
 
-* **Sandbox**
+Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
 
-  To connect to a Salesforce Sandbox instance, simply use the login credentials for your sandbox account and select "yes" on this field.
+- **Sandbox**
 
-* **Enable restricted IP**
+To connect to a Salesforce Sandbox instance, simply use the login credentials for your sandbox account and select "yes" on this field.
 
-  Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
+- **Enable restricted IP**
+
+Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
 Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/assets/images/salesforce-docs/salesforce-authentication.PNG)
 
-* **Username**
+- **Username**
 
-  Username to connect to Salesforce.
+Username to connect to Salesforce.
 
-* **Password**
+- **Password**
 
-  Password to connect to Salesforce.
-  
+Password to connect to Salesforce.
 
 ### Roles and permissions required to connect
 Salesforce users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same projects and issues.
@@ -51,7 +49,6 @@ Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, an
 
 ### What versions and editions we work with or don't work with
 Workato works with all versions and editions of Salesforce including Force.com apps.
-
 
 ### Using real-time triggers
 
