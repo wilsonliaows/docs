@@ -243,17 +243,6 @@ You can use `Run Agent (console)` shortcut to ensure the agent is successfully c
 * Installer automatically registers the agent as a Windows service called `WorkatoAgent`.
 * Note: Workato agent is not auto-started by default. Open **Control Panel &rarr; System and Security &rarr; Administrative Tools &rarr; Services &rarr; WorkatoAgent** service configuration to configure service auto-start.
 
-### Upgrading 
-* To upgrade your on-premise agent, you can download a new installer and install over your current agent - your on-premise agent will be updated.
-* The `config.yml` file and the certificate files (`cert.key`, `cert.pem`) will remain unchanged in the conf directory
-* Navigate to the On-Prem page and select an agent. Download the new installer based on your operating system (either Windows or Linux) and run it.
-* Set the location of the new agent to be the location of your old on-premise agent (`<INSTALL_HOME>`). Finish the installation.
-
-#### Uninstalling
-* Use `Workato` &rarr; `Uninstall` shortcut to uninstall.
-* The service will shutdown automatically before uninstall.
-* Uninstalling the agent does not remove any configuration files that you've created or modified.
-
 #### Browsing log files
 * When the on-prem agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to Workato log directory in the `Workato` group found in Start Menu for convenience.
 
@@ -287,6 +276,26 @@ If connecting to on-prem databases fail, check that:
 - Selected agent is active
 - Credentials provided in the connection profile are correct
 - Database name and type provided in the connection profile is correct
+
+## Upgrading to the new version
+Follow the instructions below for upgrading an existing agent:
+
+### Windows
+- Download the installer
+- Verify that the agent is stopped (either stop **Workato Agent** Windows service or terminate console-based agent)
+- Uninstall the agent (e.g.  **Start Menu &rarr; Workato &rarr; Uninstall**). This should not change the `config.yml` file and the certificate files (`cert.key`, `cert.pem`) in the conf directory
+- Run the downloaded installer (this will automatically install to the same location)
+- Run the agent. Depending on the setup, either start **Workato Agent** Windows service or run console-based agent
+- Make sure your agent is active and verify its version number on the agent page (**Workato.com &rarr; Tools &rarr; On-prem agent**)
+
+### Linux/MacOS
+- Download the distribution package
+- Verify that the agent process is stopped
+- Delete `lib/`, `bin/` and `jre/` folders inside the agent installation home
+- Unpack the distribution package to your agent installation home.
+- Verify that the `config.yml` file is still set up properly and that the certificate files (`cert.key`, `cert.pem`) are in the conf directory.
+- Run the agent (e.g. `bin/run.sh`)
+- Make sure your agent is active and verify its version number on the agent page (**Workato.com &rarr; Tools &rarr; On-prem agent**).
 
 ## Example recipes
 

@@ -67,6 +67,7 @@
   * [Workbot personal connections](workbot/workbot-latebinding.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
 * [Connectors](connectors.md)
+  * [Analytics Cloud (Wave Analytics)](connectors/analytics-cloud.md)
   * [Amazon S3](connectors/s3.md)
     * [Connection setup](connectors/s3.md#how-to-connect-to-amazon-s3-on-workato)
   * [AWS Lambda](connectors/aws_lambda.md)

@@ -12,17 +12,17 @@ The common data model feature is enabled only for certain plans. Check the [Pric
 The shared schemas created in the common data model in Workato can be currently used in the following connectors:
 
 - [Java messaging service connector](/connectors/jms.md)
-- [Mapper connector](/connectors.md/mapper.md)
+- [Mapper connector](/connectors/mapper.md)
 
 ## Working with the common data model
 When using the PubSub connector, you can listen to messages in a topic or publish messages to a topic. In order to do so, you have to first create a topic, and define the message structure for that topic, so that publishers and consumers alike know what to expect when sending or receiving messages.
 
 You can create and manage your shared schema on the shared schema feature page.
 
-![Shared schema management](/assets/images/features/data-masking/shared-schema-management.png)
+![Shared schema management](/assets/images/features/common-data-model/shared-schema-management.png)
 *Create and manage shared schema on the shared schema page*
 
 When creating shared schemas, you will need to define what the data structure of the schema will look like. This structure can be subsequently edited.
 
-![Editing shared schema](/assets/images/features/data-masking/editing-schema.gif)
+![Editing shared schema](/assets/images/features/common-data-model/editing-schema.gif)
 *Editing the shared schema definition*
