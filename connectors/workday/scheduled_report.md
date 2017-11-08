@@ -38,16 +38,18 @@ These 2 datapills are used to indicate the number of rows offset for this batch.
 #### First batch/last batch
 These 2 datapills are boolean fields which indicate whether the batch is the first/last batch. This is useful in scenarios where you want to create a file from the output of a Workday report. Your recipe will contain the following logic:
 
-```
 if `First batch` is `true`
-  create a new file with contents of the first batch
+
+   create a new file with contents of the first batch
 
 if `First batch` is `false`
-  append lines to an existing file
+
+   append lines to an existing file
 
 if `Last batch` is `true`
-  Send notification about successful transfer of report content
-```
+
+   Send notification about successful transfer of report content
+
 
 #### Rows
 Each batch of rows is returned as a list (array). Each item in this list corresponds to a row in the report. Similarly, each column in your report will be rendered as a field in the output datatree.
