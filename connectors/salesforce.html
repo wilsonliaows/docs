@@ -2164,8 +2164,8 @@ Comparison operators include the following: =, !=, &lt;, &lt;=, &gt;, &gt;=, LIK
 <p><strong>Logical operators:</strong>
 Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:</p>
 <ul>
-<li>fieldExpressionX <strong>AND</strong> fieldExpressionY </li>
-<li>fieldExpressionX <strong>OR</strong> fieldExpressionY </li>
+<li>fieldExpressionX <strong>AND</strong> fieldExpressionY</li>
+<li>fieldExpressionX <strong>OR</strong> fieldExpressionY</li>
 <li><strong>NOT</strong> fieldExpressionX.</li>
 </ul>
 <p>Here is an example showing two fieldExpressions joined by a logical operator:</p>
@@ -2175,11 +2175,11 @@ Multiple field expressions can be joined using logical operators. These include:
 <p>To filter on date fields in a query, you must use Date only format. The syntax for this is: YYYY-MM-DD.
 To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:</p>
 <ul>
-<li>YYYY-MM-DDThh:mm:ss+hh:mm </li>
-<li>YYYY-MM-DDThh:mm:ss-hh:mm </li>
+<li>YYYY-MM-DDThh:mm:ss+hh:mm</li>
+<li>YYYY-MM-DDThh:mm:ss-hh:mm</li>
 <li>YYYY-MM-DDThh:mm:ssZ.</li>
 </ul>
-<p>In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values. 
+<p>In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values.
 For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to convert your date or timestamp to the correct format.</p>
 <p><img src="../assets/images/salesforce-docs/salesforce-soql-example-3.png" alt="SOQL-3"></p>
 <p><img src="../assets/images/salesforce-docs/salesforce-soql-example-4.png" alt="SOQL-4"></p>
@@ -2188,12 +2188,12 @@ For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to
 <p>For more information on date formats and date literals, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm" target="_blank">Date Formats and Date Literals</a></p>
 <p>For additional help, see Salesforce documentation</p>
 <ul>
-<li><a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm" target="_blank">SOQL</a> </li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm" target="_blank">SOQL</a></li>
 <li><a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_conditionexpression.htm" target="_blank">WHERE Clause Syntax</a></li>
 </ul>
 <h3 id="prevent-schema-errors-with-fields-list">Prevent schema errors with Fields list</h3>
 <p>When using a Salesforce trigger/action in a recipe, all object fields (standard and custom fields) are requested from Salesforce by default, <strong>even if these fields are not used in the recipe</strong>.</p>
-<p>If a Salesforce admin changes the Salesforce object schema, e.g. deletes object fields, the recipe will throw an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.</p>
+<p>If a Salesforce admin changes the Salesforce object schema, e.g. deletes fields in the object, the recipe throws an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.</p>
 <p>Such schema differences between Salesforce and Workato can be resolved by a schema refresh. However, if frequent schema changes are expected, we can utilize the <code>Fields</code> input field to control the fields that we request from Salesforce. This will ensure that schema changes unrelated to the recipe will not cause the recipe to break or experience errors.</p>
 <h2 id="fields-list">Fields list</h2>
 <p>The <code>Fields</code> list input field allows users to select the fields they wish to use in the recipe. This ensures that the recipe will be affected only by changes to these subset of fields, and therefore minimize impact on the recipe due to schema changes.</p>
@@ -2205,11 +2205,24 @@ For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to
 </ol>
 <h3 id="how-to-use-fields-list">How to use Fields list</h3>
 <p>Salesforce triggers and actions have an optional input field called <code>Fields</code>. This is a multiselect field for you to select the data fields you want to use in the recipe. If left blank, the Salesforce trigger/action will retrieve all data fields in the datatree by default.</p>
-<p>In the following example, we selected the <code>Last name</code>, <code>Company</code> and <code>Email</code> fields. The datatree on the right is regenerated to only show these fields for use in the recipe. By limiting the datatree to only the fields we&apos;re interested in using, we mitigate the effects of Salesforce schema changes on our recipe.</p>
-<p><img src="../assets/images/salesforce-docs/salesforce-field-list-output.png" alt="Fields output">
-<em>Configured Fields output. The Search action output datatree will be reloaded to show only the selected fields.</em></p>
+<p><img src="../assets/images/salesforce-docs/unconfigured-fields-selector.gif" alt="Unconfigured fields selector">
+<em>Unconfigured fields selector. All account data fields are retrieved in the datatree by default.</em></p>
+<p>All data fields of your selected object will be available in the <code>Fields</code> list.</p>
+<p><img src="../assets/images/salesforce-docs/available-base-object-fields.gif" alt="Available base object fields">
+<em>Fields selector displays all available data fields for your selected object by default</em></p>
+<p>By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.</p>
+<p><img src="../assets/images/salesforce-docs/configured-fields-selector-base-object.gif" alt="Configured base object fields selector">
+<em>Configuring the fields selector - the datatree is regenerated when any fields are selected</em></p>
+<p>In Salesforce, you can choose to retrieve related objects&apos; data as well, e.g. if your trigger is a new opportunity in Salesforce, we can retrieve data about the Salesforce account the opportunity is related to. If your trigger is a new case, we can retrieve data about the Salesforce contact, lead or account the opportunity is related to. To tell Workato the fields to select, first select the related objects you&apos;re interested in, then select the fields of this related obect you&apos;re interested in.</p>
+<p>In the following example, we first selected <code>account</code> as the primary base object, then <code>parent account</code> as the join object. The <code>Fields</code> multiselect list is promptly populated with fields belonging to the parent account as well. Similarly, if the <code>Fields</code> list is not configured, all <code>account</code> and <code>parent account</code>fields will be fetched from Salesforce.</p>
+<p><img src="../assets/images/salesforce-docs/available-join-object-fields.gif" alt="Available join object fields">
+<em>Available join object fields will be shown when the related join objects is selected</em></p>
+<p>All data fields of your selected base and related join objects will be available in the <code>Fields</code> list. By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.</p>
+<p><img src="../assets/images/salesforce-docs/configured-fields-selector-join-object.gif" alt="Configured join object fields selector">
+<em>Configuring the fields selector containing base and related join object data fields - the datatree is regenerated when any fields are selected</em></p>
+<p>By limiting the datatree to only the fields we&apos;re interested in using, we mitigate the effects of Salesforce schema changes on our recipe.</p>
 <h2 id="best-practices">Best practices</h2>
-<p>When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. </p>
+<p>When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone.</p>
 <h3 id="working-with-sandboxes-on-workato">Working with sandboxes on Workato</h3>
 <p>Salesforce sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don&#x2019;t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see <a href="https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&amp;language=en_US" target="_blank">Sandbox Setup Tips and Considerations</a>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
@@ -2315,7 +2328,7 @@ For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Salesforce","level":"1.16.17","depth":2,"next":{"title":"ServiceNow","level":"1.16.18","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[]},"previous":{"title":"RecipeOps by Workato","level":"1.16.16","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2017-11-06T07:27:26.337Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-06T07:29:11.697Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Salesforce","level":"1.16.17","depth":2,"next":{"title":"ServiceNow","level":"1.16.18","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[]},"previous":{"title":"RecipeOps by Workato","level":"1.16.16","depth":2,"path":"recipe-ops.md","ref":"recipe-ops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2017-11-08T01:17:08.453Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-08T01:19:03.127Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
