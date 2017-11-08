@@ -101,8 +101,8 @@ For detailed information on how to use each comparison operator, see: [Compariso
 
 **Logical operators:**
 Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
-- fieldExpressionX **AND** fieldExpressionY 
-- fieldExpressionX **OR** fieldExpressionY 
+- fieldExpressionX **AND** fieldExpressionY
+- fieldExpressionX **OR** fieldExpressionY
 - **NOT** fieldExpressionX.
 
 Here is an example showing two fieldExpressions joined by a logical operator:
@@ -110,15 +110,15 @@ Here is an example showing two fieldExpressions joined by a logical operator:
 ![SOQL-2](/assets/images/salesforce-docs/salesforce-soql-example-2.png)
 
 For more information on logical operators, see: [Logical Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm).
- 
+
 ### Date Formats and Date Literals:
 To filter on date fields in a query, you must use Date only format. The syntax for this is: YYYY-MM-DD.
 To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:
-- YYYY-MM-DDThh:mm:ss+hh:mm 
-- YYYY-MM-DDThh:mm:ss-hh:mm 
+- YYYY-MM-DDThh:mm:ss+hh:mm
+- YYYY-MM-DDThh:mm:ss-hh:mm
 - YYYY-MM-DDThh:mm:ssZ.
 
-In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values. 
+In order to query a date or dateTime field, you may need to turn on formula mode if you are not using it already. This is needed to convert your timestamp to the ISO8601 format expected in SOQL. Also note that you do not need to use single quotes around date or dateTime values.
 For date fields, add ‘.to_date’ to the end of your date formula to convert your date or timestamp to the correct format.
 
 ![SOQL-3](/assets/images/salesforce-docs/salesforce-soql-example-3.png)
@@ -132,13 +132,13 @@ For dateTime fields, the third syntax format is the simplest to use. After enter
 For more information on date formats and date literals, see: [Date Formats and Date Literals](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm)
 
 For additional help, see Salesforce documentation
-* [SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 
+* [SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm)
 * [WHERE Clause Syntax](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_conditionexpression.htm)
 
 ### Prevent schema errors with Fields list
 When using a Salesforce trigger/action in a recipe, all object fields (standard and custom fields) are requested from Salesforce by default, **even if these fields are not used in the recipe**.
 
-If a Salesforce admin changes the Salesforce object schema, e.g. deletes object fields, the recipe will throw an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.
+If a Salesforce admin changes the Salesforce object schema, e.g. deletes fields in the object, the recipe throws an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.
 
 Such schema differences between Salesforce and Workato can be resolved by a schema refresh. However, if frequent schema changes are expected, we can utilize the `Fields` input field to control the fields that we request from Salesforce. This will ensure that schema changes unrelated to the recipe will not cause the recipe to break or experience errors.
 
@@ -153,13 +153,35 @@ The benefits of using the `Fields` list are:
 ### How to use Fields list
 Salesforce triggers and actions have an optional input field called `Fields`. This is a multiselect field for you to select the data fields you want to use in the recipe. If left blank, the Salesforce trigger/action will retrieve all data fields in the datatree by default.
 
-In the following example, we selected the `Last name`, `Company` and `Email` fields. The datatree on the right is regenerated to only show these fields for use in the recipe. By limiting the datatree to only the fields we're interested in using, we mitigate the effects of Salesforce schema changes on our recipe.
+![Unconfigured fields selector](/assets/images/salesforce-docs/unconfigured-fields-selector.gif)
+*Unconfigured fields selector. All account data fields are retrieved in the datatree by default.*
 
-![Fields output](/assets/images/salesforce-docs/salesforce-field-list-output.png)
-*Configured Fields output. The Search action output datatree will be reloaded to show only the selected fields.*
+All data fields of your selected object will be available in the `Fields` list.
+
+![Available base object fields](/assets/images/salesforce-docs/available-base-object-fields.gif)
+*Fields selector displays all available data fields for your selected object by default*
+
+By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.
+
+![Configured base object fields selector](/assets/images/salesforce-docs/configured-fields-selector-base-object.gif)
+*Configuring the fields selector - the datatree is regenerated when any fields are selected*
+
+In Salesforce, you can choose to retrieve related objects' data as well, e.g. if your trigger is a new opportunity in Salesforce, we can retrieve data about the Salesforce account the opportunity is related to. If your trigger is a new case, we can retrieve data about the Salesforce contact, lead or account the opportunity is related to. To tell Workato the fields to select, first select the related objects you're interested in, then select the fields of this related obect you're interested in.
+
+In the following example, we first selected `account` as the primary base object, then `parent account` as the join object. The `Fields` multiselect list is promptly populated with fields belonging to the parent account as well. Similarly, if the `Fields` list is not configured, all `account` and `parent account`fields will be fetched from Salesforce.
+
+![Available join object fields](/assets/images/salesforce-docs/available-join-object-fields.gif)
+*Available join object fields will be shown when the related join objects is selected*
+
+All data fields of your selected base and related join objects will be available in the `Fields` list. By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.
+
+![Configured join object fields selector](/assets/images/salesforce-docs/configured-fields-selector-join-object.gif)
+*Configuring the fields selector containing base and related join object data fields - the datatree is regenerated when any fields are selected*
+
+By limiting the datatree to only the fields we're interested in using, we mitigate the effects of Salesforce schema changes on our recipe.
 
 ## Best practices
-When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone. 
+When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone.
 
 ### Working with sandboxes on Workato
 Salesforce sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don’t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see [Sandbox Setup Tips and Considerations](https://help.salesforce.com/HTViewHelpDoc?id=data_sandbox_implementation_tips.htm&language=en_US).
@@ -168,7 +190,7 @@ Salesforce sandboxes are isolated from your Salesforce production organization, 
 Here is a list of common errors that you may encounter, and links to how to rectify them.
 
 - 400 Bad Request
-  
+
   [errorCode: MALFORMED_ID. Wrong Field is mapped](https://support.workato.com/solution/articles/1000166841-salesforce-error-400-bad-request-errorcode-malformed-id-wrong-field-is-mapped)
 
   [Invalid Cross-Reference Key](https://support.workato.com/solution/articles/1000229427-salesforce-error-400-bad-request-invalid-cross-reference-key)
@@ -176,7 +198,7 @@ Here is a list of common errors that you may encounter, and links to how to rect
   [CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY](https://support.workato.com/solution/articles/1000180151-salesforce-error-400-bad-request-cannot-insert-update-activate-entity)
 
   [No such column](https://support.workato.com/solution/articles/1000172057-salesforce-error-400-bad-request-message-no-such-column-expiry-date-c-)
-  
+
   [Bad request: A workflow or approval field update caused an error when saving this record. Contact your administrator to resolve it](https://support.workato.com/solution/articles/1000248902-salesforce-error-400-bad-request-a-workflow-or-approval-field-update-caused-an-error-when-saving-th)
 
 - [401 Unauthorised: Invalid Session ID](https://support.workato.com/solution/articles/1000229430-salesforce-error-401-unauthorised-invalid-session-id)
