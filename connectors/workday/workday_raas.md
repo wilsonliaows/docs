@@ -4,7 +4,7 @@ date: 2017-06-06 06:38:00 Z
 ---
 
 # Workday RaaS
-Workday Report-as-a-Service (RaaS) is a feature that exposes reports as SOAP or web services. These reports must be advanced type reprots to be web service enabled.
+Workday Report-as-a-Service (RaaS) is a feature that exposes reports as web services. These reports must be configured as **Advanced** type reports to be web service enabled.
 
 ## Custom Reports Setup
 
