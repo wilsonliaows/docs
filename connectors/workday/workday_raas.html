@@ -63,7 +63,7 @@
     <link rel="next" href="../../developing-connectors.html" />
     
     
-    <link rel="prev" href="../workday.html" />
+    <link rel="prev" href="scheduled_report.html" />
     
 
     
@@ -2928,7 +2928,37 @@
         <ul class="articles">
           
   
-    <li class="chapter active" data-level="1.16.21.1" data-path="workday_raas.html">
+    <li class="chapter " data-level="1.16.21.1" data-path="get_report.html">
+      
+
+      
+        <a href="get_report.html">
+      
+        
+        Get report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.2" data-path="scheduled_report.html">
+      
+
+      
+        <a href="scheduled_report.html">
+      
+        
+        Scheduled report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter active" data-level="1.16.21.3" data-path="workday_raas.html">
       
 
       
@@ -3425,27 +3455,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="workday-report-as-a-service">Workday Report-as-a-Service</h1>
-<h2 id="how-to-use">How to use</h2>
-<p>Workday Report-as-a-Service is exposed as an action in Workato. This action will execute a run of the report and retrieve all data from that report as return them as an array. This data can be used in a recipe like any other actions.</p>
-<h3 id="inputs">Inputs</h3>
-<p>The only input required is the RaaS JSON URL. Find out how to get this URL in the Custom Reports section of this documentation. When this URL is provided, the Workday action will generate the appropriate output fields.</p>
-<p><img src="../../assets/images/workday/raas_input.png" alt="Run report input">
-<em>Run report input</em></p>
-<h3 id="outputs">Outputs</h3>
-<p>The output of this action is presented as an array. Each element in this array corresponds to a row in the report. Similarly, each column in your report will be rendered as a field in the report output array.</p>
-<p><img src="../../assets/images/workday/raas_output.png" alt="Run report output">
-<em>Run report output</em></p>
-<h3 id="use-cases">Use cases</h3>
-<h4 id="generate-a-custom-csv-file">Generate a custom CSV file</h4>
-<p>A very simple use case for running and retrieving custom report data from Workday is to create a CSV file from the report. This can be done using the <code>Compose CSV</code> action under the <code>Utilities</code> application.</p>
-<p><img src="../../assets/images/workday/compose_csv.png" alt="Create CSV file">
-<em>Create CSV file from Workday custom report data</em></p>
-<h4 id="filter-rows-using-custom-logic">Filter rows using custom logic</h4>
-<p>Workday provides a comprehensive feature to add filters and validation logic to report results. However, it is limited to data available in Workday. Workato allows you to extract report data out of Workday, and execute validation logic against data from multiple sources.</p>
-<p><img src="../../assets/images/workday/multi_app_filter.png" alt="Custom filter logic">
-<em>Custom filter logic using data from external applications</em></p>
-<p>This example shows how to filter out rows in a report against data from Salesforce but checking for presence of a corresponding Salesforce User account. The resulting report will contain only employees from Workday that are active Salesforce Users.</p>
+                                <h1 id="workday-raas">Workday RaaS</h1>
+<p>Workday Report-as-a-Service (RaaS) is a feature that exposes reports as web services. These reports must be configured as <strong>Advanced</strong> type reports to be web service enabled.</p>
 <h2 id="custom-reports-setup">Custom Reports Setup</h2>
 <p>Custom Reports (advanced type) can be exposed as a Web Service to be used programmatically. Workato uses this web service to automate report run and to integrate report data from Workday to other applications.</p>
 <h3 id="how-to-find-json-endpoint">How to find JSON endpoint</h3>
@@ -3560,7 +3571,7 @@ Use values from Prompt to compare against report column values. Example, assign 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Report-as-a-Service","date":"2017-06-06T06:38:00.000Z","level":"1.16.21.1","depth":3,"next":{"title":"Developing connectors","level":"1.17","depth":1,"path":"developing-connectors.md","ref":"developing-connectors.md","articles":[{"title":"HTTP vs SDK","level":"1.17.1","depth":2,"path":"developing-connectors/http-vs-sdk.md","ref":"developing-connectors/http-vs-sdk.md","articles":[]},{"title":"HTTP","level":"1.17.2","depth":2,"path":"developing-connectors/http.md","ref":"developing-connectors/http.md","articles":[]}]},"previous":{"title":"Workday","level":"1.16.21","depth":2,"path":"connectors/workday.md","ref":"connectors/workday.md","articles":[{"title":"Report-as-a-Service","level":"1.16.21.1","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/workday_raas.md","mtime":"2017-11-08T01:22:45.230Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-08T01:23:53.395Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Report-as-a-Service","date":"2017-06-06T06:38:00.000Z","level":"1.16.21.3","depth":3,"next":{"title":"Developing connectors","level":"1.17","depth":1,"path":"developing-connectors.md","ref":"developing-connectors.md","articles":[{"title":"HTTP vs SDK","level":"1.17.1","depth":2,"path":"developing-connectors/http-vs-sdk.md","ref":"developing-connectors/http-vs-sdk.md","articles":[]},{"title":"HTTP","level":"1.17.2","depth":2,"path":"developing-connectors/http.md","ref":"developing-connectors/http.md","articles":[]}]},"previous":{"title":"Scheduled report","level":"1.16.21.2","depth":3,"path":"connectors/workday/scheduled_report.md","ref":"connectors/workday/scheduled_report.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/workday_raas.md","mtime":"2017-11-08T23:59:34.669Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-09T00:01:08.522Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
