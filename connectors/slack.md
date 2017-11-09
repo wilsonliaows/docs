@@ -1,5 +1,5 @@
 ---
-title: Slack
+title: Workato connectors - Slack
 date: 2017-09-12 12:00:00 Z
 ---
 
@@ -15,17 +15,13 @@ The Workbot for Slack connector enables you to build additional recipes on top o
 
 A detailed comparison table for both the Slack connector and the Workbot for Slack connector can be found [here](/workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector).
 
-## Connector information
-
-### API version
+## API version
 The Slack connector uses the [Slack API](https://api.slack.com/web) with the endpoint URLs `https://slack.com/api/METHOD`.
 
-### Supported editions and versions
+## Supported editions and versions
 Workato connects to all Slack organizations.
 
 ## How to connect to Slack on Workato
-
-### Slack connection
 Authorize Workato to access your Slack organization via the OAuth2 standard. This will require you to login to Slack and authorize the permissions that Workato requests.
 
 ![Configuring Slack connection](/assets/images/connectors/slack/slack-connection.gif)

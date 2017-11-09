@@ -1,5 +1,5 @@
 ---
-title: PubSub by Workato
+title: Workato connectors - PubSub by Workato
 date: 2017-09-07 14:00:00 Z
 ---
 

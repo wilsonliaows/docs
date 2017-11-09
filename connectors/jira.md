@@ -1,5 +1,5 @@
 ---
-title: Workato connectors - JIRA
+title: Workato connectors - Jira
 date: 2017-02-16 06:15:00 Z
 ---
 
@@ -8,42 +8,39 @@ date: 2017-02-16 06:15:00 Z
 
 With Workato, you can keep projects and issues in sync between Jira and other issues or tickets tracking apps used by other departments such as Zendesk, ServiceNow, Salesforce's Desk.com.
 
-## Connector information
-
-### API version
+## API version
 The Jira connector uses [Jira Cloud REST API V2](https://docs.atlassian.com/jira/REST/cloud/).
 
-### Supported editions and versions
+## Supported editions and versions
 The Jira connector works with Jira cloud instances and Jira on-premise instances from 7.x onwards.
 
-## How to connect to Jira on Workato
-
-### Jira connection
+## How to connect to JIRA on Workato
 The Jira connector uses basic authentication to authenticate with Jira.
 ![Configured Jira connection](/assets/images/jira-docs/configured_jira_connection.png)
-* **Connection name**
 
-  Give this Jira connection a unique name that identifies which Jira instance it is connected to.
+- **Connection name**
 
-* **On-prem secure agent**
+Give this Jira connection a unique name that identifies which Jira instance it is connected to.
 
-  To connect to on-premise Jira instances, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
+- **On-prem secure agent**
 
-* **Host name**
+To connect to on-premise Jira instances, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
 
-  Complete Jira instance URL used to login to Jira.
+- **Host name**
 
-* **Username**
+Complete Jira instance URL used to login to Jira.
 
-  Username to connect to Jira.
+- **Username**
 
-* **Password**
+Username to connect to Jira.
 
-  Password to connect to Jira.
+- **Password**
 
-* **Enable firewall-friendly IP**
+Password to connect to Jira.
 
-  Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
+- **Enable firewall-friendly IP**
+
+Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
 ### Roles and permissions required to connect
 Jira users who can login to Jira can connect to Jira from Workato. The user will have the same [project permissions](https://confluence.atlassian.com/adminjiracloud/managing-project-permissions-776636362.html) on Workato as in Jira, and will be able to read and write to the same projects and issues.

@@ -1,39 +1,44 @@
+---
+title: Workato connectors - Salesforce
+date: 2017-02-16 06:15:00 Z
+---
+
 # Salesforce
+[Salesforce](https://www.salesforce.com/) is a best-of-breed cloud customer relationship management app, enabling organizations to easily manage and track leads, contacts and opportunities. It is built on the Force.com platform, and can be readily extended with an expansive range of third-party marketplace apps and other Salesforce products that encompasses sales, marketing, customer service and commerce.
 
-## Connector information
-
-### API version
+## API version
 The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
 
-### Supported editions and versions
-The Salesforce connector works with all Salesforce cloud instances.
+## Supported editions and versions
+The Salesforce connector works with all Salesforce cloud instances. It also works with Force.com apps.
 
 ## How to connect to Salesforce on Workato
+The Salesforce connector uses OAuth2 authentication to authenticate with Salesforce.
 
-### Salesforce connection
-The Salesforce connector uses basic authentication to authenticate with Salesforce.
 ![Configured Salesforce connection](/assets/images/salesforce-docs/salesforce-new-connection.PNG)
-* **Connection name**
+*Configured Salesforce connection*
 
-  Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
+- **Connection name**
 
-* **Sandbox**
+Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
 
-  To connect to a Salesforce Sandbox instance, simply use the login credentials for your sandbox account and select "yes" on this field.
+- **Sandbox**
 
-* **Enable restricted IP**
+To connect to a Salesforce Sandbox instance, simply use the login credentials for your sandbox account and select "yes" on this field.
 
-  Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
+- **Enable restricted IP**
+
+Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
 Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/assets/images/salesforce-docs/salesforce-authentication.PNG)
 
-* **Username**
+- **Username**
 
-  Username to connect to Salesforce.
+Username to connect to Salesforce.
 
-* **Password**
+- **Password**
 
-  Password to connect to Salesforce.
+Password to connect to Salesforce.
 
 ### Roles and permissions required to connect
 Salesforce users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same projects and issues.
@@ -42,9 +47,6 @@ Salesforce users who can login to Salesforce can connect to Salesforce from Work
 
 ### Can I connect more than one Salesforce account in a single recipe?
 Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more [here](http://http://docs.workato.com/features/secondary-connectors.html).
-
-### What versions and editions we work with or don't work with
-Workato works with all versions and editions of Salesforce including Force.com apps.
 
 ### Using real-time triggers
 
@@ -80,9 +82,11 @@ To download an attachment **from** Salesforce, you can use the **Download file**
 
 ## Working with SOQL in Salesforce
 **Salesforce Object Query Language (SOQL)** is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
+
 In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting).
 
 The recipe will automatically handle the SELECT FROM portion of your query. It will SELECT all fields FROM the object you choose from the pick list. For optional clauses, the trigger currently only supports WHERE conditions.
+
 For a list of standard fields for major Salesforce objects, see: [Salesforce Fields Reference](https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm).
 
 ### Inputting SOQL WHERE Conditions (Syntax):

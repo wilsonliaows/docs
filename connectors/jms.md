@@ -1,14 +1,12 @@
 ---
-title: Java messaging service
+title: Workato connectors - Java messaging service
 date: 2017-09-07 14:00:00 Z
 ---
 
 # Java messaging service (JMS)
 The JMS connector allows Workato to interact with JMS providers. The adapter can subscribe to topic/queue and publish to topic/queue. The JMS connector is an on-premise connector.
 
-## Connector information
-
-### Supported editions and versions
+## Supported editions and versions
 The connector supports [Amazon SQS](https://aws.amazon.com/sqs/) and [Apache MQ JMS](http://activemq.apache.org/jms.html) implementations.
 
 ## How to connect to the JMS connector on Workato
