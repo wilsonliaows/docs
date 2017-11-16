@@ -83,7 +83,12 @@ When editing a user, under the Access tab, ensure you assign this user the integ
 Once you've set up your integration user, you're ready to connect to NetSuite on Workato!
 
 ### 5. Create access token
+Finally, create an access token for the integration user.
 
+![Setup > Users/Roles > Access Tokens > New](/assets/images/connectors/netsuite/access-token.png)
+*In NetSuite, go to Setup>Users/Roles>Access Tokens>New*
+
+Select the integration record, integration user and role we created earlier, then save. Save the token ID and token secret. his will be used for connecting to NetSuite on Workato.
 
 ### 6. Connect to NetSuite on Workato
 NetSuite asks for the following information to connect.
@@ -92,30 +97,33 @@ NetSuite asks for the following information to connect.
 
 The following details more information about each field.
 
-- Email and password
-
-This is the email and password of your integration user
-
 - Account ID
 
 Retrieve the account ID of your NetSuite instance from Integration>Web Services Preferences
 
-- Role
+- Consumer key
 
-Name of the role you've just created
+Consumer key from the integration record that you've just created
 
-- Application ID
+- Consumer secret
 
-Retrieve the application ID from Integration>Manage Integrations
+Consumer secret from the integration record that you've just created
+
+- Token ID
+
+Token ID from the access token that you've just created
+
+- Token secret
+
+Token secret from the access token that you've just created
 
 - Account timezone
 
 Select the timezone of your NetSuite instance in order to ensure that the dates in your NetSuite account are handled accurately. All datetime values used in actions/triggers for the NetSuite connection will be based on this timezone.
 
+- Ignore read-only fields
 
-- Sandbox
-
-Select True or False depending on whether the NetSuite instance you're trying to connect to is a sandbox or not
+If set to Yes, read-only fields will be omitted from create and update actions. If set to No, read-only field will appear in create and update actions. Trying to create or update these read-only field will cause an error.
 
 ## Working with the NetSuite connector
 
