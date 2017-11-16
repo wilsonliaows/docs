@@ -11,9 +11,13 @@ In order to connect to NetSuite and allow for data to flow to and from NetSuite 
 
 1. Enable Web Services access in your NetSuite instance
 
-2. Create an integration role with required permission levels for your integration
+2. Create an integration record
 
-3. Assign the above integration role to the integration user
+3. Create an integration role with required permission levels for your integration
+
+4. Assign the above integration role to the integration user
+
+5. Create access token
 
 ### 1. Enable Web Services access in your NetSuite instance
 First, API Access needs to be enabled in NetSuite. Go to Setup>Company>Enable Features>SuiteCloud.
@@ -21,17 +25,35 @@ First, API Access needs to be enabled in NetSuite. Go to Setup>Company>Enable Fe
 ![Setup > Company > Enabled Features > SuiteCloud](/assets/images/connectors/netsuite/enable-web-services-1.png)
 *In NetSuite, go to Setup>Company>Enable Features>SuiteCloud*
 
-Check the Web Services checkbox, then save the settings.
+Check the Web Services checkbox and Token-based Authentication checkbox, then save the settings.
 
-![Check the SuiteTalk Web Services checkbox](/assets/images/connectors/netsuite/enable-web-services-2.png)
+![Check the SuiteTalk Web Services and Token-based authentication checkbox](/assets/images/connectors/netsuite/enable-web-services-2.png)
 *In the SuiteCloud tab, check the SuiteTalk Web Services checkbox*
 
-Now that we've enabled Web Services, we need to set up a user with the proper set of permissions to read from or write to NetSuite via the API. We will use this user to connect to NetSuite from Workato. Typically, this user is a special integration user whose sole function is to enable the integration.
+Now that we've enabled Web Services and Token-based authentication, we need to set up a user with the proper set of permissions to read from or write to NetSuite via the API. We will use this user to connect to NetSuite from Workato. Typically, this user is a special integration user whose sole function is to enable the integration.
 
-### 2. Create an integration role with required permission levels for your integration
-We need to create a specialized role for our integration user. We need to enable Full Web Services permission level for our user, as well as add any further permissions the user needs to have for our integration to work.
+### 2. Create an integration record
+Now, create an integration record in your NetSuite instance.
 
-In the example below, we're creating a new role and giving it the Full Web Services permission. However, if you wish to enable an existing role to be able to read from and write to NetSuite via the API, simply add the Full Web Services permission to the existing role.
+![Setup > Integration > Manage Integrations > New](/assets/images/connectors/netsuite/integration-record-1.png)
+*In NetSuite, go to Setup>Integration>Manage Integrations>New*
+
+Now, add a name for this integration. Make sure to select **Enabled** in the State pick list and check the Token-based Authentication checkbox, then save this integration.
+
+![Check the Token-based Authentication checkbox](/assets/images/connectors/netsuite/integration-record-2.png)
+*Check the Token-based Authentication checkbox*
+
+Now that we have created an integration record, save the consumer key and consumer secret. This will be used for connecting to NetSuite on Workato.
+
+### 3. Create an integration role with required permission levels for your integration
+We need to create a specialized role for our integration user. We need to enable Full level for these permissions:
+- Web Services
+- User Access Tokens
+- Access Token Management
+
+for this user, as well as add any further permissions the user needs to have for our integration to work.
+
+In the example below, we're creating a new role and giving it all 3 permissions. However, if you wish to enable an existing role to be able to read from and write to NetSuite via the API, simply add the required permission to the existing role.
 
 1. In NetSuite, go to Setup>Users/Roles>Manage Roles
 ![Setup > Users/Roles > Manage Roles](/assets/images/connectors/netsuite/setup-integration-role-1.png)
@@ -39,13 +61,13 @@ In the example below, we're creating a new role and giving it the Full Web Servi
 2. Check the Web Services Only Role checkbox if you don't want this role to have the ability to login to NetSuite (i.e. only the ability to connect to NetSuite via the API)
 ![Check Web Services Only Role checkbox if relevant](/assets/images/connectors/netsuite/setup-integration-role-2.png)
 
-3. Under Permissions>Setup, this role needs to have the Web Services permissions with a Full level
+3. Under Permissions>Setup, this role needs to have the 3 permissions with a Full level
 ![Give Full level Web Services permissions](/assets/images/connectors/netsuite/setup-integration-role-3.png)
 
 4. Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the Sales Order - Create permission level, and if you wish to be able to create and update and read sales order data, select the Full permission level.
 ![Set up other permissions and permission levels](/assets/images/connectors/netsuite/setup-integration-role-4.png)
 
-### 3. Set up an integration user
+### 4. Set up an integration user
 Once we've set up our integration role, we need to assign this role to our integration user.
 
 In NetSuite, go to Setup>Users/Roles>Manage Users to edit an existing user or create a new user
@@ -60,7 +82,10 @@ When editing a user, under the Access tab, ensure you assign this user the integ
 
 Once you've set up your integration user, you're ready to connect to NetSuite on Workato!
 
-### 4. Connect to NetSuite on Workato
+### 5. Create access token
+
+
+### 6. Connect to NetSuite on Workato
 NetSuite asks for the following information to connect.
 
 ![Information to connect to NetSuite](/assets/images/connectors/netsuite/information-to-connect-to-netsuite.png)
