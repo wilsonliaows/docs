@@ -219,6 +219,7 @@
     * [Message threads](/connectors/slack.md#using-slack-threads)
   * [SurveyMonkey](connectors/surveymonkey.md)
   * [Workday](connectors/workday.md)
+    * [Connection setup](connectors/workday/connection_setup.md)
     * [Get report](connectors/workday/get_report.md)
     * [Scheduled report](connectors/workday/scheduled_report.md)
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
