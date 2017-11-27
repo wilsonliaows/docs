@@ -229,7 +229,8 @@ This function replaces all occurrence of the first input value, with the second 
 | `"Jean Marie".gsub("j", "M")`                | "Jean Marie" |
 | `"Jean Marie".downcase.gsub("j", "M")`       | "Mean marie" |
 | `"Awesome".gsub(/[Ae]/, 'A'=>'E', 'e'=>'a')` | "Ewasoma"    |
-| `"Anna's Cafe".gsub("'", "\\'")`             | "Annas Cafe" #removing the quotation symbol|
+| `"Anna's Cafe".gsub("'", "\\'")`             | "Annas Cafes Cafe" #replace quotation symbol with text after breakpoint|
+| `"Jean'Marie".gsub("'", "\\'")`              | "JeanMarieMarie" #replace quotation symbol with text after breakpoint|
 | `"Anna's Cafe".gsub("'", {"'"=>"\\'"})`      | "Anna\\'s Cafe" #escaping the quotation symbol|
 
 ---
