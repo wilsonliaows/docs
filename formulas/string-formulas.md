@@ -223,12 +223,17 @@ This function inverts a string, reordering the characters in a backward manner. 
 This function replaces all occurrence of the first input value, with the second input value, within the string. This function is case-sensitive - make sure to downcase or upcase before comparison if you are not concerned about case sensitivity.
 
 ### Example
-| Example                                  | Result       |
-| ---------------------------------------- | ------------ |
-| `"Jean Marie".gsub("J", "M")`            | "Mean Marie" |
-| `"Jean Marie".gsub("j", "M")`            | "Jean Marie" |
-| `"Jean Marie".downcase.gsub("j", "M")`   | "Mean marie" |
+| Example                                      | Result       |
+| -------------------------------------------- | ------------ |
+| `"Jean Marie".gsub("J", "M")`                | "Mean Marie" |
+| `"Jean Marie".gsub("j", "M")`                | "Jean Marie" |
+| `"Jean Marie".downcase.gsub("j", "M")`       | "Mean marie" |
 | `"Awesome".gsub(/[Ae]/, 'A'=>'E', 'e'=>'a')` | "Ewasoma"    |
+| `"Anna's Cafe".gsub("'", "\\'")`             | "Annas Cafes Cafe" #replace quotation symbol with text after breakpoint|
+| `"Jean'Marie".gsub("'", "\\'")`              | "JeanMarieMarie" #replace quotation symbol with text after breakpoint|
+| `"Anna's Cafe".gsub("'", {"'"=>"\\'"})`      | "Anna\\'s Cafe" #escaping the quotation symbol|
+
+---
 
 ## length
 
