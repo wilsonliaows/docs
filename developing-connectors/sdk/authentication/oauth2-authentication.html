@@ -4328,6 +4328,7 @@
                                 
                                 <h1 id="oauth-20">OAuth 2.0</h1>
 <p>For a more secure method of authentication, we recommend using <a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2.0</a>. It is an open standard and is generally a more secure way for users to log into third party websites without exposing their credentials.</p>
+<p>There are many variants of the OAuth2 standard. By default, the Workato connector SDK supports the <a href="https://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">Authorization Code Grant</a> variant.</p>
 <pre><code class="lang-ruby"><span class="hljs-symbol">connection:</span> {
 
   <span class="hljs-symbol">authorization:</span> {
@@ -4351,10 +4352,10 @@
   }
 }
 </code></pre>
-<p>The Workato connector SDK currently supports the <a href="https://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">Authorization Code Grant</a> variant of the OAuth2 standard.</p>
-<p>Required components in OAuth 2.0 type connection:</p>
+<h2 id="authorization-code-variant">Authorization Code Variant</h2>
+<p>Required components in OAuth 2.0 Authorization Code Grant type connection:</p>
 <ol>
-<li>type (use &apos;oauth2&apos;)</li>
+<li>type (use &quot;oauth2&quot;)</li>
 <li>authorization_url</li>
 <li>token_url</li>
 <li>client_id and client_secret</li>
@@ -4391,13 +4392,196 @@
 </code></pre>
 <p>Note:</p>
 <ul>
-<li>SDK makes a POST request to token endpoint. Will not currently work for APIs expecting a different type of request.</li>
+<li>SDK makes a POST request to token endpoint. If a different type of request is expected, look at <a href="#custom-token-authentication">Custom token authentication</a></li>
+<li>The <code>token_url</code> is required if the <code>acquire</code> or <code>refresh</code> hooks are not present (see below).</li>
 <li>Ensure that your implementation of OAuth 2.0 is compliant with the specifications stated in the RFC document. Else, your custom adapter might not start.<ul>
 <li>For example, related to <a href="https://tools.ietf.org/html/rfc6749#section-5.1" target="_blank">Issuing an Access Token - Successful Response</a>, Workato will be expecting a response with <code>access_token</code> in the response. Returning the access token under a key of <code>accessToken</code> in a JSON response will result in an unsuccessful Workato request to your <code>token_url</code>.</li>
 <li>Usually this will not be a problem because most OAuth libraries out there will do most of the heavy lifting for you, such as returning response in the right format etc. It is good to be aware of this!</li>
 </ul>
 </li>
 </ul>
+<h3 id="custom-token-authentication">Custom token authentication</h3>
+<p>The <code>token_url</code> is called using a <code>POST</code> request with the provided <code>client_id</code> and <code>client_secret</code> appended into the header.</p>
+<p>However, some APIs require the authorization token to be obtained by using a <code>POST</code> request with basic authentication. Use the <code>acquire</code> hook instead.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">connection:</span> {
+
+  <span class="hljs-symbol">authorization:</span> {
+    <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;oauth2&quot;</span>,
+
+    <span class="hljs-symbol">authorization_url:</span> lambda <span class="hljs-keyword">do</span> |connection|
+      params = {
+        <span class="hljs-symbol">response_type:</span> <span class="hljs-string">&quot;code&quot;</span>,
+        <span class="hljs-symbol">client_id:</span> connection[<span class="hljs-string">&quot;client_id&quot;</span>]
+      }.to_param
+
+      <span class="hljs-string">&quot;https://login.mypurecloud.com/oauth/authorize?&quot;</span> + params
+    <span class="hljs-keyword">end</span>,
+
+    <span class="hljs-symbol">acquire:</span> lambda <span class="hljs-keyword">do</span> |connection, auth_code|
+      response = post(<span class="hljs-string">&quot;https://login.mypurecloud.com/oauth/token&quot;</span>).
+        payload(
+          <span class="hljs-symbol">grant_type:</span> <span class="hljs-string">&quot;authorization_code&quot;</span>,
+          <span class="hljs-symbol">code:</span> auth_code,
+          <span class="hljs-symbol">redirect_uri:</span> <span class="hljs-string">&quot;https://www.workato.com/oauth/callback&quot;</span>
+        ).
+        user(connection[<span class="hljs-string">&quot;client_id&quot;</span>]).
+        password(connection[<span class="hljs-string">&quot;client_secret&quot;</span>]).
+        request_format_www_form_urlencoded
+
+        [
+          {
+            <span class="hljs-symbol">access_token:</span> response[<span class="hljs-string">&quot;access_token&quot;</span>],
+            <span class="hljs-symbol">refresh_token:</span> response[<span class="hljs-string">&quot;refresh_token&quot;</span>],
+          },
+          <span class="hljs-keyword">nil</span>,
+          { <span class="hljs-symbol">instance_id:</span> <span class="hljs-keyword">nil</span> }
+        ]
+      <span class="hljs-keyword">end</span>,
+
+      <span class="hljs-symbol">apply:</span> lambda <span class="hljs-keyword">do</span> |connection, access_token|
+        headers(<span class="hljs-string">&quot;Authorization&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;Bearer <span class="hljs-subst">#{connection[<span class="hljs-string">&quot;access_token&quot;</span>]}</span>&quot;</span>)
+      <span class="hljs-keyword">end</span>
+    }
+  }
+</code></pre>
+<p>The methods <code>.user</code> and <code>.password</code> are the equivalent of appending <code>Authorization: BASIC</code> and <code>&lt;user&gt;:&lt;password&gt;</code> in BASE-64 String encoding in the <code>POST</code> request header. Note that the request must be sent with <code>request_format_www_form_urlencoded</code>.</p>
+<p>Upon receiving a the request, the API returns a JSON response. These can be accessed using the <code>response[key...]</code> variable defined. For example, if the call returns</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;access_token&quot;</span>: <span class="hljs-number">12345</span>,
+  <span class="hljs-string">&quot;refresh_token&quot;</span>: <span class="hljs-number">12345</span>,
+  <span class="hljs-string">&quot;settings&quot;</span>: <span class="hljs-string">&quot;no&quot;</span>
+}
+</code></pre>
+<p>we can retrieve the <code>access_token</code> from <code>response[access_token]</code>. These parameters are also appended into the original <code>connection</code> object.</p>
+<p>When using custom OAuth2 type connection, the <code>acquire</code> hook must return an array with the following values in sequence:</p>
+<ul>
+<li>Tokens</li>
+<li>Owner ID</li>
+<li>Other values</li>
+</ul>
+<h4 id="tokens">Tokens</h4>
+<p>Tokens provided must be a hash with the exact key names (<code>access_token</code>, <code>refresh_token</code>). If the API returns tokens with other keys (eg: <code>id_access</code> and <code>id_refresh</code> respectively), you can map them here like so:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-symbol">access_token:</span> response[<span class="hljs-string">&quot;id_access&quot;</span>],
+  <span class="hljs-symbol">refresh_token:</span> response[<span class="hljs-string">&quot;id_refresh&quot;</span>]
+}
+</code></pre>
+<p>Refresh tokens are optional. You can read more about them <a href="#refresh-tokens">here</a>.</p>
+<h4 id="owner-id">Owner ID</h4>
+<p>This is an optional value used for clobber detection (substitute with <code>nil</code> if not used)</p>
+<h4 id="other-values">Other values</h4>
+<p>Here you can supply an optional hash that will be merged with the <strong>original connection hash</strong>. Assuming you have this original connection hash:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-symbol">client_id:</span> <span class="hljs-string">&quot;CLIENT_ID&quot;</span>,
+  <span class="hljs-symbol">client_secret:</span> <span class="hljs-string">&quot;CLIENT_SECRET&quot;</span>
+}
+</code></pre>
+<p>and you wish to merge the <code>company_id</code> value from the response, you can pass it here with the following hash:</p>
+<pre><code class="lang-ruby">{ <span class="hljs-symbol">company_id:</span> response[<span class="hljs-string">&quot;company_id&quot;</span>] }
+</code></pre>
+<p>The resulting connection hash will look like this:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-symbol">client_id:</span> <span class="hljs-string">&quot;CLIENT_ID&quot;</span>,
+  <span class="hljs-symbol">client_secret:</span> <span class="hljs-string">&quot;CLIENT_SECRET&quot;</span>,
+  <span class="hljs-symbol">company_id:</span> response[<span class="hljs-string">&quot;company_id&quot;</span>]
+}
+</code></pre>
+<p>In the rest of the custom adapter, this value can be referenced with <code>connection[&quot;company_id&quot;]</code>.</p>
+<h3 id="refresh-tokens">Refresh tokens</h3>
+<p>There may be situations in which the API expires the access token after a prescribed amount of time. In these cases, the refresh token is used to obtain a new access token. Refresh tokens do not usually expire.</p>
+<p>Note that not all APIs issue refresh token credentials. Check with your provider about this requirement.</p>
+<p>In the below example, the Namely API asks for the <code>refresh_token</code> to be appended in the payload of the refresh request.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">connection:</span> {
+  <span class="hljs-symbol">fields:</span> [
+    { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;domain&quot;</span>, <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;text&quot;</span>, <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span> },
+    { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;client_id&quot;</span>, <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;password&quot;</span>, <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span> },
+    { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;client_secret&quot;</span>, <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;password&quot;</span>, <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span> }
+  ],
+
+  <span class="hljs-symbol">authorization:</span> {
+    <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;oauth2&quot;</span>,
+
+    <span class="hljs-symbol">authorization_url:</span> lambda <span class="hljs-keyword">do</span> |connection|
+      params = {
+        <span class="hljs-symbol">response_type:</span> <span class="hljs-string">&quot;code&quot;</span>,
+        <span class="hljs-symbol">client_id:</span> connection[<span class="hljs-string">&quot;client_id&quot;</span>],
+        <span class="hljs-symbol">redirect_uri:</span> <span class="hljs-string">&quot;https://www.workato.com/oauth/callback&quot;</span>,
+      }.to_param
+
+      <span class="hljs-string">&quot;https://<span class="hljs-subst">#{connection[<span class="hljs-string">&quot;domain&quot;</span>]}</span>.namely.com/api/v1/oauth2/authorize?&quot;</span> + params
+    <span class="hljs-keyword">end</span>,
+
+    <span class="hljs-symbol">acquire:</span> lambda <span class="hljs-keyword">do</span> |connection, auth_code|
+      response = post(<span class="hljs-string">&quot;https://<span class="hljs-subst">#{connection[<span class="hljs-string">&quot;domain&quot;</span>]}</span>.namely.com/api/v1/oauth2/token&quot;</span>).
+        payload(
+          <span class="hljs-symbol">grant_type:</span> <span class="hljs-string">&quot;authorization_code&quot;</span>,
+          <span class="hljs-symbol">client_id:</span> connection[<span class="hljs-string">&quot;client_id&quot;</span>],
+          <span class="hljs-symbol">client_secret:</span> connection[<span class="hljs-string">&quot;client_secret&quot;</span>],
+          <span class="hljs-symbol">code:</span> auth_code
+        ).
+        request_format_www_form_urlencoded
+
+        [
+          {
+            <span class="hljs-symbol">access_token:</span> response[<span class="hljs-string">&quot;access_token&quot;</span>],
+            <span class="hljs-symbol">refresh_token:</span> response[<span class="hljs-string">&quot;refresh_token&quot;</span>]
+          },
+          <span class="hljs-keyword">nil</span>,
+          <span class="hljs-keyword">nil</span>
+        ]
+      <span class="hljs-keyword">end</span>,
+
+      <span class="hljs-symbol">refresh_on:</span> [<span class="hljs-number">401</span>, <span class="hljs-number">403</span>],
+
+      <span class="hljs-symbol">refresh:</span> lambda <span class="hljs-keyword">do</span> |connection, refresh_token|
+        post(<span class="hljs-string">&quot;https://<span class="hljs-subst">#{connection[<span class="hljs-string">&quot;domain&quot;</span>]}</span>.namely.com/api/v1/oauth2/token&quot;</span>).
+          payload(
+            <span class="hljs-symbol">grant_type:</span> <span class="hljs-string">&quot;refresh_token&quot;</span>,
+            <span class="hljs-symbol">client_id:</span> connection[<span class="hljs-string">&quot;client_id&quot;</span>],
+            <span class="hljs-symbol">client_secret:</span> connection[<span class="hljs-string">&quot;client_secret&quot;</span>],
+            <span class="hljs-symbol">refresh_token:</span> refresh_token,
+            <span class="hljs-symbol">redirect_uri:</span> <span class="hljs-string">&quot;https://www.workato.com/oauth/callback&quot;</span>
+          ).
+          request_format_www_form_urlencoded
+        <span class="hljs-keyword">end</span>,
+      },
+</code></pre>
+<h4 id="refreshon"><code>refresh_on</code></h4>
+<p>This is an optional array of signals that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals.</p>
+<p>This list is optional. If not defined, will default to one attempt at re-acquiring credentials for all errors.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">refresh_on:</span> [
+  <span class="hljs-number">401</span>,
+  <span class="hljs-string">&quot;Unauthorized&quot;</span>,
+  <span class="hljs-regexp">/Unauthorized/</span>,
+  <span class="hljs-regexp">/Invalid Ticket Id/</span>
+]
+</code></pre>
+<p>The example here shows multiple ways that we can define &quot;signals&quot; to watch.</p>
+<ul>
+<li><code>401</code>: The response status code</li>
+<li><code>&quot;Unauthorized&quot;</code>: The exact string matching the whole body or title of response</li>
+<li><code>/Unauthorized/</code>: Regex matching the body or title of response</li>
+<li><code>/Invalid Ticket Id/</code>: The actual &quot;message&quot; to watch for</li>
+</ul>
+<p>If a match is found, it triggers a re-authorization (execute <code>refresh</code>, otherwise <code>acquire</code>).</p>
+<h4 id="detecton"><code>detect_on</code></h4>
+<p>Certain APIs don&apos;t signal errors with explicit response status code like a 401. Instead, they return a 200 (pseudo successful response) with a payload that signals the error.</p>
+<p>For such APIs, an error (expired credentials, bad requests etc.) will not be picked up since it is interpreted as a successful request (Status code 200). A match with the signals defined here will raise an error.</p>
+<p>When there is a match here, two things can happen.</p>
+<p>Firstly, there can also be a match against refresh_on signals. When that happens, a re-authorization is triggered (acquire block is executed) instead of raising an error. In this case, detect_on is used to match errors hidden behind responses with status code 200, then used to identify that a credentials refresh is required.</p>
+<p>If a match here does not match any of the signals defined in refresh_on, an error will be raised.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">detect_on:</span> [
+  <span class="hljs-string">&quot;sample error message&quot;</span>,
+  <span class="hljs-regexp">/^\{&quot;response&quot;:\{&quot;error&quot;.+$/</span>
+]
+</code></pre>
+<p>There are two ways to match:</p>
+<ul>
+<li><code>&quot;Unauthorized&quot;</code>: The exact string matching the whole body of response</li>
+<li><code>/^\{&quot;response&quot;:\{&quot;error&quot;.+$/</code>: Regex matching the body of response</li>
+</ul>
+<p>This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.</p>
+<p>The <code>refresh_on</code>, <code>refresh</code> and <code>detect_on</code> hooks are also used in <a href="custom-authentication.html#refresh_on">Custom Authentication</a>.</p>
 
                                 
                                 </section>
@@ -4480,7 +4664,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"OAuth 2.0","level":"1.18.2.2","depth":3,"next":{"title":"Custom auth","level":"1.18.2.3","depth":3,"path":"developing-connectors/sdk/authentication/custom-authentication.md","ref":"developing-connectors/sdk/authentication/custom-authentication.md","articles":[]},"previous":{"title":"Basic auth","level":"1.18.2.1","depth":3,"path":"developing-connectors/sdk/authentication/basic-authentication.md","ref":"developing-connectors/sdk/authentication/basic-authentication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/authentication/oauth2-authentication.md","mtime":"2017-11-30T01:11:12.901Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-30T01:12:23.405Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"OAuth 2.0","level":"1.18.2.2","depth":3,"next":{"title":"Custom auth","level":"1.18.2.3","depth":3,"path":"developing-connectors/sdk/authentication/custom-authentication.md","ref":"developing-connectors/sdk/authentication/custom-authentication.md","articles":[]},"previous":{"title":"Basic auth","level":"1.18.2.1","depth":3,"path":"developing-connectors/sdk/authentication/basic-authentication.md","ref":"developing-connectors/sdk/authentication/basic-authentication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/authentication/oauth2-authentication.md","mtime":"2017-11-30T01:11:45.759Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-30T01:13:34.443Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
