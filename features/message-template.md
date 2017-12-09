@@ -32,7 +32,7 @@ and it uses template variables for dynamic content.
 The recipe developer generates mail message by providing the template name and the values for message 
 variables.
 
-![Creating a message from a template](/assets/images/features/message-template/creating-message.gif)
+![Creating a message from a template](/assets/images/features/message-template/creating-message.jpg)
 *Creating a message from a template*
 
 This enables the UI developer to change the format of the message without making changes to the recipe.
