@@ -4,10 +4,10 @@ date: 2017-06-09 04:45:00 Z
 ---
 
 # Splunk
-[Splunk](https://www.splunk.com/) is a software that provides operational intelligence to monitor, report and analyze real-time data to deliver operational intelligence for security, IT and business.
+[Splunk](https://www.splunk.com/) is software that enables monitoring, reporting and analyzing of real-time data to deliver operational intelligence for security, IT and business.
 
 ## Run query action
-This action lets you run an ad hoc query from Workato in your Splunk instance.
+This action lets you run an ad hoc query in your Splunk instance, from a Workato recipe.
 
 ### Output field list
 When working with Splunk queries, you will need to define the output schema for the function being called, as each response is dependent on the individual query. This sample output schema will be used to build the [output datatree](/workato-concepts.md#data-tree-and-pills). This datatree allows you to use the data returned from the Splunk query in subsequent recipe actions.
