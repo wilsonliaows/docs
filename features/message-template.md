@@ -1,12 +1,10 @@
 
 ---
 title: Message template
-
 date: 2017-12-09 18:00:00 Z
 ---
 
 # Message template
-
 The message template enables you to create static templates for commonly used messages. Workato templates use [Mustache](https://mustache.github.io/mustache.5.html) as templating language. Template can be used to generate HTML/text/JSON/XML messages. Template allows you to separate the message composition logic from the message generation logic. This separation enables the template developer to change the format of the message without making changes to the recipe.
 
 Workato templates are "logic-less" as there is no control flow logic in the template(if/else/looping etc). The 
@@ -32,7 +30,6 @@ variables.
 *Creating a message from a template*
 
 ## Variables
-
 The variable tag enables you specify placeholders in a template. The variable tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. The template engine will look for the variable `email` in the current context. If `email` is not present in the current context then the parent contexts are traversed till the top context. An empty string is returned when the variable is not found.
 
 The variable values are HTML escaped. To unescape the value use triple mustache(`{{{email}}}`) or `&` (`{{& email}}`).
@@ -185,7 +182,6 @@ _Example_
 ```
 
 ## Comments
-
 Comments tags begin with a `!`. Comments are ignored while generating message from a template.
 
 _Example_ 
@@ -228,7 +224,6 @@ _Example_
 ```
 
 ## Partials
-
 Partials begin with `>`(`{{> common_css }}`). Partials enables you to create reusable template snippets.
 Workato supports nested partials. Care must be taken to avoid infinitely recursive partials. 
 
@@ -288,7 +283,6 @@ _Example_
 
 
 ## Using templates in recipes
-
 Use the `Create message` action in `Message template by Workato` adapter to generate a message from 
 a message template.
 
