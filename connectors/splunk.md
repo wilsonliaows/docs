@@ -57,4 +57,4 @@ Provide the Splunk query to run here. Refer to the [Search Tutorial](https://doc
 #### Earliest/latest time
 Events stored in Splunk are saved together with its timestamp (time when the event occurred) as the default field `_time` in UNIX time notation. Search queries generally contain a time period `earliest` or `latest`, in order to search for events with timestamp beginning/ending, or between the specified timestamps.
 
-Refer to the [Time Modifiers Documentation](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/Usethesearchlanguage) by Splunk for more details.
+Refer to the [Time Modifiers Documentation](https://docs.splunk.com/Documentation/SplunkCloud/6.6.3/SearchReference/SearchTimeModifiers) by Splunk for more details.
