@@ -1,48 +1,42 @@
-
 ---
 title: Message template
 date: 2017-12-09 18:00:00 Z
 ---
 
 # Message template
-The message template enables you to create static templates for commonly used messages. Workato templates use [Mustache](https://mustache.github.io/mustache.5.html) as templating language. Template can be used to generate HTML/text/JSON/XML messages. Template allows you to separate the message composition logic from the message generation logic. This separation enables the template developer to change the format of the message without making changes to the recipe.
+Message templates enable you to create static templates for commonly used messages. Workato templates use [Mustache](https://mustache.github.io/mustache.5.html) as the templating language. Message templates can be used to generate HTML/text/JSON/XML messages. They also allow you to separate the message composition logic (what the message should look like) from the message generation logic (when the message should be sent). This separation enables the template developer to change the format of the message without making changes to the recipe that sends the message out.
 
 Workato templates are "logic-less" as there is no control flow logic in the template(if/else/looping etc). The 
 templates use tags for variable substitution, conditional blocks and list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. Tag syntax determines the tag behavior.
 
-Every template has an associated input schema. The schema defines the variables that can be used in the 
-template. Schema supports scalar data types(string, integer, date etc.) and complex data types(object, array). 
+Each message template has an associated input schema. The schema defines the variables that can be used in the 
+template. Schema supports both scalar data types (string, integer, date etc.) and complex data types (object, array). 
 
-The recipe developer supplies the input conforming to the template schema while creating a document from a template.
+The recipe developer has to supply the values for the template schema when creating messages from a template.
 
-_Example_
-
-- The UI developer builds the HTML template for the outgoing mails. The template contains CSS
-and it uses template variables for dynamic content.
+## Message template example
+The UI developer builds a HTML template for outgoing emails about shipped products in an order. The message template contains CSS and it uses template variables for dynamic content.
 
 ![HTML template with variable substitution ](/assets/images/message-template/template-with-input.png)
 *HTML template with variable substitution*
 
-- The recipe developer generates mail message by providing the template name and the values for message 
-variables.
+The recipe developer generates the email message by selecting the template to use and providing the values for message variables.
 
 ![Creating a message from a template](/assets/images/message-template/creating-message.jpg)
 *Creating a message from a template*
 
 ## Variables
-The variable tag enables you specify placeholders in a template. The variable tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. The template engine will look for the variable `email` in the current context. If `email` is not present in the current context then the parent contexts are traversed till the top context. An empty string is returned when the variable is not found.
+The variable tag enables you to specify placeholders in a template. Variable tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. The template engine will look for the variable `email` in the current context. If `email` is not present in the current context, then the parent contexts are traversed till the top context. An empty string is returned when the variable is not found.
 
-The variable values are HTML escaped. To unescape the value use triple mustache(`{{{email}}}`) or `&` (`{{& email}}`).
+Variable values are HTML escaped. To unescape the value use triple mustache (`{{{email}}}`) or `&` (`{{& email}}`).
 
-
-_Example_
-
-- Template definition
+### Template definition with variables example
+We define the template below with the variables `name`, `email`, HTML escaped `bio` and unescaped `bio`.
 
 ![Template with variables](/assets/images/message-template/template-with-variables.png)
 *Template with variables*
 
-- Template input
+If we pass in the following values into the template:
 
 ```javascript
 {
@@ -51,7 +45,7 @@ _Example_
 }
 ```
 
-- Template output
+We would receive the following template output:
 
 ```html
 <html>
@@ -70,14 +64,13 @@ Sections render single or repeated blocks of text. Section begin with a `#` ( `{
 ### Object section
 Section is rendered once when the value of section variable is an object. The block has access to all the keys declared in the object.
 
-_Example_
-
-- Template definition
+#### Template definition with object section example
+We define the template below with an object section `user` with the fields `name`, `email` and `phone`.
 
 ![Template with object section](/assets/images/message-template/template-with-object-section.png)
 *Template with object section*
 
-- Template input
+If we pass in the following values into the template:
 
 ```javascript
 {
@@ -89,7 +82,7 @@ _Example_
 }
 ```
 
-- Template output
+We would receive the following template output:
 
 ```html
 <html>
@@ -106,14 +99,13 @@ _Example_
 ### List section
 Section is rendered multiple times when the value of section variable is a list. The block has access to all the keys declared in a row of the list.
 
-_Example_
-
-- Template definition
+#### Template definition with list section example
+We define the template below with a list section `order_lines` with fields `product_name`, `qty`, `price`, `total`.
 
 ![Template with list section](/assets/images/message-template/template-with-list-section.png)
 *Template with list section*
 
-- Template input
+If we pass in the following values into the template:
 
 ```javascript
 {
@@ -125,7 +117,7 @@ _Example_
 }
 ```
 
-- Template output
+We would receive the following template output:
 
 ```html
 <html>
@@ -151,14 +143,13 @@ _Example_
 ### Inverted section
 Inverted section is rendered when a template variable is missing/false/empty list. Inverted section begin with a `^` ( `{{^order_lines}}` ) and ends with a `/` ( `{{/order_lines}}` ).
 
-_Example_
-
-- Template definition
+#### Template definition with inverted section example
+We define the template below with an inverted section `order_lines` that displays an error message `No error lines!!` if the order_lines list is missing/false/empty. 
 
 ![Template with list section](/assets/images/message-template/template-with-inverted-section.png)
 *Template with inverted section*
 
-- Template input
+If we pass in the following values into the template:
 
 ```javascript
 {
@@ -167,7 +158,7 @@ _Example_
 }
 ```
 
-- Template output
+We would receive the following template output:
 
 ```html
 <html>
@@ -184,9 +175,8 @@ _Example_
 ## Comments
 Comments tags begin with a `!`. Comments are ignored while generating message from a template.
 
-_Example_ 
-
-- Template definition
+### Template definition with comments example
+We define the template below with the comment `Render the management section for administrators`.
 
 ```html
 <html>
@@ -203,7 +193,7 @@ _Example_
 </html>
 ```
 
-- Template input
+If we pass in the following values into the template:
 
 ```javascript
 {
@@ -211,7 +201,7 @@ _Example_
 }
 ```
 
-- Template output
+We would receive the following template output:
 
 ```html
 <html>
@@ -229,9 +219,10 @@ Workato supports nested partials. Care must be taken to avoid infinitely recursi
 
 The partials inherit the calling context of the parent.
 
-_Example_ 
+### Template/partial definition example
+We define the template below with the partial `user_name`.
 
-- Partial definition(header)
+The following is the partial definition (header):
 
 ```html
 <div class="header">
@@ -242,7 +233,7 @@ _Example_
 </div>
 ```
 
-- Template definition(header)
+The following is the template definition (header):
 
 ```html
 <html>
@@ -255,7 +246,7 @@ _Example_
 </html>
 ```
 
-- Template input
+If we pass in the following values into the template:
 
 ```javascript
 {
@@ -263,7 +254,7 @@ _Example_
 }
 ```
 
-- Template output
+We would receive the following template output:
 
 ```html
 <html>
@@ -281,14 +272,13 @@ _Example_
 </html>
 ```
 
-
 ## Using templates in recipes
-Use the `Create message` action in `Message template by Workato` adapter to generate a message from 
+Use the **Create message** action in **Message template by Workato** adapter to generate a message from 
 a message template.
 
-The action requires the values for the template input while creating the recipe.
-
-The action generates a message conforming to the template while running a job.
+The action requires values for the template input while creating the recipe. You can either hardcode these values by typing in text, or pass in datapills from Workato datatrees, as seen below.
 
 ![Creating a message from a template](/assets/images/message-template/creating-message.jpg)
-*Creating a message from a template*
+*Mapping datapills to template input fields when creating the recipe*
+
+The action generates a message conforming to the template while running a job.
