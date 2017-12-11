@@ -10,10 +10,12 @@ date: 2017-12-09 18:00:00 Z
 The message template enables you to create static templates for commonly used messages. Workato templates use [Mustache](https://mustache.github.io/mustache.5.html) as templating language. Template can be used to generate HTML/text/JSON/XML messages. Template allows you to separate the message composition logic from the message generation logic. This separation enables the template developer to change the format of the message without making changes to the recipe.
 
 Workato templates are "logic-less" as there is no control flow logic in the template(if/else/looping etc). The 
-templates use tags for variable substitution, conditional blocks, list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. {{email}}. Tag syntax determines the tag behavior
+templates use tags for variable substitution, conditional blocks and list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. Tag syntax determines the tag behavior.
 
 Every template has an associated input schema. The schema defines the variables that can be used in the 
-template. Schema supports scalars(string, integer, date etc.) and complex(object, array) data types. While creating a document from a template in a recipe, the recipe developer supplies the input conforming to the template schema in the recipe
+template. Schema supports scalar data types(string, integer, date etc.) and complex data types(object, array). 
+
+The recipe developer supplies the input conforming to the template schema while creating a document from a template.
 
 _Example_
 
@@ -31,7 +33,7 @@ variables.
 
 ## Variables
 
-The variable tag enables you specify placeholders in a template for substitution. The variable tags are enclosed inside 2 opening and closing curly braces, e.g. {{email}}. The template engine will look for the variable `email` in the current context. If `email` variable is not present in the current context the parent contexts are traversed until the top context. An empty string is returned when the variable is not found.
+The variable tag enables you specify placeholders in a template. The variable tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. The template engine will look for the variable `email` in the current context. If `email` is not present in the current context then the parent contexts are traversed till the top context. An empty string is returned when the variable is not found.
 
 The variable values are HTML escaped. To unescape the value use triple mustache(`{{{email}}}`) or `&` (`{{& email}}`).
 
@@ -66,11 +68,10 @@ _Example_
 ```
 
 ## Sections
-Sections render single or repeated blocks of text. Section begin with a `#` (`{{#user}}`) and ends with a `/` (`{{/user}}`). The value of the section variable determines behavior of the section. 
+Sections render single or repeated blocks of text. Section begin with a `#` ( `{{#user}}` ) and ends with a `/` ( `{{/user}}` ). The value of the section variable determines behavior of the section. 
 
 ### Object section
-
-When the value of section variable is an object, the section is rendered once. The block has access to all the keys declared in the object.
+Section is rendered once when the value of section variable is an object. The block has access to all the keys declared in the object.
 
 _Example_
 
@@ -106,7 +107,7 @@ _Example_
 ```
 
 ### List section
-When the value of section variable is a list, block is rendered multiple times. The block has access to all the keys declared in a row of the list.
+Section is rendered multiple times when the value of section variable is a list. The block has access to all the keys declared in a row of the list.
 
 _Example_
 
@@ -151,7 +152,7 @@ _Example_
 ```
 
 ### Inverted section
-Inverted section is rendered when a template variable is missing/false/empty list. Inverted section begin with a `^` (`{{^order_lines}}`) and ends with a `/` (`{{/order_lines}}`).
+Inverted section is rendered when a template variable is missing/false/empty list. Inverted section begin with a `^` ( `{{^order_lines}}` ) and ends with a `/` ( `{{/order_lines}}` ).
 
 _Example_
 
@@ -258,6 +259,7 @@ _Example_
   </body>
 </html>
 ```
+
 - Template input
 
 ```javascript
