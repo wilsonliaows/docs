@@ -22,7 +22,7 @@ There are 2 ways to define this output schema:
 ##### Add individual fields
 Clicking on `+ Add new field` brings up the following schema designer widget.
 
-![Sample JSON pop up](/assets/images/splunk/individual_field_pop_up.png)
+![Single field pop up](/assets/images/splunk/individual_field_pop_up.png)
 *Schema designer widget (Single field)*
 
 Add the field name and type for each field returned from this search. Clicking on `Add field` will update the output schema with the relevant fields.
@@ -37,16 +37,16 @@ If the query returns a sample JSON response like this:
 
 ```json
 {
-  "id": 123,
-  "name": "Ee Shan",
-  "email": "eeshan@workato.com"
+  "category": "sales",
+  "count": 63,
+  "percent": 29.71
 }
 ```
 
 All you need to do is copy and paste this sample JSON into the schema designer widget. The schema will be automatically generated into the Workato schema definition structure.
 
 ### Search query
-Refer to the [Search Tutorial](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/Usethesearchlanguage) by Splunk for more details.
+This input field is where you provide the query. Refer to the [Search Tutorial](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/Usethesearchlanguage) by Splunk for more details.
 
 ### Earliest/latest time
 Events stored in Splunk are saved together with its timestamp (time when the event occurred) as the default field `_time` in UNIX time notation. Searches generally contain a time period `earliest` or `latest`, in order to search for events with timestamp beginning/ending, or between the specified timestamps.
