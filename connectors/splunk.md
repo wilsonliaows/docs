@@ -18,7 +18,7 @@ This action lets you run an ad hoc query in your Splunk instance, from a Workato
 - [Earliest/latest time](#earliestlatest-time)
 
 #### Output field list
-Every Splunk query has an expected response. When working with Splunk queries on Workato, you will need to define this response as output schema for the function being called. This output schema defined will be used to build the [output datatree](/workato-concepts.md#data-tree-and-pills) for the action. This datatree allows you to map the variables returned from the Splunk query in subsequent recipe actions.
+Every Splunk query has an expected response. When working with Splunk queries on Workato, you will need to define this response as output schema for the function being called. This output schema defined will be used to build the [output datatree](/workato-concepts.md#datatree-and-datapills) for the action. This datatree allows you to map the variables returned from the Splunk query in subsequent recipe actions.
 
 ![Schema Designer](/assets/images/splunk/response_body_input_field.png)
 *Response body input field*
