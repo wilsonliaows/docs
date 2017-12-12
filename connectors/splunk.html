@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Oracle EBS · Workato Docs</title>
+        <title>Splunk · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="oracle-ebs.html" />
+    <link rel="next" href="surveymonkey.html" />
     
     
-    <link rel="prev" href="netsuite.html" />
+    <link rel="prev" href="slack.html" />
     
 
     
@@ -98,7 +98,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="..">Oracle EBS</a>
+          <a href="..">Splunk</a>
         </h1>
       </div>
     </div>
@@ -3177,7 +3177,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.16.12" data-path="oracle-ebs.html">
+    <li class="chapter " data-level="1.16.12" data-path="oracle-ebs.html">
       
         <i class="fa fa-angle-right chapter__toggle"></i>
       
@@ -3766,7 +3766,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.20" data-path="splunk.html">
+    <li class="chapter active" data-level="1.16.20" data-path="splunk.html">
       
 
       
@@ -4341,62 +4341,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="oracle-e-business-suite">Oracle E-Business Suite</h1>
-<p><a href="http://www.oracle.com/us/products/applications/ebusiness/overview/index.html" target="_blank">Oracle&apos;s E-Business Suite</a> (also known as Applications/Apps or EB-Suite/EBS), is a collection of enterprise resource planning (ERP), customer relationship management (CRM), and supply-chain management (SCM) computer applications that enables organizations of any size to operate and perform effectively.</p>
-<h2 id="how-to-connect-to-oracle-e-business-suite-on-workato">How to connect to Oracle E-Business Suite on Workato</h2>
-<h3 id="pre-requisites">Pre-requisites</h3>
+                                <h1 id="splunk">Splunk</h1>
+<p><a href="https://www.splunk.com/" target="_blank">Splunk</a> is software that enables monitoring, reporting and analyzing of real-time data to deliver operational intelligence for security, IT and business.</p>
+<h2 id="working-with-the-splunk-connector">Working with the Splunk connector</h2>
+<h3 id="run-query-action">Run query action</h3>
+<p>This action lets you run an ad hoc query in your Splunk instance, from a Workato recipe. We cover the input fields in this action in the following segments:</p>
+<ul>
+<li><p><a href="#output-field-list">Output field list</a></p>
+</li>
+<li><p><a href="#search-query">Search query</a></p>
+</li>
+<li><p><a href="#earliestlatest-time">Earliest/latest time</a></p>
+</li>
+</ul>
+<h4 id="output-field-list">Output field list</h4>
+<p>Every Splunk query has an expected response. When working with Splunk queries on Workato, you will need to define this response as output schema for the function being called. This output schema defined will be used to build the <a href="../workato-concepts.html#datatree-and-datapills">output datatree</a> for the action. This datatree allows you to map the variables returned from the Splunk query in subsequent recipe actions.</p>
+<p><img src="../assets/images/splunk/response_body_input_field.png" alt="Schema Designer">
+<em>Response body input field</em></p>
+<p>There are 2 ways to define this output schema:</p>
 <ol>
-<li><p>Install <a href="https://docs.oracle.com/cd/E26401_01/doc.122/e20925/T511175T578675.htm" target="_blank">Oracle E-Business Suite Integrated SOA Gateway</a></p>
-</li>
-<li><p>Install <a href="https://www.workato.com/secure_agents" target="_blank">Workato on-prem agent</a></p>
-</li>
-<li><p>In the Oracle EBS, deploy User PL/SQL REST service (internal name: FND_USER_PKG) with name &#x201C;user&#x201D;. Below are the steps to install PL/SQL REST service</p>
-</li>
+<li>Add individual fields</li>
+<li>Use sample JSON</li>
 </ol>
-<p>a. Login to Oracle EBS</p>
-<p>b. From the main menu, click on <em>Integrated SOA Gateway</em> &gt; <em>Integration Repository</em></p>
-<p><img src="../assets/images/connectors/oracle-ebs/oracle-applications.png" alt="Oracle Applications Home page">
-<em>Oracle Applications home page</em></p>
-<p>c. Click on <strong>Search</strong></p>
-<p><img src="../assets/images/connectors/oracle-ebs/search.png" alt="Search on page">
-<em>Click on Search</em></p>
-<p>d. Search for interface name &quot;user&quot; and select the service with internal name <strong>FND_USER_PKG</strong></p>
-<p><img src="../assets/images/connectors/oracle-ebs/interface.png" alt="Search for User">
-<em>Locate FND_USER_PKG</em></p>
-<p>e. Go to the <strong>REST Web Services</strong> tab. Enter the service name as &quot;user&quot; and click on <strong>Deploy</strong>.</p>
-<p><img src="../assets/images/connectors/oracle-ebs/web-service.png" alt="User service name">
-<em>Locate the REST web services and enter &quot;user&quot;</em></p>
-<h3 id="establishing-the-connection-on-workato">Establishing the connection on Workato</h3>
-<p>Create the Oracle EBS connection from within the recipe <strong>Connections</strong> tab, or from the account <a href="https://www.workato.com/connections" target="_blank">connections page</a>:</p>
-<p>To create the connection, select <strong>Oracle E-Business Suite</strong>, fill in the fields required, and click <strong>Connect</strong>. At this point, Workato will make a simple &#x201C;hello world&#x201D; test to your Oracle EBS instance, using the REST service specified in <strong>User service name</strong> above.</p>
-<p>If all goes well, you should get a green success message displayed next to the button.</p>
-<p><img src="../assets/images/connectors/oracle-ebs/oracle-recipe.jpg" alt="Oracle recipe">
-<em>Creating new Oracle E-Business Suite connection</em></p>
-<p>Fields are as follows:</p>
-<ul>
-<li>Connection name:</li>
-</ul>
-<p>Use something that identifies the specific Oracle EBS instance, e.g. &#x201C;HR Sandbox&#x201D;.</p>
-<ul>
-<li>On-prem secure agent:</li>
-</ul>
-<p>If your Oracle EBS instance is not accessible directly from the Internet, Workato will need to connect to it via an <a href="../on-prem.html">on-premise agent</a>.  Select the appropriate, active on-premise agent that has network access to this Oracle EBS instance.</p>
-<ul>
-<li>Instance URL:</li>
-</ul>
-<p>The base URL where the REST services enabled on your Oracle SOA gateway can be accessed.</p>
-<ul>
-<li>Username:</li>
-</ul>
-<p>The username that Workato will use to access the REST services on your Oracle SOA gateway.</p>
-<ul>
-<li>Password:</li>
-</ul>
-<p>Corresponding password for the above username.</p>
-<ul>
-<li>User service name:</li>
-</ul>
-<p>This is used only to test connectivity.</p>
+<h5 id="1-add-individual-fields">1. Add individual fields</h5>
+<p>Click on <code>+ Add new field</code> to bring up the following schema designer widget.</p>
+<p><img src="../assets/images/splunk/individual_field_pop_up.png" alt="Single field pop up">
+<em>Schema designer widget (Single field)</em></p>
+<p>Define the field name and type for each field returned from this search. Click on <code>Add field</code> to update the output schema with this new field.</p>
+<h5 id="2-use-sample-json">2. Use sample JSON</h5>
+<p>Click on <code>generate from JSON sample</code> to bring up the following schema designer widget.</p>
+<p><img src="../assets/images/splunk/sample_json_pop_up.png" alt="Sample JSON pop up">
+<em>Schema designer widget (JSON)</em></p>
+<p>If you have a sample JSON response for your query, you can simply paste it in the widget to generate the output datatree. The schema will be automatically generated into the Workato schema definition structure. An example JSON is as follows.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;category&quot;</span>: <span class="hljs-string">&quot;sales&quot;</span>,
+  <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">63</span>,
+  <span class="hljs-string">&quot;percent&quot;</span>: <span class="hljs-number">29.71</span>
+}
+</code></pre>
+<h4 id="search-query">Search query</h4>
+<p>Provide the Splunk query to run here. Refer to the <a href="https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/Usethesearchlanguage" target="_blank">Search Tutorial</a> by Splunk for more details.</p>
+<h4 id="earliestlatest-time">Earliest/latest time</h4>
+<p>Events stored in Splunk are saved together with its timestamp (time when the event occurred) as the default field <code>_time</code> in UNIX time notation. Search queries generally contain a time period <code>earliest</code> or <code>latest</code>, in order to search for events with timestamp beginning/ending, or between the specified timestamps.</p>
+<p>Refer to the <a href="https://docs.splunk.com/Documentation/SplunkCloud/6.6.3/SearchReference/SearchTimeModifiers" target="_blank">Time Modifiers Documentation</a> by Splunk for more details.</p>
 
                                 
                                 </section>
@@ -4479,7 +4466,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Oracle EBS","date":"2017-02-16T06:15:00.000Z","level":"1.16.12","depth":2,"next":{"title":"Connection setup","level":"1.16.12.1","depth":3,"anchor":"#how-to-connect-to-oracle-e-business-suite-on-workato","path":"connectors/oracle-ebs.md","ref":"connectors/oracle-ebs.md#how-to-connect-to-oracle-e-business-suite-on-workato","articles":[]},"previous":{"title":"Update standard/custom object action","level":"1.16.11.10","depth":3,"anchor":"#update-standard-object-and-update-custom-object-action","path":"connectors/netsuite.md","ref":"connectors/netsuite.md#update-standard-object-and-update-custom-object-action","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/oracle-ebs.md","mtime":"2017-12-12T00:20:27.582Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-12T00:23:06.984Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Splunk","date":"2017-06-09T04:45:00.000Z","level":"1.16.20","depth":2,"next":{"title":"SurveyMonkey","level":"1.16.21","depth":2,"path":"connectors/surveymonkey.md","ref":"connectors/surveymonkey.md","articles":[]},"previous":{"title":"Message threads","level":"1.16.19.3","depth":3,"anchor":"#using-slack-threads","path":"connectors/slack.md","ref":"connectors/slack.md#using-slack-threads","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/splunk.md","mtime":"2017-12-12T00:20:27.582Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-12T00:23:06.984Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
