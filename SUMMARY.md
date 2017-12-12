@@ -217,6 +217,7 @@
     * [Slack VS Workbot](/connectors/slack.md#slack-vs-workbot-for-slack-connectors)
     * [Message buttons](connectors/slack.md#using-slack-message-buttons)
     * [Message threads](/connectors/slack.md#using-slack-threads)
+  * [Splunk](connectors/splunk.md)
   * [SurveyMonkey](connectors/surveymonkey.md)
   * [Workday](connectors/workday.md)
     * [Get report](connectors/workday/get_report.md)

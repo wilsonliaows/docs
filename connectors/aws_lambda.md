@@ -38,7 +38,7 @@ Workato requires all data be presented as key & value pairs. This is done so tha
 }
 ```
 
-Wrap it in a parent `"response" object:
+Wrap it in a parent `"response"` object:
 
 ```json
 {
