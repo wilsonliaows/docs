@@ -8,8 +8,8 @@ date: 2017-12-12 18:00:00 Z
 
 # Security
 
-## IP/domain whitelists
-Whitelisting allows you to ensure traffic to/from Workato is not hijacked by a malicious website.
+## IP whitelists
+IP whitelisting allows you to ensure traffic to/from Workato is not hijacked by a malicious website.
 
 ### Traffic from Workato
 Al traffic from Workato comes through following IP addresses:
