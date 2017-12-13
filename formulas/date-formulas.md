@@ -162,7 +162,7 @@ To change the format of a datetime value to suit your preferences, you can use t
 
 As shown above, each code (%B, %e, %I etc.) refers to a specific element of datetime. Static text and punctuation can also be added, such as commas (,), slashes (/), and colons (:). Here's a list of commonly used codes in Workato:
 
-| Code             | Meaning                                | Example (Using 2017-06-05T17:13:27+00:00) |
+| Code             | Meaning                                | Example (Using 2017-06-05T17:13:27+08:00) |
 | ---------------- | -------------------------------------- | ---------------------------------------- |
 | %Y               | Year with century                      | 2017                                     |
 | %m               | Month with zero-prefix                 | 06                                       |
@@ -177,7 +177,8 @@ As shown above, each code (%B, %e, %I etc.) refers to a specific element of date
 | %p               | AM or PM                               | PM                                       |
 | %M               | Minute of the hour                     | 13                                       |
 | %S               | Second of the minute                   | 27                                       |
-| %z               | Time zone offset from UTC              | +00:00                                   |
+| %z               | Time zone offset from UTC              | +0800                                    |
+| %:z              | Time zone formatted offset from UTC    | +08:00                                   |
 | %Z               | Time zone abbrev. name                 | UTC                                      |
 | %A               | Full day name                          | Monday                                   |
 
