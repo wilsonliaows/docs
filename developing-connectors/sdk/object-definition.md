@@ -103,6 +103,7 @@ object_definitions: {
                 <li><code>:currency</code></li>
                 <li><code>:phone</code></li>
                 <li><code>:email</code></li>
+                <li><code>:subdomain</code>Used only in Connection block, make sure to include the <code>:url</code> property.</li>
               <ul>              
             </td>
         </tr>
