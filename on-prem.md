@@ -173,9 +173,56 @@ For example, if we were to access the on-prem-file folder on the Desktop, the co
 
 The file path can be found when you right-click on the folder, and select **get info** or **property**.
 
+### Apache Kafka
+Kafka connection profiles are located in the `kafka` section of `<INSTALL_HOME>/conf/config.yml`.
+You need the following configuration properties when connecting to Kafka:
+```YAML
+kafka:
+  MyKafkaProfile:
+    ... connection properties ...
+```
+
+You can provide any of Kafka [consumer](https://kafka.apache.org/documentation/#producerconfigs) or [producer](https://kafka.apache.org/documentation/#newconsumerconfigs) configuration properties, for example `bootstrap.servers` or `batch_size`. Some properties are overriden by Workato Agent and cannot be configured:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| key.serializer | Only StringSerializer is supported by agent |
+| value.serializer | Only StringSerializer is supported by agent |
+| key.deserializer | Only StringSerializer is supported by agent |
+| value.deserializer | Only StringSerializer is supported by agent |
+| auto.offset.reset | Defined by recipes |
+| enable.auto.commit | Defined internally |
+
+You will get a warning when trying to redefine a protected property.
+
+Workato Agent also supports the following (non-Kafka) configuration properties:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| timeout | General operation timeout, milliseconds. |
+| url | Comma-separated list of server URLs where protocol is either `kafka` or `kafka+ssl`. |
+| ssl.truststore | Allows inlining of PEM-encoded truststore for secure connection to Kafka |
+| ssl.keystore.key | Allows inlining of private key for secure connection to Kafka |
+| ssl.keystore.cert | Allows inlining of client certificate for secure connection to Kafka |
+
+`ssl.*` options above can be used when connecting to Kafka using SSL/TLS and allows keeping PEM-encoded certificates and private keys inside the `config.yml` file. Any YAML-compatible multiline syntax could be used, for instance:
+
+```YAML
+kafka:
+  MyKafkaProfile:
+    ssl.truststore:
+    |
+      -----BEGIN CERTIFICATE-----
+      502mPNNAYkY4a7Zu84DLCXLFurEa4BhLBqLkzC6WdTrBN9z6Rp/svTIl6VgjSTP6
+      .....
+      -----END CERTIFICATE-----
+```
+
+Note that password-protected private keys cannot be inlined.
+
 ### Password encryption
 
-To avoid exposure of any sensitive data (like passwords) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:
+To avoid exposure of any sensitive data (like passwords or private keys) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:
 
 - Make sure you have your agent keys properly downloaded and placed into `conf` folder. They are required for encryption.
 - Run the encryptor tool. Use `bin\encryptor.cmd` in Windows, `bin/encryptor.sh` script for Unix/MacOS.
