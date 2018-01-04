@@ -1,39 +1,50 @@
 # Reusable Methods
 
-Reusable methods are now supported in Workato. This is nifty if you seek to reuse custom methods anywhere within an executable lambda (e.g. `execute`, `object_definitions/fields`).
+Reusable methods are supported in Workato. Reusable methods help keep your custom adapter code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and may be used in any code block.
 
-Such methods are declared using the `method` block. This block lies in the same level as the `trigger` and `action` blocks.
+Such methods are declared using the `method` block. This block is a top-level key, similar to triggers and actions.
 
 ## Example
 ```ruby
-methods: {
-  factorial: lambda do |input|
-    number = input[:number]
-    if number > 1
-      number * call(:factorial, { number: number - 1 })
-    else
-      number
+{
+  title: "Math",
+
+  connection: {...},
+
+  methods: {
+    factorial: lambda do |input|
+      number = input[:number]
+      if number > 1
+        number * call(:factorial, { number: number - 1 })
+      else
+        number
+      end
     end
-  end
 
-  hello: lambda do
-    puts "Hello world"
-  end
-},
-
-actions: {
-  factorial: {
-    execute: lambda do |connection, input|
-      { factorial: call(:factorial, { number: input["number"] }) }
+    hello: lambda do
+      puts "Hello world"
     end
   },
 
-  say_hello: {
-    execute: lambda do
-      call(:hello)
-    end
-  }
-},
+  actions: {
+    factorial: {
+      input_fields: lambda do
+        [
+          { name: "number", type: :integer }
+        ]
+      end,
+
+      execute: lambda do |connection, input|
+        { factorial: call(:factorial, { number: input["number"] }) }
+      end
+    },
+
+    say_hello: {
+      execute: lambda do
+        call(:hello)
+      end
+    }
+  },
 ```
 
 ## The `call` method
@@ -45,39 +56,21 @@ call(:name, { number: 1 })
 Use the `call()` method to reference a method. This method takes in two parameters:
 
 1. Method name
-  - Use the method name defined. You can use either `:name` or `"name"` representations.
+  - Use the method name defined. You can use either `:method_name` (symbol) or `"method_name"` (string) representations.
 2. Input hash (optional)
-  - This is a multi-valued hash of input variables. Leave blank if your method does not take in an input.
+  - This is a hash of input variables. Leave blank if your method does not take in an input.
 
-The input hash is later appended to the main `input` object, which you can reference as so
+The input hash is passed into the method as an argument, which you may reference as so:
 
 ```ruby
-factorial: lambda do |input|
-  number = input[:number]
-...
+methods: {
+  factorial: lambda do |input|
+    number = input[:number]
+    ...
 ```
-
-This means that within your method, you may also make reference to any other keys stored in the global `input` hash. However, you may not reference any local input variables outside of this lambda.
-
-The following code block works where `input[:constant]` was defined by the user at runtime.
-```ruby
-factorial_extension: lambda do |input|
-  number = input[:number] + input[:constant]
-end
-```
-
-If `number` was an input variable to the `factorial` method, the following code block will not work.
-```ruby
-test_action: {
-  execute: lambda do |connection, input|
-    call(:factorial, { number: 1 } )
-    puts input[:number]
-  end
-```
-
 
 ## Recursion
-In the case of the factorial example provided above, note that the `factorial` method has some degree of recursion. Be careful when writing recursive loops by setting failsafes as in the example below:
+Methods can also be called within method code blocks. This means that a method can be called by another method or by itself. In the case of the factorial example provided above, note that the `factorial` method has some degree of recursion. Be careful when writing recursive loops by setting failsafes as in the example below:
 
 ```ruby
 if number > 1
