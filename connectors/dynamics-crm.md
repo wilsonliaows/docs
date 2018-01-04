@@ -48,5 +48,14 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 ![Application ID](/assets/images/connectors/microsoft-dynamics-CRM/application.png)
 *Retrieve the Application ID*
 
+9. [Extend the refresh token epxiration time](#extending-refresh-token-expiration-time) if required.
+
 ## Connecting to an on-premise Microsoft Dynamics CRM instance
 In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Azure Active Directory. Click [here](https://technet.microsoft.com/itpro/powershell/windows/adfs/add-adfsclient) to read more on how to register an on-premise Dynamics app with Azure Active Directory.
+
+Remember to [extend the refresh token epxiration time](#extending-refresh-token-expiration-time) if required.
+
+## Extending refresh token expiration time
+Whenever you connect to a Dynamics app, Workato gets an access token and refresh token to be able to read and write to your Dynamics instance. Whenever the refresh token expires, Workato's requests to Dynamics will get a 400 response back. To ensure your recipes run continuously without requiring intervention, extend your refresh token expiration time, or set it to unlimited.You can apply and scope it to an OAuth application instead of applying it to the entire organization.
+
+Read more about token lifetimes [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes).
