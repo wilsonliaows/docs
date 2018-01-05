@@ -255,4 +255,6 @@
   * [Examples](developing-connectors/sdk/examples.md)
   * [Publishing process](developing-connectors/sdk/publishing-process.md)
 * [Workato API](https://www.workato.com/apidoc)
+* [Security](security.md)
+  * [IP whitelists](security.md#ip_whitelists)
 * [Contact us](contact-us.md)
