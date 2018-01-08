@@ -74,6 +74,7 @@
   * [Number formulas](formulas/number-formulas.md)
   * [Date formulas](formulas/date-formulas.md)
   * [List formulas](formulas/array-list-formulas.md)
+  * [Other formylas](formulas/other-formulas.md)
 * [Files and attachments](handling-files-and-attachments.md)
   * [CSV files](features/handling-csv-files.md)
     * [Built-in CSV parsing](features/handling-csv-files.md#built-in-csv-parsing)
