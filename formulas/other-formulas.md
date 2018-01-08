@@ -4,7 +4,7 @@ date: 2017-03-30 05:00:00 Z
 ---
 
 # Other formulas
-This section covers formulas that work with a number of datatypes.
+This section covers formulas that work with a number of data types.
 
 ---
 
