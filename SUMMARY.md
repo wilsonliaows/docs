@@ -250,6 +250,7 @@
     * [JSON](developing-connectors/sdk/data-format/json-format.md)
     * [XML](developing-connectors/sdk/data-format/xml-format.md)
   * [Methods](developing-connectors/sdk/methods.md)
+  * [Reusable methods](developing-connectors/sdk/reusable-methods.md)
   * [Pick lists](developing-connectors/sdk/pick-list.md)
   * [Configuration fields](developing-connectors/sdk/config-fields.md)
   * [Examples](developing-connectors/sdk/examples.md)
