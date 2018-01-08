@@ -13,7 +13,7 @@ This section covers formulas that work with a number of data types.
 This formula allows you to lookup values from your Workato lookup tables via a key. It is case sensitive and data type sensitive.
 
 ### Example
-For example, let's use the following lookup table with name `Department Codes`:
+For example, let's use the following lookup table with name `Department Codes` with an ID of 6:
 
 ![Sample department codes lookup table](/assets/images/formula-docs/department-codes-lookup-table.png)
 *Sample department codes lookup table*
@@ -23,6 +23,7 @@ For example, let's use the following lookup table with name `Department Codes`:
 | `lookup('Department Codes', 'Department code': 'ACC')['Department']`          | "Accounting"  |
 | `lookup('Department Codes', 'Department code': 'SLS')['Department']`          | "Sales"       |
 | `lookup('Department Codes', 'Department': 'Marketing')['Department code']`    | "MKT"         |
+| `lookup('6', 'Department code': 'ACC')['Department']`                         | "Accounting"  #interchangeable lookup table name and ID |
 | `lookup('Department Codes', 'Department': 'marketing')['Department code']`    | nil #case sensitive value for "Marketing"|
 | `lookup('Department Codes', 'Department': 'Marketing')['Department Code']`    | nil #case sensitive value for column name "Department code"|
 
