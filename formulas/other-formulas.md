@@ -10,10 +10,10 @@ This section covers formulas that work with a number of data types.
 
 ## lookup
 
-This formula allows you to lookup values from your Workato lookup tables via a key. It is cse sensitive and data type sensitive.
+This formula allows you to lookup values from your Workato lookup tables via a key. It is case sensitive and data type sensitive.
 
 ### Example
-For example, let's use the following lookup table with name `Department Codes` and ID of 6:
+For example, let's use the following lookup table with name `Department Codes`:
 
 ![Sample department codes lookup table](/assets/images/formula-docs/department-codes-lookup-table.png)
 *Sample department codes lookup table*
@@ -30,7 +30,7 @@ For example, let's use the following lookup table with name `Department Codes` a
 
 ## lookup_table
 
-This formula allows you to create a static lookup table and define the keys and values. It is cse sensitive and data type sensitive.
+This formula allows you to create a static lookup table and define the keys and values. It is case sensitive and data type sensitive.
 
 ### Example
 | Example                                                                | Result    |
