@@ -289,13 +289,12 @@ Follow the instructions below for upgrading an existing agent:
 - Make sure your agent is active and verify its version number on the agent page (**Workato.com &rarr; Tools &rarr; On-prem agent**)
 
 ### Linux/MacOS
-- Download the distribution package
-- Verify that the agent process is stopped
-- Delete `lib/`, `bin/` and `jre/` folders inside the agent installation home
-- Unpack the distribution package to your agent installation home.
-- Verify that the `config.yml` file is still set up properly and that the certificate files (`cert.key`, `cert.pem`) are in the conf directory.
-- Run the agent (e.g. `bin/run.sh`)
+- Verify that the agent process is stopped. The upgrade will fail if any running agents are detected.
+- Run the upgrade script: `bin/upgrade.sh`. Make sure you have enough permissions.
+- Follow the instructions provided by the upgrade script. Confirm the upgrade when prompted.
+- Upon successful completion of the upgrade, run the agent (e.g. `bin/run.sh`)
 - Make sure your agent is active and verify its version number on the agent page (**Workato.com &rarr; Tools &rarr; On-prem agent**).
+- Upgrade process is not triggered if no new versions are available. However, it might be necessary to repair a broken installation, in that case use the command line option when running the upgrade: `bin/upgrade.sh --enforce`.
 
 ## Example recipes
 
