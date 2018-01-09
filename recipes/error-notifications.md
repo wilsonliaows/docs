@@ -19,7 +19,7 @@ When a trigger error is met, the recipe will surface a trigger warning, but cont
 
 In the following case, a trigger warning was raised because the schema recorded in the recipe did not match the schema in the app. The warning suggests refreshing the schema as a way to resolve the trigger error, and further details of the error can be seen when expanded.
 
-![Trigger warning](/assets/images/recipes/errors/trigger-warning.png)
+![Trigger warning](/assets/images/recipes/errors/trigger-warning.gif)
 *Trigger warning surfaced on the recipe due to outdated schema that needs refreshing*
 
 ### Recipes stopped by Workato
