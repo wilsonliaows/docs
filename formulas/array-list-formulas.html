@@ -4801,8 +4801,18 @@
   { <span class="hljs-symbol">name:</span> &#x2019;Jack&#x2019;, <span class="hljs-symbol">email:</span> &#x2019;jack@hbo.com&#x2019;, <span class="hljs-symbol">state:</span> &#x2019;CA&#x2019;, <span class="hljs-symbol">company:</span> &#x2019;HBO&#x2019;, <span class="hljs-symbol">company_rev:</span> &#x2019;<span class="hljs-number">1000</span>&#x2019; }
 ]
 </code></pre>
+<p>The following is a simple WHERE formula retrieving lead records with the company Delphi Chemicals.
+<img src="../assets/images/formula-docs/non-nested-where-formula.png" alt="Simple where formula retrieving lead records from company Delphi Chemicals">
+<em>Simple where formula retrieving lead records from company Delphi Chemicals</em></p>
+<h3 id="example-of-where-formula-for-nested-fields">Example of where formula for nested fields</h3>
+<p>The WHERE formula can be nested to filter for records by nested values in the datatree.</p>
+<p><img src="../assets/images/formula-docs/nested-where-formula.png" alt="Nested where formula retrieving lead records with an address in USA">
+<em>Nested where formula retrieving records with an address in USA</em></p>
+<p>This is in contrast to a simple WHERE formula, where the filtering happens for non-nested values in the datatree:</p>
+<p><img src="../assets/images/formula-docs/non-nested-where-formula.png" alt="Simple where formula retrieving lead records from company Delphi Chemicals">
+<em>Simple where formula retrieving lead records from company Delphi Chemicals</em></p>
 <h3 id="example-of-compound-where-formula">Example of compound where formula</h3>
-<p>A compound where formula will retrieve only the rows that matches all the conditions.</p>
+<p>A compound WHERE formula will retrieve only the rows that matches all the conditions.</p>
 <p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;, &quot;company_revenue &gt;=&quot;: 10000)</code> returns the following rows:</p>
 <table>
 <thead>
@@ -4830,7 +4840,7 @@
 ]
 </code></pre>
 <h3 id="example-of-complex-reduction">Example of complex reduction</h3>
-<p>If a series of where conditions are chained, the formula evaluates each where condition in series.</p>
+<p>If a series of WHERE conditions are chained, the formula evaluates each where condition in series.</p>
 <p><code>contacts.where(&quot;state ==&quot;: &quot;CA&quot;).where(&quot;company_revenue &gt;=&quot;: 10000)</code> returns the following rows, which is the same as the compound where formula:</p>
 <table>
 <thead>
@@ -5452,7 +5462,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"List formulas","date":"2017-03-30T05:00:00.000Z","level":"1.7.5","depth":2,"next":{"title":"Other formulas","level":"1.7.6","depth":2,"path":"formulas/other-formulas.md","ref":"formulas/other-formulas.md","articles":[]},"previous":{"title":"Date formulas","level":"1.7.4","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/array-list-formulas.md","mtime":"2018-01-08T17:23:20.859Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-01-08T17:24:44.042Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"List formulas","date":"2017-03-30T05:00:00.000Z","level":"1.7.5","depth":2,"next":{"title":"Other formulas","level":"1.7.6","depth":2,"path":"formulas/other-formulas.md","ref":"formulas/other-formulas.md","articles":[]},"previous":{"title":"Date formulas","level":"1.7.4","depth":2,"path":"formulas/date-formulas.md","ref":"formulas/date-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/array-list-formulas.md","mtime":"2018-01-10T19:31:56.697Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-01-10T19:33:06.195Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
