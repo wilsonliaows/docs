@@ -157,13 +157,13 @@ The following is a simple WHERE formula retrieving lead records with the company
 ![Simple where formula retrieving lead records from company Delphi Chemicals](/assets/images/formula-docs/non-nested-where-formula.png)
 *Simple where formula retrieving lead records from company Delphi Chemicals*
 
-### Example of nested where formula
-The WHERE formula can be nested to filter for records by values not at the top level of the datatree.
+### Example of where formula for nested fields
+The WHERE formula can be nested to filter for records by nested values in the datatree.
 
 ![Nested where formula retrieving lead records with an address in USA](/assets/images/formula-docs/nested-where-formula.png)
 *Nested where formula retrieving records with an address in USA*
 
-This is in contrast to a simple WHERE formula, where the filtering happens at a non-nested level:
+This is in contrast to a simple WHERE formula, where the filtering happens for non-nested values in the datatree:
 
 ![Simple where formula retrieving lead records from company Delphi Chemicals](/assets/images/formula-docs/non-nested-where-formula.png)
 *Simple where formula retrieving lead records from company Delphi Chemicals*
