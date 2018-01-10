@@ -134,7 +134,6 @@ Returns the last item in a list. Can also be used to return the last n items in 
 ---
 
 ## where
-
 Retrieves only the rows (hashes) which meet the WHERE condition specified.
 
 ### Example of simple where formula
@@ -154,8 +153,23 @@ These rows will be expressed as a list of hashes:
 ]
 ```
 
+The following is a simple WHERE formula retrieving lead records with the company Delphi Chemicals.
+![Simple where formula retrieving lead records from company Delphi Chemicals](/assets/images/formula-docs/non-nested-where-formula.png)
+*Simple where formula retrieving lead records from company Delphi Chemicals*
+
+### Example of where formula for nested fields
+The WHERE formula can be nested to filter for records by nested values in the datatree.
+
+![Nested where formula retrieving lead records with an address in USA](/assets/images/formula-docs/nested-where-formula.png)
+*Nested where formula retrieving records with an address in USA*
+
+This is in contrast to a simple WHERE formula, where the filtering happens for non-nested values in the datatree:
+
+![Simple where formula retrieving lead records from company Delphi Chemicals](/assets/images/formula-docs/non-nested-where-formula.png)
+*Simple where formula retrieving lead records from company Delphi Chemicals*
+
 ### Example of compound where formula
-A compound where formula will retrieve only the rows that matches all the conditions.
+A compound WHERE formula will retrieve only the rows that matches all the conditions.
 
 `contacts.where("state ==": "CA", "company_revenue >=": 10000)` returns the following rows:
 
@@ -172,7 +186,7 @@ These rows will be expressed as a list of hashes:
 ```
 
 ### Example of complex reduction
-If a series of where conditions are chained, the formula evaluates each where condition in series.
+If a series of WHERE conditions are chained, the formula evaluates each where condition in series.
 
 `contacts.where("state ==": "CA").where("company_revenue >=": 10000)` returns the following rows, which is the same as the compound where formula:
 
