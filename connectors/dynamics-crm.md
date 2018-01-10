@@ -43,7 +43,12 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 ![Dynamics CRM](/assets/images/connectors/microsoft-dynamics-CRM/dynamics.gif)
 *Add Dynamics CRM Online API access*
 
-8. Use the application ID as the client ID to connect to Workato.
+8. Click on **Grant permissons** (right next to **+Add**) and click **Yes**.
+
+![Grant permissions](/assets/images/connectors/microsoft-dynamics-CRM/grant-permissions.png)
+*Grant permissions*
+
+9. Use the application ID as the client ID to connect to Workato.
 
 ![Application ID](/assets/images/connectors/microsoft-dynamics-CRM/application.png)
 *Retrieve the Application ID*
