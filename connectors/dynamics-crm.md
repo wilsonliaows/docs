@@ -62,4 +62,4 @@ However, refresh tokens have expiry dates as well. If both access token and refr
 
 To ensure your recipes run continuously without requiring intervention, extend your refresh token expiration time, or set it to unlimited. You can apply and scope it to an OAuth application instead of applying it to the entire organization.
 
-Read more about token lifetimes [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes).
+Read more about token lifetimes in the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes).
