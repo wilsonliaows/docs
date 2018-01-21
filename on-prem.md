@@ -182,7 +182,9 @@ kafka:
     ... connection properties ...
 ```
 
-You can provide any of Kafka [consumer](https://kafka.apache.org/documentation/#producerconfigs) or [producer](https://kafka.apache.org/documentation/#newconsumerconfigs) configuration properties, for example `bootstrap.servers` or `batch_size`. Some properties are overriden by Workato Agent and cannot be configured:
+You can provide any Kafka [consumer](https://kafka.apache.org/documentation/#producerconfigs) or [producer](https://kafka.apache.org/documentation/#newconsumerconfigs) configuration properties, e.g. `bootstrap.servers` or `batch_size`.
+
+However, some properties are overriden by Workato Agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:
 
 | Property name | Comment |
 |------------------|-------------------------------------------|
@@ -192,8 +194,6 @@ You can provide any of Kafka [consumer](https://kafka.apache.org/documentation/#
 | value.deserializer | Only StringSerializer is supported by agent |
 | auto.offset.reset | Defined by recipes |
 | enable.auto.commit | Defined internally |
-
-You will get a warning when trying to redefine a protected property.
 
 Workato Agent also supports the following (non-Kafka) configuration properties:
 
@@ -205,7 +205,7 @@ Workato Agent also supports the following (non-Kafka) configuration properties:
 | ssl.keystore.key | Allows inlining of private key for secure connection to Kafka |
 | ssl.keystore.cert | Allows inlining of client certificate for secure connection to Kafka |
 
-`ssl.*` options above can be used when connecting to Kafka using SSL/TLS and allows keeping PEM-encoded certificates and private keys inside the `config.yml` file. Any YAML-compatible multiline syntax could be used, for instance:
+`ssl.*` options above can be used when connecting to Kafka using SSL/TLS and allows you to keep PEM-encoded certificates and private keys inside the `config.yml` file. Any YAML-compatible multiline syntax could be used, for instance:
 
 ```YAML
 kafka:
