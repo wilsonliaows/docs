@@ -1,10 +1,10 @@
 ---
-title: Recipe execution errors
+title: Job errors
 date: 2017-05-09 15:00:00 Z
 ---
 
-# Recipe execution errors
-Recipe execution errors usually occur when a trigger event has been found, and a job is being processed, therefore typically showing up as recipe job errors. An exception to this is trigger errors, which occur when the recipe fails to retrieve any trigger events, and therefore does not create any jobs.
+# Job errors (recipe execution errors)
+Job errors, also known as recipe execution errors, usually occur when a trigger event has been found, and a job is being processed, therefore typically showing up as recipe job errors. An exception to this is trigger errors, which occur when the recipe fails to retrieve any trigger events, and therefore does not create any jobs.
 
 ## Trigger errors
 Trigger errors occur when the recipe tries to retrieve trigger events by polling the trigger app, but fails to fetch trigger events successfully. As no trigger event data was retrieved, the recipe does not create a job in the first place.
