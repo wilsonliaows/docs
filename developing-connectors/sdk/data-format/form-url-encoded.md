@@ -6,7 +6,7 @@ This request is declared in the execute portion of the connector actions framewo
 HubSpot has an endpoint to send form submission data to HubSpot. This [endpoint](https://developers.hubspot.com/docs/methods/forms/submit_form) accepts a form urlencoded request.
 
 curl command:
-```shell
+```sh
 curl -X POST \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'firstname=TestContact&lastname=FormSub&email=formsub@hubspot.com&newcustomproperty=testing&hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D'

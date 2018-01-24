@@ -8,7 +8,7 @@ This request is declared in the execute portion of the connector actions framewo
 IBM Watson has an endpoint to convert a document. This [endpoint](https://www.ibm.com/watson/developercloud/document-conversion/api/v1/#convert-document) accepts a multipart/form-data request.
 
 curl command:
-```shell
+```sh
 curl \
   -X POST \
   -u "{username}":"{password}" \
