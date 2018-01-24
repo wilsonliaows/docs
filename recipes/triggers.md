@@ -155,7 +155,7 @@ To add a trigger condition, check the **Trigger IF** checkbox. The trigger datat
 ![Configure trigger filter](/assets/images/recipes/triggers/configure-trigger-filter.gif)
 *Checking the Trigger IF checkbox brings up trigger condition fields to be configured*
 
-Define the trigger condition. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article. The following ensures that only Salesforce accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
+Define the trigger condition. For more information on the available conditions you can use, refer to the [IF condition](/features/if-conditions.md) article. The following ensures that only Salesforce accounts with a **Warm** rating value will be picked up by the trigger. Values are case sensitive and should be exact.
 
 ![Define trigger filter](/assets/images/recipes/triggers/define-trigger-condition.gif)
 *Define the trigger condition*
