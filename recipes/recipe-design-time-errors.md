@@ -4,9 +4,7 @@ date: 2017-05-09 15:00:00 Z
 ---
 
 # Recipe design-time errors
-Recipe design-time errors refer to errors which are caught while building a recipe. These errors typically show up when you click on recipe test or recipe start, and prevent you from testing or starting the recipe until they are resolved. This is because recipes with design-time errors will definitely result in job errors if ran.
-
-We go through common design-time errors in this section.
+Recipe design-time errors refer to errors which are caught while building a recipe. These errors typically show up when you click on recipe test or recipe start, and prevent you from testing or starting the recipe until they are resolved. This is because recipes with design-time errors will definitely result in job errors if ran. We go through common design-time errors in this section.
 
 ![Recipe design-time errors show up when recipe is tested or started](/assets/images/troubleshooting/design-time-errors-invalid-pills.gif)
 *Recipe design-time errors show up when recipe is tested or started*
@@ -33,7 +31,7 @@ Common design-time formula errors are:
 
 For more formula errors examples and how to resolve them, you can refer to the [formula errors article](/recipes/formula-errors.md).
 
-## Invalid pills
+## Invalid datapills
 Datapills can become invalid when their source is missing, e.g. if the trigger or action that the datapill comes from is changed, or if the field gets deleted from the app (e.g. if the custom field `Customer subscription plan` in Salesforce object `Account` gets deleted in Salesforce, that datapill will become invalid for use in Workato). Invalid datapills will turn red.
 
 In the following example, design-time errors due to invalid datapills are raised when the Salesforce trigger is changed.

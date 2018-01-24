@@ -63,7 +63,7 @@
   * [Recipe design errors](recipes/recipe-design-time-errors.md)
     * [Missing required fields](recipes/recipe-design-time-errors.md#missing-required-input-fields-at-design-time)
     * [Formula errors](recipes/recipe-design-time-errors.md#design-time-formula-errors)
-    * [Invalid datapills](recipes/recipe-design-time-errors.md#invalid-pills)
+    * [Invalid datapills](recipes/recipe-design-time-errors.md#invalid-datapills)
     * [App connection errors](recipes/recipe-design-time-errors.md#app-connection-errors)
   * [Job errors](recipes/recipe-job-errors.md)
     * [Trigger errors](recipes/recipe-job-errors.md#trigger-errors)
