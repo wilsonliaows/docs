@@ -150,6 +150,8 @@ Trigger conditions are additional rules that define what kind of trigger events 
 
 Trigger conditions are evaluated by Workato i.e. Workato retrieves all trigger events, and then filters out the ones that do not meet the rules specified in the trigger condition.
 
+Note: trigger conditions generally do not monitor a field change, but simply checks if the trigger condition is fulfilled. For example, if you wish to sync only closed won opportunities from Salesforce into your ERP system, setting the following trigger condition will cause every update made to the opportunity when its in closed won state be picked up by the recipe. This is as opposed to having the recipe pick up the opportunity only when its status is marked closed won for the first time. Refer to the [recipe logic errors article](/recipes/recipe-logic-errors.md) to find out more.
+
 To add a trigger condition, check the **Trigger IF** checkbox. The trigger datatree will appear, displaying the variables that can be used to formulate the trigger condition.
 
 ![Configure trigger filter](/assets/images/recipes/triggers/configure-trigger-filter.gif)
