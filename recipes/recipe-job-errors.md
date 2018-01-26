@@ -1,6 +1,6 @@
 ---
 title: Job errors
-date: 2017-05-09 15:00:00 Z
+date: 2018-01-24 15:00:00 Z
 ---
 
 # Job errors (recipe execution errors)
@@ -11,6 +11,8 @@ Trigger errors occur when the recipe tries to retrieve trigger events by polling
 
 ![Trigger errors due to schema changes](/assets/images/troubleshooting/trigger-errors.gif)
 *Trigger errors due to schema changes. Refreshing the schema will resolve this error.*
+
+The following table details the various reasons for trigger errors, and how we can resolve them.
 
 | Trigger error reason                                                                                                                                                            | What happens?                                    | How to resolve                                                                                                                                                                         |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -24,14 +26,14 @@ Trigger errors occur when the recipe tries to retrieve trigger events by polling
 Every input field (except for list input fields) can be toggled between text and formula mode. Formulas that didn't throw any design-time errors when the recipe was started can still throw run-time errors during a job, when actual data is being processed by the recipe. Some of the reasons for run-time errors are:
 - datapill had no value and was `nil`, and the formula acting on it doesn't work on null values
 - formula tries to execute invalid operation that was not caught at design time, e.g. dividing a number by a string (text)
-- formula was used on a datapill of the wrong data type
+- formula was used on a datapill of the wrong data type, e.g. using `true?` formula on an array datapill
 
 To find out more about run-time formula errors and how to resolve them, refer to the [formula errors article](/recipes/formula-errors.md#formula-errors).
 
 ## Missing required fields at run-time
 Triggers and actions typically need configuration to be useful in a recipe. For example, to update a Zendesk organization, we need, at a minimum, the ID of the organization to update. Therefore, that's a required field in the recipe. Required input fields that didn't throw any design-time errors when the recipe was started, because the field had a datapill as input, can still throw run-time errors if the datapill had no value during the job, when actual data is being processed by the recipe.
 
-The following screenshot shows a recipe execution error when a required field does not have any value. 
+The following screenshot shows a job error when a required field does not have any value. 
 
 ![Job error due to missing required field at run-time - error message](/assets/images/troubleshooting/run-time-error-message.png)
 *Job error due to missing required field at run-time - error message*
@@ -51,12 +53,12 @@ Whenever the recipe carries out the trigger (to request for a list of trigger ev
 
 Some reasons for a job timeout would be:
 - the app might take too long to respond to Workato, and the trigger or action will raise a timeout error after it has waited for a certain amount of time
-- the job might be taking too long to carry out, and the job experiences a timeout
+- the job might be taking too long to carry out, and the job raises a timeout error
 
 ## Passing wrong datatypes into input fields
 In some cases, the datapill used for an input field have a data type which is not expected by the input field, e.g. we pass in a string (`"12.50"`) into a input field expecting a number (`12.50`). This might not be caught at design-time, but the app we provide this string to might throw an error when it receives unexpected data types.
 
-To resolve this, you can use formulas for datatype conversions by referring to the documentation for [strings](/formulas/string-formulas.md#conversion-of-strings-to-other-data-types), [numbers](/formulas/number-formulas.md#conversions), [dates](/formulas/date-formulas.md#converting-datetime-to-date) and [lists](/formulas/array-list-formulas.md#conversion).
+To resolve this, you can use formulas for datatype conversions by referring to the documentation for [strings](/formulas/string-formulas.md#conversion-of-strings-to-other-data-types), [numbers](/formulas/number-formulas.md#conversions), [dates](/formulas/date-formulas.md#converting-datetime-to-date) or [lists](/formulas/array-list-formulas.md#conversion).
 
 ## Error code 401 Unauthorized
 A 401 error code typically means that the app connection is invalid. If it happens for the trigger, [trigger errors](#trigger-errors) will occur. If it happens for an action, job errors will occur. To resolve this issue, you would need to reconnect the app connection.
@@ -67,8 +69,8 @@ A 403 code typically means that the connected user does not have the right permi
 ## Error code 404 Not found
 A 404 code typically occurs for **GET by ID** actions. If you have an unique ID for a record and attempt to retrieve its details, a 404 error will be returned if the app was not able to find the corresponding record for that ID. Some reasons for a 404 might be:
 - the record corresponding to that ID was deleted in the app
-- the ID is not the correct ID for that app, e.g. if we pass in a Salesforce internal ID into NetSuite
-- the ID is not the correct ID for that object/record type, e.g. if we try to fetch details of a customer but pass in the ID for a contact instead
+- the ID is not correct for that app, e.g. if we pass in a Salesforce internal ID into NetSuite
+- the ID is not correct for that object/record type, e.g. if we want to fetch details of a customer but pass in the ID for a contact instead
 
 ## Error code 422 Unprocessable entity
 A 422 code typically means the action was not able to be carried out successfully, and it can be due to a variety of reasons, some of which are:
