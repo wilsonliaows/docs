@@ -63,4 +63,19 @@ The following recipe demonstrates another way to prevent such data duplication, 
 *Example recipe that syncs NetSuite sales orders with FinancialForce invoices*
 
 ## Missing trigger events
+If you start your recipe and realize that it doesn't seem to be picking up certain trigger events that you're expecting, it might be because you're using a **New object** trigger together with a trigger condition, when you should be using a **New/updated object** trigger with the trigger condition instead. This is because trigger conditions are evaluated by Workato after trigger events have been fetched.
 
+For example, let's consider the following **New Salesforce account** trigger. If the recipe is running, it will first fetch all Salesforce accounts created in the last 5 minutes, then filter out accounts not based in California. Therefore, if your Salesforce account is first created with a billing state of Washington, then subsequently updated 2 days later with a billing state of California, this account will not be picked up by the recipe for processing.
+
+![Trigger first fetches all Salesforce accounts created in the last 5 minutes, then filters out accounts which are not based in California](/assets/images/troubleshooting/new-account-with-trigger-condition.png)
+*Trigger first fetches all Salesforce accounts created in the last 5 minutes, then filters out accounts which are not based in California*
+
+In order to successfully monitor your Salesforce organization for all accounts with a billing state of California (no matter if they had this billing state at the time of creation or not), and sync them across to another app, you would need to change your trigger to a **New/updated account in Salesforce** trigger.
+
+![Trigger first fetches all Salesforce accounts created or updated in the last 5 minutes, then filters out accounts which are not based in California](/assets/images/troubleshooting/new-updated-account-with-trigger-condition.png)
+*Trigger first fetches all Salesforce accounts created or updated in the last 5 minutes, then filters out accounts which are not based in California*
+
+The following shows the detailed trigger condition.
+
+![Trigger condition that processes only Salesforce accounts created or updated with a billing state of California](/assets/images/troubleshooting/recipe-with-trigger-condition.png)
+*Trigger condition that processes only Salesforce accounts created or updated with a billing state of California*
