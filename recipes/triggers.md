@@ -52,11 +52,9 @@ Webhook events, which powers most real-time Workato triggers, inherently have th
 Trigger mechanisms determine when a trigger will fire. In this section, we cover polling triggers, real-time triggers and scheduled triggers.
 
 ### Polling triggers
-Polling triggers check for new events by periodically querying the app to see if new events are available. The polling frequency is determined by the type of Workato plan, and can be as low as 5 minutes.
+Polling triggers check for new events by periodically querying the app to see if new events are available. The polling frequency is determined by the type of Workato plan, and can be as low as 5 minutes. Each poll may yield multiple events ready for processing i.e. a single poll can result in several jobs being created.
 
-Each poll may yield multiple events ready for processing i.e. a single poll can result in several jobs being created.
-
-When the recipe is first started, the polling trigger fetches all events after the **From** date. Subsequently, polls are made at regular intervals as dictated by the plan type.
+When the recipe is first started, the polling trigger fetches all events after the **From** date, e.g. "fetch all NetSuite customers created or updated since 2017 January 10am, PST". Subsequently, polls are made at regular intervals as dictated by the plan type. A recipe with a 5 minutes polling interval that is kept running continuously will therefore fetch new trigger events every 5 minutes, e.g. "fetch all NetSuite customers created or updated in the last 5 minutes".
 
 When the recipe is stopped, polling triggers stop fetching events from the trigger app. However, if the recipe is started again, polling triggers will fetch all events since the recipe was stopped.
 
@@ -146,11 +144,11 @@ This offset is usually communicated in the trigger hint for the connector.
 The **Since/From** value can only be set once, and will be locked from further changing after the recipe has been started for the first time.
 
 ## Trigger conditions
-Trigger conditions are additional rules that define what kind of trigger events should be selected for processing, e.g. You can specify that only Salesforce accounts from California must be procssed.
+Trigger conditions are additional rules that define what kind of trigger events should be selected for processing, e.g. you can specify that only Salesforce accounts from California must be processed.
 
-Trigger conditions are evaluated by Workato i.e. Workato retrieves all trigger events, and then filters out the ones that do not meet the rules specified in the trigger condition.
+Trigger conditions are evaluated by Workato after the trigger events have been fetched i.e. Workato retrieves all new Salesforce accounts created in the last 5 minutes, and then filters out accounts not from California. This also means that, with a **New Salesforce account** trigger, accounts which are subsequently updated to be from California will not be picked up. If you find that your recipe seems to be missing events that you expected to be picked up, this might be the issue. Refer to the [recipe logic errors article](/recipes/recipe-logic-errors.md#missing-trigger-events) to find out more.
 
-Note: trigger conditions generally do not monitor a field change, but simply checks if the trigger condition is fulfilled. For example, if you wish to sync only closed won opportunities from Salesforce into your ERP system, setting the following trigger condition will cause every update made to the opportunity when its in closed won state be picked up by the recipe. This is as opposed to having the recipe pick up the opportunity only when its status is marked closed won for the first time. Refer to the [recipe logic errors article](/recipes/recipe-logic-errors.md) to find out more.
+Note: trigger conditions generally do not monitor a field change, but simply checks if the trigger condition is fulfilled. For example, if you wish to sync only closed won opportunities from Salesforce into your ERP system, setting the following trigger condition will cause every update made to the opportunity when its in closed won state be picked up by the recipe. This is as opposed to having the recipe pick up the opportunity only when its status is marked closed won for the first time. Refer to the [recipe logic errors article](/recipes/recipe-logic-errors.md#unexpected-trigger-eventsdata-duplication) to find out more.
 
 To add a trigger condition, check the **Trigger IF** checkbox. The trigger datatree will appear, displaying the variables that can be used to formulate the trigger condition.
 
