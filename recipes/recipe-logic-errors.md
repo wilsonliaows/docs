@@ -9,7 +9,7 @@ Even when your recipe doesn't encounter design-time errors that prevent it from 
 We cover some common recipe logic errors in this article.
 
 ## Recipe step indentations
-When running test jobs, you may realize that the recipe isn't carrying out the actions you expect it to be. A common error with recipes is the indentation of the recipe steps - indented steps under [IF steps](/recipes/steps.html#conditional-action-step) will only be carried out when the condition is met, while only indented steps under [Repeat steps](/recipes/steps.html#repeat-step) will be carried out for the records in the list.
+When running test jobs, you may realize that the recipe isn't carrying out the actions you expect it to be. A common error with recipes is the indentation of the recipe steps - indented steps under [IF steps](/recipes/steps.md#conditional-action-step) will only be carried out when the condition is met, while only indented steps under [Repeat steps](/recipes/steps.md#repeat-step) will be carried out for the records in the list.
 
 In the following example, step 3 (update Zendesk organization) will be carried out if the Zendesk organization ID is present, while steps 5 and 6 (create Zendesk organization and update Salesforce account) will be carried out if the Zendesk organization ID is not present. As step 7 is not indented at all, it will be carried out regardless of whether steps 3 or 5-6 are carried out.
 
@@ -29,7 +29,7 @@ While running test jobs involving lists, you may notice that your recipe job see
 ![Example recipe that moves customers and lists of associated contacts from Salesforce to NetSuite](/assets/images/troubleshooting/recipe-with-foreach-indentation.png)
 *Example recipe that moves customers and lists of associated contacts from Salesforce to NetSuite*
 
-The reason for that might be due to [incorrect data mapping for the list](/features/list-management.html#common-mistake-when-using-repeat-step). You can check out the correct way to work with lists (eith implicit input lists or explicit repeat steps) in this [article](/features/list-management.html#using-lists-aka-arrays).
+The reason for that might be due to [incorrect data mapping for the list](/features/list-management.md#common-mistake-when-using-repeat-step). You can check out the correct way to work with lists (eith implicit input lists or explicit repeat steps) in this [article](/features/list-management.md#using-lists-aka-arrays).
 
 ## Infinite looping
 If you start your recipe and notice that it seems to be continuously fetching trigger events, even though you know there is no activity in your trigger app, it could be a case of infinite loop. You can verify this by checking to see if these triggers are processing the exact same record again and again.
