@@ -46,6 +46,9 @@ The recipe proceeds to raise errors when we try to test the recipe.
 
 To resolve issues with invalid datapills, you need to replace these pills with valid datapills or values. In the above example, we need to replace datapills from the old trigger **New/updated Account** with datapills from the new trigger **New Account**.
 
+![Replacing the invalid datapill with a valid datapill](/assets/images/troubleshooting/fixing-invalid-pills.gif)
+*Replacing the invalid datapill with a valid datapill*
+
 ## App connection errors
 App connections can become invalid due to several reasons:
 - app credentials were changed and the connection was not updated correspondingly in Workato
