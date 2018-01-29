@@ -4,7 +4,7 @@ date: 2017-05-09 15:00:00 Z
 ---
 
 # Error notification emails
-Jobs may encounter errors when trying to fetch trigger events, or when trying to carry out an action. This article briefly explains trigger errors and actions errors, and covers Workato's error notification policy and how it handles recipes which runs into consecutive errors.
+Jobs may encounter errors when trying to fetch trigger events, or when trying to carry out an action. This article briefly explains trigger errors and actions errors, and covers Workato's error notification policy and how it handles recipes that run into consecutive errors.
 
 ## Trigger errors
 Trigger errors occur when the recipe tries to retrieve trigger events by polling the trigger app. The recipe might fail to retrieve trigger events in the following cases:
