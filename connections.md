@@ -81,7 +81,7 @@ On occasions, app connections can become invalid due to several reasons:
 - connected user doesn't have the right set of permissions to read/write selected records
 - permissions of the connected user was changed to a reduced scope
 
-In such cases, reconnecting or verifying that the connected user has permissions to read/write records used in the recipes should syccessfully re-establish the connection.
+In such cases, reconnecting or verifying that the connected user has permissions to read/write records used in the recipes should successfully re-establish the connection.
 
 ![Design-time errors for app connection errors](/assets/images/troubleshooting/connection-error.png)
 *Design-time errors for app connection errors*
