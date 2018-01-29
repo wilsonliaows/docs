@@ -1,12 +1,14 @@
 body {
   color: #525252;
   font-family: Lato, Helvetica, Arial, sans-serif;
+  height: 100%;
+  overflow: hidden;
   padding-top: 120px;
 }
 
 /* Layout */
-.book {
-  height: auto;
+.book, .book-body .body-inner {
+  height: calc(100vh - 120px);
 }
 
 .book-summary {
@@ -26,6 +28,7 @@ body {
 
 .book-body .body-inner {
   position: static;
+  overflow: auto;
 }
 
 /* Markdown document */
