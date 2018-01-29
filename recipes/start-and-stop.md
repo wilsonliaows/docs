@@ -12,7 +12,7 @@ In Workato, you can work with recipes in various ways:
 # Test mode
 It is best practice to test your recipe before starting it and letting it run with minimal supervision. You don't want to turn on an inaccurate automation that moves and processes data wrong - that probably requires a lot of cleanup!
 
-The test recipe button picks up a single trigger event and runs it through your recipe to create a job. This allows you review the [job details](/recipes/jobs.md#job-details) to check for recipe correctness.
+The test recipe button picks up a single trigger event and runs it through your recipe to create a job. This lets you review the [job details](/recipes/jobs.md#job-details) to check for recipe correctness.
 
 ![Default test button](/assets/images/startstop/default-test-button.gif)
 *Test button showing up on default for a recipe with no successful jobs*
@@ -20,7 +20,7 @@ The test recipe button picks up a single trigger event and runs it through your 
 ## Test trigger events
 The trigger event picked up when you click on test depends on the [**Since/From** date](/recipes/triggers.md#sincefrom) selected. In the following example, clicking on test will have the recipe look for Salesforce accounts created or updated after 1 January 2017, midnight. If the recipe test mode finds Salesfoce accounts matching that criteria, it proceeds to processes the first trigger event in the queue. As trigger events are processed in chronological order, the account created or updated earliest (closest to 1 January 2017, midnight) will be processed.
 
-![No jobs when testing](test-recipe-since-date.png)
+![No jobs when testing](/assets/images/startstop/test-recipe-since-date.png)
 *Recipe test mode looks for Salesforce accounts created or updated after 1 January 2017, midnight, and processes the earliest trigger event in the list of accounts found matching this criteria*
 
 Remember, the **Since/From** date cannot be changed once you have tested/started the recipe!
@@ -34,7 +34,7 @@ In our example, it means that there are no Salesforce accounts created or update
 
 1. Create or update a Salesforce account to create a trigger event, then click on test again. The recipe should pick up this trigger event as it fits the criteria of an account that has been created or updated since 1 January 2017, midnight.
 
-2. Make a copy of the recipe, and change the since date to an earlier date where you know there will be trigger events. For example, if I know that I have a Salesforce account created on 31 December 2016, 10.30pm, I can set the copied recipe's since date to earlier than 31 December 2017, 10.30pm, to guarantee that IO have at least 1 trigger event to pick up.
+2. Make a copy of the recipe, and change the since date to an earlier date where you know there will be trigger events. For example, if I know that I have a Salesforce account created on 31 December 2016, 10.30pm, I can set the copied recipe's since date to earlier than 31 December 2017, 10.30pm, to guarantee that I have at least 1 trigger event to pick up.
 
 If the test mode found trigger events, it picks up and processes the first trigger event. As trigger events are processed in chronological order, the earliest event will be processed. If you click on test again, it will process the next trigger event in chronological order, and so on. 
 
