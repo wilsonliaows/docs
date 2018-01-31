@@ -1,6 +1,6 @@
-# Form URL Encoded
+# Form urlencoded
 
-This request is declared in the execute portion of the connector actions framework. This is an additional request option that is appended to the back of the base request.
+This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom adapter code. It should be chained to one of the [base request](../walk-through.md#base-request).
 
 ## Example
 HubSpot has an endpoint to send form submission data to HubSpot. This [endpoint](https://developers.hubspot.com/docs/methods/forms/submit_form) accepts a form urlencoded request.
