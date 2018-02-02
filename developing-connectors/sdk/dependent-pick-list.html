@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pick lists · Workato Docs</title>
+        <title>Dependent pick lists · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="dependent-pick-list.html" />
+    <link rel="next" href="config-fields.html" />
     
     
-    <link rel="prev" href="reusable-methods.html" />
+    <link rel="prev" href="pick-list.html" />
     
 
     
@@ -110,7 +110,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="../..">Pick lists</a>
+          <a href="../..">Dependent pick lists</a>
         </h1>
       </div>
     </div>
@@ -4660,7 +4660,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.18.10" data-path="pick-list.html">
+    <li class="chapter " data-level="1.18.10" data-path="pick-list.html">
       
 
       
@@ -4675,7 +4675,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.11" data-path="dependent-pick-list.html">
+    <li class="chapter active" data-level="1.18.11" data-path="dependent-pick-list.html">
       
 
       
@@ -4835,40 +4835,120 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pick-list">Pick List</h1>
-<p>A pick list is list of choices predefined for a user to select instead of having to input the actual values.
-It is useful when there is a list of accepted values for a field or when the field requires a value that is not visible. For example, a field that requires User ID will require a pick list that displays the User names and pass the corresponding User&apos;s ID to that field.</p>
-<h2 id="defining-a-pick-list">Defining a pick list</h2>
-<p>There are 2 ways to define a pick list: dynamically or statically.</p>
-<p>Static example:</p>
-<p>Pick list is defined as a array of selections. Each selection is an array made up of 2 elements.</p>
-<p>The first element in the selection array is the value displayed and the second element is the value of that selection.</p>
+                                <h1 id="dependent-pick-list">Dependent Pick List</h1>
+<p>Dependent pick lists allow you to change the contents of a pick list based on the value of another field. For example, rather than displaying every city in the world in a single pick list, we can selectively display only cities from a country selected in another field.</p>
+<h2 id="defining-a-dependent-pick-list">Defining a dependent pick list</h2>
+<p>A dependent pick list can be defined dynamically or statically.</p>
+<h3 id="static-example">Static example</h3>
 <pre><code class="lang-ruby"><span class="hljs-symbol">pick_lists:</span> {
-  <span class="hljs-symbol">folder:</span> lambda <span class="hljs-keyword">do</span> |connection|
+  <span class="hljs-symbol">countries:</span> lambda { |_connection|
     [
-      <span class="hljs-comment"># Display name, value</span>
-      [<span class="hljs-string">&quot;Root&quot;</span>,<span class="hljs-string">&quot;111390&quot;</span>],
-      [<span class="hljs-string">&quot;Recycle Bin&quot;</span>,<span class="hljs-string">&quot;235611&quot;</span>]
+      [<span class="hljs-string">&quot;United States&quot;</span>, <span class="hljs-string">&quot;USA&quot;</span>],
+      [<span class="hljs-string">&quot;India&quot;</span>, <span class="hljs-string">&quot;IND&quot;</span>]
     ]
-  <span class="hljs-keyword">end</span>
+  },
+  <span class="hljs-symbol">cities:</span> lambda { |_connection, <span class="hljs-symbol">country_code:</span>|
+    {
+      <span class="hljs-string">&quot;USA&quot;</span> =&gt; [
+        [<span class="hljs-string">&quot;New York City&quot;</span>, <span class="hljs-string">&quot;NYC&quot;</span>],
+        [<span class="hljs-string">&quot;San Fransisco&quot;</span>, <span class="hljs-string">&quot;SF&quot;</span>]
+      ],
+      <span class="hljs-string">&quot;IND&quot;</span> =&gt; [
+        [<span class="hljs-string">&quot;Bangalore&quot;</span>, <span class="hljs-string">&quot;BNG&quot;</span>],
+        [<span class="hljs-string">&quot;Delhi&quot;</span>, <span class="hljs-string">&quot;DLH&quot;</span>]
+      ]
+    }[country_code]
+  }
 }
 </code></pre>
-<p>Dynamic example:</p>
-<pre><code class="lang-ruby"><span class="hljs-symbol">pick_lists:</span> {
-  <span class="hljs-symbol">folder:</span> lambda <span class="hljs-keyword">do</span> |connection|
-    get(<span class="hljs-string">&quot;https://www.wrike.com/api/v3/folders&quot;</span>)[<span class="hljs-string">&quot;data&quot;</span>].
-      map { |folder| [folder[<span class="hljs-string">&quot;title&quot;</span>], folder[<span class="hljs-string">&quot;id&quot;</span>]] }
-  <span class="hljs-keyword">end</span>
-}
-</code></pre>
-<p>After making a GET requests for all folders available, the pick list is populated with folder <code>id</code>s and displays the corresponding folder <code>title</code></p>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-ruby"><span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span> |object_definitions|
-  [
-    { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;folder_id&quot;</span>, <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;select&quot;</span>, <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;folder&quot;</span> }
-  ]
+<p>This example shows 2 pick lists. <code>cities</code> is a dependent and static pick list while <code>countries</code> is an independent and static pick list. The dependent pick list will return an array of cities based on the value of country provided as an argument. Notice that the <code>country_code:</code> is a required keyword argument with a trailing colon.</p>
+<h4 id="usage">Usage</h4>
+<pre><code class="lang-ruby"><span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;country&quot;</span>,
+    <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;select&quot;</span>,
+    <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;countries&quot;</span>,
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>
+  },
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;city&quot;</span>,
+    <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;select&quot;</span>,
+    <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;cities&quot;</span>,
+    <span class="hljs-symbol">pick_list_params:</span> { <span class="hljs-symbol">country_code:</span> <span class="hljs-string">&quot;country&quot;</span> },
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>
+  }
 <span class="hljs-keyword">end</span>
 </code></pre>
+<p>We use <code>pick_list_params</code> to pass the value selected in a parent input to the dependent pick list in the form of a hash.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">pick_list_params:</span> { <span class="hljs-symbol">country_code:</span> <span class="hljs-string">&quot;country&quot;</span> }
+</code></pre>
+<p>This hash can contain one or more key/value pair to be passed as arguments to the dependent pick list. In this example, the string <code>&quot;country&quot;</code> is used to point to the name of the parent input field to retrieve the value from. This value must be assigned to the key <code>country_code</code>, matching the keyword argument defined in the dependent pick list code block.</p>
+<p>The parent input field does not need to be a pick list, a text field can also be used to filter contents of a dependent pick list.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;country&quot;</span>,
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>,
+    <span class="hljs-symbol">change_on_blur:</span> <span class="hljs-keyword">true</span>,
+    <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;Use 3 letter combination country codes. e.g. USA&quot;</span>
+  },
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;city&quot;</span>,
+    <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;select&quot;</span>,
+    <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;cities&quot;</span>,
+    <span class="hljs-symbol">pick_list_params:</span> { <span class="hljs-symbol">country_code:</span> <span class="hljs-string">&quot;country&quot;</span> },
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>
+  }
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="dynamic-example">Dynamic example</h3>
+<pre><code class="lang-ruby"><span class="hljs-symbol">pick_lists:</span> {
+  <span class="hljs-symbol">accounts:</span> lambda <span class="hljs-keyword">do</span> |_connection|
+    get(<span class="hljs-string">&quot;https://www.googleapis.com/analytics/v3/management/accounts&quot;</span>)[<span class="hljs-string">&quot;items&quot;</span>].
+      pluck(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;id&quot;</span>)
+  <span class="hljs-keyword">end</span>,
+
+  <span class="hljs-symbol">properties:</span> lambda <span class="hljs-keyword">do</span> |_connection, <span class="hljs-symbol">account_id:</span>|
+    get(<span class="hljs-string">&quot;https://www.googleapis.com/analytics/v3/management/accounts/<span class="hljs-subst">#{account_id}</span>/webproperties&quot;</span>)[<span class="hljs-string">&quot;items&quot;</span>].
+      pluck(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;id&quot;</span>)
+  <span class="hljs-keyword">end</span>
+}
+</code></pre>
+<p>In this example, <code>accounts</code> is an independent and dynamic pick list while <code>properties</code> is a dependent and dynamic pick list. Values from both pick lists are dynamically generated and may be different between 2 Google Analytics connections.</p>
+<p>Once again, the required value, <code>account_id:</code> is defined as a required keyword argument.</p>
+<h4 id="usage">Usage</h4>
+<pre><code class="lang-ruby"><span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;account&quot;</span>,
+    <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;select&quot;</span>,
+    <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;accounts&quot;</span>,
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>
+  },
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;property&quot;</span>,
+    <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;select&quot;</span>,
+    <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;properties&quot;</span>,
+    <span class="hljs-symbol">pick_list_params:</span> { <span class="hljs-symbol">account_id:</span> <span class="hljs-string">&quot;account&quot;</span> },
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>
+  }
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Similar to the static example, the parent input does not have to be a pick list. The following snippet uses a text field to pass the acount ID instead.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;account_id&quot;</span>,
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>,
+    <span class="hljs-symbol">change_on_blur:</span> <span class="hljs-keyword">true</span>
+  },
+  {
+    <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;property&quot;</span>,
+    <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;select&quot;</span>,
+    <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;properties&quot;</span>,
+    <span class="hljs-symbol">pick_list_params:</span> { <span class="hljs-symbol">account_id:</span> <span class="hljs-string">&quot;account_id&quot;</span> },
+    <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>
+  }
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Notice that the name of the parent input field to retrieve the value from is now <code>account_id</code> instead of <code>account</code>, hence, the string <code>&quot;account_id&quot;</code> is used in the <code>pick_list_params</code> hash.</p>
 
                                 
                                 </section>
@@ -4951,7 +5031,7 @@ It is useful when there is a list of accepted values for a field or when the fie
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pick lists","level":"1.18.10","depth":2,"next":{"title":"Dependent pick lists","level":"1.18.11","depth":2,"path":"developing-connectors/sdk/dependent-pick-list.md","ref":"developing-connectors/sdk/dependent-pick-list.md","articles":[]},"previous":{"title":"Reusable methods","level":"1.18.9","depth":2,"path":"developing-connectors/sdk/reusable-methods.md","ref":"developing-connectors/sdk/reusable-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/pick-list.md","mtime":"2018-02-02T05:52:30.621Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-02T05:54:09.203Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dependent pick lists","level":"1.18.11","depth":2,"next":{"title":"Configuration fields","level":"1.18.12","depth":2,"path":"developing-connectors/sdk/config-fields.md","ref":"developing-connectors/sdk/config-fields.md","articles":[]},"previous":{"title":"Pick lists","level":"1.18.10","depth":2,"path":"developing-connectors/sdk/pick-list.md","ref":"developing-connectors/sdk/pick-list.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/dependent-pick-list.md","mtime":"2018-02-02T05:52:30.621Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-02T05:54:09.203Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
