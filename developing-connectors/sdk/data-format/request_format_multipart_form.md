@@ -55,6 +55,6 @@ Let's break down the cURL command to match each function in Workato:
 
 cURL | Workato
 ------------ | -------------
-`curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST` | `post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")`
+`curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST` | `post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")`<br>`.params(version: "2015-12-15")`
 `-u "{username}":"{password}" ` | This is defined in the [connection](../authentication/basic-authentication.md) block and is automatically added onto the outgoing request.
 `-F config="{\"conversion_target\":\"answer_units\"}"`<br>`-F "file=@sample.pdf;type=application/pdf"` | `.request_format_multipart_form`<br>`.payload(`<br>&nbsp;&nbsp;&nbsp;&nbsp;`file: [input['file_data'], 'application/pdf'], `<br>&nbsp;&nbsp;&nbsp;&nbsp;`file_name: input['file_name'], `<br>&nbsp;&nbsp;&nbsp;&nbsp;`config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")`
