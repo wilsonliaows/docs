@@ -3,17 +3,19 @@
 This request format can be declared in any blocks (`execute`, `acquire`, `fields` etc.) in your custom adapter code. It should be chained to one of the [base request](../walk-through.md#base-request).
 
 ## Example
-HubSpot has an endpoint to send form submission data to HubSpot. This [endpoint](https://developers.hubspot.com/docs/methods/forms/submit_form) accepts a form urlencoded request.
+Let's use the Submit data to a form endpoint in [HubSpot API](https://developers.hubspot.com/docs/methods/forms/submit_form) as an example. This endpoint accepts form data in form urlencoded format.
 
-curl command:
+A cURL example looks like this:
 ```sh
-curl -X POST \
+curl \
+  https://forms.hubspot.com/uploads/form/v2/12345/67890 \
+  -X POST \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'firstname=TestContact&lastname=FormSub&email=formsub@hubspot.com&newcustomproperty=testing&hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D'
-  https://forms.hubspot.com/uploads/form/v2/12345/67890 \
+
 ```
 
-Workato:
+This cURL command can be replicated in Workato:
 ```ruby
 {
   title: "HubSpot",
@@ -35,14 +37,10 @@ Workato:
       end,
 
       execute: lambda do |connection, input|
-        post("https://forms.hubspot.com/uploads/form/v2/#{{input['portal_id']}}/#{{input['form_guid']}}").
+        post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}").
           request_format_www_form_urlencoded.
           request_body(
-            hutk: input['hutk'],
-            ipAddress: input['ipAddress'],
-            pageUrl: input['pageUrl'],
-            pageName: input['pageName'],
-            redirectUrl: input['redirectUrl'],
+            input.reject { |k,v| k == 'portal_id' || k == 'form_guid' }
           )
       end
     },
@@ -50,3 +48,11 @@ Workato:
     output_fields: {...}
   },
 ```
+
+Let's break down the cURL command to match each function in Workato:
+
+cURL | Workato
+------------ | -------------
+`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST`  | `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`
+`-H 'Content-Type: application/x-www-form-urlencoded'`  | `.request_format_www_form_urlencoded`
+`-d '{data}'` | <code>.request_body(input.reject { &#124;k,v&#124; k == 'portal_id' &#124;&#124; k == 'form_guid' })</code>
