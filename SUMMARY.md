@@ -197,6 +197,8 @@
   * [Mapper by Workato](connectors/mapper.md)
     * [Connection setup](connectors/mapper.md#how-to-connect-to-the-mapper-connector-on-workato)
     * [Map to object action](connectors/mapper.md#using-the-map-to-object-action)
+  * [MySQL](connectors/mysql.md)
+    * [Connection setup](connectors/mysql.md#how-to-connect-to-mysql-on-workato)
   * [NetSuite](connectors/netsuite.md)
     * [Connection setup](connectors/netsuite.md#how-to-connect-to-netsuite-on-workato)
     * [New classification object trigger](connectors/netsuite.md#new-classification-object-trigger)
