@@ -55,5 +55,5 @@ MySQL connector works with all tables, views and stored procedures. These are av
 ### Single row vs batch of rows
 MySQL connector triggers/actions read or write to your database either as a single row or in batches at once. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size is subjected to upper limit and default size.
 
-![Exact table name provided](/assets/images/mysql/batch_trigger_input.png)
+![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
