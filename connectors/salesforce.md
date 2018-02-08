@@ -49,18 +49,76 @@ Salesforce users who can login to Salesforce can connect to Salesforce from Work
 Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more [here](http://http://docs.workato.com/features/secondary-connectors.html).
 
 ### Using real-time triggers
+Workato offers real-time capabilities for 2 Salesforce triggers: **New Object** and **New/Updated Object**. This allows Workato to detect records created/updated in Salesforce immediately. 
 
-Workato offers real-time capabilities for 2 Salesforce triggers, namely **New Object** and **New/Updated Object**. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this, 
-1. Log in to your Salesforce instance and click on 'Setup' at the top right of the page. 
-2. On the left hand panel, under Build, click on Create > Workflow & Approvals > Workflow rules. 
-3. Select the Object which you want to receive real time updates for and click Next.
-4. Fill in the required and optional field:
-  Rule name,
-  Rule Criteria (Rule criteria can be set based on your preference. For example, only when Opportunity status equals “Closed Won".)
-  After you are done, click **Save & Next**.
+These real-time triggers are powered by [Salesforce workflow rules](https://help.salesforce.com/articleView?id=workflow_rules_new.htm&type=5). Via these workflow rules, Salesforce monitors records for certain changes and notifies Workato immediately via an outbound message when these changes occur. These outbound messages will be received and processed by a Workato recipe as trigger events.
 
-5. Select New Outbound Message under Specify workflow actions and fill in the required and optional fields.
-6. You are now set up for real-time integration! Simply go to your Workato recipe and choose real-time trigger. Note that you can only use these triggers with objects you have set up the above steps with. 
+To set up these triggers, we need to:
+1. Create a Workato recipe with a Salesforce real-time trigger, and copy the generated endpoint URL from the trigger.
+2. Create a Salesforce workflow rule to monitor events we're interested in and send outbound messages to that endpoint URL when these events occur.
+3. Activate the workflow rule.
+4. Add trigger conditions in the recipe, if desired. 
+5. Start the recipe.
+
+In the following sections, we provide a detailed walkthrough to setup the real-time triggers:
+- [New object trigger](#real-time-trigger-setup-new-object)
+- [New/updated object trigger](#real-time-trigger-setup-new-and-updated-object)
+
+#### Real-time trigger setup - new object
+We go through the setup for the **New Object** real-time trigger below. We will be setting up a real-time trigger for new contacts in Salesforce.
+
+1) Select the trigger in Workato. You will be prompted to connect to your Salesforce account.
+
+![Select new object real-time trigger in Salesforce](/assets/images/salesforce-docs/select-salesforce-new-object-realtime-trigger.png)
+*Select new object real-time trigger in Salesforce*
+
+2) Connect to Salesforce.
+
+3) Select the specific object you wish to monitor in Salesforce. In this case, we select Contacts. 
+
+![Select specific object to monitor in Salesforce](/assets/images/salesforce-docs/select-object-for-new-trigger.png)
+*Select specific object to monitor in Salesforce*
+
+The trigger will provide you with an endpoint URL to setup a Salesforce workflow rule with. This URL will tell Salesforce to send real-time events about newly created contacts to this Workato recipe. Copy this URL to the clipboard for use in creating the Salesforce workflow rule.
+
+![Workato generates endpoint URL for Salesforce workflow](/assets/images/salesforce-docs/workato-generates-workflow-url.gif)
+*Workato generates endpoint URL for Salesforce workflow*
+
+This endpoint URL is unique to the Salesforce organization connected to the trigger, the Salesforce object you've selected, and the Workato recipe. You will need to regenerate this endpoint URL again if you decide to change Salesforce connection, the Salesforce object monitored, or the Workato recipe.
+
+4) Go to your Salesforce organization and click on **Setup**. Go to *Create > Workflow & Approvals > Workflow rules* and click on **New rule** to create a new workflow rule. This will bring you into the Salesforce workflow rule setup wizard.
+
+![In your Salesforce organization, go to Setup>Create>Workflow & Approvals>Workflow rules and click on New rule](/assets/images/salesforce-docs/navigate-to-create-new-rule.gif)
+*In your Salesforce organization, go to Setup>Create>Workflow & Approvals>Workflow rules and click on New rule*
+
+5) In step 1 of the setup wizard, select the same Salesforce object you have selected in the recipe as the object to monitor.
+
+![Select specific object to monitor in Salesforce](/assets/images/salesforce-docs/select-workflow-rule-object.png)
+*Select specific object to monitor in Salesforce*
+
+6) In step 2 of the setup wizard, set the workflow rule to be evaluated every time a record is created. We set the rule criteria to be `Created Date not equal to null`. Because no record will ever have a null date for the field Created Date, this ensures that the workflow rule will always be triggered when a record is created.
+
+![Setup the Salesforce workflow rule to be evaluated when record is created](/assets/images/salesforce-docs/workflow-rule-setup-for-new-object-trigger.png)
+*Select specific object to monitor in Salesforce*
+
+7) In step 3 of the setup wizard, add a workflow action "New outbound message". This ensures that Salesforce will always notify our Workato recipe whenever a record is created, via sending an outbound message to that recipe's endpoint URL.
+
+![Add outbound message as the workflow action. Newly created contacts that meet the evaluation criteria will send an outbound message](/assets/images/salesforce-docs/add-outbound-message-for-new-object-trigger.png)
+*Add outbound message as the workflow action. Newly created contacts that meet the evaluation criteria will send an outbound message*
+
+8) Save the workflow rule and activate it. 
+
+![Activate workflow rule to start monitoring new contacts created in Salesforce](/assets/images/salesforce-docs/activating-workflow-rule-new-object-trigger.gif)
+*Activate workflow rule to start monitoring new contacts created in Salesforce*
+
+9) Return to Workato and start the recipe. It will now monitor newly created contacts in Salesforce and process them as trigger events immediately. If desired, add trigger conditions.
+
+#### Real-time trigger setup - new and updated object
+
+
+
+
+
 
 Salesforce real-time triggers is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
