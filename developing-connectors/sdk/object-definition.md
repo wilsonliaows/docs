@@ -103,7 +103,7 @@ object_definitions: {
                 <li><code>:currency</code></li>
                 <li><code>:phone</code></li>
                 <li><code>:email</code></li>
-                <li><code>:subdomain</code>Typically in connection fields. Make sure to include the <code>:url</code> property.</li>
+                <li><code>:subdomain</code>Typically used in connection fields. Make sure to include the <code>:url</code> property.</li>
               <ul>              
             </td>
         </tr>
