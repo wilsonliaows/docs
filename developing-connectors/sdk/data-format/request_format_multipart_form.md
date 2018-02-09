@@ -51,10 +51,26 @@ Workato:
 
 In the SDK, notice that the `file` key in the payload takes an array of length 2. This defines the request as form data. The first item in the array is the file data and the second item is the media type (MIME type) of the input file.
 
-Let's break down the cURL command to match each function in Workato:
-
-cURL | Workato
------------- | -------------
-`curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST` | `post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")`<br>`.params(version: "2015-12-15")`
-`-u "{username}":"{password}" ` | This is defined in the [connection](../authentication/basic-authentication.md) block and is automatically added onto the outgoing request.
-`-F config="{\"conversion_target\":\"answer_units\"}"`<br>`-F "file=@sample.pdf;type=application/pdf"` | `.request_format_multipart_form`<br>`.payload(`<br>&nbsp;&nbsp;&nbsp;&nbsp;`file: [input['file_data'], 'application/pdf'], `<br>&nbsp;&nbsp;&nbsp;&nbsp;`file_name: input['file_name'], `<br>&nbsp;&nbsp;&nbsp;&nbsp;`config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")`
+## Components
+<table class="unchanged rich-diff-level-one">
+  <thead>
+      <tr>
+          <th>cURL</th>
+          <th>Workato</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST</code></td>
+      <td><code>post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")</code><br><code>.params(version: "2015-12-15")</code></td>
+    </tr>
+    <tr>
+      <td><code>-u "{username}":"{password}"</code></td>
+      <td>This is defined in the [connection](../authentication/basic-authentication.md) block and is automatically added onto the outgoing request.</td>
+    </tr>
+    <tr>
+      <td><code>-F config="{\"conversion_target\":\"answer_units\"}"</code><br><code>-F "file=@sample.pdf;type=application/pdf"</code></td>
+      <td><code>.request_format_multipart_form</code><br><code>.payload(</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>file: [input['file_data'], 'application/pdf'], </code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>file_name: input['file_name'],</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")</code></td>
+    </tr>
+  </tbody>
+</table>

@@ -49,10 +49,26 @@ This cURL command can be replicated in Workato:
   },
 ```
 
-Let's break down the cURL command to match each function in Workato:
-
-cURL | Workato
------------- | -------------
-`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST`  | `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`
-`-H 'Content-Type: application/x-www-form-urlencoded'`  | `.request_format_www_form_urlencoded`
-`-d '{data}'` | <code>.request_body(input.reject { &#124;k,v&#124; k == 'portal_id' &#124;&#124; k == 'form_guid' })</code>
+## Components
+<table class="unchanged rich-diff-level-one">
+  <thead>
+      <tr>
+          <th>cURL</th>
+          <th>Workato</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST</code></td>
+      <td><code>post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")</code></td>
+    </tr>
+    <tr>
+      <td><code>-H 'Content-Type: application/x-www-form-urlencoded'</code></td>
+      <td><code>.request_format_www_form_urlencoded</code></td>
+    </tr>
+    <tr>
+      <td><code>-d '{data}'</code></td>
+      <td><code>.request_body(input.reject { &#124;k,v&#124; k == 'portal_id' &#124;&#124; k == 'form_guid' })</code></td>
+    </tr>
+  </tbody>
+</table>
