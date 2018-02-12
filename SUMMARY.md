@@ -233,7 +233,7 @@
     * [Stop recipe action](recipe-ops.md#stop-recipe-action)
   * [Salesforce](connectors/salesforce.md)
     * [Connection setup](connectors/salesforce.md#how-to-connect-to-salesforce-on-workato)
-    * [Real-time trigger setup](salesforce.md#using-real-time-triggers)
+    * [Real-time trigger setup](connectors/salesforce.md#using-real-time-triggers)
     * [Object triggers](connectors/salesforce.md#working-with-generic-triggers-in-salesforce)
     * [Handling attachments](connectors/salesforce.md#working-with-attachments-in-salesforce)
     * [Using SOQL](connectors/salesforce.md#working-with-soql-in-salesforce)
