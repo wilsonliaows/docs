@@ -58,11 +58,21 @@ In formula mode, text must have proper string syntax:
 *Email in formula mode. [Example recipe](https://www.workato.com/recipes/496603)*
 
 ## Conditionals
-You can conditionally (if-else) execute formulas using Ruby's ternary syntax. Ternary syntax are of the form:
+You can conditionally execute formulas using Ruby's ternary syntax (popular shortcut for if-else statements). Ternary syntax are of the form:
 
 ```
-[Condition to evaluate if true or false] ? [Execute if true] : [Execute if false]
+condition ? expression1 : expression2
 ```
+
+### Behaviour
+#### `condition`
+A boolean expression that evaluates to `true` or `false`.
+
+#### `expression1`
+Returns this expression if `condition` is `true`.
+
+#### `expression2`
+Returns this expression if `condition` is `false`.
 
 ### Conditional formula example
 In the following example, we conditionally pass in either the <kbd>Full name</kbd> or <kbd>First name</kbd> into the <kbd>Message</kbd> input field.
