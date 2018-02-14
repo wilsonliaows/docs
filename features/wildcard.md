@@ -2,12 +2,12 @@
 
 In some triggers and actions, you can use wildcards to search and filter items. Wildcards are characters, such as asterisk (\*) or question mark (?), that can be used to substitute any other character in a search. This is how to use them:
 
-## Asterisk (*)
-Use the asterisk (*) as substitute for zero or more characters. For example, if you are looking for files with filename contains the text “report”, type the following:
+## Asterisk (\*)
+Use the asterisk (\*) as substitute for zero or more characters. For example, if you are looking for files with filename contains the text “report”, type the following:
 
 **\*report\***
 
-The asterisk (*) substitutes all characters before and after “report”. So this search will return files such as “Sales_report.docx”, “Report 2018.csv”, “peer reporting.txt”. To narrow the search further, type:
+The asterisk (\*) substitutes all characters before and after “report”. So this search will return files such as “Sales_report.docx”, “Report 2018.csv”, “peer reporting.txt”. To narrow the search further, type:
 
 **report\*.csv**
 
@@ -21,5 +21,3 @@ For example, if you type **report?.csv**, you will get files “report2.csv”, 
 ## Currently supported
 The wildcard is currently supported in the following triggers and actions. The list will be updated as we support more connectors in the future: 
 * On-prem file's action "List files in folder"
-
-
