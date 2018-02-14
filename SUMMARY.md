@@ -91,6 +91,7 @@
   * [Date formulas](formulas/date-formulas.md)
   * [List formulas](formulas/array-list-formulas.md)
   * [Other formulas](formulas/other-formulas.md)
+  * [Complex data types](formulas/complex-data-types.md)
 * [Files and attachments](handling-files-and-attachments.md)
   * [Move files via URL](handling-files-and-attachments.md#moving-textbinary-files-via-public-url)
   * [Move files via file content](handling-files-and-attachments.md#moving-textbinary-files-via-file-content)
