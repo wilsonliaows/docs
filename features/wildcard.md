@@ -1,6 +1,8 @@
 # Using wildcards to search or filter
 
-In some triggers and actions, you can use wildcards to search and filter items. Wildcards are characters, such as asterisk (\*) or question mark (?), that can be used to substitute any other character in a search. This is how to use them:
+In some triggers and actions, you can use wildcards to search or filter items based on naming pattern. For example, listing all files in a folder that filenames contain a specific text. 
+
+Wildcards are characters, such as asterisk (\*) or question mark (?), that can be used to substitute any other character in a search. This is how to use them:
 
 ## Asterisk (\*)
 Use the asterisk (\*) as substitute for zero or more characters. For example, if you are looking for files with filename contains the text “report”, type the following:
@@ -18,6 +20,6 @@ The questions mark (?) works similarly to the asterisk, except it only substitut
 
 For example, if you type **report?.csv**, you will get files “report2.csv”, “ReportA.csv”, but not “Report 2018.csv”. 
 
-## Currently supported
-The wildcard is currently supported in the following triggers and actions. The list will be updated as we support more connectors in the future: 
+## Currently supported triggers & actions
+Wildcards are currently supported in the following triggers and actions. The list will be updated as we support more connectors in the future: 
 * On-prem file's action "List files in folder"
