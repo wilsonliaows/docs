@@ -32,9 +32,9 @@ First, we can perform a test with a statically defined array of strings. Make su
 ![Static array input](/assets/images/formula-docs/formula-static-array-input.png)
 *Static array input in formula mode*
 
-Next, it is a good idea to perform some tests to make sure that the custom action updates the ticket with the new tags as expected. At this point, you can improve the recipe further to update tickets with tags dynamically. Since **Tags** expect an Array of Strings, we need to retrieve only the <kbd>Name</kbd> values from the <kbd>Campaigns</kbd> returned from a previous action.
+Next, it is a good idea to perform some tests to make sure that the custom action updates the ticket with the new tags as expected. At this point, you can improve the recipe further to update tickets with tags dynamically. Since Zendesk API expect an Array of Strings, we need to retrieve only the <kbd>Name</kbd> values from the <kbd>Campaigns</kbd> returned from a previous action.
 
-We do this by simply using the [`pluck`](/formulas/array-list-formulas.html#pluck) formula. This formula conveniently returns an array of <kbd>Name</kbd> values, perfect!
+We do this by using the [`pluck`](/formulas/array-list-formulas.html#pluck) formula, which conveniently returns an array of <kbd>Name</kbd> values, perfect!
 
 ![Dynamic array input](/assets/images/formula-docs/formula-dynamic-array-input.png)
 *Dynamic array input in formula mode*
