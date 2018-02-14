@@ -1,8 +1,6 @@
-# Using wildcards in search or filter
+# Using wildcards to search or filter
 
-Sometimes you need to search for or filter items based on their names. For example, getting all files with filename contains a specific text. Using wildcards is a simple way to do that.
-
-Wildcards are characters, such as asterisk (*) or question mark (?), that can be used to substitute any other character in a search. This is how to use them:
+In some triggers and actions (e.g. On-prem file's action "List files in folder"), you can use wildcards to search and filter items. Wildcards are characters, such as asterisk (\*) or question mark (?), that can be used to substitute any other character in a search. This is how to use them:
 
 ## Asterisk (*)
 Use the asterisk (*) as substitute for zero or more characters. For example, if you are looking for files with filename contains the text “report”, type the following:
