@@ -10,9 +10,9 @@ The Workato on-premise agent provides a secure way for Workato to selectively ac
 
 On-premise access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
-For Workato accounts with on-prem access, users are able to view the on-prem option on their account menu.
+For Workato accounts with on-prem access, users are able to view the on-prem option in the Tools menu.
 
-![On-prem option](/assets/images/on-prem/on_prem_access_option.png)
+![On-prem option](assets/images/on-prem/on_prem_access_option_Jan_2018.png)
 *On premise menu option*
 
 # On-premise overview
@@ -56,20 +56,49 @@ Please make sure that TCP port 3000 is available for binding.
 3. [Start agent](/on-prem.md#start-agent)
 
 ## Install agent
+### For Windows
+1. On the top navigation bar, click `Tools` > `On-prem agent`
 
-### Windows
+![On-prem option](assets/images/on-prem/on_prem_access_option_Jan_2018.png)
 
-1. Click on `Windows agent` button to download and run the installer. Follow the installation instructions.
-2. By default, the agent is installed into `C:\Program Files\Workato Agent` folder and creates a `Workato` group in the Start Menu.
-3. By default, the agent is installed as a Windows service called `WorkatoAgent`. You can disable this feature by unchecking the corresponding option during install.
-4. Click on `Download key` button. Unzip the `cert.zip` file to `<INSTALL_HOME>\conf` directory (`<INSTALL_HOME>` is a target folder you've selected during install). This should copy `cert.key` and `cert.pem` files to the directory.
+2. Click `Create a new agent`
+
+![On-prem option](assets/images/on-prem/create_agent_Jan_2018.png)
+
+3. Click `Download key` and `Download agent`, which downloads a `cert.zip` file and an agent installer/package file respectively.
+
+![On-prem option](assets/images/on-prem/download_key_agent_Jan_2018.png)
+
+4. Select your operating system to download the right agent installer/package.
+
+![On-prem option](assets/images/on-prem/download_agent_Jan_2018.png)
+
+5. Run the agent installer file. Then follow the installation instructions.
+6. By default, the agent is installed into `C:\Program Files\Workato Agent` folder and creates a `Workato` group in the Start Menu.
+7. By default, the agent is installed as a Windows service called `WorkatoAgent`. You can disable this feature by unchecking the corresponding option during install.
+8. Unzip the `cert.zip` file to `Workato Agent\conf` directory. This should copy the `cert.key` and `cert.pem` files to the directory.
 
 An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
 
-### Linux
+### For Linux & Mac OS
+1. On the top navigation bar, click `Tools` > `On-prem agent`
 
-1. Click on `Linux agent` button. Unpack the agent package file to `<INSTALL_HOME>`.
-2. Click on `Download key` button. Unzip the `cert.zip` file to `<INSTALL_HOME>/conf` directory. This should copy `cert.key` and `cert.pem` files to the directory.
+![On-prem option](assets/images/on-prem/on_prem_access_option_Jan_2018.png)
+
+2. Click `Create a new agent`
+
+![On-prem option](assets/images/on-prem/create_agent_Jan_2018.png)
+
+3. Click `Download key` and `Download agent`, which downloads a `cert.zip` file and an agent installer/package file respectively.
+
+![On-prem option](assets/images/on-prem/download_key_agent_Jan_2018.png)
+
+4. Select your operating system to download the right agent installer/package.
+
+![On-prem option](assets/images/on-prem/download_agent_Jan_2018.png)
+
+5. Unpack the agent package file into a folder of your choice, which we will refer to as `<INSTALL_HOME>` folder.
+6. Unzip the `cert.zip` file to `<INSTALL_HOME>/conf` directory. This should copy the `cert.key` and `cert.pem` files to the directory.
 
 ## Create connection profiles
 A single Workato agent can be used to connect with multiple backend apps. A `connection profile` uniquely identifies the back end app and contains the configuration information required to connect to that app.
