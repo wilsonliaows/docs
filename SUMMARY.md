@@ -95,6 +95,7 @@
   * [Move files via URL](handling-files-and-attachments.md#moving-textbinary-files-via-public-url)
   * [Move files via file content](handling-files-and-attachments.md#moving-textbinary-files-via-file-content)
   * [Parsing files](handling-files-and-attachments.md#interpreting-file-content-and-moving-to-other-apps)
+  * [Search or filter using wildcard](features/wildcard.md)
   * [CSV files](features/handling-csv-files.md)
     * [Built-in CSV parsing](features/handling-csv-files.md#built-in-csv-parsing)
     * [Parsing CSV files via utility](features/handling-csv-files.md#parsing-csv-files-via-utility-connectors-csv-parsing-capability)
