@@ -56,6 +56,7 @@ Please make sure that TCP port 3000 is available for binding.
 3. [Start agent](/on-prem.md#start-agent)
 
 ## Install agent
+### For Windows
 1. On the top navigation bar, click `Tools` > `On-prem agent`
 
 ![On-prem option](assets/images/on-prem/on_prem_access_option_Jan_2018.png)
@@ -72,10 +73,6 @@ Please make sure that TCP port 3000 is available for binding.
 
 ![On-prem option](assets/images/on-prem/download_agent_Jan_2018.png)
 
-Then follow these next steps based on your operating systems:
-
-### For Windows
-
 5. Run the agent installer file. Then follow the installation instructions.
 6. By default, the agent is installed into `C:\Program Files\Workato Agent` folder and creates a `Workato` group in the Start Menu.
 7. By default, the agent is installed as a Windows service called `WorkatoAgent`. You can disable this feature by unchecking the corresponding option during install.
@@ -84,6 +81,21 @@ Then follow these next steps based on your operating systems:
 An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
 
 ### For Linux & Mac OS
+1. On the top navigation bar, click `Tools` > `On-prem agent`
+
+![On-prem option](assets/images/on-prem/on_prem_access_option_Jan_2018.png)
+
+2. Click `Create a new agent`
+
+![On-prem option](assets/images/on-prem/create_agent_Jan_2018.png)
+
+3. Click `Download key` and `Download agent`, which downloads a `cert.zip` file and an agent installer/package file respectively.
+
+![On-prem option](assets/images/on-prem/download_key_agent_Jan_2018.png)
+
+4. Select your operating system to download the right agent installer/package.
+
+![On-prem option](assets/images/on-prem/download_agent_Jan_2018.png)
 
 5. Unpack the agent package file into a folder of your choice, which we will refer to as `<INSTALL_HOME>` folder.
 6. Unzip the `cert.zip` file to `<INSTALL_HOME>/conf` directory. This should copy the `cert.key` and `cert.pem` files to the directory.
