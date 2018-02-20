@@ -50,7 +50,7 @@ Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, an
 
 ### Using real-time triggers
 
-Workato offers real-time capabilities for 2 Salesforce triggers, namely **New Object** and **New/Updated Object**. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this follow these steps:
+Workato offers real-time capabilities for 2 Salesforce triggers, namely **New Object** and **New/Updated Object**. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this, follow these steps:
 1. Select a Salesforce real-time trigger in your recipe. Make sure you have an active connection and have chosen an Object. An endpoint URL should be displayed when this step is completed.
 2. Log in to your Salesforce instance and navigate to **Setup**.
 3. On the left hand panel, under Build, click on **Create** > **Workflow & Approvals** > **Workflow rules**.
