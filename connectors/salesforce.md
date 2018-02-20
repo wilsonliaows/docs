@@ -52,14 +52,15 @@ Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, an
 
 Workato offers real-time capabilities for 2 Salesforce triggers, namely **New Object** and **New/Updated Object**. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this follow these steps:
 1. Select a Salesforce real-time trigger in your recipe. Make sure you have an active connection and have chosen an Object. An endpoint URL should be displayed when this step is completed.
-2. Log in to your Salesforce instance and click on 'Setup' at the top right of the page.
-3. On the left hand panel, under Build, click on **Create** > **Workflow & Approvals** > **Workflow rules**
-4. Select the Object which you want to receive real time updates for and click **Next**. This Object should match the one you have selected in your recipe.
+2. Log in to your Salesforce instance and navigate to **Setup**.
+3. On the left hand panel, under Build, click on **Create** > **Workflow & Approvals** > **Workflow rules**.
+4. Select the Object which you want to receive real-time updates for and click **Next**. This Object should match the one you have selected in your recipe.
 5. Fill in the necessary fields:
   - Rule name
   - Rule criteria (Rule criteria can be set to your preference. Example: only when Opportunity status equals "Closed Won")
 
   After you are done, click **Save & Next**
+
 6. Add **New Outbound Message** in the **Specify workflow actions** step. The endpoint URL from step 1 should be used here.
 7. Hit **Save** and **Activate**. You are now set up for real-time integration! Your recipe with a real-time trigger is ready to be tested/ran.
 
