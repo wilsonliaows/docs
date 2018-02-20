@@ -55,9 +55,9 @@ Workato offers real-time capabilities for 2 Salesforce triggers, namely **New Ob
 2. Log in to your Salesforce instance and click on 'Setup' at the top right of the page.
 3. On the left hand panel, under Build, click on **Create** > **Workflow & Approvals** > **Workflow rules**
 4. Select the Object which you want to receive real time updates for and click **Next**. This Object should match the one you have selected in your recipe.
-5. Fill in the required and optional field:
-  - Rule name,
-  - Rule Criteria (Rule criteria can be set based on your preference. For example, only when Opportunity status equals “Closed Won".)
+5. Fill in the necessary fields:
+  - Rule name
+  - Rule criteria (Rule criteria can be set to your preference. Example: only when Opportunity status equals "Closed Won")
 
   After you are done, click **Save & Next**
 6. Add **New Outbound Message** in the **Specify workflow actions** step. The endpoint URL from step 1 should be used here.
