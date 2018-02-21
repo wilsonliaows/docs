@@ -19,7 +19,7 @@ Give this MySQL connection a unique name that identifies which MySQL instance it
 
 - **On-prem secure agent**
 
-To connect to on-premise MySQL instances, set up the [on-premise agent](https://www.workato.com/secure_agents). Ability to use the on-premise access functionality depends on the Workato plan subscribed to.
+To connect to on-premise MySQL instances, set up the [on-premise agent](https://www.workato.com/secure_agents). This feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
 - **Username**
 
@@ -53,7 +53,7 @@ MySQL connector works with all tables, views and stored procedures. These are av
 *Provide exact table/view name in a text field*
 
 ### Single row vs batch of rows
-MySQL connector triggers/actions read or write to your database either as a single row or in batches at once. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size is subjected to upper limit and default size.
+MySQL connector triggers/actions read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size can be any number between 1 and 100, the maximum size limit. The default batch size is 100.
 
 ![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
