@@ -12,8 +12,10 @@ This action lets you delete rows based on certain criteria defined by a ` WHERE`
 ![Delete action](/assets/images/mysql/delete-rows-action.png)
 *Delete rows action*
 
+### Table
 First, select a table to delete rows from. This can be done either by selecting a table from the pick list, or toggle the input to text mode and type the full table name.
 
+### WHERE condition
 Next, provide a `WHERE` condition to select rows to be deleted. This condition can be as simple as filtering a single record to delete based on `ID`.
 
 ```sql
@@ -26,4 +28,4 @@ Alternatively, it can be used to delete multiple rows.
 status = 'closed'
 ```
 
-Refer to the guide about [WHERE condition](/connectors/mysql.md#where-condition) to learn more about how to configure this input field.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mysql.md#where-condition) guide for more information.
