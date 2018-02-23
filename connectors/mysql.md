@@ -13,33 +13,44 @@ All editions of MySQL are supported.
 The MySQL connector uses basic authentication to authenticate with MySQL.
 ![Configured MySQL connection](/assets/images/mysql/connection.png)
 
-- **Connection name**
-
-Give this MySQL connection a unique name that identifies which MySQL instance it is connected to.
-
-- **On-prem secure agent**
-
-To connect to on-premise MySQL instances, set up the [on-premise agent](https://www.workato.com/secure_agents). This feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
-
-- **Username**
-
-Username to connect to MySQL.
-
-- **Password**
-
-Password to connect to MySQL.
-
-- **Host**
-
-URL of server where your server is hosted.
-
-- **Port**
-
-Port number that your server is running on. Usually *3306*.
-
-- **Database**
-
-Name of the MySQL database you wish to connect to.
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th>Field</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Connection name</td>
+      <td>Give this MySQL connection a unique name that identifies which MySQL instance it is connected to.</td>
+    </tr>
+    <tr>
+      <td>On-prem secure agent</td>
+      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the [On-premise agent](/on-prem.md) guide for more information.</td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td>Username to connect to MySQL.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>Password to connect to MySQL.</td>
+    </tr>
+    <tr>
+      <td>Host</td>
+      <td>URL of server where your server is hosted.</td>
+    </tr>
+    <tr>
+      <td>Port</td>
+      <td>Port number that your server is running on, typically <b>3306</b>.</td>
+    </tr>
+    <tr>
+      <td>Database</td>
+      <td>Name of the MySQL database you wish to connect to.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Working with the MySQL connector
 
@@ -57,3 +68,30 @@ MySQL connector triggers/actions read or write to your database either as a sing
 
 ![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
+
+### WHERE condition
+This input field is used to filter and identify rows to perform an action on. This is used in the following way.
+- filter rows to be picked up in triggers
+- filter rows in Select rows action
+- filter rows to be deleted in Delete rows action
+
+This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
+
+A simple `WHERE` condition to search based on values in a single column looks like this.
+
+```sql
+currency = 'USD'
+```
+
+If used in a Search rows action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column.
+
+Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
+
+```sql
+id in (select user_id from tickets where priority = 2)
+```
+
+When used in a Delete rows action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
+
+![Using subquery in WHERE condition](/assets/images/mysql/subquery-in-where-condition.png)
+*Using subquery in WHERE condition*
