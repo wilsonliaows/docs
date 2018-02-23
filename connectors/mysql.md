@@ -72,18 +72,18 @@ MySQL connector triggers/actions read or write to your database either as a sing
 ### WHERE condition
 This input field is used to filter and identify rows to perform an action on. This is used in the following way.
 - filter rows to be picked up in triggers
-- filter rows in Select rows action
-- filter rows to be deleted in Delete rows action
+- filter rows in **Select rows** action
+- filter rows to be deleted in **Delete rows** action
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
 
-A simple `WHERE` condition to search based on values in a single column looks like this.
+A simple `WHERE` condition to filter rows based on values in a single column looks like this.
 
 ```sql
 currency = 'USD'
 ```
 
-If used in a Search rows action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column.
+If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column.
 
 Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
 
@@ -91,7 +91,7 @@ Your `WHERE` condition can also contain subqueries. The following query can be u
 id in (select user_id from tickets where priority = 2)
 ```
 
-When used in a Delete rows action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
+When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
 
 ![Using subquery in WHERE condition](/assets/images/mysql/subquery-in-where-condition.png)
 *Using subquery in WHERE condition*

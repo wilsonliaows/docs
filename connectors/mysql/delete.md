@@ -3,7 +3,9 @@ title: Workato connectors - MySQL Delete rows actions
 date: 2018-02-02 06:10:00 Z
 ---
 
-# MySQL - Delete rows action
+# MySQL - Delete actions
+
+## Delete rows
 
 This action lets you delete rows based on certain criteria defined by a ` WHERE` condition. This action should be tested and used with care, as it will permanently delete rows in your table.
 
