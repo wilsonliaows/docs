@@ -1,5 +1,5 @@
 ---
-title: Workato connectors - MySQL insert row action
+title: Workato connectors - MySQL Insert actions
 date: 2018-02-02 06:10:00 Z
 ---
 

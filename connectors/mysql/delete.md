@@ -1,5 +1,5 @@
 ---
-title: Workato connectors - MySQL Delete rows actions
+title: Workato connectors - MySQL Delete actions
 date: 2018-02-02 06:10:00 Z
 ---
 
