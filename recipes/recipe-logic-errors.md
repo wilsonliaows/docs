@@ -4,7 +4,7 @@ date: 2018-01-24 15:00:00 Z
 ---
 
 # Recipe logic errors
-Even when your recipe doesn't encounter design-time errors that prevent it from running, or execution errors that causes job failures, there might be other recipe logic issues. Some of these issues might be caught during testing, as data isn't moved across apps properly. Other issues might not be caught until the recipe is running. We recommend monitoring your data and recipes closely during testing and the first couple of days after the recipe has been started.
+Even when your recipe doesn't encounter design-time errors that prevent it from running, or execution errors that cause job failures, there might be other recipe logic issues. Some of these issues might be caught during testing, as data isn't moved across apps properly. Other issues might not be caught until the recipe is running. We recommend monitoring your data and recipes closely during testing and the first couple of days after the recipe has been started.
 
 We cover some common recipe logic errors in this article.
 
@@ -52,15 +52,24 @@ For example, let's consider a new/updated NetSuite sales order trigger with the 
 
 In this case, if a sales order was updated 3 times while it has a status of `Billed`, the recipe will register 3 jobs with this particular sales order, and would have created 3 corresponding FinancialForce invoices. The recipe logic should take into account the possibility of multiple trigger events for the same record, so as to prevent data duplication.
 
-The following recipe demonstrates one way to prevent such data duplication by ensuring that NetSuite sales orders are only moved to FinancialForce once, when they are first marked as `Billed`. It updates NetSuite sales orders with an external ID (with the value of the corresponding FinancialForce's invoice ID), and has an additional trigger condition to ensure that we don't process sales orders with an external ID again.
+The following recipe demonstrates one way to prevent such data duplication by ensuring that NetSuite sales orders are only moved to FinancialForce once, when they are first marked as `Billed`. It updates NetSuite sales orders with an external ID (with the value of the corresponding FinancialForce's invoice ID), and has an additional trigger condition (NetSuite new/updated standard object external ID is not present) to ensure that we don't process sales orders with an external ID again.
 
-![Recipe that moves sales orders in NetSuite to FinancialForce invoices the first time status is changed to billed](/assets/images/troubleshooting/recipe-with-trigger-condition-logic.png)
+![Recipe that moves sales orders in NetSuite to FinancialForce invoices the first time status is changed to billed - the second trigger condition added ensures that only NetSuite invoices without an external ID will be picked up by the trigger](/assets/images/troubleshooting/recipe-with-trigger-condition-logic.png)
+
+If we expand Step 2, we see that we're mapping the NetSuite sales order external ID with the FinancialForce invoice's ID.
+
+![Recipe that moves sales orders in NetSuite to FinancialForce invoices the first time status is changed to billed - the action in Step 2 updates the NetSuite invoice with an external ID. This ensures that this invoice will not be picked up by the trigger again]
+(/assets/images/troubleshooting/update-netsuite-sales-order-external-id.png)
 *Recipe that moves sales orders in NetSuite to FinancialForce invoices the first time status is changed to billed*
 
-The following recipe demonstrates another way to prevent such data duplication, by ensuring that NetSuite sales orders are only created once, and subsequently are updated. It creates a new FinancialForce invoice if the NetSuite sales order has no external ID, and updates the corresponding FinancialForce invoice if there is an external ID.
+The following recipe demonstrates another way to prevent such data duplication, by ensuring that NetSuite sales orders are only created once, and subsequently are updated. Whenever we create a FinancialForce invoice, we update the NetSuite sales order's external ID field with that FinancialForce invoice's ID. Whenever the recipe triggers (when NetSuite invoice has been created or updated), we check for the existence of the external ID. The recipe creates a new FinancialForce invoice if the NetSuite sales order has no external ID, and updates the corresponding FinancialForce invoice if there is an external ID.
 
-![Example recipe that syncs NetSuite sales orders with FinancialForce invoices](/assets/images/troubleshooting/recipe-with-update-logic.png)
+![Example recipe that syncs NetSuite sales orders with FinancialForce invoices. If the NetSuite sales order is newly created, we create a FinancialForce invoice and update the NetSuite sales order with the FinancialForce ID. If this NetSuite sales order has been previously synced (and therefore has an external ID), we take that FinancialForce ID in the external ID and update that FinancialForce invoice.](/assets/images/troubleshooting/recipe-with-update-logic.png)
 *Example recipe that syncs NetSuite sales orders with FinancialForce invoices*
+
+If we expand Step 3, we see that we're mapping the NetSuite sales order external ID with the FinancialForce invoice's ID.
+
+![Example recipe that syncs NetSuite sales orders with FinancialForce invoices - the action in Step 3 updates the NetSuite invoice with an external ID. This ensures that no FinancialForce invoice will be created again to cause duplication](/assets/images/troubleshooting/update-netsuite-sales-order-external-id-2.png)
 
 ## Missing trigger events
 If you start your recipe and realize that it doesn't seem to be picking up certain trigger events that you're expecting, it might be because you're using a **New object** trigger together with a trigger condition, when you should be using a **New/updated object** trigger with the trigger condition instead. This is because trigger conditions are evaluated by Workato after trigger events have been fetched.
