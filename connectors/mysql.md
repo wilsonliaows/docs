@@ -27,7 +27,7 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
     </tr>
     <tr>
       <td>On-prem secure agent</td>
-      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the [On-premise agent](/on-prem.md) guide for more information.</td>
+      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the <a href="/on-prem.md" target="_blank">On-premise agent</a> guide for more information.</td>
     </tr>
     <tr>
       <td>Username</td>
@@ -64,7 +64,7 @@ MySQL connector works with all tables, views and stored procedures. These are av
 *Provide exact table/view name in a text field*
 
 ### Single row vs batch of rows
-MySQL connector triggers/actions read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size can be any number between 1 and 100, the maximum size limit. The default batch size is 100.
+MySQL connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size can be any number between 1 and 100, the maximum size limit. The default batch size is 100.
 
 ![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
