@@ -63,6 +63,8 @@ MySQL connector works with all tables, views and stored procedures. These are av
 ![Exact table name provided](/assets/images/mysql/table_name_text.png)
 *Provide exact table/view name in a text field*
 
+Case sensitivity of the name of a table/view depends on your database implementation. The underlying OS that your database is hosted determines if you need to provide exact table/view names. Typically, database and table names are case insensitive in Windows.
+
 ### Single row vs batch of rows
 MySQL connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size can be any number between 1 and 100, the maximum size limit. The default batch size is 100.
 
