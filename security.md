@@ -34,4 +34,7 @@ Workato's [on-premise agent](on-prem.md) provides a secure way for Workato to se
 
 If your organization has strict outbound traffic rules, you should whitelist the on-premise gateway IP address: 
 
-- **52.206.58.244**
+- **34.192.94.13**
+- **34.195.128.7**
+- **34.226.84.130**
+- **52.206.58.244** (will be deprecated on 28 March 2018)
