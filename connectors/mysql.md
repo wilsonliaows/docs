@@ -71,6 +71,21 @@ MySQL connector can read or write to your database either as a single row or in 
 ![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
 
+Besides the difference in input fields, there is also difference between the outputs of these 2 types of operations. A trigger that process rows one at a time will have an output datatree that allows you to map data from that single row.
+
+![Single row trigger output](/assets/images/mysql/single_row_trigger_output.png)
+*Single row trigger output*
+
+However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
+
+![Batch trigger output](/assets/images/mysql/batch_trigger_output.png)
+*Batch trigger output*
+
+As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/660208) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+
+![Using batch trigger output](/assets/images/mysql/using_batch_output.png)
+*Using batch trigger output*
+
 ### WHERE condition
 This input field is used to filter and identify rows to perform an action on. This is used in the following way.
 - filter rows to be picked up in triggers
