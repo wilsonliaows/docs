@@ -92,7 +92,11 @@ This input field is used to filter and identify rows to perform an action on. Th
 - filter rows in **Select rows** action
 - filter rows to be deleted in **Delete rows** action
 
-This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
+This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/language-structure.html) for a full list of rules for writing MySQL statements.
+
+#### Simple statements
+
+String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
 
 A simple `WHERE` condition to filter rows based on values in a single column looks like this.
 
@@ -101,6 +105,22 @@ currency = 'USD'
 ```
 
 If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column.
+
+Backticks (` `` `) in `WHERE` statements are for tables and columns identifiers. This is only necessary when the identifier is a MySQL reserved keyword or contains special characters.
+
+```sql
+`currency` = 'USD'
+```
+
+Double quotes (`""`) can also be used for string values but is less commonly accepted in other databases. For this reason, single quotes are used more widely than double quotes.
+
+MySQL also expects `DATE` and `DATETIME` values be single quoted.
+
+```sql
+`created_date` > '2018-03-01' and `currency` = 'USD'
+```
+
+#### Complex statements
 
 Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
 
