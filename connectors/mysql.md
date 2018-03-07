@@ -104,21 +104,34 @@ A simple `WHERE` condition to filter rows based on values in a single column loo
 currency = 'USD'
 ```
 
-If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column.
+If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
 
-Backticks (` `` `) in `WHERE` statements are for tables and columns identifiers. This is only necessary when the identifier is a MySQL reserved keyword or contains special characters.
+![Using datapills in WHERE condition](/assets/images/mysql/use_datapill_in_where.png)
+*Using datapills in `WHERE` condition*
+
+Backticks (` `` `) in `WHERE` statements are for tables and columns identifiers. This is required when the identifier is a MySQL reserved keyword or contains special characters.
 
 ```sql
 `currency` = 'USD'
 ```
 
+In a recipe, remember to add backticks to the column identifiers.
+
+![Using datapills in WHERE condition with backticks](/assets/images/mysql/use_datapill_in_where_backtick.png)
+*Using datapills in `WHERE` condition backticks*
+
 Double quotes (`""`) can also be used for string values but is less commonly accepted in other databases. For this reason, single quotes are used more widely than double quotes.
 
-MySQL also expects `DATE` and `DATETIME` values be single quoted.
+MySQL also expects `DATE` and `DATETIME` values be single quoted. You can use double quotes for other column types.
 
 ```sql
-`created_date` > '2018-03-01' and `currency` = 'USD'
+created_date > '2018-03-01' and currency = "USD"
 ```
+
+In a recipe, remember to use the appropriate quotes for each values.
+
+![Using datapills in WHERE condition with mixed column types](/assets/images/mysql/use_datapill_in_where_mixed.png)
+*Using datapills in `WHERE` condition with mixed column types*
 
 #### Complex statements
 
@@ -130,5 +143,8 @@ id in (select user_id from tickets where priority = 2)
 
 When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
 
-![Using subquery in WHERE condition](/assets/images/mysql/subquery-in-where-condition.png)
+![Using datapills in WHERE condition with subquery](/assets/images/mysql/use_datapill_in_where_complex.png)
+*Using datapills in `WHERE` condition with subquery*
+
+![Using subquery in WHERE condition](/assets/images/mysql/use_datapill_in_where_complex.png)
 *Using subquery in WHERE condition*
