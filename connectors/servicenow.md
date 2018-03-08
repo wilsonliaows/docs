@@ -50,10 +50,6 @@ The ServiceNow connector supports 2 types of authentication
 1. Username/Password (Basic authentication)
 2. OAuth 2.0 (Authorization code grant)
 
-### Choosing authentication type
-
-
-
 ### Username/Password
 
 Select **Username/Password** authentication type to connect to your ServiceNow instance with your login credentials.
