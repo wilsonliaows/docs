@@ -16,7 +16,7 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th>Field</th>
+        <th width='25%'>Field</th>
         <th>Description</th>
     </tr>
   </thead>

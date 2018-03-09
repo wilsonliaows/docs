@@ -60,7 +60,7 @@ Select **Username/Password** authentication type to connect to your ServiceNow i
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th>Field</th>
+        <th width='25%'>Field</th>
         <th>Description</th>
     </tr>
   </thead>
@@ -100,7 +100,7 @@ Only Istanbul (or later) versions of ServiceNow supports OAuth 2.0 connection wi
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th>Field</th>
+        <th width='25%'>Field</th>
         <th>Description</th>
     </tr>
   </thead>
@@ -142,7 +142,7 @@ Next, create an endpoint for a client application to gain access to your Service
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th>Field</th>
+        <th width='25%'>Field</th>
         <th>Description</th>
     </tr>
   </thead>
