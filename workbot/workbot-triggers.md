@@ -67,7 +67,6 @@ The following table lists the configurable input fields in the trigger, and what
               If <b>yes</b>, command will not show up as a button in the Slack channel when the user types app name. If <b>no</b>, command will show up as a button in the Slack channel when the user types app name.
             </td>
         </tr>
-
     </tbody>
 </table>
 
@@ -108,13 +107,13 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
         <tr>
             <td>Optional</td>
             <td>
-              Not required. If not defined, defaults to optional:true. Input parameter will be optional.
+              Not required. If not defined, defaults to <code>optional:true</code>. Input parameter will be optional.
             </td>
         </tr>
         <tr>
             <td>Prompt</td>
             <td>
-              Not required. If not defined, defaults to prompt:false. No prompt will be generated.
+              Not required. If not defined, defaults to <code>prompt:false</code>. No prompt will be generated.
             </td>
         </tr>
         <tr>
@@ -135,7 +134,6 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
               Not required. If not defined, defaults to no sample data.
             </td>
         </tr>
-
     </tbody>
 </table>
 
