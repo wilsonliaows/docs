@@ -61,7 +61,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>only</td>
       <td>
         White list a comma-separate  of fields<br>
-        <code>object_definition["user"].only("id", "name")<.code>
+        <code>object_definition["user"].only("id", "name")</code>
       </td>
     </tr>
     <tr>
