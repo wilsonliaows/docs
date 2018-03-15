@@ -6,7 +6,7 @@ Not all ruby public instance methods are available. Methods are whitelisted to e
 
 These methods are synonymous to HTTP verbs (GET, POST, PUT, PATCH AND DELETE). These methods are provide you with a very easy way to build and execute HTTP requests without having to think about other details like timeouts, HTTP connection, streaming etc.
 
-Learn how to make HTTP requests using the HTTP verb methods [here](/developing-conenctors/sdk/request.md).
+Learn how to make HTTP requests using the HTTP verb methods [here](/developing-connectors/sdk/request.md).
 
 ## Ruby methods
 
