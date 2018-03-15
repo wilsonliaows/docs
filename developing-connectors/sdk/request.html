@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Toggle field · Workato Docs</title>
+        <title>HTTP request · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="request.html" />
+    <link rel="next" href="action.html" />
     
     
-    <link rel="prev" href="object-definition.html" />
+    <link rel="prev" href="toggle-field.html" />
     
 
     
@@ -110,7 +110,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="../..">Toggle field</a>
+          <a href="../..">HTTP request</a>
         </h1>
       </div>
     </div>
@@ -4622,7 +4622,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.18.4" data-path="toggle-field.html">
+    <li class="chapter " data-level="1.18.4" data-path="toggle-field.html">
       
 
       
@@ -4637,7 +4637,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.5" data-path="request.html">
+    <li class="chapter active" data-level="1.18.5" data-path="request.html">
       
 
       
@@ -4993,66 +4993,141 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="toggle-fields">Toggle Fields</h1>
-<p>Toggle fields are a special type of input fields that allow 2 input types. This is useful in a scenario where there are 2 ways to provide an input value for an action or trigger. It is typically used for input fields that are primarily a <code>pick list</code> but may require a <code>text</code> type in certain scenarios.</p>
-<p>Here we have an example toggle field <code>parser_id</code> used in the Docparser connector. The action, <strong>Fetch document from URL</strong>, requires the parser ID as an input. This ID can be accessed within the parser page URL. However, that is not a great user experience for the recipe builder. Ideally, we want users to be able to stay on the recipe page without having to toggle (pun intended) between browser tabs.</p>
-<p>Hence, we introduced the parser pick list. This pick list is dynamically generated from the user&apos;s list of parsers. For details of pick lists, checkout <a href="pick-list.html">Pick list</a></p>
-<pre><code class="lang-ruby"><span class="hljs-symbol">fetch_document_from_url:</span> {
-  <span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
-    [
-      { 
-        <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;url&quot;</span>, 
-        <span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;Source URL&quot;</span>,
-        <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;Upload file from this URL&quot;</span>,
-        <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span> 
-      },
-      {
-        <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;parser_id&quot;</span>,
-        <span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;Document Parser&quot;</span>,
-        <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;The Document Parser the file gets imported to&quot;</span>,
-        <span class="hljs-symbol">control_type:</span> <span class="hljs-symbol">:select</span>,
-        <span class="hljs-symbol">pick_list:</span> <span class="hljs-string">&quot;parsers&quot;</span>,
-        <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>,
-        <span class="hljs-symbol">toggle_hint:</span> <span class="hljs-string">&quot;Select from list&quot;</span>,
-        <span class="hljs-symbol">toggle_field:</span> {
-          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;parser_id&quot;</span>,
-          <span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;Parser ID&quot;</span>,
-          <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span>,
-          <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&quot;text&quot;</span>,
-          <span class="hljs-symbol">optional:</span> <span class="hljs-keyword">false</span>,
-          <span class="hljs-symbol">toggle_hint:</span> <span class="hljs-string">&quot;Use custom value&quot;</span>,
-          <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;Go to home page and select the required parser. If the URL is &apos;https://app.docparser.com/stack/ynrqkdxvaghs/overview&apos;, then &apos;ynrqkdxvaghs&apos; is the ID&quot;</span>
-        }
-      },
-      {
-        <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;remote_id&quot;</span>,
-        <span class="hljs-symbol">sticky:</span> <span class="hljs-keyword">true</span>
-      }
-    ]
-  <span class="hljs-keyword">end</span>,
+                                <h1 id="http-request">HTTP Request</h1>
+<h2 id="http-verb-methods">HTTP verb methods</h2>
+<ul>
+<li>get</li>
+<li>post</li>
+<li>put</li>
+<li>patch</li>
+<li>delete</li>
+</ul>
+<h3 id="forming-a-request">Forming a request</h3>
+<p>Each HTTP verb method must be provided a <code>url</code> string as the first argument. The second argument (optional) can be in 2 forms.</p>
+<p>Firstly, <code>input</code> can be passed as a single hash. This hash can simply be the <code>input</code> of the <code>execute</code> or <code>poll</code> argument, such as the following:</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+  get(<span class="hljs-string">&quot;https://www.some_api_endpoint.com/api&quot;</span>, input)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The hash can also be formed before like this:</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+  params = {
+    <span class="hljs-string">&quot;id&quot;</span> =&gt; input[<span class="hljs-string">&quot;id&quot;</span>]
+  }
 
-  <span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
-      post(<span class="hljs-string">&quot;https://api.docparser.com/v1/document/fetch/<span class="hljs-subst">#{input[<span class="hljs-string">&quot;parser_id&quot;</span>]}</span>?url=<span class="hljs-subst">#{input[<span class="hljs-string">&quot;url&quot;</span>]}</span>&quot;</span>)
-  <span class="hljs-keyword">end</span>,
-
-  <span class="hljs-symbol">output_fields:</span> lambda <span class="hljs-keyword">do</span> |object_definitions|
-      object_definitions[<span class="hljs-string">&quot;document&quot;</span>]
-  <span class="hljs-keyword">end</span>
+  get(<span class="hljs-string">&quot;https://www.some_api_endpoint.com/api&quot;</span>, params)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The SDK framework processes this hash value and transforms it into the respective data format. For GET requests, the hash data is converted to URL query parameters.</p>
+<p>For POST, PUT and PATCH, the payload is formed into the request body into a format that you specify. Learn how to work with the various data formats <a href="data-format.html">here</a>.</p>
+<p>The other method of passing request data is as a series of key/value pairs.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+  post(<span class="hljs-string">&quot;https://www.some_api_endpoint.com/api&quot;</span>, <span class="hljs-symbol">name:</span> input[<span class="hljs-string">&quot;name&quot;</span>], <span class="hljs-symbol">email:</span> input[<span class="hljs-string">&quot;email&quot;</span>])
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>All arguments after the first will be transformed into request data. In this case, since the default data format is JSON, the following request body is formed:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ee Shan&quot;</span>,
+  <span class="hljs-string">&quot;email&quot;</span>: <span class="hljs-string">&quot;eeshan@workato.com&quot;</span>
 }
 </code></pre>
-<p>A pick list input type is used to create a more desired user experience. However, this makes the action value mapping static. Because the pick list can only select a single value, all recipe jobs executing this action will use the single parser ID value selected. To overcome this limitation, a text field should be used. A text field allows dynamic mapping of input field value.</p>
-<p>In this case, both field types are desired, so we decided to use a <code>toggle_field</code> to provide both input options to users. Since, it is a more common scenario for users to select a parser per action, pick list type is set as the primary toggle and text field set as the secondary (nested <code>toggle_field</code>).</p>
-<h1 id="toggle-field-in-recipe">Toggle field in recipe</h1>
-<h2 id="toggle-primary-field">Toggle primary field</h2>
-<p><img src="../../assets/images/sdk/toggle-primary.png" alt="Toggle primary field"></p>
-<h2 id="toggle-secondary-field">Toggle secondary field</h2>
-<p><img src="../../assets/images/sdk/toggle-secondary.png" alt="Toggle secondary field"></p>
-<h2 id="togglehint">toggle_hint</h2>
-<p>Toggle hints are displayed in the toggle dropdown when choosing between primary and secondary options. This is an optional field but should be added as best practice. A <code>toggle_hint</code> defined in the primary field will be displayed as a hint for choosing the primary field. The same applies for <code>toggle_hint</code> for secondary field.</p>
-<p><img src="../../assets/images/sdk/toggle-hint.png" alt="Toggle field hint"></p>
-<h1 id="togglefield">toggle_field</h1>
-<p><code>toggle_field</code> should be defined as a hash nested in the primary field. Within this hash should be a definition of a typical field. This means that the <code>toggle_field</code> hash should contain all the fields required for a field.</p>
-<p>Note: <code>toggle_field</code> keys do not have default behaviours. This means that all fields are required and must be explicitly defined. For a details of field definitions, check out <a href="object-definition.html">Object Definition</a></p>
+<p>For a GET request, the following URL parameters are formed.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+  get(<span class="hljs-string">&quot;https://www.some_api_endpoint.com/api&quot;</span>, <span class="hljs-symbol">name:</span> input[<span class="hljs-string">&quot;name&quot;</span>], <span class="hljs-symbol">email:</span> input[<span class="hljs-string">&quot;email&quot;</span>])
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The full request URL string will be:</p>
+<p><code>https://www.some_api_endpoint.com/api?name%3DEe%20Shan%26email%3Deeshan%40workato.com</code></p>
+<h2 id="handling-response">Handling response</h2>
+<h3 id="default-response-data">Default response data</h3>
+<p>By default, all HTTP verb methods will return the response body of the request. For example, the following request creates a user in <strong>Okta</strong>.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+  response = post(<span class="hljs-string">&quot;/api/v1/users&quot;</span>, <span class="hljs-symbol">profile:</span> { <span class="hljs-symbol">login:</span> input[<span class="hljs-string">&quot;email&quot;</span>], <span class="hljs-symbol">displayName:</span> input[<span class="hljs-string">&quot;name&quot;</span>] })
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p><code>response</code> variable will a hash that looks like this:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-string">&quot;id&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;00ub0oNGTSWTBKOLGLNR&quot;</span>,
+  <span class="hljs-string">&quot;status&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;STAGED&quot;</span>,
+  <span class="hljs-string">&quot;created&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;2018-03-13T21:36:25.344Z&quot;</span>,
+  <span class="hljs-string">&quot;activated&quot;</span><span class="hljs-symbol">:</span> null,
+  <span class="hljs-string">&quot;statusChanged&quot;</span><span class="hljs-symbol">:</span> null,
+  <span class="hljs-string">&quot;lastLogin&quot;</span><span class="hljs-symbol">:</span> null,
+  <span class="hljs-string">&quot;lastUpdated&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;22018-03-13T21:36:25.344Z&quot;</span>,
+  <span class="hljs-string">&quot;passwordChanged&quot;</span><span class="hljs-symbol">:</span> null,
+  <span class="hljs-string">&quot;profile&quot;</span><span class="hljs-symbol">:</span> {
+    <span class="hljs-string">&quot;firstName&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;Ee Shan&quot;</span>,
+    <span class="hljs-string">&quot;lastName&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;Sim&quot;</span>,
+    <span class="hljs-string">&quot;email&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;eeshan@workato.com&quot;</span>,
+    <span class="hljs-string">&quot;login&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;eeshan@workato.com&quot;</span>,
+    <span class="hljs-string">&quot;mobilePhone&quot;</span><span class="hljs-symbol">:</span> null
+  },
+  <span class="hljs-string">&quot;credentials&quot;</span><span class="hljs-symbol">:</span> {
+    <span class="hljs-string">&quot;provider&quot;</span><span class="hljs-symbol">:</span> {
+      <span class="hljs-string">&quot;type&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;OKTA&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;OKTA&quot;</span>
+    }
+  }
+}
+</code></pre>
+<h3 id="afterresponse"><code>after_response</code></h3>
+<p><code>after_response</code> is an optional block that can be chained to the HTTP verb methods to handle the various parts of a HTTP response. Let&apos;s take a look at an example, again using the <strong>Okta</strong> API.</p>
+<p>When a request is sent to the <a href="https://developer.okta.com/docs/api/resources/users#list-all-users" target="_blank">List all users</a> endpoint, the truncated response looks like this.</p>
+<pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+<span class="hljs-attribute">Link</span>: &lt;https://workatotest.okta.com/api/v1/users?limit=200&gt;; rel=&quot;self&quot;
+
+<span class="json">[
+  {
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00utti9t3j1xO9jOm2p6&quot;</span>,
+    <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>,
+    <span class="hljs-attr">&quot;created&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:23:05.000Z&quot;</span>,
+    <span class="hljs-attr">&quot;activated&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">&quot;statusChanged&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:39.000Z&quot;</span>,
+    <span class="hljs-attr">&quot;lastLogin&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:40.000Z&quot;</span>,
+    <span class="hljs-attr">&quot;lastUpdated&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:40.000Z&quot;</span>,
+    <span class="hljs-attr">&quot;passwordChanged&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:39.000Z&quot;</span>,
+    <span class="hljs-attr">&quot;profile&quot;</span>: {},
+    <span class="hljs-attr">&quot;credentials&quot;</span>: {},
+    <span class="hljs-attr">&quot;_links&quot;</span>: {}
+  }
+]
+</span></code></pre>
+<p>This response can be broken down into 3 parts. The HTTP response <strong>code</strong>, <strong>header</strong> and <strong>body</strong>.</p>
+<p><code>after_response</code> can be used to handle all these parts of the HTTP response. Suppose I have an action that lists all users and outputs the entire response, including the link to the existing page from the header.</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+  get(<span class="hljs-string">&quot;/api/v1/users&quot;</span>).after_response <span class="hljs-keyword">do</span> |code, body, headers|
+    {
+      <span class="hljs-symbol">code:</span> code,
+      <span class="hljs-symbol">next_link:</span> headers[<span class="hljs-string">&quot;link&quot;</span>],
+      <span class="hljs-symbol">users:</span> body
+    }
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The resultant output of this action will contain all 3 parts of the response.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;code&quot;</span>: <span class="hljs-number">200</span>,
+  <span class="hljs-string">&quot;next_link&quot;</span>: <span class="hljs-string">&quot;&lt;https://workatotest.okta.com/api/v1/users?limit=200&gt;; rel=\&quot;self\&quot;&quot;</span>,
+  <span class="hljs-string">&quot;users&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;00utti9t3j1xO9jOm2p6&quot;</span>,
+      <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;ACTIVE&quot;</span>,
+      <span class="hljs-string">&quot;created&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:23:05.000Z&quot;</span>,
+      <span class="hljs-string">&quot;activated&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;statusChanged&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:39.000Z&quot;</span>,
+      <span class="hljs-string">&quot;lastLogin&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:40.000Z&quot;</span>,
+      <span class="hljs-string">&quot;lastUpdated&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:40.000Z&quot;</span>,
+      <span class="hljs-string">&quot;passwordChanged&quot;</span>: <span class="hljs-string">&quot;2018-03-15T08:39:39.000Z&quot;</span>,
+      <span class="hljs-string">&quot;profile&quot;</span>: {},
+      <span class="hljs-string">&quot;credentials&quot;</span>: {},
+      <span class="hljs-string">&quot;_links&quot;</span>: {}
+    }
+  ]
+}
+</code></pre>
+<p><img src="../../assets/images/sdk/response_with_headers.png" alt="Output with response code and header values">
+<em>Output with response code and header values</em></p>
 
                                 
                                 </section>
@@ -5135,7 +5210,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Toggle field","level":"1.18.4","depth":2,"next":{"title":"HTTP request","level":"1.18.5","depth":2,"path":"developing-connectors/sdk/request.md","ref":"developing-connectors/sdk/request.md","articles":[]},"previous":{"title":"Object definition","level":"1.18.3","depth":2,"path":"developing-connectors/sdk/object-definition.md","ref":"developing-connectors/sdk/object-definition.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/toggle-field.md","mtime":"2018-03-15T17:34:18.719Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-15T17:35:56.296Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP request","level":"1.18.5","depth":2,"next":{"title":"Action","level":"1.18.6","depth":2,"path":"developing-connectors/sdk/action.md","ref":"developing-connectors/sdk/action.md","articles":[]},"previous":{"title":"Toggle field","level":"1.18.4","depth":2,"path":"developing-connectors/sdk/toggle-field.md","ref":"developing-connectors/sdk/toggle-field.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/request.md","mtime":"2018-03-15T17:34:18.719Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-15T17:35:56.296Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
