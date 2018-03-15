@@ -40,7 +40,7 @@ The following table lists the fields available in a **Post command reply** actio
             <td>Application</td>
             <td>The application you are dealing with (e.g. Salesforce, JIRA)
             </td>
-            <td>Use the <b>Application</b> pill from the Workato Trigger output for this
+            <td>Use the <kbd>Application</kbd> pill from the Workato Trigger output for this
         </tr>
         <tr>
             <td>Reply Channel</td>
@@ -61,7 +61,7 @@ The following table lists the fields available in a **Post command reply** actio
             <td>
               Pass in a thread ID to post your new message in that thread. Pass in a message ID if you wish to create a new thread and post your new message under that existing message.
             </td>
-            <td>For replying to the current thread use thread ID value from <bold>New command</bold> trigger. For creating new thread pass here message ID from output of another <b>Post command reply</b> or <bold>New command</b> trigger - make sure it is not empty in the last case.
+            <td>For replying to the current thread use thread ID value from <b>New command</b> trigger. For creating new thread pass here message ID from output of another <b>Post command reply</b> or <bold>New command</b> trigger - make sure it is not empty in the last case.
             </td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@ The following table lists the fields available in a **Post command reply** actio
               Message posted in the channel
             </td>
             <td>
-            Whatever you want. Slack Emojis are supported too. This field is optional if you use the <bold>Fields</bold> input field.
+            Whatever you want. Slack Emojis are supported too. This field is optional if you use the <b>Fields</b> input field.
             </td>
         </tr>
         <tr>
@@ -79,7 +79,7 @@ The following table lists the fields available in a **Post command reply** actio
               This generates a picklist menu in the message for the user to select an option from
             </td>
             <td>
-            Option placeholder text (shown when there is no option chosen) and array of JSON objects. (e.g. <code>\[{"title":"item title", "command":"item command"}]</code>)
+            Option placeholder text (shown when there is no option chosen) and array of JSON objects, e.g. <br><code>\[{"title":"item title", "command":"item command"}]</code>
         </tr>
         <tr>
             <td>Title</td>
@@ -108,7 +108,7 @@ The following table lists the fields available in a **Post command reply** actio
               Buttons will be shown on the message, and you can click them in lieu of typing out another command
             </td>
             <td>
-              Array of JSON objects. (e.g. <code>\[{"title":"button title", "command":"button command"}]</code>)
+              Array of JSON objects, e.g.<br> <code>\[{"title":"button title", "command":"button command"}]</code>
             </td>
         </tr>
         <tr>
@@ -126,8 +126,7 @@ The following table lists the fields available in a **Post command reply** actio
             <td>Fields</td>
             <td>Fields to display in a grid</td>
             <td>
-              One name-value pair per line (e.g. <code>&lt;br
-                &gt;Name: John &lt;br&gt;Address: [address_pill]</code>)
+              One name-value pair per line, e.g.<br>Name: <kbd>Full Name</kbd><br> Address: <kbd>Address</kbd>
             </td>
         </tr>
         <tr>
