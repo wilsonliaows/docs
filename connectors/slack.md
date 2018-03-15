@@ -137,7 +137,7 @@ The following is an elaboration on each field in the definition of a button.
         <tr>
             <td>Style</td>
             <td>
-            EITHER: leave blank for a simple button. Leave the following fields blank as well. OR: put <b>danger</b> for a red button with a popup prompt requiring the user to confirm the button click. Fill in the following fields too.
+            Leave this field as well as the remaining 4 fields blank for non-danger styled actions since no pop-up will be generated.<br> Otherwise, put <b>danger</b> to generate a red button with a pop-up prompt, requiring the user to confirm the button click. You will then need to fill up the rest of the fields too.
             </td>
         </tr>
         <tr>
