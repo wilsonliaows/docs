@@ -165,7 +165,7 @@
     * [API tokens](api-management.md#api-tokens)
     * [API endpoints](api-management.md#service-catalog-endpoints)
 * [Workbot for Slack](workbot/workbot.md)
-  * [Slack VS Workbot](workbot/workbot.md#slack-vs-workbot-for-slack-connectors)
+  * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
   * [Workbot for Slack setup](workbot/workbot-for-slack-setup.md)
   * [Using Workbot for Slack](workbot/using-workbot-for-slack.md)
   * [Workbot triggers](workbot/workbot-triggers.md)

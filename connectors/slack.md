@@ -118,15 +118,54 @@ action name, action ID, style, confirmation title, confirmation text, ok button 
 
 The following is an elaboration on each field in the definition of a button.
 
-| Button definition input fields                 | Description                                                                                                                                                                                                                  |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Action name          | Button label visible to Slack user interacting with the buttons.                                                                                                                                                             |
-| Action ID            | Internal value of the button. This needs to be unique. Not visible on Slack to anyone.                                                                                                                                       |
-| Style                | EITHER: leave blank for a simple button. Leave the following fields blank as well. OR: put **danger** for a red button with a popup prompt requiring the user to confirm the button click. Fill in the following fields too. |
-| Confirmation title   | Shows up in the popup prompt as the header.                                                                                                                                                                                  |
-| Confirmation text    | Shows up in the popup prompt as the body text.                                                                                                                                                                               |
-| Ok button title      | Button label in the popup prompt to confirm the button click.                                                                                                                                                                |
-| Dismiss button title | Button label in the popup prompt to cancel the button click.
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Button definition input fields</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Action name</td>
+            <td>Button label visible to Slack user interacting with the buttons.</td>
+        </tr>
+        <tr>
+            <td>Action ID</td>
+            <td>
+              Internal value of the button. This needs to be unique. Not visible on Slack to anyone.
+            </td>
+        </tr>
+        <tr>
+            <td>Style</td>
+            <td>
+            Leave this field as well as the remaining 4 fields blank for non-danger styled actions since no pop-up will be generated.<br> Otherwise, put <b>danger</b> to generate a red button with a pop-up prompt, requiring the user to confirm the button click. You will then need to fill up the rest of the fields too.
+            </td>
+        </tr>
+        <tr>
+            <td>Confirmation title</td>
+            <td>
+              Shows up in the popup prompt as the header.
+            </td>
+        </tr>
+        <tr>
+            <td>Confirmation text</td>
+            <td>
+              Shows up in the popup prompt as the body text.
+            </td>
+        </tr>
+        <tr>
+            <td>Ok button title</td>
+            <td>
+              Button label in the popup prompt to confirm the button click.
+            </td>
+        </tr>
+        <tr>
+            <td>Dismiss button title</td>
+            <td>
+              Button label in the popup prompt to cancel the button click.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ##### Example recipe #1B: button action handler recipe - recipe with a new button action trigger with IF conditional logic defining the actions to carry out upon each button click
 This following recipe has been built for the above scenario. It posts different messages as a thread under the first Salesforce account notification message, depending on which button has been clicked. Using IF conditions is more versatile than using the Slack action **Respond to button**, because you can carry out multiple steps in the IF condition and in multiple apps.
@@ -144,17 +183,70 @@ The datapills used in the IF conditions come from the Slack trigger **New button
 
 The following table elaborates upon these datapill variables and what they can be used for.
 
-| New button click trigger output datapills             | Description                                                                                                                                      |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Action name      | Button label visible to Slack user interacting with the buttons.                                                                                 |
-| Action ID        | Internal value of the button. This needs to be unique. Not visible on Slack to anyone.                                                           |
-| Channel          | The channel where the button click occurred. You can obtain both the channel internal Slack ID and the channel name.                             |
-| User             | The user who clicked the button. You can obtain both the user internal Slack ID and the username.                                                |
-| Team             | The Slack team where the button click occurred. You can obtain both the unique domain and the internal team ID.                                  |
-| Action timestamp | The epoch time when the button click occurred.                                                                                                   |
-| Message ID       | The epoch time when the message with buttons was sent. Can be used to populate **Thread ID** input fields to create a thread under this message. |
-| Attachment ID    | ID of the attachment sent with the initial Slack message with buttons, if any.                                                                   |
-| Response URL     | Used by Workato to respond to the button click. Also used in Slack action **Respond to button**.                                 |
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>
+              New button click trigger output datapills
+            </th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Action name</td>
+            <td>
+              Button label visible to Slack user interacting with the buttons.
+            </td>
+        </tr>
+        <tr>
+            <td>Action ID</td>
+            <td>
+              Internal value of the button. This needs to be unique. Not visible on Slack to anyone.
+            </td>
+        </tr>
+        <tr>
+            <td>Channel</td>
+            <td>
+              The channel where the button click occurred. You can obtain both the channel internal Slack ID and the channel name.
+            </td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>
+              The user who clicked the button. You can obtain both the user internal Slack ID and the username.
+            </td>
+        </tr>
+        <tr>
+            <td>Team</td>
+            <td>
+              The Slack team where the button click occurred. You can obtain both the unique domain and the internal team ID.
+            </td>
+        </tr>
+        <tr>
+            <td>Action timestamp</td>
+            <td>
+              The epoch time when the button click occurred.
+            </td>
+        </tr>
+        <tr>
+            <td>Message ID</td>
+            <td>
+              The epoch time when the message with buttons was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this message.
+            </td>
+        </tr>
+        <tr>
+            <td>Attachment ID</td>
+            <td>
+              ID of the attachment sent with the initial Slack message with buttons, if any.
+            </td>
+        </tr>
+        <tr>
+            <td>Response URL</td>
+            <td>
+              Used by Workato to respond to the button click. Also used in Slack action <b>Respond to button.</b>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 An example of the values can be viewed in the job output, as follows.
 
@@ -192,12 +284,42 @@ With the **Respond to button** action, we can simply pass in the **button respon
 ###### Input of the Slack action - respond to button action
 The following are the new input fields that the Slack action **Respond to button** introduces to the usual input fields in the **Post message** action.
 
-| Respond to button action input field                         | Description                                                                                                                                                                                                                                                                                                                           |
-|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Button response URL          | Provide this from the output datatree of the Slack trigger **New button action**. This tells the action what button click to respond to.                                                                                                                                                                                          |
-| Response type                | **In channel** will post the message like a normal chat message. **Ephemeral** will post the message in greyed out text.                                                                                                                                                                                                          |
-| Replace original             | If **yes**, the new message will overwrite the original message with buttons and be posted in the same position in the channel. If **no**, the original message with buttons will remain in the same position in the channel. The new message will be added to the end of the channel conversation.                               |
-| Delete original              | If **yes**, the original message with buttons will be removed from the channel. The new The new message will be added to the end of the channel conversation. If **no**, the original message with buttons will remain in the same position in the channel. The new message will be added to the end of the channel conversation. |
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>
+              Respond to button action input field
+            </th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Button response URL</td>
+            <td>
+              Provide this from the output datatree of the Slack trigger <b>New button action</b>. This tells the action what button click to respond to.
+            </td>
+        </tr>
+        <tr>
+            <td>Response type</td>
+            <td>
+              <b>In channel</b> will post the message like a normal chat message. <b>Ephemeral</b> will post the message in greyed out text.
+            </td>
+        </tr>
+        <tr>
+            <td>Replace original</td>
+            <td>
+            If <b>yes</b>, the new message will overwrite the original message with buttons and be posted in the same position in the channel.  
+            <p>If <b>no</b>, the original message with buttons will remain in the same position in the channel. The new message will be added to the end of the channel conversation.
+            </td>
+        </tr>
+        <tr>
+            <td>Delete original</td>
+            <td>
+              If <b>yes</b>, the original message with buttons will be removed from the channel. The new The new message will be added to the end of the channel conversation.
+              <p>If <b>no</b>, the original message with buttons will remain in the same position in the channel. The new message will be added to the end of the channel conversation.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ### Using Slack threads
 [Slack threads](https://api.slack.com/docs/message-threading) allow you to group related messages together, making it easier to follow conversations in Slack channels or groups. To use Slack threads, you can either:
