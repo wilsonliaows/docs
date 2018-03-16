@@ -376,5 +376,5 @@ Follow the instructions below for upgrading an existing agent:
 
 ### Example on-premise database recipes
 - [Salesforce case sync with on-prem SQL Server](https://www.workato.com/recipes/280605)
-- [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
-<!---[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
+<!-- [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
+[On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
