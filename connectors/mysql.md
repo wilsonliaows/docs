@@ -71,7 +71,7 @@ MySQL connector can read or write to your database either as a single row or in 
 ![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
 
-Besides the difference in input fields, there is also difference between the outputs of these 2 types of operations. A trigger that process rows one at a time will have an output datatree that allows you to map data from that single row.
+Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
 
 ![Single row trigger output](/assets/images/mysql/single_row_trigger_output.png)
 *Single row trigger output*
@@ -104,7 +104,7 @@ A simple `WHERE` condition to filter rows based on values in a single column loo
 currency = 'USD'
 ```
 
-If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
+If used in a **Select rows** action, this `WHERE` condition will return all rows that have the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
 
 ![Using datapills in WHERE condition](/assets/images/mysql/use_datapill_in_where.png)
 *Using datapills in `WHERE` condition*
@@ -117,18 +117,18 @@ Backticks (` `` `) in `WHERE` statements are for tables and columns identifiers.
 
 In a recipe, remember to add backticks to the column identifiers.
 
-![Using datapills in WHERE condition with backticks](/assets/images/mysql/use_datapill_in_where_backtick.png)
+![Using datapills in WHERE condition with backticks](/assets/images/mysql/use_datapill_in_where_backticks.png)
 *Using datapills in `WHERE` condition backticks*
 
 Double quotes (`""`) can also be used for string values but is less commonly accepted in other databases. For this reason, single quotes are used more widely than double quotes.
 
-MySQL also expects `DATE` and `DATETIME` values be single quoted. You can use double quotes for other column types.
+MySQL also expects `DATE` and `DATETIME` values to be single quoted. You can use double quotes for other column types.
 
 ```sql
 created_date > '2018-03-01' and currency = "USD"
 ```
 
-In a recipe, remember to use the appropriate quotes for each values.
+In a recipe, remember to use the appropriate quotes for each value.
 
 ![Using datapills in WHERE condition with mixed column types](/assets/images/mysql/use_datapill_in_where_mixed.png)
 *Using datapills in `WHERE` condition with mixed column types*
