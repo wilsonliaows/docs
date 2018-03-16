@@ -16,11 +16,11 @@ date: 2018-03-16 15:00:00 Z
   </thead>
   <tbody>
     <tr>
-      <td>Parse full XML </td>
+      <td>XML type</td>
       <td>
-        Choose whether to include the full XML<br>
-        If <b>No</b>, only basic XML that ignores most attributes will be parsed.<br>
-        If <b>Yes</b>, full XML with all attributes will be parsed.
+        Select the level of detail to parse the XML.<br>
+        <b>Simple XML without attributes</b> - only basic XML that ignores most attributes will be parsed.<br>
+        <b>Full XML with attributes</b> - full XML with all attributes will be parsed.
       </td>
     </tr>
     <tr>
@@ -40,7 +40,7 @@ date: 2018-03-16 15:00:00 Z
 
 ### Simple XML without attributes
 
-The default XML parsing is a simple one and will ignore most attributes, except *type*. Let's use the following XML that represents a contact record as an example.
+The default XML type is a simple one and will ignore most attributes, except *type*. Let's use the following XML that represents a contact record as an example.
 
 ```xml
 <Contact>
@@ -67,7 +67,7 @@ Notice that the *type* attribute is generated for the `<Name>` tag but all the `
 
 ### Full XML with attributes
 
-However, if you need to access these values for validation or simply to sync these values, you will have to select Yes to **Parse full XML**. Using the same contact XML above, let's take a look at what the output will look like.
+However, if you need to access these values for validation or simply to sync these values, you will have to choose **Full XML with attributes** type. Using the same XML of a contact record above, let's take a look at what the output will look like.
 
 ![Datatree of full XML with attributes](/assets/images/xml-parser/full-xml-output.png)
 *Datatree of full XML with attributes*
