@@ -16,7 +16,7 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th>Field</th>
+        <th width='25%'>Field</th>
         <th>Description</th>
     </tr>
   </thead>
@@ -71,13 +71,32 @@ MySQL connector can read or write to your database either as a single row or in 
 ![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
 
+Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
+
+![Single row trigger output](/assets/images/mysql/single_row_trigger_output.png)
+*Single row trigger output*
+
+However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
+
+![Batch trigger output](/assets/images/mysql/batch_trigger_output.png)
+*Batch trigger output*
+
+As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/660208) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+
+![Using batch trigger output](/assets/images/mysql/using_batch_output.png)
+*Using batch trigger output*
+
 ### WHERE condition
 This input field is used to filter and identify rows to perform an action on. This is used in the following way.
 - filter rows to be picked up in triggers
 - filter rows in **Select rows** action
 - filter rows to be deleted in **Delete rows** action
 
-This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
+This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/language-structure.html) for a full list of rules for writing MySQL statements.
+
+#### Simple statements
+
+String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
 
 A simple `WHERE` condition to filter rows based on values in a single column looks like this.
 
@@ -85,7 +104,36 @@ A simple `WHERE` condition to filter rows based on values in a single column loo
 currency = 'USD'
 ```
 
-If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column.
+If used in a **Select rows** action, this `WHERE` condition will return all rows that have the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
+
+![Using datapills in WHERE condition](/assets/images/mysql/use_datapill_in_where.png)
+*Using datapills in `WHERE` condition*
+
+Backticks (` `` `) in `WHERE` statements are for tables and columns identifiers. This is required when the identifier is a MySQL reserved keyword or contains special characters.
+
+```sql
+`currency` = 'USD'
+```
+
+In a recipe, remember to add backticks to the column identifiers.
+
+![Using datapills in WHERE condition with backticks](/assets/images/mysql/use_datapill_in_where_backticks.png)
+*Using datapills in `WHERE` condition backticks*
+
+Double quotes (`""`) can also be used for string values but is less commonly accepted in other databases. For this reason, single quotes are used more widely than double quotes.
+
+MySQL also expects `DATE` and `DATETIME` values to be single quoted. You can use double quotes for other column types.
+
+```sql
+created_date > '2018-03-01' and currency = "USD"
+```
+
+In a recipe, remember to use the appropriate quotes for each value.
+
+![Using datapills in WHERE condition with mixed column types](/assets/images/mysql/use_datapill_in_where_mixed.png)
+*Using datapills in `WHERE` condition with mixed column types*
+
+#### Complex statements
 
 Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
 
@@ -95,5 +143,8 @@ id in (select user_id from tickets where priority = 2)
 
 When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
 
-![Using subquery in WHERE condition](/assets/images/mysql/subquery-in-where-condition.png)
+![Using datapills in WHERE condition with subquery](/assets/images/mysql/use_datapill_in_where_complex.png)
+*Using datapills in `WHERE` condition with subquery*
+
+![Using subquery in WHERE condition](/assets/images/mysql/use_datapill_in_where_complex.png)
 *Using subquery in WHERE condition*

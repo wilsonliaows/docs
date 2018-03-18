@@ -1,9 +1,9 @@
 ---
-title: Workbot triggers
+title: Workbot triggers for Slack
 date: 2017-03-30 05:00:00 Z
 ---
 
-# Workbot triggers
+# Workbot triggers for Slack
 Workbot for Slack allows you to send commands to Workbot on Slack. Workbot will handle these commands and interact with your connected apps to do things, such as display details of a customer account, close opportunities, display a list of invoices or tickets, or create/update existing tickets.
 
 Each Workbot command is processed using a Workato recipe. The recipe trigger picks up the Workbot command as a trigger event, and the recipe determines the actions to carry out. With Workbot, you can create custom workflows that execute via your Slack commands, and optionally retrieve relevant data for you back to Slack.
@@ -24,14 +24,51 @@ This trigger requires you to configure a custom Workbot command. When this recip
 ### New command trigger input fields
 The following table lists the configurable input fields in the trigger, and what each field does.
 
-| New command trigger input field | Description                                                                                                                                                                                                                                                                                                                                                                                |
-|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Application                     | 1st part of the Workbot command. The app the Workbot command is working with. Groups the command under this application (when user types app name, command will show up as a button).                                                                                                                                                                                                                                                  |
-| Command action                  | 2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.                                                                                                                                                                                                                                                                                                                                                           |
-| Business data                   | 3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.                                                                                                                                                                                                                                                                                                                                                           |
-| Input parameters                | The data to ask from the user so as to successfully carry out recipe actions, defined in a specific format.  Parameters may have the type *file*, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action **[Download Attachment](workbot-actions.md#download-attachment)** |
-| Help text                       | Short description of what the command does. Shows up in the Workbot app page under **Commands**.                                                                                                                                                                                                                                                                                           |
-| Hide command                    | If **yes**, command will not show up as a button in the Slack channel when the user types app name. If **no**, command will show up as a button in the Slack channel when the user types app name.                                                                                                                                                                                         |
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>New command trigger input field</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Application</td>
+            <td>1st part of the Workbot command. The app the Workbot command is working with. Groups the command under this application (when user types app name, command will show up as a button).
+            </td>
+        </tr>
+        <tr>
+            <td>Command action</td>
+            <td>
+              2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.
+            </td>
+        </tr>
+        <tr>
+            <td>Business data</td>
+            <td>
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+            </td>
+        </tr>
+        <tr>
+            <td>Input parameters</td>
+            <td>
+              The data to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type file, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Help text</td>
+            <td>
+            Short description of what the command does. Shows up in the Workbot app page under <b>Commands</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>Hide command</td>
+            <td>
+              If <b>yes</b>, command will not show up as a button in the Slack channel when the user types app name. If <b>no</b>, command will show up as a button in the Slack channel when the user types app name.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### Workbot command format
 The Workbot command is created by piecing 3 elements together, the `application`, `command action` and `business data`:
@@ -55,14 +92,51 @@ Each input parameter has to be provided in the following format:
 param_name optional:true prompt:false type:string hint:hint_to_help_users sample:example_data
 ```
 
-| Input parameter field | Description                                                                                                    |
-|-----------------------|----------------------------------------------------------------------------------------------------------------|
-| Name                  | Required. Needs to be a single word.                                                                           |
-| Optional              | Not required. If not defined, defaults to `optional:true`. Input parameter will be optional.                   |
-| Prompt                | Not required. If not defined, defaults to `prompt:false`. No prompt will be generated.                         |
-| Type                  | Not required. If not defined, defaults to `type:string`. Possible types are `string`, `boolean`, `number,` `file`, and `date_time`. |
-| Hint                  | Not required. If not defined, defaults to no hint.                                                             |
-| Sample                | Not required. If not defined, defaults to no sample data.                                                      |
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Input parameter field</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>Required. Needs to be a single word.</td>
+        </tr>
+        <tr>
+            <td>Optional</td>
+            <td>
+              Not required. If not defined, defaults to <code>optional:true</code>. Input parameter will be optional.
+            </td>
+        </tr>
+        <tr>
+            <td>Prompt</td>
+            <td>
+              Not required. If not defined, defaults to <code>prompt:false</code>. No prompt will be generated.
+            </td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>
+              Not required. If not defined, defaults to <code>type:string</code>. Possible types are <code>string</code>, <code>boolean</code>, <code>number</code>, <code>file</code>, and <code>date_time</code>.
+            </td>
+        </tr>
+        <tr>
+            <td>Hint</td>
+            <td>
+            Not required. If not defined, defaults to no hint.
+            </td>
+        </tr>
+        <tr>
+            <td>Sample</td>
+            <td>
+              Not required. If not defined, defaults to no sample data.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user.
 
@@ -83,26 +157,96 @@ The **New command** trigger also provides a set of datapill variables as that ho
 
 The following table lists the output datapills from the trigger, and what data each field contains.
 
-| New command trigger datapill variables | Description                                                                                                                                                 |
-|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Application                            | 1st part of the Workbot command. The app the Workbot command is working with.                                                                               |
-| Business data                          | 2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.                                       |
-| Command action                         | 3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.                                            |
-| Message ID                             | The epoch time when the Workbot command was sent. Can be used to populate **Thread ID** input fields to create a thread under this Workbot command message. |
-| Context                                | Slack data about this Workbot command, e.g. the team and channel it was posted in, the user who posted it, ID of the thread it was in, if applicable.       |
-| Parameters                             | Data obtained from the user by asking follow up questions to their Workbot command.                                                                         |
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>New command trigger datapill variables</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Application</td>
+            <td>
+              1st part of the Workbot command. The app the Workbot command is working with.
+            </td>
+        </tr>
+        <tr>
+            <td>Business data</td>
+            <td>
+              2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.
+            </td>
+        </tr>
+        <tr>
+            <td>Command action</td>
+            <td>
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+            </td>
+        </tr>
+        <tr>
+            <td>Message ID</td>
+            <td>
+              The epoch time when the Workbot command was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this Workbot command message.
+            </td>
+        </tr>
+        <tr>
+            <td>Context</td>
+            <td>
+            Slack data about this Workbot command, e.g. the team and channel it was posted in, the user who posted it, ID of the thread it was in, if applicable.
+            </td>
+        </tr>
+        <tr>
+            <td>Parameters</td>
+            <td>
+              Data obtained from the user by asking follow up questions to their Workbot command.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 The following table holds additional information about the **Context** object and the data it correspondingly holds.
 
-|Context datapill variables   |Description   |
-|---|---|
-|Team   |Slack team ID|
-|User   |Slack user ID|
-|Reply channel   |Slack channel ID where message was posted|
-|User handle| Slack user handle|
-|User email | Slack user email |
-|User name | Slack user friendly name|
-|Thread ID| Thread ID if message was posted to thread, `null` otherwise|
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Context datapill variables</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Team</td>
+            <td>Slack team ID</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>Slack user ID</td>
+        </tr>
+        <tr>
+            <td>Reply Channel</td>
+            <td>
+            Slack channel ID where message was posted
+            </td>
+        </tr>
+        <tr>
+            <td>User handle</td>
+            <td>Slack user handle</td>
+        </tr>
+        <tr>
+            <td>User e-mail</td>
+            <td>Slack user email</td>
+        </tr>
+        <tr>
+            <td>User name</td>
+            <td>Slack user friendly name</td>
+        </tr>
+        <tr>
+            <td>Thread ID</td>
+            <td>
+              Thread ID if message was posted to thread, <code>null</code> otherwise
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 Triggers may contain **Message ID** in their output. Message ID has a value only when **New command** was triggered by a button action. If command was triggered as result of a manually typed command, this field will be empty.
 
