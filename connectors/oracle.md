@@ -1,6 +1,6 @@
 ---
 title: Workato connectors - Oracle
-date: 2018-02-02 06:10:00 Z
+date: 2018-03-18 06:00:00 Z
 ---
 
 # Oracle
@@ -63,4 +63,117 @@ Oracle connector works with all tables, views and stored procedures. These are a
 ![Exact table name provided](/assets/images/oracle/table_name_text.png)
 *Provide exact table/view name in a text field*
 
-Case sensitivity of the name of a table/view depends on your database implementation. The underlying OS that your database is hosted determines if you need to provide exact table/view names. Typically, database and table names are case insensitive in Windows.
+### WHERE condition
+This input field is used to filter and identify rows to perform an action on. This is used in the following way.
+- filter rows to be picked up in triggers
+- filter rows in **Select rows** action
+- filter rows to be deleted in **Delete rows** action
+
+This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [Oracle documentation](http://www.oracle.com/technetwork/issue-archive/2012/12-mar/o22sql-1494267.html) for a full list of rules for writing Oracle statements.
+
+#### WHERE operators
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th>Operator</th>
+        <th width='40%'>Description</th>
+        <th width='40%'>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>Equal</td>
+      <td><code>WHERE ID = 445</code></td>
+    </tr>
+    <tr>
+      <td>
+        !=<br>
+        <>
+      </td>
+      <td>Not equal</td>
+      <td><code>WHERE ID <> 445</code></td>
+    </tr>
+    <tr>
+      <td>
+        &gt<br>
+        &gt=
+      </td>
+      <td>
+        Greater than<br>
+        Greater than or equal to
+      </td>
+      <td><code>WHERE PRICE > 10000</code></td>
+    </tr>
+    <tr>
+      <td>
+        &lt<br>
+        &lt=
+      </td>
+      <td>
+        Less than<br>
+        Less than or equal to
+      </td>
+      <td><code>WHERE PRICE > 10000</code></td>
+    </tr>
+    <tr>
+      <td>IN(...)</td>
+      <td>List of values</td>
+      <td><code>WHERE ID IN(445, 600, 783)</code></td>
+    </tr>
+    <tr>
+      <td>LIKE</td>
+      <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
+      <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
+    </tr>
+    <tr>
+      <td>
+        IS NULL<br>
+        IS NOT NULL
+      </td>
+      <td>
+        NULL values check<br>
+        Non-NULL values check
+      </td>
+      <td><code>WHERE NAME IS NOT NULL</code></td>
+    </tr>
+  </tbody>
+</table>
+
+#### Simple statements
+
+String values must be enclosed in single quotes (`''`) and column identifiers used must exist in the table.
+
+A simple `WHERE` condition to filter rows based on values in a single column looks like this.
+
+```sql
+CURRENCY = 'USD'
+```
+
+If used in a **Select rows** action, this `WHERE` condition will return all rows that have the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
+
+![Using datapills in WHERE condition](/assets/images/oracle/use_datapill_in_where.png)
+*Using datapills in `WHERE` condition*
+
+Column names that do not conform to standard rules (includes spaces, lower-case letters or special characters) must be enclosed in double quotes (`""`).
+
+```sql
+"PUBLISHER NAME" = 'USD'
+```
+
+![WHERE condition with enclosed identifier](/assets/images/oracle/where_condition_with_enclosed_idEntifier.png)
+*`WHERE` condition with enclosed identifier*
+
+#### Complex statements
+
+Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
+
+```sql
+ID IN (SELECT "USER ID" FROM TICKETS WHERE PRIORITY >= 2)
+```
+
+When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
+
+![Using datapills in WHERE condition with subquery](/assets/images/oracle/use_datapill_in_where_complex.png)
+*Using datapills in `WHERE` condition with subquery*
