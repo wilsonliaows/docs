@@ -63,6 +63,27 @@ Oracle connector works with all tables, views and stored procedures. These are a
 ![Exact table name provided](/assets/images/oracle/table_name_text.png)
 *Provide exact table/view name in a text field*
 
+### Single row vs batch of rows
+Oracle connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size can be any number between 1 and 100, the maximum size limit. The default batch size is 100.
+
+![Batch trigger inputs](/assets/images/oracle/batch_trigger_input.png)
+*Batch trigger inputs*
+
+Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
+
+![Single row trigger output](/assets/images/oracle/single_row_trigger_output.png)
+*Single row trigger output*
+
+However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
+
+![Batch trigger output](/assets/images/oracle/batch_trigger_output.png)
+*Batch trigger output*
+
+As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/660208) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+
+![Using batch trigger output](/assets/images/oracle/using_batch_output.png)
+*Using batch trigger output*
+
 ### WHERE condition
 This input field is used to filter and identify rows to perform an action on. This is used in the following way.
 - filter rows to be picked up in triggers
