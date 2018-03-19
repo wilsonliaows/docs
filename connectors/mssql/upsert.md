@@ -12,7 +12,7 @@ This action upserts a single row into the selected table.
 *Upsert row action*
 
 ### Table
-First, select a table to upsert rows in. This can be done either by selecting a table from the pick list, or toggle the input field to text mode and type the full table name.
+First, select a table to upsert rows in. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
 
 ### Columns
 Columns in the selected table are then presented as input fields here. Map the required fields from the output datatree here to upsert a row with data from preceding trigger or actions.
@@ -30,7 +30,10 @@ This action allows you to upsert multiple rows in a single action instead of one
 Just like with the single row upsert action, you need to select the target table first.
 
 ### Rows source list
-Unlike the **Upsert row** action, we are now dealing with a batch of rows. Hence, the next input is the source of the batch of rows to upsert. This can come from any trigger or action that outputs a list in the datatree. Typically, you will map a list from a batch trigger or from results set of a search action.
+Unlike the **Upsert row** action (where we deal with a single row), we are now dealing with a batch of rows. Hence, the next datapill to input is the *source* of the batch of rows to insert to the table. This can come from any trigger or action that outputs a list datapill.
+
+![A list datapill from the datatree](/assets/images/mssql/list_datapill_in_output_tree.png)
+*A list datapill from the datatree*
 
 If you do not map a list datapill to this field, this action will upsert only 1 row and will behave like the **Upsert row** action.
 
