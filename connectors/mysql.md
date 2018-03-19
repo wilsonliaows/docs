@@ -109,7 +109,7 @@ If used in a **Select rows** action, this `WHERE` condition will return all rows
 ![Using datapills in WHERE condition](/assets/images/mysql/use_datapill_in_where.png)
 *Using datapills in `WHERE` condition*
 
-Backticks (` `` `) in `WHERE` statements are for tables and columns identifiers. This is required when the identifier is a MySQL reserved keyword or contains special characters.
+Backticks (<code>&#96;&#96;</code>) in `WHERE` statements are for tables and columns identifiers. This is required when the identifier is a MySQL reserved keyword or contains special characters.
 
 ```sql
 `currency` = 'USD'
@@ -145,6 +145,3 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ![Using datapills in WHERE condition with subquery](/assets/images/mysql/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
-
-![Using subquery in WHERE condition](/assets/images/mysql/use_datapill_in_where_complex.png)
-*Using subquery in WHERE condition*
