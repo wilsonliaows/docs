@@ -39,7 +39,7 @@ The Oracle connector uses basic authentication to authenticate with Oracle.
     </tr>
     <tr>
       <td>Host</td>
-      <td>URL of server where your server is hosted.</td>
+      <td>URL of your hosted server.</td>
     </tr>
     <tr>
       <td>Port</td>
@@ -55,7 +55,7 @@ The Oracle connector uses basic authentication to authenticate with Oracle.
 ## Working with the Oracle connector
 
 ### Table, view and stored procedure
-Oracle connector works with all tables, views and stored procedures. These are available in pick lists in each trigger/action or you can provide the exact name.
+The Oracle connector works with all tables, views and stored procedures. These are available in pick lists in each trigger/action or you can provide the exact name.
 
 ![Table selection from pick list](/assets/images/oracle/table_pick_list.png)
 *Select a table/view from pick list*
@@ -64,28 +64,28 @@ Oracle connector works with all tables, views and stored procedures. These are a
 *Provide exact table/view name in a text field*
 
 ### Single row vs batch of rows
-Oracle connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size can be any number between 1 and 100, the maximum size limit. The default batch size is 100.
+Oracle connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum size limit.
 
 ![Batch trigger inputs](/assets/images/oracle/batch_trigger_input.png)
 *Batch trigger inputs*
 
 Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
 
-![Single row trigger output](/assets/images/oracle/single_row_trigger_output.png)
-*Single row trigger output*
+![Single row output](/assets/images/oracle/single_row_trigger_output.png)
+*Single row output*
 
 However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
 
 ![Batch trigger output](/assets/images/oracle/batch_trigger_output.png)
 *Batch trigger output*
 
-As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/660208) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/666497) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
 
 ![Using batch trigger output](/assets/images/oracle/using_batch_output.png)
 *Using batch trigger output*
 
 ### WHERE condition
-This input field is used to filter and identify rows to perform an action on. This is used in the following way.
+This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:
 - filter rows to be picked up in triggers
 - filter rows in **Select rows** action
 - filter rows to be deleted in **Delete rows** action
@@ -177,7 +177,7 @@ If used in a **Select rows** action, this `WHERE` condition will return all rows
 ![Using datapills in WHERE condition](/assets/images/oracle/use_datapill_in_where.png)
 *Using datapills in `WHERE` condition*
 
-Column names that do not conform to standard rules (includes spaces, lower-case letters or special characters) must be enclosed in double quotes (`""`).
+Column names that do not conform to standard rules (includes spaces, lower-case letters or special characters) must be enclosed in double quotes (`""`). For example, **PUBLISHER NAME** must be enclosed in backquotes to be used as a valid identifier.
 
 ```sql
 "PUBLISHER NAME" = 'USD'
