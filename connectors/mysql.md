@@ -87,7 +87,7 @@ As a result, the output of batch triggers/actions needs to be handled differentl
 *Using batch trigger output*
 
 ### WHERE condition
-This input field is used to filter and identify rows to perform an action on. This is used in the following ways:
+This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:
 - filter rows to be picked up in triggers
 - filter rows in **Select rows** action
 - filter rows to be deleted in **Delete rows** action
