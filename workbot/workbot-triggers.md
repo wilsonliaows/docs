@@ -10,7 +10,7 @@ Each Workbot command is processed using a Workato recipe. The recipe trigger pic
 
 The Workbot for Slack connector has 2 triggers:
 
-- [New command](/workbot/workbot-triggers.md#new-commands-building-custom-commands)
+- [New command](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
 
 This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined.
 

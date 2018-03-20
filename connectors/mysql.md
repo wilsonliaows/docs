@@ -27,7 +27,7 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
     </tr>
     <tr>
       <td>On-prem secure agent</td>
-      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the <a href="/on-prem.md" target="_blank">On-premise agent</a> guide for more information.</td>
+      <td>Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the <a href="/on-prem.md">On-premise agent</a> guide for more information.</td>
     </tr>
     <tr>
       <td>Username</td>
@@ -39,7 +39,7 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
     </tr>
     <tr>
       <td>Host</td>
-      <td>URL of server where your server is hosted.</td>
+      <td>URL of your hosted server.</td>
     </tr>
     <tr>
       <td>Port</td>
@@ -55,7 +55,7 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
 ## Working with the MySQL connector
 
 ### Table, view and stored procedure
-MySQL connector works with all tables, views and stored procedures. These are available in pick lists in each trigger/action or you can provide the exact name.
+The MySQL connector works with all tables, views and stored procedures. These are available in pick lists in each trigger/action or you can provide the exact name.
 
 ![Table selection from pick list](/assets/images/mysql/table_pick_list.png)
 *Select a table/view from pick list*
@@ -66,15 +66,15 @@ MySQL connector works with all tables, views and stored procedures. These are av
 Case sensitivity of the name of a table/view depends on your database implementation. The underlying OS that your database is hosted determines if you need to provide exact table/view names. Typically, database and table names are case insensitive in Windows.
 
 ### Single row vs batch of rows
-MySQL connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. Batch size can be any number between 1 and 100, the maximum size limit. The default batch size is 100.
+MySQL connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size.
 
 ![Batch trigger inputs](/assets/images/mysql/batch_trigger_input.png)
 *Batch trigger inputs*
 
 Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
 
-![Single row trigger output](/assets/images/mysql/single_row_trigger_output.png)
-*Single row trigger output*
+![Single row output](/assets/images/mysql/single_row_trigger_output.png)
+*Single row output*
 
 However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
 
@@ -87,7 +87,7 @@ As a result, the output of batch triggers/actions needs to be handled differentl
 *Using batch trigger output*
 
 ### WHERE condition
-This input field is used to filter and identify rows to perform an action on. This is used in the following way.
+This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:
 - filter rows to be picked up in triggers
 - filter rows in **Select rows** action
 - filter rows to be deleted in **Delete rows** action
@@ -109,7 +109,7 @@ If used in a **Select rows** action, this `WHERE` condition will return all rows
 ![Using datapills in WHERE condition](/assets/images/mysql/use_datapill_in_where.png)
 *Using datapills in `WHERE` condition*
 
-Backticks (` `` `) in `WHERE` statements are for tables and columns identifiers. This is required when the identifier is a MySQL reserved keyword or contains special characters.
+Backticks (<code>&#96;&#96;</code>) in `WHERE` statements are for tables and columns identifiers. This is required when the identifier is a MySQL reserved keyword or contains special characters.
 
 ```sql
 `currency` = 'USD'
@@ -145,6 +145,3 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ![Using datapills in WHERE condition with subquery](/assets/images/mysql/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
-
-![Using subquery in WHERE condition](/assets/images/mysql/use_datapill_in_where_complex.png)
-*Using subquery in WHERE condition*
