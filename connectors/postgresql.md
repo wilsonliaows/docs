@@ -90,3 +90,24 @@ is **NOT** equivalent to
 ```sql
 SELECT ID FROM "users"
 ```
+
+### Single row vs batch of rows
+PostgreSQL connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size.
+
+![Batch trigger inputs](/assets/images/postgresql/batch_trigger_input.png)
+*Batch trigger inputs*
+
+Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
+
+![Single row output](/assets/images/postgresql/single_row_trigger_output.png)
+*Single row output*
+
+However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
+
+![Batch trigger output](/assets/images/postgresql/batch_trigger_output.png)
+*Batch trigger output*
+
+As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/667105) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+
+![Using batch trigger output](/assets/images/postgresql/using_batch_output.png)
+*Using batch trigger output*
