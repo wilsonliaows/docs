@@ -1,14 +1,14 @@
 ---
-title: Workato connectors - MySQL Insert actions
+title: Workato connectors - SQL Server Insert actions
 date: 2018-02-02 06:10:00 Z
 ---
 
-# MySQL - Insert actions
+# SQL Server - Insert actions
 
 ## Insert row
 This action inserts a single row into the selected table.
 
-![Insert row action](/assets/images/mysql/insert-row-action.png)
+![Insert row action](/assets/images/mssql/insert-row-action.png)
 *Insert row action*
 
 ### Table
@@ -18,9 +18,9 @@ First, select a table to insert a row into. This can be done either by selecting
 Next, map the datapills from your previous triggers or actions into their respective columns. The columns in the selected table are presented as input fields here for you to insert datapills.
 
 ## Insert batch of rows
-This action allows you to insert multiple rows in a single action instead of one row at a time. This provides higher throughput when you are moving a large number of records from one app to MySQL. Depending on the structure of your recipe and volume of data, this action can reduce integration time by a factor of 100.
+This action allows you to insert multiple rows in a single action instead of one row at a time. This provides higher throughput when you are moving a large number of records from one app to SQL Server. Depending on the structure of your recipe and volume of data, this action can reduce integration time by a factor of 100.
 
-![Insert batch of rows action](/assets/images/mysql/insert-rows-batch-action.png)
+![Insert batch of rows action](/assets/images/mssql/insert-rows-batch-action.png)
 *Insert batch of rows action*
 
 ### Table
@@ -29,7 +29,7 @@ Just like with the single row insert action, you need to select the target table
 ### Rows source list
 Unlike the **Insert row** action (where we deal with a single row), we are now dealing with a batch of rows. Hence, the next datapill to input is the *source* of the batch of rows to insert to the table. This can come from any trigger or action that outputs a list datapill.
 
-![A list datapill from the datatree](/assets/images/mysql/list_datapill_in_output_tree.png)
+![A list datapill from the datatree](/assets/images/mssql/list_datapill_in_output_tree.png)
 *A list datapill from the datatree*
 
 If you do not map a list datapill to this field, this action will insert only 1 row and will behave like the **Insert row** action.

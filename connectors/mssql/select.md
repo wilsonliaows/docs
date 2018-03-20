@@ -1,14 +1,14 @@
 ---
-title: Workato connectors - MySQL Select actions
+title: Workato connectors - SQL Server Select actions
 date: 2018-02-02 06:10:00 Z
 ---
 
-# MySQL - Select actions
+# SQL Server - Select actions
 
 ## Select rows
 This action lets you select rows based on certain criteria defined by a ` WHERE` condition. Rows from the selected table that match the `WHERE` condition will be returned as the output of this action.
 
-![Select rows action](/assets/images/mysql/select-rows-action.png)
+![Select rows action](/assets/images/mssql/select-rows-action.png)
 *Select rows action*
 
 ### Table
@@ -27,10 +27,10 @@ Alternatively, it can be used to select multiple rows based on values in one or 
 status = 'closed' and priority = 1
 ```
 
-Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mysql.md#where-condition) guide for more information.
+Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE condition](/connectors/mssql.md#where-condition) guide for more information.
 
 ### Order by
-Rows returned from this action can be ordered based on the **Order by** input field. This field is used to change the default ordering of rows from your MySQL database.
+Rows returned from this action can be ordered based on the **Order by** input field. This field is used to change the default ordering of rows from your SQL Server database.
 
 You can also define the direction of order for each column you wish to order by. The following order by statement will order rows by `priority` in ascending order followed by `created_date` in descending order (latest first).
 
