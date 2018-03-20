@@ -3,8 +3,8 @@ title: Commands
 date: 2018-03-20 10:23:00 Z
 ---
 
-# Commands
-### What is a command?
+# Creating a Command
+
 Did you know that you can command Workbot to do things for you from Slack? Workbot has been helping our users perform all kinds of tasks like:
 - [Adding subscribers to a list in Mailchimp](https://www.workato.com/recipes/57785-workbot-command-to-add-subscriber-to-list-in-mailchimp#recipe) by telling Workbot: “**Mailchimp add subscriber**”
 - [Getting a breakdown of incident reports from ServiceNow via a pie chart](https://www.workato.com/recipes/146385-incident-report-pie-chart-in-servicenow#recipe) (in Slack!) by telling Workbot: “**ServiceNow report incident**”
@@ -155,4 +155,4 @@ Command will also provide you with a set of datapills that hold additional info 
 ![Command datapills](/assets/images/workbot/workbot-trigger/command-datapills.png)
 *Command output datatree. Notice the input parameters we included in the earlier step? They’re datapills too!*
 
-And with that, we're done configuring the command! Now it’s time to add a series of actions to this trigger. Remember, we’re trying to get Workbot to create an issue in Github from Slack (link to the top), so we still need to create action steps in the recipe to do that.
+And with that, we're done configuring the command! Now it’s time to add a series of actions to this trigger. Remember, we’re trying to get Workbot to create an issue in Github from Slack (link to the top), so we still need to create action steps in the recipe to do that. Next, we'll take a look at [how to create a Command Reply](/workbot/workbot-command-reply.md).
