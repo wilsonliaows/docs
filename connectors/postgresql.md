@@ -111,3 +111,120 @@ As a result, the output of batch triggers/actions needs to be handled differentl
 
 ![Using batch trigger output](/assets/images/postgresql/using_batch_output.png)
 *Using batch trigger output*
+
+### WHERE condition
+This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:
+- filter rows to be picked up in triggers
+- filter rows in **Select rows** action
+- filter rows to be deleted in **Delete rows** action
+
+This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [PostgreSQL documentation](https://dev.postgresql.com/doc/refman/5.7/en/language-structure.html) for a full list of rules for writing PostgreSQL statements.
+
+#### WHERE operators
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th>Operator</th>
+        <th width='40%'>Description</th>
+        <th width='40%'>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>Equal</td>
+      <td><code>WHERE ID = 445</code></td>
+    </tr>
+    <tr>
+      <td>
+        !=<br>
+        <>
+      </td>
+      <td>Not equal</td>
+      <td><code>WHERE ID <> 445</code></td>
+    </tr>
+    <tr>
+      <td>
+        &gt<br>
+        &gt=
+      </td>
+      <td>
+        Greater than<br>
+        Greater than or equal to
+      </td>
+      <td><code>WHERE PRICE > 10000</code></td>
+    </tr>
+    <tr>
+      <td>
+        &lt<br>
+        &lt=
+      </td>
+      <td>
+        Less than<br>
+        Less than or equal to
+      </td>
+      <td><code>WHERE PRICE > 10000</code></td>
+    </tr>
+    <tr>
+      <td>IN(...)</td>
+      <td>List of values</td>
+      <td><code>WHERE ID IN(445, 600, 783)</code></td>
+    </tr>
+    <tr>
+      <td>LIKE</td>
+      <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
+      <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
+    </tr>
+    <tr>
+      <td>
+        IS NULL<br>
+        IS NOT NULL
+      </td>
+      <td>
+        NULL values check<br>
+        Non-NULL values check
+      </td>
+      <td><code>WHERE NAME IS NOT NULL</code></td>
+    </tr>
+  </tbody>
+</table>
+
+#### Simple statements
+
+String values must be enclosed in single quotes (`''`) and columns used must exist in the table.
+
+A simple `WHERE` condition to filter rows based on values in a single column looks like this.
+
+```sql
+currency = 'USD'
+```
+
+If used in a **Select rows** action, this `WHERE` condition will return all rows that have the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
+
+![Using datapills in WHERE condition](/assets/images/postgresql/use_datapill_in_where.png)
+*Using datapills in `WHERE` condition*
+
+Column names with spaces must be enclosed in double quotes (`""`). For example, **currency code** must to enclosed in brackets to be used as an identifier. Note that all quoted identifiers are case-sensitive.
+
+```sql
+"currency code" = 'USD'
+```
+
+In a recipe, remember to use the appropriate quotes for each value/identifier.
+
+![WHERE condition with enclosed identifier](/assets/images/postgresql/where-condition-with-enclosed-identifier.png)
+*`WHERE` condition with enclosed identifier*
+
+#### Complex statements
+
+Your `WHERE` condition can also contain subqueries. The following query can be used on the `users` table.
+
+```sql
+id in (select user_id from tickets where priority = 2)
+```
+
+When used in a **Delete rows** action, this will delete all rows in the `users` table where at least one associated row in the `tickets` table has a value of 2 in the `priority` column.
+
+![Using datapills in WHERE condition with subquery](/assets/images/postgresql/use_datapill_in_where_complex.png)
+*Using datapills in `WHERE` condition with subquery*
