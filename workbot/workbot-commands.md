@@ -10,6 +10,9 @@ Did you know that you can command Workbot to do things for you from Slack? Workb
 - [Getting a breakdown of incident reports from ServiceNow via a pie chart](https://www.workato.com/recipes/146385-incident-report-pie-chart-in-servicenow#recipe) (in Slack!) by telling Workbot: “**ServiceNow report incident**”
 - [Creating an issue in Github](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) by telling Workbot: “Github create issue”
 
+![Workbot Command trigger diagram](/assets/images/workbot/workbot-trigger/anatomy-of-a-command.gif)
+*Anatomy of a Command trigger*
+
 A command is a 3-word phrase users can say to Workbot (in Slack) to trigger recipes. Each command has a name, and can also prompt users for more info if they’re required to perform the recipe actions.
 
 You can find the list of all the input fields for Command below, but for now, let’s focus on **Application**, **Command action**, **Business data** and **User input fields** so we can [create our very first command](/workbot/workbot-commands.md#creating-a-command).
