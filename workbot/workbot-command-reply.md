@@ -78,7 +78,7 @@ How your form should look like at this point:
 
 ![Message format with expanded fields](/assets/images/workbot/workbot-actions/message-format-expanded-with-fields.png)
 
-When you're fairly confident that you've configured the message format correctly, hit Save.
+When you're confident that you've configured the message format correctly, hit Save.
 
 With that, we're done configuring the command reply! Let's test it out by starting the recipe. You'll also want to sign into both the Github repo that you've connected this recipe to (to check that the issue has indeed been created), as well as the Slack workspace with the installed Workbot (that's connected to this recipe).
 
