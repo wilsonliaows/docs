@@ -68,9 +68,7 @@ Here we use the <kbd>Number</kbd> datapill in the previous step's output datatre
 Here we use the <kbd>Issue</kbd> datapill from the Command trigger output (in step 1). Back in the ["Creating a command"](/workbot/workbot-commands.md#user-input-fields) guide, we defined **Issue** as a user input field that users can provide in Slack. Now, <kbd>Issue</kbd> can be used in subsequent action steps - this is how we're letting users populate Github issue fields from Slack!
 3. **Title Link**: <kbd>URL</kbd>
 Here we take the <kbd>URL</kbd> of the created issue. It's yet another output datapill from the issue creation in Github.
-4. **Message text**:
-Description: <kbd>Description</kbd>
-Assignee: <kbd>Assignee</kbd>
+4. **Message text**:<br>Description: <kbd>Description</kbd><br>Assignee: <kbd>Assignee</kbd><br>
 Just like with <kbd>Issue</kbd>, we're using the datapills of the user input fields defined back in the [command trigger](/workbot/workbot-commands.md#user-input-fields).
 ![User input fields datapills](/assets/images/workbot/workbot-actions/user-input-fields-datapills.png)
 5. **Message type**: Good
@@ -102,7 +100,7 @@ Next, make sure that the recipe has been started. All good? Let's go!
 7. At this point, Workbot should have all the input he needs from the user to create the issue in Github. You should see the command reply next:
 ![Github command reply](/assets/images/workbot/workbot-actions/github-command-reply.png)
 
-We've come to the end of this guide you're awesome for making it this far.
+We've come to the end of this guide - you're awesome for making it this far.
 
 You can make your command reply more interactive by including message fields, images, buttons, and even drop-down menus. Buttons and menu options allow Workbot to pass commands back to a recipe to carry out its actions.
 
