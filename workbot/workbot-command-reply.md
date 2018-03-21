@@ -39,7 +39,10 @@ How it should look like at this point:
 
 ![Getting started with command reply](/assets/images/workbot/workbot-actions/getting-started-with-command-reply.png)
 
-Now we're ready to start formatting the message! Next, you should see a list of collapsed fields.
+Now we're ready to start formatting the message!
+
+### Message Format
+Next, you should see a list of collapsed fields:
 
 ![Command reply collapsed](/assets/images/workbot/workbot-actions/command-reply-collapsed.png)
 
