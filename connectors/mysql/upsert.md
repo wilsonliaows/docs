@@ -30,7 +30,7 @@ This action allows you to upsert multiple rows in a single action instead of one
 Just like with the single row upsert action, you need to select the target table first.
 
 ### Rows source list
-Unlike the **Upsert row** action (where we deal with a single row), we are now dealing with a batch of rows. Hence, the next datapill to input is the *source* of the batch of rows to insert to the table. This can come from any trigger or action that outputs a list datapill.
+Unlike the **Upsert row** action (where we deal with a single row), we are now dealing with a batch of rows. Hence, the next datapill to input is the *source* of the batch of rows to upsert to the table. This can come from any trigger or action that outputs a list datapill.
 
 ![A list datapill from the datatree](/assets/images/mysql/list_datapill_in_output_tree.png)
 *A list datapill from the datatree*
