@@ -248,7 +248,7 @@
   * [ServiceNow](connectors/servicenow.md)
     * [Connection setup](connectors/servicenow.md#how-to-connect-to-servicenow-on-workato)
   * [Slack](connectors/slack.md)
-    * [Slack VS Workbot](/connectors/slack.md#slack-vs-workbot-for-slack-connectors)
+    * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
     * [Message buttons](connectors/slack.md#using-slack-message-buttons)
     * [Message threads](/connectors/slack.md#using-slack-threads)
   * [Splunk](connectors/splunk.md)
