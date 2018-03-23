@@ -228,6 +228,8 @@
     * [Insert actions](connectors/postgresql/insert.md)
     * [Update actions](connectors/postgresql/update.md)
     * [Delete actions](connectors/postgresql/delete.md)
+    * [New row trigger](connectors/postgresql/new-row-trigger.md)
+    * [New/updated row trigger](connectors/postgresql/updated-row-trigger.md)
   * [PubSub by Workato](connectors/pubsub.md)
     * [Connection setup](connectors/pubsub.md#how-to-connect-to-the-pubsub-connector-on-workato)
     * [Topics management](connectors/pubsub.md#creating-and-managing-topics)
