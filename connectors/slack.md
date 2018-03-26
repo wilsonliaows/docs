@@ -32,8 +32,8 @@ Authorize Workato to access your Slack organization via the OAuth2 standard. Thi
 ### Using the post message action
 The **Post message** action can be used to post a message to a channel or a direct message to a Slack user. By default, the message will be posted as the Workato app, but it can be configured to post under another name and corresponding icon image.
 
-#### Example message with attachment
-The following shows an example of how the different fields show up in Slack. As the **Post message as** and **Icon image URL** input fields have not been configured, the message displays as being posted by the Workato app.
+#### Example with message attachments
+The following shows an example of how the different fields show up in Slack. As the **Post message** and **Image URL** input fields have not been configured, the message displays as being posted by the Workato app.
 
 ![Post message example with attachment](/assets/images/connectors/slack/post-message-basic-example.png)
 *Basic example of the post message action with attachment*
