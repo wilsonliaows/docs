@@ -50,9 +50,9 @@ The following table lists the configurable input fields in the trigger, and what
             </td>
         </tr>
         <tr>
-            <td>Command input parameters</td>
+            <td>Command input fields</td>
             <td>
-              The input to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type file, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
+              The input to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type <code>file</code>, which takes in input file content (e.g. text, binary content) as input, which you may upload into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
             </td>
         </tr>
         <tr>
