@@ -41,13 +41,13 @@ The following table lists the fields available in a **Post command reply** actio
             <td>App</td>
             <td>The application you are dealing with (e.g. Salesforce, JIRA)
             </td>
-            <td>Use the <kbd>Application</kbd> pill from the Workato Trigger output for this
+            <td>Use the <kbd>App</kbd> pill from the Workato Trigger output for this
         </tr>
-        <tr>
+<!--        <tr>
             <td>Reply Channel</td>
             <td>The channel Workbot replies in</td>
             <td>Use the <b>Reply channel</b> Field from the Workato Trigger output
-        </tr>
+        </tr>Reply channel has been moved to Post message > Advanced
         <tr>
             <td>Message to update</td>
             <td>
@@ -56,7 +56,7 @@ The following table lists the fields available in a **Post command reply** actio
             <td>
               Message ID can be obtained from the output of a <b>Post command reply</b> or <b>Post notification</b> action, or the <b>New command trigger</b>. Note: manual user inputs cannot be overwritten.
             </td>
-        </tr>
+        </tr> Message to update has been moved to Post message action
         <tr>
             <td>Thread ID</td>
             <td>
@@ -64,7 +64,7 @@ The following table lists the fields available in a **Post command reply** actio
             </td>
             <td>For replying to the current thread use thread ID value from <b>New command</b> trigger. For creating new thread pass here message ID from output of another <b>Post command reply</b> or <bold>New command</b> trigger - make sure it is not empty in the last case.
             </td>
-        </tr>
+        </tr> Thread ID has been moved to Post message > Advanced-->
         <tr>
             <td>Message text</td>
             <td>
@@ -76,11 +76,9 @@ The following table lists the fields available in a **Post command reply** actio
         </tr>
         <tr>
             <td>Message menu</td>
+            <td>A drop-down menu in the message posted in the channel
             <td>
-              This generates a picklist menu in the message for the user to select an option from
-            </td>
-            <td>
-            Option placeholder text (shown when there is no option chosen) and array of JSON objects, e.g. <br><code>\[{"title":"item title", "command":"item command"}]</code>
+              Decide what text to display for each menu option.
         </tr>
         <tr>
             <td>Title</td>
