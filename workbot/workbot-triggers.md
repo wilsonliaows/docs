@@ -84,7 +84,7 @@ Salesforce show account
 ```
 
 #### Workbot command input parameters format
-The **command input parameters** field lets you decide what data is needed from the user to carry out the recipe actions successfully.
+The **command input fields** field lets you decide what data is needed from the user to carry out the recipe actions successfully.
 
 Each input parameter has to be provided in the following format:
 
@@ -95,7 +95,7 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
 <table class="unchanged rich-diff-level-one">
     <thead>
         <tr>
-            <th>Input parameter field</th>
+            <th>Command input fields</th>
             <th>Description</th>
         </tr>
     </thead>
@@ -144,10 +144,10 @@ In this case, to successfully retrieve Salesforce account data, we need the full
 name optional: false prompt: false type: string hint: Exact account name sample: IBM
 ```
 
-The configured input parameters will be displayed as follow up questions for the user after the Workbot command.
+The configured command input fields will be displayed as follow up questions for the user after the Workbot command.
 
 ![Salesforce show account input parameters](/assets/images/workbot/workbot-trigger/salesforce-show-account-input-params-display.png)
-*Input parameters display on Slack*
+*A command input field displayed on Slack*
 
 ### New command trigger output datapills
 The **New command** trigger also provides a set of datapill variables as that holds data about the command, such as the user making the command, the channel the command was made it, etc. The following table details these datapill variables.
