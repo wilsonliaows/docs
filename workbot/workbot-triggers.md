@@ -52,7 +52,7 @@ The following table lists the configurable input fields in the trigger, and what
         <tr>
             <td>Command input fields</td>
             <td>
-              The input to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type <code>file</code>, which takes in input file content (e.g. text, binary content) as input, which you may upload into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
+              The input to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type <code>file</code>, which accepts file content (e.g. text, binary content) as input. This can be uploaded into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
             </td>
         </tr>
         <tr>
@@ -168,19 +168,19 @@ The following table lists the output datapills from the trigger, and what data e
         <tr>
             <td>App</td>
             <td>
-              1st part of the Workbot command. The app the Workbot command is working with.
+              1st part of the Workbot command. The app that the Workbot command is working with e.g. <br><code>Salesforce</code>
             </td>
         </tr>
         <tr>
             <td>Action data</td>
             <td>
-              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g. show, create, update.
+              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g.<br><code>show</code>, <code>create</code>, <code>update</code>.
             </td>
         </tr>
         <tr>
             <td>Action</td>
             <td>
-              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g.<br><code>invoice</code>, <code>customer</code>, <code>ticket</code>.
             </td>
         </tr>
         <tr>
