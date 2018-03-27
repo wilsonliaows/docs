@@ -168,6 +168,8 @@
   * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
   * [Workbot for Slack setup](workbot/workbot-for-slack-setup.md)
   * [Using Workbot for Slack](workbot/using-workbot-for-slack.md)
+  * [Workbot basics: Commands](workbot/workbot-commands.md)
+  * [Workbot basics: Command reply](workbot/workbot-command-reply.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot personal connections](workbot/workbot-latebinding.md)
