@@ -136,6 +136,7 @@ Find out more about setting up an ISU [here](https://doc.workday.com/reader/Z9lz
 This step is required only if you wish to work with custom objects in Workday. The Workday connector uses the Workday REST API, which uses an OAuth 2.0 for authentication. You need to register an API Client to allow connection to the REST API.
 
 ![Register API Client](/assets/images/workday/api-client-1.png)
+*Registering a new client*
 
 Navigate to "Register API Client" in your Workday instance.
 
@@ -144,5 +145,6 @@ Navigate to "Register API Client" in your Workday instance.
 - Add the necessary scope you wish to grant access for
 
 ![API Client credentials](/assets/images/workday/api-client-2.png)
+*API client details*
 
 Remember to save the Client ID, Client Secret, Authorization Endpoint and Token Endpoint. This will be required for connecting to Workday via Workato.
