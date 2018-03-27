@@ -34,19 +34,20 @@ The following table lists the configurable input fields in the trigger, and what
     <tbody>
         <tr>
             <td>App</td>
-            <td>1st part of the Workbot command. The app the Workbot command is working with. Groups the command under this application (when user types the app's name, command will show up as a button).
+            <td>
+              1st part of the Workbot command. The app that the Workbot command is working with e.g. <br><code>Salesforce</code>
             </td>
         </tr>
         <tr>
             <td>Action</td>
             <td>
-              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g. show, create, update.
+              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g.<br><code>show</code>, <code>create</code>, <code>update</code>.
             </td>
         </tr>
         <tr>
             <td>Action data</td>
             <td>
-              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g.<br><code>invoice</code>, <code>customer</code>, <code>ticket</code>.
             </td>
         </tr>
         <tr>
@@ -152,7 +153,7 @@ The configured command input fields will be displayed as follow up questions for
 ### New command trigger output datapills
 The **New command** trigger also provides a set of datapill variables as that holds data about the command, such as the user making the command, the channel the command was made it, etc. The following table details these datapill variables.
 
-![New bot command output datatree](/assets/images/workbot/workbot-trigger/new-bot-command-trigger-datatree.png)
+![New command trigger output datatree](/assets/images/workbot/workbot-trigger/new-bot-command-trigger-datatree.png)
 *New bot command output datatree*
 
 The following table lists the output datapills from the trigger, and what data each field contains.
@@ -186,7 +187,7 @@ The following table lists the output datapills from the trigger, and what data e
         <tr>
             <td>Message ID</td>
             <td>
-              The epoch time when the Workbot command was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this Workbot command message.
+              The epoch time when the Workbot command was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this Workbot command message.<br> Can also be used in <b>Message to update</b>, to overwrite a previously posted message.
             </td>
         </tr>
         <tr>
