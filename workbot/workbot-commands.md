@@ -8,14 +8,14 @@ date: 2018-03-20 10:23:00 Z
 Did you know that you can command Workbot to do things for you from Slack? Workbot has been helping our users perform all kinds of tasks like:
 - [Adding subscribers to a list in Mailchimp](https://www.workato.com/recipes/57785-workbot-command-to-add-subscriber-to-list-in-mailchimp#recipe) by telling Workbot: “**Mailchimp add subscriber**”
 - [Getting a breakdown of incident reports from ServiceNow via a pie chart](https://www.workato.com/recipes/146385-incident-report-pie-chart-in-servicenow#recipe) (in Slack!) by telling Workbot: “**ServiceNow report incident**”
-- [Creating an issue in Github](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) by telling Workbot: “Github create issue”
+- [Creating an issue in Github](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) by telling Workbot to "**Create a Github issue**”
 
 ![Workbot Command trigger diagram](/assets/images/workbot/workbot-trigger/anatomy-of-a-command.gif)
 *Anatomy of a Command trigger*
 
-A command is a 3-word phrase users can say to Workbot (in Slack) to trigger recipes. The phrase can also prompt users for more info if they’re required to perform the recipe actions.
+A command consists of 3 parts; <code>app</code>, <code>action</code>, <code>action data</code> - and can be used to trigger recipes. You can also prompt users for more info if they’re required to perform the recipe actions via **Command input fields**.
 
-You can find the list of all the input fields for Command below, but for now, let’s focus on **App**, **Action**, **App data** and **Command input fields** so we can [create our very first command](/workbot/workbot-commands.md#creating-a-command).
+You can find the list of all the input fields for Command below, but for now, let’s focus on **App**, **Action**, **Action data** and **Command input fields** so we can [create our very first command](/workbot/workbot-commands.md#creating-a-command).
 
 <table class="unchanged rich-diff-level-one">
     <thead>
@@ -28,19 +28,19 @@ You can find the list of all the input fields for Command below, but for now, le
         <tr>
             <td>App</td>
             <td>
-               This is the 1st word of the phrase; it defines which application this command relates to, e.g.<br>Github, ServiceNow, etc.
+               This is the 1st part of the command; it defines which application this command relates to, e.g.<br>Github, ServiceNow, etc.
             </td>
         </tr>
         <tr>
             <td>Action</td>
             <td>
-              This is the 2nd word of the phrase; it defines what action to perform onto the <b>App data</b>, e.g.<br>Create, Show, List, etc.
+              This is the 2nd part of the command; it defines what action to perform onto the <b>App data</b>, e.g.<br>Create, Show, List, etc.
             </td>
         </tr>
         <tr>
-            <td>App data</td>
+            <td>Action data</td>
             <td>
-              The 3rd and last word of the phrase; it defines what sort of data to act on e.g. <br>Opportunity, Issue, Invoice, etc.
+              The 3rd and last part of the command; it defines what sort of data to act on e.g. <br>Opportunity, Issue, Invoice, etc.
             </td>
         </tr>
         <tr>
@@ -77,12 +77,12 @@ In this exercise, we'll be creating a command that triggers a recipe that create
 *Creating a new Command*
 
 #### Defining the command
-Workbot understands commands in 3-word phrases in this format:   `app` `action` `app-data`.
+Workbot understands commands in 3 parts:   `app` `action` `action-data`.
 
-We’ll be creating a command that tells Workbot: “**Create Github issue**”.  Because Workbot has built-in Natural Language Understanding (NLU) capabilities, Workbot is flexible with how the command is phrased. You have the freedom to type in the commands in any sequence that's most natural to you, e.g. "create an issue in Github"
+We’ll be creating a command that tells Workbot to **Create a Github issue**”.  Because Workbot has built-in Natural Language Understanding (NLU) capabilities, Workbot is flexible with how the command is phrased. You have the freedom to type in the commands in any sequence that's most natural to you, e.g. "create an issue in Github"
   1. `app`: This is the 1st word of the phrase; it defines which application this command relates to. In this case, “Github” is the application we want.
-  2. `action`: This is the 2nd word of the phrase; it defines what action to perform onto the `app data`. “Create” is what we’ll go with here.
-  3. `app data`: The 3rd and last word of the phrase; it defines what sort of data to act on e.g. Opportunity, Issue, Invoice, etc. Let’s go with “issue” here.
+  2. `action`: This is the 2nd part of the command; it defines what action to perform onto the `action data`. “Create” is what we’ll go with here.
+  3. `action data`: The 3rd part of the command; it defines what sort of data to act on e.g. Opportunity, Issue, Invoice, etc. Let’s go with “issue” here.
 
 #### Command input fields
 Sometimes, Workbot needs more input from the user before it can trigger the recipe and carry out its actions. Command input fields let you define each input, along with how they should behave in Slack. Click on **+ Add command input** to add command input fields.
