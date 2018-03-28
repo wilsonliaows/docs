@@ -97,7 +97,7 @@ In this case, Workbot will need 3 things from the user before he can create an i
 
 How your command should look like at this point:
 ![Defining the command](/assets/images/workbot/workbot-trigger/defining-the-command.png)
-***Github Create Issue recipe**: Command section*
+<i>**Github Create Issue recipe**: Command section</i>
 
 How it will look like on Slack:
 
