@@ -35,7 +35,7 @@ The **Post message** action can be used to post a message to a channel or a dire
 #### Example message with attachment
 The following shows an example of how the different fields show up in Slack. As the **Post message as** and **Icon image URL** input fields have not been configured, the message displays as being posted by the Workato app.
 
-![Post message example with attachment](/assets/images/connectors/slack/post-message-basic-example-2.png)
+![Post message example with attachment](/assets/images/connectors/slack/post-message-basic-example.png)
 *Basic example of the post message action with attachment*
 
 The corresponding configuration of the action step can be seen below. In addition, the **Message type** has been configured to **Good**.
@@ -93,7 +93,7 @@ The danger styled buttons, when clicked, generates a popup prompt that asks the 
 
 The prompt that pops up can be completely configured in the button configuration in the Slack action **Post message**.
 
-![Popup prompt example](/assets/images/connectors/slack/popup-prompt-example-2.png)
+![Popup prompt example](/assets/images/connectors/slack/popup-prompt-example.png)
 *Popup prompt*
 
 ###### Button definitions
