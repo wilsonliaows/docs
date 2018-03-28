@@ -163,6 +163,7 @@ The fields available are simillar to that of the **Post command reply** action, 
 **Thread ID** allows you to post a message within an existing thread in Slack. Simply use the <code>Thread ID</code> datapill from a **Post message** or **Post notification** output datatree.
 
 ![Thread ID example](/assets/images/workbot/workbot-actions/thread-id-example.png)
+
 ## Post notifications
 This action allows you to define which Slack channel to post customized notifications to. By default, Workbot posts direct messages only to the user who installed Workbot. Note, it is also possible to subscribe from a channel (where Workbot participates) to these notifications.
 
