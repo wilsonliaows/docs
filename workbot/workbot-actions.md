@@ -17,14 +17,17 @@ Post command reply allows you to customize how Workbot replies when an event is 
 
 Here is what the Post Command Reply action's output will look like in Slack.
 
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-reply3.png)
+![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-reply.png)
 *Workbot's post command reply action in Slack*
 
 The corresponding action with mapped fields can be found below.
 
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping1.png)
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping2.png)
-*Post command action fields mapping*
+![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-1.png)
+![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-2.png)
+![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-3.png)
+![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-4.png)
+![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-5.png)
+*Post command reply action fields mapping*
 
 The following table lists the fields available in a **Post command reply** action.
 
@@ -153,10 +156,12 @@ This action will post a message response to a user who invokes a command. By def
 The fields available are simillar to that of the **Post command reply** action, with all the typical fields you see in a Slack message. However, there is the advanced section with 2 fields: **Message to update** and **Thread ID**.
 
 **Message to update** allows you to overwrite a previously posted message from an earlier action step. Simply use the <code>Message ID</code> datapill from a **Post message** or **Post notification** output datatree.
+
 ![Message to update example](/assets/images/workbot/workbot-actions/message-to-update-example.png)
 *Message to update example*
 
 **Thread ID** allows you to post a message within an existing thread in Slack. Simply use the <code>Thread ID</code> datapill from a **Post message** or **Post notification** output datatree.
+
 ![Thread ID example](/assets/images/workbot/workbot-actions/thread-id-example.png)
 ## Post notifications
 This action allows you to define which Slack channel to post customized notifications to. By default, Workbot posts direct messages only to the user who installed Workbot. Note, it is also possible to subscribe from a channel (where Workbot participates) to these notifications.
