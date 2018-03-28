@@ -17,53 +17,6 @@ A command consists of 3 parts; <code>app</code>, <code>action</code>, <code>acti
 
 You can find the list of all the input fields for Command below, but for now, let’s focus on **App**, **Action**, **Action data** and **Command input fields** so we can [create our very first command](/workbot/workbot-commands.md#creating-a-command).
 
-<table class="unchanged rich-diff-level-one">
-    <thead>
-        <tr>
-            <th>New command trigger input field</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>App</td>
-            <td>
-               This is the 1st part of the command; it defines which application this command relates to, e.g.<br>Github, ServiceNow, etc.
-            </td>
-        </tr>
-        <tr>
-            <td>Action</td>
-            <td>
-              This is the 2nd part of the command; it defines what action to perform onto the <b>App data</b>, e.g.<br>Create, Show, List, etc.
-            </td>
-        </tr>
-        <tr>
-            <td>Action data</td>
-            <td>
-              The 3rd and last part of the command; it defines what sort of data to act on e.g. <br>Opportunity, Issue, Invoice, etc.
-            </td>
-        </tr>
-        <tr>
-            <td>Command input fields</td>
-            <td>
-              The data to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type:<code>file</code>, which takes file content as input (e.g. text or binary content) that you may upload into Slack. <br>You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Help text</td>
-            <td>
-            Short description of what the command does. Shows up in the Workbot app page under <b>Commands</b>.
-            </td>
-        </tr>
-        <tr>
-            <td>Hidden command</td>
-            <td>
-              If <b>yes</b>, command will not show up as a button in the Slack channel when the user types app name. <br>If <b>no</b>, command will show up as a button in the Slack channel when the user types the app name.
-            </td>
-        </tr>
-    </tbody>
-</table>
-
 ### Creating a Command
 #### Getting Started
 In this exercise, we'll be creating a command that triggers a recipe that creates an issue in Github.
