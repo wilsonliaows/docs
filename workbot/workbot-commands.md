@@ -77,9 +77,9 @@ In this exercise, we'll be creating a command that triggers a recipe that create
 *Creating a new Command*
 
 #### Defining the command
-Workbot understands commands in 3 parts:   `app` `action` `action-data`.
+Workbot understands commands in 3 parts: `app` `action` `action-data`.
 
-We’ll be creating a command that tells Workbot to **Create a Github issue**”.  Because Workbot has built-in Natural Language Understanding (NLU) capabilities, Workbot is flexible with how the command is phrased. You have the freedom to type in the commands in any sequence that's most natural to you, e.g. "create an issue in Github"
+We’ll be creating a command that tells Workbot to **Create a Github issue**”. Because Workbot has built-in Natural Language Understanding (NLU) capabilities, Workbot is flexible with how the command is phrased. You have the freedom to type in the commands in any sequence that's most natural to you, e.g. "create an issue in Github"
   1. `app`: This is the 1st word of the phrase; it defines which application this command relates to. In this case, “Github” is the application we want.
   2. `action`: This is the 2nd part of the command; it defines what action to perform onto the `action data`. “Create” is what we’ll go with here.
   3. `action data`: The 3rd part of the command; it defines what sort of data to act on e.g. Opportunity, Issue, Invoice, etc. Let’s go with “issue” here.
@@ -90,21 +90,21 @@ Sometimes, Workbot needs more input from the user before it can trigger the reci
 ![Command input fields](/assets/images/workbot/workbot-trigger/command-input-fields.png)
 *Add command input fields*
 
-In this case, Workbot will need 3 things from the user before he can create an issue in Github: the issue "title", the “description” of the issue, and the “assignee” to assign the issue to. Hence, `title`, `description` and `assignee` are the 3  command input fields we’ll define.   Since only `name` is required here, we’ll skip configuring the others for now.
+In this case, Workbot will need 3 things from the user before he can create an issue in Github: the issue "title", the “description” of the issue, and the “assignee” to assign the issue to. Hence, `title`, `description` and `assignee` are the 3 command input fields we’ll define. Since only `name` is required here, we’ll skip configuring the others for now.
 
 ![Adding a new command input field](/assets/images/workbot/workbot-trigger/add-new-command-input-field.png)
 *Adding a new user input field*
 
 How your command should look like at this point:
 ![Defining the command](/assets/images/workbot/workbot-trigger/defining-the-command.png)
-***Github Create Issue recipe**: Command section*
+<i>**Github Create Issue recipe**: Command section</i>
 
 How it will look like on Slack:
 
 ![Commands on Slack](/assets/images/workbot/workbot-trigger/commands-on-slack.png)
 *Before Workbot can create the issue on Github, we’ll need to define follow-up recipe actions. Also, notice the final message Workbot sent? That’s a [command reply](workbot/workbot-command-reply.md) - we’ll go through that later!*
 
-### Command output datapills 
+### Command output datapills
 Command will also provide you with a set of datapills that hold additional info about the command e.g. the user making the command, the channel which the command was made it, etc. The following table details these datapill variables:
 ![Command datapills](/assets/images/workbot/workbot-trigger/command-datapills.png)
 *Command output datatree. Notice the command input parameters we included in the earlier step? They’re datapills too!*
