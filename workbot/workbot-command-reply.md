@@ -12,19 +12,19 @@ In practice, you should always pair a command with a command reply (in your reci
 If you're here after just [completing your first command](/workbot/workbot-commands.md), great job on getting this far! In this exercise, we'll be using the same recipe as before - [creating an issue in Github from Slack](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) using a Workbot command.
 
 
-![Workbot Command trigger and the Command response diagram](/assets/images/workbot/workbot-actions/anatomy-of-a-command-reply.gif)
+![Workbot Command trigger and the Command response diagram](/assets/images/workbot/workbot-actions/anatomy-of-a-command-reply-1.gif)
 *Anatomy of a Command reply*
 
 The [recipe](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) we're working with creates an issue in Gtihub based on inputs provided to Workbot in the command. Here's how they're mapped:
 
-![Creating an issue in Github](/assets/images/workbot/workbot-actions/create-issue-github.png)
+![Creating an issue in Github](/assets/images/workbot/workbot-actions/create-issue-github-1.png)
 *We've used the user input datapills to form the Issue title, Body, and Assignee of the issue. More on this [here.](/workbot/workbot-commands.md#user-input-fields)*
 
 You can set the Organization and Repository of your choice - this is where Workbot will create new Github issues.
 
 As we've mentioned before, we want Workbot to reply to the user *after* it has finished creating the issue in Github, furnished with some details.
 
-![Command Reply](/assets/images/workbot/workbot-actions/command-reply.png)
+![Command Reply](/assets/images/workbot/workbot-actions/command-reply-1.png)
 
 The Slack message above is how we want Workbot's command reply (to the user) to look like after successfully creating the rather unfortunate issue above in Github. Now that we know what we want to do, let's get cracking!
 
@@ -37,25 +37,25 @@ In the [recipe](https://www.workato.com/recipes/663926-create-an-issue-on-github
 
 How it should look like at this point:
 
-![Getting started with command reply](/assets/images/workbot/workbot-actions/getting-started-with-command-reply.png)
+![Getting started with command reply](/assets/images/workbot/workbot-actions/getting-started-with-command-reply-1.png)
 
 Now we're ready to start formatting the message!
 
 ### Message text
 **Message text**: Issue <kbd>Number</kbd> created
 The message text is the simplest message that Workbot can reply with in a Slack message. Here we use the <kbd>Number</kbd> datapill in the previous step's output datatree.
-![Command Reply datapills](/assets/images/workbot/workbot-actions/command-reply-datapills.png)
+![Command Reply datapills](/assets/images/workbot/workbot-actions/command-reply-datapills-1.png)
 
 ### Message attachments
 Next, you should see a list of collapsed fields:
 
-![Command reply collapsed](/assets/images/workbot/workbot-actions/command-reply-collapsed.png)
+![Command reply collapsed](/assets/images/workbot/workbot-actions/command-reply-collapsed-1.png)
 
 We want to focus on **Message attachment** for now. The rest of the fields like **Buttons** and **Message menu** make your command reply a *lot* more interactive, but we can keep things simple for now.
 
 Expand the **Message Attachments** input fields:
 
-![Message attachment expanded](/assets/images/workbot/workbot-actions/message-attachments-expanded.png)
+![Message attachment expanded](/assets/images/workbot/workbot-actions/message-attachments-expanded-1.png)
 *Message attachment expanded*
 
 There are a lot of fields here, but to achieve our goal for this exercise, we only need to focus on 4 fields:
@@ -64,7 +64,7 @@ There are a lot of fields here, but to achieve our goal for this exercise, we on
 3. **Attachment text**
 4. **Attachment Color**
 
-![Command reply explained](/assets/images/workbot/workbot-actions/command-reply-explained-2.png)
+![Command reply explained](/assets/images/workbot/workbot-actions/command-reply-explained-1.png)
 *Command reply explained*
 
 Here's what we want to fill up in these 4 fields:
@@ -109,7 +109,7 @@ Here's what we want to fill up in these 4 fields:
     </table>
 How your form should look like at this point:
 
-![Message attachment with expanded fields](/assets/images/workbot/workbot-actions/message-format-expanded-with-fields.png)
+![Message attachment with expanded fields](/assets/images/workbot/workbot-actions/message-format-expanded-with-fields-1.png)
 
 When you're confident that you've configured the Message attachment correctly, hit Save.
 
@@ -123,15 +123,15 @@ Next, make sure that the recipe has been started. All good? Let's go!
 
 1. In Slack, send a DM to Workbot, and say "github create issue"
 2. Workbot should respond with "Enter issue:"
-![Github create issue](/assets/images/workbot/workbot-actions/github-create-issue.png)
+![Github create issue](/assets/images/workbot/workbot-actions/github-create-issue-1.png)
 3. Enter the issue title
 4. Workbot should respond with "Enter description"
-![Github enter description](/assets/images/workbot/workbot-actions/github-enter-description.png)
+![Github enter description](/assets/images/workbot/workbot-actions/github-enter-description-1.png)
 5. Enter the description of the issue.
 6. Workbot should respond with "Enter assignee:"
-![Github enter assignee](/assets/images/workbot/workbot-actions/github-enter-assignee.png)
+![Github enter assignee](/assets/images/workbot/workbot-actions/github-enter-assignee-1.png)
 7. At this point, Workbot should have all the input he needs from the user to create the issue in Github. You should see the command reply next:
-![Github command reply](/assets/images/workbot/workbot-actions/github-command-reply.png)
+![Github command reply](/assets/images/workbot/workbot-actions/github-command-reply-1.png)
 
 We've come to the end of this guide - you're awesome for making it this far.
 
