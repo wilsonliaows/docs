@@ -5382,14 +5382,14 @@
 <p>A Command Reply is how Workbot responds to the user on Slack <em>after</em> it has received a command and completed the necessary actions. If it&apos;s your first time here, you may want to read up on <a href="workbot-commands.html">creating a command</a> first.</p>
 <p>In practice, you should always pair a command with a command reply (in your recipe), because you want your users to be updated on the success (or failure) of the recipe actions.</p>
 <p>If you&apos;re here after just <a href="workbot-commands.html">completing your first command</a>, great job on getting this far! In this exercise, we&apos;ll be using the same recipe as before - <a href="https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe" target="_blank">creating an issue in Github from Slack</a> using a Workbot command.</p>
-<p><img src="../assets/images/workbot/workbot-actions/anatomy-of-a-command-reply.gif" alt="Workbot Command trigger and the Command response diagram">
+<p><img src="../assets/images/workbot/workbot-actions/anatomy-of-a-command-reply-1.gif" alt="Workbot Command trigger and the Command response diagram">
 <em>Anatomy of a Command reply</em></p>
 <p>The <a href="https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe" target="_blank">recipe</a> we&apos;re working with creates an issue in Gtihub based on inputs provided to Workbot in the command. Here&apos;s how they&apos;re mapped:</p>
-<p><img src="../assets/images/workbot/workbot-actions/create-issue-github.png" alt="Creating an issue in Github">
+<p><img src="../assets/images/workbot/workbot-actions/create-issue-github-1.png" alt="Creating an issue in Github">
 <em>We&apos;ve used the user input datapills to form the Issue title, Body, and Assignee of the issue. More on this <a href="workbot-commands.html#user-input-fields">here.</a></em></p>
 <p>You can set the Organization and Repository of your choice - this is where Workbot will create new Github issues.</p>
 <p>As we&apos;ve mentioned before, we want Workbot to reply to the user <em>after</em> it has finished creating the issue in Github, furnished with some details.</p>
-<p><img src="../assets/images/workbot/workbot-actions/command-reply.png" alt="Command Reply"></p>
+<p><img src="../assets/images/workbot/workbot-actions/command-reply-1.png" alt="Command Reply"></p>
 <p>The Slack message above is how we want Workbot&apos;s command reply (to the user) to look like after successfully creating the rather unfortunate issue above in Github. Now that we know what we want to do, let&apos;s get cracking!</p>
 <h3 id="getting-started">Getting Started</h3>
 <p>In the <a href="https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe" target="_blank">recipe</a>, after the &quot;Create issue in Github&quot; action step,</p>
@@ -5399,18 +5399,18 @@
 <li>Under <strong>Action</strong>, choose <strong>Post command reply</strong>.</li>
 </ol>
 <p>How it should look like at this point:</p>
-<p><img src="../assets/images/workbot/workbot-actions/getting-started-with-command-reply.png" alt="Getting started with command reply"></p>
+<p><img src="../assets/images/workbot/workbot-actions/getting-started-with-command-reply-1.png" alt="Getting started with command reply"></p>
 <p>Now we&apos;re ready to start formatting the message!</p>
 <h3 id="message-text">Message text</h3>
 <p><strong>Message text</strong>: Issue <kbd>Number</kbd> created
 The message text is the simplest message that Workbot can reply with in a Slack message. Here we use the <kbd>Number</kbd> datapill in the previous step&apos;s output datatree.
-<img src="../assets/images/workbot/workbot-actions/command-reply-datapills.png" alt="Command Reply datapills"></p>
+<img src="../assets/images/workbot/workbot-actions/command-reply-datapills-1.png" alt="Command Reply datapills"></p>
 <h3 id="message-attachments">Message attachments</h3>
 <p>Next, you should see a list of collapsed fields:</p>
-<p><img src="../assets/images/workbot/workbot-actions/command-reply-collapsed.png" alt="Command reply collapsed"></p>
+<p><img src="../assets/images/workbot/workbot-actions/command-reply-collapsed-1.png" alt="Command reply collapsed"></p>
 <p>We want to focus on <strong>Message attachment</strong> for now. The rest of the fields like <strong>Buttons</strong> and <strong>Message menu</strong> make your command reply a <em>lot</em> more interactive, but we can keep things simple for now.</p>
 <p>Expand the <strong>Message Attachments</strong> input fields:</p>
-<p><img src="../assets/images/workbot/workbot-actions/message-attachments-expanded.png" alt="Message attachment expanded">
+<p><img src="../assets/images/workbot/workbot-actions/message-attachments-expanded-1.png" alt="Message attachment expanded">
 <em>Message attachment expanded</em></p>
 <p>There are a lot of fields here, but to achieve our goal for this exercise, we only need to focus on 4 fields:</p>
 <ol>
@@ -5419,7 +5419,7 @@ The message text is the simplest message that Workbot can reply with in a Slack 
 <li><strong>Attachment text</strong></li>
 <li><strong>Attachment Color</strong></li>
 </ol>
-<p><img src="../assets/images/workbot/workbot-actions/command-reply-explained-2.png" alt="Command reply explained">
+<p><img src="../assets/images/workbot/workbot-actions/command-reply-explained-1.png" alt="Command reply explained">
 <em>Command reply explained</em></p>
 <p>Here&apos;s what we want to fill up in these 4 fields:</p>
 <p><table class="unchanged rich-diff-level-one">
@@ -5461,7 +5461,7 @@ The message text is the simplest message that Workbot can reply with in a Slack 
       
     </thead></table>
 How your form should look like at this point:</p>
-<p><img src="../assets/images/workbot/workbot-actions/message-format-expanded-with-fields.png" alt="Message attachment with expanded fields"></p>
+<p><img src="../assets/images/workbot/workbot-actions/message-format-expanded-with-fields-1.png" alt="Message attachment with expanded fields"></p>
 <p>When you&apos;re confident that you&apos;ve configured the Message attachment correctly, hit Save.</p>
 <p>With that, we&apos;re done configuring the command reply! Let&apos;s test it out by starting the recipe. You&apos;ll also want to sign into both the Github repo that you&apos;ve connected this recipe to (to check that the issue has indeed been created), as well as the Slack workspace with the installed Workbot (that&apos;s connected to this recipe).</p>
 <h3 id="testing-the-command-reply">Testing the command reply</h3>
@@ -5470,15 +5470,15 @@ How your form should look like at this point:</p>
 <ol>
 <li>In Slack, send a DM to Workbot, and say &quot;github create issue&quot;</li>
 <li>Workbot should respond with &quot;Enter issue:&quot;
-<img src="../assets/images/workbot/workbot-actions/github-create-issue.png" alt="Github create issue"></li>
+<img src="../assets/images/workbot/workbot-actions/github-create-issue-1.png" alt="Github create issue"></li>
 <li>Enter the issue title</li>
 <li>Workbot should respond with &quot;Enter description&quot;
-<img src="../assets/images/workbot/workbot-actions/github-enter-description.png" alt="Github enter description"></li>
+<img src="../assets/images/workbot/workbot-actions/github-enter-description-1.png" alt="Github enter description"></li>
 <li>Enter the description of the issue.</li>
 <li>Workbot should respond with &quot;Enter assignee:&quot;
-<img src="../assets/images/workbot/workbot-actions/github-enter-assignee.png" alt="Github enter assignee"></li>
+<img src="../assets/images/workbot/workbot-actions/github-enter-assignee-1.png" alt="Github enter assignee"></li>
 <li>At this point, Workbot should have all the input he needs from the user to create the issue in Github. You should see the command reply next:
-<img src="../assets/images/workbot/workbot-actions/github-command-reply.png" alt="Github command reply"></li>
+<img src="../assets/images/workbot/workbot-actions/github-command-reply-1.png" alt="Github command reply"></li>
 </ol>
 <p>We&apos;ve come to the end of this guide - you&apos;re awesome for making it this far.</p>
 <p>You can make your command reply more interactive by including <a href="../connectors/slack.html#example-message-with-attachment">attachment fields fields</a>, <a href="../connectors/slack.html#example-message-with-attachment">images</a>, <a href="http://docs.workato.com/connectors/slack.html#using-slack-message-buttons" target="_blank">buttons</a>, and even message menus. Buttons and menu options allow Workbot to pass commands back to a recipe to carry out its actions.</p>
@@ -5565,7 +5565,7 @@ How your form should look like at this point:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot basics: Command reply","date":"2018-03-20T10:23:00.000Z","level":"1.15.5","depth":2,"next":{"title":"Workbot triggers","level":"1.15.6","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"previous":{"title":"Workbot basics: Commands","level":"1.15.4","depth":2,"path":"workbot/workbot-commands.md","ref":"workbot/workbot-commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-command-reply.md","mtime":"2018-03-29T18:02:56.834Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-29T18:04:44.820Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot basics: Command reply","date":"2018-03-20T10:23:00.000Z","level":"1.15.5","depth":2,"next":{"title":"Workbot triggers","level":"1.15.6","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"previous":{"title":"Workbot basics: Commands","level":"1.15.4","depth":2,"path":"workbot/workbot-commands.md","ref":"workbot/workbot-commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-command-reply.md","mtime":"2018-03-30T02:09:16.146Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-30T02:10:32.604Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
