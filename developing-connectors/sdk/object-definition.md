@@ -130,7 +130,7 @@ object_definitions: {
     <tr>
       <td>text</td>
       <td>
-        Simple text field input field with formula mode option.<br>
+        Simple text input field with formula mode option.<br>
         <img src="/assets/images/sdk/text.png" alt="text control type">
       </td>
     </tr>
@@ -144,7 +144,7 @@ object_definitions: {
     <tr>
       <td>plain-text</td>
       <td>
-        Simple text are field input field without formula mode option.<br>
+        Simple text input field without formula mode option.<br>
         <img src="/assets/images/sdk/plain-text.png" alt="plain-text control type">
       </td>
     </tr>
