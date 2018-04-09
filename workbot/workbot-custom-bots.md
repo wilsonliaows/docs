@@ -51,10 +51,14 @@ Hit **Save** once you're done. We can now configure your custom bot to talk to W
 ### Configuring your custom bot to talk to Workato
 Now that your custom bot has been created, we'll need to configure him to be able to talk to Workato. Step 3 is done completely on your app page on Slack, so let's head back to the Slack tab (you kept it open, right?).
 
-![Step 3 of custom bot creation](/assets/images/workbot/workbot-slash-commands/step-3.png)
+Don't fret if you didn't - you can always head to Tools ➤ Workbot ➤ Custom, and clicking on your custom bot:
+
+![Edit bot profile](/assets/images/workbot/workbot-slash-commands/edit-bot-profile.png)*Getting back to configuring your custom bot*
+
+![Step 3 of custom bot creation](/assets/images/workbot/workbot-slash-commands/step-3.png)*Step 3 of configuring your custom bot to talk to Workato*
 
 #### Setting up OAuth & Permissions
-You'll want to allow your custom bot to perform certain functions in your Slack team - so you'll need to set some scopes and permissions for him. From the left navigation menu, under **Features**, head over to **OAuth & Permissions**.
+You'll want to allow your custom bot to perform certain functions in your Slack team - so you'll need to set some scopes and permissions for him. On your app page on Slack, from the left navigation menu under **Features**, head over to **OAuth & Permissions**.
 ![OAuth & Permissions](/assets/images/workbot/workbot-slash-commands/oauth-permissions.png)
 
 Scroll down to **Redirect URLs** and click on **Add a new Redirect URL**. Copy <code>https://www.workato.com/oauth/callback</code> into the field and click **Add**. If you get an error saying 'This doesn’t seem like a proper link' check to make sure there are no extra spaces at the start/end of the link. Once you're done, remember to hit **Save URLs**.
