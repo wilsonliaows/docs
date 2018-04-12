@@ -5472,7 +5472,8 @@
 <h2 id="api-version">API version</h2>
 <p>The Salesforce connector uses <a href="https://developer.salesforce.com/page/REST_API" target="_blank">Salesforce REST API</a>.</p>
 <h2 id="supported-editions-and-versions">Supported editions and versions</h2>
-<p>The Salesforce connector works with all Salesforce cloud instances. It also works with Force.com apps.</p>
+<p>The Salesforce connector works with all Salesforce cloud instances, e.g. <strong>Professional, Enterprise, Unlimited, and Developer</strong></p>
+<p>It also works with Force.com apps.</p>
 <h2 id="how-to-connect-to-salesforce-on-workato">How to connect to Salesforce on Workato</h2>
 <p>The Salesforce connector uses OAuth2 authentication to authenticate with Salesforce.</p>
 <p><img src="../assets/images/salesforce-docs/salesforce-new-connection.PNG" alt="Configured Salesforce connection">
@@ -5489,7 +5490,9 @@
 <li><strong>Enable restricted IP</strong></li>
 </ul>
 <p>Relevant for organizations with IP whitelisting. Select <em>yes</em> to have all requests from Workato originate from a consistent, known IP address.</p>
-<p>Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. <img src="../assets/images/salesforce-docs/salesforce-authentication.PNG" alt="SF authentication"></p>
+<p>Fill in the above fields and click connect. A Salesforce connection pop-up prompts you to provide your Salesforce login credentials for OAuth2 authorization.</p>
+<p><img src="../assets/images/salesforce-docs/salesforce-authentication.PNG" alt="Salesforce authorization pop-up">
+<em>Salesforce authorization pop-up</em></p>
 <ul>
 <li><strong>Username</strong></li>
 </ul>
@@ -5499,7 +5502,26 @@
 </ul>
 <p>Password to connect to Salesforce.</p>
 <h3 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h3>
-<p>Salesforce users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same <a href="https://help.salesforce.com/articleView?id=admin_userperms.htm&amp;language=en_US&amp;type=0" target="_blank">permissions</a> on Workato as in Salesforce, and will be able to read and write to the same projects and issues.</p>
+<p>Salesforce users can connect to Salesforce from Workato. We recommend that a separate user be created for integration purposes.</p>
+<p>The connected user will have the same <a href="https://help.salesforce.com/articleView?id=admin_userperms.htm&amp;language=en_US&amp;type=0" target="_blank">permissions</a> through the Workato Salesforce connector as in Salesforce. They will be able to read and write the objects as specified in their Salesforce profile. The user profile should be setup to allow appropriate access to the requisite objects required for the recipes. The permissions can be edited via the connected user&apos;s profile in Salesforce. </p>
+<h4 id="api-enabled-permission">API Enabled permission</h4>
+<p>The connected user&apos;s profile should be API enabled.
+<img src="../assets/images/salesforce-docs/api-enabled-permission.png" alt="API enabled permission - profile setup">
+<em>API enabled permission - profile setup</em></p>
+<h4 id="standard-and-custom-object-permissions">Standard and custom object permissions</h4>
+<p>To interact with an object in Salesforce, the connected user&apos;s profile needs to have permissions to <code>read</code>, <code>write</code>, <code>edit</code>, <code>delete</code>, <code>view all</code>, <code>modify all</code> for the standard object or custom object in your Salesforce organization.</p>
+<p><img src="../assets/images/salesforce-docs/standard-object-profile-permissions.png" alt="Salesforce standard object permissions - profile setup">
+<em>Salesforce standard object profile permissions setup</em></p>
+<p><img src="../assets/images/salesforce-docs/custom-object-profile-permissions.png" alt="Salesforce custom object permissions - profile setup">
+<em>Salesforce custom object profile permissions setup</em></p>
+<h4 id="platform-event-permissions">Platform event permissions</h4>
+<p>In order to use platform events triggers and actions, you need platform events to be enabled in your Salesforce organization. You would need to set <code>read</code> and <code>create</code> permissions for the connected user&apos;s profile.</p>
+<p><img src="../assets/images/salesforce-docs/platform-events-permissions.png" alt="Salesforce platform events permissions - profile setup">
+<em>Salesforce platform events permissions - profile setup</em></p>
+<h4 id="real-time-trigger-permissions">Real-time trigger permissions</h4>
+<p>To use real-time triggers in Salesforce, workflow rules have to be set up in your Salesforce organization. These workflow rules require the <code>Customize application</code> permission under the Administrative Permissions tab to be setup, although the connected user does not need to be the user who sets these rules up.</p>
+<p><img src="../assets/images/salesforce-docs/customize-application-permission.png" alt="Customize application permission - profile setup">
+<em>Customize application permission - profile setup</em></p>
 <h2 id="working-with-the-salesforce-connector">Working with the Salesforce connector</h2>
 <h3 id="can-i-connect-more-than-one-salesforce-account-in-a-single-recipe">Can I connect more than one Salesforce account in a single recipe?</h3>
 <p>Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more <a href="http://http://docs.workato.com/features/secondary-connectors.html" target="_blank">here</a>.</p>
@@ -5709,7 +5731,7 @@ For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Salesforce","date":"2017-02-16T06:15:00.000Z","level":"1.16.20","depth":2,"next":{"title":"Connection setup","level":"1.16.20.1","depth":3,"anchor":"#how-to-connect-to-salesforce-on-workato","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#how-to-connect-to-salesforce-on-workato","articles":[]},"previous":{"title":"Stop recipe action","level":"1.16.19.9","depth":3,"anchor":"#stop-recipe-action","path":"recipe-ops.md","ref":"recipe-ops.md#stop-recipe-action","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2018-04-05T16:22:06.740Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-05T16:23:57.939Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Salesforce","date":"2017-02-16T06:15:00.000Z","level":"1.16.20","depth":2,"next":{"title":"Connection setup","level":"1.16.20.1","depth":3,"anchor":"#how-to-connect-to-salesforce-on-workato","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#how-to-connect-to-salesforce-on-workato","articles":[]},"previous":{"title":"Stop recipe action","level":"1.16.19.9","depth":3,"anchor":"#stop-recipe-action","path":"recipe-ops.md","ref":"recipe-ops.md#stop-recipe-action","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2018-04-12T23:12:40.179Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-12T23:13:58.486Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
