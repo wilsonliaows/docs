@@ -32,7 +32,10 @@ To connect to a Salesforce Sandbox instance, simply use the login credentials fo
 
 Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
-Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/assets/images/salesforce-docs/salesforce-authentication.PNG)
+Fill in the above fields and click connect. A Salesforce connection pop-up prompts you to provide your Salesforce login credentials for OAuth2 authorization.
+
+![Salesforce authorization pop-up](/assets/images/salesforce-docs/salesforce-authentication.PNG)
+*Salesforce authorization pop-up*
 
 - **Username**
 
