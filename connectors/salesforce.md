@@ -43,7 +43,7 @@ Username to connect to Salesforce.
 Password to connect to Salesforce.
 
 ### Roles and permissions required to connect
-Salesforce users can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same objects. If the connected user does not have any access to an object, they will not be able to interact with it via the Salesforce connector. These permissions can be edited via the connected user's profile in Salesforce. 
+Salesforce users can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same objects. If the connected user does not have any access to an object, they will be able to connect to Salesforce, but will not be able to interact with the object records via the Salesforce connector. These permissions can be edited via the connected user's profile in Salesforce. 
 
 #### API Enabled permission
 The connected user's profile should be API enabled.
