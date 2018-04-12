@@ -10,7 +10,9 @@ date: 2017-02-16 06:15:00 Z
 The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
 
 ## Supported editions and versions
-The Salesforce connector works with all Salesforce cloud instances. It also works with Force.com apps.
+The Salesforce connector works with all Salesforce cloud instances, e.g. **Professional, Enterprise, Unlimited, and Developer**
+
+It also works with Force.com apps.
 
 ## How to connect to Salesforce on Workato
 The Salesforce connector uses OAuth2 authentication to authenticate with Salesforce.
@@ -30,7 +32,10 @@ To connect to a Salesforce Sandbox instance, simply use the login credentials fo
 
 Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
-Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/assets/images/salesforce-docs/salesforce-authentication.PNG)
+Fill in the above fields and click connect. A Salesforce connection pop-up prompts you to provide your Salesforce login credentials for OAuth2 authorization.
+
+![Salesforce authorization pop-up](/assets/images/salesforce-docs/salesforce-authentication.PNG)
+*Salesforce authorization pop-up*
 
 - **Username**
 
@@ -41,7 +46,35 @@ Username to connect to Salesforce.
 Password to connect to Salesforce.
 
 ### Roles and permissions required to connect
-Salesforce users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same projects and issues.
+Salesforce users can connect to Salesforce from Workato. We recommend that a separate user be created for integration purposes.
+
+The connected user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) through the Workato Salesforce connector as in Salesforce. They will be able to read and write the objects as specified in their Salesforce profile. The user profile should be setup to allow appropriate access to the requisite objects required for the recipes. The permissions can be edited via the connected user's profile in Salesforce. 
+
+#### API Enabled permission
+The connected user's profile should be API enabled.
+![API enabled permission - profile setup](/assets/images/salesforce-docs/api-enabled-permission.png)
+*API enabled permission - profile setup*
+
+#### Standard and custom object permissions
+To interact with an object in Salesforce, the connected user's profile needs to have permissions to `read`, `write`, `edit`, `delete`, `view all`, `modify all` for the standard object or custom object in your Salesforce organization.
+
+![Salesforce standard object permissions - profile setup](/assets/images/salesforce-docs/standard-object-profile-permissions.png)
+*Salesforce standard object profile permissions setup*
+
+![Salesforce custom object permissions - profile setup](/assets/images/salesforce-docs/custom-object-profile-permissions.png)
+*Salesforce custom object profile permissions setup*
+
+#### Platform event permissions
+In order to use platform events triggers and actions, you need platform events to be enabled in your Salesforce organization. You would need to set `read` and `create` permissions for the connected user's profile.
+
+![Salesforce platform events permissions - profile setup](/assets/images/salesforce-docs/platform-events-permissions.png)
+*Salesforce platform events permissions - profile setup*
+
+#### Real-time trigger permissions
+To use real-time triggers in Salesforce, workflow rules have to be set up in your Salesforce organization. These workflow rules require the `Customize application` permission under the Administrative Permissions tab to be setup, although the connected user does not need to be the user who sets these rules up.
+
+![Customize application permission - profile setup](/assets/images/salesforce-docs/customize-application-permission.png)
+*Customize application permission - profile setup*
 
 ## Working with the Salesforce connector
 
