@@ -43,15 +43,15 @@ Username to connect to Salesforce.
 Password to connect to Salesforce.
 
 ### Roles and permissions required to connect
-Salesforce users can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same objects. If the connected user does not have any access to an object, they will not be able to interact with it via the Salesforce connector.
+Salesforce users can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same objects. If the connected user does not have any access to an object, they will not be able to interact with it via the Salesforce connector. These permissions can be edited via the connected user's profile in Salesforce. 
 
 #### API Enabled permission
-These permissions can be edited using profiles in Salesforce. This profile should be API enabled.
+The connected user's profile should be API enabled.
 ![API enabled permission - profile setup](/assets/images/salesforce-docs/api-enabled-permission.png)
 *API enabled permission - profile setup*
 
 #### Standard and custom object permissions
-To interact with an object in Salesforce, the connected user needs to have permissions to `read`, `write`, `edit`, `delete`, `view all`, `modify all` for the standard object or custom object in your Salesforce organization.
+To interact with an object in Salesforce, the connected user's profile needs to have permissions to `read`, `write`, `edit`, `delete`, `view all`, `modify all` for the standard object or custom object in your Salesforce organization.
 
 ![Salesforce standard object permissions - profile setup](/assets/images/salesforce-docs/standard-object-profile-permissions.png)
 *Salesforce standard object profile permissions setup*
@@ -60,7 +60,7 @@ To interact with an object in Salesforce, the connected user needs to have permi
 *Salesforce custom object profile permissions setup*
 
 #### Platform event permissions
-In order to use platform events triggers and actions, you need platform events to be enabled in your Salesforce organization. You would need to set `read` and `create` permissions.
+In order to use platform events triggers and actions, you need platform events to be enabled in your Salesforce organization. You would need to set `read` and `create` permissions for the connected user's profile.
 
 ![Salesforce platform events permissions - profile setup](/assets/images/salesforce-docs/platform-events-permissions.png)
 *Salesforce platform events permissions - profile setup*
@@ -74,8 +74,16 @@ To use real-time triggers in Salesforce, workflow rules have to be set up in you
 #### General permissions
 After providing Salesforce with your login credentials, Workato will ask you for the following permissions:
 
-![Salesforce popup requesting for permissions](/assets/images/salesforce-docs/salesforce-permissions.png)
-*Salesforce popup requesting for permissions*
+- Access basic information
+- Access and manage data
+- Provide access to data via web
+- Access and manage chatter data
+- Provide access to custom applications
+- Allow access to unique identifier
+- Access custom permissions
+- Access and manage wave data
+- Access and manage eclair data
+- Perform request on your behalf anytime
 
 ## Working with the Salesforce connector
 
