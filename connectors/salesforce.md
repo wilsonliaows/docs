@@ -46,7 +46,9 @@ Username to connect to Salesforce.
 Password to connect to Salesforce.
 
 ### Roles and permissions required to connect
-Salesforce users can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same objects. If the connected user does not have any access to an object, they will be able to connect to Salesforce, but will not be able to interact with the object records via the Salesforce connector. These permissions can be edited via the connected user's profile in Salesforce. 
+Salesforce users can connect to Salesforce from Workato. We recommend that a separate user be created for integration purposes.
+
+The connected user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) through the Workato Salesforce connector as in Salesforce. They will be able to read and write the objects as specified in their Salesforce profile. The user profile should be setup to allow appropriate access to the requisite objects required for the recipes. The permissions can be edited via the connected user's profile in Salesforce. 
 
 #### API Enabled permission
 The connected user's profile should be API enabled.
@@ -73,20 +75,6 @@ To use real-time triggers in Salesforce, workflow rules have to be set up in you
 
 ![Customize application permission - profile setup](/assets/images/salesforce-docs/customize-application-permission.png)
 *Customize application permission - profile setup*
-
-#### General permissions
-After providing Salesforce with your login credentials, Workato will ask you for the following permissions:
-
-- Access basic information
-- Access and manage data
-- Provide access to data via web
-- Access and manage chatter data
-- Provide access to custom applications
-- Allow access to unique identifier
-- Access custom permissions
-- Access and manage wave data
-- Access and manage eclair data
-- Perform request on your behalf anytime
 
 ## Working with the Salesforce connector
 
