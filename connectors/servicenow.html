@@ -5612,12 +5612,142 @@
 <p>When the client application is successfully setup, use the Client ID and Client secret in when creating a ServiceNow connection in Workato. This will trigger an OAuth authorization code grant flow that opens a new brower window that requests for authorization.</p>
 <p><img src="../assets/images/connectors/servicenow/authorization_window.png" alt="Authorization window">
 <em>Authorization window</em></p>
-<h3 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h3>
-<p>ServiceNow users need the <strong>rest_service</strong> role in order to connect to ServiceNow on Workato.</p>
-<p>In addition, to use the generic triggers and actions on our ServiceNow connector, the connected ServiceNow user needs to have the <strong>admin</strong> role in order to access the full list of possible tables (ServiceNow objects, such as incidents), as well as the columns in that table (the fields in that ServiceNow object, such as incident ID and short description).</p>
-<h2 id="working-with-the-servicenow-connector">Working with the ServiceNow connector</h2>
-<h3 id="using-generic-triggers-and-actions">Using generic triggers and actions</h3>
-<p>In addition, to use the generic triggers and actions on our ServiceNow connector, the connected ServiceNow user needs to have the <strong>admin</strong> role in order to access the full list of possible tables (ServiceNow objects, such as incidents), as well as the columns in that table (the fields in that ServiceNow object, such as incident ID and short description).</p>
+<h2 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h2>
+<p>To use the ServiceNow connector, the connection must be established with a user that has roles(s) with access control to the following tables.</p>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Purpose</th>
+      <th>Operation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/table-administration/reference/r_TablesModule.html" target="_blank">Tables</a> (sys_db_object)</td>
+      <td><b>Tables</b> is a table that contains a row for each table in your ServiceNow instance. This table is used to generate a list of tables to perform an action or trigger events from.</td>
+      <td>read</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/data-dictionary-tables/concept/c_SystemDictionary.html" target="_blank">Dictionary Entry</a> (sys_dictionary)</td>
+      <td>Contains details for each table and columns in each table in your ServiceNow instance. This table is used to generate input and/or output fields when you select a table to perform and action.</td>
+      <td>read</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Some <a href="https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/roles/reference/r_BaseSystemRoles.html" target="_blank">Base system roles</a> (such as <strong>admin</strong>) will include access control to these tables. However, if you wish to grant only the minimum required access control to use the ServiceNow connector, you may want to <a href="#create-a-custom-role">create a custom role</a> with these access control.</p>
+<p>On top of these, the user must also have the necessary access control to the tables that are required in the integration use case. For example, to create an integration user that can perform standard ITIL helpdesk actions (open, update, close incidents, problems, changes, configuration management items), you will need to assign it the <strong>itil</strong> role. To grant access only to specific tables or tables besides those available in the base system roles, we recommend <a href="#create-a-custom-role">creating custom roles</a> and assigning the appropriate access control as needed.</p>
+<h3 id="create-a-custom-role">Create a custom role</h3>
+<p>If you do not wish to use any of the <a href="https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/roles/reference/r_BaseSystemRoles.html" target="_blank">Base system roles</a> to connect to Workato. You can create a custom role with sufficient access control for the tables you want to work with.</p>
+<p>First, create a role in your ServiceNow instance with a name that indicates usage with the Workato connector (For example, <em>Workato integrator</em>). Refer to this <a href="https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/roles/task/t_CreateARole.html" target="_blank">documentation </a> for more details about creating roles. When this is completed, your new role must be given the following access control rules to use the ServiceNow connector.</p>
+<p>Only a user with <strong>security_admin</strong> role has the ability to edit or create access control. Check with your ServiceNow administrator if you are unsure. Refer to this <a href="https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/contextual-security/concept/access-control-rules.html" target="_blank">documentation</a> for more details about access control.</p>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Type</th>
+      <th>Operation</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tables</td>
+      <td>record</td>
+      <td>read</td>
+      <td>sys_db_object</td>
+    </tr>
+    <tr>
+      <td>Dictionary Entry</td>
+      <td>record</td>
+      <td>read</td>
+      <td>
+        sys_dictionary<br>
+        sys_dictionary.*
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Basic Access Control required</em></p>
+<p>Next, this role should be assigned the relevant access control to use the triggers/actions you need in your integration use case. For a workflow that requires triggering of closed incident events, the user must have a custom role that includes access control to <em>read</em> and <em>write</em> to the incident table.</p>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Type</th>
+      <th>Operation</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Incident</td>
+      <td>record</td>
+      <td>read</td>
+      <td>incident</td>
+    </tr>
+    <tr>
+      <td>Incident</td>
+      <td>record</td>
+      <td>write</td>
+      <td>incident</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Additional Access Control required for specific table(s)</em></p>
+<p><img src="../assets/images/connectors/servicenow/incident_table_access_control.png" alt="Granting access control rule for `incident` table to custom role">
+<em>Granting access control rule for <code>incident</code> table to custom role</em></p>
+<h3 id="real-time-trigger">Real-time trigger</h3>
+<p>The ServiceNow connector features a set of real-time triggers for new and updated records in a selected table. This trigger uses the <code>sys_script</code> table to send HTTP requests to Workato&apos;s webhook gateway when the specified event (new or new and updated records) occurs in your ServiceNow instance.</p>
+<p>When you start a recipe with one of these triggers, a record is automatically created in the <code>sys_script</code> table which points to a webhook URL unique to your recipe. Similarly, when the recipe is stopped, the same record in the <code>sys_script</code> table is deleted.</p>
+<p>To enable this feature, the user account used to establish the ServiceNow connection must be assigned role(s) with the following access control rules.</p>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Type</th>
+      <th>Operation</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>read</td>
+      <td>
+        sys_script<br>
+        sys_script.*
+      </td>
+    </tr>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>write</td>
+      <td>
+        sys_script<br>
+        sys_script.*
+      </td>
+    </tr>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>create</td>
+      <td>sys_script</td>
+    </tr>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>delete</td>
+      <td>sys_script</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Access Control required to use real-time triggers</em></p>
 
                                 
                                 </section>
@@ -5700,7 +5830,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ServiceNow","date":"2017-02-16T06:15:00.000Z","level":"1.16.21","depth":2,"next":{"title":"Connection setup","level":"1.16.21.1","depth":3,"anchor":"#how-to-connect-to-servicenow-on-workato","path":"connectors/servicenow.md","ref":"connectors/servicenow.md#how-to-connect-to-servicenow-on-workato","articles":[]},"previous":{"title":"Using SOQL","level":"1.16.20.5","depth":3,"anchor":"#working-with-soql-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-soql-in-salesforce","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/servicenow.md","mtime":"2018-04-12T23:12:40.179Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-12T23:13:58.486Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ServiceNow","date":"2017-02-16T06:15:00.000Z","level":"1.16.21","depth":2,"next":{"title":"Connection setup","level":"1.16.21.1","depth":3,"anchor":"#how-to-connect-to-servicenow-on-workato","path":"connectors/servicenow.md","ref":"connectors/servicenow.md#how-to-connect-to-servicenow-on-workato","articles":[]},"previous":{"title":"Using SOQL","level":"1.16.20.5","depth":3,"anchor":"#working-with-soql-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-soql-in-salesforce","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/servicenow.md","mtime":"2018-04-13T15:02:37.626Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-13T15:04:00.668Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
