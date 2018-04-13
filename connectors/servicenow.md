@@ -166,12 +166,155 @@ When the client application is successfully setup, use the Client ID and Client 
 ![Authorization window](/assets/images/connectors/servicenow/authorization_window.png)
 *Authorization window*
 
-### Roles and permissions required to connect
-ServiceNow users need the **rest_service** role in order to connect to ServiceNow on Workato.
+## Roles and permissions required to connect
 
-In addition, to use the generic triggers and actions on our ServiceNow connector, the connected ServiceNow user needs to have the **admin** role in order to access the full list of possible tables (ServiceNow objects, such as incidents), as well as the columns in that table (the fields in that ServiceNow object, such as incident ID and short description).
+To use the ServiceNow connector, the connection must be established with a user that has roles(s) with access control to the following tables.
 
-## Working with the ServiceNow connector
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Purpose</th>
+      <th>Operation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/table-administration/reference/r_TablesModule.html'>Tables</a> (sys_db_object)</td>
+      <td>Tables is a table that contains a row for each table in your ServiceNow instance. This table is used to generate a list of tables to perform an action or trigger events from.</td>
+      <td>read</td>
+    </tr>
+    <tr>
+      <td><a href='https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/data-dictionary-tables/concept/c_SystemDictionary.html'>Dictionary Entry</a> (sys_dictionary)</td>
+      <td>Dictionary Entry table. This contains details for each table and columns in each table in your ServiceNow instance. This table is used to generate input and/or output fields when you select a table to perform and action.</td>
+      <td>read</td>
+    </tr>
+  </tbody>
+</table>
 
-### Using generic triggers and actions
-In addition, to use the generic triggers and actions on our ServiceNow connector, the connected ServiceNow user needs to have the **admin** role in order to access the full list of possible tables (ServiceNow objects, such as incidents), as well as the columns in that table (the fields in that ServiceNow object, such as incident ID and short description).
+Some [Base system roles](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/roles/reference/r_BaseSystemRoles.html) (such as **admin**) will include access control to these tables. However, if you wish to grant only the minimum required access control to use the ServiceNow connector, you may want to [create a custom role](#create-a-custom-role) with these access control.
+
+On top of these, the user must also have the necessary access control to the tables that are required in the integration use case. For example, to create an integration user that can perform standard ITIL helpdesk actions (open, update, close incidents, problems, changes, configuration management items), you will need to assign it the **itil** role. To grant access only to specific tables or tables besides those available in the base system roles, we recommend [creating custom roles](#create-a-custom-role) and assigning the appropriate access control as needed.
+
+### Create a custom role
+
+If you do not wish to use any of the [Base system roles](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/roles/reference/r_BaseSystemRoles.html) to connect to Workato. You can create a custom role with sufficient access control for the tables you want to work with.
+
+First, create a role in your ServiceNow instance with a name that indicates usage with the Workato connector (For example, *Workato integrator*). Refer to this [documentation ](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/roles/task/t_CreateARole.html) for more details about creating roles. When this is completed, your new role must be given the following access control rules to use the ServiceNow connector.
+
+Only a user with **security_admin** role has the ability to edit or create access control. Check with your ServiceNow administrator if you are unsure. Refer to this [documentation](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/contextual-security/concept/access-control-rules.html) for more details about access control.
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Type</th>
+      <th>Operation</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tables</td>
+      <td>record</td>
+      <td>read</td>
+      <td>sys_db_object</td>
+    </tr>
+    <tr>
+      <td>Dictionary Entry</td>
+      <td>record</td>
+      <td>read</td>
+      <td>
+        sys_dictionary<br>
+        sys_dictionary.*
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+*Basic Access Control required*
+
+Next, this role should be assigned the relevant access control to use the triggers/actions you need in your integration use case. For a workflow that requires triggering off closed incident events, the user must have a custom role that includes access control to *read* and *write* to the incident table.
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Type</th>
+      <th>Operation</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Incident</td>
+      <td>record</td>
+      <td>read</td>
+      <td>incident</td>
+    </tr>
+    <tr>
+      <td>Incident</td>
+      <td>record</td>
+      <td>write</td>
+      <td>incident</td>
+    </tr>
+  </tbody>
+</table>
+
+*Additional Access Control required for specific table(s)*
+
+![Granting access control rule for `incident` table to custom role](/assets/images/connectors/servicenow/incident_table_access_control.png)
+*Granting access control rule for `incident` table to custom role*
+
+### Real-time trigger
+
+The ServiceNow connector features a set of real-time triggers for new and updated records in a selected table. This trigger uses the `sys_script` table to send HTTP requests to Workato's webhook gateway when the specified event (new or new and updated records) occurs in your ServiceNow instance.
+
+When you start a recipe with one of these triggers, a record is automatically created in the `sys_script` table which points to a webhook URL unique to your recipe. Similarly, when the recipe is stopped, the same record in the `sys_script` table is deleted.
+
+To enable this feature, the user account used to establish the ServiceNow connection must be assigned role(s) with the following access control rules.
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Type</th>
+      <th>Operation</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>read</td>
+      <td>
+        sys_script<br>
+        sys_script.*
+      </td>
+    </tr>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>write</td>
+      <td>
+        sys_script<br>
+        sys_script.*
+      </td>
+    </tr>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>create</td>
+      <td>sys_script</td>
+    </tr>
+    <tr>
+      <td>Business Rules</td>
+      <td>record</td>
+      <td>delete</td>
+      <td>sys_script</td>
+    </tr>
+  </tbody>
+</table>
+
+*Access Control required to use real-time triggers*
