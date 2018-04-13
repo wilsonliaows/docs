@@ -107,8 +107,6 @@ We can make use of certain keywords such as **days**, **months**, **years**, **m
 | --------------------------------- | ---------------- |
 | `'2015/04/20'.to_date + 2.days`   | Wed, 22 Apr 2015 |
 | `'2015/04/20'.to_date - 2.days`   | Sat, 18 Apr 2015 |
-| `'2015/04/20'.to_date + 2.weeks`  | Mon, 04 May 2015 |
-| `'2015/04/20'.to_date - 2.weeks`  | Mon, 06 Apr 2015 |
 | `'2015/04/20'.to_date + 2.months` | Sat, 20 Jun 2015 |
 | `'2015/04/20'.to_date - 2.months` | Fri, 20 Feb 2015 |
 | `'2015/04/20'.to_date + 2.years`  | Thu, 20 Apr 2017 |
