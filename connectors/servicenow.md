@@ -181,12 +181,12 @@ To use the ServiceNow connector, the connection must be established with a user 
   <tbody>
     <tr>
       <td><a href='https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/table-administration/reference/r_TablesModule.html'>Tables</a> (sys_db_object)</td>
-      <td>Tables is a table that contains a row for each table in your ServiceNow instance. This table is used to generate a list of tables to perform an action or trigger events from.</td>
+      <td><b>Tables</b> is a table that contains a row for each table in your ServiceNow instance. This table is used to generate a list of tables to perform an action or trigger events from.</td>
       <td>read</td>
     </tr>
     <tr>
       <td><a href='https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/data-dictionary-tables/concept/c_SystemDictionary.html'>Dictionary Entry</a> (sys_dictionary)</td>
-      <td>Dictionary Entry table. This contains details for each table and columns in each table in your ServiceNow instance. This table is used to generate input and/or output fields when you select a table to perform and action.</td>
+      <td>Contains details for each table and columns in each table in your ServiceNow instance. This table is used to generate input and/or output fields when you select a table to perform and action.</td>
       <td>read</td>
     </tr>
   </tbody>
@@ -234,7 +234,7 @@ Only a user with **security_admin** role has the ability to edit or create acces
 
 *Basic Access Control required*
 
-Next, this role should be assigned the relevant access control to use the triggers/actions you need in your integration use case. For a workflow that requires triggering off closed incident events, the user must have a custom role that includes access control to *read* and *write* to the incident table.
+Next, this role should be assigned the relevant access control to use the triggers/actions you need in your integration use case. For a workflow that requires triggering of closed incident events, the user must have a custom role that includes access control to *read* and *write* to the incident table.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
