@@ -33,36 +33,37 @@ The following table lists the configurable input fields in the trigger, and what
     </thead>
     <tbody>
         <tr>
-            <td>Application</td>
-            <td>1st part of the Workbot command. The app the Workbot command is working with. Groups the command under this application (when user types app name, command will show up as a button).
-            </td>
-        </tr>
-        <tr>
-            <td>Command action</td>
+            <td>App</td>
             <td>
-              2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.
+              1st part of the Workbot command. The app that the Workbot command is working with e.g. <br><code>Salesforce</code>
             </td>
         </tr>
         <tr>
-            <td>Business data</td>
+            <td>Action</td>
             <td>
-              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g.<br><code>show</code>, <code>create</code>, <code>update</code>.
             </td>
         </tr>
         <tr>
-            <td>Input parameters</td>
+            <td>Action data</td>
             <td>
-              The data to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type file, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g.<br><code>invoice</code>, <code>customer</code>, <code>ticket</code>.
             </td>
         </tr>
         <tr>
-            <td>Help text</td>
+            <td>Command input fields</td>
+            <td>
+              The input to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type <code>file</code>, which accepts file content (e.g. text, binary content) as input. This can be uploaded into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Command hint</td>
             <td>
             Short description of what the command does. Shows up in the Workbot app page under <b>Commands</b>.
             </td>
         </tr>
         <tr>
-            <td>Hide command</td>
+            <td>Hidden command</td>
             <td>
               If <b>yes</b>, command will not show up as a button in the Slack channel when the user types app name. If <b>no</b>, command will show up as a button in the Slack channel when the user types app name.
             </td>
@@ -71,10 +72,10 @@ The following table lists the configurable input fields in the trigger, and what
 </table>
 
 #### Workbot command format
-The Workbot command is created by piecing 3 elements together, the `application`, `command action` and `business data`:
+The Workbot command is created by piecing 3 elements together, the `app`, `action` and `action data`:
 
 ```
-application command-action business-data
+app action action-data
 ```
 
 In the following case, the application is "Salesforce", command action is "Show", and business data is "Account". The command that Workbot will respond to is therefore:
@@ -84,7 +85,7 @@ Salesforce show account
 ```
 
 #### Workbot command input parameters format
-The **input parameters** field lets you decide what data is needed from the user to carry out the recipe actions successfully.
+The **command input fields** field lets you decide what data is needed from the user to carry out the recipe actions successfully.
 
 Each input parameter has to be provided in the following format:
 
@@ -95,7 +96,7 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
 <table class="unchanged rich-diff-level-one">
     <thead>
         <tr>
-            <th>Input parameter field</th>
+            <th>Command input fields</th>
             <th>Description</th>
         </tr>
     </thead>
@@ -117,7 +118,7 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
             </td>
         </tr>
         <tr>
-            <td>Type</td>
+            <td>Data Type</td>
             <td>
               Not required. If not defined, defaults to <code>type:string</code>. Possible types are <code>string</code>, <code>boolean</code>, <code>number</code>, <code>file</code>, and <code>date_time</code>.
             </td>
@@ -129,7 +130,7 @@ param_name optional:true prompt:false type:string hint:hint_to_help_users sample
             </td>
         </tr>
         <tr>
-            <td>Sample</td>
+            <td>Example</td>
             <td>
               Not required. If not defined, defaults to no sample data.
             </td>
@@ -144,15 +145,15 @@ In this case, to successfully retrieve Salesforce account data, we need the full
 name optional: false prompt: false type: string hint: Exact account name sample: IBM
 ```
 
-The configured input parameters will be displayed as follow up questions for the user after the Workbot command.
+The configured command input fields will be displayed as follow up questions for the user after the Workbot command.
 
 ![Salesforce show account input parameters](/assets/images/workbot/workbot-trigger/salesforce-show-account-input-params-display.png)
-*Input parameters display on Slack*
+*A command input field displayed on Slack*
 
 ### New command trigger output datapills
 The **New command** trigger also provides a set of datapill variables as that holds data about the command, such as the user making the command, the channel the command was made it, etc. The following table details these datapill variables.
 
-![New bot command output datatree](/assets/images/workbot/workbot-trigger/new-bot-command-trigger-datatree.png)
+![New command trigger output datatree](/assets/images/workbot/workbot-trigger/new-bot-command-trigger-datatree.png)
 *New bot command output datatree*
 
 The following table lists the output datapills from the trigger, and what data each field contains.
@@ -166,27 +167,27 @@ The following table lists the output datapills from the trigger, and what data e
     </thead>
     <tbody>
         <tr>
-            <td>Application</td>
+            <td>App</td>
             <td>
-              1st part of the Workbot command. The app the Workbot command is working with.
+              1st part of the Workbot command. The app that the Workbot command is working with e.g. <br><code>Salesforce</code>
             </td>
         </tr>
         <tr>
-            <td>Business data</td>
+            <td>Action data</td>
             <td>
-              2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.
+              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g.<br><code>show</code>, <code>create</code>, <code>update</code>.
             </td>
         </tr>
         <tr>
-            <td>Command action</td>
+            <td>Action</td>
             <td>
-              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g.<br><code>invoice</code>, <code>customer</code>, <code>ticket</code>.
             </td>
         </tr>
         <tr>
             <td>Message ID</td>
             <td>
-              The epoch time when the Workbot command was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this Workbot command message.
+              The epoch time when the Workbot command was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this Workbot command message.<br> Can also be used in <b>Message to update</b>, to overwrite a previously posted message.
             </td>
         </tr>
         <tr>
@@ -196,7 +197,7 @@ The following table lists the output datapills from the trigger, and what data e
             </td>
         </tr>
         <tr>
-            <td>Parameters</td>
+            <td>Command input parameters</td>
             <td>
               Data obtained from the user by asking follow up questions to their Workbot command.
             </td>
@@ -268,15 +269,15 @@ The trigger configuration for the `Salesforce show account` command is as follow
 ![Salesforce show account command trigger configuration 2](/assets/images/workbot/workbot-trigger/salesforce-show-account-config-2.png)
 *Salesforce show account command trigger configuration*
 
-We know that Workbot commands are created by piecing 3 elements together, the `application`, `command action` and `business data`. In this case, application is "Salesforce", command action is "Show", and business data is "Account". The command that Workbot will respond to is therefore `Salesforce show account`.
+We know that Workbot commands are created by piecing 3 elements together, the `app`, `action` and `action data`. In this case, application is "Salesforce", command action is "Show", and business data is "Account". The command that Workbot will respond to is therefore `Salesforce show account`.
 
-The **input parameters** field lets you decide what data is needed from the user to carry out the recipe actions successfully. In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user, so we define the parameter as follows:
+The **command input parameters** field lets you decide what data is needed from the user to carry out the recipe actions successfully. In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user, so we define the parameter as follows:
 
 ```
 name optional: false prompt: false type: string hint: Exact account name sample: IBM
 ```
 
-The configured input parameters will be displayed as follow up questions for the user after the Workbot command.
+The configured command input parameters will be displayed as follow up questions for the user after the Workbot command.
 
 ![Salesforce show account input parameters](/assets/images/workbot/workbot-trigger/salesforce-show-account-input-params-display.png)
 *Input parameters display on Slack*
