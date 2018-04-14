@@ -5492,36 +5492,37 @@
     </thead>
     <tbody>
         <tr>
-            <td>Application</td>
-            <td>1st part of the Workbot command. The app the Workbot command is working with. Groups the command under this application (when user types app name, command will show up as a button).
-            </td>
-        </tr>
-        <tr>
-            <td>Command action</td>
+            <td>App</td>
             <td>
-              2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.
+              1st part of the Workbot command. The app that the Workbot command is working with e.g. <br><code>Salesforce</code>
             </td>
         </tr>
         <tr>
-            <td>Business data</td>
+            <td>Action</td>
             <td>
-              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g.<br><code>show</code>, <code>create</code>, <code>update</code>.
             </td>
         </tr>
         <tr>
-            <td>Input parameters</td>
+            <td>Action data</td>
             <td>
-              The data to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type file, which takes as input file content (e.g. text, binary content), that you may upload into Slack. You can use this file in subsequent operations using the Workbot action <a href="workbot-actions.html">Download Attachment.</a>
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g.<br><code>invoice</code>, <code>customer</code>, <code>ticket</code>.
             </td>
         </tr>
         <tr>
-            <td>Help text</td>
+            <td>Command input fields</td>
+            <td>
+              The input to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type <code>file</code>, which accepts file content (e.g. text, binary content) as input. This can be uploaded into Slack. You can use this file in subsequent operations using the Workbot action <a href="workbot-actions.html">Download Attachment.</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Command hint</td>
             <td>
             Short description of what the command does. Shows up in the Workbot app page under <b>Commands</b>.
             </td>
         </tr>
         <tr>
-            <td>Hide command</td>
+            <td>Hidden command</td>
             <td>
               If <b>yes</b>, command will not show up as a button in the Slack channel when the user types app name. If <b>no</b>, command will show up as a button in the Slack channel when the user types app name.
             </td>
@@ -5530,18 +5531,18 @@
 </table>
 
 <h4 id="workbot-command-format">Workbot command format</h4>
-<p>The Workbot command is created by piecing 3 elements together, the <code>application</code>, <code>command action</code> and <code>business data</code>:</p>
-<pre><code>application command-action business-data
+<p>The Workbot command is created by piecing 3 elements together, the <code>app</code>, <code>action</code> and <code>action data</code>:</p>
+<pre><code>app action action-data
 </code></pre><p>In the following case, the application is &quot;Salesforce&quot;, command action is &quot;Show&quot;, and business data is &quot;Account&quot;. The command that Workbot will respond to is therefore:</p>
 <pre><code>Salesforce show account
 </code></pre><h4 id="workbot-command-input-parameters-format">Workbot command input parameters format</h4>
-<p>The <strong>input parameters</strong> field lets you decide what data is needed from the user to carry out the recipe actions successfully.</p>
+<p>The <strong>command input fields</strong> field lets you decide what data is needed from the user to carry out the recipe actions successfully.</p>
 <p>Each input parameter has to be provided in the following format:</p>
 <pre><code>param_name optional:true prompt:false type:string hint:hint_to_help_users sample:example_data
 </code></pre><table class="unchanged rich-diff-level-one">
     <thead>
         <tr>
-            <th>Input parameter field</th>
+            <th>Command input fields</th>
             <th>Description</th>
         </tr>
     </thead>
@@ -5563,7 +5564,7 @@
             </td>
         </tr>
         <tr>
-            <td>Type</td>
+            <td>Data Type</td>
             <td>
               Not required. If not defined, defaults to <code>type:string</code>. Possible types are <code>string</code>, <code>boolean</code>, <code>number</code>, <code>file</code>, and <code>date_time</code>.
             </td>
@@ -5575,7 +5576,7 @@
             </td>
         </tr>
         <tr>
-            <td>Sample</td>
+            <td>Example</td>
             <td>
               Not required. If not defined, defaults to no sample data.
             </td>
@@ -5586,12 +5587,12 @@
 
 <p>In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user.</p>
 <pre><code>name optional: false prompt: false type: string hint: Exact account name sample: IBM
-</code></pre><p>The configured input parameters will be displayed as follow up questions for the user after the Workbot command.</p>
+</code></pre><p>The configured command input fields will be displayed as follow up questions for the user after the Workbot command.</p>
 <p><img src="../assets/images/workbot/workbot-trigger/salesforce-show-account-input-params-display.png" alt="Salesforce show account input parameters">
-<em>Input parameters display on Slack</em></p>
+<em>A command input field displayed on Slack</em></p>
 <h3 id="new-command-trigger-output-datapills">New command trigger output datapills</h3>
 <p>The <strong>New command</strong> trigger also provides a set of datapill variables as that holds data about the command, such as the user making the command, the channel the command was made it, etc. The following table details these datapill variables.</p>
-<p><img src="../assets/images/workbot/workbot-trigger/new-bot-command-trigger-datatree.png" alt="New bot command output datatree">
+<p><img src="../assets/images/workbot/workbot-trigger/new-bot-command-trigger-datatree.png" alt="New command trigger output datatree">
 <em>New bot command output datatree</em></p>
 <p>The following table lists the output datapills from the trigger, and what data each field contains.</p>
 <table class="unchanged rich-diff-level-one">
@@ -5603,27 +5604,27 @@
     </thead>
     <tbody>
         <tr>
-            <td>Application</td>
+            <td>App</td>
             <td>
-              1st part of the Workbot command. The app the Workbot command is working with.
+              1st part of the Workbot command. The app that the Workbot command is working with e.g. <br><code>Salesforce</code>
             </td>
         </tr>
         <tr>
-            <td>Business data</td>
+            <td>Action data</td>
             <td>
-              2nd part of the Workbot command. What the Workbot command is doing with the business data, e.g. show, create, update.
+              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g.<br><code>show</code>, <code>create</code>, <code>update</code>.
             </td>
         </tr>
         <tr>
-            <td>Command action</td>
+            <td>Action</td>
             <td>
-              3rd part of the Workbot command. The record that the Workbot command works with, e.g. invoice, customer, ticket.
+              3rd part of the Workbot command. The record that the Workbot command works with, e.g.<br><code>invoice</code>, <code>customer</code>, <code>ticket</code>.
             </td>
         </tr>
         <tr>
             <td>Message ID</td>
             <td>
-              The epoch time when the Workbot command was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this Workbot command message.
+              The epoch time when the Workbot command was sent. Can be used to populate <b>Thread ID</b> input fields to create a thread under this Workbot command message.<br> Can also be used in <b>Message to update</b>, to overwrite a previously posted message.
             </td>
         </tr>
         <tr>
@@ -5633,7 +5634,7 @@
             </td>
         </tr>
         <tr>
-            <td>Parameters</td>
+            <td>Command input parameters</td>
             <td>
               Data obtained from the user by asking follow up questions to their Workbot command.
             </td>
@@ -5696,10 +5697,10 @@
 <p><img src="../assets/images/workbot/workbot-trigger/salesforce-show-account-config-1.png" alt="Salesforce show account command trigger configuration 1"></p>
 <p><img src="../assets/images/workbot/workbot-trigger/salesforce-show-account-config-2.png" alt="Salesforce show account command trigger configuration 2">
 <em>Salesforce show account command trigger configuration</em></p>
-<p>We know that Workbot commands are created by piecing 3 elements together, the <code>application</code>, <code>command action</code> and <code>business data</code>. In this case, application is &quot;Salesforce&quot;, command action is &quot;Show&quot;, and business data is &quot;Account&quot;. The command that Workbot will respond to is therefore <code>Salesforce show account</code>.</p>
-<p>The <strong>input parameters</strong> field lets you decide what data is needed from the user to carry out the recipe actions successfully. In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user, so we define the parameter as follows:</p>
+<p>We know that Workbot commands are created by piecing 3 elements together, the <code>app</code>, <code>action</code> and <code>action data</code>. In this case, application is &quot;Salesforce&quot;, command action is &quot;Show&quot;, and business data is &quot;Account&quot;. The command that Workbot will respond to is therefore <code>Salesforce show account</code>.</p>
+<p>The <strong>command input parameters</strong> field lets you decide what data is needed from the user to carry out the recipe actions successfully. In this case, to successfully retrieve Salesforce account data, we need the full account name from the Slack user, so we define the parameter as follows:</p>
 <pre><code>name optional: false prompt: false type: string hint: Exact account name sample: IBM
-</code></pre><p>The configured input parameters will be displayed as follow up questions for the user after the Workbot command.</p>
+</code></pre><p>The configured command input parameters will be displayed as follow up questions for the user after the Workbot command.</p>
 <p><img src="../assets/images/workbot/workbot-trigger/salesforce-show-account-input-params-display.png" alt="Salesforce show account input parameters">
 <em>Input parameters display on Slack</em></p>
 <p>When the user has finished providing all the required input, the recipe actions will be executed. In this case, the recipe action was to display the Salesforce account details as a message attachment in a grid format.</p>
@@ -5792,7 +5793,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot triggers","date":"2017-03-30T05:00:00.000Z","level":"1.15.6","depth":2,"next":{"title":"Workbot actions","level":"1.15.7","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},"previous":{"title":"Workbot basics: Command reply","level":"1.15.5","depth":2,"path":"workbot/workbot-command-reply.md","ref":"workbot/workbot-command-reply.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-triggers.md","mtime":"2018-04-14T00:59:43.865Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-14T01:00:53.336Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot triggers","date":"2017-03-30T05:00:00.000Z","level":"1.15.6","depth":2,"next":{"title":"Workbot actions","level":"1.15.7","depth":2,"path":"workbot/workbot-actions.md","ref":"workbot/workbot-actions.md","articles":[]},"previous":{"title":"Workbot basics: Command reply","level":"1.15.5","depth":2,"path":"workbot/workbot-command-reply.md","ref":"workbot/workbot-command-reply.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-triggers.md","mtime":"2018-04-14T01:03:17.618Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-14T01:04:42.260Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
