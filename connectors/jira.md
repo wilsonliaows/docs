@@ -45,6 +45,13 @@ Relevant for organizations with IP whitelisting. Select *yes* to have all reques
 ### Roles and permissions required to connect
 JIRA users can connect to JIRA from Workato. We recommend that a separate user be created for integration purposes.
 
+There are 3 main ways a user can have access to objects:
+- People roles in Project Settings
+- Issue security Schemes
+- Permission schemes
+
+If the JIRA user does not have accesss to an object through any of these methods, the object cannot be retrieved from the JIRA project, and will instead return a status 401 'Unauthorized'.
+
 #### People roles in Project Settings
 Users [can be added to a project](https://confluence.atlassian.com/get-started-with-jira-core/add-users-to-your-project-917965377.html) by selecting **Project Settings → People**. Each user can be assigned 1 or more roles:
 
