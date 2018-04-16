@@ -41,11 +41,9 @@ Fill in a Name for the recipe, and fill up the Input Schema and the Response Sch
 ![CallableRecipeTrigger1](/assets/images/features/Callable Recipes/Callable Recipe Trigger 1.png)
 In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
-Lastly, you may choose to enable REST endpoint for your recipe. This defaults to No
+Lastly, you may choose to enable REST endpoint for your recipe. This defaults to No.
 
-[
-
-Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication stpes, Run a search, and if search gives no results, create a customer, if exisiting customer found, update customer. For a sample recipe, click here https://www.workato.com/recipes/485991
+Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication steps, run a search, and if the search gives no results, create a customer. If an existing customer is found, update customer.
 
 **Step 2: Call recipe**
 
