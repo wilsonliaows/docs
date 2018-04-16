@@ -43,7 +43,7 @@ In **simple terms**, the input schema determines what fields will be shown and n
 
 Lastly, you may choose to enable REST endpoint for your recipe. This defaults to No.
 
-Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication steps, run a search, and if search gives no results, create a customer. If an existing customer is found, update customer.
+Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication steps, run a search, and if the search gives no results, create a customer. If an existing customer is found, update customer.
 
 **Step 2: Call recipe**
 
