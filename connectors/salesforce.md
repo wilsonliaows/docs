@@ -168,7 +168,7 @@ We go through the setup for the **New and updated Object** real-time trigger bel
 
 The trigger will provide you with an endpoint URL to setup a Salesforce workflow rule with. This URL will tell Salesforce to send real-time events about newly created or updated contacts to this Workato recipe. Copy this URL to the clipboard for use in creating the Salesforce workflow rule.
 
-![Workato generates endpoint URL for Salesforce workflow](/assets/images/salesforce-docs/workato-generates-new-updated-workflow-url.mp4)
+![Workato generates endpoint URL for Salesforce workflow](/assets/images/salesforce-docs/workato-generates-new-updated-workflow-url.gif)
 *Workato generates endpoint URL for Salesforce workflow*
 
 This endpoint URL is unique to the Salesforce organization connected to the trigger, the Salesforce object you've selected, and the Workato recipe. You will need to regenerate this endpoint URL again if you decide to change Salesforce connection, the Salesforce object monitored, or the Workato recipe.
