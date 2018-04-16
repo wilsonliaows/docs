@@ -2,7 +2,7 @@
 
 Reusable methods are supported in Workato. Reusable methods help keep your custom adapter code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and may be used in any code block.
 
-Such methods are declared using the `method` block. This block is a top-level key, similar to triggers and actions.
+Such methods are declared using the `methods` block. This block is a top-level key, similar to triggers and actions.
 
 ## Example
 ```ruby

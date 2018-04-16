@@ -10,16 +10,16 @@ Most recipes have a single connection defined in its setup, and uses that connec
 
 To enable personal connections, go to **Recipe > Settings** page and enable Runtime connection binding.
 
-![recipe-setting](/assets/images/Workbot/workbot-latebinding/recipe-settings.png)
+![recipe-setting](/assets/images/workbot/workbot-latebinding/recipe-settings.png)
 
 When this feature is enabled, Workbot recipes will request individual users to authenticate (i.e. login) to the app, from Slack, before carrying out the app action.
 
-![personal-connection-flow](/assets/images/Workbot/workbot-latebinding/slack-flow.gif)
+![personal-connection-flow](/assets/images/workbot/workbot-latebinding/slack-flow.gif)
 *Personal connection setup for Salesforce Approval flow*
 
 Users can view their personal connections by typing *connections* in the Workbot DM. Alternatively, they can type *help* in the Workbot DM, and click on the *personal accounts* button. It is possible to disconnect personal connections or connect them again. Note, if not in the Workbot DM, you can type the same commands, but add the @Workbot mention, e.g. *@Workbot connections* or *@Workbot help*.
 
-![personal-connection-control](/assets/images/Workbot/workbot-latebinding/manage.gif)
+![personal-connection-control](/assets/images/workbot/workbot-latebinding/manage.gif)
 *Personal connections management*
 
 If the command is ran by the Workbot admin (user who installed Workbot into Slack team), recipe will automatically be executed with the default recipe connection. Therefore, Workbot admins will not have personal connections.

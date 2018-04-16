@@ -7,3 +7,6 @@
 # Ignore all static files
 /_book
 /node_modules
+
+# MacOS
+.DS_Store

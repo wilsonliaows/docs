@@ -74,7 +74,7 @@ object_definitions: {
         <tr>
             <td>type</td>
             <td>
-              The data type of this field. Default value is <code>:string</code>. 
+              The data type of this field. Default value is <code>:string</code>.
               Should be given the symbol notation (prepend colon).
               <ul>
                 <li><code>:string</code></li>
@@ -92,25 +92,13 @@ object_definitions: {
         <tr>
             <td>control_type</td>
             <td>
-              The input field type to expose in a recipe.
-              <ul>
-                <li><code>:text</code></li>
-                <li><code>:text-area</code></li>
-                <li><code>:number</code></li>
-                <li><code>:url</code></li>
-                <li><code>:select</code> Make sure to include the <code>:pick_list</code> property.</li>
-                <li><code>:date_time</code></li>
-                <li><code>:checkbox</code></li>
-                <li><code>:currency</code></li>
-                <li><code>:phone</code></li>
-                <li><code>:email</code></li>
-              <ul>              
+              The input field type to expose in a recipe. Refer to the list of <a href="#control-types">Control types</a> supported.
             </td>
         </tr>
         <tr>
             <td>pick_list</td>
             <td>
-              If <code>control_type</code> is <code>:select</code>, this property is required. 
+              If <code>control_type</code> is <code>:select</code> or <code>:multiselect</code>, this property is required.
               See more in <a href="/developing-connectors/sdk/pick-list.html">Pick List</a> chapter.
             </td>
         </tr>
@@ -127,6 +115,124 @@ object_definitions: {
             </td>
         </tr>
     </tbody>
+</table>
+
+## Control types
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+      <th>Control type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>text</td>
+      <td>
+        Simple text input field with formula mode option.<br>
+        <img src="/assets/images/sdk/text.png" alt="text control type">
+      </td>
+    </tr>
+    <tr>
+      <td>text-area</td>
+      <td>
+        Long text input field with formula mode option.<br>
+        <img src="/assets/images/sdk/text-area.png" alt="text-area control type">
+      </td>
+    </tr>
+    <tr>
+      <td>plain-text</td>
+      <td>
+        Simple text input field without formula mode option.<br>
+        <img src="/assets/images/sdk/plain-text.png" alt="plain-text control type">
+      </td>
+    </tr>
+    <tr>
+      <td>plain-text-area</td>
+      <td>
+        Long text input field with formula mode option. This input field can be expanded using the adjust icon.<br>
+        <img src="/assets/images/sdk/plain-text-area.png" alt="plain-text-area control type">
+      </td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>
+        Simple number field with icon to indicate either an integer or float value. This control type has formula mode option.<br>
+        <img src="/assets/images/sdk/number.png" alt="number control type">
+      </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>
+        Text field with icon to indicate a URL value. This control type has formula mode option.<br>
+        <img src="/assets/images/sdk/url.png" alt="url control type">
+      </td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>
+        Control type to provide a predefined list of values to choose from. Make sure to include the <code>pick_list</code> property.<br>
+        <img src="/assets/images/sdk/select.png" alt="select control type">
+      </td>
+    </tr>
+    <tr>
+      <td>checkbox</td>
+      <td>
+        Simple Yes/No select interface. This control type adds an implicit toggle to text mode (for dynamic mapping and formula mode option).<br>
+        <img src="/assets/images/sdk/checkbox.png" alt="checkbox control type">
+      </td>
+    </tr>
+    <tr>
+      <td>multiselect</td>
+      <td>
+        Control type similar to <code>select</code> with additional ability to select multiple values. This control type must be accompanied with <code>pick_list</code> and <code>delimiter</code> properties.<br>
+        <img src="/assets/images/sdk/multiselect.png" alt="multiselect control type">
+      </td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>
+        Control type indicating date value. This control type has formula mode option.
+        <img src="/assets/images/sdk/date.png" alt="date control type">
+      </td>
+    </tr>
+    <tr>
+      <td>date_time</td>
+      <td>
+        Control type indicating date with time value. This control type has formula mode option.
+        <img src="/assets/images/sdk/date_time.png" alt="date_time control type">
+      </td>
+    </tr>
+    <tr>
+      <td>phone</td>
+      <td>
+        Control type indicating phone value. This control type has formula mode option.<br>
+        <img src="/assets/images/sdk/phone.png" alt="phone control type">
+      </td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>
+        Control type indicating email value. This control type has formula mode option.<br>
+        <img src="/assets/images/sdk/email.png" alt="email control type">
+      </td>
+    </tr>
+    <tr>
+      <td>subdomain</td>
+      <td>
+        Control type to indicate a subdomain of a particular site. Typically used in connection fields. Make sure to include the <code>url</code> property.<br>
+        <img src="/assets/images/sdk/subdomain.png" alt="subdomain control type">
+      </td>
+    </tr>
+    <tr>
+      <td>static-list</td>
+      <td>
+        Control type for arrays where the size of the array is statically determined by the recipe designer. Remember to define <code>item_label</code>, <code>add_item_label</code>, <code>empty_list_title</code> and <code>empty_list_text</code>.<br>
+        <img src="/assets/images/sdk/static-list.png" alt="static-list control type">
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## Nested fields
