@@ -200,7 +200,7 @@ This endpoint URL is unique to the Salesforce organization connected to the trig
 
 9) Save the workflow rule and activate it. 
 
-![Activate workflow rule to start monitoring new leads created in Salesforce](/assets/images/salesforce-docs/activating-workflow-rule-new-object-trigger.gif)
+![Activate workflow rule to start monitoring new leads created in Salesforce](/assets/images/salesforce-docs/activating-workflow-rule-new-updated-object-trigger.gif)
 *Activate workflow rule to start monitoring new leads created in Salesforce*
 
 10) Return to Workato and start the recipe. It will now monitor newly created or updated leads in Salesforce and process them as trigger events immediately. If desired, add trigger conditions.
