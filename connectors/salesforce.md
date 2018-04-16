@@ -10,7 +10,9 @@ date: 2017-02-16 06:15:00 Z
 The Salesforce connector uses [Salesforce REST API](https://developer.salesforce.com/page/REST_API).
 
 ## Supported editions and versions
-The Salesforce connector works with all Salesforce cloud instances. It also works with Force.com apps.
+The Salesforce connector works with all Salesforce cloud instances, e.g. **Professional, Enterprise, Unlimited, and Developer**
+
+It also works with Force.com apps.
 
 ## How to connect to Salesforce on Workato
 The Salesforce connector uses OAuth2 authentication to authenticate with Salesforce.
@@ -30,7 +32,10 @@ To connect to a Salesforce Sandbox instance, simply use the login credentials fo
 
 Relevant for organizations with IP whitelisting. Select *yes* to have all requests from Workato originate from a consistent, known IP address.
 
-Once you have filled up the above fields, click on connect a Salesforce connection pop-up will show up, allowing you to either chose an account that has been saved in your browser, or provide new login credentials. ![SF authentication](/assets/images/salesforce-docs/salesforce-authentication.PNG)
+Fill in the above fields and click connect. A Salesforce connection pop-up prompts you to provide your Salesforce login credentials for OAuth2 authorization.
+
+![Salesforce authorization pop-up](/assets/images/salesforce-docs/salesforce-authentication.PNG)
+*Salesforce authorization pop-up*
 
 - **Username**
 
@@ -41,7 +46,35 @@ Username to connect to Salesforce.
 Password to connect to Salesforce.
 
 ### Roles and permissions required to connect
-Salesforce users who can login to Salesforce can connect to Salesforce from Workato. The user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) on Workato as in Salesforce, and will be able to read and write to the same projects and issues.
+Salesforce users can connect to Salesforce from Workato. We recommend that a separate user be created for integration purposes.
+
+The connected user will have the same [permissions](https://help.salesforce.com/articleView?id=admin_userperms.htm&language=en_US&type=0) through the Workato Salesforce connector as in Salesforce. They will be able to read and write the objects as specified in their Salesforce profile. The user profile should be setup to allow appropriate access to the requisite objects required for the recipes. The permissions can be edited via the connected user's profile in Salesforce. 
+
+#### API Enabled permission
+The connected user's profile should be API enabled.
+![API enabled permission - profile setup](/assets/images/salesforce-docs/api-enabled-permission.png)
+*API enabled permission - profile setup*
+
+#### Standard and custom object permissions
+To interact with an object in Salesforce, the connected user's profile needs to have permissions to `read`, `write`, `edit`, `delete`, `view all`, `modify all` for the standard object or custom object in your Salesforce organization.
+
+![Salesforce standard object permissions - profile setup](/assets/images/salesforce-docs/standard-object-profile-permissions.png)
+*Salesforce standard object profile permissions setup*
+
+![Salesforce custom object permissions - profile setup](/assets/images/salesforce-docs/custom-object-profile-permissions.png)
+*Salesforce custom object profile permissions setup*
+
+#### Platform event permissions
+In order to use platform events triggers and actions, you need platform events to be enabled in your Salesforce organization. You would need to set `read` and `create` permissions for the connected user's profile.
+
+![Salesforce platform events permissions - profile setup](/assets/images/salesforce-docs/platform-events-permissions.png)
+*Salesforce platform events permissions - profile setup*
+
+#### Real-time trigger permissions
+To use real-time triggers in Salesforce, workflow rules have to be set up in your Salesforce organization. These workflow rules require the `Customize application` permission under the Administrative Permissions tab to be setup, although the connected user does not need to be the user who sets these rules up.
+
+![Customize application permission - profile setup](/assets/images/salesforce-docs/customize-application-permission.png)
+*Customize application permission - profile setup*
 
 ## Working with the Salesforce connector
 
@@ -172,17 +205,12 @@ This endpoint URL is unique to the Salesforce organization connected to the trig
 
 10) Return to Workato and start the recipe. It will now monitor newly created or updated leads in Salesforce and process them as trigger events immediately. If desired, add trigger conditions.
 
-
-
-
-
-
 ### Working with generic triggers in Salesforce
-In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created. 
+In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created.
 
 
 ### Working with generic create/update/search actions in Salesforce
-When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields in the objects on your Salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose **Lead** you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action. 
+When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields in the objects on your Salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose **Lead** you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action.
 
 
 ### Working with attachments in Salesforce
@@ -191,7 +219,7 @@ When working with Salesforce Actions on Workato, you should find it extremely ea
 To upload an attachment **to** Salesforce using Workato, you can use the **Create Object** Action, and select **Attachment** under the **Object** field. Before that however, you need to have a step that downloads the file that is to be uploaded to Salesforce. You may use the **Box** action **get file download URL**, followed by using the **utilities** tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  You can check out [this example here](http://docs.workato.com/handling-files-and-attachments.html#example-of-using-utilities-to-download-file-from-public-url) on how to download a file to Workato.
 
 #### Downloading
-To download an attachment **from** Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previous step, usually from the **Get object details** step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the **Upload file** action in the **Box** connector. 
+To download an attachment **from** Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previous step, usually from the **Get object details** step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the **Upload file** action in the **Box** connector.
 
 ## Working with SOQL in Salesforce
 **Salesforce Object Query Language (SOQL)** is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).

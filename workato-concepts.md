@@ -30,7 +30,7 @@ Trigger events can be set off in apps (e.g. Salesforce, JIRA) when a certain eve
 
 Depending on the available API, Workato can receive trigger events in real-time, or check for the occurrence of an event periodically by polling the app.
 
-You can learn more about triggers and how to use them ![here](/recipes/triggers.md).
+You can learn more about triggers and how to use them [here](/recipes/triggers.md).
 
 ## Steps and actions
 Recipe steps are executed every time the trigger event occurs. Recipes are required to have at least one step. The most basic step for a recipe is an action e.g. an action to create an organization in Zendesk.
