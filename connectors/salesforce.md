@@ -149,9 +149,9 @@ This endpoint URL is unique to the Salesforce organization connected to the trig
 ![Activate workflow rule to start monitoring new contacts created in Salesforce](/assets/images/salesforce-docs/activating-workflow-rule-new-object-trigger.gif)
 *Activate workflow rule to start monitoring new contacts created in Salesforce*
 
-10) Return to Workato and start the recipe. Create a new object record. In our case, we'll create a new contact. Ensure that the recipe picks up the trigger event immediately, to verify that the workflow rule is working.
+10) Return to Workato and start the recipe. To test that the recipe is working, create a new contact in your Salesforce instance. Check that the recipe picks up the trigger event immediately to verify that the workflow rule is working.
 
-If the trigger event is indeed picked up immediately, this means that your workflow rule and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created records in Salesforce and process them as trigger events immediately. If desired, add trigger conditions.
+If the trigger event is indeed picked up immediately, this means that your workflow rule and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created records in Salesforce and process them as trigger events immediately. If your workflow requires additional logic to filter out certain records, add trigger conditions.
 
 #### Real-time trigger setup - new and updated object
 We go through the setup for the **New and updated object** real-time trigger below. We will be setting up a real-time trigger for new and updated leads in Salesforce.
@@ -205,9 +205,9 @@ This endpoint URL is unique to the Salesforce organization connected to the trig
 ![Activate workflow rule to start monitoring new leads created in Salesforce](/assets/images/salesforce-docs/activating-workflow-rule-new-updated-object-trigger.gif)
 *Activate workflow rule to start monitoring new leads created in Salesforce*
 
-10) Return to Workato and start the recipe. Create or update a new object record. In our case, we'll update an existing lead. Ensure that the recipe picks up the trigger event immediately, to verify that the workflow rule is working.
+10) Return to Workato and start the recipe. To test that the recipe is working, update a new object record. In this case, you should update an existing lead. Check that the recipe picks up the trigger event immediately to verify that the workflow rule is working.
 
-If the trigger event is indeed picked up immediately, this means that your workflow rule and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created or updated records in Salesforce and process them as trigger events immediately. If desired, add trigger conditions.
+If the trigger event is indeed picked up immediately, this means that your workflow rule and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created or updated records in Salesforce and process them as trigger events immediately. If your workflow requires additional logic to filter out certain records, add trigger conditions.
 
 ### Working with generic triggers in Salesforce
 In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created.
