@@ -1,5 +1,5 @@
 ---
-title: Compressing files
+title: Compress files
 date: 2018-04-13 18:00:00 Z
 ---
 
