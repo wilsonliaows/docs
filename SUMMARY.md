@@ -98,7 +98,7 @@
     * [XML contents](features/handling-xml.md)
   * [Move files between apps](handling-files-and-attachments.md#moving-textbinary-files-via-public-url)
   * [Search files using wildcard](features/wildcard.md)
-  * [Compress files](feature/compress-files.md)
+  * [Compress files](features/compress-files.md)
 * [Batch processing](features/batch-processing.md)
   * [Batch triggers](features/batch-processing.md#batch-triggers)
   * [Batch actions](features/batch-processing.md#batch-actions)
