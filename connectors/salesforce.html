@@ -5526,24 +5526,87 @@
 <h3 id="can-i-connect-more-than-one-salesforce-account-in-a-single-recipe">Can I connect more than one Salesforce account in a single recipe?</h3>
 <p>Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more <a href="http://http://docs.workato.com/features/secondary-connectors.html" target="_blank">here</a>.</p>
 <h3 id="using-real-time-triggers">Using real-time triggers</h3>
-<p>Workato offers real-time capabilities for 2 Salesforce triggers, namely <strong>New Object</strong> and <strong>New/Updated Object</strong>. This allows Workato to pick up any object that was created/updated in Salesforce immediately. To enable this, follow these steps:</p>
+<p>Workato offers real-time capabilities for 2 Salesforce triggers: <strong>New Object</strong> and <strong>New/Updated Object</strong>. This allows Workato to detect records created/updated in Salesforce immediately. Salesforce real-time triggers is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
+<p>These real-time triggers are powered by <a href="https://help.salesforce.com/articleView?id=workflow_rules_new.htm&amp;type=5" target="_blank">Salesforce workflow rules</a>. Via these workflow rules, Salesforce monitors records for certain changes and notifies Workato immediately via an outbound message when these changes occur. These outbound messages will be received and processed by a Workato recipe as trigger events.</p>
+<p>To set up these triggers, we need to:</p>
 <ol>
-<li>Select a Salesforce real-time trigger in your recipe. Make sure you have an active connection and have chosen an Object. An endpoint URL should be displayed when this step is completed.</li>
-<li>Log in to your Salesforce instance and navigate to <strong>Setup</strong>.</li>
-<li>On the left hand panel, under Build, click on <strong>Create</strong> &gt; <strong>Workflow &amp; Approvals</strong> &gt; <strong>Workflow rules</strong>.</li>
-<li>Select the Object which you want to receive real-time updates for and click <strong>Next</strong>. This Object should match the one you have selected in your recipe.</li>
-<li><p>Fill in the necessary fields:</p>
-<ul>
-<li>Rule name</li>
-<li>Rule criteria (Rule criteria can be set to your preference. Example: only when Opportunity status equals &quot;Closed Won&quot;)</li>
-</ul>
-<p>After you are done, click <strong>Save &amp; Next</strong></p>
-</li>
-<li><p>Add <strong>New Outbound Message</strong> in the <strong>Specify workflow actions</strong> step. The endpoint URL from step 1 should be used here.</p>
-</li>
-<li>Hit <strong>Save</strong> and <strong>Activate</strong>. You are now set up for real-time integration! Your recipe with a real-time trigger is ready to be tested/ran.</li>
+<li>Create a Workato recipe with a Salesforce real-time trigger, and copy the generated endpoint URL from the trigger.</li>
+<li>Create a Salesforce workflow rule to monitor events we&apos;re interested in and send outbound messages to that endpoint URL when these events occur.</li>
+<li>Activate the workflow rule.</li>
+<li>Add trigger conditions in the recipe, if desired. </li>
+<li>Start the recipe.</li>
 </ol>
-<p>Salesforce real-time triggers is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
+<p>In the following sections, we provide a detailed walkthrough to setup the real-time triggers:</p>
+<ul>
+<li><a href="#real-time-trigger-setup-new-object">New object trigger</a></li>
+<li><a href="#real-time-trigger-setup-new-and-updated-object">New/updated object trigger</a></li>
+</ul>
+<h4 id="real-time-trigger-setup---new-object">Real-time trigger setup - new object</h4>
+<p>We go through the setup for the <strong>New object</strong> real-time trigger below. We will be setting up a real-time trigger for new contacts in Salesforce.</p>
+<p>1) Select the trigger in Workato. You will be prompted to connect to your Salesforce account.</p>
+<p><img src="../assets/images/salesforce-docs/select-object-for-new-trigger.png" alt="Select new object real-time trigger in Salesforce">
+<em>Select new object real-time trigger in Salesforce</em></p>
+<p>2) Connect to Salesforce.</p>
+<p>3) Select the specific object you wish to monitor in Salesforce. In this case, we&apos;ll select Contact.</p>
+<p><img src="../assets/images/salesforce-docs/select-object-for-new-trigger.png" alt="Select specific object to monitor in Salesforce">
+<em>Select specific object to monitor in Salesforce</em></p>
+<p>The trigger will provide you with an endpoint URL to setup a Salesforce workflow rule with. This URL will tell Salesforce to send real-time events about newly created contacts to this Workato recipe. Copy this URL to the clipboard for use in creating the Salesforce workflow rule.</p>
+<p><img src="../assets/images/salesforce-docs/workato-generates-workflow-url.gif" alt="Workato generates endpoint URL for Salesforce workflow rule">
+<em>Workato generates endpoint URL for Salesforce workflow rule</em></p>
+<p>This endpoint URL is unique to the Salesforce organization connected to the trigger, the Salesforce object you&apos;ve selected, and the Workato recipe. You will need to regenerate this endpoint URL again if you decide to change Salesforce connection, the Salesforce object monitored, or the Workato recipe.</p>
+<p>4) Go to your Salesforce organization and click on <strong>Setup</strong>. Go to <em>Create &gt; Workflow &amp; Approvals &gt; Workflow rules</em> and click on <strong>New rule</strong> to create a new workflow rule. This will bring you into the Salesforce workflow rule setup wizard.</p>
+<p><img src="../assets/images/salesforce-docs/navigate-to-create-new-rule.gif" alt="In your Salesforce organization, go to Setup&gt;Create&gt;Workflow &amp; Approvals&gt;Workflow rules and click on New rule">
+<em>In your Salesforce organization, go to Setup&gt;Create&gt;Workflow &amp; Approvals&gt;Workflow rules and click on New rule</em></p>
+<p>5) In step 1 of the setup wizard, select the same Salesforce object you have selected in the recipe.</p>
+<p><img src="../assets/images/salesforce-docs/select-workflow-rule-object.png" alt="Select specific object to monitor in Salesforce">
+<em>Select specific object to monitor in Salesforce</em></p>
+<p>6) In step 2 of the setup wizard, set the workflow rule to be evaluated every time a record is created. We set the rule criteria to be <code>Created Date not equal to null</code>. Because no record will ever have a null date for the field Created Date, this ensures that the workflow rule will always be triggered when a record is created.</p>
+<p><img src="../assets/images/salesforce-docs/workflow-rule-setup-for-new-object-trigger.png" alt="Setup the Salesforce workflow rule to be evaluated when record is created">
+<em>Setup the Salesforce workflow rule to be evaluated when record is created</em></p>
+<p>7) In step 3 of the setup wizard, add a workflow action &quot;New outbound message&quot;. This ensures that Salesforce will always notify our Workato recipe whenever a record is created, via sending an outbound message to that recipe&apos;s endpoint URL.</p>
+<p><img src="../assets/images/salesforce-docs/add-outbound-message-for-new-object-trigger.png" alt="Add outbound message as the workflow action. Newly created contacts that meet the evaluation criteria will send an outbound message">
+<em>Add outbound message as the workflow action. Newly created contacts that meet the evaluation criteria will send an outbound message</em></p>
+<p>8) Set up the outbound message using the endpoint URL we copied in Step 3, and save it.</p>
+<p><img src="../assets/images/salesforce-docs/setup-new-outbound-message-using-endpoint-url.png" alt="Setup outbound message using endpoint URL generated by recipe">
+<em>Setup outbound message using endpoint URL generated by recipe</em></p>
+<p>9) Save the workflow rule and activate it. </p>
+<p><img src="../assets/images/salesforce-docs/activating-workflow-rule-new-object-trigger.gif" alt="Activate workflow rule to start monitoring new contacts created in Salesforce">
+<em>Activate workflow rule to start monitoring new contacts created in Salesforce</em></p>
+<p>10) Return to Workato and start the recipe. To test that the recipe is working, create a new contact in your Salesforce instance. Check that the recipe picks up the trigger event immediately to verify that the workflow rule is working.</p>
+<p>If the trigger event is indeed picked up immediately, this means that your workflow rule and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created records in Salesforce and process them as trigger events immediately. If your workflow requires additional logic to filter out certain records, add trigger conditions.</p>
+<h4 id="real-time-trigger-setup---new-and-updated-object">Real-time trigger setup - new and updated object</h4>
+<p>We go through the setup for the <strong>New and updated object</strong> real-time trigger below. We will be setting up a real-time trigger for new and updated leads in Salesforce.</p>
+<p>1) Select the trigger in Workato. You will be prompted to connect to your Salesforce account.</p>
+<p><img src="../assets/images/salesforce-docs/select-salesforce-new-updated-object-realtime-trigger.png" alt="Select new or updated object real-time trigger in Salesforce">
+<em>Select new and updated object real-time trigger in Salesforce</em></p>
+<p>2) Connect to Salesforce.</p>
+<p>3) Select the specific object you wish to monitor in Salesforce. In this case, we select Lead. </p>
+<p><img src="../assets/images/salesforce-docs/select-object-for-new-or-updated-trigger.png" alt="Select specific object to monitor in Salesforce">
+<em>Select specific object to monitor in Salesforce</em></p>
+<p>The trigger will provide you with an endpoint URL to setup a Salesforce workflow rule with. This URL will tell Salesforce to send real-time events about newly created or updated contacts to this Workato recipe. Copy this URL to the clipboard for use in creating the Salesforce workflow rule.</p>
+<p><img src="../assets/images/salesforce-docs/workato-generates-new-updated-workflow-url.gif" alt="Workato generates endpoint URL for Salesforce workflow rule">
+<em>Workato generates endpoint URL for Salesforce workflow rule</em></p>
+<p>This endpoint URL is unique to the Salesforce organization connected to the trigger, the Salesforce object you&apos;ve selected, and the Workato recipe. You will need to regenerate this endpoint URL again if you decide to change Salesforce connection, the Salesforce object monitored, or the Workato recipe.</p>
+<p>4) Go to your Salesforce organization and click on <strong>Setup</strong>. Go to <em>Create &gt; Workflow &amp; Approvals &gt; Workflow rules</em> and click on <strong>New rule</strong> to create a new workflow rule. This will bring you into the Salesforce workflow rule setup wizard.</p>
+<p><img src="../assets/images/salesforce-docs/navigate-to-create-new-rule.gif" alt="In your Salesforce organization, go to Setup&gt;Create&gt;Workflow &amp; Approvals&gt;Workflow rules and click on New rule">
+<em>In your Salesforce organization, go to Setup&gt;Create&gt;Workflow &amp; Approvals&gt;Workflow rules and click on New rule</em></p>
+<p>5) In step 1 of the setup wizard, select the same Salesforce object you have selected in the recipe.</p>
+<p><img src="../assets/images/salesforce-docs/select-workflow-rule-object-lead.png" alt="Select specific object to monitor in Salesforce">
+<em>Select specific object to monitor in Salesforce</em></p>
+<p>6) In step 2 of the setup wizard, set the workflow rule to be evaluated every time a record is created, and every time it&apos;s edited. We set the rule criteria to be <code>Created Date not equal to null</code>. Because no record will ever have a null date for the field Created Date, this ensures that the workflow rule will always be triggered when a record is created or updated.</p>
+<p><img src="../assets/images/salesforce-docs/workflow-rule-setup-for-new-updated-object-trigger.png" alt="Setup the Salesforce workflow rule to be evaluated when record is created or updated">
+<em>Setup the Salesforce workflow rule to be evaluated when record is created or updated</em></p>
+<p>7) In step 3 of the setup wizard, add a workflow action &quot;New outbound message&quot;. This ensures that Salesforce will always notify our Workato recipe whenever a record is created or updated, via sending an outbound message to that recipe&apos;s endpoint URL.</p>
+<p><img src="../assets/images/salesforce-docs/add-outbound-message-for-new-updated-object-trigger.png" alt="Add outbound message as the workflow action. Newly created or updated contacts that meet the evaluation criteria will send an outbound message">
+<em>Add outbound message as the workflow action. Newly created or updated contacts that meet the evaluation criteria will send an outbound message</em></p>
+<p>8) Set up the outbound message using the endpoint URL we copied in Step 3, and save it.</p>
+<p><img src="../assets/images/salesforce-docs/setup-new-updated-outbound-message-using-endpoint-url.png" alt="Setup outbound message using endpoint URL generated by recipe">
+<em>Setup outbound message using endpoint URL generated by recipe</em></p>
+<p>9) Save the workflow rule and activate it. </p>
+<p><img src="../assets/images/salesforce-docs/activating-workflow-rule-new-updated-object-trigger.gif" alt="Activate workflow rule to start monitoring new leads created in Salesforce">
+<em>Activate workflow rule to start monitoring new leads created in Salesforce</em></p>
+<p>10) Return to Workato and start the recipe. To test that the recipe is working, update a new object record. In this case, you should update an existing lead. Check that the recipe picks up the trigger event immediately to verify that the workflow rule is working.</p>
+<p>If the trigger event is indeed picked up immediately, this means that your workflow rule and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created or updated records in Salesforce and process them as trigger events immediately. If your workflow requires additional logic to filter out certain records, add trigger conditions.</p>
 <h3 id="working-with-generic-triggers-in-salesforce">Working with generic triggers in Salesforce</h3>
 <p>In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with <strong>Objects</strong>. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term &quot;object&quot; is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field&apos;s dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger <strong>&quot;New Object&quot;</strong> and select <strong>Lead</strong> as the object. Your recipe will trigger every time a new lead is created.</p>
 <h3 id="working-with-generic-createupdatesearch-actions-in-salesforce">Working with generic create/update/search actions in Salesforce</h3>
@@ -5731,7 +5794,7 @@ For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Salesforce","date":"2017-02-16T06:15:00.000Z","level":"1.16.20","depth":2,"next":{"title":"Connection setup","level":"1.16.20.1","depth":3,"anchor":"#how-to-connect-to-salesforce-on-workato","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#how-to-connect-to-salesforce-on-workato","articles":[]},"previous":{"title":"Stop recipe action","level":"1.16.19.9","depth":3,"anchor":"#stop-recipe-action","path":"recipe-ops.md","ref":"recipe-ops.md#stop-recipe-action","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2018-04-16T23:01:16.215Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-16T23:02:34.801Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Salesforce","date":"2017-02-16T06:15:00.000Z","level":"1.16.20","depth":2,"next":{"title":"Connection setup","level":"1.16.20.1","depth":3,"anchor":"#how-to-connect-to-salesforce-on-workato","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#how-to-connect-to-salesforce-on-workato","articles":[]},"previous":{"title":"Stop recipe action","level":"1.16.19.9","depth":3,"anchor":"#stop-recipe-action","path":"recipe-ops.md","ref":"recipe-ops.md#stop-recipe-action","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2018-04-19T19:06:59.064Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-19T19:08:09.726Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
