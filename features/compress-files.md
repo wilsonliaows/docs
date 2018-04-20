@@ -5,10 +5,9 @@ date: 2018-04-13 18:00:00 Z
 
 # Compress files
 
-`Compress files` action allows you to compress multiple files into one **.zip** file. It is one of the actions under `Files by Workato` application.
+`Compress files` action allows you to compress multiple files into one **.zip** file. The source files can come from any app. It is one of the actions under `Files by Workato` application.
 
 ![Compress files](/assets/images/features/files-and-attachments/compress-files-action.png)
-*Compress files action*
 
 ## Example: Compress files in a folder
 In this section, we will go through one example of how to compress multiple files in a folder.
@@ -18,7 +17,6 @@ We will use an SFTP folder for this example. But you can use this same method wi
 You can find the [sample recipe here](https://www.workato.com/recipes/680470-compress-files-in-a-directory-on-sftp#recipe).
 
 ![Compress files in SFTP directory](/assets/images/features/files-and-attachments/compress-files-static-list-recipe.png)
-*Recipe to compress files in an SFTP folder*
 
 The recipe may look a bit daunting at first, but once you get the idea it is actually quite straightforward. Let's go through the thought process step by step:
 1) We have a folder in SFTP with several files. We need to compress all files in that folder into one .zip file.
@@ -58,7 +56,6 @@ The recipe may look a bit daunting at first, but once you get the idea it is act
 From the App data box, drag & drop `File name` and `File contents` pills from the 3 lists into `Compress files` action:
 
 ![Compress files list mapping](/assets/images/features/files-and-attachments/compress-files-static-list-mapping.gif)
-*Mapping the lists' output pills into Compress file action*
 
 5) Putting everything together, we have the complete recipe:
 
