@@ -9,8 +9,8 @@ date: 2018-04-13 18:00:00 Z
 
 ![Compress files](/assets/images/features/files-and-attachments/compress-files-action.png)
 
-## Example: Compress files in a folder
-In this section, we will go through one example of how to compress multiple files in a folder.
+## Example: Compress all files in a folder
+In this section, we will go through one example of how to compress all files in a folder.
 
 We will use an SFTP folder for this example. But you can use this same method with any other app like Amazon S3, Box, Dropbox, Salesforce, etc.
 
