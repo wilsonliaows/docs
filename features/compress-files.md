@@ -55,6 +55,7 @@ The recipe may look a bit daunting at first, but once you get the idea it is act
 4) Now we are ready to use `Compress files` action.
 From the App data box, drag & drop `File name` and `File contents` pills from the 3 lists into `Compress files` action:
 
+![Compress files step](/assets/images/features/files-and-attachments/compress-files-step.png)
 ![Compress files list mapping](/assets/images/features/files-and-attachments/compress-files-static-list-mapping.gif)
 
 5) The last step is uploading the zip file to the destination
