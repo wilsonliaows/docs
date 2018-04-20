@@ -12,7 +12,7 @@ date: 2018-04-13 18:00:00 Z
 ## Example: Compress all files in a folder
 In this section, we will go through one example of how to compress all files in a folder.
 
-We will use an SFTP folder for this example. But you can use this same method with any other app like Amazon S3, Box, Dropbox, Salesforce, etc.
+We will use an SFTP folder for this example. However you can use this same method with any other app like Amazon S3, Box, Dropbox, Salesforce, etc.
 
 You can find the [sample recipe here](https://www.workato.com/recipes/680470-compress-files-in-a-directory-on-sftp#recipe).
 
