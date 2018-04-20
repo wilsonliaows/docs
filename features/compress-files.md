@@ -5,7 +5,7 @@ date: 2018-04-13 18:00:00 Z
 
 # Compress files
 
-`Compress files` action allows you to compress multiple files into one **.zip** file. The source files can come from any app. It is one of the actions under `Files by Workato` application.
+`Compress files` is one of the actions under `Files by Workato` application. It allows you to compress multiple files into one **.zip** file. The source files can come from any app (e.g. Amazon S3, Dropbox, Salesforce, etc.)
 
 ![Compress files](/assets/images/features/files-and-attachments/compress-files-action.png)
 
