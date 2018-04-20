@@ -35,7 +35,7 @@ The recipe may look a bit daunting at first, but once you get the idea it is act
 
 !["For each" step](/assets/images/features/files-and-attachments/compress-files-for-each.png)
 
-- First we need make sure this item is a file and not a folder:
+- First we need to make sure this item is a file and not a folder:
 
 ![Check if item not a folder](/assets/images/features/files-and-attachments/compress-files-check-folder.png)
 
