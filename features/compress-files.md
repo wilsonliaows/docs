@@ -57,7 +57,7 @@ From the App data box, drag & drop `File name` and `File contents` pills from th
 
 ![Compress files list mapping](/assets/images/features/files-and-attachments/compress-files-static-list-mapping.gif)
 
-5) The last step is to upload the zip file to the destination
+5) The last step is uploading the zip file to the destination
 
 ![Upload file](/assets/images/features/files-and-attachments/compress-files-upload-file.png)
 
