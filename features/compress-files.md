@@ -57,6 +57,10 @@ From the App data box, drag & drop `File name` and `File contents` pills from th
 
 ![Compress files list mapping](/assets/images/features/files-and-attachments/compress-files-static-list-mapping.gif)
 
-5) Putting everything together, we have the complete recipe:
+5) The last step is to upload the zip file to the destination
+
+![Upload file](/assets/images/features/files-and-attachments/compress-files-upload-file.png)
+
+6) Putting everything together, we have the complete recipe:
 
 ![Compress files in SFTP directory](/assets/images/features/files-and-attachments/compress-files-static-list-recipe.png)
