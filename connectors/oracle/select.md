@@ -12,7 +12,7 @@ This action lets you select rows based on certain criteria defined by a ` WHERE`
 *Select rows action*
 
 ### Table
-First, select a table to work with. This can be done either by selecting a table from the pick list, or toggle the input to text mode and type the full table name.
+First, select a table to work with. This can be done either by selecting a table from the pick list, or toggling the input to text mode and typing the full table name.
 
 ### WHERE condition
 Next, provide a `WHERE` condition to filter rows. This condition can be as simple as filtering a single record by it's `ID`.
