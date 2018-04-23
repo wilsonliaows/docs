@@ -6,7 +6,7 @@ date: 2018-03-19 06:00:00 Z
 # SQL Server - Execute stored procedure action
 
 ## Execute stored procedure
-This action lets you executed any stored procedure or functions saved in your database instance.
+This action lets you execute any stored procedure or functions saved in your database instance.
 
 ![Execute stored procedure rows action](/assets/images/mssql/stored-procedure.png)
 *Execute stored procedure rows action*

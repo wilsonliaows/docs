@@ -6,7 +6,7 @@ date: 2018-03-19 06:00:00 Z
 # Oracle - Execute stored procedure action
 
 ## Execute stored procedure
-This action lets you executed any stored procedure or functions saved in your database instance. To use this action, your Oracle connection must be established using an [On-premise agent](/on-prem.md). Stored procedures from packages are not supported in this action.
+This action lets you execute any stored procedure or functions saved in your database instance. To use this action, your Oracle connection must be established using an [On-premise agent](/on-prem.md). Stored procedures from packages are not supported in this action.
 
 ![Execute stored procedure rows action](/assets/images/oracle/stored-procedure.png)
 *Execute stored procedure rows action*
