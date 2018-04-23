@@ -5569,7 +5569,8 @@ The following databases are supported by the on-prem agent:</p>
 <li><code>mysql</code> for MySQL</li>
 <li><code>sqlserver</code> for Microsoft SQL Server</li>
 <li><code>oracle</code> for Oracle Database</li>
-<li><code>postgresql</code> for PostgreSQL.</li>
+<li><code>postgresql</code> for PostgreSQL</li>
+<li><code>jdbc</code> for JDBC-compatible database.</li>
 </ul>
 <p>A database type is specified either by <code>adapter</code> property or a complete JDBC URL provided in the <code>url</code> property.
 Port numbers can be omitted when matching defaults for a given database type.</p>
@@ -5589,6 +5590,22 @@ Port numbers can be omitted when matching defaults for a given database type.</p
 <span class="hljs-attr">    username:</span> joe
 <span class="hljs-attr">    password:</span> Secret123
 <span class="hljs-attr">    ApplicationName:</span> workato
+</code></pre>
+<h3 id="jdbc-connection-profile">JDBC connection profile</h3>
+<p>JDBC connection profile is a special case of database profile, for example:</p>
+<pre><code class="lang-YAML"><span class="hljs-attr">database:</span>
+<span class="hljs-attr">  tpc:</span>
+<span class="hljs-attr">    url:</span> jdbc:presto://warehouse.intra:<span class="hljs-number">8889</span>/tpch
+<span class="hljs-attr">    driverClass:</span> com.facebook.presto.jdbc.PrestoDriver
+<span class="hljs-attr">    adapter:</span> jdbc
+<span class="hljs-attr">    user:</span> my_user
+<span class="hljs-attr">    SSL:</span> <span class="hljs-literal">false</span>
+</code></pre>
+<p>Any JDBC profile requires specifying <code>driverClass</code> property, which should point to fully-qualified name
+of JDBC driver class for the given database. The driver class must be available on the agent&apos;s classpath;
+note that your agent&apos;s classpath can be extended in <code>server</code> section of the configuration file:</p>
+<pre><code class="lang-YAML"><span class="hljs-attr">server:</span>
+<span class="hljs-attr">  classpath:</span> /opt/workato-agent/jdbc
 </code></pre>
 <h3 id="jms-connection-profile">JMS connection profile</h3>
 <p>JMS connection profiles are located in the <code>jms</code> section of <code>&lt;INSTALL_HOME&gt;/conf/config.yml</code>.
@@ -5900,7 +5917,7 @@ You can use <code>Run Agent (console)</code> shortcut to ensure the agent is suc
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"On premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Agent setup","level":"1.13.1","depth":2,"anchor":"#setting-up-on-prem-access","path":"on-prem.md","ref":"on-prem.md#setting-up-on-prem-access","articles":[]},"previous":{"title":"Packages import behaviour","level":"1.12.1.3","depth":3,"anchor":"#packages-import-behaviour","path":"recipe-development-lifecycle.md","ref":"recipe-development-lifecycle.md#packages-import-behaviour","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem.md","mtime":"2018-04-23T10:18:48.652Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-23T10:20:33.200Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"On premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Agent setup","level":"1.13.1","depth":2,"anchor":"#setting-up-on-prem-access","path":"on-prem.md","ref":"on-prem.md#setting-up-on-prem-access","articles":[]},"previous":{"title":"Packages import behaviour","level":"1.12.1.3","depth":3,"anchor":"#packages-import-behaviour","path":"recipe-development-lifecycle.md","ref":"recipe-development-lifecycle.md#packages-import-behaviour","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem.md","mtime":"2018-04-23T16:20:18.950Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-23T16:21:22.455Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
