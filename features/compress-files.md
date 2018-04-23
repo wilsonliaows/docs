@@ -48,7 +48,7 @@ The recipe may look a bit daunting at first, but once you get the idea it is act
 ![Add file to a list](/assets/images/features/files-and-attachments/compress-files-add-list-0.png)
 ![list-0 contents](/assets/images/features/files-and-attachments/compress-files-list-0-contents.png)
 
-- Repeat this step for the rest of the files. In this example, there are 3 files in total. We save them into 3 list: `list-0`, `list-1`, `list-2`:
+- Repeat this step for the rest of the files. In this example, there are 3 files in total. We save them into 3 lists: `list-0`, `list-1`, `list-2`:
 
 ![Add 3 files into 3 lists](/assets/images/features/files-and-attachments/compress-files-3-lists.png)
 
