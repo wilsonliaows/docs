@@ -266,10 +266,13 @@ Salesforce supports capabilities for bulk data load. Workato uses the [bulk API 
 #### Create/update/upsert objects in bulk via CSV file
 There are 4 main sections/components in these bulk actions.
 
+![Salesforce bulk create via CSV file action sections](/assets/images/salesforce-docs/bulk-create-action-sections.png)
+*Salesforce bulk create via CSV file action sections*
+
 | Action section                            | Description                                                                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | CSV file input                            | Define the schema of the CSV files containing Salesforce bulk load data.                                                                      |
-| Salesforce object to create/update/upsert | Define the Salesforce object to write to, as well as related required fields such as `Salesforce ID` for update and `External ID` for upsert. |
+| Salesforce object to create/update/upsert | Define the Salesforce object to write to, as well as `External ID` for upsert operation. |
 | CSV to Salesforce field mapping           | Describe how the CSV data columns should map into Salesforce object fields.                                                                   |
 | Advanced configuration                    | Define the size per Salesforce bulk job. Define whether this action should be synchronous or asynchronous.                                    |
 
@@ -286,7 +289,7 @@ In this section, define the schema of the CSV files containing Salesforce bulk l
 | File content          | Provide the CSV file content here. This would typically be a datapill from a `Download file` action or from a `New file` trigger.                                                                                               |
 | Column separator      | Describe the delimiter of your file - this can be comma, tab, colon, pipe or space.                                                                                                                                             |
 | Contains header line? | Describe whether the CSV file content you're providing contains a header line or not. This will tell Workato whether to skip the first line for processing, because we don't want to inaccurately process header lines as data. |
-| Columns names         | Describe the names of the data columns in your CSV file. This will subsequently be used to generate the available CSV data for mapping into Salesforce in the `CSV to Salesforce field mapping` section                         |
+| Columns names         | Describe the names of the data columns in your CSV file. This will be used to generate the available CSV data for mapping into Salesforce in the `CSV to Salesforce field mapping` section.                         |
 
 This is how the section should look after configuration.
 
@@ -333,9 +336,6 @@ In this section, define whether the action should be synchronous or asynchronous
 
 You can also define the size of the CSV file chunk per Salesforce bulk job. This defaults to 10MB. 
 
-![Salesforce bulk create via CSV file action sections](/assets/images/salesforce-docs/bulk-create-action-sections.png)
-*Salesforce bulk create via CSV file action sections*
-
 ##### Understanding the output datatree
 The bulk operation's output datatree contains the following.
 
@@ -345,11 +345,16 @@ The bulk operation's output datatree contains the following.
 | Output datapill                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | All records successfully processed? | True if all CSV rows across Salesforce bulk jobs are processed successfully. False if any CSV rows across Salesforce bulk jobs failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Number of records failed            | Total number of CSV rows that failed to be loaded as Salesforce records successfully.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Number of retried records           | Total number of CSV rows that were retried to be loaded as Salesforce records successfully. Only relevant for the retry action.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Number of records processed         | Total number of CSV rows that were processed in total by Salesforce (could have failed or succeeded).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| CSV content with failed records     | CSV file content containing CSV rows in the original API request which failed to be successfully processed in the action.  2 additional rows are added to this CSV file - sf__Error and sf__Id. Refer to the [Salesforce documentation](https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_failed_results.htm) for more information.                                                                                                                                                                                                                                                                                                                                                      |
-| List of Salesforce bulk jobs        | If CSV file is large, Workato will split the CSV file into chunks and process them as separate Salesforce bulk jobs in order to comply with Salesforce API size limits.  Each bulk job in the list will have the following data. `Records of jobs successfully processed?`: True if no records failed, false otherwise `Job ID`: Internal Salesforce ID of the Salesforce bulk job created `Number of records failed`: Number of records failed to be processed successfully by Salesforce `Number of records processed`: Number of records processed in total by Salesforce (i.e. number of rows in CSV file excluding header row) `List`: Synthetic field that tells us how many Salesforce bulk jobs were created in total |
+| Number of records failed            | Total number of CSV rows that failed to be successfully processed in Salesforce.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Number of retried records           | Total number of CSV rows that were retried to be processed in Salesforce. Only relevant for the retry action.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Number of records processed         | Total number of CSV rows that were processed in total by Salesforce (failed + succeeded).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| CSV content with failed records     | CSV file content containing CSV rows in the original API request which failed to be successfully processed.  2 additional columns are added to this CSV file - sf__Error and sf__Id. Refer to the [Salesforce documentation](https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_failed_results.htm) for more information.                                                                                                                                                                                                                                                                                                                                                      |
+| List of Salesforce bulk jobs        | If CSV file is large, Workato will split the CSV file into chunks and process them as separate Salesforce bulk jobs in order to comply with Salesforce API size limits.  Each bulk job in the list will have the following data.
+- `Records of jobs successfully processed?`: True if no records failed, false otherwise
+- `Job ID`: Internal Salesforce ID of the Salesforce bulk job created
+- `Number of records failed`: Number of records failed to be processed successfully by Salesforce
+- `Number of records processed`: Number of records processed in total by Salesforce (i.e. number of rows in CSV file excluding header row)
+- `List`: Synthetic field that tells us how many Salesforce bulk jobs were created in total |
 
 The aggregated results across bulk jobs can be found at the top of the datatree.
 
@@ -370,12 +375,12 @@ The retry action is synchronous. This means that the recipe will only continue t
 *Configured Salesforce bulk retry action*
 
 #### Example recipe
-Let's go through an example recipe using the bulk upsert via CSV file action. 
+Let's go through an example recipe using the bulk upsert via CSV file action as well as the retry bulk job action. 
 
 ![Sample recipe - Salesforce bulk upsert via CSV file](/assets/images/salesforce-docs/sample-bulk-upsert-recipe.png)
 *Sample recipe - Salesforce bulk upsert via CSV file. [Example recipe](https://www.workato.com/recipes/686080)*
 
-The S3 trigger monitors new CSV files dropped into an S3 bucket, and we stream the data from the CSV file into Salesforce via the `Upsert objects in bulk via CSV file` Salesforce action. If this upsert operation is not fully successful, i.e. at least 1 CSV row did not get written into Salesforce successfully, we use the `Retry objects bulk job in Salesforce via CSV file` Salesforce action to attempt to write the failed CSV rows into Salesforce again.
+The S3 trigger monitors new CSV files dropped into an S3 bucket, and we stream the data from the CSV file into Salesforce via the `Upsert objects in bulk via CSV file` Salesforce action. If this upsert operation is not fully successful, i.e. at least 1 CSV row did not get written into Salesforce successfully, we use the `Retry objects bulk job in Salesforce via CSV file` action to attempt to write the failed CSV rows into Salesforce again.
 
 The Salesforce actions `Upsert objects in bulk via CSV file` and `Retry objects bulk job in Salesforce via CSV file` will manage large files for you. For large CSV files over a couple of GBs in size, Workato will chunk the CSV file into sizes under the Salesforce bulk API size limits and create multiple Salesforce bulk jobs.
 
@@ -395,7 +400,7 @@ Here is the configured bulk upsert action.
 
 Subsequently, the recipe checks to see if any records failed to be processed successfully by Salesforce. this could be due to many reasons such as:
 - data errors
-- records were locked as someone else was editing them
+- records were locked as someone else/another process was editing them
 - network issues
 
 ![If condition checking for any failed records](/assets/images/salesforce-docs/if-condition-for-successful-bulk-jobs.png)
