@@ -183,7 +183,7 @@ Column names that do not conform to standard rules (includes spaces, lower-case 
 "PUBLISHER NAME" = 'USD'
 ```
 
-![WHERE condition with enclosed identifier](/assets/images/oracle/where_condition_with_enclosed_idEntifier.png)
+![WHERE condition with enclosed identifier](/assets/images/oracle/where_condition_with_enclosed_identifier.png)
 *`WHERE` condition with enclosed identifier*
 
 #### Complex statements
