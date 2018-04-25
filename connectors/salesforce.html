@@ -5601,12 +5601,12 @@
 <p>To upload an attachment <strong>to</strong> Salesforce using Workato, you can use the <strong>Create Object</strong> Action, and select <strong>Attachment</strong> under the <strong>Object</strong> field. Before that however, you need to have a step that downloads the file that is to be uploaded to Salesforce. You may use the <strong>Box</strong> action <strong>get file download URL</strong>, followed by using the <strong>utilities</strong> tool to upload it from the obtained URL, or a simillar flow of actions with another connector.  You can check out <a href="http://docs.workato.com/handling-files-and-attachments.html#example-of-using-utilities-to-download-file-from-public-url" target="_blank">this example here</a> on how to download a file to Workato.</p>
 <h4 id="downloading">Downloading</h4>
 <p>To download an attachment <strong>from</strong> Salesforce, you can use the <strong>Download file</strong> Action.  The <strong>file ID</strong> must be obtained from a previous step, usually from the <strong>Get object details</strong> step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the <strong>Upload file</strong> action in the <strong>Box</strong> connector.</p>
-<h2 id="working-with-soql-in-salesforce">Working with SOQL in Salesforce</h2>
+<h3 id="working-with-soql-in-salesforce">Working with SOQL in Salesforce</h3>
 <p><strong>Salesforce Object Query Language (SOQL)</strong> is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).</p>
 <p>In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting).</p>
 <p>The recipe will automatically handle the SELECT FROM portion of your query. It will SELECT all fields FROM the object you choose from the pick list. For optional clauses, the trigger currently only supports WHERE conditions.</p>
 <p>For a list of standard fields for major Salesforce objects, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm" target="_blank">Salesforce Fields Reference</a>.</p>
-<h3 id="inputting-soql-where-conditions-syntax">Inputting SOQL WHERE Conditions (Syntax):</h3>
+<h4 id="inputting-soql-where-conditions-syntax">Inputting SOQL WHERE Conditions (Syntax):</h4>
 <p>The WHERE clause follows field expression syntax. A <strong>fieldExpression</strong> is defined as follows: \<fieldname\> \<comparisonoperator\> \<value\>.</value\></comparisonoperator\></fieldname\></p>
 <p><strong>Comparison operators:</strong>
 Comparison operators include the following: =, !=, &lt;, &lt;=, &gt;, &gt;=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:</p>
@@ -5622,7 +5622,217 @@ Multiple field expressions can be joined using logical operators. These include:
 <p>Here is an example showing two fieldExpressions joined by a logical operator:</p>
 <p><img src="../assets/images/salesforce-docs/salesforce-soql-example-2.png" alt="SOQL-2"></p>
 <p>For more information on logical operators, see: <a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm" target="_blank">Logical Operators</a>.</p>
-<h3 id="date-formats-and-date-literals">Date Formats and Date Literals:</h3>
+<h3 id="working-with-bulk-data-load-jobs-in-salesforce">Working with bulk data load jobs in Salesforce</h3>
+<p>Salesforce supports capabilities for bulk data load. Workato uses the <a href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/introduction_bulk_api_2.htm" target="_blank">bulk API 2.0</a> to support the loading of data in bulk from a CSV file into Salesforce. Supported operations are:</p>
+<ul>
+<li>Create objects in bulk via CSV file</li>
+<li>Update objects in bulk via CSV file</li>
+<li>Upsert objects in bulk via CSV file</li>
+<li>Retry objects bulk job in Salesforce via CSV file</li>
+</ul>
+<p>The difference between bulk load via CSV file actions and non-CSV file bulk actions are as follows.</p>
+<table>
+<thead>
+<tr>
+<th>Bulk load via CSV file</th>
+<th>Non-CSV bulk actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Can process millions of records</td>
+<td>Limited to 2k records per action</td>
+</tr>
+<tr>
+<td>Does not support data transformation</td>
+<td>Supports data transformation</td>
+</tr>
+<tr>
+<td>Data is streamed only from CSV file into bulk action</td>
+<td>Data can be from multiple sources into bulk action</td>
+</tr>
+</tbody>
+</table>
+<h4 id="createupdateupsert-objects-in-bulk-via-csv-file">Create/update/upsert objects in bulk via CSV file</h4>
+<p>There are 4 main sections/components in these bulk actions.</p>
+<p><img src="../assets/images/salesforce-docs/bulk-create-action-sections.png" alt="Salesforce bulk create via CSV file action sections">
+<em>Salesforce bulk create via CSV file action sections</em></p>
+<table>
+<thead>
+<tr>
+<th>Action section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="salesforce.html#csv-file-input">CSV file input</a></td>
+<td>Define the schema of the CSV files containing Salesforce bulk load data.</td>
+</tr>
+<tr>
+<td><a href="connectors/salesforce.md#salesforce-object-to-createupdateupsert">Salesforce object to create/update/upsert</a></td>
+<td>Define the Salesforce object to write to, as well as <code>External ID</code> for upsert operation.</td>
+</tr>
+<tr>
+<td><a href="salesforce.html#csv-to-salesforce-field-mapping">CSV to Salesforce field mapping</a></td>
+<td>Describe how the CSV data columns should map into Salesforce object fields.</td>
+</tr>
+<tr>
+<td><a href="salesforce.html#advanced-configuration">Advanced configuration</a></td>
+<td>Define the size per Salesforce bulk job. Define whether this action should be synchronous or asynchronous.</td>
+</tr>
+</tbody>
+</table>
+<p>Let&apos;s go into each section in detail.</p>
+<h5 id="csv-file-input">CSV file input</h5>
+<p>In this section, define the schema of the CSV files containing Salesforce bulk load data. This enables Workato to read and extract data from your CSV files and move it into Salesforce accurately. These are the fields to fill in:</p>
+<p><img src="../assets/images/salesforce-docs/unconfigured-bulk-action-csv-file-input-section.png" alt="Salesforce bulk action - unconfigured CSV file input section">
+<em>Salesforce bulk action - unconfigured CSV file input section</em></p>
+<table>
+<thead>
+<tr>
+<th>Input field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File content</td>
+<td>Provide the CSV file content here. This would typically be a datapill from a <strong>Download file</strong> action or from a <strong>New file</strong> trigger.</td>
+</tr>
+<tr>
+<td>Column separator</td>
+<td>Describe the delimiter of your file - this can be comma, tab, colon, pipe or space.</td>
+</tr>
+<tr>
+<td>Contains header line?</td>
+<td>Describe whether the CSV file content you&apos;re providing contains a header line or not. This will tell Workato whether to skip the first line for processing, because we don&apos;t want to inaccurately process header lines as data.</td>
+</tr>
+<tr>
+<td>Columns names</td>
+<td>Describe the names of the data columns in your CSV file. This will be used to generate the available CSV data for mapping into Salesforce in the <strong>CSV to Salesforce field mapping</strong> section.</td>
+</tr>
+</tbody>
+</table>
+<p>This is how the section should look after configuration.</p>
+<p><img src="../assets/images/salesforce-docs/bulk-action-csv-file-input-section.png" alt="Salesforce bulk action - configured CSV file input section">
+<em>Salesforce bulk action - configured CSV file input section</em></p>
+<p>In our example, we used the sample CSV file below.</p>
+<pre><code>external_id,first_name,last_name,total_recipe_count
+&quot;a0K1h000003fXSS&quot;,&quot;Jenna&quot;,&quot;Minnes&quot;,&quot;54&quot;
+&quot;a0K1h000003fehx&quot;,&quot;Kathrine&quot;,&quot;Lecompte&quot;,&quot;12&quot;
+&quot;a0K1h000003fjnv&quot;,&quot;Mariela&quot;,&quot;Fester&quot;,&quot;28&quot;
+</code></pre><h5 id="salesforce-object-to-createupdateupsert">Salesforce object to create/update/upsert</h5>
+<p>For the create and update operations, select the Salesforce object you wish to write to.</p>
+<p><img src="../assets/images/salesforce-docs/salesforce-object-to-bulk-create-config.png" alt="Salesforce bulk create action - configured Salesforce object section">
+<em>Salesforce bulk create action - configured Salesforce object section</em></p>
+<p>For the upsert operations, select the Salesforce object you wish to write to as well as the external ID field of the object. In order to carry out the bulk upsert action, your Salesforce object must have an external ID field.</p>
+<p><img src="../assets/images/salesforce-docs/salesforce-object-to-bulk-upsert-config.png" alt="Salesforce bulk upsert action - configured Salesforce object section">
+<em>Salesforce bulk upsert action - configured Salesforce object section</em></p>
+<h5 id="csv-to-salesforce-field-mapping">CSV to Salesforce field mapping</h5>
+<p>In this section, describe how your data should flow from the CSV file into the Salesforce object. The input fields are generated from your selection of Salesforce object to create/update/upsert, while the picklist is generated from your CSV column names in the <strong>CSV file input</strong> section.</p>
+<p>When unconfigured, this section will not map any data into Salesforce.</p>
+<p><img src="../assets/images/salesforce-docs/bulk-action-unconfigured-fields-mapping.png" alt="Salesforce bulk upsert action - unconfigured fields mapping section">
+<em>Salesforce bulk upsert action - unconfigured fields mapping section</em></p>
+<p>For each field that you wish to write to in Salesforce, select which column of the CSV file the data should come from. This action does not allow datapills or data transformation via formula mode as it streams the CSV file data into Salesforce.</p>
+<p>This is how the section should look after configuration.</p>
+<p><img src="../assets/images/salesforce-docs/bulk-action-configured-fields-mapping.png" alt="Salesforce bulk upsert action - configured fields mapping section">
+<em>Salesforce bulk upsert action - configured fields mapping section</em></p>
+<h5 id="advanced-configuration">Advanced configuration</h5>
+<p>In this section, define whether the action should be synchronous or asynchronous. If synchronous, Workato waits for Salesforce to complete the bulk job processing before moving to the next recipe action. If asynchronous, Workato simply uploads the CSV file content into Salesforce and move to the next recipe action without waiting for Salesforce to complete the bulk job processing.</p>
+<p>You can also define the size of the CSV file chunk per Salesforce bulk job. This defaults to 10MB. </p>
+<h5 id="understanding-the-output-datatree">Understanding the output datatree</h5>
+<p>The bulk operation&apos;s output datatree contains the following.</p>
+<p><img src="../assets/images/salesforce-docs/bulk-operation-datatree.gif" alt="Salesforce bulk operation output datatree">
+<em>Salesforce bulk operation output datatree</em></p>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th>Output datapill</th>
+        <th colspan="2">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All records successfully processed?</td>
+      <td colspan="2">True if all CSV rows across Salesforce bulk jobs are processed successfully. False if any CSV rows across Salesforce bulk jobs failed.</td>
+    </tr>
+    <tr>
+      <td>Number of records failed</td>
+      <td colspan="2">Total number of CSV rows that failed to be successfully processed in Salesforce.</td>
+    </tr>
+    <tr>
+      <td>Number of retried records</td>
+      <td colspan="2">Total number of CSV rows that were retried to be processed in Salesforce. Only relevant for the retry action.</td>
+    </tr>
+    <tr>
+      <td>Number of records processed</td>
+      <td colspan="2">Total number of CSV rows that were processed in total by Salesforce (failed + succeeded).</td>
+    </tr>
+    <tr>
+      <td>CSV content with failed records</td>
+      <td colspan="2">CSV file content containing CSV rows in the original API request which failed to be successfully processed.  2 additional columns are added to this CSV file - **sf__Error** and **sf__Id**. Refer to the <a href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_failed_results.htm" target="_blank">Salesforce documentation</a> for more information.</td>
+    </tr>
+    <tr>
+      <td rowspan="5">Salesforce bulk jobs</td>
+      <td colspan="2">If CSV file is large, Workato will split the CSV file into chunks and process them as separate Salesforce bulk jobs in order to comply with Salesforce API size limits.<br><br>Each bulk job in the list will have the following data.</td>
+    </tr>
+    <tr>
+      <td>Job ID</td>
+      <td>Internal Salesforce ID of the Salesforce bulk job created</td>
+    </tr>
+    <tr>
+      <td>Number of records failed</td>
+      <td>Number of records failed to be processed successfully by Salesforce</td>
+    </tr>
+    <tr>
+      <td>Number of records processed</td>
+      <td>Number of records processed in total by Salesforce (i.e. number of rows in CSV file excluding header row)</td>
+    </tr>
+    <tr>
+      <td>List size</td>
+      <td>Synthetic field that tells us how many Salesforce bulk jobs were created in total</td>
+    </tr>
+  <tbody>
+</tbody></tbody></table>
+
+<p>The aggregated results across bulk jobs can be found at the top of the datatree.</p>
+<p><img src="../assets/images/salesforce-docs/bulk-operation-datatree-aggregate-numbers.png" alt="Salesforce bulk operation output datatree - aggregated results across bulk jobs">
+<em>Salesforce bulk operation output datatree - aggregated results across bulk jobs</em></p>
+<p>The list of Salesforce bulk jobs can be found at the bottom of the datatree.</p>
+<p><img src="../assets/images/salesforce-docs/bulk-operation-datatree-array-of-jobs.png" alt="Salesforce bulk operation output datatree - list of bulk jobs">
+<em>Salesforce bulk operation output datatree - list of bulk jobs</em></p>
+<h4 id="retry-bulk-job-for-failed-records-from-csv-file">Retry bulk job for failed records from CSV file</h4>
+<p>The retry action has a single input field <strong>CSV content with failed records</strong> that expects the <kbd>CSV content with failed records</kbd> datapill from a previous Salesforce bulk operation action. By passing that CSV content in, Workato will understand the previous configuration you have done (i.e. what your CSV file looks like, what Salesforce object to write to and how the CSV data should be mapped into Salesforce fields).</p>
+<p>The retry action is synchronous. This means that the recipe will only continue to the next action when Salesforce has finished processing all CSV rows into Salesforce.</p>
+<p><img src="../assets/images/salesforce-docs/configured-bulk-retry-action.png" alt="Configured Salesforce bulk retry action">
+<em>Configured Salesforce bulk retry action</em></p>
+<h4 id="example-recipe">Example recipe</h4>
+<p>Let&apos;s go through an example recipe using the bulk upsert via CSV file action as well as the retry bulk job action. </p>
+<p><img src="../assets/images/salesforce-docs/sample-bulk-upsert-recipe.png" alt="Sample recipe - Salesforce bulk upsert via CSV file">
+<em>Sample recipe - Salesforce bulk upsert via CSV file. <a href="https://www.workato.com/recipes/686080" target="_blank">Example recipe</a></em></p>
+<p>The S3 trigger monitors new CSV files dropped into an S3 bucket, and we stream the data from the CSV file into Salesforce via the <strong>Upsert objects in bulk via CSV file</strong> Salesforce action. If this upsert operation is not fully successful, i.e. at least 1 CSV row did not get written into Salesforce successfully, we use the <strong>Retry objects bulk job in Salesforce via CSV file</strong> action to attempt to write the failed CSV rows into Salesforce again.</p>
+<p>The Salesforce actions <strong>Upsert objects in bulk via CSV file</strong> and <strong>Retry objects bulk job in Salesforce via CSV file</strong> will manage large files for you. For large CSV files over a couple of GBs in size, Workato will chunk the CSV file into sizes under the Salesforce bulk API size limits and create multiple Salesforce bulk jobs.</p>
+<p>The CSV file we use is as follows.</p>
+<pre><code>external_id,first_name,last_name,total_recipe_count
+&quot;a0K1h000003fXSS&quot;,&quot;Jenna&quot;,&quot;Minnes&quot;,&quot;54&quot;
+&quot;a0K1h000003fehx&quot;,&quot;Kathrine&quot;,&quot;Lecompte&quot;,&quot;12&quot;
+&quot;a0K1h000003fjnv&quot;,&quot;Mariela&quot;,&quot;Fester&quot;,&quot;28&quot;
+</code></pre><p>Here is the configured bulk upsert action.</p>
+<p><img src="../assets/images/salesforce-docs/configured-bulk-upsert-action.png" alt="Configured Salesforce bulk upsert action">
+<em>Configured Salesforce bulk upsert action</em></p>
+<p>Subsequently, the recipe checks to see if any records failed to be processed successfully by Salesforce. this could be due to many reasons such as:</p>
+<ul>
+<li>data errors</li>
+<li>records were locked as someone else/another process was editing them</li>
+<li>network issues</li>
+</ul>
+<p><img src="../assets/images/salesforce-docs/if-condition-for-successful-bulk-jobs.png" alt="If condition checking for any failed records">
+<em>If condition checking for any failed records</em></p>
+<p>If any records failed, <kbd>All records successfully processed?</kbd> will be <code>false</code>, and the recipe will proceed to carry out the retry action.</p>
+<p><img src="../assets/images/salesforce-docs/configured-retry-object-bulk-job-in-sample-recipe.png" alt="Configured retry bulk operation action">
+<em>Configured retry bulk operation action</em></p>
+<h3 id="date-formats-and-date-literals">Date formats and date literals:</h3>
 <p>To filter on date fields in a query, you must use Date only format. The syntax for this is: YYYY-MM-DD.
 To filter on dateTime fields in a query, you must use the format including: date, time, and time zone offset. There are three possible syntax formats for this:</p>
 <ul>
@@ -5779,7 +5989,7 @@ For date fields, add &#x2018;.to_date&#x2019; to the end of your date formula to
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Salesforce","date":"2017-02-16T06:15:00.000Z","level":"1.16.20","depth":2,"next":{"title":"Connection setup","level":"1.16.20.1","depth":3,"anchor":"#how-to-connect-to-salesforce-on-workato","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#how-to-connect-to-salesforce-on-workato","articles":[]},"previous":{"title":"Stop recipe action","level":"1.16.19.9","depth":3,"anchor":"#stop-recipe-action","path":"recipe-ops.md","ref":"recipe-ops.md#stop-recipe-action","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2018-04-24T14:26:40.678Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-24T14:27:54.939Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Salesforce","date":"2017-02-16T06:15:00.000Z","level":"1.16.20","depth":2,"next":{"title":"Connection setup","level":"1.16.20.1","depth":3,"anchor":"#how-to-connect-to-salesforce-on-workato","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#how-to-connect-to-salesforce-on-workato","articles":[]},"previous":{"title":"Stop recipe action","level":"1.16.19.9","depth":3,"anchor":"#stop-recipe-action","path":"recipe-ops.md","ref":"recipe-ops.md#stop-recipe-action","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce.md","mtime":"2018-04-25T04:51:43.478Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-25T04:52:52.397Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
