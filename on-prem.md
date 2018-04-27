@@ -270,6 +270,28 @@ kafka:
 
 Note that password-protected private keys cannot be inlined.
 
+### NTLM connection profile
+Using NTLM connection profile it is possible to access HTTP resources with NTLM authentication.
+```YAML
+ntlm:
+  MyNtlmProfile:
+    auth: "username:password@domain/workstation"
+    base_url: "http://myntlmhost.com"
+    cm_default_max_per_route: 15
+    cm_max_total: 100
+```
+
+The following properties are supported:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| auth | NTLM authentication credentials |
+| base_url | The base URL for NTLM resources |
+| cm_default_max_per_route | (Optional) Sets the number of connections per route (default 5) |
+| cm_max_total | (Optional) Sets the maximum number of connections (default 10) |
+
+HTTP methods supported: GET, POST, PUT, PATCH, DELETE, HEAD
+
 ### Password encryption
 
 To avoid exposure of any sensitive data (like passwords or private keys) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:
