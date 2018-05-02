@@ -317,7 +317,6 @@
   * [Dependent pick lists](developing-connectors/sdk/dependent-pick-list.md)
   * [Configuration fields](developing-connectors/sdk/config-fields.md)
   * [Examples](developing-connectors/sdk/examples.md)
-  * [Publishing process](developing-connectors/sdk/publishing-process.md)
 * [Workato API](https://www.workato.com/apidoc)
 * [Security](security.md)
   * [IP whitelists](security.md#ip_whitelists)
