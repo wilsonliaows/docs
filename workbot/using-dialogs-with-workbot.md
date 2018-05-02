@@ -4,7 +4,7 @@ date: 2018-04-26 00:00:00 Z
 ---
 
 # Using Dialogs with Workbot
-Workbot can be used to invoke Slack Dialogs; an awesome Slack feature that allows you to elicit info in a more interactive way.
+Workbot can be used to invoke [Slack Dialogs](https://api.slack.com/dialogs); an awesome Slack feature that allows you to elicit info in a more interactive way.
 
 ![Dialog gif](/assets/images/workbot/workbot-dialogs/dialog-gif.gif)
 
@@ -12,34 +12,34 @@ Workbot can invoke dialogs to, say, collect info from a user to open a ticket in
 
 ## Concept
 To create a dialog workflow, you need 3 recipes to perform 3 high-level functions:
-1. **Invoke dialog**
-When triggered, the action in this recipe ***invokes*** a dialog.
+1. **Trigger a post dialog recipe**
+When triggered, the action in this recipe ***triggers*** the second recipe which in turn invokes the dialog. We'll call this the **Trigger recipe**.
 
 2. **Post dialog**
-When triggered, the action in this recipe ***configures*** the dialog.
+When triggered, the action in this recipe ***posts*** the dialog.
 
 3. **Execute actions**
 When the dialog is submitted, the actions in this recipe ***executes*** the follow-up actions.
 
 ![Dialog diagram](/assets/images/workbot/workbot-dialogs/anatomy-of-a-dialog.png)
 
-From a recipe standpoint, the **Invoke dialog** recipe triggers the **Post dialog** reicpe, which in turn triggers the **Execute actions** recipe.
+From a recipe standpoint, the first recipe triggers the **Trigger recipe**, which in turn triggers the **Execute actions** recipe.
 
 This is because invoking dialogs requires `Trigger ID`, something that's only generated from button or menu option click events on Slack.
 
-Check out these simple recipes to see dialogs in action: [Invoke dialog](https://www.workato.com/recipes/673215-1-invoke-dialog#recipe), [Post dialog](https://www.workato.com/recipes/673218-2-configure-dialog#recipe), and [Execute actions](https://www.workato.com/recipes/673219-3-actions#recipe)
+Check out these simple recipes to see dialogs in action: [Trigger recipe](https://www.workato.com/recipes/673215-1-invoke-dialog#recipe), [Post dialog](https://www.workato.com/recipes/673218-2-configure-dialog#recipe), and [Execute actions](https://www.workato.com/recipes/673219-3-actions#recipe)
 
-### Invoking dialogs
+### Triggering a post dialog recipe
 
-To invoke dialogs, use either the **Post command reply** or **Post message** Workbot actions.
+To trigger a post dialog recipe, use either the **Post command reply** or **Post message** Workbot actions.
 
-Regardless of which Workbot action you choose, a dialog can be invoked using 2 methods:
+Regardless of which Workbot action you choose, the dialog recipe can be triggered via 2 methods:
 
 #### 1. Buttons
 
 ![Buttons](/assets/images/workbot/workbot-dialogs/invoke-with-buttons.png)
 
-The **Submit button command** field is especially important - this command will trigger the recipe that posts the dialog (i.e. the **Invoke dialog** recipe).
+The **Submit button command** field is especially important - this command will trigger the recipe that posts the dialog (i.e. the **Trigger recipe**).
 
 ![Submit button command](/assets/images/workbot/workbot-dialogs/submit-button-command.png)
 
@@ -47,7 +47,7 @@ The **Submit button command** field is especially important - this command will 
 
 ![Menu options](/assets/images/workbot/workbot-dialogs/invoke-with-menu-options.png)
 
-The **Submit menu option command** field is especially important - this command will trigger the recipe that posts the dialog (i.e. the **Invoke dialog** recipe)
+The **Submit menu option command** field is especially important - this command will trigger the recipe that posts the dialog (i.e. the **Trigger recipe**)
 
 ![Submit menu option command](/assets/images/workbot/workbot-dialogs/submit-menu-option-command.png)
 
@@ -56,11 +56,11 @@ Clicking either buttons or menu options in Slack triggers an event that comes wi
 In the example above, both the button and the menu option sends a Workbot command to `collect issue details`.
 
 ### Posting a dialog
-To ensure that the dialog in this recipe is the one to be invoked, the submit button or menu option commands in the **Invoke dialog** recipe must map to the **Post command** trigger in this post dialog recipe.
+To ensure that the dialog in this recipe is the one to be invoked, the submit button or menu option commands in the **Trigger recipe** must map to the **Post command** trigger in this post dialog recipe.
 
 ![Mapping invocation with dialog](/assets/images/workbot/workbot-dialogs/mapping-invocation-to-dialog.png)
 
-The **Post dialog** recipe uses the Workbot **Post command** trigger to receive commands from the buttons or menu options in the **Invoke dialog** recipe.
+The **Post dialog** recipe uses the Workbot **Post command** trigger to receive commands from the buttons or menu options in the **trigger** recipe.
 
 In this example **Post dialog** [recipe](https://www.workato.com/recipes/673218-2-configure-dialog#jobs), both the submit button and submit menu option commands `collect issue details` are identical to the **Post dialog** trigger `collect issue details`.
 
@@ -119,7 +119,7 @@ The following table lists the available fields in the **Post dialog** action.
         <tr>
             <td>Dialog form fields</td>
             <td>
-              JSON generated from the command input fields of recipe that is executed from the <b>Submit button command</b> above. Max of 5 fields</td>
+            this will be <b>automatically</b> generated upon selecting a command in <b>Submit button command</b> input field. Max of 5 fields</td>
             <td>
               This defines the fields that appear in the dialog. <br><br>Modify this to include hints, error handling, picklist options, etc. for your dialog.<br><br>Do not change the "name" values as they should match that of the command input fields of the recipe executed from the <b>Submit button command</b> above. See the example JSON from the <b>Post dialog</b> <a href='https://www.workato.com/recipes/673218-2-configure-dialog#recipe'> recipe.
             </td>
@@ -147,7 +147,7 @@ Given that dialogs involve using multiple recipes, it's normal to encounter some
 
 ![App, action, action data](/assets/images/workbot/workbot-dialogs/app-action-actiondata.png)
 
-Ensure that the App, Action, and Action data of Post command triggers in any of your recipes are unique across your Workato account. Any submit button or submit menu option command should only be mapped to 1 recipe only.
+Ensure that the combination of all 3 **App**, **Action**, and **Action data** of Post command triggers in any of your recipes are unique across your Workato account. Any submit button or submit menu option command should only be mapped to 1 recipe.
 
 For example, the recipe above should be the only recipe in that Workato account to have `github report bug` as its Post command trigger.
 
@@ -160,6 +160,6 @@ Ensure that dialog form field names from the **Post dialog** recipe correspond w
 ![Mapping dialog form fields with command input fields](/assets/images/workbot/workbot-dialogs/mapping-dialog-form-fields-to-command-input-fields.png)
 
 ## Try it out!
-Try dialogs out by adding these example **[Invoke dialog](https://www.workato.com/recipes/673215-1-invoke-dialog#recipe)**, **[Post dialog](https://www.workato.com/recipes/673218-2-configure-dialog#recipe)** and **[Execute actions](https://www.workato.com/recipes/673219-3-actions#recipe)** recipes, invoking them from Slack.
+Try dialogs out by adding these example **[trigger](https://www.workato.com/recipes/673215-1-invoke-dialog#recipe)**, **[Post dialog](https://www.workato.com/recipes/673218-2-configure-dialog#recipe)** and **[Execute actions](https://www.workato.com/recipes/673219-3-actions#recipe)** recipes, invoking them from Slack.
 
 ![Invoke, post, execute](/assets/images/workbot/workbot-dialogs/invoke-post-execute.gif)
