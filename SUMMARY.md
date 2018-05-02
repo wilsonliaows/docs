@@ -169,7 +169,7 @@
   * [Using Workbot for Slack](workbot/using-workbot-for-slack.md)
   * [Workbot basics: Commands](workbot/workbot-commands.md)
   * [Workbot basics: Command reply](workbot/workbot-command-reply.md)
-  * [Using Dialogs with Workbot](workbot/Using-dialogs-with-workbot.md)
+  * [Using Dialogs with Workbot](workbot/using-dialogs-with-workbot.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot personal connections](workbot/workbot-latebinding.md)
