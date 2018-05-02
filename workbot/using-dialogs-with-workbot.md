@@ -160,6 +160,6 @@ Ensure that dialog form field names from the **Post dialog** recipe correspond w
 ![Mapping dialog form fields with command input fields](/assets/images/workbot/workbot-dialogs/mapping-dialog-form-fields-to-command-input-fields.png)
 
 ## Try it out!
-Try dialogs out by adding these example **[trigger](https://www.workato.com/recipes/673215-1-invoke-dialog#recipe)**, **[Post dialog](https://www.workato.com/recipes/673218-2-configure-dialog#recipe)** and **[Execute actions](https://www.workato.com/recipes/673219-3-actions#recipe)** recipes, invoking them from Slack.
+Try dialogs out by adding these example **[Trigger recipe](https://www.workato.com/recipes/673215-1-invoke-dialog#recipe)**, **[Post dialog](https://www.workato.com/recipes/673218-2-configure-dialog#recipe)** and **[Execute actions](https://www.workato.com/recipes/673219-3-actions#recipe)** recipes, invoking them from Slack.
 
 ![Invoke, post, execute](/assets/images/workbot/workbot-dialogs/invoke-post-execute.gif)
