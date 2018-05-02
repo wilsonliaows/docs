@@ -92,7 +92,7 @@ The following table lists the available fields in the **Post dialog** action.
               Identifier for the dialog. Maximum length of 255 characters.
             </td>
             <td>
-            Pass command input values from the <b>Submit button</b> or <b>Submit menu option</b> commands defined in the recipe that <i>invokes</i> the dialog. <br><br>Ensure that the parameter names in the dialog-invoking recipe match the command input fields in the recipe that <i>posts</i> the dialog.
+            Pass command input values from the <b>Submit button</b> or <b>Submit menu option</b> commands defined in the trigger recipe. <img src="/assets/images/workbot/workbot-dialogs/button-command-input-values.png"></img><img src="/assets/images/workbot/workbot-dialogs/menu-option-command-input-values.png"></img> <br><br>Ensure that the parameter names in the trigger recipe match the command input fields in the recipe that <i>posts</i> the dialog.
             </td>
         </tr>
         <tr>
@@ -106,7 +106,7 @@ The following table lists the available fields in the **Post dialog** action.
             <td>
               Text label to display on the dialog <b>Submit</b> button. Single word input only.
             </td>
-            <td>Defaults to <b>Submit</b> when left blank. All dialogs will have a <b>Cancel</b> button by default.
+            <td>Defaults to <b>Submit</b> when left blank. All dialogs will have a <b>Cancel</b> button by default.<img src="/assets/images/workbot/workbot-dialogs/default-dialog-submit-cancel.png"></img>
             </td>
         </tr>
         <tr>
