@@ -167,8 +167,7 @@ database:
     SSL: false
 ```
 
-Any JDBC profile requires specifying `driverClass` property, which should point to fully-qualified name
-of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
+Any JDBC profile requires specifying `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
 note that your agent's classpath can be extended in `server` section of the configuration file:
 ```YAML
 server:
