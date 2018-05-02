@@ -57,7 +57,7 @@ A detailed comparison table for both the Slack connector and the Workbot for Sla
               <a href="https://api.slack.com/docs/message-menus">Message menus</a>
             </td>
             <td>Yes</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td>
@@ -93,7 +93,7 @@ A detailed comparison table for both the Slack connector and the Workbot for Sla
               No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel.
             </td>
             <td>
-              <a href="/workbot/using-workbot-for-slack.html#2-set-up-smart-notifications">Yes</a>. Recipes that post Workbot notifications have to be started, and notifications turned on in the Slack channels that should receive these notifications.
+              No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel.
             </td>
         </tr>
         <tr>
