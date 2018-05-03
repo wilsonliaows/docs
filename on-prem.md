@@ -287,8 +287,8 @@ The following properties are supported:
 |------------------|-------------------------------------------|
 | auth | NTLM authentication credentials |
 | base_url | The base URL for NTLM resources |
-| cm_default_max_per_route | (Optional) Sets the number of connections per route (default 5) |
-| cm_max_total | (Optional) Sets the maximum number of connections (default 10) |
+| cm_default_max_per_route | (Optional) Sets the number of connections per route/host (must be a positive number, default 5) |
+| cm_max_total | (Optional) Sets the maximum number of connections (must be a positive number, default 10) |
 
 HTTP methods supported: GET, POST, PUT, PATCH, DELETE, HEAD
 
