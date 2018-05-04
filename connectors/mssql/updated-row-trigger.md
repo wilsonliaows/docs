@@ -22,25 +22,25 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
     <tr>
       <td><a href="#table">Table</a></td>
       <td>
-        First, select a table/view to process rows from.
+        Select a table/view to process rows from.
       </td>
     </tr>
     <tr>
       <td><a href="#unique-key">Unique key</a></td>
       <td>
-        Next, select a unique key column to uniquely identify rows. This list of columns are generated from the selected table/view.
+        Select a unique key column to uniquely identify rows. This list of columns are generated from the selected table/view.
       </td>
     </tr>
     <tr>
       <td><a href="#sort-column">Sort column</a></td>
       <td>
-        Now, select a column to identify updated rows.
+        Select a column to identify updated rows.
       </td>
     </tr>
     <tr>
       <td><a href="#where-condition">WHERE condition</a></td>
       <td>
-        Finally, provide an optional <code>WHERE</code> condition to filter rows.
+        Provide an optional <code>WHERE</code> condition to filter rows.
       </td>
     </tr>
   </tbody>
@@ -69,25 +69,25 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
     <tr>
       <td><a href="#unique-key">Unique key</a></td>
       <td>
-        Next, select a unique key column to uniquely identify rows. This list of columns are generated from the selected table/view.
+        Select a unique key column to uniquely identify rows. This list of columns are generated from the selected table/view.
       </td>
     </tr>
     <tr>
       <td><a href="#sort-column">Sort column</a></td>
       <td>
-        Now, select a column to identify updated rows.
+        Select a column to identify updated rows.
       </td>
     </tr>
     <tr>
       <td><a href="#batch-size">Batch size</a></td>
       <td>
-        Next, configure the batch size to process in each individual job for this recipe.
+        Configure the batch size to process in each individual job for this recipe.
       </td>
     </tr>
     <tr>
       <td><a href="#where-condition">WHERE condition</a></td>
       <td>
-        Finally, provide an optional <code>WHERE</code> condition to filter rows.
+        Provide an optional <code>WHERE</code> condition to filter rows.
       </td>
     </tr>
   </tbody>
@@ -118,13 +118,19 @@ This trigger picks up rows when any rows matching the custom SQL are inserted/up
     <tr>
       <td><a href="#unique-key">Unique key</a></td>
       <td>
-        Next, select a unique key column to uniquely identify rows. This list of columns are generated from custom SQL provided.
+        Select a unique key column to uniquely identify rows. This list of columns are generated from custom SQL provided.
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#sort-column">Sort column</a></td>
+      <td>
+        Select a column to identify updated rows.
       </td>
     </tr>
     <tr>
       <td><a href="#batch-size">Batch size</a></td>
       <td>
-        Next, configure the batch size to process in each individual job for this recipe. This defaults to 100.
+        Configure the batch size to process in each individual job for this recipe. This defaults to 100.
       </td>
     </tr>
   </tbody>
