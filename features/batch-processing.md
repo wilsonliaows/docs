@@ -27,7 +27,7 @@ You can find batching-supported [triggers](https://docs.workato.com/recipes/trig
 
 ## Batch triggers
 
-For normal triggers, 1 [trigger event](https://docs.workato.com/recipes/triggers.html) often contains 1 data record. For example, "a new account is create in Salesforce" is 1 trigger event. It will trigger a Workato [recipe](https://docs.workato.com/workato-concepts.html#recipes) to create a [job](https://docs.workato.com/recipes/jobs.html) and process 1 data record (i.e. that new account in Salesforce).
+For normal triggers, 1 [trigger event](https://docs.workato.com/recipes/triggers.html) often contains 1 data record. For example, "a new account is created in Salesforce" is 1 trigger event. It will trigger a Workato [recipe](https://docs.workato.com/workato-concepts.html#recipes) to create a [job](https://docs.workato.com/recipes/jobs.html) and process 1 data record (i.e. that new account in Salesforce).
 
 For Batch triggers, 1 trigger event contains multiple records (e.g. 50 accounts in Salesforce). A job will thus process multiple records at once. The `Batch size` determines the maximum number of records in 1 trigger event.
 
