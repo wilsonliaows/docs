@@ -55,7 +55,7 @@ Batch create actions create multiple records in a single action (typically corre
 - move a list of records from source app to target app, or
 - prepare a list of records via building and accumulating data in a custom list, then moving that prepared list into the target app
 
-## Batch create action example
+### Batch create action example
 The following is an example scenario that imports new products from a Box CSV file into Salesforce via the **Bulk insert** action.
 
 ![Example recipe using list input](/assets/images/features/batch-processing/example-recipe-using-input-list.png)
