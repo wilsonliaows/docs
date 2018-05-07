@@ -4,6 +4,7 @@ date: 2017-03-06 15:30:00 Z
 ---
 
 # Batch processing
+
 Typically, 1 Workato [job](https://docs.workato.com/recipes/jobs.html) processes 1 row of data or 1 record. Batch processing simply means that 1 job processes multiple rows of data or multiple records. This will increase speed and data throughput when you move a large number of records from one app to another.
 
 Let's look at the example below to understand the concept of batch processing (or Batching).
@@ -16,7 +17,7 @@ Larger batch size means we need fewer jobs and fewer API calls to move the same 
 ![Batching example](/assets/images/features/batch-processing/batching-graph.png)
 *Time saving using Batching*
 
-You can find batching-supported triggers and actions in certain connectors, such as database connectors (SQL Server, MySQL, etc.), cloud storage connectors that work with CSV files (e.g. Box, Amazon S3), Salesforce connector, etc. For best result, always match a batch trigger with batch actions.
+You can find batching-supported [triggers](https://docs.workato.com/recipes/triggers.html) and [actions](https://docs.workato.com/recipes/actions.html) in certain connectors, such as database connectors (SQL Server, MySQL, etc.), cloud storage connectors that work with CSV files (e.g. Box, Amazon S3), Salesforce connector, etc. For best result, always match a batch trigger with batch actions.
 
 ![Batch trigger example](/assets/images/features/batch-processing/batch-trigger.png)
 *Example of a Batch trigger*
@@ -24,20 +25,11 @@ You can find batching-supported triggers and actions in certain connectors, such
 ![Batch action example](/assets/images/features/batch-processing/batch-action.png)
 *Example of a Batch action*
 
-## Technical Overview
-From a technical point of view, [Workato triggers](https://docs.workato.com/recipes/triggers.html) typically deliver a single trigger event at a time. i.e. each trigger event results in one job. Batch processing triggers allow users to process groups of trigger events at a time i.e. a group of events results in one job. The group size is usually configurable with typical values between 1 and 500 depending on the app you are integrating with.
-
-To maximize data throughput, you want to match batch triggers with batch actions. In addition, you can also increase throughput by increasing recipe concurrency.
-
-![Increasing throughput in Workato via different mechanisms](/assets/images/features/batch-processing/increasing-throughput.png)
-*Increasing throughput in Workato via different mechanisms*
-
 ## Batch triggers
-Batch triggers are similar to polling triggers in fetching trigger events. However, where polling triggers have trigger events corresponding to a single record, batch triggers have trigger events corresponding to a list of records. Maximum batch size can usually be defined in the trigger configuration.
 
-Each poll will fetch up to the maximum batch size specified. When less records are available, the trigger event will have less records.
+For normal triggers, 1 [trigger event](https://docs.workato.com/recipes/triggers.html) often contains 1 data record. For example, "a new account is create in Salesforce" is 1 trigger event. It will trigger a Workato [recipe](https://docs.workato.com/workato-concepts.html#recipes) to create a [job](https://docs.workato.com/recipes/jobs.html) and process 1 data record (i.e. that new account in Salesforce).
 
-This group of records is made available as a list within the job.
+For Batch triggers, 1 trigger event contains multiple records (e.g. 50 accounts in Salesforce). A job will thus process multiple records at once. The `Batch size` determines the maximum number of records in 1 trigger event.
 
 ### Batch trigger example
 The Salesforce batch trigger has a default value of 100. In this case, each trigger event will contain a maximum 100 account records.
@@ -88,3 +80,16 @@ The action output in the job history shows that three products have been created
 
 ![Salesforce bulk insert via input list](/assets/images/features/batch-processing/job-output-sf-bulk-insert.png)
 *Salesforce bulk insert via list input*
+
+## Maximize data throughput with batch processing
+To maximize data throughput, you always want to match batch triggers with batch actions.
+
+You can also raise throughput even further by increasing recipe concurrency. This means Workato will run multiple jobs at the same time, instead of running them one by one.
+
+The following pictures show how to enable concurrency in a Workato recipe, and how batching & concurrency work together.
+
+![Enable concurrency](/assets/images/features/concurrency/concurrency.png)
+*Setup concurrency in a Workato recipe*
+
+![Increasing throughput in Workato via different mechanisms](/assets/images/features/batch-processing/increasing-throughput.png)
+*Increasing throughput in Workato via batching & concurrency*
