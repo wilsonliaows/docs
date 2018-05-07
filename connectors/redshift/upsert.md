@@ -18,4 +18,4 @@ First, select a table to upsert rows in. This can be done either by selecting a 
 Columns in the selected table are then presented as input fields here. Map the required fields from the output datatree here to upsert a row with data from preceding trigger or actions.
 
 #### Unique key
-Unique key value will be used to determine if an update or an insert is executed in your Redshift database. If the unique key value of the given set of values exists in your table, that row will be updated with the values provided. In the absence of a row with the unique key value, a new row will be inserted with the values provided.
+Unique key values will be used to determine whether an update or an insert is executed in your Redshift database. If the unique key value of the given set of values exists in your table, that row will be updated with the values provided. In the absence of a row with the unique key value, a new row will be inserted with the values provided.

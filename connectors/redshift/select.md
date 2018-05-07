@@ -38,6 +38,9 @@ You can also define the direction of order for each column you wish to order by.
 priority asc, created_date desc
 ```
 
+![Sorting select action results with Order by](/assets/images/redshift/order-by.png)
+*Sorting select action results with **Order by***
+
 ### Limit
 This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 1000 rows for a single **Select rows** action.
 

@@ -37,4 +37,4 @@ If you do not map a list datapill to this field, this action will insert only 1 
 ### Columns
 Finally, you will need to map the required fields from the output datatree here to insert rows with data from preceding trigger or actions. Take note that datapills mapped to each column here should be from the source list datapill you used earlier. Datapills that are mapped outside the source list datapill will not be iterated.
 
-Refer to the [List management](/features/list-management.html) guide for more information about working with batches.
+Refer to the [List management](/features/list-management.md) guide for more information about working with batches.

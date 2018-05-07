@@ -57,4 +57,4 @@ Finally, you will need to map the required fields from the output datatree here 
 ### Keys columns
 Use this input field to determine which field to use to identify unique rows. This is an optional field. If left blank, primary keys in the selected table will be used to match. If you with to use columns other than the primary key, or inclusive of it, select all relevant columns in this input field.
 
-Refer to the [List management](/features/list-management.html) guide for more information about working with batches.
+Refer to the [List management](/features/list-management.md) guide for more information about working with batches.
