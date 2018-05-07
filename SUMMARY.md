@@ -103,6 +103,7 @@
 * [Batch processing](features/batch-processing.md)
   * [Batch triggers](features/batch-processing.md#batch-triggers)
   * [Batch actions](features/batch-processing.md#batch-actions)
+  * [Maximize data throughput](features/batch-processing.md#maximize-data-throughput-with-batch-processing)
 * [Teams and collaboration](user-accounts-and-teams/team-collaboration.md)
   * [Role-based access](user-accounts-and-teams/team-collaboration.md#team-roles)
   * [Audit logs](user-accounts-and-teams/team-collaboration.md#audit-logs)
