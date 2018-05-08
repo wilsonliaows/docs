@@ -286,10 +286,10 @@ where profile configuration properties are:
 | Property name | Description |
 |------------------|-------------------------------------------|
 | url | Defines Active Directory server URL using `ldap://` schema with optional port number. |
-| base | Defines root(base) DN for LDAP binding. |
+| base | Defines root (base) DN for LDAP binding. |
 | username or userDN | Defines user DN for LDAP binding. |
 | password | Password used for LDAP binding. |
-| timeout | Common LDAP operations timeout, seconds. |
+| timeout | Common LDAP operations timeout, in seconds. |
 
 ### Password encryption
 
