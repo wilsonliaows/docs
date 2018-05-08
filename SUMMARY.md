@@ -267,7 +267,7 @@
     * [Object triggers](connectors/salesforce.md#working-with-generic-triggers-in-salesforce)
     * [Handling attachments](connectors/salesforce.md#working-with-attachments-in-salesforce)
     * [Using SOQL](connectors/salesforce.md#working-with-soql-in-salesforce)
-    * [Bulk data imports](connectors/salesforce.html#working-with-bulk-data-load-jobs-in-salesforce)
+    * [Bulk data imports](connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce)
   * [ServiceNow](connectors/servicenow.md)
     * [Connection setup](connectors/servicenow.md#how-to-connect-to-servicenow-on-workato)
   * [Slack](connectors/slack.md)
