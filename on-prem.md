@@ -269,6 +269,28 @@ kafka:
 
 Note that password-protected private keys cannot be inlined.
 
+### Active Directory profile
+Active Directory connection profiles are defined in the `ldap` section of `<INSTALL_HOME>/conf/config.yml`.
+Example profile:
+```YAML
+ldap:
+  MyLdapProfile:
+    url: ldap://ldap.intra:389
+    base: DC=intra,DC=company,DC=co
+    username: CN=company,CN=Users,DC=intra,DC=company,DC=co
+    password: secret
+```
+
+where profile configuration properties are:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| url | Defines Active Directory server URL using `ldap://` schema with optional port number. |
+| base | Defines root (base) DN for LDAP binding. |
+| username or userDN | Defines user DN for LDAP binding. |
+| password | Password used for LDAP binding. |
+| timeout | Common LDAP operations timeout, in seconds. |
+
 ### Password encryption
 
 To avoid exposure of any sensitive data (like passwords or private keys) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:
