@@ -82,7 +82,7 @@ Configure the hour of the day you wish to execute the scheduled SQL query. This 
 Configure the minute in the hour you wish to execute the scheduled SQL query. This is always required.
 
 ### Day of month
-Provide a value between **1** to **31** for the day of the month. This value will be rounded down to last day of month for shorter months. (Example: if you use the value **31**, the trigger run the SQL query on **31st Mar**, **30th Apr**, **31st May**...)
+Provide a value between **1** to **31** for the day of the month. In shorter months, the values may be rounded down to the last day of the month. For example: if you use the value **31** and the month ends before the 31st, the trigger will run the SQL query on the last day of the month (e.g. 28th Feb, 31st Mar, 30th Apr, and so on)
 
 Needed only if you selected **monthly** as the [Schedule](#schedule). This is an optional field that defaults to first day of the month if left empty.
 
