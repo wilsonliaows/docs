@@ -44,11 +44,11 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
     </tr>
     <tr>
       <td><a href="#day-of-month">Day of month</a></td>
-      <td>Configure the day of the moenth you wish to execute the SQL query.</td>
+      <td>Configure the day of the month you wish to execute the SQL query.</td>
     </tr>
     <tr>
       <td><a href="#days-of-week">Days of week</a></td>
-      <td>Select the days of week you wish to execute the SQL query.</td>
+      <td>Select the days of the week you wish to execute the SQL query.</td>
     </tr>
     <tr>
       <td><a href="#batch-size">Batch size</a></td>
@@ -82,7 +82,9 @@ Configure the hour of the day you wish to execute the scheduled SQL query. This 
 Configure the minute in the hour you wish to execute the scheduled SQL query. This is always required.
 
 ### Day of month
-Provide values between **1** to **31** for the day of the month will be rounded down to last day of month for shorter months. Needed only if you selected **monthly** as the [Schedule](#schedule). This is an optional field that defaults to first day of the month if left empty.
+Provide a value between **1** to **31** for the day of the month. This value will be rounded down to last day of month for shorter months. (Example: if you use the value **31**, the trigger run the SQL query on **31st Mar**, **30th Apr**, **31st May**...)
+
+Needed only if you selected **monthly** as the [Schedule](#schedule). This is an optional field that defaults to first day of the month if left empty.
 
 ### Days of week
 Choose the days of the week you wish to execute the scheduled SQL query. This is required only if you selected **hourly** and **daily** as the [Schedule](#schedule). If you selected **hourly**, the trigger will execute the SQL hourly on days that are selected here.
