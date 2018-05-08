@@ -210,6 +210,7 @@
     * [Delete actions](connectors/mysql/delete.md)
     * [New row trigger](connectors/mysql/new-row-trigger.md)
     * [New/updated row trigger](connectors/mysql/updated-row-trigger.md)
+    * [Scheduled query trigger](connectors/mysql/scheduled-query-trigger.md)
   * [NetSuite](connectors/netsuite.md)
     * [Connection setup](connectors/netsuite.md#how-to-connect-to-netsuite-on-workato)
     * [New classification object trigger](connectors/netsuite.md#new-classification-object-trigger)
