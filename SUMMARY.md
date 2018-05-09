@@ -126,7 +126,7 @@
     * [Importing packages](recipe-development-lifecycle.md#importing-packages)
     * [Packages import behaviour](recipe-development-lifecycle.md#packages-import-behaviour)
 * [On premise connectivity](on-prem.md)
-  * [Agent setup](on-prem.md#setting-up-on-prem-access)
+  * [Setup agent](on-prem/setup.md)
   * [Run agent](on-prem.md#start-agent)
   * [Connections configuration](on-prem.md#creating-connections)
   * [Agent upgrade](on-prem.md#upgrading-to-the-new-version)
