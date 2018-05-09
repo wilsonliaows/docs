@@ -129,7 +129,7 @@
   * [Setup agent](on-prem/setup.md)
   * [Run agent](on-prem.md#start-agent)
   * [Connections configuration](on-prem.md#creating-connections)
-  * [Agent upgrade](on-prem.md#upgrading-to-the-new-version)
+  * [Agent upgrade](on-prem/upgrade.md)
   * [Password encryption](on-prem/password-encryption.md)
   * [Proxy server](on-prem/proxy.md)
   * [Java messaging service](connectors/jms.md)

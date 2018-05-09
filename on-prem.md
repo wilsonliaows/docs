@@ -299,25 +299,6 @@ If connecting to on-prem databases fail, check that:
 - Credentials provided in the connection profile are correct
 - Database name and type provided in the connection profile is correct
 
-## Upgrading to the new version
-Follow the instructions below for upgrading an existing agent:
-
-### Windows
-- Download the installer
-- Verify that the agent is stopped (either stop **Workato Agent** Windows service or terminate console-based agent)
-- Uninstall the agent (e.g.  **Start Menu &rarr; Workato &rarr; Uninstall**). This should not change the `config.yml` file and the certificate files (`cert.key`, `cert.pem`) in the conf directory
-- Run the downloaded installer (this will automatically install to the same location)
-- Run the agent. Depending on the setup, either start **Workato Agent** Windows service or run console-based agent
-- Make sure your agent is active and verify its version number on the agent page (**Workato.com &rarr; Tools &rarr; On-prem agent**)
-
-### Linux/MacOS
-- Verify that the agent process is stopped. The upgrade will fail if any running agents are detected.
-- Run the upgrade script: `bin/upgrade.sh`. Make sure you have enough permissions.
-- Follow the instructions provided by the upgrade script. Confirm the upgrade when prompted.
-- Upon successful completion of the upgrade, run the agent (e.g. `bin/run.sh`)
-- Make sure your agent is active and verify its version number on the agent page (**Workato.com &rarr; Tools &rarr; On-prem agent**).
-- Upgrade process is not triggered if no new versions are available. However, it might be necessary to repair a broken installation, in that case use the command line option when running the upgrade: `bin/upgrade.sh --enforce`.
-
 ## Example recipes
 
 ### Example on-premise database recipes

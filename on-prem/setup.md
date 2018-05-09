@@ -32,7 +32,7 @@ date: 2018-05-09 12:00:00 Z
 5) Run the agent installer. Then follow the installation instructions.
 6) By default, the agent is installed into `C:\Program Files\Workato Agent` folder and a `Workato` group is created in the Start Menu.
 7) During the installation, you can choose to install a Windows service called `WorkatoAgent`.
-8) Unzip the `cert.zip` file and move the contents (`cert.key` and `cert.pem`) to `<INSTALL_HOME>/conf` directory.
+8) Unzip the `cert.zip` file and move the contents (`cert.key` and `cert.pem`) to `C:\Program Files\Workato Agent/conf` directory.
 
 An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
 
