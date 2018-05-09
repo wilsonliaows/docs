@@ -1,5 +1,5 @@
 ---
-title: Setting up On-Premise Agent
+title: On-Premise Agent - Setting up On-Premise Agent
 date: 2018-05-09 12:00:00 Z
 ---
 
