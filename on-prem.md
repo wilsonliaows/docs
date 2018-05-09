@@ -167,8 +167,7 @@ database:
     SSL: false
 ```
 
-Any JDBC profile requires specifying `driverClass` property, which should point to fully-qualified name
-of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
+Any JDBC profile requires specifying `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
 note that your agent's classpath can be extended in `server` section of the configuration file:
 ```YAML
 server:
@@ -291,6 +290,28 @@ The following properties are supported:
 | cm_max_total | (Optional) Sets the maximum number of connections (must be a positive number, default 10) |
 
 HTTP methods supported: GET, POST, PUT, PATCH, DELETE, HEAD
+
+### Active Directory profile
+Active Directory connection profiles are defined in the `ldap` section of `<INSTALL_HOME>/conf/config.yml`.
+Example profile:
+```YAML
+ldap:
+  MyLdapProfile:
+    url: ldap://ldap.intra:389
+    base: DC=intra,DC=company,DC=co
+    username: CN=company,CN=Users,DC=intra,DC=company,DC=co
+    password: secret
+```
+
+where profile configuration properties are:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| url | Defines Active Directory server URL using `ldap://` schema with optional port number. |
+| base | Defines root (base) DN for LDAP binding. |
+| username or userDN | Defines user DN for LDAP binding. |
+| password | Password used for LDAP binding. |
+| timeout | Common LDAP operations timeout, in seconds. |
 
 ### Password encryption
 
