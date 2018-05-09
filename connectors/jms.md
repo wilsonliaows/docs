@@ -10,7 +10,7 @@ The JMS connector allows Workato to interact with JMS providers. The adapter can
 The connector supports [Amazon SQS](https://aws.amazon.com/sqs/) and [Apache MQ JMS](http://activemq.apache.org/jms.html) implementations.
 
 ## How to connect to the JMS connector on Workato
-The JMS connector is an on-premise connector, therefore requiring Workato's [on-premise agent](/on-prem.html#setting-up-on-prem-access) and [JMS connection profiles](/on-prem.md#jms-connection-profile) to be set up before it can be used.
+The JMS connector is an on-premise connector, therefore requiring Workato's [on-premise agent](/on-prem.md) and [JMS connection profiles](/on-prem/profile.md#jms-connection-profile) to be set up before it can be used.
 
 ## Working with the JMS connector
 In order to work with the JMS connector, users have to have a [common data model](/features/common-data-model.md) to work with.
