@@ -10,11 +10,11 @@ Hence, we introduced the parser pick list. This pick list is dynamically generat
 fetch_document_from_url: {
   input_fields: lambda do
     [
-      { 
-        name: "url", 
+      {
+        name: "url",
         label: "Source URL",
         hint: "Upload file from this URL",
-        optional: false 
+        optional: false
       },
       {
         name: "parser_id",
@@ -30,7 +30,7 @@ fetch_document_from_url: {
           type: :string,
           control_type: "text",
           optional: false,
-          toggle_hint: "Use custom value",
+          toggle_hint: "Use Parser ID",
           hint: "Go to home page and select the required parser. If the URL is 'https://app.docparser.com/stack/ynrqkdxvaghs/overview', then 'ynrqkdxvaghs' is the ID"
         }
       },

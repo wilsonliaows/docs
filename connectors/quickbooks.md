@@ -33,7 +33,12 @@ Give this QuickBooks connection a unique name which identifies the QuickBooks ac
 
 Login with your QuickBooks credentials and allow Workato to access your QuickBooks account.
 
-## Connecting to Multiple Companies on QuickBooks
+### Roles and permissions required to connect
+We recommend that a separate user be created for integration purposes. In order to successfully connect to QuickBooks Online from Workato, this user should have `Company Administrator` permissions.
+
+Note: Clicking on Connect (to QuickBooks Online) in Workato will bring you to QuickBooks Online to both log in and authorize Workato to read and write to your QuickBooks account. If you are already logged in to your QuickBooks Online account in the same browser, QuickBooks will skip the step where it asks for username and password, and simply ask you to authorize Workato. If you are the administrator for multiple companies in QuickBooks, ensure that you are logged in to the right company so that you create a connection to the right QuickBooks Online company.
+
+### Connecting to Multiple Companies on QuickBooks
 If you have multiple Companies on your QuickBooks account, you can connect them to Workato using the same QuickBooks authentication. Simply create new connections for each Company.
 
 However, if you have multiple Workato accounts and try to connect to the same Company, the earlier connection will be disconnected. Hence, we recommend that only 1 Workato account is used to connect to 1 Company to prevent any disruption to your recipes.

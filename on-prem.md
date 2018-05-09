@@ -125,7 +125,8 @@ The following databases are supported by the on-prem agent:
 * `mysql` for MySQL
 * `sqlserver` for Microsoft SQL Server
 * `oracle` for Oracle Database
-* `postgresql` for PostgreSQL.
+* `postgresql` for PostgreSQL
+* `jdbc` for JDBC-compatible database.
 
 A database type is specified either by `adapter` property or a complete JDBC URL provided in the `url` property.
 Port numbers can be omitted when matching defaults for a given database type.
@@ -152,6 +153,25 @@ database:
     username: joe
     password: Secret123
     ApplicationName: workato
+```
+
+### JDBC connection profile
+JDBC connection profile is a special case of database profile, for example:
+```YAML
+database:
+  tpc:
+    url: jdbc:presto://warehouse.intra:8889/tpch
+    driverClass: com.facebook.presto.jdbc.PrestoDriver
+    adapter: jdbc
+    user: my_user
+    SSL: false
+```
+
+Any JDBC profile requires specifying `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
+note that your agent's classpath can be extended in `server` section of the configuration file:
+```YAML
+server:
+  classpath: /opt/workato-agent/jdbc
 ```
 
 ### JMS connection profile
@@ -248,6 +268,28 @@ kafka:
 ```
 
 Note that password-protected private keys cannot be inlined.
+
+### Active Directory profile
+Active Directory connection profiles are defined in the `ldap` section of `<INSTALL_HOME>/conf/config.yml`.
+Example profile:
+```YAML
+ldap:
+  MyLdapProfile:
+    url: ldap://ldap.intra:389
+    base: DC=intra,DC=company,DC=co
+    username: CN=company,CN=Users,DC=intra,DC=company,DC=co
+    password: secret
+```
+
+where profile configuration properties are:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| url | Defines Active Directory server URL using `ldap://` schema with optional port number. |
+| base | Defines root (base) DN for LDAP binding. |
+| username or userDN | Defines user DN for LDAP binding. |
+| password | Password used for LDAP binding. |
+| timeout | Common LDAP operations timeout, in seconds. |
 
 ### Password encryption
 
