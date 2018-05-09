@@ -1,9 +1,9 @@
 ---
-title: Setting up On-premise Agent
+title: Setting up On-Premise Agent
 date: 2018-05-09 12:00:00 Z
 ---
 
-# Setting up On-premise Agent
+# Setting up On-Premise Agent
 
 1) [Install agent](#install-agent)
 

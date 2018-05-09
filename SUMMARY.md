@@ -130,6 +130,7 @@
   * [Run agent](on-prem.md#start-agent)
   * [Connections configuration](on-prem.md#creating-connections)
   * [Agent upgrade](on-prem.md#upgrading-to-the-new-version)
+  * [Password Encryption](on-prem/password-encryption.md)
   * [Java messaging service](connectors/jms.md)
 * [Key features](features.md)
   * [Scheduler](features/scheduler.md)

@@ -1,18 +1,18 @@
 ---
-title: On-premise agent
+title: On-Premise Agent
 date: 2017-02-22 12:00:00 Z
 ---
 
-# On-premise access
+# On-Premise Agent
 Enterprises have on-premise applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.
 
 The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open ‘ports’ in the corporate firewall.
 
-On-premise access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
+On-premise access is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at **+1 (844) 469-6752** to find out more.
 
 For Workato accounts with on-prem access, users are able to view the on-prem option in the Tools menu.
 
-![On-prem option](assets/images/on-prem/on_prem_access_option_Jan_2018.png)
+![On-prem option](assets/images/on-prem/navigate-to-opa.png)
 *On premise menu option*
 
 # On-premise overview
@@ -44,8 +44,6 @@ Minimum hardware requirements for the system running the on-prem agent are:
 - 8GB of RAM
 - 250 MB of disk space
 - 800 Mhz 64-bit CPU (Intel/AMD).
-
-Please make sure that TCP port 3000 is available for binding.
 
 ## Create connection profiles
 A single Workato agent can be used to connect with multiple backend apps. A `connection profile` uniquely identifies the back end app and contains the configuration information required to connect to that app.
@@ -237,30 +235,6 @@ where profile configuration properties are:
 | username or userDN | Defines user DN for LDAP binding. |
 | password | Password used for LDAP binding. |
 | timeout | Common LDAP operations timeout, in seconds. |
-
-### Password encryption
-
-To avoid exposure of any sensitive data (like passwords or private keys) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:
-
-- Make sure you have your agent keys properly downloaded and placed into `conf` folder. They are required for encryption.
-- Run the encryptor tool. Use `bin\encryptor.cmd` in Windows, `bin/encryptor.sh` script for Unix/MacOS.
-- When prompted, enter your secret value twice.
-- The script will print an encrypted text.
-  Example:
-  ```
-  {encrypted: 'RCVtuGPjJWNqwkFQvhT...'}
-  ```
-- Copy and paste the provided text as a value inside `config.yml`. Make sure your value is one-line.
-  For example, in a database profile:
-  ```YAML
-  database:
-    sales:
-      url: jdbc:postgresql://sales.database:5432/sales
-      username: joe
-      password: {encrypted: 'RCVtuGPjJWNqwkFQvhT...'}
-  ```
-
-The encryption is based on your agent's private key. You cannot use encrypted value from one agent inside another agent's configuration. Note that only YAML values can be encrypted (you cannot encrypt YAML property keys).
 
 ### Proxy server support
 
