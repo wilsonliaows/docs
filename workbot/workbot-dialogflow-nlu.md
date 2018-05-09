@@ -52,6 +52,7 @@ Back in your Workato account,
 - Hit **Connect**
 
 ![Google api.ai connection](/assets/images/workbot/workbot-dialogflow-nlu/google-apiai-connection.png)
+
 Your IssuesBot should now be connected to Workato.
 
 ## Linking the Google api.ai NLU connection to your Workbot
@@ -95,11 +96,16 @@ Intents comprise of 4 parts:
 Training phrases teach the bot to extract parameters based off of sample phrases a user may say.
 
 ![Training phrases](/assets/images/workbot/workbot-dialogflow-nlu/training-phrases.png)
-For 1. `ineedhelp`, we’ve trained the NLU to recognize when a user requires assistance with phrases like “I need help!”.
-For 2. `ineedhelp-issue`, we’ve trained the NLU to recognize 1 category of issue: UI.
-For 3. `ineedhelp-issue-title`, we’ve trained the NLU to recognize 2 types of UI issues: images not loading and button misalignment.
-For 4. `ineedhelp-issue-title-description`, we’ve trained the NLU to recognize the user’s description of the issue.
-Lastly, for 5. `ineedhelp-issue-title-description-confirm`, we’ve trained the NLU to recognize the user’s confirmation when we ask if they’d like to create a Github ticket for their issue.
+
+1. For `ineedhelp`, we’ve trained the NLU with training phrases that allow it to recognize when a user requires assistance with phrases like “I need help!”.
+
+2. For `ineedhelp-issue`, we’ve trained the NLU with training phrases that allow it to recognize when a user is talking about a UI issue.
+
+3. For `ineedhelp-issue-title`, we’ve trained the NLU with training phrases that allow it to recognize 2 types of UI issues: images not loading and button misalignment.
+
+4. For `ineedhelp-issue-title-description`, we’ve trained the NLU with training phrases that allow it to recognize the user’s description of the issue.
+
+5. For `ineedhelp-issue-title-description-confirm`, we’ve trained the NLU with training phrases that allow it to recognize the user’s confirmation when we ask if they’d like to create a Github ticket for their issue.
 
 #### Action & parameters
 Action & parameters define how to act on the values & parameters extracted from what the user says.
@@ -108,7 +114,7 @@ Action & parameters define how to act on the values & parameters extracted from 
 
 **Parameter name**: name of the parameter we’re trying to extract
 
-**Entity**: Variables we want to elicit from the user.
+**Entity**: Variables we want to collect from the user.
 
 **Value**: The actual value we want to use for the parameter. Prepend with \$ to use the resolved value e.g. `$title`, or omit it to use constants e.g. `100`.  
 
@@ -116,7 +122,7 @@ At times, we may want to use what the user said in full (without resolving it to
 
 
 #### Responses
-After every intent prompt, you can define a response that helps to elicit information from the user in the follow-up intent. In this example, we reference previously resolved user parameter values as a positive feedback to the user that Workbot understood their input.
+After every intent prompt, you can define a response that helps to collect information from the user in the follow-up intent. In this example, we reference previously resolved user parameter values as a positive feedback to the user that Workbot understood their input.
 
 ![Response](/assets/images/workbot/workbot-dialogflow-nlu/response.png)
 
@@ -138,10 +144,23 @@ The final intent, `ineedhelp-issue-title-description-confirm` has 5 important pa
 - `Data`: **add**
 - `Action`: **data**
 
+![Final intent](/assets/images/workbot/workbot-dialogflow-nlu/final-intent.png)
+
 `Param_query` is also an important parameter that references all parameter values resolved from the user in the current as well as previous intents.
 
-This is passed to Workbot in the `query` datapill. In the recipe, you will see that the `query` datapill is split (using a comma delimiter_, and its array elements used to create the Github issue in the UI repo.
+This is passed to Workbot in the `query` datapill. Examining the trigger output of a successful job shows that issue, title, and description collected from the user.
+
+![Trigger output](/assets/images/workbot/workbot-dialogflow-nlu/dialogflow-trigger-output.png)
+
+In the recipe, you will see that the `query` datapill is mapped to the create github issue fields by splitting the string `"ui, button misaligned, Registration button is misaligned"` using the `split` method.
+
+The 1st, 2nd, and 3rd elements of the resulting array `["ui", " button misaligned", " Registration button is misaligned"]` is referenced using their respective indexes and trimmed of leading and trailing white spaces using the `strip` method.
 
 ![Query datapill](/assets/images/workbot/workbot-dialogflow-nlu/query-datapill.png)
+
+In this case,
+- "**UI**" is mapped to **Repository name**,
+- "**Button misaligned"**" is mapped to **Issue title**,
+- "**Registration button is misaligned**" is mapped to **Body**
 
 For more information on how DialogFlow works, visit https://dialogflow.com/docs/getting-started/basics.
