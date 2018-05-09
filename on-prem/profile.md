@@ -13,6 +13,7 @@ A single Workato agent can be used to connect with multiple on-premise applicati
  - [Apache Kafka](#apache-kafka-connection-profile)
  - [Active directory](#active-directory-connection-profile)
  - [HTTP resource](#http-resources)
+ - [NTLM](#ntlm-connection-profile)
 
  Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premise agents installed in a server with limited internet connectivity.
 
@@ -235,3 +236,25 @@ http:
 The agent may be configured to allow accessing internal HTTPS resources which use self-signed certificates. To enable self-signed certificates set `trustAll` property to `true`.
 
 Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
+
+## NTLM connection profile
+Using NTLM connection profile it is possible to access HTTP resources with NTLM authentication.
+```YAML
+ntlm:
+  MyNtlmProfile:
+    auth: "username:password@domain/workstation"
+    base_url: "http://myntlmhost.com"
+    cm_default_max_per_route: 15
+    cm_max_total: 100
+```
+
+The following properties are supported:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| auth | NTLM authentication credentials |
+| base_url | The base URL for NTLM resources |
+| cm_default_max_per_route | (Optional) Sets the number of connections per route/host (must be a positive number, default 5) |
+| cm_max_total | (Optional) Sets the maximum number of connections (must be a positive number, default 10) |
+
+HTTP methods supported: GET, POST, PUT, PATCH, DELETE, HEAD
