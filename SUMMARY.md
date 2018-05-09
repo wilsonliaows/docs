@@ -127,7 +127,7 @@
     * [Packages import behaviour](recipe-development-lifecycle.md#packages-import-behaviour)
 * [On premise connectivity](on-prem.md)
   * [Setup agent](on-prem/setup.md)
-  * [Run agent](on-prem.md#start-agent)
+  * [Run agent](on-prem/run.md)
   * [Connections configuration](on-prem.md#creating-connections)
   * [Agent upgrade](on-prem/upgrade.md)
   * [Password encryption](on-prem/password-encryption.md)

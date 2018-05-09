@@ -253,27 +253,6 @@ Normally a server certificate's Common Name (or Subject Alternate Name) field sh
 
 A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
-## Start agent
-
-### Windows 64-bit
-The on-prem agent can be run as a Windows console application or as a Windows service.
-
-Run the on-prem agent in console mode by launching by `Workato` &rarr; `Run Agent (console)` shortcut in the Start Menu.
-You can use `Run Agent (console)` shortcut to ensure the agent is successfully connecting to Workato using the provided certificate.
-
-#### Using Windows Service
-* Installer automatically registers the agent as a Windows service called `WorkatoAgent`.
-* Note: Workato agent is not auto-started by default. Open **Control Panel &rarr; System and Security &rarr; Administrative Tools &rarr; Services &rarr; WorkatoAgent** service configuration to configure service auto-start.
-
-#### Browsing log files
-* When the on-prem agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to Workato log directory in the `Workato` group found in Start Menu for convenience.
-
-### Linux 64-bit and Mac OS X
-Run the on-prem agent using the following bash script:
-```
-<INSTALL_HOME>/bin/run.sh
-```
-
 ## Creating connections
 There are no differences in how you work with on-prem apps within your recipe, but on-prem app connections do require special configuration. An on-prem app connection needs to point to a on-prem agent and a specific `connection profile`.
 
