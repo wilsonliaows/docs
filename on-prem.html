@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>On premise connectivity · Workato Docs</title>
+        <title>On-premise connectivity · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="on-prem.html" />
+    <link rel="next" href="on-prem/setup.html" />
     
     
     <link rel="prev" href="recipe-development-lifecycle.html" />
@@ -110,7 +110,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href=".">On premise connectivity</a>
+          <a href=".">On-premise connectivity</a>
         </h1>
       </div>
     </div>
@@ -2220,7 +2220,7 @@
         <a href="on-prem.html">
       
         
-        On premise connectivity
+        On-premise connectivity
       
         </a>
       
@@ -2229,14 +2229,14 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.13.1" data-path="on-prem.html">
+    <li class="chapter " data-level="1.13.1" data-path="on-prem/setup.html">
       
 
       
-        <a href="on-prem.html#setting-up-on-prem-access">
+        <a href="on-prem/setup.html">
       
         
-        Agent setup
+        Setup agent
       
         </a>
       
@@ -2244,11 +2244,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.13.2" data-path="on-prem.html">
+    <li class="chapter " data-level="1.13.2" data-path="on-prem/run.html">
       
 
       
-        <a href="on-prem.html#start-agent">
+        <a href="on-prem/run.html">
       
         
         Run agent
@@ -2259,26 +2259,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.13.3" data-path="on-prem.html">
+    <li class="chapter " data-level="1.13.3" data-path="on-prem/upgrade.html">
       
 
       
-        <a href="on-prem.html#creating-connections">
-      
-        
-        Connections configuration
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.13.4" data-path="on-prem.html">
-      
-
-      
-        <a href="on-prem.html#upgrading-to-the-new-version">
+        <a href="on-prem/upgrade.html">
       
         
         Agent upgrade
@@ -2289,14 +2274,59 @@
       
     </li>
   
-    <li class="chapter " data-level="1.13.5" data-path="connectors/jms.html">
+    <li class="chapter " data-level="1.13.4" data-path="on-prem/profile.html">
       
 
       
-        <a href="connectors/jms.html">
+        <a href="on-prem/profile.html">
       
         
-        Java messaging service
+        Profiles
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.5" data-path="on-prem/connection.html">
+      
+
+      
+        <a href="on-prem/connection.html">
+      
+        
+        On-premise connections
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.6" data-path="on-prem/password-encryption.html">
+      
+
+      
+        <a href="on-prem/password-encryption.html">
+      
+        
+        Password encryption
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.7" data-path="on-prem/proxy.html">
+      
+
+      
+        <a href="on-prem/proxy.html">
+      
+        
+        Proxy server
       
         </a>
       
@@ -5662,26 +5692,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="on-premise-access">On-premise access</h1>
+                                <h1 id="on-premise-agent">On-Premise Agent</h1>
 <p>Enterprises have on-premise applications and databases that are deployed within their corporate datacenter. These apps are protected via firewalls, and therefore are typically not easily accessible to cloud services like Workato.</p>
-<p>The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases and folders without having to open &#x2018;ports&#x2019; in the corporate firewall.</p>
-<p>On-premise access is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
-<p>For Workato accounts with on-prem access, users are able to view the on-prem option in the Tools menu.</p>
-<p><img src="assets/images/on-prem/on_prem_access_option_Jan_2018.png" alt="On-prem option">
+<p>The Workato on-premise agent provides a secure way for Workato to selectively access customer-authorized on-premise apps, databases and folders without having to open <strong>ports</strong> in the corporate firewall.</p>
+<p>On-premise access is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at <strong>+1 (844) 469-6752</strong> to find out more.</p>
+<p>For Workato accounts with on-premise access, users are able to view the on-premise option in the Tools menu.</p>
+<p><img src="assets/images/on-prem/navigate-to-opa.png" alt="On-premise option">
 <em>On premise menu option</em></p>
-<h1 id="on-premise-overview">On-premise overview</h1>
+<h2 id="overview">Overview</h2>
 <p>The following is a conceptual model of Workato&apos;s on-premise agent and how it interacts with databases and applications behind the firewall.</p>
 <p><img src="assets/images/on-prem/on_prem_conceptual_model.png" alt="On-prem model">
-<em>Conceptual model for on-prem agent and connector</em></p>
+<em>Conceptual model for on-premise agent and connector</em></p>
 <p>Workato on-premise connectivity has 2 core components:</p>
 <ul>
 <li>Tunneling</li>
 <li>Database and filesystem access.</li>
 </ul>
-<p>The on-prem agent runs within the customer&#x2019;s data center, behind the firewall, and establishes a TLS websocket tunnel to connect out to Workato.</p>
-<p>The on-prem agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to <a href="connectors/jms.html">JMS-compliant systems</a>.</p>
-<h1 id="supported-operating-systems">Supported operating systems</h1>
-<p>The on-prem agent runs on the following systems:</p>
+<p>The on-premise agent runs within the customer&#x2019;s data center, behind the firewall, and establishes a TLS websocket tunnel to connect out to Workato.</p>
+<p>The on-premise agent can be configured to access the selected databases and filesystems behind the firewall. Since 2.2.x it also supports connections to <a href="connectors/jms.html">JMS-compliant systems</a>.</p>
+<h2 id="supported-operating-systems">Supported operating systems</h2>
+<p>The on-premise agent runs on the following systems:</p>
 <ul>
 <li><p>Linux (64-bit)</p>
 </li>
@@ -5690,417 +5720,29 @@
 <li><p>Mac OS X</p>
 </li>
 </ul>
-<p>Minimum hardware requirements for the system running the on-prem agent are:</p>
+<p>Minimum hardware requirements for the system running the on-premise agent are:</p>
 <ul>
 <li>8GB of RAM</li>
 <li>250 MB of disk space</li>
 <li>800 Mhz 64-bit CPU (Intel/AMD).</li>
 </ul>
-<p>Please make sure that TCP port 3000 is available for binding.</p>
-<h1 id="setting-up-on-prem-access">Setting up on-prem access</h1>
-<p>1) <a href="on-prem.html#install-agent">Install agent</a></p>
-<p>2) <a href="on-prem.html#create-connection-profiles">Create connection profiles</a></p>
-<p>3) <a href="on-prem.html#start-agent">Start agent</a></p>
-<h2 id="install-agent">Install agent</h2>
-<h3 id="for-windows">For Windows</h3>
-<p>1) On the top navigation bar, click <code>Tools</code> &gt; <code>On-prem agent</code></p>
-<p><img src="assets/images/on-prem/on_prem_access_option_Jan_2018.png" alt="On-prem option"></p>
-<p>2) Click <code>Create a new agent</code></p>
-<p><img src="assets/images/on-prem/create_agent_Jan_2018.png" alt="On-prem option"></p>
-<p>3) Click <code>Download key</code> and <code>Download agent</code>, which downloads a <code>cert.zip</code> file and an agent installer/package file respectively.</p>
-<p><img src="assets/images/on-prem/download_key_agent_Jan_2018.png" alt="On-prem option"></p>
-<p>4) Select your operating system to download the right agent installer/package.</p>
-<p><img src="assets/images/on-prem/download_agent_Jan_2018.png" alt="On-prem option"></p>
-<p>5) Run the agent installer file. Then follow the installation instructions.
-6) By default, the agent is installed into <code>C:\Program Files\Workato Agent</code> folder and creates a <code>Workato</code> group in the Start Menu.
-7) By default, the agent is installed as a Windows service called <code>WorkatoAgent</code>. You can disable this feature by unchecking the corresponding option during install.
-8) Unzip the <code>cert.zip</code> file to <code>Workato Agent\conf</code> directory. This should copy the <code>cert.key</code> and <code>cert.pem</code> files to the directory.</p>
-<p>An installation instruction video for Windows is also available <a href="https://www.youtube.com/watch?v=Pu3GCk7OY6Q&amp;feature=youtu.be" target="_blank">here</a>.</p>
-<h3 id="for-linux--mac-os">For Linux &amp; Mac OS</h3>
-<p>1) On the top navigation bar, click <code>Tools</code> &gt; <code>On-prem agent</code></p>
-<p><img src="assets/images/on-prem/on_prem_access_option_Jan_2018.png" alt="On-prem option"></p>
-<p>2) Click <code>Create a new agent</code></p>
-<p><img src="assets/images/on-prem/create_agent_Jan_2018.png" alt="On-prem option"></p>
-<p>3) Click <code>Download key</code> and <code>Download agent</code>, which downloads a <code>cert.zip</code> file and an agent installer/package file respectively.</p>
-<p><img src="assets/images/on-prem/download_key_agent_Jan_2018.png" alt="On-prem option"></p>
-<p>4) Select your operating system to download the right agent installer/package.</p>
-<p><img src="assets/images/on-prem/download_agent_Jan_2018.png" alt="On-prem option"></p>
-<p>5) Unpack the agent package file into a folder of your choice, which we will refer to as <code>&lt;INSTALL_HOME&gt;</code> folder.
-6) Unzip the <code>cert.zip</code> file to <code>&lt;INSTALL_HOME&gt;/conf</code> directory. This should copy the <code>cert.key</code> and <code>cert.pem</code> files to the directory.</p>
-<h2 id="create-connection-profiles">Create connection profiles</h2>
-<p>A single Workato agent can be used to connect with multiple backend apps. A <code>connection profile</code> uniquely identifies the back end app and contains the configuration information required to connect to that app.</p>
-<p>Edit <code>&lt;INSTALL_HOME&gt;/conf/config.yml</code> file to configure your database connection profiles and filesystem access.</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">database:</span>
-<span class="hljs-attr">  profile1:</span>
-    ...
-<span class="hljs-attr">  profile2:</span>
-    ...
-
-<span class="hljs-attr">files:</span>
-<span class="hljs-attr">  profile1:</span>
-    ...
-<span class="hljs-attr">  profile2:</span>
-    ...
-</code></pre>
-<h3 id="database-connection-profile">Database connection profile</h3>
-<p>Database connection profiles are located in the <code>database</code> section of <code>&lt;INSTALL_HOME&gt;/conf/config.yml</code>.
-The following databases are supported by the on-prem agent:</p>
-<ul>
-<li><code>mysql</code> for MySQL</li>
-<li><code>sqlserver</code> for Microsoft SQL Server</li>
-<li><code>oracle</code> for Oracle Database</li>
-<li><code>postgresql</code> for PostgreSQL</li>
-<li><code>jdbc</code> for JDBC-compatible database.</li>
-</ul>
-<p>A database type is specified either by <code>adapter</code> property or a complete JDBC URL provided in the <code>url</code> property.
-Port numbers can be omitted when matching defaults for a given database type.</p>
-<p>The example below has a <code>connection profile</code> named <code>marketing</code>. Do not use spaces or special characters in <code>connection profile</code> names.</p>
-<p>SQL Server URL-based sample configuration for connecting to specific instance:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">database:</span>
-<span class="hljs-attr">  sales:</span>
-<span class="hljs-attr">    url:</span> jdbc:sqlserver://server\instance;databaseName=sales
-<span class="hljs-attr">    username:</span> joe
-<span class="hljs-attr">    password:</span> Secret123
-<span class="hljs-attr">    ApplicationName:</span> workato
-</code></pre>
-<p>PostgreSQL URL-based sample configuration:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">database:</span>
-<span class="hljs-attr">  sales:</span>
-<span class="hljs-attr">    url:</span> jdbc:postgresql://sales.database:<span class="hljs-number">5432</span>/sales
-<span class="hljs-attr">    username:</span> joe
-<span class="hljs-attr">    password:</span> Secret123
-<span class="hljs-attr">    ApplicationName:</span> workato
-</code></pre>
-<h3 id="jdbc-connection-profile">JDBC connection profile</h3>
-<p>JDBC connection profile is a special case of database profile, for example:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">database:</span>
-<span class="hljs-attr">  tpc:</span>
-<span class="hljs-attr">    url:</span> jdbc:presto://warehouse.intra:<span class="hljs-number">8889</span>/tpch
-<span class="hljs-attr">    driverClass:</span> com.facebook.presto.jdbc.PrestoDriver
-<span class="hljs-attr">    adapter:</span> jdbc
-<span class="hljs-attr">    user:</span> my_user
-<span class="hljs-attr">    SSL:</span> <span class="hljs-literal">false</span>
-</code></pre>
-<p>Any JDBC profile requires specifying <code>url</code> and <code>driverClass</code> properties, where <code>url</code> is a valid JDBC URL and <code>driverClass</code>  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent&apos;s classpath;
-note that your agent&apos;s classpath can be extended in <code>server</code> section of the configuration file:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">server:</span>
-<span class="hljs-attr">  classpath:</span> /opt/workato-agent/jdbc
-</code></pre>
-<h3 id="jms-connection-profile">JMS connection profile</h3>
-<p>JMS connection profiles are located in the <code>jms</code> section of <code>&lt;INSTALL_HOME&gt;/conf/config.yml</code>.
-A JMS provider is specified by <code>provider</code> property of a connection profile.
-The following JMS providers are supported by the on-prem agent:</p>
-<ul>
-<li><code>amazon-sqs</code> or <code>sqs</code> for Amazon Simple Queue Service</li>
-<li><code>activemq</code> for Apache ActiveMQ.</li>
-</ul>
-<h4 id="amazon-sqs">Amazon SQS</h4>
-<p>You need the following configuration properties when connecting to Amazon SQS:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">jms:</span>
-<span class="hljs-attr">  MyAmazonProfile:</span>
-<span class="hljs-attr">    provider:</span> amazon-sqs
-<span class="hljs-attr">    region:</span> &lt;Your Amazon API region, eg <span class="hljs-string">&apos;us-east-2&apos;</span><span class="hljs-string">&gt;
-</span><span class="hljs-attr">    accessKey:</span> &lt;Your Amazon API access key<span class="hljs-string">&gt;
-</span><span class="hljs-attr">    secretKey:</span> &lt;Your Amazon API secret<span class="hljs-string">&gt;
-</span></code></pre>
-<p>Note that you need to make sure your SQS queue is created before sending messages.</p>
-<h4 id="apache-activemq">Apache ActiveMQ</h4>
-<p>For connecting to a running ActiveMQ broker you only need to specify broker URL:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">jms:</span>
-<span class="hljs-attr">  MyActiveMQProfile:</span>
-<span class="hljs-attr">    provider:</span> activemq
-<span class="hljs-attr">    url:</span> tcp://localhost:<span class="hljs-number">61616</span>
-</code></pre>
-<p>ActiveMQ broker cannot be embedded into the agent. Using any <code>vm://</code> broker connections is not supported.</p>
-<h3 id="on-premise-files-connection-profile">On-premise files connection profile</h3>
-<p>Working with on-prem files requires you to define a filesystem profile in the <code>files</code> section.
-You need to specify the base folder for file access; the base folder will be used for resolving relative paths.</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">files:</span>
-<span class="hljs-attr">  hrfiles:</span>
-<span class="hljs-attr">    base:</span> <span class="hljs-string">&quot;C:/Documents/HR&quot;</span>
-</code></pre>
-<p>For example, if we were to access the on-prem-file folder on the Desktop, the configuration will have a file path that looks something like this: </p>
-<p><img src="assets/images/on-prem/config-on-prem-file-setup.png" alt="Acess on-prem-file">
-<em>Configuration of on-prem-file folder on Desktop</em></p>
-<p>The file path can be found when you right-click on the folder, and select <strong>get info</strong> or <strong>property</strong>.</p>
-<h3 id="apache-kafka">Apache Kafka</h3>
-<p>Kafka connection profiles are located in the <code>kafka</code> section of <code>&lt;INSTALL_HOME&gt;/conf/config.yml</code>.
-You need the following configuration properties when connecting to Kafka:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">kafka:</span>
-<span class="hljs-attr">  MyKafkaProfile:</span>
-    ... connection properties ...
-</code></pre>
-<p>You can provide any Kafka <a href="https://kafka.apache.org/documentation/#producerconfigs" target="_blank">consumer</a> or <a href="https://kafka.apache.org/documentation/#newconsumerconfigs" target="_blank">producer</a> configuration properties, e.g. <code>bootstrap.servers</code> or <code>batch_size</code>.</p>
-<p>However, some properties are overriden by Workato Agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key.serializer</td>
-<td>Only StringSerializer is supported by agent</td>
-</tr>
-<tr>
-<td>value.serializer</td>
-<td>Only StringSerializer is supported by agent</td>
-</tr>
-<tr>
-<td>key.deserializer</td>
-<td>Only StringSerializer is supported by agent</td>
-</tr>
-<tr>
-<td>value.deserializer</td>
-<td>Only StringSerializer is supported by agent</td>
-</tr>
-<tr>
-<td>auto.offset.reset</td>
-<td>Defined by recipes</td>
-</tr>
-<tr>
-<td>enable.auto.commit</td>
-<td>Defined internally</td>
-</tr>
-</tbody>
-</table>
-<p>Workato Agent also supports the following (non-Kafka) configuration properties:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>timeout</td>
-<td>General operation timeout, milliseconds.</td>
-</tr>
-<tr>
-<td>url</td>
-<td>Comma-separated list of server URLs where protocol is either <code>kafka</code> or <code>kafka+ssl</code>.</td>
-</tr>
-<tr>
-<td>ssl.truststore</td>
-<td>Allows inlining of PEM-encoded truststore for secure connection to Kafka</td>
-</tr>
-<tr>
-<td>ssl.keystore.key</td>
-<td>Allows inlining of private key for secure connection to Kafka</td>
-</tr>
-<tr>
-<td>ssl.keystore.cert</td>
-<td>Allows inlining of client certificate for secure connection to Kafka</td>
-</tr>
-</tbody>
-</table>
-<p><code>ssl.*</code> options above can be used when connecting to Kafka using SSL/TLS and allows you to keep PEM-encoded certificates and private keys inside the <code>config.yml</code> file. Any YAML-compatible multiline syntax could be used, for instance:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">kafka:</span>
-<span class="hljs-attr">  MyKafkaProfile:</span>
-    ssl.truststore:
-    <span class="hljs-string">|
-      -----BEGIN CERTIFICATE-----
-      502mPNNAYkY4a7Zu84DLCXLFurEa4BhLBqLkzC6WdTrBN9z6Rp/svTIl6VgjSTP6
-      .....
-      -----END CERTIFICATE-----
-</span></code></pre>
-<p>Note that password-protected private keys cannot be inlined.</p>
-<h3 id="ntlm-connection-profile">NTLM connection profile</h3>
-<p>Using NTLM connection profile it is possible to access HTTP resources with NTLM authentication.</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">ntlm:</span>
-<span class="hljs-attr">  MyNtlmProfile:</span>
-<span class="hljs-attr">    auth:</span> <span class="hljs-string">&quot;username:password@domain/workstation&quot;</span>
-<span class="hljs-attr">    base_url:</span> <span class="hljs-string">&quot;http://myntlmhost.com&quot;</span>
-<span class="hljs-attr">    cm_default_max_per_route:</span> <span class="hljs-number">15</span>
-<span class="hljs-attr">    cm_max_total:</span> <span class="hljs-number">100</span>
-</code></pre>
-<p>The following properties are supported:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>auth</td>
-<td>NTLM authentication credentials</td>
-</tr>
-<tr>
-<td>base_url</td>
-<td>The base URL for NTLM resources</td>
-</tr>
-<tr>
-<td>cm_default_max_per_route</td>
-<td>(Optional) Sets the number of connections per route/host (must be a positive number, default 5)</td>
-</tr>
-<tr>
-<td>cm_max_total</td>
-<td>(Optional) Sets the maximum number of connections (must be a positive number, default 10)</td>
-</tr>
-<tr>
-<td>http_connect_timeout</td>
-<td>(Optional) The timeout in milliseconds used when requesting a connection (0 - infinite, default 10000)</td>
-</tr>
-<tr>
-<td>http_connection_request_timeout</td>
-<td>(Optional) The timeout in milliseconds until a connection is established (0 - infinite, default 10000)</td>
-</tr>
-<tr>
-<td>http_socket_timeout</td>
-<td>(Optional) The socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets) (0 - infinite, default 10000)</td>
-</tr>
-</tbody>
-</table>
-<p>HTTP methods supported: GET, POST, PUT, PATCH, DELETE, HEAD</p>
-<h3 id="active-directory-profile">Active Directory profile</h3>
-<p>Active Directory connection profiles are defined in the <code>ldap</code> section of <code>&lt;INSTALL_HOME&gt;/conf/config.yml</code>.
-Example profile:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">ldap:</span>
-<span class="hljs-attr">  MyLdapProfile:</span>
-<span class="hljs-attr">    url:</span> ldap://ldap.intra:<span class="hljs-number">389</span>
-<span class="hljs-attr">    base:</span> DC=intra,DC=company,DC=co
-<span class="hljs-attr">    username:</span> CN=company,CN=Users,DC=intra,DC=company,DC=co
-<span class="hljs-attr">    password:</span> secret
-</code></pre>
-<p>where profile configuration properties are:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Defines Active Directory server URL using <code>ldap://</code> schema with optional port number.</td>
-</tr>
-<tr>
-<td>base</td>
-<td>Defines root (base) DN for LDAP binding.</td>
-</tr>
-<tr>
-<td>username or userDN</td>
-<td>Defines user DN for LDAP binding.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Password used for LDAP binding.</td>
-</tr>
-<tr>
-<td>timeout</td>
-<td>Common LDAP operations timeout, in seconds.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="password-encryption">Password encryption</h3>
-<p>To avoid exposure of any sensitive data (like passwords or private keys) you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:</p>
-<ul>
-<li>Make sure you have your agent keys properly downloaded and placed into <code>conf</code> folder. They are required for encryption.</li>
-<li>Run the encryptor tool. Use <code>bin\encryptor.cmd</code> in Windows, <code>bin/encryptor.sh</code> script for Unix/MacOS.</li>
-<li>When prompted, enter your secret value twice.</li>
-<li>The script will print an encrypted text.
-Example:<pre><code>{encrypted: &apos;RCVtuGPjJWNqwkFQvhT...&apos;}
-</code></pre></li>
-<li>Copy and paste the provided text as a value inside <code>config.yml</code>. Make sure your value is one-line.
-For example, in a database profile:<pre><code class="lang-YAML"><span class="hljs-attr">database:</span>
-<span class="hljs-attr">  sales:</span>
-<span class="hljs-attr">    url:</span> jdbc:postgresql://sales.database:<span class="hljs-number">5432</span>/sales
-<span class="hljs-attr">    username:</span> joe
-<span class="hljs-attr">    password:</span> {encrypted: <span class="hljs-string">&apos;RCVtuGPjJWNqwkFQvhT...&apos;</span>}
-</code></pre>
-</li>
-</ul>
-<p>The encryption is based on your agent&apos;s private key. You cannot use encrypted value from one agent inside another agent&apos;s configuration. Note that only YAML values can be encrypted (you cannot encrypt YAML property keys).</p>
-<h3 id="proxy-server-support">Proxy server support</h3>
-<p>The on-prem agent can be run in the environment with limited internet connectivity by using a proxy server.
-Proxy settings can be defined by adding a top-level <code>proxy</code> section to the configuration file:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">proxy:</span>
-<span class="hljs-attr">  host:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span>
-<span class="hljs-attr">  port:</span> <span class="hljs-number">8080</span>
-<span class="hljs-attr">  username:</span> proxy_user
-<span class="hljs-attr">  password:</span> proxy_password
-</code></pre>
-<p>(username and password are optional)</p>
-<p>Using a proxy server for establishing a secure tunnel requires a support for <a href="https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_tunneling" target="_blank">CONNECT</a> feature; make sure the proxy server is configured to allow <code>CONNECT</code> requests to the Workato gateway (<code>sg.workato.com</code>).</p>
-<h3 id="accessing-https-resources">Accessing HTTPS resources</h3>
-<p><code>http</code> configuration section allows configuring agent access to internal HTTPS resources:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">http:</span>
-<span class="hljs-attr">  trustAll:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  verifyHost:</span> <span class="hljs-literal">true</span>
-</code></pre>
-<p>The agent may be configured to allow accessing internal HTTPS resources which use self-signed certificates. To enable self-signed certificates set <code>trustAll</code> property to <code>true</code>.</p>
-<p>Normally a server certificate&apos;s Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting <code>verifyHost</code> property to <code>false</code> (defaults to <code>true</code>).</p>
-<h3 id="applying-new-configuration">Applying new configuration</h3>
-<p>A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.</p>
-<h2 id="start-agent">Start agent</h2>
-<h3 id="windows-64-bit">Windows 64-bit</h3>
-<p>The on-prem agent can be run as a Windows console application or as a Windows service.</p>
-<p>Run the on-prem agent in console mode by launching by <code>Workato</code> &#x2192; <code>Run Agent (console)</code> shortcut in the Start Menu.
-You can use <code>Run Agent (console)</code> shortcut to ensure the agent is successfully connecting to Workato using the provided certificate.</p>
-<h4 id="using-windows-service">Using Windows Service</h4>
-<ul>
-<li>Installer automatically registers the agent as a Windows service called <code>WorkatoAgent</code>.</li>
-<li>Note: Workato agent is not auto-started by default. Open <strong>Control Panel &#x2192; System and Security &#x2192; Administrative Tools &#x2192; Services &#x2192; WorkatoAgent</strong> service configuration to configure service auto-start.</li>
-</ul>
-<h4 id="browsing-log-files">Browsing log files</h4>
-<ul>
-<li>When the on-prem agent is running as a Windows service, log files can be found at: <code>%SYSTEMROOT%\System32\LogFiles\Workato</code>. There&apos;s also a shortcut to Workato log directory in the <code>Workato</code> group found in Start Menu for convenience.</li>
-</ul>
-<h3 id="linux-64-bit-and-mac-os-x">Linux 64-bit and Mac OS X</h3>
-<p>Run the on-prem agent using the following bash script:</p>
-<pre><code>&lt;INSTALL_HOME&gt;/bin/run.sh
-</code></pre><h2 id="creating-connections">Creating connections</h2>
-<p>There are no differences in how you work with on-prem apps within your recipe, but on-prem app connections do require special configuration. An on-prem app connection needs to point to a on-prem agent and a specific <code>connection profile</code>.</p>
-<h3 id="connecting-to-database-profiles">Connecting to database profiles</h3>
-<p>Select the correct on-prem agent from the pick list. Once you select the on-prem agent, enter the <code>connection profile</code> name as entered in the <code>database</code> section of the <code>config.yml</code> configuration file.</p>
-<p><img src="https://docs.google.com/drawings/d/1ubb-7QbGbGtTxFUmyCoEZsYRVrR9wkgcjsqrz-OgShs/pub?w=962&amp;h=394" alt=""></p>
-<h3 id="connecting-to-on-premise-file-system-profiles">Connecting to on-premise file system profiles</h3>
-<p>You can customize your connection name. Under the on-prem secure agent and connection profile, provide the corresponding agent name and connection profile respectively. Next, click on <strong>connect</strong>. Once your connection is successful, you can proceed to use the connector in your recipe.</p>
-<p><img src="assets/images/on-prem/connection-page.png" alt="Connections">
-<em>Connection configuration on Workato</em></p>
-<h2 id="common-errors-when-using-the-on-prem-agent">Common errors when using the on-prem agent</h2>
-<p>If connecting to on-prem applications fail, check that:</p>
+<h2 id="common-errors-when-using-the-on-premise-agent">Common errors when using the on-premise agent</h2>
+<p>If connecting to on-premise applications fail, check that:</p>
 <ul>
 <li>Selected agent is active</li>
 <li>Credentials provided in the app connection are correct</li>
 <li>Credentials of user provided in the app connection has correct role and permission to connect</li>
 </ul>
-<p>If connecting to on-prem databases fail, check that:</p>
+<p>If connecting to on-premise databases fail, check that:</p>
 <ul>
 <li>Selected agent is active</li>
 <li>Credentials provided in the connection profile are correct</li>
 <li>Database name and type provided in the connection profile is correct</li>
 </ul>
-<h2 id="upgrading-to-the-new-version">Upgrading to the new version</h2>
-<p>Follow the instructions below for upgrading an existing agent:</p>
-<h3 id="windows">Windows</h3>
-<ul>
-<li>Download the installer</li>
-<li>Verify that the agent is stopped (either stop <strong>Workato Agent</strong> Windows service or terminate console-based agent)</li>
-<li>Uninstall the agent (e.g.  <strong>Start Menu &#x2192; Workato &#x2192; Uninstall</strong>). This should not change the <code>config.yml</code> file and the certificate files (<code>cert.key</code>, <code>cert.pem</code>) in the conf directory</li>
-<li>Run the downloaded installer (this will automatically install to the same location)</li>
-<li>Run the agent. Depending on the setup, either start <strong>Workato Agent</strong> Windows service or run console-based agent</li>
-<li>Make sure your agent is active and verify its version number on the agent page (<strong>Workato.com &#x2192; Tools &#x2192; On-prem agent</strong>)</li>
-</ul>
-<h3 id="linuxmacos">Linux/MacOS</h3>
-<ul>
-<li>Verify that the agent process is stopped. The upgrade will fail if any running agents are detected.</li>
-<li>Run the upgrade script: <code>bin/upgrade.sh</code>. Make sure you have enough permissions.</li>
-<li>Follow the instructions provided by the upgrade script. Confirm the upgrade when prompted.</li>
-<li>Upon successful completion of the upgrade, run the agent (e.g. <code>bin/run.sh</code>)</li>
-<li>Make sure your agent is active and verify its version number on the agent page (<strong>Workato.com &#x2192; Tools &#x2192; On-prem agent</strong>).</li>
-<li>Upgrade process is not triggered if no new versions are available. However, it might be necessary to repair a broken installation, in that case use the command line option when running the upgrade: <code>bin/upgrade.sh --enforce</code>.</li>
-</ul>
 <h2 id="example-recipes">Example recipes</h2>
 <h3 id="example-on-premise-database-recipes">Example on-premise database recipes</h3>
 <ul>
-<li><a href="https://www.workato.com/recipes/280605" target="_blank">Salesforce case sync with on-prem SQL Server</a><!-- [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
+<li><a href="https://www.workato.com/recipes/280605" target="_blank">Salesforce case sync with on-premise SQL Server</a><!-- [Quickbase data sync with SQL Server](https://www.workato.com/recipes/280610-demo-qb-data-sync-with-sql-server#recipe)
 [On-prem Postgres sync with Postgres](https://www.workato.com/recipes/268936)-->
 </li>
 </ul>
@@ -6186,7 +5828,7 @@ You can use <code>Run Agent (console)</code> shortcut to ensure the agent is suc
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"On premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Agent setup","level":"1.13.1","depth":2,"anchor":"#setting-up-on-prem-access","path":"on-prem.md","ref":"on-prem.md#setting-up-on-prem-access","articles":[]},"previous":{"title":"Packages import behaviour","level":"1.12.1.3","depth":3,"anchor":"#packages-import-behaviour","path":"recipe-development-lifecycle.md","ref":"recipe-development-lifecycle.md#packages-import-behaviour","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem.md","mtime":"2018-05-10T07:28:29.601Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-10T07:29:29.025Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"On-premise connectivity","date":"2017-02-22T12:00:00.000Z","level":"1.13","depth":1,"next":{"title":"Setup agent","level":"1.13.1","depth":2,"path":"on-prem/setup.md","ref":"on-prem/setup.md","articles":[]},"previous":{"title":"Packages import behaviour","level":"1.12.1.3","depth":3,"anchor":"#packages-import-behaviour","path":"recipe-development-lifecycle.md","ref":"recipe-development-lifecycle.md#packages-import-behaviour","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem.md","mtime":"2018-05-10T09:05:45.374Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-10T09:07:13.820Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
