@@ -39,7 +39,7 @@ files:
     base: "C:/Documents/HR"
 ```
 
-When configuring an On-premise files connection to this profile, we will need to provide the profile name accordingly.
+When configuring an on-premise files connection to this profile, we will need to provide the profile name accordingly.
 
 ![On-premise file connection using on-premise agent](/assets/images/on-prem/files-opa-connection.png)
 *On-premise file connection using on-premise agent*
