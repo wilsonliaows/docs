@@ -8,8 +8,8 @@ To avoid exposure of any sensitive data (like passwords or private keys) in your
 
 1. Make sure you have your agent keys properly downloaded and placed into `conf` folder. They are required for encryption.
 2. Run the encryptor tool in your command line.
-  - `bin\encryptor.cmd` in Windows
-  - `bin/encryptor.sh` script for Unix/MacOS
+   - `bin\encryptor.cmd` in Windows
+   - `bin/encryptor.sh` script for Unix/MacOS
 3. When prompted, enter your secret value twice.
 4. The script will print an encrypted text. Example:
 ```

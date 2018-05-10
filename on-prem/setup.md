@@ -13,7 +13,7 @@ date: 2018-05-09 12:00:00 Z
 
 ## Install agent
 ### Windows
-1) On the top navigation bar, click `Tools` > `On-prem agent`. Or, navigate directly to the [On-premise agent page](https://www.workato.com/secure_agents).
+1) On the top navigation bar, click `Tools` > `On-prem agent`. Alternatively, you can access the [On-premise agent page](https://www.workato.com/secure_agents) directly.
 
 ![On-premise option](/assets/images/on-prem/navigate-to-opa.png)
 
@@ -25,7 +25,7 @@ date: 2018-05-09 12:00:00 Z
 
 ![On-premise option](/assets/images/on-prem/download-key-and-agent.png)
 
-4) Select your operating system to download the right agent installer.
+4) Select **Windows** to download the right agent installer.
 
 ![On-premise option](/assets/images/on-prem/windows-os.png)
 

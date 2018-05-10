@@ -11,7 +11,9 @@ When you create a connection for some applications, you can choose to specify if
 When you are building a recipe, the triggers and actions are the same regardless of how the connection is made (direct vs on-premise connection).
 
 ## Connecting to database profiles
-All database connectors give you the option to connect through an on-premise agent. In the connection fields, Select the desired on-premise agent from the field labelled **Is this app in a private network?**. Once you select the on-premise agent, enter the **connection profile** name. This profile name should be the same as what you configured in the `database` section of the `config.yml` configuration file.
+All database connectors give you the option to connect through an on-premise agent. In the connection fields, Select the desired on-premise agent from the field labelled **Is this app in a private network?**.
+
+Once you select the on-premise agent, enter the **connection profile** name. This profile name should be the same as what you configured in the `database` section of the `config.yml` configuration file.
 
 In the following example, we are connecting to a SQL Server database with the profile name `production`.
 
@@ -29,7 +31,9 @@ When configuring a SQL Server connection to this profile, we will need to provid
 *Database connection using on-premise agent*
 
 ## Connecting to on-premise file system profiles
-All On-premise files connectors must be connected through an on-premise agent. In the connection fields, Select the desired on-premise agent from the field labelled **Is this app in a private network?**. Once you select the on-premise agent, enter the **connection profile** name. This profile name should be the same as what you configured in the `database` section of the `config.yml` configuration file.
+All On-premise files connectors must be connected through an on-premise agent. In the connection fields, Select the desired on-premise agent from the field labelled **Is this app in a private network?**.
+
+Once you select the on-premise agent, enter the **connection profile** name. This profile name should be the same as what you configured in the `database` section of the `config.yml` configuration file.
 
 ```YAML
 files:

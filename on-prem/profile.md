@@ -17,7 +17,7 @@ A single Workato agent can be used to connect with multiple on-premise applicati
 
  Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premise agents installed in a server with limited internet connectivity.
 
- A config file should look something like this:
+ A typical config file will look something like this:
 
 ```YAML
 database:
@@ -41,27 +41,28 @@ ldap:
     ...
 ```
 
+**Do not use spaces or special characters in connection profile names.**
+
 ## Applying new configuration
 
 A running on-premise agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Database connection profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
-The following databases are supported by the on-premise agent.
 
 A database type is specified either by `adapter` property or a complete JDBC URL provided in the `url` property. Using the following `adapter` values for the respective database you are connecting to.
 
+The following databases are supported by the on-premise agent.
+
 |Database|adapter|
-|--|---|
-|MySQL|mysql|
-|Microsoft SQL Server|sqlserver|
-|Oracle Database|oracle|
-|PostgreSQL|postgresql|
-|JDBC-compatible database|jdbc|
+|-------------------------|------------|
+|MySQL|`mysql`|
+|Microsoft SQL Server|`sqlserver`|
+|Oracle Database|`oracle`|
+|PostgreSQL|`postgresql`|
+|JDBC-compatible database|`jdbc`|
 
 `port` numbers can be omitted when matching defaults for a given database type.
-
-Do not use spaces or special characters in `connection profile` names.
 
 SQL Server sample configuration for connecting to specific instance:
 
@@ -88,7 +89,8 @@ database:
 ```
 
 ### JDBC connection profile
-JDBC connection profile is a special case of database profile, for example:
+JDBC connection profile is a special case of database profile. All JDBC profiles require `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
+note that your agent's classpath can be extended in `server` section of the configuration file:
 ```YAML
 database:
   tpc:
@@ -97,17 +99,13 @@ database:
     adapter: jdbc
     user: my_user
     SSL: false
-```
 
-Any JDBC profile requires specifying `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
-note that your agent's classpath can be extended in `server` section of the configuration file:
-```YAML
 server:
   classpath: /opt/workato-agent/jdbc
 ```
 
 ## On-premise files connection profile
-Working with on-premise files requires you to define a filesystem profile in the `files` section.
+Working with on-premise files requires you to define a file system profile in the `files` section.
 You need to specify the base folder for file access; the base folder will be used for resolving relative paths. A folder named `HR` in the `C:/Documents/` directory will be configured like this:
 
 ```YAML
@@ -116,7 +114,7 @@ files:
     base: "C:/Documents/HR"
 ```
 
-Next, if wish to provide access to the `employees` folder in the Desktop directory, the configuration will have a file path that looks something like this:
+In another example, if wish to provide access to the `employees` folder in the Desktop directory, the configuration will have a file path that looks something like this:
 
 ```YAML
 files:
@@ -125,11 +123,12 @@ files:
 ```
 
 ## JMS connection profile
-JMS connection profiles are located in the `jms` section of `<INSTALL_HOME>/conf/config.yml`.
-A JMS provider is specified by `provider` property of a connection profile.
-The following JMS providers are supported by the on-premise agent:
-* `amazon-sqs` or `sqs` for Amazon Simple Queue Service
-* `activemq` for Apache ActiveMQ.
+JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premise agent:
+
+|Messaging service|provider|
+|---------------------------|---------------------|
+|Amazon Simple Queue Service|`amazon-sqs` or `sqs`|
+|Apache ActiveMQ|`activemq`|
 
 ### Amazon SQS
 You need the following configuration properties when connecting to Amazon SQS:
@@ -156,8 +155,7 @@ jms:
 ActiveMQ broker cannot be embedded into the agent. Using any `vm://` broker connections is not supported.
 
 ## Apache Kafka connection profile
-Kafka connection profiles are located in the `kafka` section of `<INSTALL_HOME>/conf/config.yml`.
-You need the following configuration properties when connecting to Kafka:
+Kafka connection profiles must be defined in the `kafka` section. You need the following configuration properties when connecting to Kafka:
 ```YAML
 kafka:
   MyKafkaProfile:
@@ -166,14 +164,14 @@ kafka:
 
 You can provide any Kafka [consumer](https://kafka.apache.org/documentation/#producerconfigs) or [producer](https://kafka.apache.org/documentation/#newconsumerconfigs) configuration properties, e.g. `bootstrap.servers` or `batch_size`.
 
-However, some properties are overriden by Workato Agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:
+However, some properties are overridden by Workato Agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:
 
 | Property name | Comment |
 |------------------|-------------------------------------------|
-| key.serializer | Only StringSerializer is supported by agent |
-| value.serializer | Only StringSerializer is supported by agent |
-| key.deserializer | Only StringSerializer is supported by agent |
-| value.deserializer | Only StringSerializer is supported by agent |
+| key.serializer | Only `StringSerializer` is supported by agent |
+| value.serializer | Only `StringSerializer` is supported by agent |
+| key.deserializer | Only `StringSerializer` is supported by agent |
+| value.deserializer | Only `StringSerializer` is supported by agent |
 | auto.offset.reset | Defined by recipes |
 | enable.auto.commit | Defined internally |
 
@@ -203,8 +201,7 @@ kafka:
 Note that password-protected private keys cannot be inlined.
 
 ## Active Directory connection profile
-Active Directory connection profiles are defined in the `ldap` section of `<INSTALL_HOME>/conf/config.yml`.
-Example profile:
+Active Directory connection profiles must be defined in the `ldap` section.  Example profile:
 ```YAML
 ldap:
   MyLdapProfile:
