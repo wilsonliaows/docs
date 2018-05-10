@@ -7,9 +7,11 @@ date: 2018-05-09 12:00:00 Z
 
 1) [Install agent](#install-agent)
 
-2) [Create connection profiles](#create-connection-profiles)
+2) [Create connection profiles](/on-prem/profile.md)
 
-3) [Start agent](#start-agent)
+3) [Run agent](/on-prem/run.md)
+
+4) [Upgrade agent](/on-prem/upgrade.md)
 
 ## Install agent
 ### Windows
