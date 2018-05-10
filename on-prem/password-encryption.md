@@ -6,7 +6,7 @@ date: 2018-05-09 12:00:00 Z
 # Password Encryption
 To avoid exposure of any sensitive data (like passwords or private keys) in your configuration file (`config.yml`), you have a choice to encrypt it by using the encryptor tool. The process of encrypting any secret value is as follows:
 
-1. Make sure you have your agent keys properly downloaded and placed into `conf` folder. They are required for encryption.
+1. Make sure you have your agent keys properly downloaded and placed into the `conf` folder. They are required for encryption.
 2. Run the encryptor tool in your command line.
    - `bin\encryptor.cmd` in Windows
    - `bin/encryptor.sh` script for Unix/MacOS

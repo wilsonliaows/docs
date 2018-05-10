@@ -20,4 +20,4 @@ Follow the instructions below for upgrading an existing agent:
 3. Follow the instructions provided by the upgrade script. Confirm the upgrade when prompted.
 4. Upon successful completion of the upgrade, run the agent (e.g. `bin/run.sh`)
 5. Make sure your agent is active and verify its version number on the [on-premise agent page](https://www.workato.com/secure_agents).
-6. Upgrade process is not triggered if no new versions are available. However, it might be necessary to repair a broken installation, in that case use the command line option when running the upgrade: `bin/upgrade.sh --enforce`.
+6. The upgrade process is not triggered if no new versions are available. However, it might be necessary to repair a broken installation; in that case use the command line option when running the upgrade: `bin/upgrade.sh --enforce`.

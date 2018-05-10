@@ -4,7 +4,7 @@ date: 2017-02-22 12:00:00 Z
 ---
 
 # Connection Profiles
-A single Workato agent can be used to connect with multiple on-premise applications. A **connection profile** uniquely identifies each one and contains configuration information required to connect to that application.
+A single Workato on-premise agent can be used to connect with multiple on-premise applications. A **connection profile** uniquely identifies each one and contains configuration information required to connect to that application.
 
  Profiles are configured in the `<INSTALL_HOME>/conf/config.yml`. A config file can contain profiles to a few types of systems:
  - [Databases](#database-connection-profile)
@@ -43,28 +43,49 @@ ldap:
 
 **Do not use spaces or special characters in connection profile names.**
 
-## Applying new configuration
+## Applying a new configuration
 
 A running on-premise agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Database connection profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
 
-A database type is specified either by `adapter` property or a complete JDBC URL provided in the `url` property. Using the following `adapter` values for the respective database you are connecting to.
+A database type is specified either by using the `adapter` property or a complete JDBC URL provided in the `url` property. Using the following `adapter` values for the respective database you are connecting to. The following databases are supported by the on-premise agent - use them as `adapter` values for the respective databases you connect to.
 
-The following databases are supported by the on-premise agent.
-
-|Database|adapter|
-|-------------------------|------------|
-|MySQL|`mysql`|
-|Microsoft SQL Server|`sqlserver`|
-|Oracle Database|`oracle`|
-|PostgreSQL|`postgresql`|
-|JDBC-compatible database|`jdbc`|
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th>Database</th>
+        <th>adapter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Microsoft SQL Server</td>
+      <td><code>sqlserver</code></td>
+    </tr>
+    <tr>
+      <td>Oracle Database</td>
+      <td><code>oracle</code></td>
+    </tr>
+    <tr>
+      <td>PostgreSQL</td>
+      <td><code>postgresql</code></td>
+    </tr>
+    <tr>
+      <td>MySQL</td>
+      <td><code>mysql</code></td>
+    </tr>
+    <tr>
+      <td>Other JDBC-compatible database</td>
+      <td><code>jdbc</code></td>
+    </tr>
+  </tbody>
+</table>
 
 `port` numbers can be omitted when matching defaults for a given database type.
 
-SQL Server sample configuration for connecting to specific instance:
+Here's a sample SQL server configuration for connecting to a specific instance:
 
 ```YAML
 database:
@@ -77,7 +98,7 @@ database:
     password: foobar
 ```
 
-PostgreSQL URL-based sample configuration:
+Here's a sample PostgreSQL database using `url` property in the configuration:
 
 ```YAML
 database:
@@ -89,8 +110,8 @@ database:
 ```
 
 ### JDBC connection profile
-JDBC connection profile is a special case of database profile. All JDBC profiles require `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
-note that your agent's classpath can be extended in `server` section of the configuration file:
+When creating connection profile to other JDBC-compatible databases, the configuration is special. These profiles require `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
+note that your agent's classpath can be extended in the `server` section of the configuration file:
 ```YAML
 database:
   tpc:
@@ -106,7 +127,7 @@ server:
 
 ## On-premise files connection profile
 Working with on-premise files requires you to define a file system profile in the `files` section.
-You need to specify the base folder for file access; the base folder will be used for resolving relative paths. A folder named `HR` in the `C:/Documents/` directory will be configured like this:
+You need to specify the base folder for file access as it will be used for resolving relative paths. A folder named `HR` in the `C:/Documents/` directory will be configured like this:
 
 ```YAML
 files:
@@ -125,10 +146,24 @@ files:
 ## JMS connection profile
 JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premise agent:
 
-|Messaging service|provider|
-|---------------------------|---------------------|
-|Amazon Simple Queue Service|`amazon-sqs` or `sqs`|
-|Apache ActiveMQ|`activemq`|
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th>Messaging service</th>
+        <th>provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td><code>amazon-sqs</code> or <code>sqs</code></td>
+    </tr>
+    <tr>
+      <td>Apache ActiveMQ</td>
+      <td><code>activemq</code></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Amazon SQS
 You need the following configuration properties when connecting to Amazon SQS:
@@ -144,7 +179,7 @@ jms:
 Note that you need to make sure your SQS queue is created before sending messages.
 
 ### Apache ActiveMQ
-For connecting to a running ActiveMQ broker you only need to specify broker URL:
+For connecting to a running ActiveMQ broker you only need to specify the broker URL:
 ```YAML
 jms:
   MyActiveMQProfile:
@@ -164,7 +199,7 @@ kafka:
 
 You can provide any Kafka [consumer](https://kafka.apache.org/documentation/#producerconfigs) or [producer](https://kafka.apache.org/documentation/#newconsumerconfigs) configuration properties, e.g. `bootstrap.servers` or `batch_size`.
 
-However, some properties are overridden by Workato Agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:
+However, some properties are overridden by the on-premise agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:
 
 | Property name | Comment |
 |------------------|-------------------------------------------|
@@ -223,7 +258,7 @@ where profile configuration properties are:
 
 ## HTTP resources
 
-`http` configuration section allows configuring agent access to internal HTTPS resources:
+The `http` configuration section allows configuring agent access to internal HTTPS resources:
 ```YAML
 http:
   trustAll: true

@@ -125,7 +125,7 @@
     * [Exporting packages](recipe-development-lifecycle.md#exporting-packages)
     * [Importing packages](recipe-development-lifecycle.md#importing-packages)
     * [Packages import behaviour](recipe-development-lifecycle.md#packages-import-behaviour)
-* [On premise connectivity](on-prem.md)
+* [On-premise connectivity](on-prem.md)
   * [Setup agent](on-prem/setup.md)
   * [Run agent](on-prem/run.md)
   * [Agent upgrade](on-prem/upgrade.md)
