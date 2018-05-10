@@ -43,7 +43,7 @@ ldap:
 
 ## Applying new configuration
 
-A running on-prem agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
+A running on-premise agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Database connection profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
@@ -107,7 +107,7 @@ server:
 ```
 
 ## On-premise files connection profile
-Working with on-prem files requires you to define a filesystem profile in the `files` section.
+Working with on-premise files requires you to define a filesystem profile in the `files` section.
 You need to specify the base folder for file access; the base folder will be used for resolving relative paths. A folder named `HR` in the `C:/Documents/` directory will be configured like this:
 
 ```YAML
@@ -127,7 +127,7 @@ files:
 ## JMS connection profile
 JMS connection profiles are located in the `jms` section of `<INSTALL_HOME>/conf/config.yml`.
 A JMS provider is specified by `provider` property of a connection profile.
-The following JMS providers are supported by the on-prem agent:
+The following JMS providers are supported by the on-premise agent:
 * `amazon-sqs` or `sqs` for Amazon Simple Queue Service
 * `activemq` for Apache ActiveMQ.
 
@@ -238,7 +238,7 @@ The agent may be configured to allow accessing internal HTTPS resources which us
 Normally a server certificate's Common Name (or Subject Alternate Name) field should match the target hostname. If you want the agent to accept server certificates with non-matching hostname, disable hostname verification by setting `verifyHost` property to `false` (defaults to `true`).
 
 ## NTLM connection profile
-Using NTLM connection profile it is possible to access HTTP resources with NTLM authentication.
+Certain HTTP resources require NTLM authentication. This can be done using a NTLM connection profile. An example profile should look like this:
 ```YAML
 ntlm:
   MyNtlmProfile:
@@ -248,13 +248,13 @@ ntlm:
     cm_max_total: 100
 ```
 
-The following properties are supported:
+The following profile properties are supported:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
 | auth | NTLM authentication credentials |
 | base_url | The base URL for NTLM resources |
-| cm_default_max_per_route | (Optional) Sets the number of connections per route/host (must be a positive number, default 5) |
-| cm_max_total | (Optional) Sets the maximum number of connections (must be a positive number, default 10) |
+| cm_default_max_per_route | **Optional**. Sets the number of connections per route/host (must be a positive number, default 5) |
+| cm_max_total | **Optional**. Sets the maximum number of connections (must be a positive number, default 10) |
 
-HTTP methods supported: GET, POST, PUT, PATCH, DELETE, HEAD
+HTTP methods supported for NTLM connections are `GET`, `POST`, `PUT`, `PATCH`, `DELETE` and `HEAD`.

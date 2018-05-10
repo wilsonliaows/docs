@@ -4,7 +4,7 @@ date: 2018-05-09 12:00:00 Z
 ---
 
 # Proxy Server Support
-The on-prem agent can be run in the environment with limited internet connectivity by using a proxy server.
+The on-premise agent can be run in the environment with limited internet connectivity by using a proxy server.
 Proxy settings can be defined by adding a top-level `proxy` section to the configuration file:
 
 ```YAML
