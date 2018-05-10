@@ -128,7 +128,7 @@
 * [On-premise connectivity](on-prem.md)
   * [Setup agent](on-prem/setup.md)
   * [Run agent](on-prem/run.md)
-  * [Agent upgrade](on-prem/upgrade.md)
+  * [Upgrade agent](on-prem/upgrade.md)
   * [Profiles](on-prem/profile.md)
   * [On-premise connections](on-prem/connection.md)
   * [Password encryption](on-prem/password-encryption.md)
