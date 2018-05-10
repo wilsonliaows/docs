@@ -288,6 +288,9 @@ The following properties are supported:
 | base_url | The base URL for NTLM resources |
 | cm_default_max_per_route | (Optional) Sets the number of connections per route/host (must be a positive number, default 5) |
 | cm_max_total | (Optional) Sets the maximum number of connections (must be a positive number, default 10) |
+| http_connect_timeout | (Optional) The timeout in milliseconds used when requesting a connection (0 - infinite, default 10000) |
+| http_connection_request_timeout | (Optional) The timeout in milliseconds until a connection is established (0 - infinite, default 10000) |
+| http_socket_timeout | (Optional) The socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets) (0 - infinite, default 10000) |
 
 HTTP methods supported: GET, POST, PUT, PATCH, DELETE, HEAD
 
