@@ -42,4 +42,4 @@ Finally, you will need to map the required fields from the output datatree here 
 
 Similar to the **Upsert row** action, primary key values provided will be used to determine an update or create for each row.
 
-Refer to the [List management](/features/list-management.html) guide for more information about working with batches.
+Refer to the [List management](/features/list-management.md) guide for more information about working with batches.
