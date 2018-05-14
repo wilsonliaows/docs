@@ -17,9 +17,11 @@ In order to work with the PubSub connector, users require access to the PubSub t
 ### Creating and managing topics
 When using the PubSub connector, you can listen to messages in a topic or publish messages to a topic. In order to do so, you have to first create a topic, and define the message structure for that topic, so that publishers and consumers alike know what to expect when sending or receiving messages.
 
-You can create and manage your topics on the topics feature page.
+You can create and manage your topics on the topics feature page. 
 
-![Manage topics](/assets/images/connectors/pubsub/manage-topics.png)
+To access the topics feature page, click on 'Tools' in the top navigation bar > 'View all Tools' and then on 'Pub/Sub'.
+
+![Manage topics](assets/images/connectors/pubsub/PubSub nav.gif)
 *Manage and create topics on the topics page*
 
 When creating topics, you will need to define what the data structure of the messages will look like. This structure can be subsequently edited.
