@@ -10,8 +10,10 @@ date: 2018-04-20 06:00:00 Z
 All database with a JDBC driver
 
 ## How to connect to JDBC on Workato
-To create a connection to a JDBC source, you must use an On-premise agent. The JDBC connector uses JDBC authentication through an On-premise agent to establish a secure connection with your JDBC driver. Refer to the
-![Configured JDBC connection](/assets/images/jdbc/connection.png)
+To create a connection to a JDBC source, you **must** use an [On-premise agent](/on-prem.md). The JDBC connector uses JDBC authentication through an On-premise agent to establish a secure connection with your JDBC driver. Learn how to configure an [on-premise agent profile](/on-prem/profile.md#jdbc-connection-profile) to connect to a JDBC-compliant database.
+
+![JDBC connection using on-premise agent](/assets/images/jdbc/connection.png)
+*JDBC connection using on-premise agent*
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -35,7 +37,7 @@ To create a connection to a JDBC source, you must use an On-premise agent. The J
     </tr>
     <tr>
       <td>Schema</td>
-      <td>Optional. Name of the schema you wish to use in this connection.</td>
+      <td><b>Optional</b> Name of the schema you wish to use in this connection.</td>
     </tr>
   </tbody>
 </table>
@@ -69,7 +71,7 @@ However, a trigger that processes rows in batches will output them as an array o
 ![Batch trigger output](/assets/images/jdbc/batch_trigger_output.png)
 *Batch trigger output*
 
-As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/666198) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+As a result, the output of batch triggers/actions needs to be handled differently. The output of the trigger can be used in actions with batch operations (like Salesforce **Create objects in bulk action**) that requires mapping the <kbd>Rows</kbd> datapill into the source list.
 
 ![Using batch trigger output](/assets/images/jdbc/using_batch_output.png)
 *Using batch trigger output*
@@ -114,7 +116,7 @@ Your `WHERE` condition can also contain subqueries. The following query can be u
 id in (select compensation_id from users where active = 0)
 ```
 
-When used in a **Delete rows** action, this will delete all rows in the `compensation` table related to users who are no longer active (`active = 0`).
+When used in a **Select rows** action, this will select all rows in the `compensation` table related to users who are no longer active (`active = 0`).
 
 ![Using subquery in WHERE condition](/assets/images/jdbc/subquery-in-where-condition.png)
 *Using subquery in WHERE condition*
