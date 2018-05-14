@@ -92,10 +92,7 @@ A detailed comparison table for both the custom Workbot slash commands and the l
     </tbody>
 </table>
 
-## Notes
+## Notes for custom Workbot slash commands
 
 1. Make sure that Workbot is always in the channel to run commands. Do this by inviting it to the channel.
-2. Just like talking to a real person, always use @workbot because you want it to be alerted.
-3. When you talk to Workbot in his direct message channel, you do not need to use @workbot because it knows you are talking to it.
-4. When you invite Workbot into the channel, **anyone** in that channel can interact with Workbot via commands.
-5. When first installing Workbot into your Slack team, Workbot will detect the **latest** app connections you have made in your Workato account and automatically connect to them.
+2. When you invite Workbot into the channel, **anyone** in that channel can interact with Workbot via commands.
