@@ -8,9 +8,9 @@ Slash commands are a great way to trigger Workbot Post command triggers.
 
 ![Slash command in Slack](/assets/images/workbot/workbot-slash-commands/slash-command-in-slack.png)
 
-There are 2 methods you can configure slash commands; by connecting a [custom Workbot](#slash-command-using-custom-bots), or by a [legacy custom integration](#legacy-slash-commands).
+There are 2 methods you can configure slash commands; by connecting a [custom Workbot](#slash-command-using-custom-bots), or by a [legacy custom integration](/workbot/legacy-slash-commands.md).
 
-We strongly recommend using custom Workbots to configure your slash command, as custom integration is a legacy method that will eventually be deprecated (no news as to when just yet).
+We strongly recommend using custom Workbots to configure your slash command, as custom integration is a legacy feature that will eventually be deprecated (no news as to when just yet).
 
 ## Slash command using custom bots
 To use this method, you first need to [create a custom bot](/workbot/workbot-custom-bots.md).
@@ -107,27 +107,34 @@ After **Enable slash command** is set to **Yes**, and a valid **Command name** i
 
 ![Request URL](/assets/images/workbot/workbot-slash-commands/request-url.png)
 
+#### Using slash commands with command input fields
+If you've defined command input fields in your post command trigger, you can pass them into the slash command when you invoke it.
+
+Command input fields in slash commands follow this format:
+
+```
+/slashcommand name1: value 1 name2: value 2 name3: value 3...
+```
+
+where `name` is the name of the command input field and `value` is the value of the field.
+
+For example, in the JIRA create issue recipe above, we've defined **Title** and **Description** as command input fields. We can pass the respective values to the slash command invocation like so:
+
+```
+/createissue title: Button is misaligned description: At the registration page, the registration button is misaligned.
+```
+
 #### Dialog for missing command input fields
-When set to 'Yes', this triggers a dialog to pop up when the user invokes the command via a Slash command. This dialog collects all the command input fields you require from the user. Hints and examples defined in the command input fields are also displayed in the form.
+
+Even when command input fields are missing, custom Workbot slash commands can still collect them from the user using Slack dialogs.
+
+When set to 'Yes', this triggers a dialog to pop up when the user invokes the command via a Slash command. This dialog collects all the command input fields you require from the user. Hints and examples defined in the command input fields are also displayed in the dialog.
 
 ![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields.png)
 
 If set to 'No', the command input fields will be collected from conversing with the user.
 
 ![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields-no.PNG)
-
-#### Using slash commands with command input fields
-If you've defined command input fields in your post command trigger, you can pass them into the slash command when you invoke it.
-
-Command input fields in slash commands follow this format:
-
-`/slashcommand name1: value 1 name2: value 2 name3: value 3...`,
-
-where `name` is the name of the command input field and `value` is the value of the field.
-
-For example, in the JIRA create issue recipe above, we've defined **Title** and **Description** as command input fields. We can pass the respective values to the slash command invocation like so:
-
-`/createissue title: Button is misaligned description: At the registration page, the registration button is misaligned.`
 
 ## Creating the slash command on Slack
 The trigger should now have all the info required to create the slash command in Slack.
@@ -140,9 +147,14 @@ Under **Slash Commands**, click on **Create New Command**
 
 ![Create new command](/assets/images/workbot/workbot-slash-commands/create-new-slash-command-slack.png)*Click on **Create New Command***
 
-In the following form, populate the fields based on the [command name](#command-name) and the [request URL](#request-url):
+In the following form, populate the fields based like so:
+- [Command name](#command-name)
 
-![Configuring new slash command in Slack](/assets/images/workbot/workbot-slash-commands/configuring-new-slash-command-slack.png)
+![Mapping command name](/assets/images/workbot/workbot-slash-commands/map-command-name.png)
+
+- [Request URL](#request-url)
+
+![Mapping request URL](/assets/images/workbot/workbot-slash-commands/map-request-url.png)
 
 Under **Escape channels, users, and links sent to your app**, check the box to enable it. This tells Slack to escape users and channels in their request payload to us.
 
@@ -162,105 +174,6 @@ After installing/reinstalling your custom bot, the slash command should now be r
 
 You can add more slash commands to the same custom bot - but since slash commands are not namespaced, make sure to uniquely name each slash command in a Slack team.
 
-## Legacy slash commands
-Slash commands using Slack's legacy Custom Integrations allows you to add slash commands to your workspace without having to create a custom Workbot (i.e. a Slack app). However, legacy slash commands lack certain capabilities that come with the custom Workbot slash commands. You can view the differences between custom Workbot slash commands vs legacy slash commands in [this document](/workbot/custom-workbot-vs-legacy-slash-commands.md).
-
-To use this method, you first need to add the slash command custom integration to your Slack workspace.
-
-This custom integration will work in conjunction with Workbot to execute your recipes.
-
-### Adding the Slash Commands custom integrations to your Slack workspace
-To do so, head over to https://your-workspace.slack.com//apps/A0F82E8CA-slash-commands e.g. https://workato.slack.com//apps/A0F82E8CA-slash-commands.
-
-![Add configuration](/assets/images/workbot/workbot-slash-commands/add-configuration.png)
-
-Click on **Add Configuration**. Key in the name of your slash command. Slash commands should be named after the function it performs, e.g.
-
-<code>/createissue, /listusers, /showcustomers</code>
-
-Next, click on **Add Slash Command Integration**. You should now be at the Slash Command settings page. Scroll down to **Integration Settings**. Under **Token**, copy the value in the field e.g. `UtsZHLeOKI4S7zqkG3YngwI1` - we'll need this when configuring the Workbot connection in Workato. Keep this tab open - we'll come back to it later.
-
-![Integration Settings](/assets/images/workbot/workbot-slash-commands/integration-settings-no-url.png)
-
-#### Configuring the Workbot connection
-From your Workato account, go to the Workbot connection you want to use slash commands with. Under the **Advanced** group, paste the **Token** value you copied earlier into the **Slash commands verification tokens** field. Click **Connect** and authorize the connection.
-
-![Slash command verification token](/assets/images/workbot/workbot-slash-commands/slash-command-verification-token.png) *A Workbot connection can support multiple legacy slash commands by comma-separating multiple slash command verification tokens.*
-
-As we're not using a custom Workbot here, leave **Custom OAuth profile** empty. However, a Workbot connection can use both a legacy slash command (using the Slash commands verification token) as well as a custom Workbot with a Custom OAuth profile.
-
-Done! Workbot is now connected to the custom integration slash command. Next, we need to configure the Workbot recipe to talk to the custom integration slash command.
-
-## Getting started (again)
-To get started, fill in the post command trigger fields as you normally would. Next, move on to the slash command configuration group.
-
-### Slash command configuration group (legacy)
-
-#### Enable slash command (legacy)
-Toggle whether to enable slash command for this command trigger.	When set to 'Yes', command can be invoked using a slash command.
-
-![Enable slash command](/assets/images/workbot/workbot-slash-commands/enable-slash-command.png)
-
-#### Command name (legacy)
-This is the name of your slash command. Slash commands should be named after the function it performs, e.g.
-
-<code>/createissue, /listusers, /showcustomers</code>
-
-Slash command actions must start with a slash and contain no spaces. This slash command will also need to be created in your custom bot in Slack, but we'll get to that later.
-
-![Slash command name example](/assets/images/workbot/workbot-slash-commands/slash-command-name.png)
-
-#### Request URL (legacy)
-When slash commands are invoked from Slack, Slack will require a URL to send requests to. This request URL is generated by Workato, and will be needed when setting up your legacy slash command in Slack (we'll get to that [later](#creating-the-legacy-slash-command-on-slack)).
-
-After **Enable slash command** is set to **Yes**, and a valid **Command name** is keyed in, then a **Request URL** is generated in the help box at the top of the post command trigger.
-
-![Request URL](/assets/images/workbot/workbot-slash-commands/request-url.png)
-
-#### Dialog for missing command input fields
-Dialogs cannot be invoked using legacy slash commands. To prompt a dialog to collect missing command input fields, use a [custom Workbot slash command](#slash-command-using-custom-bots).
-
-![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields.png)
-
-If set to 'No', the command input fields will be collected from conversing with the user.
-
-![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields-no.PNG)
-
-#### Using slash commands with command input fields
-If you've defined command input fields in your post command trigger, you can pass them into the slash command when you invoke it.
-
-Command input fields in slash commands follow this format:
-
-`/slashcommand name1: value 1 name2: value 2 name3: value 3...`,
-
-where `name` is the name of the command input field and `value` is the value of the field.
-
-For example, in the JIRA create issue recipe above, we've defined **Title** and **Description** as command input fields. We can pass the respective values to the slash command invocation like so:
-
-`/createissue title: Button is misaligned description: At the registration page, the registration button is misaligned.`
-
-## Creating the legacy slash command on Slack
-The trigger should now have all the info required to create the slash command in Slack.
-
-Continuing from where we [left off earlier](#adding-the-slash-commands-custom-integrations-to-your-slack-workspace) (you kept the tab open, right?), you should now be at https://your-workspace.slack.com//apps/A0F82E8CA-slash-commands, under **Integration Settings**.
-
-- Under **URL**, paste in the URL from the recipe trigger [earlier](#request-url-legacy).
-
-![Integration Settings with URL](/assets/images/workbot/workbot-slash-commands/integration-settings-with-url.png)
-
-Next, scroll down to **Autocomplete help text**.
-
-- Key in the **Description**. It should describe to the user how to use your slash command.
-- Key in the **Usage hint**. It should describe how a user uses your slash command. Remember - you can pass command input fields into the slash command when it is invoked by following this format:<br>
-`/slashcommand name1: value 1 name2: value 2 name3: value 3...`,<br>
-where `name` is the name of the command input field and `value` is the value of the field. Hence, the **Usage hint** should enclose the command input fields (and their values) with square brackets, i.e.:<br>
-`/addissue [issue: Issue title] [description: Description of issue]`<br><br>
-
-- Turn on  **Escape channels, users, and links sent to your app** and
-- Check the box for Translate global enterprise IDs to local workspace IDs.
-
-![Autocomplete help text](/assets/images/workbot/workbot-slash-commands/autocomplete-help-text.png)
-
-Click on **Save Integration** to finish configuring the custom integrations slash command.
-
 Try it out! Head to your Slack workspace and invoke the slash command to trigger your Workbot recipes.
+
+To read up on how to configure legacy slash commands, see [Configuring legacy slash commands](/workbot/legacy-slash-commands.md).
