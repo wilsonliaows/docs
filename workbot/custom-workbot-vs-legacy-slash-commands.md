@@ -6,11 +6,11 @@ date: 2018-04-9 10:23:00 Z
 # Custom Workbot vs Legacy slash commands
 Workato supports both [slash commands that are part of a custom Workbot](https://api.slack.com/slash-commands) (i.e. a custom Slack app) and legacy slash commands (i.e. [Custom Integrations slash commands](https://slack.com/apps/A0F82E8CA-slash-commands)).
 
-We strongly recommend using custom Workbots to configure your slash command, as custom integrations is a legacy method that will eventually be deprecated (no news as to when just yet). Legacy slash commands also does not support some of the functionalities that custom Workbots have.
+We strongly recommend using custom Workbots to configure your slash command, as custom integrations is a legacy feature that will eventually be deprecated (no news as to when just yet). Legacy slash commands also does not support some of the functionalities that custom Workbots have.
 
-Using custom Workbot slash commands requires [creating a new Slack app](workbot-custom-bots), and connecting it to Workato via a custom OAuth profile, while legacy slash commands does not. You can add legacy slash commands to a Slack workspace directly from the Slack app directory.
+Custom Workbot slash commands requires [creating a new Slack app](/workbot/workbot-custom-bots.md), and connecting it to Workato via a custom OAuth profile, while legacy slash commands does not. You can add legacy slash commands to a Slack workspace directly from the Slack app directory.
 
-A detailed comparison table for both the custom Workbot slash commands and the legacy slash commands is below.
+Here is a detailed comparison table between the custom Workbot slash commands and the legacy slash commands.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
