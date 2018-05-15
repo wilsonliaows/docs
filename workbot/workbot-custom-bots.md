@@ -18,7 +18,7 @@ In Step 1, click on **Create new app**.
 
 ![Creating a new Slack app](/assets/images/workbot/workbot-slash-commands/custom-oauth-step-1.png)
 
-This will open a new tab that will bring you to https://api.slack.com/apps. Keep both the Workato tab and this new tab open - you'll need both to complete Steps 2 and 3.
+This will open a new tab that brings you to https://api.slack.com/apps. Keep both the Workato tab and this new tab open - you'll need both to complete Steps 2 and 3.
 
 Sign in to your team (if you haven't already), then click on **Create New App**.
 
@@ -49,21 +49,21 @@ It should look like this:
 Hit **Save** once you're done. We can now configure your custom bot to talk to Workato in Step 3.
 
 ### Configuring your custom bot to talk to Workato
-Now that your custom bot has been created, we'll need to configure him to be able to talk to Workato. Step 3 is done completely on your app page on Slack, so let's head back to the Slack tab (you kept it open, right?).
+Now that your custom bot has been created, we'll need to configure it to be able to talk to Workato. Step 3 is done completely on your app page on Slack, so let's head back to the Slack tab (you kept it open, right?).
 
 Don't fret if you didn't - you can always head to Tools ➤ Workbot ➤ Custom, and clicking on your custom bot:
 
 ![Edit bot profile](/assets/images/workbot/workbot-slash-commands/edit-bot-profile.png)*Getting back to configuring your custom bot*
 
-![Step 3 of custom bot creation](/assets/images/workbot/workbot-slash-commands/step-3.png)*Step 3 of configuring your custom bot to talk to Workato*
-
 #### Setting up OAuth & Permissions
-You'll want to allow your custom bot to perform certain functions in your Slack team - so you'll need to set some scopes and permissions for him. On your app page on Slack, from the left navigation menu under **Features**, head over to **OAuth & Permissions**.
+You'll want to allow your custom bot to perform certain functions in your Slack team - so you'll need to set some scopes and permissions for it. On your app page on Slack, from the left navigation menu under **Features**, head over to **OAuth & Permissions**.
 ![OAuth & Permissions](/assets/images/workbot/workbot-slash-commands/oauth-permissions.png)
 
-Scroll down to **Redirect URLs** and click on **Add a new Redirect URL**. Copy <code>https://www.workato.com/oauth/callback</code> into the field and click **Add**. If you get an error saying 'This doesn’t seem like a proper link' check to make sure there are no extra spaces at the start/end of the link. Once you're done, remember to hit **Save URLs**.
+Scroll down to **Redirect URLs** and click on **Add a new Redirect URL**. Copy and add this URL:<br><br> <code>https://www.workato.com/oauth/callback</code><br>
 
-![Redirect URLs](/assets/images/workbot/workbot-slash-commands/redirect-urls.png) *Remember to click on **Save URLs** to save your newly added redirect URL!*
+If you get an error like the one below, make sure there are no extra spaces at the start/end of the link. Once you're done, remember to hit **Save URLs**.
+
+![Not a proper link error](/assets/images/workbot/workbot-slash-commands/not-a-proper-link.png)
 
 Scroll down to **Scopes**, and select the following **Permission Scopes**:
 - bot
@@ -75,16 +75,16 @@ Scroll down to **Scopes**, and select the following **Permission Scopes**:
 Click on **Save Changes**.
 
 #### Adding the custom bot as a user in your Slack team
-You'll want to add your custom bot to your team so he can interact with users in a more conversational manner. From the left navigation menu, under **Features**, head over to **Bot Users** and click on **Add a Bot User**.
+You'll want to add your custom bot to your team so it can interact with users in a more conversational manner. From the left navigation menu, under **Features**, head over to **Bot Users** and click on **Add a Bot User**.
 
-- Set the Display name and Default username as the name of your bot e.g. HRBot
-- Turn ON Always Show My Bot as Online option
+- Set the **Display name** and **Default username** as the name of your bot e.g. **HRBot**
+- Set **Always Show My Bot as Online** to `ON`
 - Click on Add Bot User
 
 ![Adding a bot user](/assets/images/workbot/workbot-slash-commands/adding-a-bot-user.png)
 
 #### Subscribing to your custom bot events
-You'll want your custom bot to subscribe to events related to the channels and conversations they're a part of, so he can respond to them.
+You'll want your custom bot to subscribe to events related to the channels and conversations they're a part of, so it can respond to them.
 
 From the left navigation menu, under **Features**, head over to **Event Subscriptions** and enable events.
 
