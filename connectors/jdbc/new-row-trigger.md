@@ -81,6 +81,43 @@ This trigger picks up rows that are inserted in the selected table or view. Thes
   </tbody>
 </table>
 
+## New batch of rows via custom SQL
+This trigger picks up rows when any rows matching the custom SQL are inserted. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+
+![New batch of rows via custom SQL trigger](/assets/images/jdbc/new-batch-of-rows-via-custom-sql-trigger.png)
+*New batch of rows trigger via custom SQL*
+
+**This trigger is not supported for SQL Server 2008 version or earlier.**
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Input field</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#sql">SQL</a></td>
+      <td>
+        Custom SQL query to be executed at each poll interval to pick up new rows.
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#unique-key">Unique key</a></td>
+      <td>
+        Select a unique key column to uniquely identify rows. This list of columns are generated from custom SQL provided.
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#batch-size">Batch size</a></td>
+      <td>
+        Configure the batch size to process in each individual job for this recipe. This defaults to 100.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Input fields
 
 ### Table
