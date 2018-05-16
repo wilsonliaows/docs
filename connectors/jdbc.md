@@ -12,6 +12,8 @@ All database with a JDBC driver
 ## How to connect to JDBC on Workato
 To create a connection to a JDBC source, you **must** use an [On-premise agent](/on-prem.md). The JDBC connector uses JDBC authentication through an On-premise agent to establish a secure connection with your JDBC driver. Learn how to configure an [on-premise agent profile](/on-prem/profile.md#jdbc-connection-profile) to connect to a JDBC-compliant database.
 
+The JDBC connector only supports ANSI-compliant databases like **Snowflake** and **SAP HANA**. The database should support binding variables to be able to use some actions such as **Insert actions**.
+
 ![JDBC connection using on-premise agent](/assets/images/jdbc/connection.png)
 *JDBC connection using on-premise agent*
 
