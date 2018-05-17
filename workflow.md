@@ -13,7 +13,7 @@ People Task feature is enabled only for certain plans. Check the [Pricing and Pl
 
 For Workato accounts with People Task feature enabled, team owners are able to view the People Task option in their 'Tools' page. Click on 'View all Tools' and then on 'People Task'.
 
-![People Task option](assets/images/peopletask/people task nav.gif)
+![People Task option](assets/images/peopletask/people-task-nav.gif)
 *People Task Tool*
 
 ### Customize People Task subdomain
