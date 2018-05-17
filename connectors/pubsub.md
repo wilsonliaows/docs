@@ -21,7 +21,7 @@ You can create and manage your topics on the topics feature page.
 
 To access the topics feature page, click on 'Tools' in the top navigation bar > 'View all Tools' and then on 'Pub/Sub'.
 
-![Manage topics](assets/images/connectors/pubsub/PubSub nav.gif)
+![Manage topics](assets/images/connectors/pubsub/PubSub_nav.gif)
 *Manage and create topics on the topics page*
 
 When creating topics, you will need to define what the data structure of the messages will look like. This structure can be subsequently edited.
