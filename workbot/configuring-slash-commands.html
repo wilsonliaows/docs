@@ -5777,7 +5777,7 @@
                                 
                                 <h1 id="configuring-a-slash-command">Configuring a slash command</h1>
 <p>Slash commands are a great way to trigger Workbot Post command triggers.</p>
-<p><img src="../assets/images/workbot/workbot-slash-commands/slash-command-in-slack.png" alt="Slash command in Slack"></p>
+<p><img src="../assets/images/workbot/workbot-slash-commands/slash-command-in-slack-1.png" alt="Slash command in Slack"></p>
 <p>There are 2 methods you can configure slash commands; by connecting a <a href="#slash-command-using-custom-bots">custom Workbot</a>, or by a <a href="legacy-slash-commands.html">legacy custom integration</a>.</p>
 <p>We strongly recommend using custom Workbots to configure your slash command, as custom integration is a legacy feature that will eventually be deprecated (no news as to when just yet).</p>
 <h2 id="slash-command-using-custom-bots">Slash command using custom bots</h2>
@@ -5786,11 +5786,11 @@
 <p>If you already have a custom Workbot, proceed on to learn how to configure slash commands with your custom bot.</p>
 <h4 id="workbot-connection">Workbot connection</h4>
 <p>To use slash commands using a custom Workbot, you need to connect its custom OAuth profile to the Workbot connection like so:</p>
-<p><img src="../assets/images/workbot/workbot-slash-commands/custom-oauth-workbot-connection.png" alt="Connect custom OAuth profile"></p>
-<p>If you don&apos;t have a custom Workbot with a custom OAuth profile, check out this <a href="workbot-custom-bots.html">this guide</a> on how to configure a custom Workbot.</p>
+<p><img src="../assets/images/workbot/workbot-slash-commands/custom-oauth-workbot-connection-1.png" alt="Connect custom OAuth profile"></p>
+<p>If you don&apos;t have a custom Workbot with a custom OAuth profile, check out the <a href="workbot-custom-bots.html">custom Workbots guide</a> on how to configure a custom Workbot.</p>
 <h4 id="configuring-the-slash-command">Configuring the slash command</h4>
 <p>Slash commands can be configured in Workbot Post command triggers, under the <strong>Slash command configuration</strong> group.</p>
-<p><img src="../assets/images/workbot/workbot-slash-commands/slash-command-configuration.png" alt="Slash command configuration.png"></p>
+<p><img src="../assets/images/workbot/workbot-slash-commands/slash-command-configuration-1.png" alt="Slash command configuration.png"></p>
 <p>The table below shows the input schema for the slash command configuration fields.</p>
 <table class="unchanged rich-diff-level-one">
     <thead>
@@ -5844,7 +5844,7 @@
 <h3 id="slash-command-configuration-group">Slash command configuration group</h3>
 <h4 id="enable-slash-command">Enable slash command</h4>
 <p>Toggle whether to enable slash command for this command trigger.    When set to &apos;Yes&apos;, command can be invoked using a slash command.</p>
-<p><img src="../assets/images/workbot/workbot-slash-commands/enable-slash-command.png" alt="Enable slash command"></p>
+<p><img src="../assets/images/workbot/workbot-slash-commands/enable-slash-command-1.png" alt="Enable slash command"></p>
 <h4 id="command-name">Command name</h4>
 <p>This is the name of your slash command. Slash commands should be named after the function it performs, e.g.</p>
 <p><code>/createissue, /listusers, /showcustomers</code></p>
@@ -5864,7 +5864,7 @@
 </code></pre><h4 id="dialog-for-missing-command-input-fields">Dialog for missing command input fields</h4>
 <p>Even when command input fields are missing, custom Workbot slash commands can still collect them from the user using Slack dialogs.</p>
 <p>When set to &apos;Yes&apos;, this triggers a dialog to pop up when the user invokes the command via a Slash command. This dialog collects all the command input fields you require from the user. Hints and examples defined in the command input fields are also displayed in the dialog.</p>
-<p><img src="../assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields.png" alt="Dialog for missing command input fields"></p>
+<p><img src="../assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields-1.png" alt="Dialog for missing command input fields"></p>
 <p>If set to &apos;No&apos;, the command input fields will be collected from conversing with the user.</p>
 <p><img src="../assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields-no.PNG" alt="Dialog for missing command input fields"></p>
 <h2 id="creating-the-slash-command-on-slack">Creating the slash command on Slack</h2>
@@ -5975,7 +5975,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot slash commands","date":"2018-04-09T10:23:00.000Z","level":"1.15.11","depth":2,"next":{"title":"Custom Workbots","level":"1.15.11.1","depth":3,"path":"workbot/workbot-custom-bots.md","ref":"workbot/workbot-custom-bots.md","articles":[]},"previous":{"title":"Workbot troubleshooting","level":"1.15.10","depth":2,"path":"workbot/workbot-troubleshooting.md","ref":"workbot/workbot-troubleshooting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/configuring-slash-commands.md","mtime":"2018-05-17T21:03:15.152Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-17T21:04:44.711Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot slash commands","date":"2018-04-09T10:23:00.000Z","level":"1.15.11","depth":2,"next":{"title":"Custom Workbots","level":"1.15.11.1","depth":3,"path":"workbot/workbot-custom-bots.md","ref":"workbot/workbot-custom-bots.md","articles":[]},"previous":{"title":"Workbot troubleshooting","level":"1.15.10","depth":2,"path":"workbot/workbot-troubleshooting.md","ref":"workbot/workbot-troubleshooting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/configuring-slash-commands.md","mtime":"2018-05-18T03:51:43.573Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-18T03:52:50.709Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
