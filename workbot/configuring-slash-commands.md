@@ -6,7 +6,7 @@ date: 2018-04-9 10:23:00 Z
 # Configuring a slash command
 Slash commands are a great way to trigger Workbot Post command triggers.
 
-![Slash command in Slack](/assets/images/workbot/workbot-slash-commands/slash-command-in-slack.png)
+![Slash command in Slack](/assets/images/workbot/workbot-slash-commands/slash-command-in-slack-1.png)
 
 There are 2 methods you can configure slash commands; by connecting a [custom Workbot](#slash-command-using-custom-bots), or by a [legacy custom integration](/workbot/legacy-slash-commands.md).
 
@@ -22,15 +22,15 @@ If you already have a custom Workbot, proceed on to learn how to configure slash
 #### Workbot connection
 To use slash commands using a custom Workbot, you need to connect its custom OAuth profile to the Workbot connection like so:
 
-![Connect custom OAuth profile](/assets/images/workbot/workbot-slash-commands/custom-oauth-workbot-connection.png)
+![Connect custom OAuth profile](/assets/images/workbot/workbot-slash-commands/custom-oauth-workbot-connection-1.png)
 
-If you don't have a custom Workbot with a custom OAuth profile, check out this [this guide](/workbot/workbot-custom-bots.md) on how to configure a custom Workbot.
+If you don't have a custom Workbot with a custom OAuth profile, check out the [custom Workbots guide](/workbot/workbot-custom-bots.md) on how to configure a custom Workbot.
 
 #### Configuring the slash command
 
 Slash commands can be configured in Workbot Post command triggers, under the **Slash command configuration** group.
 
-![Slash command configuration.png](/assets/images/workbot/workbot-slash-commands/slash-command-configuration.png)
+![Slash command configuration.png](/assets/images/workbot/workbot-slash-commands/slash-command-configuration-1.png)
 
 The table below shows the input schema for the slash command configuration fields.
 
@@ -89,7 +89,7 @@ To get started, fill in the post command trigger fields as you normally would. N
 #### Enable slash command
 Toggle whether to enable slash command for this command trigger.	When set to 'Yes', command can be invoked using a slash command.
 
-![Enable slash command](/assets/images/workbot/workbot-slash-commands/enable-slash-command.png)
+![Enable slash command](/assets/images/workbot/workbot-slash-commands/enable-slash-command-1.png)
 
 #### Command name
 This is the name of your slash command. Slash commands should be named after the function it performs, e.g.
@@ -130,7 +130,7 @@ Even when command input fields are missing, custom Workbot slash commands can st
 
 When set to 'Yes', this triggers a dialog to pop up when the user invokes the command via a Slash command. This dialog collects all the command input fields you require from the user. Hints and examples defined in the command input fields are also displayed in the dialog.
 
-![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields.png)
+![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields-1.png)
 
 If set to 'No', the command input fields will be collected from conversing with the user.
 
