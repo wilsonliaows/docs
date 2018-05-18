@@ -23,12 +23,12 @@ Click on **Add Configuration**. Key in the name of your slash command. Slash com
 
 Next, click on **Add Slash Command Integration**. You should now be at the Slash Command settings page. Scroll down to **Integration Settings**. Under **Token**, copy the value in the field e.g. `UtsZHLeOKI4S7zqkG3YngwI1` - we'll need this when configuring the Workbot connection in Workato. Keep this tab open - we'll come back to it later.
 
-![Integration Settings](/assets/images/workbot/workbot-slash-commands/integration-settings-no-url.png)
+![Integration Settings](/assets/images/workbot/workbot-slash-commands/integration-settings-no-url-1.png)
 
 #### Configuring the Workbot connection
 From your Workato account, go to the Workbot connection you want to use slash commands with. Under the **Advanced** group, paste the **Token** value you copied earlier into the **Slash commands verification tokens** field. Click **Connect** and authorize the connection.
 
-![Slash command verification token](/assets/images/workbot/workbot-slash-commands/slash-command-verification-token.png) *A Workbot connection can support multiple legacy slash commands by comma-separating multiple slash command verification tokens.*
+![Slash command verification token](/assets/images/workbot/workbot-slash-commands/slash-command-verification-token-1.png) *A Workbot connection can support multiple legacy slash commands by comma-separating multiple slash command verification tokens.*
 
 As we're not using a custom Workbot here, leave **Custom OAuth profile** empty. However, a Workbot connection can use both a legacy slash command (using the Slash commands verification token) as well as a custom Workbot with a Custom OAuth profile.
 
@@ -42,7 +42,7 @@ To get started, fill in the post command trigger fields as you normally would. N
 #### Enable slash command
 Toggle whether to enable slash command for this command trigger.	When set to 'Yes', command can be invoked using a slash command.
 
-![Enable slash command](/assets/images/workbot/workbot-slash-commands/enable-slash-command.png)
+![Enable slash command](/assets/images/workbot/workbot-slash-commands/enable-slash-command-1.png)
 
 #### Command name
 This is the name of your slash command. Slash commands should be named after the function it performs, e.g.
@@ -65,7 +65,7 @@ After **Enable slash command** is set to **Yes**, and a valid **Command name** i
 #### Dialog for missing command input fields
 Dialogs cannot be invoked using legacy slash commands. To prompt a dialog to collect missing command input fields, use a [custom Workbot slash command](#slash-command-using-custom-bots).
 
-![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields.png)
+![Dialog for missing command input fields](/assets/images/workbot/workbot-slash-commands/dialog-for-missing-command-input-fields-1.png)
 
 If set to 'No', the command input fields will be collected from conversing with the user.
 
@@ -95,7 +95,7 @@ Continuing from where we [left off earlier](#adding-the-slash-commands-custom-in
 
 - Under **URL**, paste in the URL from the recipe trigger [earlier](#request-url).
 
-![Integration Settings with URL](/assets/images/workbot/workbot-slash-commands/integration-settings-with-url.png)
+![Integration Settings with URL](/assets/images/workbot/workbot-slash-commands/integration-settings-with-url-1.png)
 
 Next, scroll down to **Autocomplete help text**.
 
@@ -115,7 +115,7 @@ where `name` is the name of the command input field and `value` is the value of 
 - Turn on  **Escape channels, users, and links sent to your app** and
 - Check the box for Translate global enterprise IDs to local workspace IDs.
 
-![Autocomplete help text](/assets/images/workbot/workbot-slash-commands/autocomplete-help-text.png)
+![Autocomplete help text](/assets/images/workbot/workbot-slash-commands/autocomplete-help-text-1.png)
 
 Click on **Save Integration** to finish configuring the custom integrations slash command.
 
