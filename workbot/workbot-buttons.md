@@ -88,7 +88,8 @@ This posts the button (along with 3 other buttons 'High', 'Low' and 'Lowest') to
 
 When clicked, the button triggers the following recipe:
 
-![Triggered recipe](/assets/images/workbot/workbot-buttons/triggered-recipe.png)*The recipe triggered by the button*
+![Triggered recipe](/assets/images/workbot/workbot-buttons/triggered-recipe.png)
+*The recipe triggered by the button*
 
 Notice that the command trigger ``ui_feature highest priority`` of the triggered recipe matches the **Submit button command** of the button.
 
