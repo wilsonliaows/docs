@@ -10,11 +10,10 @@ contain job summary, job report, and details of all executed recipe steps.
 The file size varies from 1kB to 1MB based on the details present in the line 
 execution logs.
 
-This is an add-on feature. Talk to your account representative to enable this 
-feature in your account.
+This is an add-on feature. Please reach out to us at +1 (844) 469-6752 or talk to your account representative to enable job history replication in your account.
 
 ## Replication setup
-Click on the `Job history replication` menu in the `Account Settings` screen. 
+Click on the `Job history replication` tab in your `Account Settings`.
 
 ![Job history replication setup](/assets/images/job-history-replication/settings.png)
 *Job history replication setup.*
@@ -37,7 +36,7 @@ The file path and name format is as follows:
 
 | File Part             | Description           |
 |------------------|-----------------------|
-| path        | _user_id/jobs/recipe_id/YYYYMMDD/**formatted_job_id**/_<br><br>_**formatted_job_id**_ is the job id expanded in to a 21 digit number(left padded with 0s) and split in to 3 character fragments separated by `/`. <br><br>_Eg: Job id `1` is formatted as `000/000/000/000/000/000/001`_ |
+| path        | _user_id/jobs/recipe_id/YYYYMMDD/**formatted_job_id**/_<br><br>_**formatted_job_id**_ is the job id expanded in to a 21 digit number(left padded with 0s) and split in to 3 character fragments separated by `/`. <br><br>_Eg: Job id `100` is formatted as `000/000/000/000/000/000/100`_ |
 | name        | _user_id-recipe_id-job_id-YYYYMMDDHHMMSS-**status**.json_<br><br>_**status**_ is the job completion status: _succeeded_ or _failed_<br><br>_Eg: `5234-234-100-20180521000000-succeeded.json`_ |
 
 
@@ -50,7 +49,7 @@ The job log file contains the job summary data, job custom report data and job e
 ```javascript
 {
 	"id": 100,
-	"flow_id": 100,
+	"flow_id": 234,
 	"parent_id": null,
 	"calling_job_id": null,
 	"status": "completed",
@@ -61,7 +60,7 @@ The job log file contains the job summary data, job custom report data and job e
 	"title": "hello world",
 	"is_poll_error": false,
 	"report": {
-		"name": "Foo Bar",
+		"name": "Xavier D'Souza",
 		"age": 35
 	},
 	"lines": [
