@@ -152,7 +152,7 @@ The following table shows what goes into the dynamic buttons fields:
       </tbody>
     </table>
 
-In the example below, the user wants to update a Salesforce 'Direct Customer' account by clicking on a button associated with that account. As this list changes every day, this would require the use of a dynamically generated list of accounts, and therefore, buttons. In the dynamic buttons fields below, where:
+In the example below, the user wants to update a Salesforce 'Direct Customer' account by clicking on a button associated with that account. As this list changes every day, a static list of buttons wouldn't work. In the dynamic button fields below, where:
   - **Buttons source list**: ``Accounts``
   - **Button Title**: ``Account Name``
   - **Submit button command**: ``salesforce update account``
