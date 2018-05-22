@@ -176,6 +176,7 @@
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot actions](workbot/workbot-actions.md)
   * [Workbot message menus](/workbot/workbot-message-menus.md)
+  * [Workbot buttons](workbot/workbot-buttons.md)
   * [Workbot personal connections](workbot/workbot-latebinding.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
   * [Workbot slash commands](workbot/configuring-slash-commands.md)
