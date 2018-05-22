@@ -278,6 +278,8 @@ ntlm:
     base_url: "http://myntlmhost.com"
     cm_default_max_per_route: 15
     cm_max_total: 100
+    verifyHost: true
+    trustAll: false
 ```
 
 The following profile properties are supported:
@@ -291,5 +293,7 @@ The following profile properties are supported:
 | http_connect_timeout | **Optional** The timeout in milliseconds used when requesting a connection (must be a positive number, default 10000) |
 | http_connection_request_timeout | **Optional** The timeout in milliseconds until a connection is established (must be a positive number, default 10000) |
 | http_socket_timeout | **Optional** The socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets (must be a positive number, default 10000) |
+| verifyHost | **Optional**. Specifies whether to enable verification of the host name for SSL/TLS connections (default true) |
+| trustAll | **Optional**. Specifies whether trust all certificates for SSL/TLS connections (default false) |
 
 HTTP methods supported for NTLM connections are `GET`, `POST`, `PUT`, `PATCH`, `DELETE` and `HEAD`.
