@@ -9,6 +9,7 @@ If you're stuck on an integration because of a missing trigger, action, or conne
 However, before building your own, consider some possible alternatives to connect to your apps.
 
 - **Use CSV file import/export via a file connector**
+
 Many apps support CSV import/export. Workato can help to automatically import data from a CSV file into your apps, or write data to CSV files.
 
 If you're missing a trigger to read data from your apps, you can configure your apps to create a CSV file and upload it to an SFTP server for Workato to read.
@@ -18,6 +19,7 @@ If you're missing an action to write data to your apps, Workato can upload a CSV
 Read more about working with CSV files [here](/features/handling-csv-files.md).
 
 - **Connect with the database directly**
+
 If you want to connect to a proprietary app developed in-house or a self-hosted app that Workato doesn't connect with, you can check if Workato has a connector for the database used by the app, e.g. MySQL, SQL Server. If yes, you might consider connecting directly to the database to read or write data.
 
 Documentation on the databases can be found under the [connectors section](/connectors.md).
@@ -32,11 +34,7 @@ You can build your own triggers, actions and connectors on Workato via custom ac
 Custom actions allow you to build an action on top of an existing Workato connector. This allows you to focus on the HTTP request and response, and the Workato connector handles the authorization flow.
 
 ### HTTP universal connector
-The HTTP connector allows you to work with any API that supports HTTP connectivity. The HTTP connector works with a variety of auth models, content types, and HTTP methods.
-
-Read more about working with the HTTP connector [here](/developing-connectors/http.md).
+The [HTTP connector](/developing-connectors/http.md) allows you to work with any API that supports HTTP connectivity. The HTTP connector works with a variety of auth models, content types, and HTTP methods.
 
 ### Connector SDK
-The connector SDK is a developer framework for developing a connector. You can choose to share the connectors you build with other Workato users, or submit your code via the Developers Program to make your connector public to all Workato users.
-
-Read more about working with the SDK [here](/developing-connectors/sdk.md).
+The [connector SDK](/developing-connectors/sdk.md) is a developer framework for developing a connector. You can choose to share the connectors you build with other Workato users, or submit your code via the Developers Program to make your connector public to all Workato users.
