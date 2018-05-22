@@ -182,7 +182,7 @@ The following table shows what goes into the dynamic menu options fields:
       </tbody>
     </table>
 
-In the example below, the user wants to update a Salesforce 'Direct Customer' account by clicking on a menu option associated with that account. As this list changes every day, a static list of menu options won't work. In the dynamic message menu fields below, where:
+In the example below, the user wants to update a Salesforce 'Direct Customer' account by clicking on a menu option associated with that account. As this list changes every day, a static list of menu options wouldn't work. In the dynamic message menu fields below, where:
 
 - **Menu name**: Accounts
 - **Menu options**
