@@ -116,10 +116,10 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       </td>
     </tr>
     <tr>
-      <td>raise</td>
+      <td>error</td>
       <td>
         raise a job error with a user-defined error body.<br>
-        <code>raise("Unable to find Account with ID: 123")</code></a>
+        <code>error("Unable to find Account with ID: 123")</code></a>
       </td>
     </tr>
     <tr>
