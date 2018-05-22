@@ -4,9 +4,9 @@ date: 2018-05-21 10:23:00 Z
 ---
 
 # Workbot buttons
-Buttons are an important building block in designing conversational interfaces that simplify complex workflows.
+Buttons are important building blocks in designing conversational interfaces that simplify complex workflows.
 
-Workbot uses specific post command triggers, which need to be communicated to the user in order to execute a recipe. Buttons allow a call to action to be performed in one click, allowing the user to quickly decide what they want, without having to remember additional Workbot command.
+WWorkbot commands require specific keywords to trigger. This unique language needs to be communicated and picked up by users in order to execute Workbot commands successfully. Buttons allow a call to action to be performed in one click, allowing the user to quickly decide what they want, without having to remember additional Workbot commands.
 
 ![Buttons](/assets/images/workbot/workbot-buttons/buttons.png)*Buttons use button clicks to trigger another recipe or workflow*
 
@@ -22,11 +22,11 @@ Buttons can:
 
 4. Be posted as a set list, or a [dynamically generated one](#dynamic-list).
 
-For a positive conversational interface, keep the number of buttons less than 5.
+To ensure a good conversational interface, keep the number of buttons less than 5.
 
 ## Anatomy of a button
 
-Buttons can be used in either a Workbot post command reply or a post message action.
+Buttons can be used in either a Workbot [post command reply](https://docs.workato.com/workbot/workbot-command-reply.html) or a [post message action](https://docs.workato.com/workbot/workbot-actions.html#post-messages).
 
 ![Button fields](/assets/images/workbot/workbot-buttons/buttons-fields.png)
 
@@ -152,10 +152,11 @@ The following table shows what goes into the dynamic buttons fields:
       </tbody>
     </table>
 
-For example, in the dynamic buttons fields below, where:
-  - **Title**: ``Highest``
-  - **Submit button command**: ``ui_feature highest priority``
-  - **Command input values**: ``project``, ``issue_type``, ``priority``
+In the example below, the user wants to update a Salesforce 'Direct Customer' account by clicking on a button associated with that account. As this list changes every day, this would require the use of a dynamically generated list of accounts, and therefore, buttons. In the dynamic buttons fields below, where:
+  - **Buttons source list**: ``Accounts``
+  - **Button Title**: ``Account Name``
+  - **Submit button command**: ``salesforce update account``
+  - **Command input values**: ``account_id``, ``account_description``
 
 ![Dynamic buttons fields](/assets/images/workbot/workbot-buttons/dynamic-buttons-fields-example.png)
 
