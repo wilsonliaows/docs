@@ -10,13 +10,11 @@ However, before building your own, consider some possible alternatives to connec
 
 - **Use CSV file import/export via a file connector**
 
-Many apps support CSV import/export. Workato can help to automatically import data from a CSV file into your apps, or write data to CSV files.
+Many apps support [CSV import/export](/features/handling-csv-files.md). Workato can help to automatically import data from a CSV file into your apps, or write data to CSV files.
 
 If you're missing a trigger to read data from your apps, you can configure your apps to create a CSV file and upload it to an SFTP server for Workato to read.
 
 If you're missing an action to write data to your apps, Workato can upload a CSV file into your app's file server for you to mass import at your convenience.
-
-Read more about working with CSV files [here](/features/handling-csv-files.md).
 
 - **Connect with the database directly**
 
