@@ -1,21 +1,21 @@
 ---
-title: On-Premise Agent - Connection Profiles
+title: On-premises Agent - Connection Profiles
 date: 2017-02-22 12:00:00 Z
 ---
 
 # Connection Profiles
-A single Workato on-premise agent can be used to connect with multiple on-premise applications. A **connection profile** uniquely identifies each one and contains configuration information required to connect to that application.
+A single Workato on-premises agent can be used to connect with multiple on-premises applications. A **connection profile** uniquely identifies each one and contains configuration information required to connect to that application.
 
  Profiles are configured in the `<INSTALL_HOME>/conf/config.yml`. A config file can contain profiles to a few types of systems:
  - [Databases](#database-connection-profile)
- - [On-premise file systems](#on-premise-files-connection-profile)
+ - [On-premises file systems](#on-premises-files-connection-profile)
  - [Java messaging service](#jms-connection-profile)
  - [Apache Kafka](#apache-kafka-connection-profile)
  - [Active directory](#active-directory-connection-profile)
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
 
- Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premise agents installed in a server with limited internet connectivity.
+ Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premises agents installed in a server with limited internet connectivity.
 
  A typical config file will look something like this:
 
@@ -45,12 +45,12 @@ ldap:
 
 ## Applying a new configuration
 
-A running on-premise agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
+A running on-premises agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Database connection profile
 Database connection profiles are located in the `database` section of `<INSTALL_HOME>/conf/config.yml`.
 
-A database type is specified either by using the `adapter` property or a complete JDBC URL provided in the `url` property. Using the following `adapter` values for the respective database you are connecting to. The following databases are supported by the on-premise agent - use them as `adapter` values for the respective databases you connect to.
+A database type is specified either by using the `adapter` property or a complete JDBC URL provided in the `url` property. Using the following `adapter` values for the respective database you are connecting to. The following databases are supported by the on-premises agent - use them as `adapter` values for the respective databases you connect to.
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -125,8 +125,8 @@ server:
   classpath: /opt/workato-agent/jdbc
 ```
 
-## On-premise files connection profile
-Working with on-premise files requires you to define a file system profile in the `files` section.
+## On-premises files connection profile
+Working with on-premises files requires you to define a file system profile in the `files` section.
 You need to specify the base folder for file access as it will be used for resolving relative paths. A folder named `HR` in the `C:/Documents/` directory will be configured like this:
 
 ```YAML
@@ -144,7 +144,7 @@ files:
 ```
 
 ## JMS connection profile
-JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premise agent:
+JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premises agent:
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -199,7 +199,7 @@ kafka:
 
 You can provide any Kafka [consumer](https://kafka.apache.org/documentation/#producerconfigs) or [producer](https://kafka.apache.org/documentation/#newconsumerconfigs) configuration properties, e.g. `bootstrap.servers` or `batch_size`.
 
-However, some properties are overridden by the on-premise agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:
+However, some properties are overridden by the on-premises agent and cannot be configured. You will get a warning when trying to redefine a protected property. Some examples of these protected properties:
 
 | Property name | Comment |
 |------------------|-------------------------------------------|
