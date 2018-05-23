@@ -12,7 +12,7 @@ This action updates one or more rows with a single set of values. It uses a `WHE
 *Update row(s) action*
 
 ### Table
-First, select a table to update. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
+First, select a table to update. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name. Case sensitivity of table name depends on the database you are connected to.
 
 ### WHERE condition
 Next, provide a `WHERE` condition to select rows to be updated. This condition can be as simple as filtering a single record to update based on `ID`.

@@ -67,7 +67,7 @@ Provide the SQL to be executed to select rows. The SQL here will be used to gene
 Avoid using limit clauses like `TOP` in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the [**Batch size** input field](#batch-size). Adding your own limit clause will cause the action to fail.
 
 ### Schedule
-Select the type of schedule you want for your integration use case. This input fields is a pick list with the following available choices:
+Select the type of schedule you want for your integration use case. This input field is a pick list with the following available choices:
 - hourly
 - daily
 - monthly
@@ -92,4 +92,4 @@ Choose the days of the week you wish to execute the scheduled SQL query. This is
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.
 
-In any given poll, if there are less rows than the configured batch size, this trigger will deliver all rows as a smaller batch.
+In any given poll, if there are fewer rows than the configured batch size, this trigger will deliver all rows as a smaller batch.

@@ -15,7 +15,7 @@ This action lets you delete rows based on certain criteria defined by a ` WHERE`
 *Delete rows action*
 
 ### Table
-First, select a table to delete rows from. This can be done either by selecting a table from the pick list, or toggle the input to text mode and type the full table name.
+First, select a table to delete rows from. This can be done either by selecting a table from the pick list, or toggling the input to text mode and typing the full table name. Case sensitivity of table name depends on the database you are connected to.
 
 ### WHERE condition
 Next, provide a `WHERE` condition to select rows to be deleted. This condition can be as simple as filtering a single record to delete based on `ID`.

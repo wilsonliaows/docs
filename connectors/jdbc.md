@@ -7,12 +7,12 @@ date: 2018-04-20 06:00:00 Z
 
 
 ## Supported databases
-All database with a JDBC driver
+All ANSI-compliant databases with a JDBC driver
 
 ## How to connect to JDBC on Workato
 To create a connection to a JDBC source, you **must** use an [On-premise agent](/on-prem.md). The JDBC connector uses JDBC authentication through an On-premise agent to establish a secure connection with your JDBC driver. Learn how to configure an [on-premise agent profile](/on-prem/profile.md#jdbc-connection-profile) to connect to a JDBC-compliant database.
 
-The JDBC connector only supports ANSI-compliant databases like **Snowflake** and **SAP HANA**. The database should support binding variables to be able to use some actions such as **Insert actions**.
+The JDBC connector only supports ANSI-compliant databases like **Snowflake** and **SAP HANA**. The database should support binding variables to be able to use some actions such as **INSERT**.
 
 ![JDBC connection using on-premise agent](/assets/images/jdbc/connection.png)
 *JDBC connection using on-premise agent*
@@ -47,7 +47,7 @@ The JDBC connector only supports ANSI-compliant databases like **Snowflake** and
 ## Working with the JDBC connector
 
 ### Table and view
-The JDBC connector works with all tables and views available to the credentials used to establish the connection. These are available in pick lists in each trigger/action or you can provide the exact name.
+The JDBC connector works with all tables and views available to the credentials used to establish the connection. These are available in pick lists in each trigger/action, or you can provide the exact name.
 
 ![Table selection from pick list](/assets/images/jdbc/table_pick_list.png)
 *Select a table/view from pick list*
@@ -73,7 +73,7 @@ However, a trigger that processes rows in batches will output them as an array o
 ![Batch trigger output](/assets/images/jdbc/batch_trigger_output.png)
 *Batch trigger output*
 
-As a result, the output of batch triggers/actions needs to be handled differently. The output of the trigger can be used in actions with batch operations (like Salesforce **Create objects in bulk action**) that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+As a result, the output of batch triggers/actions needs to be handled differently. The output of the trigger can be used in actions with batch operations (like Salesforce **Create objects in bulk action**) that requires mapping the <kbd>Rows</kbd> datapill into the source list. Learn how to work with lists in [List management](/features/list-management.md#using-datapills-in-an-action-with-a-list-input-action-handles-list-processing-implicitly).
 
 ![Using batch trigger output](/assets/images/jdbc/using_batch_output.png)
 *Using batch trigger output*
@@ -112,7 +112,7 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 
 #### Complex statements
 
-Your `WHERE` condition can also contain subqueries. The following query can be used on the `compensation` table.
+Your `WHERE` condition can also contain subqueries. The example below selects inactive employees from the `compensation` table (presumably to ensure they're not accidentally compensated).
 
 ```sql
 id in (select compensation_id from users where active = 0)
