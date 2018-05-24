@@ -140,8 +140,8 @@ end
 
 When you try to update a row with an invalid ID, a HTTP error will be returned. The Error code used is `404` with a JSON body `{"error":"NOT_FOUND"}`.
 
-![Formatted error message](/assets/images/sdk/formatted-error-message.png)
-*Formatted error message*
+![Formatted error message in recipe job detail page](/assets/images/sdk/formatted-error-message.png)
+*Formatted error message in recipe job detail page*
 
 This block can also be chained to HTTP verb methods in other parts of your custom connector. For example, you may want to handling and provide custom error messages from dynamic [pick_lists](/developing-connectors/sdk/pick-list.md). In this example, we are looking at handling errors from [Docparser](https://dev.docparser.com/).
 
@@ -150,17 +150,17 @@ pick_lists: {
   parsers: lambda do
     get('https://slack.com/api/users.list').
       after_error_response(400) do |code, body, headers, message|
-        error("Error loading pick list: #{body[/(?<=error\"\:\").*(?=\"\})/]}")
+        error("Error loading parser pick list: #{body[/(?<=error\"\:\").*(?=\"\})/]}")
       end.
       pluck("label", "id")
   end
 }
 ```
 
-HTTP error will be displayed in the recipe editor.
+HTTP error will be displayed in the recipe editor when the custom adapter tries to load the pick list. In the example, the API key was reset, resulting in an invalid API keys used in the request.
 
-![Formatted error message](/assets/images/sdk/pick-list-error.png)
-*Formatted error message*
+![HTTP request error message in recipe editor](/assets/images/sdk/pick-list-error.png)
+*HTTP request error message in recipe editor*
 
 This can also be used in [dynamic fields](/developing-connectors/sdk/object-definition.md#dynamic-definition) code block in object_definitions.
 
@@ -170,14 +170,14 @@ object_definitions: {
     fields: ->(_, config_fields) {
       get("https://api.docparser.com/v1/results/#{config_fields['parser_id']}1/schema").
       after_error_response(400) do |code, body, headers, message|
-        error("Error loading parser output: body[/(?<=error\"\:\").*(?=\"\})/]")
+        error("Error loading parser schema: body[/(?<=error\"\:\").*(?=\"\})/]")
       end
     }
   }
 }
 ```
 
-HTTP error will be displayed in the recipe editor.
+HTTP error will be displayed in the recipe editor when the custom adapter tries to fetch schema for an unknown parser.
 
-![Formatted error message](/assets/images/sdk/extended-schema-error.png)
-*Formatted error message*
+![Schema error message in recipe editor](/assets/images/sdk/extended-schema-error.png)
+*Schema error message in recipe editor*
