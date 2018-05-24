@@ -3,13 +3,13 @@ title: Workato connectors - File streaming
 date: 2018-05-23 06:00:00 Z
 ---
 
-#File Streaming
+# File Streaming
 Enterprises often have the need to transfer large files of gigabyte-size from one system to another. For example, copying daily database dumps from Amazon S3 to SFTP file storage.
 
-Traditional approach to file transfer usually limits the file size or requires large server. With Workato, the `File streaming` mechanism allows you to transfer files of unlimited size between different systems easily, without any special setup.
+Traditional approaches to file transfer usually limit the file size or require large server for processing. With Workato, the `File streaming` mechanism allows you to transfer files of unlimited size between different systems easily, without any setup.
 
 ## 1. How it works
-When transferring a larger file, Workato automatically cuts the file into smaller chunks, then sends 1 chunk at a time to the destination. This allows each chunk to easily fit in Workato's server memory. As a result, the same server can transfer files of any size.
+When transferring a large file, Workato automatically breaks the file into smaller chunks, then sends one chunk at a time to the destination. This allows each chunk to easily fit in Workato's server memory. As a result, the same server can transfer files of any size.
 
 The following diagram illustrates how this works:
 
