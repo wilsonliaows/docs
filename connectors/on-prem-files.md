@@ -27,4 +27,4 @@ In this example, we create a connection profile named `myfiles`. The address bel
 
 ![On-prem files connection setup](/assets/images/connectors/on-prem-files/connector-setup.png)
 
-5) Click `Connect`. If everything goes well, you should see `Connection success` as shown in the image above.
+5) Click `Connect`. If everything is setup correctly, you should see `Connection success` as shown in the image above.
