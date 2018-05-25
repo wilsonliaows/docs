@@ -25,6 +25,9 @@ execute: lambda do |connection, input|
 end
 ```
 
+![Input validation error message](/assets/images/sdk/input-validation-error-message.png)
+*Input validation error message*
+
 ### Response validation
 Some APIs do not use response codes to indicate an error with a request. These APIs may respond with `200` HTTP code and error messages in the response body. **Sage Intacct** is a good example.
 
@@ -96,7 +99,7 @@ which will be transformed into a hash equivalent
 }
 ```
 
-*If this is unfamiliar to you, refer to the documentation on [XML format](/developing-connectors/sdk/data-format/xml-format.md)*
+*If this XML-to-hash conversion is unfamiliar to you, refer to the documentation on [XML format](/developing-connectors/sdk/data-format/xml-format.md) for more information.*
 
 Hence, it is important to be able to validate response and raise an error when one is present. By default, the SDK framework will only raise errors when the HTTP response code indicates an error, such "errors" will be missed.
 
