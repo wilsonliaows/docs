@@ -56,7 +56,7 @@ In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a c
 9. [Extend the refresh token expiration time](#extending-refresh-token-expiration-time) if required.
 
 ## Connecting to an on-premise Microsoft Dynamics CRM instance
-In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Azure Active Directory. Click [here](https://technet.microsoft.com/itpro/powershell/windows/adfs/add-adfsclient) to read more on how to register an on-premise Dynamics app with Azure Active Directory.
+In order to connect to Microsoft CRM Dynamics on Workato, you need to obtain a client ID by registering Microsoft CRM Dynamics App with Active Directory Federation Service. Click [here](https://technet.microsoft.com/itpro/powershell/windows/adfs/add-adfsclient) to read more on how to register an on-premise Dynamics app with Active Directory Federation Service.
 
 Remember to [extend the refresh token expiration time](#extending-refresh-token-expiration-time) if required.
 
