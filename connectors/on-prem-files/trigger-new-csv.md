@@ -30,11 +30,11 @@ For this trigger to work, you need to configure 4 sections:
 ### 2.1 Schedule settings
 Configure this to tell the trigger how often it should check for new CSV file in on-premises folder. There are 2 ways to schedule: **interval** and **date/time**.
 
-Using **interval**, you are telling the trigger to check after certain amount of time.
+Using **interval**, you are telling the trigger to check after a certain amount of time.
 
 ![Interval schedule](/assets/images/connectors/on-prem-files/trigger-interval.png)
 
-Using **date/time**, you are telling the trigger to check at specific time every day.
+Using **date/time**, you are telling the trigger to check at a specific time every day.
 
 ![Date/time schedule](/assets/images/connectors/on-prem-files/trigger-schedule.png)
 
@@ -48,7 +48,7 @@ Configure this to specify which on-premises folder the trigger should monitor fo
 
 ![Folder settings](/assets/images/connectors/on-prem-files/trigger-folder-settings.png)
 
-Optionally, you can define a [naming pattern](https://docs.workato.com/features/wildcard.html) so the trigger only pick up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
+Optionally, you can define a [naming pattern](https://docs.workato.com/features/wildcard.html) so the trigger only picks up files with certain names. Enable this input field using `Add/remove optional fields` at the bottom of the form.
 
 ![Filename patterns](/assets/images/connectors/on-prem-files/filename-patterns.png)
 
