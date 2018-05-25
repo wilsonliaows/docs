@@ -73,7 +73,7 @@ For the API path, put either `channels.list` or `https://slack.com/api/channels.
 
 Next, we'll define the request sent. For this API endpoint, there are no required arguments except for the authentication token, which is already handled by Workato via your established Slack connection.
 
-![Slack API documentation on arguments for list channel endpoint](/assets/images/developing-connectors/custom-actions/slack-list-channels-http-method-docs.png)
+![Slack API documentation on arguments for list channel endpoint](/assets/images/developing-connectors/custom-actions/slack-docs-list-channel-arguments.png)
 *Slack API documentation on arguments for list channel endpoint*
 
 We'll send in arguments anyway to optimize the response we get from the Slack API. Let's exclude archived channels, exclude member lists, and limit the number of chanels returned to 20. To do that, we'd need to define the params of the request, before actually providing any values. We're defining 3 params manually: `exclude_archived`, `exclude_members`, `limit`.
