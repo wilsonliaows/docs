@@ -1,5 +1,5 @@
 ---
-title: On-Premise Agent - Password Encryption
+title: On-premises Agent - Password Encryption
 date: 2018-05-09 12:00:00 Z
 ---
 
