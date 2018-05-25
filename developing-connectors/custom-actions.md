@@ -4,12 +4,12 @@ date: 2018-05-24 14:00:00 Z
 ---
 
 # Custom actions
-If you're looking to build additional actions for a connector that Workato already supports, custom actions enable you to utilize the existing connector framework instead of developing from scratch via the HTTP connector or the SDK. This allows you to easily build your action by telling Workato what the action's request and response should look like, which can be obtained from the API documentation.
+If you're looking to build additional actions for a connector that Workato already supports, custom actions enable you to utilize the existing connector framework instead of developing from scratch via the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). This allows you to easily build your action by telling Workato what the action's request and response should look like, which can be obtained from the API documentation.
 
-Building a custom action is an accelerated way of building an action via the HTTP connector. This is because the custom action utilizes the connector's existing authorization framework and already understands the API for that app.
+Building a custom action is an accelerated way of building an action via the HTTP connector, as the custom action utilizes the connector's existing authorization framework and already understands the API for that app.
 
 ## App support for custom actions
-Most apps on Workato support custom actions. The custom action is typically found in the actions picklist of the connector.
+Most apps on Workato support custom actions. Custom actions can be found in the actions picklist of the connector.
 
 ![Selecting the custom action](/assets/images/developing-connectors/custom-actions/custom-action-selection.png)
 *Selecting the custom action*
@@ -24,7 +24,7 @@ identify, users:read
 ![App scopes available for the custom action](/assets/images/developing-connectors/custom-actions/app-scopes.png)
 *App scopes available for the custom action*
 
-If you build an action that requires additional scopes the connector doesn't provide, the action will throw an error when it tries to make the request with the API. For example, this error is returned when we try to build a create reminder action in Slack.
+If you build an action that requires additional scopes, the action will throw an error when it tries to make the request with the API. For example, this error is returned when we try to build a create reminder action in Slack, as we have no `reminders:write` permission.
 
 ![Scope error returned by the API when call is made](/assets/images/developing-connectors/custom-actions/custom-action-scope-error-output.png)
 *Scope error returned by the API when call is made*
@@ -43,8 +43,8 @@ This section details the configuration input fields in the custom action.
 | Input (For POST, PUT and PATCH) | If the API endpoint you're calling is a POST, PUT or a PATCH, you can pass in a JSON request body.                                                                |
 | Output                          | Describe to Workato the output schema you expect the API to return. This will be used to generate the output datatree.                                            |
 
-## Custom action example - building a Slack "List channels" action
-Let's build a custom action on the Slack connector to add a reminder. We can refer to the [Slack API documentation](https://api.slack.com/methods/channels.list).
+## Custom action example - building Slack list channels action
+Let's build a custom action on the Slack connector to list channels. We can refer to the [Slack API documentation](https://api.slack.com/methods/channels.list).
 
 First, select the custom action on the Slack connector.
 
@@ -53,7 +53,7 @@ First, select the custom action on the Slack connector.
 
 Give this action a name. We'll name it "List channels" in this case. Notice that this changes the title of the action as well.
 
-![Naming your custom action](/assets/images/developing-connectors/name-custom-action.gif)
+![Naming your custom action](/assets/images/developing-connectors/custom-actions/name-custom-action.gif)
 *Naming your custom action*
 
 Select the HTTP method of the request, based on the API endpoint you're calling. The API documentation should tell you the HTTP method. Slack's API tells us that `list channels` uses a GET method.
@@ -189,7 +189,7 @@ We now have our completed Slack custom action - we should now test it. If you wa
 ![Completed Slack custom action to list channels](/assets/images/developing-connectors/custom-actions/full-slack-custom-action.png)
 *Completed Slack custom action to list channels*
 
-When the above action was tested, we cna see the input passed into the action in the detailed job history.
+When the above action was tested, we can see the input passed into the action in the detailed job history.
 
 ![Job history - input data](/assets/images/developing-connectors/custom-actions/list-channels-action-input.png)
 *Job history - input data*
