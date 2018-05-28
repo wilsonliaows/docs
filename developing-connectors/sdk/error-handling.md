@@ -33,7 +33,7 @@ Some APIs do not use response codes to indicate an error with a request. These A
 
 When there are [Sage Intacct business logic errors](https://developer.intacct.com/web-services/error-handling#business-logic-errors) with a HTTP request, the response from Intacct Web Service will also be a `200` response code with an `<errormessage>` XML tag in the response body.
 
-For example, if the
+For example, this is a sample response body from Sage Intacct web services that contains a business logic error.
 
 ```xml
 <response>
@@ -57,7 +57,7 @@ For example, if the
 </response>
 ```
 
-which will be transformed into a hash equivalent
+The XML will be transformed into a hash equivalent:
 
 ```ruby
 {
@@ -105,7 +105,7 @@ By default, the SDK framework will only raise errors when the HTTP response code
 
 There are 2 ways you can catch these errors. The first method is to use [detect_on](/developing-connectors/sdk/authentication/custom-authentication.md#detect-on) in the `connection` definition. This is a connector-wide method to catch errors; It applies to all actions and triggers. Furthermore, this method will raise errors with a standard message format that cannot be customized.
 
-The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/request.md#after_response) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual action/trigger. Hence the condition(s) used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each action/trigger.
+The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/request.md#after_response) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual actions/triggers. Hence the condition(s) used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each actions/triggers.
 
 Going back to our example of a business logic error in Sage Intacct, we can use the `after_response` method to check the contents of the response body before deciding to return the body as a successful request output or to raise an error with a custom message.
 
