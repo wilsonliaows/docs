@@ -330,6 +330,7 @@
   * [Object definition](developing-connectors/sdk/object-definition.md)
   * [Toggle field](developing-connectors/sdk/toggle-field.md)
   * [HTTP request](developing-connectors/sdk/request.md)
+  * [Error handling](developing-connectors/sdk/error-handling.md)
   * [Action](developing-connectors/sdk/action.md)
   * [Trigger](developing-connectors/sdk/trigger.md)
     * [Poll trigger](developing-connectors/sdk/trigger/poll-trigger.md)
