@@ -26,7 +26,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>group_by</td>
       <td>
         Group arrays into sets.<br>
-        <a href="http://apidock.com/rails/Enumerable/group_by">More details here</a>
+        <a href="http://apidock.com/rails/Enumerable/group_by">More details here.</a>
       </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>inject</td>
       <td>
         Combine elements in an array using an operation.<br>
-        <a href="http://apidock.com/ruby/Enumerable/inject">More details here</a>
+        <a href="http://apidock.com/ruby/Enumerable/inject">More details here.</a>
       </td>
     </tr>
     <tr>
@@ -90,7 +90,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>merge</td>
       <td>
         Returns a new hash containing merged contents.<br>
-        <a href="https://ruby-doc.org/core-2.2.0/Hash.html#method-i-merge">More details here</a>
+        <a href="https://ruby-doc.org/core-2.2.0/Hash.html#method-i-merge">More details here.</a>
       </td>
     </tr>
     <tr>
@@ -112,7 +112,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>select</td>
       <td>
         Selectively returns elements for which the block returns true.<br>
-        <a href="http://apidock.com/ruby/v1_9_3_392/Array/select">More details here</a>
+        <a href="http://apidock.com/ruby/v1_9_3_392/Array/select">More details here.</a>
       </td>
     </tr>
     <tr>
@@ -126,28 +126,28 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>reject</td>
       <td>
         Selectively returns elements for which the block returns false. Similar but opposite of <b>select</b>.<br>
-        <a href="http://apidock.com/ruby/v1_9_3_392/Array/reject">More details here</a>
+        <a href="http://apidock.com/ruby/v1_9_3_392/Array/reject">More details here.</a>
       </td>
     </tr>
     <tr>
       <td>sort</td>
       <td>
         Sort function returning new sorted array.<br>
-        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort">More details here</a>
+        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort">More details here.</a>
       </td>
     </tr>
     <tr>
       <td>sort_by</td>
       <td>
         Sort function returning self.<br>
-        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort_by">More details here</a>
+        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort_by">More details here.</a>
       </td>
     </tr>
     <tr>
       <td>utc</td>
       <td>
         Convert Time to UTC timezone.<br>
-        <a href="http://ruby-doc.org/core-2.2.0/Time.html#method-c-utc">More details here</a>
+        <a href="http://ruby-doc.org/core-2.2.0/Time.html#method-c-utc">More details here.</a>
       </td>
     </tr>
     <tr>
@@ -158,7 +158,7 @@ Learn how to make HTTP requests using the HTTP verb methods [here](/developing-c
       <td>while</td>
       <td>
         while loop statement.<br>
-        <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm">More details here</a>
+        <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm">More details here.</a>
       </td>
     </tr>
   </tbody>

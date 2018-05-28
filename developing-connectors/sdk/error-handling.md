@@ -16,7 +16,7 @@ error("Some error message")
 This can be used in a number of ways to improve usability for your custom connector.
 
 ### Input validation
-You can raise custom errors for inputs that violates some business logic. Let's use an example of a search action that tries to search for a **Contact** using a search action. You want to make sure that the user is searching for records with at least one search criteria. In this case, you will want to raise an error if there are no input values, instead of sending a request with no query parameters.
+You can raise custom errors for inputs that violate some business logic. Let's use an example of a search action that tries to search for a **Contact** using a search action. You want to make sure that the user is searching for records with at least one search criteria. In this case, you will want to raise an error if there are no input values, instead of sending a request with no query parameters.
 
 ```ruby
 execute: lambda do |connection, input|
@@ -31,7 +31,7 @@ end
 ### Response validation
 Some APIs do not use response codes to indicate an error with a request. These APIs may respond with `200` HTTP code and error messages in the response body. **Sage Intacct** is a good example.
 
-When there are [Sage Intacct business logic errors](https://developer.intacct.com/web-services/error-handling#business-logic-errors) with a HTTP request, the response from Intacct Web Service will also be a `200` response code with an `<errormessage>` XML tag in the respond body.
+When there are [Sage Intacct business logic errors](https://developer.intacct.com/web-services/error-handling#business-logic-errors) with a HTTP request, the response from Intacct Web Service will also be a `200` response code with an `<errormessage>` XML tag in the response body.
 
 For example, if the
 
@@ -101,11 +101,11 @@ which will be transformed into a hash equivalent
 
 *If this XML-to-hash conversion is unfamiliar to you, refer to the documentation on [XML format](/developing-connectors/sdk/data-format/xml-format.md) for more information.*
 
-Hence, it is important to be able to validate response and raise an error when one is present. By default, the SDK framework will only raise errors when the HTTP response code indicates an error, such "errors" will be missed.
+By default, the SDK framework will only raise errors when the HTTP response code indicates an error. Hence, it is important to validate all responses and raise an error if one is present in the response body.
 
-There are 2 ways you catch these errors. The first method is to use [detect_on](/developing-connectors/sdk/authentication/custom-authentication.md#detect-on) in the `connection` definition.
+There are 2 ways you can catch these errors. The first method is to use [detect_on](/developing-connectors/sdk/authentication/custom-authentication.md#detect-on) in the `connection` definition. This is a connector-wide method to catch errors; It applies to all actions and triggers. Furthermore, this method will raise errors with a standard message format that cannot be customized.
 
-The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/request.md#after_response) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors.
+The alternative is to handle these errors in the [after_response](/developing-connectors/sdk/request.md#after_response) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual action/trigger. Hence the condition(s) used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each action/trigger.
 
 Going back to our example of a business logic error in Sage Intacct, we can use the `after_response` method to check the contents of the response body before deciding to return the body as a successful request output or to raise an error with a custom message.
 
@@ -124,13 +124,13 @@ post("https://api.intacct.com/ia/xml/xmlgw.phtml", payload).
 
 ## `after_error_response`
 
-`after_error_response` is a helper method that can be chained to a HTTP verb method to handle HTTP responses. In particular, when the API responses with an error response code.
+`after_error_response` is a helper method that can be chained to a HTTP verb method to handle HTTP responses; In particular, when the API responses with an error response code.
 
 This method accepts 2 arguments. First, a number which represents the exact error code that you wish to handle.
 
 Next, it also accepts a conditional block that will be executed when a HTTP response code matching the first argument is received.
 
-Let's take a look at an example, using **Airtable** API.
+Let's take a look at an `after_error_response` example, using **Airtable** API.
 
 ```ruby
 execute: lambda do |connection, input|
