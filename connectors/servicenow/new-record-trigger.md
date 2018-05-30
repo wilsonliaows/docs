@@ -22,7 +22,7 @@ This trigger picks up records that are created in the selected table. Each recor
   </thead>
   <tbody>
     <tr>
-      <td><a href="#unique-key">From</a></td>
+      <td><a href="#from">From</a></td>
       <td>
         Records created from this time will be processed by the recipe. If left blank, the trigger will only pick up records created <b>one day</b> before the recipe is first started.
       </td>

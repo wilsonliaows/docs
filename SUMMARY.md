@@ -298,6 +298,7 @@
     * [Connection setup](connectors/servicenow.md#how-to-connect-to-servicenow-on-workato)
     * [New record trigger](connectors/servicenow/new-record-trigger.md)
     * [New/updated record trigger](connectors/servicenow/updated-record-trigger.md)
+    * [Search records action](connectors/servicenow/search-records.md)
   * [Slack](connectors/slack.md)
     * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
     * [Message buttons](connectors/slack.md#using-slack-message-buttons)
