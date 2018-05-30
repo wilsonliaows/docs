@@ -296,6 +296,8 @@
     * [Bulk data imports](connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce)
   * [ServiceNow](connectors/servicenow.md)
     * [Connection setup](connectors/servicenow.md#how-to-connect-to-servicenow-on-workato)
+    * [New record trigger](connectors/servicenow/new-record-trigger.md)
+    * [New/updated record trigger](connectors/servicenow/updated-record-trigger.md)
   * [Slack](connectors/slack.md)
     * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
     * [Message buttons](connectors/slack.md#using-slack-message-buttons)
