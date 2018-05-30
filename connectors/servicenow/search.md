@@ -6,10 +6,10 @@ date: 2018-05-30 06:00:00 Z
 # ServiceNow - Search records action
 
 ## Search records
-This action lets you search for rows matching a search criteria. Records from the selected table that match all your search criteria will be returned as a list of records.
+This action lets you search for rows from any table matching a search criteria. Records that match all your search criteria will be returned as a list of records.
 
-![New record trigger](/assets/images/connectors/servicenow/search-records-action.png)
-*New record trigger*
+![Search records action](/assets/images/connectors/servicenow/search-records-action.png)
+*Search records action*
 
 ### Input fields
 
