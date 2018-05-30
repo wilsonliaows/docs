@@ -44,7 +44,7 @@ The output of this action is a list of records that match your search criteria. 
 ### Table
 Select the table to process records from. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
 
-Make sure that the user used in the connection has [sufficient access control](/connectors/servicenow.md#roles-and-permissions-required-to-connect) to the selected table.
+Make sure that the connected user has [sufficient access control](/connectors/servicenow.md#roles-and-permissions-required-to-connect) to the selected table.
 
 ### Columns to search by
 Search criteria to match records against in the selected table. This action will only return records that match all your search criteria. Maximum size of batch of records returned is **100**.

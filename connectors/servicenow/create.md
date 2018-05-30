@@ -8,8 +8,8 @@ date: 2018-05-30 06:00:00 Z
 ## Create record
 This action creates a single row into any table in your ServiceNow instance.
 
-![New record action](/assets/images/connectors/servicenow/create-record-action.png)
-*New record action*
+![Create record action](/assets/images/connectors/servicenow/create-record-action.png)
+*Create record action*
 
 ### Input fields
 
@@ -42,8 +42,8 @@ The output of this action is the full set of columns from the selected table. Al
 ## Create record using a template
 This action creates a single row into any table in your ServiceNow instance by applying a template to the newly created record. Using a template simplifies the process of creating new records by populating fields automatically.
 
-![New record action](/assets/images/connectors/servicenow/create-record-using-template-action.png)
-*New record action*
+![Create record using a template action](/assets/images/connectors/servicenow/create-record-using-template-action.png)
+*Create record using a template action*
 
 ### Input fields
 
