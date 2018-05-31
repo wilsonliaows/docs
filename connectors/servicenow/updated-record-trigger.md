@@ -37,12 +37,15 @@ This trigger picks up records that are created or updated in the selected table.
 </table>
 
 ### Output fields
-The output of this trigger is a full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
+The output datatree of this trigger contains the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
+
+![Output fields](/assets/images/connectors/servicenow/extended-output.gif)
+*Output fields*
 
 ## New/updated record (real-time)
 This trigger picks up records in the selected table as soon they are created or updated. Each record is processed as a separate job. It makes use of business rules to detect and trigger a new or updated record event to be processed.
 
-**To use this trigger, the connected user must have sufficient access control to sys_script table. Learn how to configure it [here](/connectors/servicenow.md#real-time-trigger).**
+**To use this trigger, the connected user must have sufficient access control to sys_script table. Learn how to configure [access control for real time triggers](/connectors/servicenow.md#real-time-trigger).**
 
 ![New/updated record trigger](/assets/images/connectors/servicenow/updated-record-trigger-real-time.png)
 *New/updated record trigger*
@@ -73,14 +76,20 @@ This trigger picks up records in the selected table as soon they are created or 
 </table>
 
 ### Output fields
-The output of this trigger is a full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
+The output datatree of this trigger contains the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
+
+![Output fields](/assets/images/connectors/servicenow/extended-output.gif)
+*Output fields*
 
 ## Input field definitions
 
 ### From
 This is a user-defined time that marks the earliest time that the trigger should pick up created or updated records. If left blank, the default time will be set to <b>one day</b> before the recipe is first started.
 
-The **sys_updated_on** column is used to determine the time that a record is created or updated. Only records with **sys_updated_on** timestamp later than the time specified in **From** will be processed by the trigger.
+The **Updated (sys_updated_on)** column is used to determine the time that a record is created or updated. Only records with **Updated (sys_updated_on)** timestamp later than the time specified in **From** will be processed by the trigger.
+
+![Updated (sys_updated_on) timestamp](/assets/images/connectors/servicenow/sys-updated-on.png)
+*Updated (sys_updated_on) timestamp*
 
 ### Table
 Select the table to process records from. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.

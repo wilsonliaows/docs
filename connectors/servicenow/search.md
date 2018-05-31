@@ -28,7 +28,7 @@ This action lets you search for records from any table matching a search criteri
       </td>
     </tr>
     <tr>
-      <td><a href="#columns-to-search-by">Columns to search by</a></td>
+      <td><a href="#search-by-column-values">Search by column values</a></td>
       <td>
         Provide data to match records. Only records that match all the search criteria will be returned in the output.
       </td>
@@ -39,6 +39,9 @@ This action lets you search for records from any table matching a search criteri
 ### Output fields
 The output of this action is a list of records that match your search criteria. The output datatree contains the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
 
+![Output fields](/assets/images/connectors/servicenow/extended-output.gif)
+*Output fields*
+
 ## Input field definitions
 
 ### Table
@@ -46,7 +49,7 @@ Select the table to search records from. This can be done either by selecting a 
 
 Make sure that the connected user has [sufficient access control](/connectors/servicenow.md#roles-and-permissions-required-to-connect) to the selected table.
 
-### Columns to search by
+### Search by column values
 Search criteria to match records against in the selected table. This action will only return records that match all your search criteria. Maximum size of batch of records returned is **100**.
 
 You can search using all standard and custom columns in the selected table.

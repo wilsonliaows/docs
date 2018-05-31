@@ -32,7 +32,7 @@ This action updates a single record into any table in your ServiceNow instance.
       <td>Sys ID of the record to be updated.</td>
     </tr>
     <tr>
-      <td><a href="#columns-to-be-updated">Columns to be updated</a></td>
+      <td><a href="#columns-to-be-updated">Update record values</a></td>
       <td>
         Provide data for each column of the record to be updated.
       </td>
@@ -41,10 +41,15 @@ This action updates a single record into any table in your ServiceNow instance.
 </table>
 
 ### Output fields
-The output of this action is the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
+The output datatree of this action contains the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
+
+![Output fields](/assets/images/connectors/servicenow/extended-output.gif)
+*Output fields*
 
 ## Update record using a template
-This action updates a single record into any table in your ServiceNow instance by applying a template to the record. Using a template simplifies the process by populating fields automatically.
+This action updates a single record into any table in your ServiceNow instance by applying a template to the record.
+
+After a template is chosen, you can map additional datapills to the record. The template values will be applied on top of your mapping. You can choose to retain or override the template values in this action.
 
 ![Update record using a template action](/assets/images/connectors/servicenow/update-record-using-template-action.png)
 *Update record using a template action*
@@ -74,7 +79,7 @@ This action updates a single record into any table in your ServiceNow instance b
     <tr>
       <td><a href="#override-template">Override template</a></td>
       <td>
-        Choose whether you want to override the default template values with the data provided in <b>Columns to be updated</b>.
+        Choose whether you want to override the default template values with the data provided in <b>Update record values</b>.
       </td>
     </tr>
     <tr>
@@ -82,7 +87,7 @@ This action updates a single record into any table in your ServiceNow instance b
       <td>Sys ID of the record to be updated.</td>
     </tr>
     <tr>
-      <td><a href="#columns-to-be-updated">Columns to be updated</a></td>
+      <td><a href="#update-record-values">Update record values</a></td>
       <td>
         Provide data for each column of the record to be updated.
       </td>
@@ -91,7 +96,7 @@ This action updates a single record into any table in your ServiceNow instance b
 </table>
 
 ### Output fields
-The output of this action is the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
+The output datatree of this action contains the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
 
 Additionally, the sys ID of the template applied to this record is also included in the output.
 
@@ -113,5 +118,5 @@ You can choose to override the pre-defined template values that will be automati
 ### Sys ID
 Sys ID of the record to be updated. The record associated with this sys ID must belong to the selected table.
 
-### Columns to be updated
+### Update record values
 Provide data for every column that needs to be filled for the record update in the selected table. This can be done by mapping datapills from previous triggers or actions into the respective columns.
