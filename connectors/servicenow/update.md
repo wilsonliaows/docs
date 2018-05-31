@@ -6,7 +6,7 @@ date: 2018-05-30 06:00:00 Z
 # ServiceNow - Update record actions
 
 ## Update record
-This action updates a single row into any table in your ServiceNow instance.
+This action updates a single record into any table in your ServiceNow instance.
 
 ![Update record action](/assets/images/connectors/servicenow/update-record-action.png)
 *Update record action*
@@ -44,7 +44,7 @@ This action updates a single row into any table in your ServiceNow instance.
 The output of this action is the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
 
 ## Update record using a template
-This action updates a single row into any table in your ServiceNow instance by applying a template to the newly updated record. Using a template simplifies the process of creating new records by populating fields automatically.
+This action updates a single record into any table in your ServiceNow instance by applying a template to the record. Using a template simplifies the process by populating fields automatically.
 
 ![Update record using a template action](/assets/images/connectors/servicenow/update-record-using-template-action.png)
 *Update record using a template action*
@@ -108,7 +108,7 @@ Select the template to be applied to the newly updated record. This can be done 
 Make sure that the connected user has [sufficient access control](/connectors/servicenow.md#roles-and-permissions-required-to-connect) to the selected template.
 
 ### Override template
-Choose if you wish to override the pre-defined template values that will be automatically applied to the newly updated record. If **Yes** is selected, any data provided in the action that conflicts with template default value will have priority. This field defaults to **No**.
+You can choose to override the pre-defined template values that will be automatically applied to the record. If **Yes** is selected, any data provided for columns will be applied instead of template default values. This field defaults to **No**.
 
 ### Sys ID
 Sys ID of the record to be updated. The record associated with this sys ID must belong to the selected table.

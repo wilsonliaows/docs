@@ -6,7 +6,7 @@ date: 2018-05-30 06:00:00 Z
 # ServiceNow - Search records action
 
 ## Search records
-This action lets you search for rows from any table matching a search criteria. Records that match all your search criteria will be returned as a list of records.
+This action lets you search for records from any table matching a search criteria. Records that match all your search criteria will be returned as a list of records.
 
 ![Search records action](/assets/images/connectors/servicenow/search-records-action.png)
 *Search records action*
@@ -24,7 +24,7 @@ This action lets you search for rows from any table matching a search criteria. 
     <tr>
       <td><a href="#table">Table</a></td>
       <td>
-        Select a table to pick up new records from.
+        Select a table to search records from.
       </td>
     </tr>
     <tr>
@@ -42,7 +42,7 @@ The output of this action is a list of records that match your search criteria. 
 ## Input field definitions
 
 ### Table
-Select the table to process records from. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
+Select the table to search records from. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
 
 Make sure that the connected user has [sufficient access control](/connectors/servicenow.md#roles-and-permissions-required-to-connect) to the selected table.
 

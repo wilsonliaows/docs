@@ -6,7 +6,7 @@ date: 2018-05-30 06:00:00 Z
 # ServiceNow - Create record actions
 
 ## Create record
-This action creates a single row into any table in your ServiceNow instance.
+This action creates a single record into any table in your ServiceNow instance.
 
 ![Create record action](/assets/images/connectors/servicenow/create-record-action.png)
 *Create record action*
@@ -40,7 +40,7 @@ This action creates a single row into any table in your ServiceNow instance.
 The output of this action is the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.
 
 ## Create record using a template
-This action creates a single row into any table in your ServiceNow instance by applying a template to the newly created record. Using a template simplifies the process of creating new records by populating fields automatically.
+This action creates a single record into any table in your ServiceNow instance by applying a template to the newly created record. Using a template simplifies the process by populating fields automatically.
 
 ![Create record using a template action](/assets/images/connectors/servicenow/create-record-using-template-action.png)
 *Create record using a template action*
@@ -100,7 +100,7 @@ Select the template to be applied to the newly created record. This can be done 
 Make sure that the connected user has [sufficient access control](/connectors/servicenow.md#roles-and-permissions-required-to-connect) to the selected template.
 
 ### Override template
-Choose if you wish to override the pre-defined template values that will be automatically applied to the newly created record. If **Yes** is selected, any data provided in the action that conflicts with template default value will have priority. This field defaults to **No**.
+You can choose to override the pre-defined template values that will be automatically applied to the newly created record. If **Yes** is selected, any data provided for columns will be applied instead of template default values. This field defaults to **No**.
 
 ### Columns to be added
 Provide data for every column that needs to be filled for the record create in the selected table. This can be done by mapping datapills from previous triggers or actions into the respective columns.

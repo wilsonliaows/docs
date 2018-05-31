@@ -24,7 +24,7 @@ This trigger picks up records that are created in the selected table. Each recor
     <tr>
       <td><a href="#from">From</a></td>
       <td>
-        Records created from this time will be processed by the recipe. If left blank, the trigger will only pick up records created <b>one day</b> before the recipe is first started.
+        Records created after this time will be processed by the recipe. If left blank, the default date will be set to <b>one day</b> before the recipe is first started.
       </td>
     </tr>
     <tr>
@@ -60,7 +60,7 @@ This trigger picks up records in the selected table as soon they are created. Ea
     <tr>
       <td><a href="#unique-key">From</a></td>
       <td>
-        Records created from this time will be processed by the recipe. If left blank, the trigger will only pick up records created <b>one day</b> before the recipe is first started.
+        Records created after this time will be processed by the recipe.  If left blank, the default time will be set to <b>one day</b> before the recipe is first started.
       </td>
     </tr>
     <tr>
@@ -78,7 +78,7 @@ The output of this trigger is a full set of columns from the selected table. All
 ## Input field definitions
 
 ### From
-This is a user-defined time that marks the earliest time that the trigger should pick up created records. If left blank, the trigger will only pick up records created <b>one day</b> before the recipe is first started.
+This is a user-defined time that marks the earliest time that the trigger should pick up created records.  If left blank, the default time will be set to <b>one day</b> before the recipe is first started.
 
 The **sys_created_on** column is used to determine the time that a record is created. Only records with **sys_created_on** timestamp later than the time specified in **From** will be processed by the trigger.
 
