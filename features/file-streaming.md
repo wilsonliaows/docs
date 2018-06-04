@@ -6,7 +6,7 @@ date: 2018-05-23 06:00:00 Z
 # File Streaming
 Enterprises often have the need to transfer large files of a few hundred megabytes from one system to another. For example, copying daily database dumps from Amazon S3 to SFTP file storage.
 
-Traditional approaches to file transfer usually have a small file size limt or require large server for processing. With Workato, the `File streaming` mechanism allows you to transfer large files between different systems easily, without any setup.
+Traditional approaches to file transfer usually have a small file size limit or require large server for processing. With Workato, the `File streaming` mechanism allows you to transfer large files between different systems easily, without any setup.
 
 ## 1. How it works
 When transferring a large file, Workato automatically breaks the file into smaller chunks, then sends one chunk at a time to the destination. This allows each chunk to easily fit in Workato's server memory. As a result, the same server can technically transfer files of any size.
