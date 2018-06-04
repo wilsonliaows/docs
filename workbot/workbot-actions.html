@@ -6008,11 +6008,7 @@
 <p><img src="../assets/images/workbot/workbot-custom-commands/post-command-reply.png" alt="Workbot post command reply">
 <em>Workbot&apos;s post command reply action in Slack</em></p>
 <p>The corresponding action with mapped fields can be found below.</p>
-<p><img src="../assets/images/workbot/workbot-custom-commands/post-command-action-mapping-1.png" alt="Workbot post command reply">
-<img src="../assets/images/workbot/workbot-custom-commands/post-command-action-mapping-2.png" alt="Workbot post command reply">
-<img src="../assets/images/workbot/workbot-custom-commands/post-command-action-mapping-3.png" alt="Workbot post command reply">
-<img src="../assets/images/workbot/workbot-custom-commands/post-command-action-mapping-4.png" alt="Workbot post command reply">
-<img src="../assets/images/workbot/workbot-custom-commands/post-command-action-mapping-5.png" alt="Workbot post command reply">
+<p><img src="../assets/images/workbot/workbot-custom-commands/post-command-action-mapping.png" alt="Workbot post command reply">
 <em>Post command reply action fields mapping</em></p>
 <p>The following table lists the fields available in a <strong>Post command reply</strong> action.</p>
 <table class="unchanged rich-diff-level-one">
@@ -6134,14 +6130,37 @@ Related commands are deprecated-->
     </tbody>
 </table>
 
-<h2 id="post-messages">Post messages</h2>
-<p>This action will post a message response to a user who invokes a command. By default, Workbot posts direct messages only to the user who installed Workbot. Note, it is also possible to subscribe from a channel (where Workbot participates) to these notifications.</p>
-<p>The fields available are simillar to that of the <strong>Post command reply</strong> action, with all the typical fields you see in a Slack message. However, there is the advanced section with 2 fields: <strong>Message to update</strong> and <strong>Thread ID</strong>.</p>
-<p><strong>Message to update</strong> allows you to overwrite a previously posted message from an earlier action step. Simply use the <code>Message ID</code> datapill from a <strong>Post message</strong> or <strong>Post notification</strong> output datatree.</p>
+<h2 id="post-message">Post message</h2>
+<p>This action will post a message response to a user who invokes a command. The post message action is similar to that of the post command reply, but has more features.</p>
+<p>Use post message if you:</p>
+<ol>
+<li><p>Are not using a post command in your trigger step</p>
+</li>
+<li><p>Want control over who (\@username) or where (#channel_name) Workbot should respond to</p>
+</li>
+<li><p>Want to use advanced features like updating a previous message or posting/updating messages in a thread.</p>
+</li>
+</ol>
+<h3 id="channel-namedm">Channel name/DM</h3>
+<p><strong>Channel name/DM</strong> field allows you post a message in a specified Slack channel or direct message (DM). Use the <kbd>Channel/DM</kbd> datapill from a Post command trigger, or key in the channel name e.g. <strong>#general</strong> or username e.g. <strong>\@john</strong>.</p>
+<p><img src="../assets/images/workbot/workbot-actions/channel-dm.png" alt="Message to update example">
+<em>Message to update example</em></p>
+<h3 id="advanced-section">Advanced section</h3>
+<p> The advanced section has 2 fields: <br><strong>Message to update</strong> and <strong>Thread ID</strong>.</p>
+<ul>
+<li><h4 id="message-to-update">Message to update</h4>
+<p><strong>Message to update</strong> allows you to overwrite a previously posted message from an earlier action step. Simply use the <code>Message ID</code> datapill from a <strong>Post command</strong> trigger, <strong>Post message</strong> action or <strong>Post notification</strong> output datatrees.</p>
 <p><img src="../assets/images/workbot/workbot-actions/message-to-update-example.png" alt="Message to update example">
 <em>Message to update example</em></p>
+</li>
+<li><h4 id="thread-id">Thread ID</h4>
 <p><strong>Thread ID</strong> allows you to post a message within an existing thread in Slack. Simply use the <code>Thread ID</code> datapill from a <strong>Post message</strong> or <strong>Post notification</strong> output datatree.</p>
-<p><img src="../assets/images/workbot/workbot-actions/thread-id-example.png" alt="Thread ID example"></p>
+<p><img src="../assets/images/workbot/workbot-actions/thread-id-example.png" alt="Thread ID example">
+<em>Thread ID example</em></p>
+<p>If you don&apos;t see <strong>Thread ID</strong>, make sure it&apos;s checked in the &apos;Add/remove optional fields&apos; section at the bottom of the post message action step:</p>
+<p><img src="../assets/images/workbot/workbot-actions/thread-id-optional.png" alt="Thread ID example"></p>
+</li>
+</ul>
 <h2 id="post-notifications">Post notifications</h2>
 <p>This action allows you to define which Slack channel to post customized notifications to. By default, Workbot posts direct messages only to the user who installed Workbot. Note, it is also possible to subscribe from a channel (where Workbot participates) to these notifications.</p>
 <p>The fields available are simillar to that of the <strong>Post command reply</strong> action, with all the typical fields you see in a Slack message. However, there is the addition of the field <strong>Notification filter</strong>. This field allows you to set parameters for filters, which acts like a trigger filter for sending out notifications (i.e. the notification will only get sent when the set criteria is met).</p>
@@ -6229,7 +6248,7 @@ Related commands are deprecated-->
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot actions","date":"2017-03-30T05:00:00.000Z","level":"1.15.8","depth":2,"next":{"title":"Workbot message menus","level":"1.15.9","depth":2,"path":"workbot/workbot-message-menus.md","ref":"workbot/workbot-message-menus.md","articles":[]},"previous":{"title":"Workbot triggers","level":"1.15.7","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-actions.md","mtime":"2018-06-04T07:20:18.313Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-04T07:21:20.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot actions","date":"2017-03-30T05:00:00.000Z","level":"1.15.8","depth":2,"next":{"title":"Workbot message menus","level":"1.15.9","depth":2,"path":"workbot/workbot-message-menus.md","ref":"workbot/workbot-message-menus.md","articles":[]},"previous":{"title":"Workbot triggers","level":"1.15.7","depth":2,"path":"workbot/workbot-triggers.md","ref":"workbot/workbot-triggers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-actions.md","mtime":"2018-06-04T14:14:31.612Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-04T14:16:51.820Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
