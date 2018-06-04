@@ -9,7 +9,7 @@ Enterprises often have the need to transfer large files of a few hundred megabyt
 Traditional approaches to file transfer usually have a small file size limit or require large server for processing. With Workato, the `File streaming` mechanism allows you to transfer large files between different systems easily, without any setup.
 
 ## 1. How it works
-When transferring a large file, Workato automatically breaks the file into smaller chunks, then sends one chunk at a time to the destination. This allows each chunk to easily fit in Workato's server memory. As a result, the same server can technically transfer files of any size.
+When transferring a large file, Workato automatically breaks the file into smaller chunks, then sends one chunk at a time to the destination. This allows each chunk to easily fit in Workato's server memory. As a result, the same server can technically transfer large files of any size.
 
 The following diagram illustrates how this works:
 
