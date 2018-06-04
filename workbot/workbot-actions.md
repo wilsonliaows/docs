@@ -22,11 +22,7 @@ Here is what the Post Command Reply action's output will look like in Slack.
 
 The corresponding action with mapped fields can be found below.
 
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-1.png)
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-2.png)
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-3.png)
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-4.png)
-![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping-5.png)
+![Workbot post command reply](/assets/images/workbot/workbot-custom-commands/post-command-action-mapping.png)
 *Post command reply action fields mapping*
 
 The following table lists the fields available in a **Post command reply** action.
