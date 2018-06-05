@@ -109,6 +109,41 @@ database:
     ApplicationName: workato
 ```
 
+When working with Oracle database, you may be connecting to either an **SID** or **Service**. If you are using **SID**, you can use both ways to define the profile. First, the
+
+Using `adapter` property:
+
+```YAML
+database:
+  erp:
+    adapter: oracle
+    host: localhost
+    port: 1521
+    database: XE
+    username: admin
+    password: xxx
+```
+
+Using `url` property:
+
+```YAML
+database:
+  erp:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: admin
+    password: xxx
+```
+
+When connecting to an Oracle **Service**, use the `url` property:
+
+```YAML
+database:
+  erp:
+    url: jdbc:oracle:thin:@localhost:1521/PROD
+    username: admin
+    password: xxx
+```
+
 ### JDBC connection profile
 When creating connection profile to other JDBC-compatible databases, the configuration is special. These profiles require `url` and `driverClass` properties, where `url` is a valid JDBC URL and `driverClass`  provides fully-qualified name of JDBC driver class for the given database. The driver class must be available on the agent's classpath;
 note that your agent's classpath can be extended in the `server` section of the configuration file:
