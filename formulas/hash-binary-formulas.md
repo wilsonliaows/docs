@@ -12,22 +12,22 @@ stop the job if it tries to operate on nulls (expressed as `nil` in Ruby).
 This function willEncodes input string to given encoding.
 encoding: Name of the encoding. Eg: Windows-1252
 
-e.g. `"Jean Marie".encode("Windows-1252")` 
+e.g. `Pill`.`encode("Windows-1252")`
 
 ## encode_base64
 This function will Encode input using Base64 algorithm
 
-e.g. `"Jean Marie".encode_base64`
+e.g. `Pill`.`encode_base64`
 
 ## encode_sha256
 This function Encode input using SHA256 algorithm
 
-e.g. `"Jean Marie".encode_sha256`
+e.g. `Pill`.`encode_sha256`
 
 ## encode_urlsafe_base64
 This function Encode using urlsafe modification of Base64 algorithm
 
-e.g. `[Pill].encode_urlsafe_base64`
+e.g. `Pill`.`encode_urlsafe_base64`
 
 
 ## encode_www_form
@@ -38,12 +38,12 @@ e.g. `{"apple" => "red green", "2" => "3"}.encode_www_form`, result: `"apple=red
 ## decode_base64
 This function decodes the input using Decode using Base64 algorithm
 
-e.g. `[].decode_base64`
+e.g. `Content`.`decode_base64`
 
 ## decode_urlsafe_base64
 This function Decode using urlsafe modification of Base64 algorithm
 
-e.g. `[].decode_urlsafe_base64`
+e.g. `Content`.`decode_urlsafe_base64`
 
 ## as_utf8
 This function Decode byte sequence as UTF-8 string
@@ -90,10 +90,6 @@ e.g. `"username:password:nonce".hmac_sha512("key")`
 ## binary?
 This function checks Is the value a binary array? Returns true or false
 
-e.g.`[Payload].binary?`
-
-
-
-
+e.g.`Payload`.`binary?`
 
 
