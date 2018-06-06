@@ -1,5 +1,6 @@
 # Summary
 * [Introduction](README.md)
+* [Platform Updates](product-updates.md)
 * [Concepts](workato-concepts.md)
 * [Connecting apps](connections.md)
 * [Building recipes](recipes/building-recipes.md)
