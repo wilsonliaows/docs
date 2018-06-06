@@ -6,7 +6,7 @@ date: 2018-06-05 21:45:00 Z
 
 ![Product Updates banner](/assets/images/product-updates-banner.png) 
 
-Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.
+Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.  
 
 
 ## May 2018
