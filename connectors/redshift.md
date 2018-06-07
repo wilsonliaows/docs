@@ -162,6 +162,11 @@ This clause will be used as a `WHERE` statement in each request. This should fol
     <tr>
       <td>LIKE</td>
       <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
+      <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
+    </tr>
+    <tr>
+      <td>BETWEEN</td>
+      <td>Retrieve values with a range</td>
       <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
     </tr>
     <tr>
