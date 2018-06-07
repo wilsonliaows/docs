@@ -8,6 +8,22 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.  
 
+## June 01 - June 07 2018
+
+### Enhancements to our existing Connectors
+
+#### Netsuite
+- New Action: Delete Record
+
+#### ServiceNow
+- Deprecated Actions: Get incident details by ID, Get user details by ID, Assign user to incident. Please use the new actions-- `Search records`, `Update records` if you need these actions.
+- Hints updated on the 
+
+#### Marketo
+- Attributes array has been added to the output for lead batch activity trigger
+
+#### Replicon
+- New Action: Get Eligible Project leaders from Replicon
 
 ## May 2018
 **View the latest product updates in the blog post [here](https://product.workato.com/2018/06/05/june-2018-product-release/).**
