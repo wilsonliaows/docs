@@ -92,7 +92,7 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [Oracle documentation](http://www.oracle.com/technetwork/issue-archive/2012/12-mar/o22sql-1494267.html) for a full list of rules for writing Oracle statements.
 
-#### WHERE operators
+#### Operators
 
 <table class="unchanged rich-diff-level-one">
   <thead>

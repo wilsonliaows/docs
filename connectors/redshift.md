@@ -108,7 +108,7 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [Redshift documentation](https://docs.aws.amazon.com/redshift/latest/dg/c_redshift-sql.html) for a full list of rules for writing Redshift SQL statements.
 
-#### WHERE operators
+#### Operators
 
 <table class="unchanged rich-diff-level-one">
   <thead>

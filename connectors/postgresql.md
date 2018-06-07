@@ -120,7 +120,7 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [PostgreSQL documentation](https://dev.postgresql.com/doc/refman/5.7/en/language-structure.html) for a full list of rules for writing PostgreSQL statements.
 
-#### WHERE operators
+#### Operators
 
 <table class="unchanged rich-diff-level-one">
   <thead>
