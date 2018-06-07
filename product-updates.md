@@ -17,7 +17,6 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 #### ServiceNow
 - Deprecated Actions: Get incident details by ID, Get user details by ID, Assign user to incident. Please use the new actions-- `Search records`, `Update records` if you need these actions.
-- Hints updated on the 
 
 #### Marketo
 - Attributes array has been added to the output for lead batch activity trigger
