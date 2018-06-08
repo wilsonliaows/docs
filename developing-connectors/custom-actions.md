@@ -4,7 +4,7 @@ date: 2018-05-24 14:00:00 Z
 ---
 
 # Custom actions
-Do you wish to build actions for a connector that Workato already supports? Custom actions enable you to use the existing connector framework to build new actions, instead of building something from scratch via the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). Custom actions allow you to easily build your action by telling Workato what the action's request and response should look like. This can be obtained from the API documentation.
+Want to build actions for a connector that Workato already supports? Custom actions enable you to use the existing connector framework to build new actions, instead of building something from scratch via the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). Custom actions allow you to easily build your action by telling Workato what the action's request and response should look like. This can be obtained from the API documentation.
 
 Building a custom action is an accelerated way of building an action via the HTTP connector, as the custom action utilizes the connector's existing authorization framework and already understands the API for that app.
 
@@ -29,7 +29,7 @@ If you build an action that requires additional scopes, the action will throw an
 ![Scope error returned by the API when call is made](/assets/images/developing-connectors/custom-actions/custom-action-scope-error-output.png)
 *Scope error returned by the API when call is made*
 
-If you'd like to see custom actions or additional scopes added to a connector on Workato, contact the Workato team to file an enhancement request!
+If you'd like to see custom actions or additional scopes added to a connector on Workato, contact the Workato team to file an enhancement request.
 
 ## Custom action input fields
 This section details the configuration input fields in the custom action.
@@ -38,12 +38,7 @@ This section details the configuration input fields in the custom action.
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Action name                     | Give the custom action you're building a name. This shows up in the action title.                                                                                 |
 | Request type                    | HTTP method of the API endpoint you're calling.                                                                                                                   |
-| Path                            | Relative URI will be appended to the end of the base URI. Do not prepend `/` in your relative URL unless you wish to override the default path of the base URI.
-
-For example, the base URI of the Slack connector is `https://slack.com/api/`. If you use the value `channel.list` here, the request will be sent to `https://slack.com/api/channels.list`.
-
-However, if you use the value `/channel.list`, the request will be sent to `https://slack.com/channels.list`.
-
+| Path                            | Relative URI will be appended to the end of the base URI. Do not prepend `/` in your relative URL unless you wish to override the default path of the base URI. For example, the base URI of the Slack connector is `https://slack.com/api/`. If you use the value `channel.list` here, the request will be sent to `https://slack.com/api/channels.list`. However, if you use the value `/channel.list`, the request will be sent to `https://slack.com/channels.list`.
 Using / in front of a relative URI value is useful when you wish to work with a different base path. (like an older API version) |
 | URL params (For GET and DELETE) | If the API endpoint you're calling is a GET or a DELETE, you can pass in URL params. Values provided here will be URL encoded before being sent.                                                                            |
 | Input (For POST, PUT and PATCH) | If the API endpoint you're calling is a POST, PUT or a PATCH, you can pass in a JSON request body.                                                                |
