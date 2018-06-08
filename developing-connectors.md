@@ -29,7 +29,7 @@ You can build your own triggers, actions and connectors on Workato via custom ac
 *Flowchart to decide what framework to use*
 
 ### Custom actions
-Custom actions allow you to build an action on top of an existing Workato connector. This allows you to focus on the HTTP request and response, and the Workato connector handles the authorization flow.
+[Custom actions](/developing-connectors/custom-actions.md) allow you to build an action on top of an existing Workato connector. This allows you to focus on the HTTP request and response, and the Workato connector handles the authorization flow.
 
 ### HTTP universal connector
 The [HTTP connector](/developing-connectors/http.md) allows you to work with any API that supports HTTP connectivity. The HTTP connector works with a variety of auth models, content types, and HTTP methods.
