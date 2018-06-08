@@ -4,7 +4,7 @@ date: 2018-05-24 14:00:00 Z
 ---
 
 # Custom actions
-If you're looking to build additional actions for a connector that Workato already supports, custom actions enable you to utilize the existing connector framework instead of developing from scratch via the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). This allows you to easily build your action by telling Workato what the action's request and response should look like, which can be obtained from the API documentation.
+Do you wish to build actions for a connector that Workato already supports? Custom actions enable you to use the existing connector framework to build new actions, instead of building something from scratch via the [HTTP universal connector](/developing-connectors/http.md) or the [SDK](/developing-connectors/sdk.md). Custom actions allow you to easily build your action by telling Workato what the action's request and response should look like. This can be obtained from the API documentation.
 
 Building a custom action is an accelerated way of building an action via the HTTP connector, as the custom action utilizes the connector's existing authorization framework and already understands the API for that app.
 
@@ -14,7 +14,7 @@ Most apps on Workato support custom actions. Custom actions can be found in the 
 ![Selecting the custom action](/assets/images/developing-connectors/custom-actions/custom-action-selection.png)
 *Selecting the custom action*
 
-The custom action will list the scopes available. Typically, you can only read or write to objects that you have scopes for. We see that we have the following scopes for Slack:
+The custom action will list the scopes available. Typically, you can only read or write to objects that you have scopes for. For example, when we select custom action for the Slack connector, we see that only the following scopes are included:
 
 ```
 channels:read, channels:write, chat:write:bot, chat:write:user, groups:read, groups:write,
@@ -38,8 +38,14 @@ This section details the configuration input fields in the custom action.
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Action name                     | Give the custom action you're building a name. This shows up in the action title.                                                                                 |
 | Request type                    | HTTP method of the API endpoint you're calling.                                                                                                                   |
-| Path                            | URL path of the endpoint you're calling. Absolute URI or relative URI are accepted.  Use the absolute URI if you wish to use a different version of the API, etc. |
-| URL params (For GET and DELETE) | If the API endpoint you're calling is a GET or a DELETE, you can pass in URL params.                                                                              |
+| Path                            | Relative URI will be appended to the end of the base URI. Do not prepend `/` in your relative URL unless you wish to override the default path of the base URI.
+
+For example, the base URI of the Slack connector is `https://slack.com/api/`. If you use the value `channel.list` here, the request will be sent to `https://slack.com/api/channels.list`.
+
+However, if you use the value `/channel.list`, the request will be sent to `https://slack.com/channels.list`.
+
+Using / in front of a relative URI value is useful when you wish to work with a different base path. (like an older API version) |
+| URL params (For GET and DELETE) | If the API endpoint you're calling is a GET or a DELETE, you can pass in URL params. Values provided here will be URL encoded before being sent.                                                                            |
 | Input (For POST, PUT and PATCH) | If the API endpoint you're calling is a POST, PUT or a PATCH, you can pass in a JSON request body.                                                                |
 | Output                          | Describe to Workato the output schema you expect the API to return. This will be used to generate the output datatree.                                            |
 
@@ -61,7 +67,7 @@ Select the HTTP method of the request, based on the API endpoint you're calling.
 ![Slack's API documentation for list channels](/assets/images/developing-connectors/custom-actions/slack-list-channels-http-method-docs.png)
 *Slack's API documentation for list channels*
 
-Once selected, relevant fields show up in the action for you to fill.
+Once selected, relevant input fields show up in the action for you to fill.
 
 ![Additional fields show up when you select HTTP method](/assets/images/developing-connectors/custom-actions/select-http-method.gif)
 *Additional fields show up when you select HTTP method*
@@ -86,10 +92,7 @@ After defining the params, we need to provide the values we want for them. In th
 ![Filling in values for params](/assets/images/developing-connectors/custom-actions/fill-in-param-values.gif)
 *Filling in values for params*
 
-There's just one last thing to provide - the output schema. This can be typically copied from the API documentation and pasted into Workato. Here's the JSON response in Slack.
-
-![Slack API documentation for list channels response](/assets/images/developing-connectors/custom-actions/slack-docs-list-channels-api-response.png)
-*Slack API documentation for list channels response*
+There's just one last thing to provide - the output schema. This can be typically copied from the API documentation and pasted into Workato. Here's the JSON response copied from the Slack API documentation.
 
 ```
 {
@@ -162,12 +165,6 @@ There's just one last thing to provide - the output schema. This can be typicall
         "next_cursor": "dGVhbTpDMUg5UkVTR0w="
     }
 }
-Typical error response
-
-{
-    "ok": false,
-    "error": "invalid_auth"
-}
 ```
 
 We can copy this and paste it in Workato to generate the output datatree.
@@ -196,5 +193,5 @@ When the above action was tested, we can see the input passed into the action in
 
 We can also see the detailed output returned by the Slack API and review if the API call was successful. As `ok` is `true`, it looks like this call was successful.
 
-![Job history - output showing channel data returned](/assets/images/developing-connectors/custom-actions/list-channels-action-input.png)
+![Job history - output showing channel data returned](/assets/images/developing-connectors/custom-actions/list-channels-action-output.png)
 *Job history - output showing channel data returned*
