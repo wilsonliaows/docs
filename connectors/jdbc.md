@@ -4,7 +4,7 @@ date: 2018-04-20 06:00:00 Z
 ---
 
 # JDBC
-
+At the moment, this is an Alpha connector only available in our preview environment.
 
 ## Supported databases
 All ANSI-compliant databases with a JDBC driver
