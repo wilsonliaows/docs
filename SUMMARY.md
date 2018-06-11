@@ -175,6 +175,7 @@
   * [Using Dialogs with Workbot](workbot/using-dialogs-with-workbot.md)
   * [Workbot triggers](workbot/workbot-triggers.md)
   * [Workbot actions](workbot/workbot-actions.md)
+  * [Updating messages](workbot/workbot-update-message.md)
   * [Workbot personal connections](workbot/workbot-latebinding.md)
   * [Workbot troubleshooting](workbot/workbot-troubleshooting.md)
   * [Workbot slash commands](workbot/configuring-slash-commands.md)
