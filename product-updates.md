@@ -72,4 +72,4 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - [Error handling](https://docs.workato.com/developing-connectors/sdk/error-handling.html) in SDK 
 
 #### Job details logging
-- Ability to log all jobs and job details with Amazon S3
+- Ability to [log all jobs and job details](https://docs.workato.com/job-history-replication.html) with Amazon S3
