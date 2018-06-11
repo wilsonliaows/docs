@@ -3,7 +3,7 @@ title: Update Workbot messages
 date: 2018-05-21 10:23:00 Z
 ---
 
-# Updating existing Workbot messages
+# Updating Workbot messages
 
 ![Update message example](/assets/images/workbot/workbot-update-message/update-message-example.gif)
 *Message updating from button, menu, and back to button again*
@@ -14,7 +14,7 @@ You can update a bot message that was posted earlier by using a post message act
   ![Update message example](/assets/images/workbot/workbot-update-message/replace-button-example.gif)
   *Buttons removed, replaced with users response and a 'thank you' message*
 
-- reduce clutter in bot conversations by 'reusing' the original bot message (by repeatedly updating it)
+- reduce clutter in bot conversations by 'reusing' the original bot message (by repeatedly updating the original)
 
   ![Reduce clutter](/assets/images/workbot/workbot-update-message/reduce-clutter.gif)
 
