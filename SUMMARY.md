@@ -1,6 +1,5 @@
 # Summary
 * [Introduction](README.md)
-* [Product Updates](product-updates.md)
 * [Concepts](workato-concepts.md)
 * [Connecting apps](connections.md)
 * [Building recipes](recipes/building-recipes.md)
@@ -349,4 +348,5 @@
 * [Workato API](https://www.workato.com/apidoc)
 * [Security](security.md)
   * [IP whitelists](security.md#ip_whitelists)
+* [Product Updates](product-updates.md)
 * [Contact us](contact-us.md)
