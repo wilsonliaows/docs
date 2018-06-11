@@ -92,7 +92,7 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [Oracle documentation](http://www.oracle.com/technetwork/issue-archive/2012/12-mar/o22sql-1494267.html) for a full list of rules for writing Oracle statements.
 
-#### WHERE operators
+#### Operators
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -146,6 +146,11 @@ This clause will be used as a `WHERE` statement in each request. This should fol
     <tr>
       <td>LIKE</td>
       <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
+      <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
+    </tr>
+    <tr>
+      <td>BETWEEN</td>
+      <td>Retrieve values with a range</td>
       <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
     </tr>
     <tr>
