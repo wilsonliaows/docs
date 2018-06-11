@@ -79,7 +79,7 @@ Subsequently, whenever new accounts are created in Salesforce, Workbot posts a n
 ![Workbot notification example](/assets/images/workbot/workbot/workbot-notification-example.png)
 *New Salesforce account notification posted to the specified channel by Workbot*
 
-You can configure multipl channels to receive the Workbot notifications by using the same command in multiple channels.
+You can configure multiple channels to receive the Workbot notifications by using the same command in multiple channels.
 
 4. Optionally, turn off the notifications via Workbot command
 The command should follow this format:
