@@ -53,7 +53,7 @@ To update a message, use its <kbd>Message ID</kbd> in the **Message to update** 
 
 ![Message to update example](/assets/images/workbot/workbot-actions/message-to-update-example.png)
 
-The message will be replaced by the new message defined in the **Post message** action, along with any interactive components like buttons or message menus.
+The original message will be replaced by the new message defined in the **Post message** action, along with any interactive components like buttons or message menus.
 
 ## Replacing messages containing buttons & message menus
 To replace messages containing buttons, message menus, or both, simply add an 'unmapped' button or message menu (depending on what you're replacing) in the updating post message action.
