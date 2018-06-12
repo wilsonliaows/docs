@@ -8,15 +8,34 @@ date: 2018-05-21 10:23:00 Z
 ![Update message example](/assets/images/workbot/workbot-update-message/update-message-example.gif)
 *Message updating from button, menu, and back to button again*
 
-You can update a bot message that was posted earlier by using a post message action. This is especially useful when you want to:
-- remove buttons or access menus after users have made their selection (to prevent spam), replacing them with meaningful responses
+You can update a bot message that was posted earlier by using a post message action. This is especially useful for the use cases shown in the table below.
 
-  ![Update message example](/assets/images/workbot/workbot-update-message/replace-button-example.gif)
-  *Buttons removed, replaced with users response and a 'thank you' message*
-
-- reduce clutter in bot conversations by 'reusing' the original bot message (by repeatedly updating the original)
-
-  ![Reduce clutter](/assets/images/workbot/workbot-update-message/reduce-clutter.gif)
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Use case</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Replacing buttons or menus</td>
+        <td>
+        You may want to remove buttons or message menus after users have clicked on their selection (to prevent spam):<br>
+        <img src="/assets/images/workbot/workbot-update-message/replace-button-example.gif"></img><br>
+        In the example above, not only are the buttons removed in the updated message, it also displays the user's choice, followed by a 'thank you' message.
+        </td>
+      </tr>
+      <tr>
+      <td>Reduce clutter in chat</td>
+      <td>
+      You may also want to reduce clutter in bot conversations by 'reusing' the original bot message (by repeatedly updating the original):<br>
+      <img src="/assets/images/workbot/workbot-update-message/reduce-clutter.gif"></img><br>
+      In the example above, the updating message clears the lengthy original message and prompts the user to key in another query instead.
+      </td>
+      </tr>
+    </tbody>
+</table>
 
 ## How it works
 
@@ -24,7 +43,7 @@ You can instruct Workbot to use the message contents of a **Post message** actio
 
 Each message posted in Slack has a <kbd>Message ID</kbd>, displayed in the output of Workbot triggers & actions.
 
-  >For Workbot triggers, <kbd>Message ID</kbd> only exists when the trigger is invoked by a user interactions in a Workbot message (e.g. button / menu option clicks or dialog submissions). In such a case, the <kbd>Message ID</kbd> would correspond to the bot message containing the interactive component(s).
+  >When a user invokes a trigger by typing a command, the trigger output will not have a message ID (since there's no message to update yet). However, if the trigger is invoked from a bot command of a message (e.g. a submit button command, submit menu option command, or a dialog submission), the trigger output will contain the message ID of that message.
 
 Hence, the <kbd>Message ID</kbd> datapill can be obtained from the output of a **Post command** trigger or a **Post message**  / **Post command reply** action.
 
@@ -55,4 +74,6 @@ An 'unmapped' button (or message menu) is one where the **Submit button command*
 
 
 3. <kbd>Message ID</kbd> **pill is empty**
-  When using a <kbd>Message ID</kbd> pill from the output of a trigger, make sure that the trigger is invoked by a button / menu option click or dialog submission from a bot message (presumably from another recipe). Only triggers that are invoked from interactions with a posted bot message will have a <kbd>Message ID</kbd>.
+    Remember, when a user invokes a trigger by typing a command, the trigger output will not have a message ID (since there's no message to update yet).<br>
+    However, if the trigger is invoked from a bot command of a message (e.g. a submit button command, submit menu option command, or a dialog submission), the trigger output will contain the message ID of that message.<br>
+    If you want to use a <kbd>Message ID</kbd> pill from the output of a trigger, make sure that the trigger is invoked by a button / menu option click or dialog submission from a bot command of a message.
