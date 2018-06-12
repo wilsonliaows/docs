@@ -54,10 +54,10 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - Minor output schema fix
 
 #### Box
-- ‘Download file’ action supports [file streaming](https://product.workato.com/2018/06/04/file-streaming-transferring-large-files-with-ease/).
+- Download file action supports [file streaming](https://product.workato.com/2018/06/04/file-streaming-transferring-large-files-with-ease/).
 
 #### Databases
-- Added [documentation](https://docs.workato.com/connectors/s3.html#how-to-connect-to-amazon-s3-on-workato) for all databases
+- Added documentation for [SQL Server](/connectors/mssql.md), [Oracle](/connectors/oracle.md), [Redshift](/connectors/redshift.md), [PostgreSQL](/connectors/postgresql.md) and [MySQL](/connectors/mysql.md).
 - SQL Server sample output fix
 - Standardized empty and null values
 - Fixes for CLOB and NCLOB
@@ -69,7 +69,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - Workato is now [GDPR compliant](https://www.workato.com/legal). 
 
 #### SDK
-- [Error handling](https://docs.workato.com/developing-connectors/sdk/error-handling.html) in SDK 
+- [Error handling](/developing-connectors/sdk/error-handling.md) for custom adapters
 
 #### Job details logging
-- Ability to [log all jobs and job details](https://docs.workato.com/job-history-replication.html) with Amazon S3
+- Ability to [log all jobs and job details](/job-history-replication.md) with Amazon S3
