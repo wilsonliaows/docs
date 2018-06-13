@@ -362,4 +362,5 @@
 * [Workato API](https://www.workato.com/apidoc)
 * [Security](security.md)
   * [IP whitelists](security.md#ip_whitelists)
+* [Product Updates](product-updates.md)
 * [Contact us](contact-us.md)
