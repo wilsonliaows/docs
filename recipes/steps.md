@@ -100,7 +100,7 @@ This recipe marks the job as an error, so that the recipe owner will take notice
 *Configuring the Step step's error message. [Example recipe](https://www.workato.com/recipes/480360)*
 
 ## Action with error handler step
-This step allows you to monitor for errors in actions, similar to the try/catch concept in programming lanaguages.. When an error occurs, you have the chance to:
+This step allows you to monitor for errors in actions, similar to the try/catch concept in programming languages. When an error occurs, you have the chance to:
 
 1) retry the sequence of actions again, in case it was a temporary error such as network issues, or
 
@@ -135,7 +135,7 @@ As the recipe catches failed actions within the error monitor block, failed **Up
 ## Example: Error monitor with retry step
 If the actions in your **Monitor** block tends for fail for temporary reasons such as network issues or timeout issues, it would make sense to use auto-retry, such that the recipe will attempt to execute the steps again until it succeeds, for a maximum of 3 tries.
 
-We will reuse the same same error monitor exmaple recipe from above, where we try to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
+We will reuse the same same error monitor example recipe from above, where we try to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
 
 ![Auto-retry example](/assets/images/recipes/steps/recipe-with-error-monitor-and-retry.png)
 *Recipe that uses the auto-retry to recover from action failures in updating Zendesk organizations. [Example recipe](https://www.workato.com/recipes/599962)*
