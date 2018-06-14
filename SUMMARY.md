@@ -115,7 +115,7 @@
     * [Comments](features/message-template.md#comments)
     * [Partials](features/message-template.md#partials)
     * [Using templates in recipes](features/message-template.md#using-templates-in-recipes)
-  * [Schema Reuse](features/common-data-model.md)
+  * [Schema reuse](features/common-data-model.md)
   * [Pub/Sub](connectors/pubsub.md)
     * [Connection setup](connectors/pubsub.md#how-to-connect-to-the-pubsub-connector-on-workato)
     * [Topics management](connectors/pubsub.md#creating-and-managing-topics)
