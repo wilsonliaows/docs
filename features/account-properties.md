@@ -14,7 +14,7 @@ Account properties feature is enabled only for certain plans. Check the [Pricing
 
 You can create property values (name value pairs) by going to the 'Tools' tab at the top of your screen and clicking on 'View all Tools'. Then, click on 'Properties'.
 
-![Account properties option](assets/images/features/account-properties/account-properties-nav.gif)
+![Account properties option](/assets/images/features/account-properties/account-properties-nav.gif)
 *Account properties in Tools*
 
 ## Create property
