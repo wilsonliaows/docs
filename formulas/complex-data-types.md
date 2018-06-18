@@ -27,7 +27,7 @@ Now, this presents a problem for us, because Workato input field mapping exist p
 
 To do this, simply toggle the **Tags** input field to formula mode, and form the required structure. This can be done in a few ways.
 
-First, we can perform a test with a statically defined array of strings. Make sure that the input value observes proper JSON syntax. Invalid values in formula mode will raise [design time formula errors](recipes/recipe-design-time-errors.md#design-time-formula-errors).
+First, we can perform a test with a statically defined array of strings. Make sure that the input value observes proper JSON syntax. Invalid values in formula mode will raise [design time formula errors](/recipes/recipe-design-time-errors.md#design-time-formula-errors).
 
 ![Static array input](/assets/images/formula-docs/formula-static-array-input.png)
 *Static array input in formula mode*
