@@ -15,7 +15,8 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ### Connector enhancements
 
-#### Propel (new connector) 
+#### Propel
+Added Propel as a new connector.
 
 **Triggers**
 - Object created
