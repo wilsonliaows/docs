@@ -10,10 +10,28 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ## June 08 - June 21 2018
 
+### Platform enhancements
+- New recipe creation wizard 
+
 ### Connector enhancements
+
+#### Propel (new connector) 
+
+**Triggers**
+- Object created
+- Daily object review
+- Object created/updated
+
+**Actions** 
+- Custom action
+- Create object
+- Get related objects
+- Search objects
+- Update object 
 
 #### Netsuite
 - Added the ability to search custom records by custom fields
+- Added support for message object in New Classification trigger
 
 #### PGP
 - New action: Decrypt file with PGP
