@@ -67,7 +67,7 @@ Some actions will accept a list as input e.g. Salesforce bulk insert and bulk up
 The following is an example scenario that imports new products from a Box CSV file into Salesforce via the **Bulk insert** action.
 
 ![Example recipe using list input](/assets/images/features/list-management/example-recipe-using-input-list.png)
-*Example recipe using list input. [Example recipe](https://www.workato.com/recipes/488454)*
+*Example recipe using list input. [Example recipe](https://www.workato.com/recipes/549955)*
 
 Actions that take lists as inputs will have a input field called **Source list**, which will only take in list pills. When these list input fields are selected, the datatree changes to offer only list pills. The Rows list object pill is mapped into the Salesforce product source list input field.
 
