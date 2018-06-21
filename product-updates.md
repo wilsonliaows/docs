@@ -8,6 +8,22 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.  
 
+## June 08 - June 21 2018
+
+### Connector enhancements
+
+#### Netsuite
+- Added the ability to search custom records by custom fields
+
+#### PGP
+- New action: Decrypt file with PGP
+
+#### Okta
+- New events action has been enhanced to allow "others" option in the Event type dropdown. This allows users to enter a specific Event name. 
+
+#### Workday
+- The call operation action now includes 'get integration systems' as an operation.
+
 ## June 01 - June 07 2018
 
 ### Connector enhancements
