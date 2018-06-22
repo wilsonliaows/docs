@@ -250,8 +250,6 @@
     * [Update record action](connectors/netsuite.md#update-standard-object-and-update-custom-object-action)
   * [On-premises files](connectors/on-prem-files.md)
     * [Connection setup](connectors/on-prem-files.md#how-to-connect-to-on-premises-files)
-    * [Trigger: New CSV file in folder](connectors/on-prem-files/trigger-new-csv.md)
-    * [Trigger: New file in folder](connectors/on-prem-files/trigger-new-file.md)
   * [Oracle](connectors/oracle.md)
     * [Connection setup](connectors/oracle.md#how-to-connect-to-oracle-on-workato)
     * [Select actions](connectors/oracle/select.md)
