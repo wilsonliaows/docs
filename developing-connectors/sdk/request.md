@@ -1,11 +1,15 @@
 # HTTP Request
 
 ## HTTP verb methods
-- get
-- post
-- put
-- patch
-- delete
+
+|HTTP verb | Method | Example |
+| -- | -- | ------- |
+| GET | `get()` | `get("url", parameters)` |
+| POST | `post()` | `post("url", payload)` |
+| PUT | `put()` | `put("url", payload)` |
+| PATCH | `patch()` | `patch("url", payload)` |
+| DELETE | `delete()` | `delete("url", parameters)` |
+| OPTIONS | `options()` | `options("url", parameters)` |
 
 ### Forming a request
 
@@ -31,7 +35,7 @@ execute: lambda do |connection, input|
 end
 ```
 
-The SDK framework processes this hash value and transforms it into the respective data format. For GET requests, the hash data is converted to URL query parameters.
+The SDK framework processes this hash value and transforms it into the respective data format. For GET, DELETE OPTIONS requests, the hash data is converted to URL query parameters.
 
 For POST, PUT and PATCH, the payload is formed into the request body into a format that you specify. Learn how to work with the various data formats [here](/developing-connectors/sdk/data-format.md).
 
