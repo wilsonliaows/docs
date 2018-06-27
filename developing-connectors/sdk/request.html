@@ -6236,13 +6236,47 @@
                                 
                                 <h1 id="http-request">HTTP Request</h1>
 <h2 id="http-verb-methods">HTTP verb methods</h2>
-<ul>
-<li>get</li>
-<li>post</li>
-<li>put</li>
-<li>patch</li>
-<li>delete</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>HTTP verb</th>
+<th>Method</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>get()</code></td>
+<td><code>get(&quot;url&quot;, parameters)</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>post()</code></td>
+<td><code>post(&quot;url&quot;, payload)</code></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>put()</code></td>
+<td><code>put(&quot;url&quot;, payload)</code></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>patch()</code></td>
+<td><code>patch(&quot;url&quot;, payload)</code></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>delete()</code></td>
+<td><code>delete(&quot;url&quot;, parameters)</code></td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td><code>options()</code></td>
+<td><code>options(&quot;url&quot;, parameters)</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="forming-a-request">Forming a request</h3>
 <p>Each HTTP verb method must be provided a <code>url</code> string as the first argument. The second argument (optional) can be in 2 forms.</p>
 <p>Firstly, <code>input</code> can be passed as a single hash. This hash can simply be the <code>input</code> of the <code>execute</code> or <code>poll</code> argument, such as the following:</p>
@@ -6259,7 +6293,7 @@
   get(<span class="hljs-string">&quot;https://www.some_api_endpoint.com/api&quot;</span>, params)
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>The SDK framework processes this hash value and transforms it into the respective data format. For GET requests, the hash data is converted to URL query parameters.</p>
+<p>The SDK framework processes this hash value and transforms it into the respective data format. For GET, DELETE OPTIONS requests, the hash data is converted to URL query parameters.</p>
 <p>For POST, PUT and PATCH, the payload is formed into the request body into a format that you specify. Learn how to work with the various data formats <a href="data-format.html">here</a>.</p>
 <p>The other method of passing request data is as a series of key/value pairs.</p>
 <pre><code class="lang-ruby"><span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
@@ -6451,7 +6485,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTTP request","level":"1.18.5","depth":2,"next":{"title":"Error handling","level":"1.18.6","depth":2,"path":"developing-connectors/sdk/error-handling.md","ref":"developing-connectors/sdk/error-handling.md","articles":[]},"previous":{"title":"Toggle field","level":"1.18.4","depth":2,"path":"developing-connectors/sdk/toggle-field.md","ref":"developing-connectors/sdk/toggle-field.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/request.md","mtime":"2018-06-23T19:35:27.879Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-23T19:36:33.148Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP request","level":"1.18.5","depth":2,"next":{"title":"Error handling","level":"1.18.6","depth":2,"path":"developing-connectors/sdk/error-handling.md","ref":"developing-connectors/sdk/error-handling.md","articles":[]},"previous":{"title":"Toggle field","level":"1.18.4","depth":2,"path":"developing-connectors/sdk/toggle-field.md","ref":"developing-connectors/sdk/toggle-field.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/request.md","mtime":"2018-06-27T10:52:12.251Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-27T10:54:24.018Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
