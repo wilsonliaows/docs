@@ -222,4 +222,4 @@ This is required for **New/updated row triggers**. Values in this selected colum
 
 When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected **Unique key** column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
 
-For MySQL, only **timestamp**, **timestamp with time zone**, **timestamp with local time zone** column types can be used.
+For Oracle database, only **timestamp**, **timestamp with time zone**, **timestamp with local time zone** column types can be used.
