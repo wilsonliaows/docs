@@ -218,7 +218,7 @@ A table must satisfy some constraints to be used in a trigger. The following sec
 
 #### Unique key
 
-In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely gidentify rows in the selected table.
+In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
 
 As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
 
@@ -235,5 +235,3 @@ This is required for **New/updated row triggers**. Values in this selected colum
 When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected **Unique key** column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
 
 For SQL Server, only **datetime2** column types can be used.
-
-As a result, when you are configuring a SQL Server trigger, only **datetime2** columns will be available in the pick list to choose from.
