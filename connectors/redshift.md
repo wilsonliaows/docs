@@ -221,3 +221,23 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ![Using datapills in WHERE condition with subquery](/assets/images/redshift/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
+
+#### Unique key
+
+In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
+
+As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
+
+When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
+
+Let's use a simple example to illustrate this behavior. We have a **New row trigger** that processed rows from a table. The **unique key** configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use `ID >= 101` as the condition to look for new rows.
+
+Performance of a trigger can be improved if the column selected to be used as the **unique key** is indexed.
+
+#### Sort column
+
+This is required for **New/updated row triggers**. Values in this selected column are used to identify updated rows.
+
+When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected **Unique key** column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
+
+For Redshift, only **timestamp** and **timestamptz** column types can be used.
