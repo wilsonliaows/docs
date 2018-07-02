@@ -149,7 +149,7 @@ To retrieve the last date of the next month:
 # Display conversion
 
 ## strftime
-To change the format of a datetime value to suit your preferences, you can use the .strftime formula to do so.
+To change the format of a datetime value to suit your preferences, you can use the .strftime formula to do so. This converts the datetime value into a string with the specified format.
 
 ### Example
 
