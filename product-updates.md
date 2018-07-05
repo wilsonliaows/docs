@@ -14,6 +14,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 ### Platform enhancements
 - Static and dynamic list input modes
 - Recipe lifecycle management: Imported connections will appear in the same connection folder
+- Transliterate formula added: Replaces non-ASCII characters with an ASCII approximation, or if none exists, a replacement character which defaults to '?'
 
 ### Connector enhancements
 
