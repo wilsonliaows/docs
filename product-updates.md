@@ -6,7 +6,23 @@ date: 2018-06-05 21:45:00 Z
 
 ![Product Updates banner](/assets/images/product-updates-banner.png) 
 
-Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.  
+Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.
+
+## June 22 - July 05 2018
+**Find more details on June's updates in our [blog post](https://product.workato.com/2018/07/05/july-2018-product-release/).**
+
+### Platform enhancements
+- Static and dynamic list input modes
+- Recipe lifecycle management: Imported connections will appear in the same connection folder
+
+### Connector enhancements
+
+#### Netsuite
+- `ItemGroup` standard object now available in Search action and trigger
+
+#### Workday
+- Added support for special characters
+
 
 ## June 08 - June 21 2018
 
