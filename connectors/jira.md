@@ -105,7 +105,7 @@ For example, in the project permission scheme below, only the 'QA' role has been
 Hence, if the Workato recipe wants to perform any 'Close issue' actions, the linked Jira account must also be assigned the role 'QA' for the action to be authorized.
 
 ##### 2. Application access
-Application access settings let you control which people have access to which products. If your site only has one product (i.e. if you have a Confluence-only or Jira-only instance, for example) – users are automatically granted access to that product when they sign up.
+Application access settings let you control which person has access to which product(s). If your site only has one product (i.e. if you have a Confluence-only or Jira-only instance, for example) – users are automatically granted access to that product when they sign up.
 
 ![Application permission schemes](/assets/images/jira-docs/application-permission-schemes.png)
 
