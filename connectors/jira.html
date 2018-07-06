@@ -6236,12 +6236,12 @@
                                 
                                 <h1 id="jira">Jira</h1>
 <p><a href="https://www.atlassian.com/software/jira" target="_blank">Jira</a> gives users a simple way to organize and plan the release of any software. This allows development teams to lay out key steps to follow when releasing the software including &apos;Plan&apos;, &apos;Track&apos;,&apos;Release&apos;,&apos;and Report&apos; to guide users.</p>
-<p>With Workato, you can keep projects and issues in sync between Jira and other issues or tickets tracking apps used by other departments such as Zendesk, ServiceNow, Salesforce&apos;s Desk.com.</p>
+<p>With Workato, you can keep projects and issues in sync between Jira and other issue tracking systems used by other departments such as Zendesk, ServiceNow, or Salesforce&apos;s Desk.com.</p>
 <h2 id="api-version">API version</h2>
 <p>The Jira connector uses <a href="https://docs.atlassian.com/jira/REST/cloud/" target="_blank">Jira Cloud REST API V2</a>.</p>
 <h2 id="supported-editions-and-versions">Supported editions and versions</h2>
 <p>The Jira connector works with Jira cloud instances and Jira on-premise instances from 7.x onwards.</p>
-<h2 id="how-to-connect-to-jira-on-workato">How to connect to JIRA on Workato</h2>
+<h2 id="how-to-connect-to-jira-on-workato">How to connect to Jira on Workato</h2>
 <p>The Jira connector uses basic authentication to authenticate with Jira.
 <img src="../assets/images/jira-docs/configured_jira_connection.png" alt="Configured Jira connection"></p>
 <ul>
@@ -6268,58 +6268,122 @@
 <li><strong>Enable firewall-friendly IP</strong></li>
 </ul>
 <p>Relevant for organizations with IP whitelisting. Select <em>yes</em> to have all requests from Workato originate from a consistent, known IP address.</p>
-<h3 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h3>
-<p>JIRA users can connect to JIRA from Workato. We recommend that a separate user be created for integration purposes.</p>
-<p>There are 3 main ways a user can have access to objects:</p>
+<h2 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h2>
+<p>Jira users who have login access to their Jira instance can connect to Workato using their credentials. However, we recommend that a separate user (with Jira Administrator global permissions) be created for integration purposes.</p>
+<h3 id="project-permissions">Project permissions</h3>
+<p>As your Jira connection respects the project permissions scheme(s) in your Jira project, you must ensure that your Jira account has sufficient permissions to perform the desired actions on the relevant Jira objects.</p>
+<p>There are 3 main ways a user can have access to objects within a project:</p>
 <ul>
-<li>People roles in Project Settings</li>
-<li>Issue security Schemes</li>
+<li>People</li>
+<li>Issue security schemes</li>
 <li>Permission schemes</li>
 </ul>
-<p>If the JIRA user does not have accesss to an object through any of these methods, the object cannot be retrieved from the JIRA project, and will instead return a &apos;403 - Forbidden&apos; error.</p>
-<h4 id="people-roles-in-project-settings">People roles in Project Settings</h4>
-<p>Users <a href="https://confluence.atlassian.com/get-started-with-jira-core/add-users-to-your-project-917965377.html" target="_blank">can be added to a project</a> by selecting <strong>Project Settings &#x2192; People</strong>. Each user can be assigned 1 or more roles:</p>
+<h4 id="people">People</h4>
+<p>Users <a href="https://confluence.atlassian.com/get-started-with-jira-core/add-users-to-your-project-917965377.html" target="_blank">can be added to a project</a> (via <strong>Project Settings &#x2192; People</strong>) using 2 methods:</p>
+<ol>
+<li><p>Searching &amp; selecting a specific user, and then specifying the user&apos;s project role. <img src="../assets/images/jira-docs/project-people-roles.png" alt="People project roles"><em>Choosing a project role for a user Jan Donyada</em></p>
+<p> Project roles allow users to be associated with functional roles. For example, if your organization requires all software development issues to be tested by a &apos;QA&apos; person before being closed, you could:</p>
 <ul>
-<li><strong>Developers</strong></li>
-<li><strong>Administrators</strong></li>
-<li><strong>Service Desk Customers</strong></li>
-<li><strong>Service Desk Team</strong></li>
+<li>Create a project role called &apos;QA&apos;.</li>
+<li>Create a permission scheme called &apos;Software Development&apos;, in which you assign the &apos;Close issue&apos; permission to the &apos;QA&apos; role.</li>
+<li>Associate the &apos;Software Development&apos; permission scheme with all software development projects.</li>
+<li>For each software development project, add your QA engineers, assigning them the &apos;QA&apos; project role.</li>
 </ul>
-<p><img src="../assets/images/jira-docs/project-people-roles.PNG" alt="People project roles"></p>
-<p>Permissions to each role vary and can be configured in JIRA. Hence, JIRA users connecting from Workato must be added to the project with the appropriate roles to use relevant actions, i.e Create issue, Update issue, etc.</p>
+</li>
+<li><p>Searching for a Group and then specifying the group&apos;s project role.
+<img src="../assets/images/jira-docs/project-people-group.png" alt="People project group"><em>Choosing a project role for a the Jira Administrators group</em>
+A &apos;group&apos; contains multiple members. Groups are similar to project roles, but with 1 key difference: group membership is global whereas project role membership is project-specific. Also, group membership can only be altered by Jira administrators, whereas project role membership can be altered by project administrators.</p>
+</li>
+</ol>
 <h4 id="issue-security-schemes">Issue Security Schemes</h4>
 <p><a href="https://confluence.atlassian.com/adminjiracloud/configuring-issue-level-security-776636711.html" target="_blank">Issue security schemes</a> can be created and added to each project, allowing control over who can view and edit the issues of the project.</p>
-<p>If a project has issue security schemes, the JIRA user connecting from Workato must have access to the project&#x2019;s issues in order to use Workato triggers and actions related to issues.</p>
-<p><img src="../assets/images/jira-docs/issue-security.PNG" alt="Issue security scheme"></p>
+<p>A scheme can have several security levels - and users or groups of users can be assigned to each security level. This ensures that only users who are assigned the appropriate security level may view the issue.</p>
+<p>If your project has a defined issue security scheme, your linked Jira account must be a member of the appropriate security level in the security scheme. Typically, a security level&apos;s members may consist of:</p>
+<ul>
+<li>Individual members</li>
+<li>Groups</li>
+<li>Project Roles</li>
+<li>Issue roles such as &apos;Reporter&apos;, &apos;Project Lead&apos;, and &apos;Current Assignee&apos;</li>
+<li>&apos;Anyone&apos; (e.g. to allow anonymous access)</li>
+</ul>
+<p>In the example below, the issue security scheme has a defined security level which allows access to only certain users, groups and project roles.</p>
+<p><img src="../assets/images/jira-docs/issue-security-scheme-example.png" alt="Issue security scheme">
+<em>Only user &apos;Jan Donyada&apos;, users in the &apos;Jira Administrators&apos; group, and users with the &apos;QA&apos; project role have access to the issues, as defined by the &apos;Top-secret&apos; security level</em></p>
 <h4 id="permission-schemes">Permission Schemes</h4>
-<p>Permissions can be granted for specific actions like creating issues, edit issues, assign issues, etc. Permissions can be found by selecting <strong>Project Settings &#x2192; Permissions</strong>.</p>
+<p>Project permissions are created within <strong>Permissions schemes</strong>, which are then assigned to specific projects by your Jira Administrators.</p>
+<p>Permissions can be granted for specific actions like creating issues, edit issues, assign issues, and so on. Permissions can be found by selecting <strong>Project Settings &#x2192; Permissions</strong>.</p>
 <p>Each permission can be granted across:</p>
 <ol>
-<li>Roles</li>
-<li>Applications (JIRA and JIRA service desk users)</li>
+<li>Project roles</li>
+<li>Applications (JIRA, JIRA service desk users etc)</li>
 <li>Groups</li>
 </ol>
-<h5 id="1-roles">1. Roles</h5>
-<p>Available roles are <strong>Developers</strong>, <strong>Administrators</strong>, <strong>Service Desk</strong>, <strong>Service Desk Customers</strong> and <strong>Service Desk Team</strong>. If permission scheme is defined for any of these roles, the JIRA user connecting from Workato must also have the same role(s) to use particular actions, i.e Create issue, Update issue, etc.</p>
-<p><img src="../assets/images/jira-docs/roles-permission-schemes.PNG" alt="Permission schemes"></p>
-<h5 id="2-applications">2. Applications</h5>
-<p>For permissions across <strong>Applications</strong>, <strong>Any logged in user</strong> permission must be granted to use the Workato triggers and actions.</p>
-<p><img src="../assets/images/jira-docs/application-permission-schemes.PNG" alt="Application permission schemes"></p>
+<h5 id="1-project-role">1. Project role</h5>
+<p>If a permission scheme associated with a project has defined role-specific permissions for specific actions, your linked Jira account <em>must</em> be assigned the same role to be authorized to use those actions in your Workato recipes.</p>
+<p>For example, in the project permission scheme below, only the &apos;QA&apos; role has been permitted to perform the &apos;Close Issues&apos; action.
+<img src="../assets/images/jira-docs/qa-role.png" alt="QA role"></p>
+<p>Hence, if the Workato recipe wants to perform any &apos;Close issue&apos; actions, the linked Jira account must also be assigned the role &apos;QA&apos; for the action to be authorized.</p>
+<h5 id="2-application-access">2. Application access</h5>
+<p>Application access settings let you control which person has access to which product(s). If your site only has one product (i.e. if you have a Confluence-only or Jira-only instance, for example) &#x2013; users are automatically granted access to that product when they sign up.</p>
+<p><img src="../assets/images/jira-docs/application-permission-schemes.png" alt="Application permission schemes"></p>
+<p>If your Workato recipes only need to perform specific actions on your Jira Software instance, then <strong>Jira Software</strong> must be selected for those actions.</p>
+<p><img src="../assets/images/jira-docs/jira-software-only.png" alt="Jira Software only">
+<em>Only users of Jira Software are permitted to assign issues</em></p>
+<p>Likewise, if your Workato recipes only need to perform specific actions on your Confluence instance, then <strong>Confluence</strong> must be selected for those actions.</p>
+<p>If your Workato recipes performs specific actions on both Jira Software &amp; Confluence, then <strong>Any logged in user</strong> must be selected for those actions.</p>
+<p><img src="../assets/images/jira-docs/any-logged-in-user.png" alt="any logged in user">
+<em>Any logged in user of either Jira Software or Confluence is permitted to assign issues</em></p>
 <h5 id="3-groups">3. Groups</h5>
-<p>For permissions assigned to <strong>Groups</strong>, the JIRA user connecting from Workato must be a member of the selected group to use the triggers and actions. Selecting <strong>Anyone</strong> grants access to all the users.</p>
-<p><img src="../assets/images/jira-docs/group-permission-schemes.PNG" alt="Group permission schemes"></p>
-<h5 id="uploaddownload-actions">Upload/download actions</h5>
-<p>To use upload and download attachment actions, the JIRA user connecting from Workato must be added to the permissions under the <strong>Attachment Permissions</strong> tab of the permissions page.</p>
-<p><img src="../assets/images/jira-docs/upload-download-attachments.PNG" alt="Upload/download actions"></p>
-<h5 id="comments-triggers-and-actions">Comments triggers and actions</h5>
-<p>To use triggers and actions relating to <strong>Comments</strong>, the JIRA user connecting from Workato must be added to the permissions under the <strong>Comments Permissions</strong> tab of the permissions page.</p>
-<p><img src="../assets/images/jira-docs/comments-permission-schemes.PNG" alt="Comments triggers and actions"></p>
-<h5 id="issues-triggers-and-actions">Issues triggers and actions</h5>
-<p>To use triggers and actions relating to <strong>Issues</strong>, the JIRA user connecting from Workato must be added to the permissions under the <strong>Issues Permissions</strong> tab of the permissions page.</p>
-<p><img src="../assets/images/jira-docs/issues-permission-schemes.PNG" alt="Issues triggers and actions"></p>
-<h2 id="working-with-the-jira-connector">Working with the Jira connector</h2>
-<h3 id="using-real-time-triggers">Using real-time triggers</h3>
-<p>To use Jira real-time triggers (which <a href="https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-Registeringawebhook" target="_blank">registers a Jira webhook via the API</a>), the authenticated user needs to have the <strong>Jira Administrators global permission</strong>. To set up real-time triggers without requiring the <strong>Jira Administrators global permission</strong>, use the HTTP connector, <strong>New event via webhook</strong> trigger to <a href="https://developer.atlassian.com/jiradev/jira-apis/webhooks#Webhooks-jiraadmin" target="_blank">set up a Jira webhook trigger via the Jira admin console</a>.</p>
+<p>If a permission scheme associated with a project has defined group-specific permissions for specific actions, your linked Jira account <em>must</em> be a member of that group to be authorized to use those actions in your Workato recipes.
+<img src="../assets/images/jira-docs/jira-admin-group.png" alt="Jira admin group">
+<em>The Jira Administrators group is permitted to manage sprints</em></p>
+<h3 id="supported-jira-actions-and-their-required-permissions">Supported Jira actions and their required permissions</h3>
+<h4 id="uploaddownload-actions">Upload/download actions</h4>
+<p>To use the upload and download attachment actions, your linked Jira account must be added to the permissions under the <strong>Attachment Permissions</strong> tab of the permissions page.</p>
+<p><img src="../assets/images/jira-docs/upload-download-attachments.png" alt="Upload/download actions"></p>
+<h4 id="comments-triggers-and-actions">Comments triggers and actions</h4>
+<p>To use triggers and actions relating to <strong>Comments</strong>, your linked Jira account must be added to the permissions under the <strong>Comments Permissions</strong> tab of the permissions page.</p>
+<p><img src="../assets/images/jira-docs/comments-permission-schemes.png" alt="Comments triggers and actions"></p>
+<h4 id="issues-triggers-and-actions">Issues triggers and actions</h4>
+<p>To use triggers and actions relating to <strong>Issues</strong>, your linked Jira account must be added to the permissions under the <strong>Issues Permissions</strong> tab of the permissions page.</p>
+<p><img src="../assets/images/jira-docs/issues-permission-schemes.png" alt="Issues triggers and actions"></p>
+<p>If the JIRA user does not have access to an object through any of the above methods, the object cannot be retrieved from the JIRA project, and will return a &apos;403 - Forbidden&apos; error.</p>
+<p>For a comprehensive guide on how to manage project permissions, head over to <a href="https://confluence.atlassian.com/jirakb/jira-permissions-made-simple-717062767.html" target="_blank">Jira&apos;s permissions guide</a>.</p>
+<p>To troubleshoot why a user is unable to access or perform actions on certain projects, issue types, or fields, you can use the <a href="https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html" target="_blank">Jira permission helper</a>.</p>
+<h2 id="jira-permissions-helper">Jira permissions helper</h2>
+<p>You can use the Jira permissions helper to find out why a user is unable to view/edit certain projects or fields.</p>
+<p><img src="../assets/images/jira-docs/permissions-helper.png" alt="Jira permissions helper"></p>
+<p>To utilize this, you&apos;ll need to have Jira Administrator access to your Jira instance. Learn more by heading over to <a href="https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html" target="_blank">Jira&apos;s permissions helper guide</a>.</p>
+<h3 id="using-jira-real-time-triggers">Using Jira real-time triggers</h3>
+<p>To use Jira real-time triggers, a webhook must first be registered in your connecting Jira instance. Registering webhooks to Jira instances requires Jira Administrator global permissions.</p>
+<p>If your linked Jira account has <strong>Jira Administrators global permissions</strong>, then Workato automatically registers a webhook in your Jira instance when your Workato recipe (containing a Jira real-time trigger) is started for the first time.</p>
+<p>For more information on Jira administrators &amp; global permissions, check out <a href="https://confluence.atlassian.com/adminjiraserver073/managing-global-permissions-861253290.html?_ga=2.23273789.68011281.1530500434-2085645607.1519723142#Managingglobalpermissions-sysadminAboutJIRASystemAdministratorsandJIRAAdministrators" target="_blank">Jira&apos;s global permissions guide</a>.</p>
+<p>If your linked Jira account does not have <strong>Jira Administrators global permissions</strong>, you will not be authorized to register webhooks, and will require assistance from a user with <strong>Jira administrators global permissions</strong> to register one for you. You can still perform a Jira real-time trigger, but you&apos;ll have to use an <a href="https://resources.workato.com/http-connector/#/list/2?_k=5qaw2y" target="_blank">HTTP webhook trigger</a> instead.</p>
+<h3 id="registering-a-webhook-trigger-as-a-jira-administrator">Registering a webhook trigger as a Jira Administrator</h3>
+<p>If you&apos;re a Jira Administrator with global permissions, you can register a webhook for your fellow Jira instance users who want to use it for their HTTP webhook trigger recipes.</p>
+<p>This can be done from the Jira administration console. For more information on how to register a webhook via the Jira administration console, check out the Jira guide on <a href="https://developer.atlassian.com/server/jira/platform/webhooks/#registering-a-webhook" target="_blank">registering a webhook</a>.</p>
+<h4 id="how-to-do-it">How to do it</h4>
+<ol>
+<li><p>Go to Jira administration console &#x2192; System &#x2192; Webhooks (in the Advanced section).
+<img src="../assets/images/jira-docs/jira-admin-console-webhook.png" alt="Jira webhooks">
+<em>You should see a list of webhooks in the webhook summary page</em></p>
+</li>
+<li><p>Click Create a webhook at the top right-hand corner of the page. This should open up the webhook form.
+<img src="../assets/images/jira-docs/jira-webhook-form.png" alt="Jira webhook form">
+<em>Form for registering a Jira webhook</em></p>
+</li>
+<li><p>In the form that is shown, enter the details for your new webhook:</p>
+<ol>
+<li>Enter a name for your webhook</li>
+<li>Set the status to <strong>Enabled</strong></li>
+<li>Under URL, paste the target URL of the HTTP webhook trigger your Jira user is using for his recipe.
+<img src="../assets/images/jira-docs/http-webhook-target-url.png" alt="HTTP webhook target URL">
+<em>Obtain the URL from an HTTP &apos;New event via webhook&apos; trigger in the Jira user&apos;s recipe</em></li>
+<li>Lastly, check the boxes for the Jira events you want to listen to, then click <strong>Create</strong>.
+For a full list of events and how to configure them, check out the Jira documentation for <a href="https://developer.atlassian.com/cloud/jira/platform/webhooks/#configuring-a-webhook" target="_blank">available Jira webhook events</a>.</li>
+</ol>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -6402,7 +6466,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JIRA","date":"2017-02-16T06:15:00.000Z","level":"1.16.9","depth":2,"next":{"title":"Connection setup","level":"1.16.9.1","depth":3,"anchor":"#how-to-connect-to-jira-on-workato","path":"connectors/jira.md","ref":"connectors/jira.md#how-to-connect-to-jira-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.16.8.7","depth":3,"path":"connectors/jdbc/scheduled-query-trigger.md","ref":"connectors/jdbc/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/jira.md","mtime":"2018-07-06T05:47:10.479Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-06T05:48:34.487Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JIRA","date":"2017-02-16T06:15:00.000Z","level":"1.16.9","depth":2,"next":{"title":"Connection setup","level":"1.16.9.1","depth":3,"anchor":"#how-to-connect-to-jira-on-workato","path":"connectors/jira.md","ref":"connectors/jira.md#how-to-connect-to-jira-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.16.8.7","depth":3,"path":"connectors/jdbc/scheduled-query-trigger.md","ref":"connectors/jdbc/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/jira.md","mtime":"2018-07-06T08:04:26.433Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-06T08:05:44.681Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
