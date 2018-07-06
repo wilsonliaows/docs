@@ -185,6 +185,6 @@ This can be done from the Jira administration console. For more information on h
     2. Set the status to **Enabled**
     3. Under URL, paste the target URL of the HTTP webhook trigger your Jira user is using for his recipe.
     ![HTTP webhook target URL](/assets/images/jira-docs/http-webhook-target-url.png)
-    *You should see a list of webhooks in the webhook summary page*
+    *Obtain the URL from an HTTP 'New event via webhook' trigger in the Jira user's recipe*
     4. Lastly, check the boxes for the Jira events you want to listen to, then click **Create**.
     For a full list of events and how to configure them, check out the Jira documentation for [available Jira webhook events](https://developer.atlassian.com/cloud/jira/platform/webhooks/#configuring-a-webhook).
