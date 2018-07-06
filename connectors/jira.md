@@ -57,7 +57,7 @@ There are 3 main ways a user can have access to objects within a project:
 #### People
 Users [can be added to a project](https://confluence.atlassian.com/get-started-with-jira-core/add-users-to-your-project-917965377.html) (via **Project Settings → People**) using 2 methods:
 
-1. Searching & selecting a specific user, and then specifying the user's project role. ![People project roles](/assets/images/jira-docs/project-people-roles.png)*Choosing a project role for a user Jan Donyada*
+1. Searching & selecting a specific user, and then specifying the user's project role. ![People project roles](/assets/images/jira-docs/project-people-roles-1.png)*Choosing a project role for a user Jan Donyada*
 
     Project roles allow users to be associated with functional roles. For example, if your organization requires all software development issues to be tested by a 'QA' person before being closed, you could:
     - Create a project role called 'QA'.
@@ -107,7 +107,7 @@ Hence, if the Workato recipe wants to perform any 'Close issue' actions, the lin
 ##### 2. Application access
 Application access settings let you control which person has access to which product(s). If your site only has one product (i.e. if you have a Confluence-only or Jira-only instance, for example) – users are automatically granted access to that product when they sign up.
 
-![Application permission schemes](/assets/images/jira-docs/application-permission-schemes.png)
+![Application permission schemes](/assets/images/jira-docs/application-permission-schemes-1.png)
 
 If your Workato recipes only need to perform specific actions on your Jira Software instance, then **Jira Software** must be selected for those actions.
 
@@ -131,17 +131,17 @@ If a permission scheme associated with a project has defined group-specific perm
 #### Upload/download actions
 To use the upload and download attachment actions, your linked Jira account must be added to the permissions under the **Attachment Permissions** tab of the permissions page.
 
-![Upload/download actions](/assets/images/jira-docs/upload-download-attachments.png)
+![Upload/download actions](/assets/images/jira-docs/upload-download-attachments-1.png)
 
 #### Comments triggers and actions
 To use triggers and actions relating to **Comments**, your linked Jira account must be added to the permissions under the **Comments Permissions** tab of the permissions page.
 
-![Comments triggers and actions](/assets/images/jira-docs/comments-permission-schemes.png)
+![Comments triggers and actions](/assets/images/jira-docs/comments-permission-schemes-1.png)
 
 #### Issues triggers and actions
 To use triggers and actions relating to **Issues**, your linked Jira account must be added to the permissions under the **Issues Permissions** tab of the permissions page.
 
-![Issues triggers and actions](/assets/images/jira-docs/issues-permission-schemes.png)
+![Issues triggers and actions](/assets/images/jira-docs/issues-permission-schemes-1.png)
 
 
 If the JIRA user does not have access to an object through any of the above methods, the object cannot be retrieved from the JIRA project, and will return a '403 - Forbidden' error.
