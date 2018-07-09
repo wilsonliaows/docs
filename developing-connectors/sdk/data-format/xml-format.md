@@ -12,7 +12,7 @@ Method | Description
 
 Since custom adapter actions receive data in the form of ruby hashes, you will have to convert these hashes into an XML by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.
 
-According to the [Intacct documentation](https://developer.intacct.com/wiki/web-services-api-30-calls), all requests should be made to the same endpoint as a POST request: `https://api.intacct.com/ia/xml/xmlgw.phtml`
+According to the [Intacct documentation](https://developer.intacct.com/web-services/), all requests should be made to the same endpoint as a POST request: `https://api.intacct.com/ia/xml/xmlgw.phtml`
 
 Authentication and payload are expected in the XML payload. Example:
 ```xml
