@@ -8,6 +8,14 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.
 
+## July 06 - July 18 2018
+
+### Platform enhancements
+- Recipe lifecycle management: Added support for shared schema import/export
+- New recipe editor toolbar: The new toolbar allows you to easily access the save and start buttons on screen when building and editing your recipes 
+- Files by Workato: New Transform image file action, allows the conversion of image files to .jpg and .png files and image resizing
+
+
 ## June 22 - July 05 2018
 **Find more details on June's updates in our [blog post](https://product.workato.com/2018/07/05/july-2018-product-release/).**
 
