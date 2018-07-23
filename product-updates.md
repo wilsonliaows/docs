@@ -25,6 +25,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - Transliterate formula added: Replaces non-ASCII characters with an ASCII approximation, e.g. `"Chloé".transliterate` becomes `"Chloe"`
 
 ### Connector enhancements
+-  New HTTP wizard to guide user in building an HTTP action
 
 #### Netsuite
 - `ItemGroup` standard object now available in Search action and trigger
