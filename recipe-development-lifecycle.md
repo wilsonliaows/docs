@@ -17,7 +17,7 @@ The packages feature is enabled only for certain Workato plans. Check the [Prici
 
 For Workato accounts with the recipe development lifcycle feature enabled, users will be able to see the option when they click on Tools > View all. 
 
-![RLM in tools gif](/assets/images/features/packages/navigate-to-recipelifecycle.png)
+![RLM in tools gif](/assets/images/features/packages/navigate-to-recipelifecycle.gif)
 *Recipe lifecycle management in Tools*
 
 Upon clicking the option on the Tools page, you'll be brought into the Import/Export Feed.
