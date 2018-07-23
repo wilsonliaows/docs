@@ -102,7 +102,7 @@ How your command should look like at this point:
 How it will look like on Slack:
 
 ![Commands on Slack](/assets/images/workbot/workbot-trigger/commands-on-slack-1.png)
-*Before Workbot can create the issue on Github, we’ll need to define follow-up recipe actions. Also, notice the final message Workbot sent? That’s a [command reply](workbot/workbot-command-reply.md) - we’ll go through that later!*
+*Before Workbot can create the issue on Github, we’ll need to define follow-up recipe actions. Also, notice the final message Workbot sent? That’s a [command reply](https://docs.workato.com/workbot/workbot-command-reply.html) - we’ll go through that later!*
 
 ### Command output datapills
 Command will also provide you with a set of datapills that hold additional info about the command e.g. the user making the command, the channel which the command was made it, etc. The following table details these datapill variables:
