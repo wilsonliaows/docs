@@ -63,17 +63,19 @@ The folder will be exported once **Next** has been clicked. Workato will generat
 
 ### Importing packages
 
-To import a package, click on the 'Import' button on the Import/Export Feed. Find the package to upload in your computer and select a destination Workato folder to import these recipes into. You can also choose whether to import the content of lookup tables. 
+To import a package, click on the 'Import' button on the Import/Export Feed. You will be brought to a wizard that will guide you through the import process. 
 
 ![Import packages - select destination folder](/assets/images/features/packages/import-packages-select-folder2.png)
 *Select a destination folder to import your packages into*
 
-Once a zip file has been uploaded, you will be able to preview the assets which will be imported into your Workato folder. For each asset, details about whether the asset will be created, or whether it would overwrite an existing asset (with the same name), is included in italics.
-
-When importing a package for the first time, or when importing a package into a new folder, all assets will be created with 'Add' in italics. When importing a package for the second (or more) time into the same folder, as long as the assets have the same names, the imported assets will overwrite existing assets in the target folder and show 'Update' in italics. 
+Find the package to upload from your computer and select a destination Workato folder to import these recipes into. You can also choose whether to import the content of lookup tables. Once a zip file has been uploaded, you will be able to preview the assets which will be imported into your Workato folder. 
 
 ![Review import](/assets/images/features/packages/import-packages-preview2.png)
 *Reviewing the assets to be imported*
+
+For each asset, details about whether the asset will be created, or whether it would overwrite an existing asset (with the same name), is included in italics.
+
+When importing a package for the first time, or when importing a package into a new folder, all assets will be created with 'Add' in italics. When importing a package for the second (or more) time into the same folder, as long as the assets have the same names, the imported assets will overwrite existing assets in the target folder and show 'Update' in italics. 
 
 Once the package has been imported into your Workato account, the success screen shows up. Click on 'View in folders' to see the imported recipes. 
 
