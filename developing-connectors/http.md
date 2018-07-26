@@ -1,18 +1,18 @@
 ---
-title: HTTP connector v1 (deprecated)
+title: HTTP connector V1 (deprecated)
 date: 2017-02-22 23:00:00 Z
 ---
 
 <!--- Didn't want to import the data from Articulate since we're working on a new UI for HTTP. Let's come back to this when the new design is on production. -->
 
 # Deprecation notice
-As of July 2018, the V2 version of the HTTP connector has been released. The existing V1 HTTP connector and HTTP (OAuth2) connector and actions have been deprecated.
+As of July 2018, the V2 version of the HTTP connector has been released. The existing V1 HTTP connector and HTTP (OAuth2) connector and HTTP actions have been deprecated.
 
-This documentation is for the deprecated connector. You can find documentation for the new HTTP connector [here](http-v2.md).
+This documentation is for the deprecated connector. You can find documentation for the V2 HTTP connector [here](http-v2.md).
 
 For further information on the deprecation, refer to this [article](https://support.workato.com/support/solutions/articles/1000266561-http-connector-deprecation-faqs).
 
-# HTTP connector
+# HTTP connector V1
 The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.
 
 There are 2 types of HTTP connectors:
