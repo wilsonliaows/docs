@@ -340,6 +340,7 @@
   * [HTTP vs SDK](developing-connectors/http-vs-sdk.md)
   * [HTTP connector](developing-connectors/http-connector.md)
   * [HTTP connector (deprecated)](developing-connectors/http.md)
+  * [Webhooks](developing-connectors/http.md#building-webhook-triggers)
 * [Connector SDK](developing-connectors/sdk.md)
   * [Walk through](developing-connectors/sdk/walk-through.md)
   * [Authentication](developing-connectors/sdk/authentication.md)
