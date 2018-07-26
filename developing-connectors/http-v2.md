@@ -3,7 +3,7 @@ title: HTTP connector V2
 date: 2018-07-23 15:00:00 Z
 ---
 
-# HTTP connector
+# HTTP connector V2
 The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.
 
 This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the [V1 HTTP connector article](http.md).
