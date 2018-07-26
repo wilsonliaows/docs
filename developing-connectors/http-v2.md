@@ -1,34 +1,34 @@
 ---
-title: HTTP connector
+title: HTTP connector V2
 date: 2018-07-23 15:00:00 Z
 ---
 
 # HTTP connector
 The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.
 
+This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the [V1 HTTP connector article](developing-connectors/http.md).
+
 ## What is the HTTP connector and what is it useful for?
 The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes. 
 
-With the HTTP connector, it takes less than 20 minutes to build your own trigger or action on Workato. This article walks you through:
+With the HTTP connector, it takes less than 20 minutes to build your own action on Workato. This article walks you through:
 
-- 1) Selecting the HTTP action
+- [Setting up a connection to your app]()
 
-- 2) Setting up a connection to your app
+- Building a webhook trigger
 
-- 3) Building a Workato action to execute certain steps in your apps automatically, by making a sample request to the API endpoint
+- Building a Workato action to execute certain steps in your apps automatically, by making a sample request to the API endpoint
 
 Want to create an invoice in your accounting system? You can make a POST request with a JSON request body.
 Want to retrieve metrics from your analytics application? You can make a GET request with your query parameters.
 
-To learn how to create webhooks triggers using the HTTP connector, refer to this article. 
-
-## 1) Select the HTTP connector
+## Select the HTTP connector
 The HTTP connector shows up in the connector picklist. There is only 1 action - the make request action.
 
 ![Select the HTTP connector and make request action](/assets/images/developing-connectors/http/select-http-action.png)
 *Select the HTTP connector and make request action*
 
-## 2) Setup your HTTP connection
+## Setup your HTTP connection
 In order to interact with an API, we first need to set up our connection to the app. Click the `Link your account` button and the connection popup appears.
 
 ![Connection popup for HTTP connector](/assets/images/developing-connectors/http/connection-popup.png)
@@ -162,7 +162,7 @@ In the app management page, you will be able to find your client ID (also called
 ![Completed Eventbrite connection](/assets/images/http/complete-eventbrite-connection.png)
 *Completed Eventbrite connection*
 
-## 3) Building a Workato action example - Create venue in Eventbrite
+## Building a Workato action example - Create venue in Eventbrite
 You’re able to build any actions supported by an API on the HTTP connector - for example, create, update, search, get, delete actions. Workato has a 3-step HTTP wizard that prompts you to make a test request to the API endpoint. This wizard will try to provide a recommended HTTP configuration for your endpoint as much as possible.
 
 To start, give your request a name to identify it. This also changes the Workato action name at the recipe-level.
