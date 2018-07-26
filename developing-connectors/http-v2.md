@@ -6,30 +6,30 @@ date: 2018-07-23 15:00:00 Z
 # HTTP connector
 The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.
 
-This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the [V1 HTTP connector article](developing-connectors/http.md).
+This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the [V1 HTTP connector article](http.md).
 
 ## What is the HTTP connector and what is it useful for?
 The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes. 
 
 With the HTTP connector, it takes less than 20 minutes to build your own action on Workato. This article walks you through:
 
-- [Setting up a connection to your app]()
+- [Setting up a connection to your app](#setup-your-http-connection)
 
-- Building a webhook trigger
+- [Building a webhook trigger](http.html#building-webhook-triggers)
 
-- Building a Workato action to execute certain steps in your apps automatically, by making a sample request to the API endpoint
+- [Building an HTTP action](#building-a-workato-action-example---create-venue-in-eventbrite)
 
 Want to create an invoice in your accounting system? You can make a POST request with a JSON request body.
 Want to retrieve metrics from your analytics application? You can make a GET request with your query parameters.
 
 ## Select the HTTP connector
-The HTTP connector shows up in the connector picklist. There is only 1 action - the make request action.
+The HTTP connector shows up in the connector picklist.
 
 ![Select the HTTP connector and make request action](/assets/images/developing-connectors/http/select-http-action.png)
 *Select the HTTP connector and make request action*
 
 ## Setup your HTTP connection
-In order to interact with an API, we first need to set up our connection to the app. Click the `Link your account` button and the connection popup appears.
+In order to interact with an API, we first need to set up our connection to the app to interact with. Click the `Link your account` button and the connection popup appears.
 
 ![Connection popup for HTTP connector](/assets/images/developing-connectors/http/connection-popup.png)
 *Connection popup for HTTP connector*
