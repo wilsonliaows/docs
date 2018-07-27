@@ -150,7 +150,7 @@ In order to connect to your Eventbrite account successfully, you would also need
 
 In the app management page, you will be able to find your client ID (also called key). Expand the Show Client Secret and OAuth Token section to retrieve the client secret, and navigate to the App Extension section to input the callback URL `https://www.workato.com/oauth/callback` into Eventbrite.
 
-![Completed Eventbrite connection](/assets/images/http/complete-eventbrite-connection.png)
+![Completed Eventbrite connection](/assets/images/developing-connectors/http/http-connector-auth-oauth2.png)
 *Completed Eventbrite connection*
 
 ## Building a Workato action example - Create venue in Eventbrite
@@ -164,7 +164,7 @@ To start, give your request a name to identify it. This also changes the Workato
 Subsequently, click `Configure action`.
 
 ### Step 1: Provide HTTP method and request URL
-To begin, tell the wizard the absolute API endpoint you wish to call, and the HTTP method of that endpoint. These should be available via the app's API documentation.
+To begin, provide the absolute API endpoint you wish to call, and the HTTP method of that endpoint. These should be available via the app's API documentation.
 
 ![Step 1: Provide HTTP method and request URL](/assets/images/developing-connectors/http/step1-provide-request-url.png)
 *Step 1: Provide HTTP method and request URL*
