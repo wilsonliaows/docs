@@ -6,7 +6,7 @@ date: 2018-07-23 15:00:00 Z
 # HTTP connector V2
 The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.
 
-This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the [V1 HTTP connector article](http.md).
+This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the [V1 HTTP connector documentation](http.md).
 
 ## What is the HTTP connector and what is it useful for?
 The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes. 
@@ -15,18 +15,29 @@ With the HTTP connector, it takes less than 20 minutes to build your own action 
 
 - [Setting up a connection to your app](#setup-your-http-connection)
 
-- [Building a webhook trigger](http.html#building-webhook-triggers)
+- [Building a webhook trigger](http.md#building-webhook-triggers)
 
 - [Building an HTTP action](#building-a-workato-action-example---create-venue-in-eventbrite)
 
-Want to create an invoice in your accounting system? You can make a POST request with a JSON request body.
-Want to retrieve metrics from your analytics application? You can make a GET request with your query parameters.
+Want to create an invoice in your accounting system? You can make a POST request with a JSON request body. Want to retrieve metrics from your analytics application? You can make a GET request with your query parameters. Want to trigger off upon new leads filling out your online form? Create a webhook trigger that notifies Workato immediately whenever a new lead completes your form.
 
-## Select the HTTP connector
-The HTTP connector shows up in the connector picklist.
+## HTTP triggers and action
+The HTTP connector can be found in the connector picklist. It has 2 triggers and 1 action:
 
-![Select the HTTP connector and make request action](/assets/images/developing-connectors/http/select-http-action.png)
-*Select the HTTP connector and make request action*
+- New event via webhook trigger (real-time)
+
+Workato provides you with an unique target URL to send webhooks to. Webhooks received will be immediately processed by the recipe as a trigger event.
+
+- New event via polling trigger
+
+Workato polls the app endpoint regularly to check for new trigger events. Each new/updated record will be processed by the recipe as a trigger event.
+
+- Make request action
+
+Formulate and send a request to an endpoint and receive a response back.
+
+![HTTP connector where make request action has been selected](/assets/images/developing-connectors/http/select-http-action.png)
+*HTTP connector where make request action has been selected*
 
 ## Setup your HTTP connection
 In order to interact with an API, we first need to set up our connection to the app to interact with. Click the `Link your account` button and the connection popup appears.
@@ -59,42 +70,24 @@ This requires your username and password. An alternative to your username and pa
 ![HTTP connector authentication type: Basic](/assets/images/developing-connectors/http/http-connector-auth-basic.png)
 *HTTP connector authentication type: Basic*
 
-### Example - connecting to JIRA via basic authentication and testing the connection via a GET action
-Let’s try to connect to JIRA using basic authentication - JIRA’s documentation for basic authentication can be found [here](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-basic-authentication/?_ga=1.137752242.320850437.1478498822). In the case of JIRA, we need to provide several things: subdomain (which tells us what JIRA company instance to connect to, essentially - your company’s JIRA database), username, password.
+### Example - connecting to Jira via basic authentication and testing the connection via a GET action
+Let’s try to connect to Jira using basic authentication - Jira's documentation for basic authentication can be found [here](https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-basic-authentication/?_ga=1.137752242.320850437.1478498822). In the case of JIRA, we need to provide several things: subdomain (which tells us what JIRA company instance to connect to, essentially - your company’s Jira database), username, password.
 
-For this example, I’ve created a company instance in JIRA with a company name Workato321, and JIRA has automatically assigned my subdomain to be workato321.atlassian.net
+For this example, I’ve created a company instance in Jira with a company name Workato321, and Jira has automatically assigned my subdomain to be workato321.atlassian.net
 
-I’ve also created a project in my new JIRA instance, named PPP, to be used for testing out my connection later.
+I’ve also created a project in my new Jira instance, named PPP, to be used for testing out my connection later.
 
-#### Setting up your JIRA connection
+#### Setting up your Jira connection
 
 ![Jira Connection](/assets/images/http/jira-connection.png)
-*JIRA screenshot with subdomain workato321.atlassian.net and existing project PPP*
+*Jira screenshot with subdomain workato321.atlassian.net and existing project PPP*
 
-We can provide our username and password in the connection settings as below. For the field **On-prem secure agent**, I selected no gateway as my JIRA instance is on the cloud.
+We can provide our username and password in the connection settings as below. For the field **On-prem secure agent**, I selected no gateway as my Jira instance is on the cloud.
 
 ![Jira Connection settings](/assets/images/http/connection-settings-jira.png)
-*JIRA connection settings*
+*Jira connection settings*
 
-#### Testing our JIRA connection by running a GET action
-We're not done yet! Let's test out our connection. In the case of JIRA, the instance (subdomain) information needs to be sent in within the API endpoint, therefore it doesn’t need to be provided in your connection settings.
-
-To test out my connection, I’m just going to ask Workato to fetch me all the projects in my JIRA instance with this GET all projects endpoint: `https://workato321.atlassian.net/rest/api/2/project`.
-
-This is how my test recipe looks - it has a Scheduler trigger (New scheduled event, so that a job will be ran immediately when I click on run recipe, and it simply calls the API endpoint. We didn’t fill in the sample response body as this is simply a quick test - we’re not really interested in building the datatree for use in subsequent steps yet.
-
-![Configured http action](/assets/images/http/configured-action.png)
-*Configured HTTP action to get list of JIRA projects*
-
-Now let’s run the recipe and click on the job that’s carried out. You should be able to see what’s been sent by the HTTP connector under the input tab.
-
-![Sent Api Request](/assets/images/http/sent-api-request.png)
-*API request sent, as viewed from the job details input tab*
-
-And if the API endpoint as well as username and password is correct, you should be able to see the data that’s returned under the output tab - in this case, my PPP project.
-
-![Configured http action](/assets/images/http/API-recieved.png)
-*API response received from JIRA, as viewed from the job details output tab*
+Click `Connect`. For non-OAuth2 connections, remember to send a quick test request, e.g. a GET request, to verify that you are successfully connected to the app.
 
 ### Authentication type: Header auth
 For applications which require additional headers outside of the usual username and password or API key, or if you want to customize the headers sent in the request. Header authentication can be used when you have a generated token ready for use.
@@ -126,12 +119,10 @@ OAuth2 authentication type requires the following fields.
 | Client ID and client secret                         | The client ID identifies you as the user who’s sending these API calls, while the client secret authenticates that you as this user.,This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.                                                                                                              |
 
 In addition, it requires you to have the following information ready.
-
-| Input field                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Authorization URL                                   | URL that Workato redirects you to when you click on the ‘Connect’ button. This usually brings you to the login screen of your app. Some APIs require that you include certain parameters in the authorization URL. Common examples are response_type (`code` or `token`) and scope (`read`, `write`, `admin`, etc).,This should be publicly available from the API documentation of the app you’re connecting to, under the Authentication section. |
-| Token URL                                           | URL that Workato will retrieve an auth token from. This auth token is used to verify that we have permission to access your app and its data. This should be publicly available from the API documentation of the app you’re connecting to, under the Authentication section.                                                                                                                                                                       |
-| Client ID and client secret                         | The client ID identifies you as the user who’s sending these API calls, while the client secret authenticates that you as this user.,This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.                                                                                                              |
+| Information                                         | Description                                                                                                                                                                                                                                                                                          |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Credentials                                         | A set of username and password for logging into your app to give permission for Workato to access the data in the app.This user (to whom the credentials belong) should have the correct permissions to read/write to the records (e.g. customer records, sales invoice records) you want to access. |
+| Redirect/callback URL (to be configured in the app) | The URL provided to the app for redirection back to Workato after going through the authentication flow and credentials/token exchange. Provide this URL `https://www.workato.com/oauth/callback` to the app if it asks for it in the Integration setup screen.                                      |                                                                                                        |
 
 #### Example - connecting to Eventbrite via OAuth2
 Let us run through an example of how we can connect to an OAuth2 application. In this case, we’ll use Eventbrite, an events management and ticketing application. 
@@ -139,11 +130,11 @@ Let us run through an example of how we can connect to an OAuth2 application. In
 ![Eventbrite OAuth2 authentication page](/assets/images/http/eventbrite-authentication.png)
 *Eventbrite OAuth2 authentication page*
 
-From the documentation page, we can obtain 2 of the required fields for our connection - the authorize URL and the access token URL. We would need to append further parameters to the URL. Eventbrite's documentation mentions that we'd need to post to this URL: `https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_KEY`
+From the documentation page, we can obtain 2 of the required fields for our connection - the authorization URL and the access token URL. We would need to append further parameters to the URL. Eventbrite's documentation mentions that we'd need to post to this URL: `https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_KEY`
 
 But as Workato will handle the client key, the following is what's needed in the input field to connect.
 
-Eventbrite authorize URL:
+Eventbrite authorization URL:
 ```ruby
 https://www.eventbrite.com/oauth/authorize?response_type=code
 ```
@@ -216,7 +207,7 @@ To create a sample Eventbrite venue, we used the recommended JSON request body a
 Once all required fields are filled in, we're able to click `Send request`. Workato sends the request you've built to the app, and provides the full response back. In the following, we see that there's an error with the country we sent to Eventbrite as they only accept 2 character country codes.
 
 ![Request error due to wrong country code value](/assets/images/developing-connectors/http/request-error.png)
-*Request error due to wrong coutnry code value*
+*Request error due to wrong country code value*
 
 Changing the country value from "USA" to "US" should resolve that. Click on `Back` to edit the JSON request, then on `Send request` again. Our request should be successful this time.
 
