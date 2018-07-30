@@ -1,0 +1,6838 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>HTTP connector V2 · Workato Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+  
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http-v2.html" />
+    
+    
+    <link rel="prev" href="http-vs-sdk.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../assets/images/favicon/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../assets/images/favicon/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../assets/images/favicon/android-chrome-36x36.png'>
+    
+    
+
+  <meta name="google-site-verification" content="cJTl26psyK2N3rOdu0OYsnFdU_2Tocnn4zo_F-PW7YA">
+  <script type='text/javascript'>
+    var _vwo_code=(function(){
+    var account_id=330499,
+    settings_tolerance=2000,
+    library_tolerance=2500,
+    use_existing_jquery=false,
+    /* DO NOT EDIT BELOW THIS LINE */
+    f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+  </script>
+  <!-- End Visual Website Optimizer Asynchronous Code -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TWBC2FV');</script>
+  <!-- End Google Tag Manager -->
+
+    </head>
+    <body>
+        
+  <header class="w-header">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWBC2FV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="w-header__row w-header__row_logo">
+      <a href="/">
+        <img class="w-header__logo" src="/assets/images/layout/workato-logo.svg" alt="Workato docs">
+      </a>
+      <a href="https://workato.com" class="w-header__return">Return to Workato</a>
+    </div>
+    <div class="w-header__row w-header__row_toolbar">
+      <div id="book-search-input" role="search">
+        <i class="fa fa-search book-search-input-icon"></i>
+        <input type="text" placeholder="Type to search Workato docs"/>
+      </div>
+      <div class="book-header" role="navigation">
+        
+
+        <!-- Title -->
+        <h1>
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+          <a href="..">HTTP connector V2</a>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+  
+  
+
+  
+
+  
+    
+
+    
+  
+    <li class="chapter " data-level="1.1" data-path="../">
+      
+
+      
+        <a href="../">
+      
+        
+        Introduction
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.2" data-path="../workato-concepts.html">
+      
+
+      
+        <a href="../workato-concepts.html">
+      
+        
+        Concepts
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.3" data-path="../connections.html">
+      
+
+      
+        <a href="../connections.html">
+      
+        
+        Connecting apps
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4" data-path="../recipes/building-recipes.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/building-recipes.html">
+      
+        
+        Building recipes
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.4.1" data-path="../recipes/triggers.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/triggers.html">
+      
+        
+        Triggers
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.4.1.1" data-path="../recipes/triggers.html">
+      
+
+      
+        <a href="../recipes/triggers.html#polling-triggers">
+      
+        
+        Polling triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.1.2" data-path="../recipes/triggers.html">
+      
+
+      
+        <a href="../recipes/triggers.html#real-time-triggers">
+      
+        
+        Real-time triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.1.3" data-path="../recipes/triggers.html">
+      
+
+      
+        <a href="../recipes/triggers.html#scheduled-triggers">
+      
+        
+        Scheduled triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.1.4" data-path="../recipes/triggers.html">
+      
+
+      
+        <a href="../recipes/triggers.html#single-triggers">
+      
+        
+        Single triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.1.5" data-path="../recipes/triggers.html">
+      
+
+      
+        <a href="../recipes/triggers.html#batch-triggers">
+      
+        
+        Batch triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.1.6" data-path="../recipes/triggers.html">
+      
+
+      
+        <a href="../recipes/triggers.html#sincefrom">
+      
+        
+        Since/from
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.1.7" data-path="../recipes/triggers.html">
+      
+
+      
+        <a href="../recipes/triggers.html#trigger-conditions">
+      
+        
+        Trigger conditions
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.2" data-path="../recipes/steps.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/steps.html">
+      
+        
+        Steps
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.4.2.1" data-path="../recipes/steps.html">
+      
+
+      
+        <a href="../recipes/steps.html#action-step">
+      
+        
+        Action step
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.2.2" data-path="../recipes/steps.html">
+      
+
+      
+        <a href="../recipes/steps.html#conditional-action-step">
+      
+        
+        Conditional step
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.2.3" data-path="../recipes/steps.html">
+      
+
+      
+        <a href="../recipes/steps.html#repeat-step">
+      
+        
+        Repeat step
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.2.4" data-path="../recipes/steps.html">
+      
+
+      
+        <a href="../recipes/steps.html#call-recipe-step">
+      
+        
+        Call recipe step
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.2.5" data-path="../recipes/steps.html">
+      
+
+      
+        <a href="../recipes/steps.html#stop-step">
+      
+        
+        Stop step
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.2.6" data-path="../recipes/steps.html">
+      
+
+      
+        <a href="../recipes/steps.html#action-with-error-handler-step">
+      
+        
+        Action with error handler step
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.3" data-path="../recipes/actions.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/actions.html">
+      
+        
+        Actions
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.4.3.1" data-path="../recipes/actions.html">
+      
+
+      
+        <a href="../recipes/actions.html#create">
+      
+        
+        Create action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.3.2" data-path="../recipes/actions.html">
+      
+
+      
+        <a href="../recipes/actions.html#update">
+      
+        
+        Update action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.3.3" data-path="../recipes/actions.html">
+      
+
+      
+        <a href="../recipes/actions.html#search">
+      
+        
+        Search action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.3.4" data-path="../recipes/actions.html">
+      
+
+      
+        <a href="../recipes/actions.html#get">
+      
+        
+        Get action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.3.5" data-path="../recipes/actions.html">
+      
+
+      
+        <a href="../recipes/actions.html#upsert">
+      
+        
+        Upsert action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.3.6" data-path="../recipes/actions.html">
+      
+
+      
+        <a href="../recipes/actions.html#delete">
+      
+        
+        Delete action
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.4" data-path="../features/if-conditions.html">
+      
+
+      
+        <a href="../features/if-conditions.html">
+      
+        
+        IF conditions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.5" data-path="../recipes/data-pills-and-mapping.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/data-pills-and-mapping.html">
+      
+        
+        Data pills and mapping
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.4.5.1" data-path="../recipes/data-pills-and-mapping.html">
+      
+
+      
+        <a href="../recipes/data-pills-and-mapping.html#data-types">
+      
+        
+        Data types
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.5.2" data-path="../recipes/data-pills-and-mapping.html">
+      
+
+      
+        <a href="../recipes/data-pills-and-mapping.html#type-conversions">
+      
+        
+        Type conversion
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.5.3" data-path="../recipes/data-pills-and-mapping.html">
+      
+
+      
+        <a href="../recipes/data-pills-and-mapping.html#preview-data">
+      
+        
+        Preview data
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.5.4" data-path="../recipes/data-pills-and-mapping.html">
+      
+
+      
+        <a href="../recipes/data-pills-and-mapping.html#fields-mapping">
+      
+        
+        Fields mapping
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.5.5" data-path="../recipes/data-pills-and-mapping.html">
+      
+
+      
+        <a href="../recipes/data-pills-and-mapping.html#data-transformation">
+      
+        
+        Data transformation
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.6" data-path="../recipes/version-management.html">
+      
+
+      
+        <a href="../recipes/version-management.html">
+      
+        
+        Version management
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5" data-path="../recipes/running-recipes.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/running-recipes.html">
+      
+        
+        Running recipes
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.5.1" data-path="../recipes/start-and-stop.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/start-and-stop.html">
+      
+        
+        Test, start and stop recipe
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.5.1.1" data-path="../recipes/start-and-stop.html">
+      
+
+      
+        <a href="../recipes/start-and-stop.html#test-mode">
+      
+        
+        Test mode
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.1.2" data-path="../recipes/start-and-stop.html">
+      
+
+      
+        <a href="../recipes/start-and-stop.html#start-recipe">
+      
+        
+        Start recipe
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.1.3" data-path="../recipes/start-and-stop.html">
+      
+
+      
+        <a href="../recipes/start-and-stop.html#stop-recipe">
+      
+        
+        Stop recipe
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.2" data-path="../recipes/jobs.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/jobs.html">
+      
+        
+        Jobs
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.5.2.1" data-path="../recipes/jobs.html">
+      
+
+      
+        <a href="../recipes/jobs.html#jobs-report">
+      
+        
+        Jobs report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.2.2" data-path="../recipes/jobs.html">
+      
+
+      
+        <a href="../recipes/jobs.html#custom-report">
+      
+        
+        Custom jobs report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.2.3" data-path="../recipes/jobs.html">
+      
+
+      
+        <a href="../recipes/jobs.html#job-status">
+      
+        
+        Job status
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.2.4" data-path="../recipes/jobs.html">
+      
+
+      
+        <a href="../recipes/jobs.html#job-details">
+      
+        
+        Job details screen
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.2.5" data-path="../recipes/jobs.html">
+      
+
+      
+        <a href="../recipes/jobs.html#rerun-jobs">
+      
+        
+        Rerun jobs
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.3" data-path="../recipes/rerun-job.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/rerun-job.html">
+      
+        
+        Rerun job
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.5.3.1" data-path="../recipes/rerun-job.html">
+      
+
+      
+        <a href="../recipes/rerun-job.html#cached-trigger-data-in-job-reruns">
+      
+        
+        Cached trigger data
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.3.2" data-path="../recipes/rerun-job.html">
+      
+
+      
+        <a href="../recipes/rerun-job.html#job-rerun-history">
+      
+        
+        Job rerun history
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.3.3" data-path="../recipes/rerun-job.html">
+      
+
+      
+        <a href="../recipes/rerun-job.html#common-scenarios-for-rerunning-jobs">
+      
+        
+        Common scenarios for rerunning jobs
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4" data-path="../recipe-ops.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipe-ops.html">
+      
+        
+        RecipeOps
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.5.4.1" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#connection">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.2" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#new-failed-job-trigger">
+      
+        
+        New failed job trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.3" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#recipe-stopped-by-workato-trigger">
+      
+        
+        Recipe stopped by Workato trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.4" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#get-account-details-action">
+      
+        
+        Get account details action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.5" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#get-recipe-details-action">
+      
+        
+        Get recipe details action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.6" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#list-jobs-created-by-recipe-action">
+      
+        
+        List jobs created by recipe action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.7" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#list-recipes-action">
+      
+        
+        List recipes action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.8" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#start-recipe-action">
+      
+        
+        Start recipe action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.5.4.9" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#stop-recipe-action">
+      
+        
+        Stop recipe action
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6" data-path="../troubleshooting.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../troubleshooting.html">
+      
+        
+        Troubleshooting
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.6.1" data-path="../recipes/error-notifications.html">
+      
+
+      
+        <a href="../recipes/error-notifications.html">
+      
+        
+        Error notification emails
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.2" data-path="../recipes/recipe-design-time-errors.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/recipe-design-time-errors.html">
+      
+        
+        Recipe design errors
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.6.2.1" data-path="../recipes/recipe-design-time-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-design-time-errors.html#missing-required-input-fields-at-design-time">
+      
+        
+        Missing required fields
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.2.2" data-path="../recipes/recipe-design-time-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-design-time-errors.html#design-time-formula-errors">
+      
+        
+        Formula errors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.2.3" data-path="../recipes/recipe-design-time-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-design-time-errors.html#invalid-datapills">
+      
+        
+        Invalid datapills
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.2.4" data-path="../recipes/recipe-design-time-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-design-time-errors.html#app-connection-errors">
+      
+        
+        App connection errors
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.3" data-path="../recipes/recipe-logic-errors.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/recipe-logic-errors.html">
+      
+        
+        Recipe logic errors
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.6.3.1" data-path="../recipes/recipe-logic-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-logic-errors.html#incorrect-recipe-step-indentations">
+      
+        
+        Inaccurate step indentations
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.3.2" data-path="../recipes/recipe-logic-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-logic-errors.html#incorrect-list-management">
+      
+        
+        Inaccurate list management
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.3.3" data-path="../recipes/recipe-logic-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-logic-errors.html#infinite-looping">
+      
+        
+        Infinite looping
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.3.4" data-path="../recipes/recipe-logic-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-logic-errors.html#unexpected-trigger-eventsdata-duplication">
+      
+        
+        Unexpected trigger events
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.3.5" data-path="../recipes/recipe-logic-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-logic-errors.html#missing-trigger-events">
+      
+        
+        Missing trigger events
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4" data-path="../recipes/recipe-job-errors.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html">
+      
+        
+        Job errors
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.6.4.1" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#trigger-errors">
+      
+        
+        Trigger errors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.2" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#run-time-formula-errors">
+      
+        
+        Formula errors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.3" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#missing-required-fields-at-run-time">
+      
+        
+        Missing required fields
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.4" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#timeouts">
+      
+        
+        Timeouts
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.5" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#passing-wrong-datatypes-into-input-fields">
+      
+        
+        Non-matching datatypes
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.6" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#error-code-401-unauthorized">
+      
+        
+        401 unauthorized
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.7" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#error-code-403-forbidden">
+      
+        
+        403 forbidden
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.8" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#error-code-404-not-found">
+      
+        
+        404 not found
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.9" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#error-code-422-unprocessable-entity">
+      
+        
+        422 unprocessable entity
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.4.10" data-path="../recipes/recipe-job-errors.html">
+      
+
+      
+        <a href="../recipes/recipe-job-errors.html#error-code-500-internal-server-error">
+      
+        
+        500 internal server error
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.5" data-path="../recipes/formula-errors.html">
+      
+
+      
+        <a href="../recipes/formula-errors.html">
+      
+        
+        Formula errors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.6" data-path="../recipes/infinite-loops.html">
+      
+
+      
+        <a href="../recipes/infinite-loops.html">
+      
+        
+        Infinite loops
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.7" data-path="../recipes/deduplication.html">
+      
+
+      
+        <a href="../recipes/deduplication.html">
+      
+        
+        Deduplication
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.6.8" data-path="../recipes/rate-limiting.html">
+      
+
+      
+        <a href="../recipes/rate-limiting.html">
+      
+        
+        Rate limiting
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7" data-path="../formulas.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../formulas.html">
+      
+        
+        Data types and formulas
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.7.1" data-path="../formulas/formula-mode.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../formulas/formula-mode.html">
+      
+        
+        Formula mode
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.7.1.1" data-path="../formulas/formula-mode.html">
+      
+
+      
+        <a href="../formulas/formula-mode.html#filter-formulas-displayed-by-data-type">
+      
+        
+        Filter formulas by data type
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.1.2" data-path="../formulas/formula-mode.html">
+      
+
+      
+        <a href="../formulas/formula-mode.html#formula-hints-and-syntax">
+      
+        
+        Formula hints and syntax
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.1.3" data-path="../formulas/formula-mode.html">
+      
+
+      
+        <a href="../formulas/formula-mode.html#text-vs-formula-mode">
+      
+        
+        Text mode VS formula mode
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.1.4" data-path="../formulas/formula-mode.html">
+      
+
+      
+        <a href="../formulas/formula-mode.html#conditionals">
+      
+        
+        Ternary condition
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.2" data-path="../formulas/string-formulas.html">
+      
+
+      
+        <a href="../formulas/string-formulas.html">
+      
+        
+        String formulas
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.3" data-path="../formulas/number-formulas.html">
+      
+
+      
+        <a href="../formulas/number-formulas.html">
+      
+        
+        Number formulas
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.4" data-path="../formulas/date-formulas.html">
+      
+
+      
+        <a href="../formulas/date-formulas.html">
+      
+        
+        Date formulas
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.5" data-path="../formulas/array-list-formulas.html">
+      
+
+      
+        <a href="../formulas/array-list-formulas.html">
+      
+        
+        List formulas
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.6" data-path="../formulas/other-formulas.html">
+      
+
+      
+        <a href="../formulas/other-formulas.html">
+      
+        
+        Other formulas
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.7.7" data-path="../formulas/complex-data-types.html">
+      
+
+      
+        <a href="../formulas/complex-data-types.html">
+      
+        
+        Complex data types
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8" data-path="../handling-files-and-attachments.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../handling-files-and-attachments.html">
+      
+        
+        Files and attachments
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.8.1" data-path="../handling-files-and-attachments.html">
+      
+
+      
+        <a href="../handling-files-and-attachments.html#interpreting-file-content-and-moving-to-other-apps">
+      
+        
+        Read files
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.2" data-path="../features/handling-csv-files.html">
+      
+
+      
+        <a href="../features/handling-csv-files.html">
+      
+        
+        CSV contents
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.3" data-path="../features/handling-json.html">
+      
+
+      
+        <a href="../features/handling-json.html">
+      
+        
+        JSON contents
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.4" data-path="../features/handling-xml.html">
+      
+
+      
+        <a href="../features/handling-xml.html">
+      
+        
+        XML contents
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.5" data-path="../handling-files-and-attachments.html">
+      
+
+      
+        <a href="../handling-files-and-attachments.html#moving-textbinary-files-via-public-url">
+      
+        
+        Move files between apps
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.6" data-path="../features/file-streaming.html">
+      
+
+      
+        <a href="../features/file-streaming.html">
+      
+        
+        File streaming
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.7" data-path="../features/wildcard.html">
+      
+
+      
+        <a href="../features/wildcard.html">
+      
+        
+        Search files using wildcard
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.8.8" data-path="../features/compress-files.html">
+      
+
+      
+        <a href="../features/compress-files.html">
+      
+        
+        Compress files
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.9" data-path="../features/batch-processing.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../features/batch-processing.html">
+      
+        
+        Batch processing
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.9.1" data-path="../features/batch-processing.html">
+      
+
+      
+        <a href="../features/batch-processing.html#batch-triggers">
+      
+        
+        Batch triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.9.2" data-path="../features/batch-processing.html">
+      
+
+      
+        <a href="../features/batch-processing.html#batch-actions">
+      
+        
+        Batch actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.9.3" data-path="../features/batch-processing.html">
+      
+
+      
+        <a href="../features/batch-processing.html#maximize-data-throughput-with-batch-processing">
+      
+        
+        Maximize data throughput
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html">
+      
+        
+        Teams and collaboration
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.10.1" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#team-roles">
+      
+        
+        Role-based access
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.2" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#audit-logs">
+      
+        
+        Audit logs
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.3" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#okta-single-sign-on">
+      
+        
+        Okta SSO
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.4" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#onelogin-single-sign-on">
+      
+        
+        OneLogin SSO
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.5" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#workato-single-sign-on-setup">
+      
+        
+        Workato SSO settings
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.6" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#logging-into-saml-enabled-team">
+      
+        
+        Logging into SAML-enabled team
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.7" data-path="../user-accounts-and-teams/team-collaboration.html">
+      
+
+      
+        <a href="../user-accounts-and-teams/team-collaboration.html#saml-just-in-time-provisioning">
+      
+        
+        SAML Just-In-Time provisioning
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.11" data-path="../workflow.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../workflow.html">
+      
+        
+        People Task by Workato
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.11.1" data-path="../workflow.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../workflow.html#using-people-task-as-an-admin">
+      
+        
+        Administrators
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.11.1.1" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#customize-people-task-subdomain">
+      
+        
+        Customize subdomain
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.11.1.2" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#adding-people-task-participants">
+      
+        
+        Invite participants
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.11.2" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#people-task-example-scenario">
+      
+        
+        Example recipe
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.11.3" data-path="../workflow.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../workflow.html#using-people-task-as-an-approver">
+      
+        
+        Participants
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.11.3.1" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#approver-view">
+      
+        
+        Approver view
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.11.3.2" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#approving-tasks">
+      
+        
+        Approving tasks
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.12" data-path="../recipe-development-lifecycle.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipe-development-lifecycle.html">
+      
+        
+        Recipe development lifecycle
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.12.1" data-path="../recipe-development-lifecycle.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipe-development-lifecycle.html#packages">
+      
+        
+        Packages
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.12.1.1" data-path="../recipe-development-lifecycle.html">
+      
+
+      
+        <a href="../recipe-development-lifecycle.html#exporting-packages">
+      
+        
+        Exporting packages
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.12.1.2" data-path="../recipe-development-lifecycle.html">
+      
+
+      
+        <a href="../recipe-development-lifecycle.html#importing-packages">
+      
+        
+        Importing packages
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.12.1.3" data-path="../recipe-development-lifecycle.html">
+      
+
+      
+        <a href="../recipe-development-lifecycle.html#packages-import-behaviour">
+      
+        
+        Packages import behaviour
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13" data-path="../on-prem.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../on-prem.html">
+      
+        
+        On-premises connectivity
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.13.1" data-path="../on-prem/setup.html">
+      
+
+      
+        <a href="../on-prem/setup.html">
+      
+        
+        Setup agent
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.2" data-path="../on-prem/run.html">
+      
+
+      
+        <a href="../on-prem/run.html">
+      
+        
+        Run agent
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.3" data-path="../on-prem/upgrade.html">
+      
+
+      
+        <a href="../on-prem/upgrade.html">
+      
+        
+        Upgrade agent
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.4" data-path="../on-prem/profile.html">
+      
+
+      
+        <a href="../on-prem/profile.html">
+      
+        
+        Profiles
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.5" data-path="../on-prem/connection.html">
+      
+
+      
+        <a href="../on-prem/connection.html">
+      
+        
+        On-premises connections
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.6" data-path="../on-prem/password-encryption.html">
+      
+
+      
+        <a href="../on-prem/password-encryption.html">
+      
+        
+        Password encryption
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.13.7" data-path="../on-prem/proxy.html">
+      
+
+      
+        <a href="../on-prem/proxy.html">
+      
+        
+        Proxy server
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14" data-path="../features.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../features.html">
+      
+        
+        Key features
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.14.1" data-path="../features/scheduler.html">
+      
+
+      
+        <a href="../features/scheduler.html">
+      
+        
+        Scheduler
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.2" data-path="../features/secondary-connectors.html">
+      
+
+      
+        <a href="../features/secondary-connectors.html">
+      
+        
+        Secondary connectors
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3" data-path="../features/lookup-tables.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../features/lookup-tables.html">
+      
+        
+        Lookup tables
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.14.3.1" data-path="../features/lookup-tables.html">
+      
+
+      
+        <a href="../features/lookup-tables.html#setting-up-your-lookup-tables">
+      
+        
+        Setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3.2" data-path="../features/lookup-tables.html">
+      
+
+      
+        <a href="../features/lookup-tables.html#add-entry-action">
+      
+        
+        Add entry action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3.3" data-path="../features/lookup-tables.html">
+      
+
+      
+        <a href="../features/lookup-tables.html#lookup-entry-action">
+      
+        
+        Lookup entry action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3.4" data-path="../features/lookup-tables.html">
+      
+
+      
+        <a href="../features/lookup-tables.html#search-entries-action">
+      
+        
+        Search entry action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3.5" data-path="../features/lookup-tables.html">
+      
+
+      
+        <a href="../features/lookup-tables.html#lookup-table-formulas">
+      
+        
+        Lookup table formulas
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3.6" data-path="../features/lookup-tables.html">
+      
+
+      
+        <a href="../features/lookup-tables.html#limits">
+      
+        
+        Table limits
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.4" data-path="../features/message-template.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../features/message-template.html">
+      
+        
+        Message template
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.14.4.1" data-path="../features/message-template.html">
+      
+
+      
+        <a href="../features/message-template.html#variables">
+      
+        
+        Variables
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.4.2" data-path="../features/message-template.html">
+      
+
+      
+        <a href="../features/message-template.html#sections">
+      
+        
+        Sections
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.4.3" data-path="../features/message-template.html">
+      
+
+      
+        <a href="../features/message-template.html#comments">
+      
+        
+        Comments
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.4.4" data-path="../features/message-template.html">
+      
+
+      
+        <a href="../features/message-template.html#partials">
+      
+        
+        Partials
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.4.5" data-path="../features/message-template.html">
+      
+
+      
+        <a href="../features/message-template.html#using-templates-in-recipes">
+      
+        
+        Using templates in recipes
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.5" data-path="../features/callable-recipes.html">
+      
+
+      
+        <a href="../features/callable-recipes.html">
+      
+        
+        Callable recipes
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.6" data-path="../features/account-properties.html">
+      
+
+      
+        <a href="../features/account-properties.html">
+      
+        
+        Account properties
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.7" data-path="../features/utilities.html">
+      
+
+      
+        <a href="../features/utilities.html">
+      
+        
+        Utility
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.8" data-path="../features/data-masking.html">
+      
+
+      
+        <a href="../features/data-masking.html">
+      
+        
+        Data masking
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.9" data-path="../signing-up/sso.html">
+      
+
+      
+        <a href="../signing-up/sso.html">
+      
+        
+        Single Sign-On (SSO)
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.10" data-path="../features/list-management.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../features/list-management.html">
+      
+        
+        List management
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.14.10.1" data-path="../features/list-management.html">
+      
+
+      
+        <a href="../features/list-management.html#example-list-setup">
+      
+        
+        Example list setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.10.2" data-path="../features/list-management.html">
+      
+
+      
+        <a href="../features/list-management.html#using-datapills-directly-in-an-action-without-list-processing">
+      
+        
+        Use datapills from list without repeat step
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.10.3" data-path="../features/list-management.html">
+      
+
+      
+        <a href="../features/list-management.html#using-datapills-in-an-action-with-a-list-input-action-handles-list-processing-implicitly">
+      
+        
+        Use datapills from list in input list
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.10.4" data-path="../features/list-management.html">
+      
+
+      
+        <a href="../features/list-management.html#using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level">
+      
+        
+        Use datapills from list with repeat step
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.10.5" data-path="../features/list-management.html">
+      
+
+      
+        <a href="../features/list-management.html#common-mistake-when-using-repeat-step">
+      
+        
+        Common repeat step mistakes
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.10.6" data-path="../features/list-management.html">
+      
+
+      
+        <a href="../features/list-management.html#list-connector-accumulator">
+      
+        
+        List connector
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.11" data-path="../data-retention.html">
+      
+
+      
+        <a href="../data-retention.html">
+      
+        
+        Data retention
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.12" data-path="../job-history-replication.html">
+      
+
+      
+        <a href="../job-history-replication.html">
+      
+        
+        Job history replication
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.13" data-path="../features/common-data-model.html">
+      
+
+      
+        <a href="../features/common-data-model.html">
+      
+        
+        Common data model
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.14" data-path="../api-management.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../api-management.html">
+      
+        
+        API management
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.14.14.1" data-path="../api-management.html">
+      
+
+      
+        <a href="../api-management.html#api-tokens">
+      
+        
+        API tokens
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.14.2" data-path="../api-management.html">
+      
+
+      
+        <a href="../api-management.html#service-catalog-endpoints">
+      
+        
+        API endpoints
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15" data-path="../workbot/workbot.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../workbot/workbot.html">
+      
+        
+        Workbot for Slack
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.15.1" data-path="../workbot/workbot.html">
+      
+
+      
+        <a href="../workbot/workbot.html#slack-connector-vs-workbot-for-slack-connector">
+      
+        
+        Slack VS Workbot
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.2" data-path="../workbot/workbot-for-slack-setup.html">
+      
+
+      
+        <a href="../workbot/workbot-for-slack-setup.html">
+      
+        
+        Workbot for Slack setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.3" data-path="../workbot/using-workbot-for-slack.html">
+      
+
+      
+        <a href="../workbot/using-workbot-for-slack.html">
+      
+        
+        Using Workbot for Slack
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.4" data-path="../workbot/workbot-commands.html">
+      
+
+      
+        <a href="../workbot/workbot-commands.html">
+      
+        
+        Workbot basics: Commands
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.5" data-path="../workbot/workbot-command-reply.html">
+      
+
+      
+        <a href="../workbot/workbot-command-reply.html">
+      
+        
+        Workbot basics: Command reply
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.6" data-path="../workbot/using-dialogs-with-workbot.html">
+      
+
+      
+        <a href="../workbot/using-dialogs-with-workbot.html">
+      
+        
+        Using Dialogs with Workbot
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.7" data-path="../workbot/workbot-triggers.html">
+      
+
+      
+        <a href="../workbot/workbot-triggers.html">
+      
+        
+        Workbot triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.8" data-path="../workbot/workbot-actions.html">
+      
+
+      
+        <a href="../workbot/workbot-actions.html">
+      
+        
+        Workbot actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.9" data-path="../workbot/workbot-update-message.html">
+      
+
+      
+        <a href="../workbot/workbot-update-message.html">
+      
+        
+        Updating messages
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.10" data-path="../workbot/workbot-message-menus.html">
+      
+
+      
+        <a href="../workbot/workbot-message-menus.html">
+      
+        
+        Workbot message menus
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.11" data-path="../workbot/workbot-buttons.html">
+      
+
+      
+        <a href="../workbot/workbot-buttons.html">
+      
+        
+        Workbot buttons
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.12" data-path="../workbot/workbot-latebinding.html">
+      
+
+      
+        <a href="../workbot/workbot-latebinding.html">
+      
+        
+        Workbot personal connections
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.13" data-path="../workbot/workbot-troubleshooting.html">
+      
+
+      
+        <a href="../workbot/workbot-troubleshooting.html">
+      
+        
+        Workbot troubleshooting
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.14" data-path="../workbot/configuring-slash-commands.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../workbot/configuring-slash-commands.html">
+      
+        
+        Workbot slash commands
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.15.14.1" data-path="../workbot/workbot-custom-bots.html">
+      
+
+      
+        <a href="../workbot/workbot-custom-bots.html">
+      
+        
+        Custom Workbots
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.14.2" data-path="../workbot/custom-workbot-vs-legacy-slash-commands.html">
+      
+
+      
+        <a href="../workbot/custom-workbot-vs-legacy-slash-commands.html">
+      
+        
+        Custom Workbot vs Legacy slash commands
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.14.3" data-path="../workbot/configuring-slash-commands.html">
+      
+
+      
+        <a href="../workbot/configuring-slash-commands.html">
+      
+        
+        Configuring slash commands
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.15.14.4" data-path="../workbot/legacy-slash-commands.html">
+      
+
+      
+        <a href="../workbot/legacy-slash-commands.html">
+      
+        
+        Legacy slash commands
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16" data-path="../connectors.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors.html">
+      
+        
+        Connectors
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.1" data-path="../connectors/analytics-cloud.html">
+      
+
+      
+        <a href="../connectors/analytics-cloud.html">
+      
+        
+        Analytics Cloud (Wave Analytics)
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.2" data-path="../connectors/s3.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/s3.html">
+      
+        
+        Amazon S3
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.2.1" data-path="../connectors/s3.html">
+      
+
+      
+        <a href="../connectors/s3.html#how-to-connect-to-amazon-s3-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.3" data-path="../connectors/aws_lambda.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/aws_lambda.html">
+      
+        
+        AWS Lambda
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.3.1" data-path="../connectors/aws_lambda.html">
+      
+
+      
+        <a href="../connectors/aws_lambda.html#output-schema-definition">
+      
+        
+        Output schema definition
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.3.2" data-path="../connectors/aws_lambda.html">
+      
+
+      
+        <a href="../connectors/aws_lambda.html#json-response">
+      
+        
+        JSON output definition
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.3.3" data-path="../connectors/aws_lambda.html">
+      
+
+      
+        <a href="../connectors/aws_lambda.html#primitive-data-response">
+      
+        
+        Primitive output definition
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.4" data-path="../connectors/box.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/box.html">
+      
+        
+        Box
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.4.1" data-path="../connectors/box.html">
+      
+
+      
+        <a href="../connectors/box.html#how-to-connect-to-box-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.5" data-path="../connectors/docusign.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/docusign.html">
+      
+        
+        DocuSign
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.5.1" data-path="../connectors/docusign.html">
+      
+
+      
+        <a href="../connectors/docusign.html#how-to-connect-to-docusign-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.6" data-path="../connectors/dynamics-crm.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/dynamics-crm.html">
+      
+        
+        Microsoft Dynamics CRM
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.6.1" data-path="../connectors/dynamics-crm.html">
+      
+
+      
+        <a href="../connectors/dynamics-crm.html#how-to-connect-to-a-cloud-microsoft-dynamics-crm-instance">
+      
+        
+        Cloud connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.6.2" data-path="../connectors/dynamics-crm.html">
+      
+
+      
+        <a href="../connectors/dynamics-crm.html#how-to-connect-to-an-on-premise-microsoft-dynamics-crm-instance">
+      
+        
+        On-premise connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.7" data-path="../connectors/freshdesk.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/freshdesk.html">
+      
+        
+        Freshdesk
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.7.1" data-path="../connectors/freshdesk.html">
+      
+
+      
+        <a href="../connectors/freshdesk.html#how-to-connect-to-freshdesk-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.8" data-path="../connectors/jdbc.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/jdbc.html">
+      
+        
+        JDBC
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.8.1" data-path="../connectors/jdbc.html">
+      
+
+      
+        <a href="../connectors/jdbc.html#how-to-connect-to-jdbc-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.8.2" data-path="../connectors/jdbc/select.html">
+      
+
+      
+        <a href="../connectors/jdbc/select.html">
+      
+        
+        Select actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.8.3" data-path="../connectors/jdbc/insert.html">
+      
+
+      
+        <a href="../connectors/jdbc/insert.html">
+      
+        
+        Insert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.8.4" data-path="../connectors/jdbc/update.html">
+      
+
+      
+        <a href="../connectors/jdbc/update.html">
+      
+        
+        Update actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.8.5" data-path="../connectors/jdbc/delete.html">
+      
+
+      
+        <a href="../connectors/jdbc/delete.html">
+      
+        
+        Delete actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.8.6" data-path="../connectors/jdbc/new-row-trigger.html">
+      
+
+      
+        <a href="../connectors/jdbc/new-row-trigger.html">
+      
+        
+        New row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.8.7" data-path="../connectors/jdbc/scheduled-query-trigger.html">
+      
+
+      
+        <a href="../connectors/jdbc/scheduled-query-trigger.html">
+      
+        
+        Scheduled query trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.9" data-path="../connectors/jira.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/jira.html">
+      
+        
+        JIRA
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.9.1" data-path="../connectors/jira.html">
+      
+
+      
+        <a href="../connectors/jira.html#how-to-connect-to-jira-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.10" data-path="../connectors/jms.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/jms.html">
+      
+        
+        Java messaging service
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.10.1" data-path="../connectors/jms.html">
+      
+
+      
+        <a href="../connectors/jms.html#how-to-connect-to-the-jms-connector-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.10.2" data-path="../connectors/jms.html">
+      
+
+      
+        <a href="../connectors/jms.html#using-the-new-message-in-queuetopic-trigger">
+      
+        
+        New message trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.10.3" data-path="../connectors/jms.html">
+      
+
+      
+        <a href="../connectors/jms.html#using-the-publish-message-in-queuetopic-action">
+      
+        
+        Publish message action
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.11" data-path="../connectors/mapper.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/mapper.html">
+      
+        
+        Mapper by Workato
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.11.1" data-path="../connectors/mapper.html">
+      
+
+      
+        <a href="../connectors/mapper.html#how-to-connect-to-the-mapper-connector-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.11.2" data-path="../connectors/mapper.html">
+      
+
+      
+        <a href="../connectors/mapper.html#using-the-map-to-object-action">
+      
+        
+        Map to object action
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12" data-path="../connectors/mysql.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/mysql.html">
+      
+        
+        MySQL
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.12.1" data-path="../connectors/mysql.html">
+      
+
+      
+        <a href="../connectors/mysql.html#how-to-connect-to-mysql-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.2" data-path="../connectors/mysql/select.html">
+      
+
+      
+        <a href="../connectors/mysql/select.html">
+      
+        
+        Select actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.3" data-path="../connectors/mysql/insert.html">
+      
+
+      
+        <a href="../connectors/mysql/insert.html">
+      
+        
+        Insert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.4" data-path="../connectors/mysql/update.html">
+      
+
+      
+        <a href="../connectors/mysql/update.html">
+      
+        
+        Update actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.5" data-path="../connectors/mysql/upsert.html">
+      
+
+      
+        <a href="../connectors/mysql/upsert.html">
+      
+        
+        Upsert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.6" data-path="../connectors/mysql/delete.html">
+      
+
+      
+        <a href="../connectors/mysql/delete.html">
+      
+        
+        Delete actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.7" data-path="../connectors/mysql/new-row-trigger.html">
+      
+
+      
+        <a href="../connectors/mysql/new-row-trigger.html">
+      
+        
+        New row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.8" data-path="../connectors/mysql/updated-row-trigger.html">
+      
+
+      
+        <a href="../connectors/mysql/updated-row-trigger.html">
+      
+        
+        New/updated row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.12.9" data-path="../connectors/mysql/scheduled-query-trigger.html">
+      
+
+      
+        <a href="../connectors/mysql/scheduled-query-trigger.html">
+      
+        
+        Scheduled query trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13" data-path="../connectors/netsuite.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/netsuite.html">
+      
+        
+        NetSuite
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.13.1" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#how-to-connect-to-netsuite-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.2" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#new-classification-object-trigger">
+      
+        
+        Classification record trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.3" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#new-standard-object-and-new-custom-object-trigger">
+      
+        
+        New record trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.4" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#newupdated-standard-object-and-newupdated-custom-object-trigger">
+      
+        
+        New/updated record trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.5" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#new-saved-search-result-for-object-trigger">
+      
+        
+        New saved search trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.6" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#newupdated-saved-search-result-for-object-trigger">
+      
+        
+        New/updated saved search trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.7" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#add-standard-object-and-add-custom-object-action">
+      
+        
+        Add record action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.8" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#search-standard-objects-action">
+      
+        
+        Search standard records action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.9" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#search-custom-objects-action">
+      
+        
+        Search custom records action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.13.10" data-path="../connectors/netsuite.html">
+      
+
+      
+        <a href="../connectors/netsuite.html#update-standard-object-and-update-custom-object-action">
+      
+        
+        Update record action
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.14" data-path="../connectors/on-prem-files.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/on-prem-files.html">
+      
+        
+        On-premises files
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.14.1" data-path="../connectors/on-prem-files.html">
+      
+
+      
+        <a href="../connectors/on-prem-files.html#how-to-connect-to-on-premises-files">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15" data-path="../connectors/oracle.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/oracle.html">
+      
+        
+        Oracle
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.15.1" data-path="../connectors/oracle.html">
+      
+
+      
+        <a href="../connectors/oracle.html#how-to-connect-to-oracle-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.2" data-path="../connectors/oracle/select.html">
+      
+
+      
+        <a href="../connectors/oracle/select.html">
+      
+        
+        Select actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.3" data-path="../connectors/oracle/insert.html">
+      
+
+      
+        <a href="../connectors/oracle/insert.html">
+      
+        
+        Insert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.4" data-path="../connectors/oracle/update.html">
+      
+
+      
+        <a href="../connectors/oracle/update.html">
+      
+        
+        Update actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.5" data-path="../connectors/oracle/upsert.html">
+      
+
+      
+        <a href="../connectors/oracle/upsert.html">
+      
+        
+        Upsert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.6" data-path="../connectors/oracle/delete.html">
+      
+
+      
+        <a href="../connectors/oracle/delete.html">
+      
+        
+        Delete actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.7" data-path="../connectors/oracle/stored-procedure.html">
+      
+
+      
+        <a href="../connectors/oracle/stored-procedure.html">
+      
+        
+        Execute stored procedure
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.8" data-path="../connectors/oracle/new-row-trigger.html">
+      
+
+      
+        <a href="../connectors/oracle/new-row-trigger.html">
+      
+        
+        New row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.15.9" data-path="../connectors/oracle/updated-row-trigger.html">
+      
+
+      
+        <a href="../connectors/oracle/updated-row-trigger.html">
+      
+        
+        New/updated row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.16" data-path="../connectors/oracle-ebs.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/oracle-ebs.html">
+      
+        
+        Oracle EBS
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.16.1" data-path="../connectors/oracle-ebs.html">
+      
+
+      
+        <a href="../connectors/oracle-ebs.html#how-to-connect-to-oracle-e-business-suite-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.17" data-path="../workflow.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../workflow.html">
+      
+        
+        People Task by Workato
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.17.1" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#using-people-task-as-an-admin">
+      
+        
+        Admin setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.17.2" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#people-task-example-scenario">
+      
+        
+        Recipe configuration
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.17.3" data-path="../workflow.html">
+      
+
+      
+        <a href="../workflow.html#using-people-task-as-an-approver">
+      
+        
+        Task approvals
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.18" data-path="../connectors/postgresql.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/postgresql.html">
+      
+        
+        PostgreSQL
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.18.1" data-path="../connectors/postgresql.html">
+      
+
+      
+        <a href="../connectors/postgresql.html#how-to-connect-to-postgresql-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.18.2" data-path="../connectors/postgresql/select.html">
+      
+
+      
+        <a href="../connectors/postgresql/select.html">
+      
+        
+        Select actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.18.3" data-path="../connectors/postgresql/insert.html">
+      
+
+      
+        <a href="../connectors/postgresql/insert.html">
+      
+        
+        Insert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.18.4" data-path="../connectors/postgresql/update.html">
+      
+
+      
+        <a href="../connectors/postgresql/update.html">
+      
+        
+        Update actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.18.5" data-path="../connectors/postgresql/delete.html">
+      
+
+      
+        <a href="../connectors/postgresql/delete.html">
+      
+        
+        Delete actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.18.6" data-path="../connectors/postgresql/new-row-trigger.html">
+      
+
+      
+        <a href="../connectors/postgresql/new-row-trigger.html">
+      
+        
+        New row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.18.7" data-path="../connectors/postgresql/updated-row-trigger.html">
+      
+
+      
+        <a href="../connectors/postgresql/updated-row-trigger.html">
+      
+        
+        New/updated row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.19" data-path="../connectors/pubsub.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/pubsub.html">
+      
+        
+        PubSub by Workato
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.19.1" data-path="../connectors/pubsub.html">
+      
+
+      
+        <a href="../connectors/pubsub.html#how-to-connect-to-the-pubsub-connector-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.19.2" data-path="../connectors/pubsub.html">
+      
+
+      
+        <a href="../connectors/pubsub.html#creating-and-managing-topics">
+      
+        
+        Topics management
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.19.3" data-path="../connectors/pubsub.html">
+      
+
+      
+        <a href="../connectors/pubsub.html#using-the-new-message-trigger">
+      
+        
+        New message trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.19.4" data-path="../connectors/pubsub.html">
+      
+
+      
+        <a href="../connectors/pubsub.html#using-the-publish-message-action">
+      
+        
+        Publish message action
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.20" data-path="../connectors/quickbooks.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/quickbooks.html">
+      
+        
+        QuickBooks Online
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.20.1" data-path="../connectors/quickbooks.html">
+      
+
+      
+        <a href="../connectors/quickbooks.html#how-to-connect-to-quickbooks-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21" data-path="../recipe-ops.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../recipe-ops.html">
+      
+        
+        RecipeOps by Workato
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.21.1" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#connection">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.2" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#new-failed-job-trigger">
+      
+        
+        New failed job trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.3" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#recipe-stopped-by-workato-trigger">
+      
+        
+        Recipe stopped by Workato trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.4" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#get-account-details-action">
+      
+        
+        Get account details action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.5" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#get-recipe-details-action">
+      
+        
+        Get recipe details action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.6" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#list-jobs-created-by-recipe-action">
+      
+        
+        List jobs created by recipe action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.7" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#list-recipes-action">
+      
+        
+        List recipes action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.8" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#start-recipe-action">
+      
+        
+        Start recipe action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.21.9" data-path="../recipe-ops.html">
+      
+
+      
+        <a href="../recipe-ops.html#stop-recipe-action">
+      
+        
+        Stop recipe action
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22" data-path="../connectors/redshift.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/redshift.html">
+      
+        
+        Redshift
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.22.1" data-path="../connectors/redshift.html">
+      
+
+      
+        <a href="../connectors/redshift.html#how-to-connect-to-redshift-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22.2" data-path="../connectors/redshift/select.html">
+      
+
+      
+        <a href="../connectors/redshift/select.html">
+      
+        
+        Select actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22.3" data-path="../connectors/redshift/insert.html">
+      
+
+      
+        <a href="../connectors/redshift/insert.html">
+      
+        
+        Insert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22.4" data-path="../connectors/redshift/update.html">
+      
+
+      
+        <a href="../connectors/redshift/update.html">
+      
+        
+        Update actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22.5" data-path="../connectors/redshift/upsert.html">
+      
+
+      
+        <a href="../connectors/redshift/upsert.html">
+      
+        
+        Upsert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22.6" data-path="../connectors/redshift/delete.html">
+      
+
+      
+        <a href="../connectors/redshift/delete.html">
+      
+        
+        Delete actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22.7" data-path="../connectors/redshift/new-row-trigger.html">
+      
+
+      
+        <a href="../connectors/redshift/new-row-trigger.html">
+      
+        
+        New row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.22.8" data-path="../connectors/redshift/updated-row-trigger.html">
+      
+
+      
+        <a href="../connectors/redshift/updated-row-trigger.html">
+      
+        
+        New/updated row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.23" data-path="../connectors/salesforce.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/salesforce.html">
+      
+        
+        Salesforce
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.23.1" data-path="../connectors/salesforce.html">
+      
+
+      
+        <a href="../connectors/salesforce.html#how-to-connect-to-salesforce-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.23.2" data-path="../connectors/salesforce.html">
+      
+
+      
+        <a href="../connectors/salesforce.html#using-real-time-triggers">
+      
+        
+        Real-time trigger setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.23.3" data-path="../connectors/salesforce.html">
+      
+
+      
+        <a href="../connectors/salesforce.html#working-with-generic-triggers-in-salesforce">
+      
+        
+        Object triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.23.4" data-path="../connectors/salesforce.html">
+      
+
+      
+        <a href="../connectors/salesforce.html#working-with-attachments-in-salesforce">
+      
+        
+        Handling attachments
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.23.5" data-path="../connectors/salesforce.html">
+      
+
+      
+        <a href="../connectors/salesforce.html#working-with-soql-in-salesforce">
+      
+        
+        Using SOQL
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.23.6" data-path="../connectors/salesforce.html">
+      
+
+      
+        <a href="../connectors/salesforce.html#working-with-bulk-data-load-jobs-in-salesforce">
+      
+        
+        Bulk data imports
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.24" data-path="../connectors/servicenow.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/servicenow.html">
+      
+        
+        ServiceNow
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.24.1" data-path="../connectors/servicenow.html">
+      
+
+      
+        <a href="../connectors/servicenow.html#how-to-connect-to-servicenow-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.24.2" data-path="../connectors/servicenow/new-record-trigger.html">
+      
+
+      
+        <a href="../connectors/servicenow/new-record-trigger.html">
+      
+        
+        New record trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.24.3" data-path="../connectors/servicenow/updated-record-trigger.html">
+      
+
+      
+        <a href="../connectors/servicenow/updated-record-trigger.html">
+      
+        
+        New/updated record trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.24.4" data-path="../connectors/servicenow/search.html">
+      
+
+      
+        <a href="../connectors/servicenow/search.html">
+      
+        
+        Search records action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.24.5" data-path="../connectors/servicenow/create.html">
+      
+
+      
+        <a href="../connectors/servicenow/create.html">
+      
+        
+        Create record actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.24.6" data-path="../connectors/servicenow/update.html">
+      
+
+      
+        <a href="../connectors/servicenow/update.html">
+      
+        
+        Update record actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.25" data-path="../connectors/slack.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/slack.html">
+      
+        
+        Slack
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.25.1" data-path="../workbot/workbot.html">
+      
+
+      
+        <a href="../workbot/workbot.html#slack-connector-vs-workbot-for-slack-connector">
+      
+        
+        Slack VS Workbot
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.25.2" data-path="../connectors/slack.html">
+      
+
+      
+        <a href="../connectors/slack.html#using-slack-message-buttons">
+      
+        
+        Message buttons
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.25.3" data-path="../connectors/slack.html">
+      
+
+      
+        <a href="../connectors/slack.html#using-slack-threads">
+      
+        
+        Message threads
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.26" data-path="../connectors/splunk.html">
+      
+
+      
+        <a href="../connectors/splunk.html">
+      
+        
+        Splunk
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27" data-path="../connectors/mssql.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/mssql.html">
+      
+        
+        SQL Server
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.27.1" data-path="../connectors/mssql.html">
+      
+
+      
+        <a href="../connectors/mssql.html#how-to-connect-to-mssql-on-workato">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.2" data-path="../connectors/mssql/select.html">
+      
+
+      
+        <a href="../connectors/mssql/select.html">
+      
+        
+        Select actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.3" data-path="../connectors/mssql/insert.html">
+      
+
+      
+        <a href="../connectors/mssql/insert.html">
+      
+        
+        Insert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.4" data-path="../connectors/mssql/update.html">
+      
+
+      
+        <a href="../connectors/mssql/update.html">
+      
+        
+        Update actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.5" data-path="../connectors/mssql/upsert.html">
+      
+
+      
+        <a href="../connectors/mssql/upsert.html">
+      
+        
+        Upsert actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.6" data-path="../connectors/mssql/delete.html">
+      
+
+      
+        <a href="../connectors/mssql/delete.html">
+      
+        
+        Delete actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.7" data-path="../connectors/mssql/stored-procedure.html">
+      
+
+      
+        <a href="../connectors/mssql/stored-procedure.html">
+      
+        
+        Execute stored procedure
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.8" data-path="../connectors/mssql/new-row-trigger.html">
+      
+
+      
+        <a href="../connectors/mssql/new-row-trigger.html">
+      
+        
+        New row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.27.9" data-path="../connectors/mssql/updated-row-trigger.html">
+      
+
+      
+        <a href="../connectors/mssql/updated-row-trigger.html">
+      
+        
+        New/updated row trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.28" data-path="../connectors/surveymonkey.html">
+      
+
+      
+        <a href="../connectors/surveymonkey.html">
+      
+        
+        SurveyMonkey
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.29" data-path="../connectors/workday.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../connectors/workday.html">
+      
+        
+        Workday
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.16.29.1" data-path="../connectors/workday/connection_setup.html">
+      
+
+      
+        <a href="../connectors/workday/connection_setup.html">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.29.2" data-path="../connectors/workday/get_report.html">
+      
+
+      
+        <a href="../connectors/workday/get_report.html">
+      
+        
+        Get report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.29.3" data-path="../connectors/workday/scheduled_report.html">
+      
+
+      
+        <a href="../connectors/workday/scheduled_report.html">
+      
+        
+        Scheduled report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.16.29.4" data-path="../connectors/workday/workday_raas.html">
+      
+
+      
+        <a href="../connectors/workday/workday_raas.html">
+      
+        
+        Report-as-a-Service
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17" data-path="../developing-connectors.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../developing-connectors.html">
+      
+        
+        Developing connectors
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.17.1" data-path="custom-actions.html">
+      
+
+      
+        <a href="custom-actions.html">
+      
+        
+        Custom actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.2" data-path="http-vs-sdk.html">
+      
+
+      
+        <a href="http-vs-sdk.html">
+      
+        
+        HTTP vs SDK
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter active" data-level="1.17.3" data-path="http-v2.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="http-v2.html">
+      
+        
+        HTTP connector V2
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.17.3.1" data-path="http-v2.html">
+      
+
+      
+        <a href="http-v2.html#setup-your-http-connection">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.3.2" data-path="http-v2.html">
+      
+
+      
+        <a href="http-v2.html#example---connecting-to-eventbrite-via-oauth2">
+      
+        
+        Example: Eventbrite OAuth2 connection
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.3.3" data-path="http.html">
+      
+
+      
+        <a href="http.html#building-webhook-triggers">
+      
+        
+        Webhook triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.3.4" data-path="http.html">
+      
+
+      
+        <a href="http.html#example---building-a-new-order-trigger-in-eventbrite">
+      
+        
+        Example: New Eventbrite order
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.3.5" data-path="http-v2.html">
+      
+
+      
+        <a href="http-v2.html#building-a-workato-action-example---create-venue-in-eventbrite">
+      
+        
+        HTTP actions
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4" data-path="http.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="http.html">
+      
+        
+        HTTP connector V1 (deprecated)
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.17.4.1" data-path="http.html">
+      
+
+      
+        <a href="http.html#set-up-your-oauth2-connection">
+      
+        
+        OAuth2 connection setup (deprecated)
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.2" data-path="http.html">
+      
+
+      
+        <a href="http.html#example---connecting-to-eventbrite-via-oauth2">
+      
+        
+        Example: Eventbrite OAuth2
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.3" data-path="http.html">
+      
+
+      
+        <a href="http.html#set-up-your-non-oauth2-connection">
+      
+        
+        Non-OAuth2 connection setup (deprecated)
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.4" data-path="http.html">
+      
+
+      
+        <a href="http.html#example---connecting-to-jira-via-basic-authentication-and-testing-the-connection-via-a-get-action">
+      
+        
+        Example: Jira basic auth
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.5" data-path="http.html">
+      
+
+      
+        <a href="http.html#building-webhook-triggers">
+      
+        
+        Webhook triggers
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.6" data-path="http.html">
+      
+
+      
+        <a href="http.html#example---building-a-new-order-trigger-in-eventbrite">
+      
+        
+        Example: New Eventbrite order
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.7" data-path="http.html">
+      
+
+      
+        <a href="http.html#building-your-rest-request-action">
+      
+        
+        HTTP actions (deprecated)
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.8" data-path="http.html">
+      
+
+      
+        <a href="http.html#example---building-a-get-order-details-action-in-eventbrite">
+      
+        
+        Example: Get Eventbrite order
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.4.9" data-path="http.html">
+      
+
+      
+        <a href="http.html#example---building-a-create-project-action-in-jira">
+      
+        
+        Example: Create Jira project
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18" data-path="sdk.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="sdk.html">
+      
+        
+        Connector SDK
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.18.1" data-path="sdk/walk-through.html">
+      
+
+      
+        <a href="sdk/walk-through.html">
+      
+        
+        Walk through
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.2" data-path="sdk/authentication.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="sdk/authentication.html">
+      
+        
+        Authentication
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.18.2.1" data-path="sdk/authentication/basic-authentication.html">
+      
+
+      
+        <a href="sdk/authentication/basic-authentication.html">
+      
+        
+        Basic auth
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.2.2" data-path="sdk/authentication/oauth2-authentication.html">
+      
+
+      
+        <a href="sdk/authentication/oauth2-authentication.html">
+      
+        
+        OAuth 2.0
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.2.3" data-path="sdk/authentication/custom-authentication.html">
+      
+
+      
+        <a href="sdk/authentication/custom-authentication.html">
+      
+        
+        Custom auth
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.2.4" data-path="sdk/authentication/test.html">
+      
+
+      
+        <a href="sdk/authentication/test.html">
+      
+        
+        Test
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.3" data-path="sdk/object-definition.html">
+      
+
+      
+        <a href="sdk/object-definition.html">
+      
+        
+        Object definition
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.4" data-path="sdk/toggle-field.html">
+      
+
+      
+        <a href="sdk/toggle-field.html">
+      
+        
+        Toggle field
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.5" data-path="sdk/request.html">
+      
+
+      
+        <a href="sdk/request.html">
+      
+        
+        HTTP request
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.6" data-path="sdk/error-handling.html">
+      
+
+      
+        <a href="sdk/error-handling.html">
+      
+        
+        Error handling
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.7" data-path="sdk/action.html">
+      
+
+      
+        <a href="sdk/action.html">
+      
+        
+        Action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.8" data-path="sdk/trigger.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="sdk/trigger.html">
+      
+        
+        Trigger
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.18.8.1" data-path="sdk/trigger/poll-trigger.html">
+      
+
+      
+        <a href="sdk/trigger/poll-trigger.html">
+      
+        
+        Poll trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.8.2" data-path="sdk/trigger/webhook-trigger.html">
+      
+
+      
+        <a href="sdk/trigger/webhook-trigger.html">
+      
+        
+        Dynamic webhook trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.8.3" data-path="sdk/trigger/static-webhook-trigger.html">
+      
+
+      
+        <a href="sdk/trigger/static-webhook-trigger.html">
+      
+        
+        Static webhook trigger
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.9" data-path="sdk/data-format.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="sdk/data-format.html">
+      
+        
+        Data format
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.18.9.1" data-path="sdk/data-format/json-format.html">
+      
+
+      
+        <a href="sdk/data-format/json-format.html">
+      
+        
+        JSON
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.9.2" data-path="sdk/data-format/xml-format.html">
+      
+
+      
+        <a href="sdk/data-format/xml-format.html">
+      
+        
+        XML
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.10" data-path="sdk/methods.html">
+      
+
+      
+        <a href="sdk/methods.html">
+      
+        
+        Methods
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.11" data-path="sdk/reusable-methods.html">
+      
+
+      
+        <a href="sdk/reusable-methods.html">
+      
+        
+        Reusable methods
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.12" data-path="sdk/pick-list.html">
+      
+
+      
+        <a href="sdk/pick-list.html">
+      
+        
+        Pick lists
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.13" data-path="sdk/dependent-pick-list.html">
+      
+
+      
+        <a href="sdk/dependent-pick-list.html">
+      
+        
+        Dependent pick lists
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.14" data-path="sdk/config-fields.html">
+      
+
+      
+        <a href="sdk/config-fields.html">
+      
+        
+        Configuration fields
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.18.15" data-path="sdk/examples.html">
+      
+
+      
+        <a href="sdk/examples.html">
+      
+        
+        Examples
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.19" >
+      
+
+      
+        <a target="_blank" href="https://www.workato.com/apidoc">
+      
+        
+        Workato API
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20" data-path="../security.html">
+      
+        <i class="fa fa-angle-right chapter__toggle"></i>
+      
+
+      
+        <a href="../security.html">
+      
+        
+        Security
+      
+        </a>
+      
+
+      
+        <ul class="articles">
+          
+  
+    <li class="chapter " data-level="1.20.1" data-path="../security.html">
+      
+
+      
+        <a href="../security.html#ip_whitelists">
+      
+        
+        IP whitelists
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+        </ul>
+      
+    </li>
+  
+    <li class="chapter " data-level="1.21" data-path="../product-updates.html">
+      
+
+      
+        <a href="../product-updates.html">
+      
+        
+        Product Updates
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.22" data-path="../contact-us.html">
+      
+
+      
+        <a href="../contact-us.html">
+      
+        
+        Contact us
+      
+        </a>
+      
+
+      
+    </li>
+  
+
+  
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+  
+                    
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="http-connector-v2">HTTP connector V2</h1>
+<p>The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.</p>
+<p>This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the <a href="http.html">V1 HTTP connector documentation</a>.</p>
+<h2 id="what-is-the-http-connector-and-what-is-it-useful-for">What is the HTTP connector and what is it useful for?</h2>
+<p>The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes. </p>
+<p>With the HTTP connector, it takes less than 20 minutes to build your own action on Workato. This article walks you through:</p>
+<ul>
+<li><p><a href="#setup-your-http-connection">Setting up a connection to your app</a></p>
+</li>
+<li><p><a href="http.html#building-webhook-triggers">Building a webhook trigger</a></p>
+</li>
+<li><p><a href="#building-a-workato-action-example---create-venue-in-eventbrite">Building an HTTP action</a></p>
+</li>
+</ul>
+<p>Want to create an invoice in your accounting system? You can make a POST request with a JSON request body. Want to retrieve metrics from your analytics application? You can make a GET request with your query parameters. Want to trigger off upon new leads filling out your online form? Create a webhook trigger that notifies Workato immediately whenever a new lead completes your form.</p>
+<h2 id="http-triggers-and-action">HTTP triggers and action</h2>
+<p>The HTTP connector can be found in the connector picklist. It has 2 triggers and 1 action:</p>
+<ul>
+<li>New event via webhook trigger (real-time)</li>
+</ul>
+<p>Workato provides you with an unique target URL to send webhooks to. Webhooks received will be immediately processed by the recipe as a trigger event.</p>
+<ul>
+<li>New event via polling trigger</li>
+</ul>
+<p>Workato polls the app endpoint regularly to check for new trigger events. Each new/updated record will be processed by the recipe as a trigger event.</p>
+<ul>
+<li>Make request action</li>
+</ul>
+<p>Formulate and send a request to an endpoint and receive a response back.</p>
+<p><img src="../assets/images/developing-connectors/http/select-http-action.png" alt="HTTP connector where make request action has been selected">
+<em>HTTP connector where make request action has been selected</em></p>
+<h2 id="setup-your-http-connection">Setup your HTTP connection</h2>
+<p>In order to interact with an API, we first need to set up our connection to the app to interact with. Click the <code>Link your account</code> button and the connection popup appears.</p>
+<p><img src="../assets/images/developing-connectors/http/connection-popup.png" alt="Connection popup for HTTP connector">
+<em>Connection popup for HTTP connector</em></p>
+<p>Configure the following input fields to connect successfully. Apart from authentication type and fields subsequently generated when a type is selected, most fields can usually be left to their default values. </p>
+<table>
+<thead>
+<tr>
+<th>Input field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection name</td>
+<td>Give your HTTP connection a name to identify this connection.</td>
+</tr>
+<tr>
+<td>Authentication type</td>
+<td>Type of authentication used to connect to your app. Refer to the API documentation of the app you&apos;re connecting to for more information.</td>
+</tr>
+<tr>
+<td>Use client SSL certificate</td>
+<td><code>Yes</code> if your API requires client SSL certificates. <code>No</code> if it does not require client SSL certificates.</td>
+</tr>
+<tr>
+<td>Enable restricted IP</td>
+<td>Platform level IP whitelisting has replaced connection-level IP whitelisting. This field will be deprecated on 1 Aug 2018. Refer <a href="../security.html#ip-whitelists">here</a> for IP addresses whitelist.</td>
+</tr>
+<tr>
+<td>Is this app in a private network?</td>
+<td><code>Yes</code> if you&apos;re connecting to an on-premise app behind the firewall. This requires an <a href="../on-prem.html">on-premise agent</a> to be set up in Workato. <code>No</code> if you&apos;re connecting to an app on the public cloud.</td>
+</tr>
+</tbody>
+</table>
+<p>The following section details the different authentication types and how to set them up. The process of setting up a non-OAuth2 connection on Workato is similar regardless of the authentication type. This is because after setting up the non-OAuth2 connection, you would need to test it out to ensure that it&apos;s valid. To do that, you would need to send out a test API request - a simple one would be a GET request. If it succeeds, you know that the connection is valid.</p>
+<p>In this article, we provide a <a href="#authentication-type-basic">basic auth example</a> as an example of a non-OAuth2 connection and an <a href="#authentication-type-oauth2">OAuth2 example</a>.</p>
+<h3 id="authentication-type-none">Authentication type: None</h3>
+<p>This allows you to create a connection without providing any authentication details. This is usually the case when you wish to just receive a webhook trigger from the app. Workato generates a URL for you to direct your webhooks to, and retrieves information from the webhook payload sent in.</p>
+<p><img src="../assets/images/developing-connectors/http/http-connector-auth-none.png" alt="HTTP connector authentication type: None">
+<em>HTTP connector authentication type: None</em></p>
+<h3 id="authentication-type-basic">Authentication type: Basic</h3>
+<p>This requires your username and password. An alternative to your username and password would be an API key or API token, retrieved from your account settings. This is encoded with Base64 in transit, over SSL. This is a common authentication flow.
+<img src="../assets/images/developing-connectors/http/http-connector-auth-basic.png" alt="HTTP connector authentication type: Basic">
+<em>HTTP connector authentication type: Basic</em></p>
+<h3 id="example---connecting-to-jira-via-basic-authentication-and-testing-the-connection-via-a-get-action">Example - connecting to Jira via basic authentication and testing the connection via a GET action</h3>
+<p>Let&#x2019;s try to connect to Jira using basic authentication - Jira&apos;s documentation for basic authentication can be found <a href="https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-basic-authentication/?_ga=1.137752242.320850437.1478498822" target="_blank">here</a>. In the case of JIRA, we need to provide several things: subdomain (which tells us what JIRA company instance to connect to, essentially - your company&#x2019;s Jira database), username, password.</p>
+<p>For this example, I&#x2019;ve created a company instance in Jira with a company name Workato321, and Jira has automatically assigned my subdomain to be workato321.atlassian.net</p>
+<p>I&#x2019;ve also created a project in my new Jira instance, named PPP, to be used for testing out my connection later.</p>
+<h4 id="setting-up-your-jira-connection">Setting up your Jira connection</h4>
+<p><img src="../assets/images/http/jira-connection.png" alt="Jira Connection">
+<em>Jira screenshot with subdomain workato321.atlassian.net and existing project PPP</em></p>
+<p>We can provide our username and password in the connection settings as below. For the field <strong>On-prem secure agent</strong>, I selected no gateway as my Jira instance is on the cloud.</p>
+<p><img src="../assets/images/http/connection-settings-jira.png" alt="Jira Connection settings">
+<em>Jira connection settings</em></p>
+<p>Click <code>Connect</code>. For non-OAuth2 connections, remember to send a quick test request, e.g. a GET request, to verify that you are successfully connected to the app.</p>
+<h3 id="authentication-type-header-auth">Authentication type: Header auth</h3>
+<p>For applications which require additional headers outside of the usual username and password or API key, or if you want to customize the headers sent in the request. Header authentication can be used when you have a generated token ready for use.
+<img src="../assets/images/developing-connectors/http/http-connector-auth-header.png" alt="HTTP connector authentication type: Header auth">
+<em>HTTP connector authentication type: Header authorization</em></p>
+<h3 id="authentication-type-query-params">Authentication type: Query params</h3>
+<p>For applications where the authentication structure is based on validating an API key as a parameter. What you need to do is to add the parameter key/value pair in the params authorization field.
+<img src="../assets/images/developing-connectors/http/http-connector-auth-query-params.png" alt="HTTP connector authentication type: Query params">
+<em>HTTP connector authentication type: Query params</em></p>
+<h3 id="authentication-type-custom">Authentication type: Custom</h3>
+<p>Custom allows you to use a combination of input fields as needed.
+<img src="../assets/images/developing-connectors/http/http-connector-auth-custom.png" alt="Custom http connector">
+<em>HTTP connector authentication type: Custom</em> </p>
+<h3 id="authentication-type-oauth2">Authentication type: OAuth2</h3>
+<p>OAuth2 is the authentication standard adopted by a number of cloud apps. It&#x2019;s widely adopted because it allows you to give third parties access to your apps without having to disclose your username and password to the third party. In this case, Workato simply redirects you to your app, where you key in your login credentials, and that&#x2019;s sufficient for the app to trust that Workato is acting on your behalf when it makes API requests.</p>
+<p><img src="../assets/images/developing-connectors/http/http-connector-auth-oauth2.png" alt="HTTP (OAuth2) connector&apos;s connection fields">
+<em>HTTP (OAuth2) connector&apos;s connection fields</em></p>
+<p>OAuth2 authentication type requires the following fields.</p>
+<table>
+<thead>
+<tr>
+<th>Input field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization URL</td>
+<td>URL that Workato redirects you to when you click on the &#x2018;Connect&#x2019; button. This usually brings you to the login screen of your app. Some APIs require that you include certain parameters in the authorization URL. Common examples are response_type (<code>code</code> or <code>token</code>) and scope (<code>read</code>, <code>write</code>, <code>admin</code>, etc).,This should be publicly available from the API documentation of the app you&#x2019;re connecting to, under the Authentication section.</td>
+</tr>
+<tr>
+<td>Token URL</td>
+<td>URL that Workato will retrieve an auth token from. This auth token is used to verify that we have permission to access your app and its data. This should be publicly available from the API documentation of the app you&#x2019;re connecting to, under the Authentication section.</td>
+</tr>
+<tr>
+<td>Client ID and client secret</td>
+<td>The client ID identifies you as the user who&#x2019;s sending these API calls, while the client secret authenticates that you as this user.,This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, it requires you to have the following information ready.
+| Information                                         | Description                                                                                                                                                                                                                                                                                          |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Credentials                                         | A set of username and password for logging into your app to give permission for Workato to access the data in the app.This user (to whom the credentials belong) should have the correct permissions to read/write to the records (e.g. customer records, sales invoice records) you want to access. |
+| Redirect/callback URL (to be configured in the app) | The URL provided to the app for redirection back to Workato after going through the authentication flow and credentials/token exchange. Provide this URL <code>https://www.workato.com/oauth/callback</code> to the app if it asks for it in the Integration setup screen.                                      |                                                                                                        |</p>
+<h4 id="example---connecting-to-eventbrite-via-oauth2">Example - connecting to Eventbrite via OAuth2</h4>
+<p>Let us run through an example of how we can connect to an OAuth2 application. In this case, we&#x2019;ll use Eventbrite, an events management and ticketing application. </p>
+<p><img src="../assets/images/http/eventbrite-authentication.png" alt="Eventbrite OAuth2 authentication page">
+<em>Eventbrite OAuth2 authentication page</em></p>
+<p>From the documentation page, we can obtain 2 of the required fields for our connection - the authorization URL and the access token URL. We would need to append further parameters to the URL. Eventbrite&apos;s documentation mentions that we&apos;d need to post to this URL: <code>https://www.eventbrite.com/oauth/authorize?response_type=code&amp;client_id=YOUR_CLIENT_KEY</code></p>
+<p>But as Workato will handle the client key, the following is what&apos;s needed in the input field to connect.</p>
+<p>Eventbrite authorization URL:</p>
+<pre><code class="lang-ruby">https://www.eventbrite.com/oauth/authorize?response_type=code
+</code></pre>
+<p>Eventbrite access token URL:</p>
+<pre><code class="lang-ruby">https://www.eventbrite.com/oauth/token
+</code></pre>
+<p>In order to connect to your Eventbrite account successfully, you would also need a set of client ID and client secret. To obtain this, you will need to register an app with Eventbrite so that they can assign the app with a client ID and secret. Log into Eventbrite and navigate to Account Settings &gt; App Management. </p>
+<p><img src="../assets/images/http/eventbrite-app-management.png" alt="Eventbrite&apos;s App Management screen">
+<em>Eventbrite&apos;s app management screen</em></p>
+<p>In the app management page, you will be able to find your client ID (also called key). Expand the Show Client Secret and OAuth Token section to retrieve the client secret, and navigate to the App Extension section to input the callback URL <code>https://www.workato.com/oauth/callback</code> into Eventbrite.</p>
+<p><img src="../assets/images/developing-connectors/http/http-connector-auth-oauth2.png" alt="Completed Eventbrite connection">
+<em>Completed Eventbrite connection</em></p>
+<h2 id="building-a-workato-action-example---create-venue-in-eventbrite">Building a Workato action example - Create venue in Eventbrite</h2>
+<p>You&#x2019;re able to build any actions supported by an API on the HTTP connector - for example, create, update, search, get, delete actions. Workato has a 3-step HTTP wizard that prompts you to make a test request to the API endpoint. This wizard will try to provide a recommended HTTP configuration for your endpoint as much as possible.</p>
+<p>To start, give your request a name to identify it. This also changes the Workato action name at the recipe-level.</p>
+<p><img src="../assets/images/developing-connectors/http/provide-request-name.gif" alt="Provide request name">
+<em>Provide request name</em></p>
+<p>Subsequently, click <code>Configure action</code>.</p>
+<h3 id="step-1-provide-http-method-and-request-url">Step 1: Provide HTTP method and request URL</h3>
+<p>To begin, provide the absolute API endpoint you wish to call, and the HTTP method of that endpoint. These should be available via the app&apos;s API documentation.</p>
+<p><img src="../assets/images/developing-connectors/http/step1-provide-request-url.png" alt="Step 1: Provide HTTP method and request URL">
+<em>Step 1: Provide HTTP method and request URL</em></p>
+<p>In this example, we wish to create a venue in Eventbrite. When referring to the documentation, we see that this API is a POST call with an endpoint of <code>https://www.eventbriteapi.com/v3/venues/</code>. We&apos;ll fill out the fields as follows.</p>
+<p><img src="../assets/images/developing-connectors/http/step1-configured-method-and-url.gif" alt="Configuring HTTP method and request URL">
+<em>Configuring HTTP method and request URL</em></p>
+<h3 id="step-2-configure-and-send-sample-request">Step 2: Configure and send sample request</h3>
+<p>Step 2 is where you configure the sample request to send to the API endpoint. For some endpoints, Workato recommends a sample request to send, which you can either choose to customize further or remove entirely to build it from scratch. In our example, Workato recommends a sample request body for Eventbrite&apos;s create venue endpoint, which we&apos;ll choose to use.</p>
+<p><img src="../assets/images/developing-connectors/http/step2-recipeiq-recommendation.png" alt="Step 2: RecipeIQ recommendations for HTTP configuration">
+<em>Step 2: RecipeIQ recommendations for HTTP configuration</em></p>
+<p>For endpoints which Workato has not seen before, or if you chose to remove RecipeIQ recommendations, you&apos;ll see the following screen.</p>
+<p><img src="../assets/images/developing-connectors/http/step2-unconfigured.png" alt="Step 2: Configure and send sample request">
+<em>Step 2: Configure and send sample request</em></p>
+<p>You can copy and paste sample request JSON from the API docs to create your sample request body and add required headers.</p>
+<p>To create a sample Eventbrite venue, we used the recommended JSON request body and added values for Madison Square Garden:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-string">&quot;venue&quot;</span><span class="hljs-symbol">:</span> {
+    <span class="hljs-string">&quot;name&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;Madison Square Garden&quot;</span>,
+    <span class="hljs-string">&quot;address&quot;</span><span class="hljs-symbol">:</span> {
+      <span class="hljs-string">&quot;address_1&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;4 Pennsylvania Plaza&quot;</span>,
+      <span class="hljs-string">&quot;city&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;New York City&quot;</span>,
+      <span class="hljs-string">&quot;region&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;&quot;</span>,
+      <span class="hljs-string">&quot;postal_code&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;10001&quot;</span>,
+      <span class="hljs-string">&quot;country&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;US&quot;</span>
+    }
+  }
+}
+</code></pre>
+<p>Once all required fields are filled in, we&apos;re able to click <code>Send request</code>. Workato sends the request you&apos;ve built to the app, and provides the full response back. In the following, we see that there&apos;s an error with the country we sent to Eventbrite as they only accept 2 character country codes.</p>
+<p><img src="../assets/images/developing-connectors/http/request-error.png" alt="Request error due to wrong country code value">
+<em>Request error due to wrong country code value</em></p>
+<p>Changing the country value from &quot;USA&quot; to &quot;US&quot; should resolve that. Click on <code>Back</code> to edit the JSON request, then on <code>Send request</code> again. Our request should be successful this time.</p>
+<p><img src="../assets/images/developing-connectors/http/request-success.png" alt="Request successful">
+<em>Request successful</em></p>
+<p>Check the connected application to see if your changes are successfully reflected on the system. In our example, we should see that the venue Madison Square Garden has been added to our Eventbrite venues list.</p>
+<h3 id="step-3-review-http-configuration">Step 3: Review HTTP configuration</h3>
+<p>With a successful request, we know that:</p>
+<ul>
+<li>the connection has been set up successfully,</li>
+<li>the API endpoint we&apos;re sending our request to is correct, and</li>
+<li>we&apos;re sending the right set of request body fields e.g. all required fields with valid values</li>
+</ul>
+<p>We can choose to customize our request further by going back to Step 2 to configure our request and sending another sample request. When we&apos;re happy with the configuration, click <code>Apply configuration</code>. The request and response will be saved to the Workato HTTP action, and the HTTP wizard returns you to the recipe page.</p>
+<p><img src="../assets/images/developing-connectors/http/configuration-applied.png" alt="Configuration applied for HTTP action">
+<em>Configuration applied for HTTP action</em></p>
+<h2 id="final-http-configuration">Final HTTP configuration</h2>
+<p>We know that this configuration works - now it&apos;s time to replace the static values with datapills that hold dynamic values. This is because we don&apos;t want every single job to create the venue Madison Square Garden - we want each job to automatically create the new venue that had been created in Salesforce. We should do the same for any values that should be dynamic instead of static.</p>
+<p><img src="../assets/images/developing-connectors/http/replace-static-values-with-datapills.gif" alt="Replace static values with datapills">
+<em>Replace static values with datapills</em></p>
+<p>This is what the HTTP configuration should look like after I&apos;ve put in my relevant datapills. This HTTP action is now ready to be used!</p>
+<p><img src="../assets/images/developing-connectors/http/completed-http-action.png" alt="Completed HTTP action">
+<em>Completed HTTP action</em></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+
+  <div class="ask">
+    <div class="ask__title">Didn’t find what you are looking for?</div>
+    <div class="ask__links">
+      <a href="http://resources.workato.com/content-library/" class="ask__link">
+        <span class="ask__link-title">Search our resource library</span>
+        <span class="ask__link-description">View getting started guides, tutorials, training videos, webinars and FAQ</span>
+      </a>
+      <a href="https://support.workato.com/support/discussions" class="ask__link">
+        <span class="ask__link-title">Ask our community</span>
+        <span class="ask__link-description">View questions and answers from other users and Workato experts.</span>
+      </a>
+      <a href="https://support.workato.com/support/tickets/new" class="ask__link">
+        <span class="ask__link-title">File a support ticket</span>
+        <span class="ask__link-description">File a support ticket for critical issues that require a higher level of support.</span>
+      </a>
+    </div>
+  </div>
+
+  
+<footer class="footer">
+  <div class="footer__terms">
+    <span class="footer__terms-item">
+      <a class="footer__terms-link" href="https://www.workato.com/privacy">Privacy</a>
+    </span>
+    <span class="footer__terms-item">
+      <a class="footer__terms-link" href="https://www.workato.com/terms">Terms</a>
+    </span>
+    <span class="footer__terms-item">
+      <a class="footer__terms-link" href="tel:+18444696752">(844) 469-6752</a>
+    </span>
+    <span class="footer__terms-item">Workato 2017</span>
+  </div>
+  <div class="footer__social">
+    <a class="footer__social-icon" href="mailto:info@workato.com">
+      <span class="fa fa-envelope"></span>
+    </a>
+    <a class="footer__social-icon" href="https://facebook.com/workato" rel="noopener" target="_blank">
+      <span class="fa fa-facebook"></span>
+    </a>
+    <a class="footer__social-icon" href="https://twitter.com/workato" rel="noopener" target="_blank">
+      <span class="fa fa-twitter"></span>
+    </a>
+    <a class="footer__social-icon" href="https://linkedin.com/company/workato" rel="noopener" target="_blank">
+      <span class="fa fa-linkedin"></span>
+    </a>
+  </div>
+</footer>
+
+
+            </div>
+
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"HTTP connector V2","date":"2018-07-23T15:00:00.000Z","level":"1.17.3","depth":2,"next":{"title":"Connection setup","level":"1.17.3.1","depth":3,"anchor":"#setup-your-http-connection","path":"developing-connectors/http-v2.md","ref":"developing-connectors/http-v2.md#setup-your-http-connection","articles":[]},"previous":{"title":"HTTP vs SDK","level":"1.17.2","depth":2,"path":"developing-connectors/http-vs-sdk.md","ref":"developing-connectors/http-vs-sdk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/http-v2.md","mtime":"2018-07-30T15:36:19.613Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-30T15:37:54.479Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+
+        
+  
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+  <script src="/assets/scripts/main.js"></script>
+  <style>.async-hide { opacity: 0 !important} </style>
+  <!-- Google Analytics -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104783574-1', 'auto');
+
+      ga('send', 'pageview');
+    });
+  </script>
+
+    </body>
+</html>
+
