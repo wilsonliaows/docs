@@ -220,6 +220,7 @@
     * [Scheduled query trigger](connectors/jdbc/scheduled-query-trigger.md)
   * [Jira](connectors/jira.md)
     * [Connection setup](connectors/jira.md#how-to-connect-to-jira-on-workato)
+    * [Using Jira real-time triggers](/connectors/jira.md#using-jira-real-time-triggers/)
     * [New/updated issue (real-time) trigger](connectors/jira/triggers.md#newupdated-issue-real-time)
     * [New issue trigger](connectors/jira/triggers.md#new-issue)
     * [Updated issue trigger](connectors/jira/triggers.md#updated-issue)

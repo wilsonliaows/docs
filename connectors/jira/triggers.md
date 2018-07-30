@@ -7,20 +7,18 @@ date: 2018-07-17 06:15:00 Z
 
 The following Jira triggers can be used to kickstart workflows in your recipes.
 
-Workato automatically fetches and expands all parameters. For more information, check out the Jira Cloud REST API documentation on [resource expansion](https://developer.atlassian.com/cloud/jira/platform/rest/#expansion).
+To simplify API responses, the Jira REST API uses resource expansion, which means that the API will only return parts of a resource when explicitly requested. Workato automatically fetches and expands all parameters. For more information, check out the Jira Cloud REST API documentation on [resource expansion](https://developer.atlassian.com/cloud/jira/platform/rest/#expansion).
 
 ## New/updated issue (real-time)
-This trigger picks up new/updated issues as soon as they are created/updated. Only issues for which the linked Jira account has sufficient permissions will be returned.
+This trigger picks up issues as soon as they are created/updated. Only issues for which the linked Jira account has sufficient permissions will be retrieved.
 
 ![New/updated issue (real time) trigger](/assets/images/jira-docs/new-updated-issue.png)
 *New/updated issue (real-time) trigger*
 
 ### Requirements
-
-The linked Jira account must have Jira administrators global permissions to use this real-time trigger. For more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
+The linked Jira account must have Jira administrators global permissions to use this real-time trigger. asdfFor more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](/connectors/jira.md#using-jira-real-time-triggers/).
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -39,7 +37,6 @@ The linked Jira account must have Jira administrators global permissions to use 
 </table>
 
 ### Output Fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -76,13 +73,12 @@ The linked Jira account must have Jira administrators global permissions to use 
 </table>
 
 ## New issue
-This trigger checks for new issues every 5 minutes. Only issues for which the linked Jira account has sufficient permissions will be returned.
+This trigger checks for new issues every 5 minutes. Only issues for which the linked Jira account has sufficient permissions will be retrieved.
 
 ![New issue](/assets/images/jira-docs/new-issue.png)
 *New issue trigger*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -101,7 +97,6 @@ This trigger checks for new issues every 5 minutes. Only issues for which the li
 </table>
 
 ### Output Fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -140,13 +135,12 @@ This trigger checks for new issues every 5 minutes. Only issues for which the li
 </table>
 
 ## Updated issue
-This trigger checks for updated issues every 5 minutes. Only issues for which the linked Jira account has sufficient permissions will be returned.
+This trigger checks for updated issues every 5 minutes. Only issues for which the linked Jira account has sufficient permissions will be retrieved.
 
 ![Updated issue](/assets/images/jira-docs/updated-issue.png)
 *Updated issue trigger*
 
 ### Input fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -165,7 +159,6 @@ This trigger checks for updated issues every 5 minutes. Only issues for which th
 </table>
 
 ### Output Fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -204,18 +197,15 @@ This trigger checks for updated issues every 5 minutes. Only issues for which th
 </table>
 
 ## New project
-
-This trigger checks for new projects every 5 minutes. Only projects for which the linked Jira account has sufficient permissions will be returned.
+This trigger checks for new projects every 5 minutes. Only projects for which the linked Jira account has sufficient permissions will be retrieved.
 
 ![New project](/assets/images/jira-docs/new-project.png)
 *New project trigger*
 
 ### Input fields
-
 No input fields are required.
 
 ### Output Fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -303,21 +293,18 @@ No input fields are required.
 Workato automatically fetches and expands all project parameters. For more information, check out the Jira Cloud REST API documentation on [resource expansion](https://developer.atlassian.com/cloud/jira/platform/rest/#expansion).
 
 ## New/updated comment (real-time)
-This trigger picks up new/updated comments as soon as they are created/updated. Only comments for which the linked Jira account has sufficient permissions will be returned.
+This trigger picks up comments as soon as they are created/updated. Only comments for which the linked Jira account has sufficient permissions will be retrieved.
 
 ![New/updated comments (real time) trigger](/assets/images/jira-docs/new-updated-comment.png)
 *New/updated comment (real-time) trigger*
 
 ### Requirements
-
 The linked Jira account must have Jira administrators global permissions to use this real-time trigger. For more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
 
 ### Input fields
-
 No input fields are required.
 
 ### Output Fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -422,21 +409,18 @@ No input fields are required.
 </table>
 
 ## New/updated worklog (real-time)
-This trigger picks up new/updated worklogs as soon as they are created/updated. Only worklogs for which the linked Jira account has sufficient permissions will be returned.
+This trigger picks up worklogs as soon as they are created/updated. Only worklogs for which the linked Jira account has sufficient permissions will be retrieved.
 
 ![New/updated worklogs (real-time) trigger](/assets/images/jira-docs/new-updated-worklog.png)
 *New/updated worklog (real-time) trigger*
 
 ### Requirements
-
 The linked Jira account must have Jira administrators global permissions to use this real-time trigger. For more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
 
 ### Input fields
-
 No input fields are required.
 
 ### Output Fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
