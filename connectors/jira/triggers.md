@@ -16,7 +16,7 @@ This trigger picks up issues as soon as they are created/updated. Only issues fo
 *New/updated issue (real-time) trigger*
 
 ### Requirements
-The linked Jira account must have Jira administrators global permissions to use this real-time trigger. asdfFor more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](/connectors/jira.md#using-jira-real-time-triggers/).
+The linked Jira account must have Jira administrators global permissions to use this real-time trigger. asdfFor more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](/connectors/jira.md#using-jira-real-time-triggers).
 
 ### Input fields
 <table class="unchanged rich-diff-level-one">
