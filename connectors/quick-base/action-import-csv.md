@@ -14,12 +14,11 @@ The action description text already gives you an overview of how it works. In th
 ### 1.1 Create records vs. Create & Update records
 This action can either create new Quick Base records only, or create & update Quick Base records at the same time. The way to control this behaviour depends on your provided CSV file and field mappings.
 
-**Create new records only**
+####Create new records only
 Workato uses Quick Base record ID to update records. If you only want to create new Quick Base records, just leave blank the first field in the `Column mappings` section, which is your table's `Record ID#` (Or if you use custom record ID column in your table, such as `Order ID` or `Customer ID`, this field name will change accordingly).
 
 ![Blank Record ID](/assets/images/connectors/quick-base/csv-import-record-id-blank.png)
-
-**Create & update records at the same time**
+####Create & update records at the same time
 If you want to create & update records at the same time, first you need to include a column containing Quick Base record ID in your CSV file.
 
 ![Record ID column in CSV file](/assets/images/connectors/quick-base/csv-record-id.png)
