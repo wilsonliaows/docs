@@ -575,8 +575,8 @@ This is extremely useful when syncing screenshots (attached to tickets) in Jira 
 ## Upload attachment
 This action allows you to upload attachments to existing issues.
 
-![Download attachment action](/assets/images/jira-docs/download-attachment.png)
-*Download attachment action*
+![Upload attachment action](/assets/images/jira-docs/upload-attachment.png)
+*Upload attachment action*
 
 ### Input fields
 
