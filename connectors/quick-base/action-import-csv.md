@@ -7,9 +7,9 @@ date: 2018-07-30 06:00:00 Z
 ![Quick Base's action: Create and update records in bulk from CSV file](/assets/images/connectors/quick-base/action-import-csv.png)
 
 ## 1. How it works
-This action takes a CSV file then create or update Quick Base records in bulk. Note that this action is not an Upsert operation, the reason of which we will explain below.
+This action takes a CSV file then create or update Quick Base records in bulk. Note that this action is not an Upsert operation: if you provide a record ID that does not exist in Quick Base, this action will reject the record instead of creating a new one.
 
-The action description text already gives you an overview of how it works. In this document, we will will discuss a few important points when using this action:
+The followings are key details to understand when using this action:
 
 ### 1.1 Create records vs. Create & Update records
 This action can either create new Quick Base records only, or create & update Quick Base records at the same time. The way to control this behaviour depends on your provided CSV file and field mappings.
@@ -29,21 +29,21 @@ Then in the `Column mappings` section, map your table's `Record ID#` column with
 
 Workato uses these record ID columns to decide whether to create or update records. The rule is that for each CSV row:
 - If record ID is empty, create a new Quick Base record.
-- If record ID is present, search for the matching record ID in Quick Base then update the record. If no matching record ID is found in Quick Base, that row will be fail.
+- If record ID is present, search for the matching record ID in Quick Base then update that record. If no matching record ID is found in Quick Base, that CSV row will be fail.
 
 ### 1.2 Handling failed CSV rows:
 This action uses [batch processing](https://docs.workato.com/features/batch-processing.html), so it will divide your CSV file into smaller chunks of rows (or batches) then submit to Quick Base. When 1 row in a chunk failed to be created/updated into Quick Base records, Quick Base will reject that whole chunk, but other chunks will not be affected.
 
-When some rows failed, however, the action may still be considered "complete". It is because Quick Base has successfully accepted the CSV file, but some rows failed to be created/updated into Quick Base records. Quick Base API will send back a "success" response with list of successful and failed records.
+When some rows failed, however, the action may still be considered "complete". It is because Quick Base has successfully accepted the CSV file. Quick Base API will then send back a "success" response with list of successful and failed records.
 
 In this example, the job report shows "Complete" status. However, when we check the action output, there is actually 1 failed chunk.
 ![Job complete](/assets/images/connectors/quick-base/csv-import-job-complete.png)
 
 ![Chunk error](/assets/images/connectors/quick-base/csv-import-chunk-error.png)
 
-It is thus important to always handle failed CSV rows in your recipe. The output pill `CSV contents of failed records` contains all failed CSV rows. You can use this to save the failed rows into a CSV file. Then check the job report for error reason, fix those failed rows and re-import them later.
+It is thus important to always handle failed CSV rows in your recipe. The output pill `CSV contents of failed records` contains all failed CSV rows. You can use this to save the failed rows into a CSV file. Then check the job report for error reason, fix those failed rows and use this action to re-import them later.
 
-Here is [a sample recipe](https://preview.workato.com/recipes/25445#recipe) in which we saved the fail rows into a CSV file in Box. You can save the CSV file into other file storage systems, using connectors such as Amazon S3, SFTP, On-premises file, etc.
+Here is [a sample recipe](https://preview.workato.com/recipes/25445#recipe) in which we saved the failed rows into a CSV file in Box. You can save the CSV file into other file storage systems, using connectors such as Amazon S3, SFTP, On-premises file, etc.
 
 ![Handling failed CSV rows](/assets/images/connectors/quick-base/csv-import-error-handling.png)
 
