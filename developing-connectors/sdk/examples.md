@@ -56,4 +56,4 @@
 
 - [TSheets connector](https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/custom_auth/tsheets_connector.rb)
 
-Check out the full list of example custom adapters built by developers [here](https://github.com/workato/custom_connector_docs)
+Check out the full list of example custom adapters built by developers [here](https://github.com/workato/custom_connector_docs) and our [developer page](https://developer.workato.com/) to learn more.
