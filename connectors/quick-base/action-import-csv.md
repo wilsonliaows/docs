@@ -3,7 +3,7 @@ title: Workato connectors - Quick Base's action - Create and update records in b
 date: 2018-07-30 06:00:00 Z
 ---
 
-#Quick Base's action: Create and update records in bulk from CSV file
+# Quick Base's action: Create and update records in bulk from CSV file
 ![Quick Base's action: Create and update records in bulk from CSV file](/assets/images/connectors/quick-base/action-import-csv.png)
 
 ## 1. How it works
@@ -14,12 +14,12 @@ The action description text already gives you an overview of how it works. In th
 ### 1.1 Create records vs. Create & Update records
 This action can either create new Quick Base records only, or create & update Quick Base records at the same time. The way to control this behaviour depends on your provided CSV file and field mappings.
 
-####Create new records only
-Workato uses Quick Base record ID to update records. If you only want to create new Quick Base records, just leave blank the first field in the `Column mappings` section, which is your table's `Record ID#` (Or if you use custom record ID column in your table, such as `Order ID` or `Customer ID`, this field name will change accordingly).
+#### Create new records only
+If you only want to create new Quick Base records, just leave the first field in the `Column mappings` section, which is your table's `Record ID#`, blank. If you use custom record ID column in your table, such as Order ID or Customer ID, this field name will change accordingly.
 
 ![Blank Record ID](/assets/images/connectors/quick-base/csv-import-record-id-blank.png)
-####Create & update records at the same time
-If you want to create & update records at the same time, first you need to include a column containing Quick Base record ID in your CSV file.
+#### Create & update records at the same time
+If you want to create & update Quick Base records at the same time, first you need to include a column containing Quick Base record ID in your CSV file.
 
 ![Record ID column in CSV file](/assets/images/connectors/quick-base/csv-record-id.png)
 
@@ -29,7 +29,7 @@ Then in the `Column mappings` section, map your table's `Record ID#` column with
 
 Workato uses these record ID columns to decide whether to create or update records. The rule is that for each CSV row:
 - If record ID is empty, create a new Quick Base record.
-- If record ID is present, update that Quick Base record. If no matching record ID is found in Quick Base, that row will be fail.
+- If record ID is present, search for the matching record ID in Quick Base then update the record. If no matching record ID is found in Quick Base, that row will be fail.
 
 ### 1.2 Handling failed CSV rows:
 This action uses [batch processing](https://docs.workato.com/features/batch-processing.html), so it will divide your CSV file into smaller chunks of rows (or batches) then submit to Quick Base. When 1 row in a chunk failed to be created/updated into Quick Base records, Quick Base will reject that whole chunk, but other chunks will not be affected.
@@ -41,7 +41,9 @@ In this example, the job report shows "Complete" status. However, when we check 
 
 ![Chunk error](/assets/images/connectors/quick-base/csv-import-chunk-error.png)
 
-It is thus important to always handle failed CSV rows in your recipe. The output pill `CSV contents of failed records` contains all failed CSV rows. You can use this to save the failed rows into a CSV file. Then check the job report for error reason, fix those failed rows and re-import them later. Here is [a sample recipe](https://preview.workato.com/recipes/25445#recipe) with failed-rows handling:
+It is thus important to always handle failed CSV rows in your recipe. The output pill `CSV contents of failed records` contains all failed CSV rows. You can use this to save the failed rows into a CSV file. Then check the job report for error reason, fix those failed rows and re-import them later.
+
+Here is [a sample recipe](https://preview.workato.com/recipes/25445#recipe) in which we saved the fail rows into a CSV file in Box. You can save the CSV file into other file storage systems, using connectors such as Amazon S3, SFTP, On-premises file, etc.
 
 ![Handling failed CSV rows](/assets/images/connectors/quick-base/csv-import-error-handling.png)
 
@@ -92,10 +94,10 @@ Using this `Chunk size (KB)`, you can customise the chunk size (in kilobytes) to
 
 | Output pill | Description |
 |---|---|
-| Number of records created | Number of records successfully created in Quick Base |
-| Number of records updated | Number of records successfully updated in Quick Base |
-| Number of records failed |  |
-| Number of records unchanged |  |
+| Number of records created | Number of records successfully created in Quick Base. |
+| Number of records updated | Number of records successfully updated in Quick Base. |
+| Number of records failed | Number of CSV rows failed to be created or updated into Quick Base records. |
+| Number of records unchanged | Number of records unchanged after this action. |
 | List of records created or updated | This is a [List pill](https://docs.workato.com/features/list-management.html). This list includes the Quick Base Record IDs of all successfully created/updated records. |
 | CSV contents of failed records | This pill include the contents of all CSV rows that are failed to be created/updated into Quick Base. You can use this pill to create a CSV file containing all failed rows, for you to fix and re-submit later. |
 | List of chunks | This is a [List pill](https://docs.workato.com/features/list-management.html). Since the action divides your CSV into smaller chunks of rows, this list includes all of those chunks with their attributes below. |
