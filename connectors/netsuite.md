@@ -251,7 +251,7 @@ There are certain records the trigger does not support, as they cannot be querie
 - Support case priority
 - Support case status
 - Support case type
-- Tax acct
+- Tax account
 - Tax group
 - Tax type
 - Currency revalutaion
@@ -302,7 +302,7 @@ There are certain records the trigger does not support, as they cannot be querie
 - Support case priority
 - Support case status
 - Support case type
-- Tax acct
+- Tax account
 - Tax group
 - Tax type
 - Currency revalutaion
