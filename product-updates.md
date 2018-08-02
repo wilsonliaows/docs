@@ -18,7 +18,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 ### Connector enhancements
 
 #### HTTP connector
--  New HTTP action wizard guide
+-  [New HTTP action wizard guide](/developing-connectors/http-v2.md)
 
 ## June 22 - July 05 2018
 **Find more details on June's updates in our [blog post](https://product.workato.com/2018/07/05/july-2018-product-release/).**
