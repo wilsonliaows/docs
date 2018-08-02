@@ -67,9 +67,9 @@ The following recipe demonstrates another way to prevent such data duplication, 
 ![Example recipe that syncs NetSuite sales orders with FinancialForce invoices. If the NetSuite sales order is newly created, we create a FinancialForce invoice and update the NetSuite sales order with the FinancialForce ID. If this NetSuite sales order has been previously synced (and therefore has an external ID), we take that FinancialForce ID in the external ID and update that FinancialForce invoice.](/assets/images/troubleshooting/recipe-with-update-logic.png)
 *Example recipe that syncs NetSuite sales orders with FinancialForce invoices*
 
-If we expand Step 3, we see that we're mapping the NetSuite sales order external ID with the FinancialForce invoice's ID.
+If we expand Step 3, we see that we're mapping the NetSuite sales order external ID into the FinancialForce invoice's ID.
 
-![Example recipe that syncs NetSuite sales orders with FinancialForce invoices - the action in Step 3 updates the NetSuite invoice with an external ID. This ensures that no FinancialForce invoice will be created again to cause duplication](/assets/images/troubleshooting/update-netsuite-sales-order-external-id-2.png)
+![Example recipe that syncs NetSuite sales orders with FinancialForce invoices - the action in Step 3 updates the NetSuite invoice with an external ID. This ensures that no FinancialForce invoice will be created again to cause duplication](/assets/images/troubleshooting/update-netsuite-sales-order-external-id-2.gif)
 
 ## Missing trigger events
 If you start your recipe and realize that it doesn't seem to be picking up certain trigger events that you're expecting, it might be because you're using a **New object** trigger together with a trigger condition, when you should be using a **New/updated object** trigger with the trigger condition instead. This is because trigger conditions are evaluated by Workato after trigger events have been fetched.
