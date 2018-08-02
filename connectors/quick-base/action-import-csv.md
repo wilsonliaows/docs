@@ -34,7 +34,7 @@ Workato uses these record ID columns to decide whether to create or update recor
 ### 1.2 Handling failed CSV rows:
 This action uses [batch processing](https://docs.workato.com/features/batch-processing.html), so it will divide your CSV file into smaller chunks of rows (or batches) then submit to Quick Base. When 1 row in a chunk failed to be created/updated into Quick Base records, Quick Base will reject that whole chunk, but other chunks will not be affected.
 
-When some rows failed, however, the action may still be considered "complete". It is because Quick Base has successfully accepted the CSV file. Quick Base API will then send back a "success" response with list of successful and failed records.
+When some rows fail, however, the action may still be considered "complete". It is because Quick Base has successfully accepted the CSV file. Quick Base API will then send back a "success" response with list of successful and failed records.
 
 In this example, the job report shows "Complete" status. However, when we check the action output, there is actually 1 failed chunk.
 ![Job complete](/assets/images/connectors/quick-base/csv-import-job-complete.png)
