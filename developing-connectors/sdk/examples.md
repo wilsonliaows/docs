@@ -41,7 +41,7 @@
 ## API Key Authentication Samples
 - [Gender API connector](https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/api_key_auth/gender_api_connector.rb)
 
-- [Hipchat connector](https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/custom_auth/hipchat_connector.rb)
+- [Hipchat connector](https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/api_key_auth/hipchat_connector.rb)
 
 - [Codeship connector](https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/api_key_auth/codeship_connector.rb)
 
