@@ -6,12 +6,12 @@ date: 2018-07-30 06:00:00 Z
 # Quick Base's action: Create and update records in bulk from CSV file
 ![Quick Base's action: Create and update records in bulk from CSV file](/assets/images/connectors/quick-base/action-import-csv.png)
 
-## 1. How it works
+## How it works
 This action takes a CSV file then create or update Quick Base records in bulk. Note that this action is not an Upsert operation: if you provide a record ID that does not exist in Quick Base, this action will reject the record instead of creating a new one.
 
 The followings are key details to understand when using this action:
 
-### 1.1 Create records vs. Create & Update records
+### Create records vs. Create & Update records
 This action can either create new Quick Base records only, or create & update Quick Base records at the same time. The way to control this behaviour depends on your provided CSV file and field mappings.
 
 #### Create new records only
@@ -31,7 +31,7 @@ Workato uses these record ID columns to decide whether to create or update recor
 - If record ID is empty, create a new Quick Base record.
 - If record ID is present, search for the matching record ID in Quick Base then update that record. If no matching record ID is found in Quick Base, that CSV row will be fail.
 
-### 1.2 Handling failed CSV rows:
+### Handling failed CSV rows
 This action uses [batch processing](https://docs.workato.com/features/batch-processing.html), so it will divide your CSV file into smaller chunks of rows (or batches) then submit to Quick Base. When 1 row in a chunk failed to be created/updated into Quick Base records, Quick Base will reject that whole chunk, but other chunks will not be affected.
 
 When some rows fail, however, the action may still be considered "complete". It is because Quick Base has successfully accepted the CSV file. Quick Base API will then send back a "success" response with list of successful and failed records.
@@ -47,14 +47,14 @@ Here is [a sample recipe](https://preview.workato.com/recipes/25445#recipe) in w
 
 ![Handling failed CSV rows](/assets/images/connectors/quick-base/csv-import-error-handling.png)
 
-## 2. Input fields
+## Input fields
 For this action to work, you need to configure these 4 sections:
 1. Quick Base table
 2. CSV file input
 3. Column mappings
 4. Advanced settings
 
-### 2.1 Quick Base table
+### Quick Base table
 ![Quick Base table settings](/assets/images/connectors/quick-base/input-quick-base-table.png)
 
 Configure what Quick Base table you want to import the data to.
@@ -63,7 +63,7 @@ Pay attention to the field `Record ID`. It is important to select the correct co
 
 By default, Quick Base uses a field named `Record ID`. But in some cases, you may use custom column as record ID, for example `Sales Order ID`, `Customer ID`, etc.
 
-### 2.2 CSV file input
+### CSV file input
 ![CSV file input](/assets/images/connectors/quick-base/input-CSV.png)
 
 Provide the contents of your CSV file and describe the column structure.
@@ -72,7 +72,7 @@ You can get `File contents` data pill from [other connectors' actions or trigger
 
 Note that the file contents must be **comma-separated and UTF-8 format**.
 
-### 2.3 Column mappings
+### Column mappings
 ![Quick Base - CSV column mappings](/assets/images/connectors/quick-base/input-CSV-column-mappings.png)
 
 This section lists down all columns in your Quick Base table. You need to map them with the respective columns in your CSV file.
@@ -81,14 +81,14 @@ Pay attention to the first input field, `Record ID`. Make sure to map it with th
 
 ![Record ID in CSV file](/assets/images/connectors/quick-base/csv-record-id.png)
 
-### 2.4 Advanced settings
+### Advanced settings
 ![Chunk size](/assets/images/connectors/quick-base/csv-advanced-settings.png)
 
 Since this action uses [batch processing](https://docs.workato.com/features/batch-processing.html), it divides your CSV file into smaller chunks of rows to submit to Quick Base. This allows you to submit a large CSV file without hitting Quick Base API limit.
 
 Using this `Chunk size (KB)`, you can customise the chunk size (in kilobytes) to your need. In general, larger chunk size will shorten the time to transfer a large file.
 
-## 3. Output
+## Output
 ![Output pills](/assets/images/connectors/quick-base/csv-import-output-1.png)
 ![Ouput pills](/assets/images/connectors/quick-base/csv-import-output-2.png)
 
