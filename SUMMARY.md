@@ -334,6 +334,7 @@
     * [Connection setup](connectors/workday/connection_setup.md)
     * [Get report](connectors/workday/get_report.md)
     * [Scheduled report](connectors/workday/scheduled_report.md)
+    * [Call operation](connectors/workday/call_operation.md)
     * [Report-as-a-Service](connectors/workday/workday_raas.md)
 * [Developing connectors](developing-connectors.md)
   * [Custom actions](/developing-connectors/custom-actions.md)

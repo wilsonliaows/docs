@@ -12,4 +12,5 @@ Workday documentation contains the following chapters:
 1. [Connection setup](workday/connection_setup.md)
 2. [Get report](workday/get_report.md)
 3. [Scheduled report](workday/scheduled_report.md)
-4. [Workday RaaS](workday/workday_raas.md)
+4. [Call operation](workday/call_operation.md)
+5. [Workday RaaS](workday/workday_raas.md)
