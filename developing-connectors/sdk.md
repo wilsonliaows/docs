@@ -55,6 +55,6 @@ When the custom connector owner makes a change to the custom connector code, all
 The upgrade function will overwrite the copy of the custom connector code with the latest version of the master copy of the custom connector. This means that any changes to the custom connector code made by the requester will be overwritten. Do take note that this upgrade link appears whenever there is any change to the master copy of the custom connector, not necessarily when the custom connector owner has made a curated change.
 
 ## Public connector
-To enable global scope for your private connector, and make it such that all Workato users will be able to view and use your custo connector, you have to submit your code to Workato for review. Our team will approve or request for modifications within a few days.
+To enable global scope for your private connector, and make it such that all Workato users will be able to view and use your custom connector, you have to submit your code to Workato for review. Our team will approve or request for modifications within a few days.
 
-You can begin this process by submitting a pull request to our [custom connectors repository](https://github.com/workato/connector_sdk).
+You can begin this process by submitting a pull request to our [custom connectors repository](https://github.com/workato/custom_connector_docs).
