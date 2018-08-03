@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>JSON · Workato Docs</title>
+        <title>Form URL Encoded · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="xml-format.html" />
+    <link rel="next" href="request_format_multipart_form.html" />
     
     
-    <link rel="prev" href="../data-format.html" />
+    <link rel="prev" href="xml-format.html" />
     
 
     
@@ -122,7 +122,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="../../..">JSON</a>
+          <a href="../../..">Form URL Encoded</a>
         </h1>
       </div>
     </div>
@@ -6262,7 +6262,7 @@
         <ul class="articles">
           
   
-    <li class="chapter active" data-level="1.18.9.1" data-path="json-format.html">
+    <li class="chapter " data-level="1.18.9.1" data-path="json-format.html">
       
 
       
@@ -6292,7 +6292,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.9.3" data-path="form-url-encoded.html">
+    <li class="chapter active" data-level="1.18.9.3" data-path="form-url-encoded.html">
       
 
       
@@ -6532,36 +6532,73 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="json-data-format">JSON data format</h1>
-<p>Default expected data format is JSON. Action and trigger inputs will be passed as JSON payloads if no request format is specified.</p>
-<p>Similarly, if no response format is specified, SDK will parse body as JSON. JSON parser error will be raised otherwise.</p>
-<h2 id="example-action">Example action:</h2>
-<pre><code class="lang-ruby"><span class="hljs-symbol">post_message:</span> {
-  <span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span> |object_definitions|
-    object_definitions[<span class="hljs-string">&apos;message_detail&apos;</span>].only(<span class="hljs-string">&apos;roomId&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>, <span class="hljs-string">&apos;toPersonEmail&apos;</span>, <span class="hljs-string">&apos;toPersonId&apos;</span>)
-  <span class="hljs-keyword">end</span>,
-
-  <span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection,input|
-    post(<span class="hljs-string">&quot;https://api.ciscospark.com/v1/messages&quot;</span>, input)
-  <span class="hljs-keyword">end</span>,
-
-  <span class="hljs-symbol">output_fields:</span> lambda <span class="hljs-keyword">do</span> |object_definitions|
-    object_definitions[<span class="hljs-string">&apos;message_detail&apos;</span>]
-  <span class="hljs-keyword">end</span>
-}
+                                <h1 id="form-urlencoded">Form urlencoded</h1>
+<p>This request format can be declared in any blocks (<code>execute</code>, <code>acquire</code>, <code>fields</code> etc.) in your custom adapter code. It should be chained to one of the <a href="../walk-through.html#base-request">base request</a>.</p>
+<h2 id="example">Example</h2>
+<p>Let&apos;s use the Submit data to a form endpoint in <a href="https://developers.hubspot.com/docs/methods/forms/submit_form" target="_blank">HubSpot API</a> as an example. This endpoint accepts form data in form urlencoded format.</p>
+<p>A cURL example looks like this:</p>
+<pre><code class="lang-sh">curl \
+  https://forms.hubspot.com/uploads/form/v2/12345/67890 \
+  -X POST \
+  -H <span class="hljs-string">&apos;Content-Type: application/x-www-form-urlencoded&apos;</span> \
+  <span class="hljs-_">-d</span> <span class="hljs-string">&apos;firstname=TestContact&amp;lastname=FormSub&amp;email=formsub@hubspot.com&amp;newcustomproperty=testing&amp;hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D&apos;</span>
 </code></pre>
-<h3 id="request">Request</h3>
-<pre><code>POST https://api.ciscospark.com/v1/messages
-Accept  application/json
-Content-Type  application/json
-Authorization Bearer ---
-</code></pre><p>Request body:</p>
-<pre><code>{&quot;roomId&quot;:&quot;Y2lzY29zcGFyazovL3VzL1JPT00vN2I0N2UxMjAtMmNlNS0xMWU2LTgwNmEtODcxN2MxNDgxM2Zm&quot;,&quot;text&quot;:&quot;testing&quot;}
-</code></pre><h3 id="response">Response</h3>
-<p>Status: <code>200 OK</code></p>
-<p>Response body:</p>
-<pre><code>{&quot;id&quot;:&quot;Y2lzY29zcGFyazovL3VzL01FU1NBR0UvMTUyYzVjMzAtMTIyOC0xMWU3LTgxYzctNWYyZmJlNmUxZmYw&quot;,&quot;roomId&quot;:&quot;Y2lzY29zcGFyazovL3VzL1JPT00vN2I0N2UxMjAtMmNlNS0xMWU2LTgwNmEtODcxN2MxNDgxM2Zm&quot;,&quot;roomType&quot;:&quot;group&quot;,&quot;text&quot;:&quot;testing&quot;,&quot;personId&quot;:&quot;Y2lzY29zcGFyazovL3VzL1BFT1BMRS9mMmM2Y2NiNi0xYTc4LTQ3NzQtYjZjNC04OWI2YWE0ZTcxOWE&quot;,&quot;personEmail&quot;:&quot;eeshan@workato.com&quot;,&quot;created&quot;:&quot;2017-03-26T13:28:22.131Z&quot;}
+<p>This cURL command can be replicated in Workato:</p>
+<pre><code class="lang-ruby">{
+  <span class="hljs-symbol">title:</span> <span class="hljs-string">&quot;HubSpot&quot;</span>,
+
+  <span class="hljs-symbol">connection:</span> {...},
+
+  <span class="hljs-symbol">actions:</span> {
+    <span class="hljs-symbol">submit_form:</span> {
+      <span class="hljs-symbol">input_fields:</span> lambda <span class="hljs-keyword">do</span>
+        [
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;portal_id&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;form_guid&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;hutk&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;ipAddress&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;pageUrl&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;pageName&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span> },
+          { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;redirectUrl&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:string</span> }
+        ]
+      <span class="hljs-keyword">end</span>,
+
+      <span class="hljs-symbol">execute:</span> lambda <span class="hljs-keyword">do</span> |connection, input|
+        post(<span class="hljs-string">&quot;https://forms.hubspot.com/uploads/form/v2/<span class="hljs-subst">#{input[<span class="hljs-string">&apos;portal_id&apos;</span>]}</span>/<span class="hljs-subst">#{input[<span class="hljs-string">&apos;form_guid&apos;</span>]}</span>&quot;</span>).
+          request_format_www_form_urlencoded.
+          request_body(
+            input.reject { |k,v| k == <span class="hljs-string">&apos;portal_id&apos;</span> || k == <span class="hljs-string">&apos;form_guid&apos;</span> }
+          )
+      <span class="hljs-keyword">end</span>
+    },
+
+    <span class="hljs-symbol">output_fields:</span> {...}
+  },
 </code></pre>
+<h2 id="components">Components</h2>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+      <tr>
+          <th>cURL</th>
+          <th>Workato</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST</code></td>
+      <td><code>post(&quot;https://forms.hubspot.com/uploads/form/v2/#{input[&apos;portal_id&apos;]}/#{input[&apos;form_guid&apos;]}&quot;)</code></td>
+    </tr>
+    <tr>
+      <td><code>-H &apos;Content-Type: application/x-www-form-urlencoded&apos;</code></td>
+      <td><code>.request_format_www_form_urlencoded</code></td>
+    </tr>
+    <tr>
+      <td><code>-d &apos;{data}&apos;</code></td>
+      <td><code>.request_body(input.reject { |k,v| k == &apos;portal_id&apos; || k == &apos;form_guid&apos; })</code></td>
+    </tr>
+  </tbody>
+</table>
+
                                 
                                 </section>
                             
@@ -6643,7 +6680,7 @@ Authorization Bearer ---
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.18.9.1","depth":3,"next":{"title":"XML","level":"1.18.9.2","depth":3,"path":"developing-connectors/sdk/data-format/xml-format.md","ref":"developing-connectors/sdk/data-format/xml-format.md","articles":[]},"previous":{"title":"Data format","level":"1.18.9","depth":2,"path":"developing-connectors/sdk/data-format.md","ref":"developing-connectors/sdk/data-format.md","articles":[{"title":"JSON","level":"1.18.9.1","depth":3,"path":"developing-connectors/sdk/data-format/json-format.md","ref":"developing-connectors/sdk/data-format/json-format.md","articles":[]},{"title":"XML","level":"1.18.9.2","depth":3,"path":"developing-connectors/sdk/data-format/xml-format.md","ref":"developing-connectors/sdk/data-format/xml-format.md","articles":[]},{"title":"Form URL Encoded","level":"1.18.9.3","depth":3,"path":"developing-connectors/sdk/data-format/form-url-encoded.md","ref":"developing-connectors/sdk/data-format/form-url-encoded.md","articles":[]},{"title":"Multipart Form","level":"1.18.9.4","depth":3,"path":"developing-connectors/sdk/data-format/request_format_multipart_form.md","ref":"developing-connectors/sdk/data-format/request_format_multipart_form.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/data-format/json-format.md","mtime":"2018-08-03T06:36:14.170Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-03T06:37:26.288Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Form URL Encoded","level":"1.18.9.3","depth":3,"next":{"title":"Multipart Form","level":"1.18.9.4","depth":3,"path":"developing-connectors/sdk/data-format/request_format_multipart_form.md","ref":"developing-connectors/sdk/data-format/request_format_multipart_form.md","articles":[]},"previous":{"title":"XML","level":"1.18.9.2","depth":3,"path":"developing-connectors/sdk/data-format/xml-format.md","ref":"developing-connectors/sdk/data-format/xml-format.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/data-format/form-url-encoded.md","mtime":"2018-08-03T06:36:14.170Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-03T06:37:26.288Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
