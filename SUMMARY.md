@@ -373,6 +373,8 @@
   * [Data format](developing-connectors/sdk/data-format.md)
     * [JSON](developing-connectors/sdk/data-format/json-format.md)
     * [XML](developing-connectors/sdk/data-format/xml-format.md)
+    * [Form URL Encoded](developing-connectors/sdk/data-format/form-url-encoded.md)
+    * [Multipart Form](developing-connectors/sdk/data-format/request_format_multipart_form.md)
   * [Methods](developing-connectors/sdk/methods.md)
   * [Reusable methods](developing-connectors/sdk/reusable-methods.md)
   * [Pick lists](developing-connectors/sdk/pick-list.md)
