@@ -254,7 +254,7 @@ There are certain records the trigger does not support, as they cannot be querie
 - Tax account
 - Tax group
 - Tax type
-- Currency revalutaion
+- Currency revaluation
 - Payroll adjustment
 - Inventory worksheet
 
@@ -305,7 +305,7 @@ There are certain records the trigger does not support, as they cannot be querie
 - Tax account
 - Tax group
 - Tax type
-- Currency revalutaion
+- Currency revaluation
 - Payroll adjustment
 - Inventory worksheet
 
