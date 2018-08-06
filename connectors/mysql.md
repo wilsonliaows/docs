@@ -52,6 +52,41 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
   </tbody>
 </table>
 
+### Permissions required to connect
+
+At minimum, the database user account must be granted `SELECT` permission to the database specified in [connection fields](#how-to-connect-to-mysql-on-workato).
+
+If we are trying to connect to a MySQL database instance to a named database `HR_PROD` using a new dedicated database user `workato`. The following example queries can be used.
+
+First, create a new user specially for integration use cases with Workato.
+```sql
+CREATE USER 'workato' IDENTIFIED BY 'password';
+```
+
+Next, grant access to all tables in `HR_PROD`. In this example, we only wish to grant `SELECT` permissions.
+
+```sql
+GRANT SELECT ON `HR_PROD`.* TO 'workato';
+```
+
+Finally, check that this user has the necessary permissions. Run a query to see all grants.
+
+```sql
+SHOW GRANTS FOR 'workato';
+```
+
+This should return the following minimum permission to create a MySQL connection.
+
+```
++---------------------------------------------------------------------+
+| Grants for workato@%                                                |
++---------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'workato'@'%' IDENTIFIED BY PASSWORD <secret> |
+| GRANT SELECT ON `HR_PROD`.* TO 'workato'@'%'                        |
++---------------------------------------------------------------------+
+2 rows in set (0.24 sec)
+```
+
 ## Working with the MySQL connector
 
 ### Table, view and stored procedure
