@@ -17,7 +17,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 ### Connector enhancements
 - Shopify: Inventory API changes. **These changes will result in your recipes breaking if you are using Shopify connector actions**. Please view this [document](https://support.workato.com/support/solutions/articles/1000266904-shopify-connector-inventory-api-breaking-changes) for more information.  
 - New connector: [JDBC](https://docs.workato.com/connectors/jdbc.html) (in beta)
-- Workbot for Slack: Post Message & Post Command Reply actions— added support for multiple attachments.
+- Workbot for Slack: Post Message & Post Command Reply actions — added support for multiple attachments.
 - Eventbrite: Now supports Eventbrite Music
 - Salesforce: New get document by ID action
 - Workday: Enhancements to fields with attributes and repeated fields. View this [documentation](https://docs.workato.com/connectors/workday/call_operation.html) to learn more.
