@@ -56,6 +56,59 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
   </tbody>
 </table>
 
+### Permissions required to connect
+
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato).
+
+If we are trying to connect to a SQL Server instance to a named database (`HR_PROD`), using a new database user `workato`, the following example queries can be used.
+
+First, create a new login and user dedicated to integration use cases with Workato.
+```sql
+CREATE LOGIN workato WITH PASSWORD = password;
+USE HR_PROD;
+CREATE USER workato FOR LOGIN workato;
+```
+
+Next, this user should be granted permission to the necessary tables. There are a few ways to do this. One of the simplest way is to grant access based on a **ROLE**.
+
+```sql
+ALTER ROLE db_datareader ADD MEMBER workato;
+```
+
+Alternatively, we can grant access to all tables defined by a **SCHEMA**, `HR`.
+
+```sql
+GRANT SELECT,INSERT ON SCHEMA :: HR TO workato;
+```
+
+Finally, check that this user has the necessary permissions. Run a query to see all permissions.
+
+```sql
+SELECT
+  pr.name,
+  pr.type_desc,
+  perm.permission_name,
+  perm.class_desc,
+  object_name(perm.major_id) AS "object",
+  schema_name(perm.major_id) AS "schema"
+FROM sys.database_principals pr
+LEFT JOIN sys.database_permissions perm ON perm.grantee_principal_id = pr.principal_id
+WHERE p.name = 'workato';
+```
+
+This should return the following minimum permission to create a SQL Server connection on Workato.
+
+```
++---------+-----------+-----------------+------------+--------+-------------+
+| name    | type_desc | permission_name | class_desc | object | schema      |
++---------+-----------+-----------------+------------+--------+-------------+
+| workato | SQL_USER  | CONNECT         | DATABASE   | NULL   | NULL        |
+| workato | SQL_USER  | INSERT          | SCHEMA     | NULL   | workatodemo |
+| workato | SQL_USER  | SELECT          | SCHEMA     | NULL   | workatodemo |
++---------+-----------+-----------------+------------+--------+-------------+
+3 rows in set (0.20 sec)
+```
+
 ## Working with the SQL Server connector
 
 ### Table, view and stored procedure

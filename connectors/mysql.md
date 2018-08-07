@@ -58,7 +58,7 @@ At minimum, the database user account must be granted `SELECT` permission to the
 
 If we are trying to connect to a MySQL instance to a named database (`HR_PROD`), using a new database user `workato`, the following example queries can be used.
 
-First, create a new user dedicated ti integration use cases with Workato.
+First, create a new user dedicated to integration use cases with Workato.
 ```sql
 CREATE USER 'workato' IDENTIFIED BY 'password';
 ```
@@ -75,7 +75,7 @@ Finally, check that this user has the necessary permissions. Run a query to see 
 SHOW GRANTS FOR 'workato';
 ```
 
-This should return the following minimum permission to create a MySQL connection.
+This should return the following minimum permission to create a MySQL connection on Workato.
 
 ```
 +---------------------------------------------------------------------+
