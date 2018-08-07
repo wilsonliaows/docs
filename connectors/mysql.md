@@ -63,7 +63,9 @@ First, create a new user dedicated to integration use cases with Workato.
 CREATE USER 'workato' IDENTIFIED BY 'password';
 ```
 
-Next, grant access to all tables in `HR_PROD`. In this example, we only wish to grant `SELECT` permissions.
+This allows the user to have login access to the MySQL instance. However, this user will not have access to any tables.
+
+The next step is to grant access to all tables in `HR_PROD`. In this example, we only wish to grant `SELECT` permissions.
 
 ```sql
 GRANT SELECT ON `HR_PROD`.* TO 'workato';

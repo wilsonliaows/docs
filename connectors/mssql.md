@@ -69,7 +69,9 @@ USE HR_PROD;
 CREATE USER workato FOR LOGIN workato;
 ```
 
-Next, this user should be granted permission to the necessary tables. There are a few ways to do this. One of the simplest way is to grant access based on a **ROLE**.
+This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.
+
+The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest way is to grant access based on a **ROLE**.
 
 ```sql
 ALTER ROLE db_datareader ADD MEMBER workato;
