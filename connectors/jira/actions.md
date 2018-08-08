@@ -62,21 +62,33 @@ This action creates an issue in Jira based on the specified project, issue type,
 </table>
 
 #### Project issue type
-Selecting a project issue type will retrieve the issue's fields (as specified by your Jira issue type scheme) for you to populate with datapills. You can select a project issue type from the picklist provided.
+Selecting a project issue type will retrieve the issue's fields (as specified by your Jira issue type scheme) for you to populate with datapills. You can select a project issue type from the picklist provided. This also retrieves the corresponding issue type's fields.
 
-![Project issue type picklist](/assets/images/jira-docs/project-issue-type-picklist.png)
+![Project issue type picklist](/assets/images/jira-docs/project-issue-type-picklist.gif)
 *Specifying a project issue type using the picklist*
 
+You can also use the project **Key** and issue type **Name** datapills, separated by two hyphens '--'e.g. <kbd>Key</kbd>--<kbd>Name</kbd> to dynamically generate the project issue type. This is especially useful if you want to dynamically create issues across a range of projects and issue types.
 
-Alternatively, you can also enter the project & issue type manually by entering the project key and the issue type, separated by two hyphens, e.g. **PROJ--Bug**. This method also retrieves the corresponding issue's fields.
+![Project issue type dynamic](/assets/images/jira-docs/project-issue-type-dynamic.gif)
+
+Alternatively, you can also hardcode the project & issue type by manually entering the project key and the issue type, again separated by two hyphens, e.g. **PROJ--Bug**.
 
 ![Project issue type text](/assets/images/jira-docs/project-issue-type-text.png)
 *Specifying a project issue type manually*
 
-#### Sample project issue Type
-If your project issue type has custom fields (as defined by your Jira field configuration schemes), you may want to retrieve them by using this field.
+#### Sample project issue type
+The **Sample project issue type** is typically used when dynamically creating issues across a range of projects and issue types.
 
-Similar to the [project issue type field above](/connectors/jira/actions.md#project-issue-type), you can use the picklist to choose the project & issue type, or enter them manually by entering the project key & issue type, separated by two hyphens, e.g. **PROJ--Bug**.
+Because issues can have different fields in different projects, you may have a sample project issue type (defined in Jira) that contains all possible issue fields across multiple projects & issue types.
+
+Specifying the sample project issue type here retrieves all fields related to it, and displays them in your recipe. This allows you to map datapills to the new issue(s) being created.
+
+This way, you can perform the mapping of datapills that works for all issues dynamically created across multiple projects & issue types.
+
+![Sample project issue type](/assets/images/jira-docs/sample-project-issue-type.png)
+*Using a sample project issue type to retrieve fields across multiple issue types & projects*
+
+Similar to the [project issue type field](/connectors/jira/actions.md#project-issue-type) above, you can use the picklist to choose the project & issue type, or enter them manually by entering the project key & issue type, separated by two hyphens, e.g. **PROJ--Bug**.
 
 #### Summary
 Summary of the issue to be created. By default, this field is required, unless defined otherwise by your Jira field configuration.
@@ -360,7 +372,6 @@ This action updates a single issue by using its issue ID or key. You must also u
         Priority of issue to update.
       </td>
     </tr>
-
     <tr>
       <td>Fields</td>
       <td>
@@ -411,31 +422,33 @@ This action retrieves a list of all users that can be assigned to a specified is
 
 ### Output Fields
 The output of this action is a list of users that can be assigned to the specified issue.
+
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th colspan="2" width='25%'>Output field</th>
+        <th width='25%'>Output field</th>
         <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td colspan="2">Groups</td>
+      <td>Groups</td>
       <td>Groups which the user is a part of.</td>
     </tr>
-      <tr>
-        <td colspan="2">Application roles</td>
-        <td>Application roles which the user is a part of.</td>
-      </tr>
     <tr>
-      <td colspan="2">
+      <td>Application roles</td>
+      <td>Application roles which the user is a part of.</td>
+    </tr>
+    <tr>
+      <td>
         Self URL
       </td>
       <td>
         <code>self</code> link to access the full representation of the assignable user.
       </td>
-    </tr><tr>
-      <td colspan="2">
+    </tr>
+    <tr>
+      <td>
         Key
       </td>
       <td>
@@ -443,7 +456,7 @@ The output of this action is a list of users that can be assigned to the specifi
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td>
         Name
       </td>
       <td>
@@ -451,34 +464,33 @@ The output of this action is a list of users that can be assigned to the specifi
       </td>
     </tr>
     <tr>
-      <td colspan="2">E-mail address</td>
+      <td>E-mail address</td>
       <td>
         E-mail address of the assignable user.
       </td>
     </tr>
-
     <tr>
-      <td colspan="2">
+      <td>
         Avatar URLs
       </td>
       <td>URLs of assignable user's avatar images.
     </tr>
     <tr>
-      <td colspan="2">Display name</td>
+      <td>Display name</td>
       <td>Display name of the assignable user.</td>
     </tr>
     <tr>
-      <td colspan="2">Active</td>
+      <td>Active</td>
       <td>
         Boolean.<br><code>true</code> if assignable user's account is active,<br> <code>false</code> if assignable user's account is inactive. Defaults to <code>true</code>.
       </td>
     </tr>
     <tr>
-      <td colspan="2">Time zone</td>
+      <td>Time zone</td>
       <td>Timezone setting of the assignable user.</td>
     </tr>
     <tr>
-      <td colspan="2">List size</td>
+      <td>List size</td>
       <td>Number of assignable users to this issue.</td>
     </tr>
   </tbody>
@@ -1324,7 +1336,6 @@ This action creates a user in your Jira instance.
         E-mail address of the newly created user.
       </td>
     </tr>
-
     <tr>
       <td colspan="2">
         Avatar URLs
@@ -1422,7 +1433,6 @@ This action retrieves the user record that matches the provided username. Action
         E-mail address of the user.
       </td>
     </tr>
-
     <tr>
       <td colspan="2">
         Avatar URLs
