@@ -23,18 +23,95 @@ The Workbot for Slack connector enables you to build additional recipes on top o
 
 A detailed comparison table for both the Slack connector and the Workbot for Slack connector is below.
 
-| Features                                                      | Slack connector                                                                                                                   | Slack for Workbot connector                                                                                                                                                                                                     |
-|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attachment](https://api.slack.com/docs/message-attachments)  | [Yes](/connectors/slack.md#example-message-with-attachment)                                                                       | [Yes](/workbot/workbot-actions.md#post-command-reply)                                                                                                                                                                           |
-| [Message buttons](https://api.slack.com/docs/message-buttons) | [Yes](/connectors/slack.md#using-slack-message-buttons)                                                                           | Yes                                                                                                                                                                                                                             |
-| [Message menus](https://api.slack.com/docs/message-menus)     | Yes                                                                                                                               | No                                                                                                                                                                                                                              |
-| [Threads](https://api.slack.com/docs/message-threading)       | [Yes](connectors/slack.md#using-slack-threads)                                                                                    | Yes                                                                                                                                                                                                                             |
-| Need to install into Slack team?                              | No                                                                                                                                | Yes                                                                                                                                                                                                                             |
-| Post as user customization                                    | [Yes](/connectors/slack.md#example-message-with-attachment-customized-app-name-and-images)                                        | No, always posts as Workbot                                                                                                                                                                                                     |
-| Pre-built recipes/commands?                                   | No                                                                                                                                | [Yes](https://www.workato.com/workbot-slack)                                                                                                                                                                                    |
-| Notifications need to be set up?                              | No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel. | [Yes](/workbot/using-workbot-for-slack.md#2-set-up-smart-notifications). Recipes that post Workbot notifications have to be started, and notifications turned on in the Slack channels that should receive these notifications. |
-| Verified user access?                                         | No                                                                                                                                | [Yes](/workbot/workbot-latebinding.md)                                                                                                                                                                                          |
-| Pass data (parameters) to subsequent messages/recipes         | No                                                                                                                                | Yes                                                                                                                                                                                                                             |
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Features</th>
+            <th>Slack connector</th>
+            <th>Slack for Workbot connector</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-attachments">Attachments</a>
+            </td>
+            <td>
+              <a href="/connectors/slack.html#example-message-with-attachment">Yes</a>
+            </td>
+            <td>
+              <a href="/workbot/workbot-actions.html#post-command-reply">Yes</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-buttons">Message buttons</a>
+            </td>
+            <td>
+              <a href="/connectors/slack.html#using-slack-message-buttons">Yes</a>
+            </td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-menus">Message menus</a>
+            </td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>
+              <a href="https://api.slack.com/docs/message-threading">Threads</a>
+            </td>
+            <td>
+              <a href="/connectors/slack.html#using-slack-threads">Yes</a>
+            </td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Need to install into Slack team?</td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Post as user customization</td>
+            <td>
+              <a href="/connectors/slack.html#example-message-with-attachment-customized-app-name-and-images">Yes</a>
+            </td>
+            <td>No, always post as Workbot.</td>
+        </tr>
+        <tr>
+            <td>Pre-built recipes/commands?</td>
+            <td>No</td>
+            <td>
+              <a href="https://www.workato.com/workbot-slack">Yes</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Notifications need to be set up?</td>
+            <td>
+              No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel.
+            </td>
+            <td>
+              No. Recipes that post Slack messages just have to be started, and notifications will start being posted to the specified channel.
+            </td>
+        </tr>
+        <tr>
+            <td>Verified user access?</td>
+            <td>No</td>
+            <td>
+              <a href="/workbot/workbot-latebinding.html">Yes</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              Pass data (parameters) to subsequent messages/recipes
+            </td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Notes
 

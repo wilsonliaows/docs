@@ -12,10 +12,10 @@ For example, you can have a property that indicates where to send a notification
 
 Account properties feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or call us at +1 (844) 469-6752.
 
-You can create property values (name value pairs) by going to the account properties section on their account menu.
+You can create property values (name value pairs) by going to the 'Tools' tab at the top of your screen and clicking on 'View all Tools'. Then, click on 'Properties'.
 
-![Account properties option](/assets/images/features/account-properties/account_properties_option.png)
-*Account properties menu option*
+![Account properties option](/assets/images/features/account-properties/account-properties-nav.gif)
+*Account properties in Tools*
 
 ## Create property
 In order to use account properties in recipes, create them in the properties table. A property is a name and its corresponding value.

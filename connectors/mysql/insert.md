@@ -12,10 +12,10 @@ This action inserts a single row into the selected table.
 *Insert row action*
 
 ### Table
-First, select a table to insert a row into. This can be done either by selecting a table from the pick list, or toggle the input field to text mode and type the full table name.
+First, select a table to insert a row into. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
 
 ### Columns
-Columns in the selected table are presented as input fields here. Map the required fields from the output datatree here to insert rows with data from preceding trigger or actions.
+Next, map the datapills from your previous triggers or actions into their respective columns. The columns in the selected table are presented as input fields here for you to insert datapills.
 
 ## Insert batch of rows
 This action allows you to insert multiple rows in a single action instead of one row at a time. This provides higher throughput when you are moving a large number of records from one app to MySQL. Depending on the structure of your recipe and volume of data, this action can reduce integration time by a factor of 100.
@@ -27,7 +27,10 @@ This action allows you to insert multiple rows in a single action instead of one
 Just like with the single row insert action, you need to select the target table first.
 
 ### Rows source list
-Unlike the **Insert row** action, we are now dealing with a batch of rows. Hence, the next input is the source of the batch of rows to insert. This can come from any trigger or action that outputs a list in the datatree. Typically, you will map a list from a batch trigger or from results set of a search action.
+Unlike the **Insert row** action (where we deal with a single row), we are now dealing with a batch of rows. Hence, the next datapill to input is the *source* of the batch of rows to insert to the table. This can come from any trigger or action that outputs a list datapill.
+
+![A list datapill from the datatree](/assets/images/mysql/list_datapill_in_output_tree.png)
+*A list datapill from the datatree*
 
 If you do not map a list datapill to this field, this action will insert only 1 row and will behave like the **Insert row** action.
 

@@ -38,9 +38,13 @@ This is a sample request body to Intacct Web services. The XML data is stored in
 
 On top of that, the ability to define **named-tags** as well as attributes within tags allows XML to create and work with very complex data structure, even creating new data types.
 
+## XML Parser
+
+The easiest way to convert an XML document into a format that can be used in Workato recipes is to parse it using the XML Parser by Workato. Refer to the [XML Parser documentation]() for more details.
+
 ## HTTP connector
 
-The HTTP connector is the most straightforward way to handle raw data from APIs. Refer to our [HTTP connector course](http://resources.workato.com/http-connector/#/?_k=1szm77) for a detailed guide and examples on building HTTP triggers and actions to handle XML data.
+The HTTP connector is a convenient way to handle raw data from APIs. Refer to our [HTTP connector course](http://resources.workato.com/http-connector/#/?_k=1szm77) for a detailed guide and examples on building HTTP triggers and actions to handle XML data.
 
 ## Workato SDK
 

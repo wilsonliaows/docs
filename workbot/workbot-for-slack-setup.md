@@ -58,5 +58,5 @@ Furthermore, in order for Workbot to post notifications to a Slack channel, it h
 
 Alternatively, invite Workbot via the **Invite new members to join** menu option in channel details.
 
-![Invite Workbot to channels via the menu option](/assets/images/workbot/workbot/invite-workbot-via-menu-option.png)
+![Invite Workbot to channels via the menu option](/assets/images/workbot/workbot/invite-workbot-via-menu-option.gif)
 *Invite Workbot to channels via the menu option*

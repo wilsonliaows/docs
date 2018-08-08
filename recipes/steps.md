@@ -32,7 +32,7 @@ In the following case, the **Update organization** action uses the ID field from
 *Updating Zendesk organization identified by ID. [Example recipe](https://www.workato.com/recipes/480358)*
 
 ## Conditional action step
-Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article.
+Conditional actions will only be carried out if the specified condition is true. All actions indented within a conditional action block will be carried out only if that condition is true. For more information on the available conditions you can use, refer to the [IF condition](/features/if-conditions.md) article.
 
 ### Example: Conditional action step
 The following recipe has two conditional steps:
@@ -100,7 +100,7 @@ This recipe marks the job as an error, so that the recipe owner will take notice
 *Configuring the Step step's error message. [Example recipe](https://www.workato.com/recipes/480360)*
 
 ## Action with error handler step
-This step allows you to monitor for errors in actions, similar to the try/catch concept in programming lanaguages.. When an error occurs, you have the chance to:
+This step allows you to monitor for errors in actions, similar to the try/catch concept in programming languages. When an error occurs, you have the chance to:
 
 1) retry the sequence of actions again, in case it was a temporary error such as network issues, or
 
@@ -119,7 +119,7 @@ You have the option of retrying up to 3 times, and of selecting the time interva
 ![Retry configuration fields](/assets/images/recipes/steps/retry-configuration.png)
 *Retry configuration fields*
 
-You can also define a condition that has to be met before the **Monitor** block can be auto-retried. For more information on the available conditions you can use, refer to the [IF condition](/features/if-condition.md) article.
+You can also define a condition that has to be met before the **Monitor** block can be auto-retried. For more information on the available conditions you can use, refer to the [IF condition](/features/if-conditions.md) article.
 
 ![Retry condition](/assets/images/recipes/steps/retry-condition.png)
 *Configuring the retry condition field. In this example, the actions in the Monitor block will only be carried out again if the error message does not contain the 401 error code.*
@@ -135,7 +135,7 @@ As the recipe catches failed actions within the error monitor block, failed **Up
 ## Example: Error monitor with retry step
 If the actions in your **Monitor** block tends for fail for temporary reasons such as network issues or timeout issues, it would make sense to use auto-retry, such that the recipe will attempt to execute the steps again until it succeeds, for a maximum of 3 tries.
 
-We will reuse the same same error monitor exmaple recipe from above, where we try to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
+We will reuse the same same error monitor example recipe from above, where we try to update the Zendesk organization right after the search step, regardless of whether any Zendesk organizations were found. In cases where no matching Zendesk organization is found, the **Update organization** action will fail.
 
 ![Auto-retry example](/assets/images/recipes/steps/recipe-with-error-monitor-and-retry.png)
 *Recipe that uses the auto-retry to recover from action failures in updating Zendesk organizations. [Example recipe](https://www.workato.com/recipes/599962)*
