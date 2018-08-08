@@ -37,4 +37,4 @@ If your organization has strict outbound traffic rules, you should whitelist the
 - **34.192.94.13**
 - **34.195.128.7**
 - **34.226.84.130**
-- **52.206.58.244** (will be deprecated on 28 March 2018)
+- **52.206.58.244** (Deprecated on 28 March 2018)
