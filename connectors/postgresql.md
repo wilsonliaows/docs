@@ -56,6 +56,44 @@ The PostgreSQL connector uses basic authentication to authenticate with PostgreS
   </tbody>
 </table>
 
+### Permissions required to connect
+
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-postgresql-on-workato).
+
+If we are trying to connect to a PostgreSQL instance, using a new database user `workato`, the following example queries can be used.
+
+First, create a new user dedicated to integration use cases with Workato.
+```sql
+CREATE USER workato WITH PASSWORD 'password';
+```
+
+The next step is to grant access to `customer` table in the schema. In this example, we only wish to grant `SELECT` and `INSERT` permissions.
+
+```sql
+GRANT SELECT,INSERT ON customer TO workato;
+```
+
+Finally, check that this user has the necessary permissions. Run a query to see all grants.
+
+```sql
+SELECT grantee, table_name, privilege_type
+FROM information_schema.role_table_grants
+WHERE grantee = 'workato';
+```
+
+This should return the following minimum permission to create a PostgreSQL connection on Workato.
+
+```
++---------+------------+----------------+
+| grantee | table_name | privilege_type |
++---------+------------+----------------+
+| workato | customer   | SELECT         |
++---------+------------+----------------+
+| workato | customer   | INSERT         |
++---------+------------+----------------+
+2 rows in set (0.26 sec)
+```
+
 ## Working with the PostgreSQL connector
 
 ### Table, view and stored procedure
