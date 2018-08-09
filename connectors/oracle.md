@@ -87,13 +87,19 @@ SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE = 'WORKATO';
 This should return the following minimum permission to create a Oracle connection on Workato.
 
 ```
-+---------------------------------------------------------------------+
-| Grants for workato@%                                                |
-+---------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO 'workato'@'%' IDENTIFIED BY PASSWORD <secret> |
-| GRANT SELECT ON `HR_PROD`.* TO 'workato'@'%'                        |
-+---------------------------------------------------------------------+
-2 rows in set (0.24 sec)
++---------+--------------+--------------+--------------+
+| GRANTEE | GRANTED_ROLE | ADMIN_OPTION | DEFAULT_ROLE |
++---------+--------------+--------------+--------------+
+| WORKATO | CONNECT      | NO           | YES          |
++---------+--------------+--------------+--------------+
+
++---------+---------+------------+---------+-----------+-----------+-----------+
+| GRANTEE | OWNER   | TABLE_NAME | GRANTOR | PRIVILEGE | GRANTABLE | HIERARCHY |
++---------+---------+------------+---------+-----------+-----------+-----------+
+| WORKATO | HR_PROD | SUPPLIER   | ROOT    | SELECT    | NO        | NO        |
+| WORKATO | HR_PROD | SUPPLIER   | ROOT    | INSERT    | NO        | NO        |
++---------+---------+------------+---------+-----------+-----------+-----------+
+3 rows in set (0.61 sec)
 ```
 
 ## Working with the Oracle connector
