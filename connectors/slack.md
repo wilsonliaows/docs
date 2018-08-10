@@ -4,22 +4,24 @@ date: 2017-09-12 12:00:00 Z
 ---
 
 # Slack
-[Slack](https://slack.com/) is a team collaboration platform that consolidates your team's communication and resources, and integrates easily with the enterprise and productivity products used across your organization. It provides a shared workspace where conversations are organized and accessible, and creates alignment and shared understanding across your team.
+[Slack](https://slack.com/) is a team collaboration platform that consolidates your team's communication and resources.
+
+Workato allows you to connect Slack with the enterprise and productivity apps used across your organization. Transform your team's conversations into automated tasks in those apps - all without leaving your Slack workspace.
 
 ## Slack connector VS Workbot for Slack connector
 Workato supports both the Slack connector and the Workbot for Slack connector.
 
-The Slack connector allows you to authorize to your Slack team as a team member, and immediately post messages onto channels, send direct messages to Slack team members, and manage channels and groups. It does not require any app installation onto your Slack team. Recipes built on the Slack connector allows you to respond to message buttons and menus.
+If you're a Slack administrator (or part of an administrative team) that needs to automate workflows on a workspace-level, then the Slack connector is what you need. Using the Slack connector, you can subscribe to workspace-level events and and manage channels, groups and more. For example you can automate the creation, naming, purpose, and invitees of private Slack channels (typically between CS members and customers), triggered by a ticket escalation in Jira.
 
-The Workbot for Slack connector enables you to build additional recipes on top of Workbot for Slack, which is an app that needs to be installed onto your Slack team, and comes with pre-built recipes. Messages posted in Slack via this connector will show up as being posted by **Workbot**. Recipes built on top of the Workbot connector has the ability to facilitate more complex interactions and communicate with Workbot to read or write data to other connected apps.
+Workbot is a bot user. Bot users, like human users, must be invited to the channels before it can respond to other users. Workbot is primarily used to automate workflows specifically for users who command it to do so. If you're envisioning a virtual assistant which your team can command to perform complex tasks specifically for them, go for Workbot.
 
-A detailed comparison table for both the Slack connector and the Workbot for Slack connector can be found [here](/workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector).
+A function comparison table for both the Slack connector and the Workbot for Slack connector can be found [here](/workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector).
 
 ## API version
-The Slack connector uses the [Slack API](https://api.slack.com/web) with the endpoint URLs `https://slack.com/api/METHOD`.
+The Slack connector uses the [Slack Web API](https://api.slack.com/web) with the endpoint URLs `https://slack.com/api/METHOD`.
 
 ## Supported editions and versions
-Workato connects to all Slack organizations.
+Workato connects to to both Slack for Teams (for single workspaces) and Slack Enterprise Grid (for multiple workspaces).
 
 ## How to connect to Slack on Workato
 Authorize Workato to access your Slack organization via the OAuth2 standard. This will require you to login to Slack and authorize the permissions that Workato requests.
@@ -63,7 +65,7 @@ The corresponding configuration of the action step can be seen below.
 ### Using Slack message buttons
 You can interact with messages in Slack via [Slack buttons](https://api.slack.com/docs/message-buttons). To use Slack buttons in Slack, you need:
 
-1) A recipe with a **Post mesage** action that has buttons configured. This recipe needs to specifically refer to the second recipe below in its button configuration.
+1) A recipe with a **Post message** action that has buttons configured. This recipe needs to specifically refer to the second recipe below in its button configuration.
 
 2) A button action handler recipe - a recipe with a **New button action** trigger, which picks up button clicks. In the actions, there should be recipe logic that carries out actions depending on which button has been clicked.
 
