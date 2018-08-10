@@ -8,6 +8,20 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.
 
+## July 19 - Aug 3 2018
+**Find more details on July's updates in our [blog post](https://product.workato.com/2018/08/02/august-2018-product-release/).**
+
+### Platform enhancements
+- Recipe lifecycle management: Added support for message templates  
+
+### Connector enhancements
+- Shopify: Inventory API changes. **These changes will result in your recipes breaking if you are using Shopify connector actions**. Please view this [document](https://support.workato.com/support/solutions/articles/1000266904-shopify-connector-inventory-api-breaking-changes) for more information.  
+- New connector: [JDBC](https://docs.workato.com/connectors/jdbc.html) (in beta)
+- Workbot for Slack: Post Message & Post Command Reply actions — added support for multiple attachments.
+- Eventbrite: Now supports Eventbrite Music
+- Salesforce: New get document by ID action
+- Workday: Enhancements to fields with attributes and repeated fields. View this [documentation](https://docs.workato.com/connectors/workday/call_operation.html) to learn more.
+
 ## July 06 - July 18 2018
 
 ### Platform enhancements
@@ -18,7 +32,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 ### Connector enhancements
 
 #### HTTP connector
--  New HTTP action wizard guide
+-  [New HTTP action wizard guide](/developing-connectors/http-v2.md)
 
 ## June 22 - July 05 2018
 **Find more details on June's updates in our [blog post](https://product.workato.com/2018/07/05/july-2018-product-release/).**

@@ -228,6 +228,36 @@ When I first start my recipe all sales orders created from or after 1 Jan, 2017 
 #### Trigger behaviour when recipe is stopped and restarted
 Even if the recipe is stopped, when it's restarted again, all sales orders created in the time during which the recipe was stopped will be picked up by the recipe.
 
+#### Unsupported records
+There are certain records the trigger does not support, as they cannot be queried via the NetSuite API. Unsupported records are as follows:
+
+- Budget category
+- Campaign audience
+- Campaign category
+- Campaign channel
+- Campaign family
+- Campaign offer
+- Campaign response
+- Campaign search engine
+- Campaign subscription
+- Campaign vertical
+- Currency
+- Item revision
+- Landed cost
+- Lead source
+- Sales tax item
+- Support case issue
+- Support case origin
+- Support case priority
+- Support case status
+- Support case type
+- Tax account
+- Tax group
+- Tax type
+- Currency revaluation
+- Payroll adjustment
+- Inventory worksheet
+
 ### New/updated standard object and new/updated custom object trigger
 The new/updated standard object and new/updated custom object trigger are very similar, so this section will cover both.
 
@@ -248,6 +278,36 @@ When I first start my recipe all sales orders created or updated from or after 1
 
 #### Trigger behaviour when recipe is stopped and restarted
 Even if the recipe is stopped, when it's restarted again, all sales orders created or updated in the time during which the recipe was stopped will be picked up by the recipe. Do note, however, that the recipe will only pick up the last (most updated) version of search record. For example, if a record was newly created and had 3 updates made to it while the recipe was stopped, the recipe will only pick up the last updated version of the record when it's restarted again.
+
+#### Unsupported records
+There are certain records the trigger does not support, as they cannot be queried via the NetSuite API. Unsupported records are as follows:
+
+- Budget category
+- Campaign audience
+- Campaign category
+- Campaign channel
+- Campaign family
+- Campaign offer
+- Campaign response
+- Campaign search engine
+- Campaign subscription
+- Campaign vertical
+- Currency
+- Item revision
+- Landed cost
+- Lead source
+- Sales tax item
+- Support case issue
+- Support case origin
+- Support case priority
+- Support case status
+- Support case type
+- Tax account
+- Tax group
+- Tax type
+- Currency revaluation
+- Payroll adjustment
+- Inventory worksheet
 
 ### New saved search result for object trigger
 The **New saved search result for object** trigger retrieves new records that meet the saved search's criteria, e.g. for a saved search that fetches customer records of industry type **Hardware**, new customers created of the industry type **Hardware** will be picked up as a trigger event.
