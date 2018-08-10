@@ -70,6 +70,9 @@ Selecting a project issue type will retrieve the corresponding issue type's fiel
 You can also use the project **Key** and issue type **Name** datapills, separated by two hyphens '--'e.g. <kbd>Key</kbd>--<kbd>Name</kbd> to dynamically generate the project issue type. This is especially useful if you want to dynamically create issues across a range of projects and issue types.
 
 ![Project issue type dynamic](/assets/images/jira-docs/project-issue-type-dynamic.gif)
+*Dynamic project issue type with project key and issue type name*
+
+If you are creating or updating issues dynamically via project <kbd>Key</kbd> and issue type <kbd>Name</kbd> datapills, Workato will not be able to generate your issue input fields at design-time. This is because we don't know what fields to fetch from Jira yet. In such cases, you should use the [sample project issue type](/connectors/jira/actions.md#sample-project-issue-type) to generate input fields.
 
 #### Sample project issue type
 The **Sample project issue type** is typically used when dynamically creating issues across a range of projects and issue types.
@@ -83,8 +86,6 @@ This way, you can perform the mapping of datapills that works for all issues dyn
 ![Sample project issue type](/assets/images/jira-docs/sample-project-issue-type.png)
 *Using a sample project issue type to retrieve fields across multiple issue types & projects*
 
-Similar to the [project issue type field](/connectors/jira/actions.md#project-issue-type) above, you can use the picklist to choose the project & issue type, or enter them manually by entering the project key & issue type, separated by two hyphens, e.g. **PROJ--Bug**.
-
 #### Summary
 Summary of the issue to be created. By default, this field is required, unless defined otherwise by your Jira field configuration.
 
@@ -95,13 +96,12 @@ The person reporting this issue. Use the Jira username of the reporter, e.g. if 
 Description of the issue.
 
 #### Issue priority
-The priority of the issue. This list is retrieved as defined by the defined list of picklist values in Jira. Hence, the values may vary from the screenshot below.
+The priority of the issue. Valid issue priority values from your Jira account are fetched.
 
 ![Issue priority](/assets/images/jira-docs/issue-priority.png)
 *Issue priority*
 
 ### Output Fields
-
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -138,11 +138,13 @@ The priority of the issue. This list is retrieved as defined by the defined list
 ##### Unable to see project issue type(s)
 If you don't see the project issue type(s) you're looking for, the linked Jira account may not have sufficient permissions to view the project or issue/issue type.
 
-If you are a Jira administrator of your Jira workspace, check the linked Jira account's permissions by using Jira's Permissions helper. See our [Jira permissions documentation](/connectors/jira.html#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html) for more details. Otherwise, check with your Jira administrator(s) for help.
+If you are a Jira administrator of your Jira workspace, check the linked Jira account's permissions by using Jira's Permissions helper.
+
+See our [Jira permissions documentation](/connectors/jira.html#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html) for more details. Otherwise, check with your Jira administrator(s) for help.
 
 ##### Unable to see field(s) / custom field(s)
 If you don't see the field(s) you're looking for,
-1. The linked Jira account may not have sufficient permissions to view the field(s). Again, you can use Jira's Permissions helper if you're a Jira administrator. Otherwise, check with your Jira administrator(s) for help.<br><br>
+1. The linked Jira account may not have sufficient permissions to view the field(s). See our [Jira permissions documentation](/connectors/jira.html#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html) for more details. Otherwise, check with your Jira administrator(s) for help.<br><br>
 2. The field configuration of the custom field is not associated correctly with the issue type used in the project. If you're a Jira administrator, check your field's field configuration, that it's associated to the correct issue type, and that the issue type scheme is associated to the correct project. Otherwise, check with your Jira administrator(s) for help.
 
 ## Get issue
@@ -1356,7 +1358,9 @@ This action creates a user in your Jira instance.
 
 ### Troubleshooting
 #### Unable to create user
-If a user is unable to be created, the linked Jira account may not have sufficient permissions to create users. Again, you can use Jira's Permissions helper if you're a Jira administrator. Otherwise, check with your Jira administrator(s) for help.
+If a user is unable to be created, the linked Jira account may not have sufficient permissions to create users.
+
+See our [Jira permissions documentation](/connectors/jira.html#jira-permissions-helper) or check out [Jira's guide on Permissions helper](https://confluence.atlassian.com/adminjiracloud/using-the-permission-helper-868982879.html) for more details. Otherwise, check with your Jira administrator(s) for help.
 
 ## Get user details
 This action retrieves the user record that matches the provided username. Action will fail if the user does not exist.
