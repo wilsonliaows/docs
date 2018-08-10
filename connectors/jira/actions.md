@@ -7,7 +7,7 @@ date: 2018-07-18 06:15:00 Z
 The following Jira actions can be used to execute workflows in your recipes.
 
 ### Requirements
-The linked Jira account must have sufficient permissions to the respective resource in each action. For more information on Jira permissions, head over to our [Jira project permissions documentation](https://docs.workato.com/connectors/jira.html#roles-and-permissions-required-to-connect).
+The linked Jira account must have sufficient permissions to the respective resource in each action. Learn more with our [Jira project permissions documentation](https://docs.workato.com/connectors/jira.html#roles-and-permissions-required-to-connect).
 
 ## Create issue
 This action creates an issue in Jira based on the specified project, issue type, and field values.
@@ -62,7 +62,7 @@ This action creates an issue in Jira based on the specified project, issue type,
 </table>
 
 #### Project issue type
-Selecting a project issue type will retrieve the issue's fields (as specified by your Jira issue type scheme) for you to populate with datapills. You can select a project issue type from the picklist provided. This also retrieves the corresponding issue type's fields.
+Selecting a project issue type will retrieve the corresponding issue type's fields (as specified by your Jira issue type scheme) for you to populate with datapills
 
 ![Project issue type picklist](/assets/images/jira-docs/project-issue-type-picklist.gif)
 *Specifying a project issue type using the picklist*
@@ -70,11 +70,6 @@ Selecting a project issue type will retrieve the issue's fields (as specified by
 You can also use the project **Key** and issue type **Name** datapills, separated by two hyphens '--'e.g. <kbd>Key</kbd>--<kbd>Name</kbd> to dynamically generate the project issue type. This is especially useful if you want to dynamically create issues across a range of projects and issue types.
 
 ![Project issue type dynamic](/assets/images/jira-docs/project-issue-type-dynamic.gif)
-
-Alternatively, you can also hardcode the project & issue type by manually entering the project key and the issue type, again separated by two hyphens, e.g. **PROJ--Bug**.
-
-![Project issue type text](/assets/images/jira-docs/project-issue-type-text.png)
-*Specifying a project issue type manually*
 
 #### Sample project issue type
 The **Sample project issue type** is typically used when dynamically creating issues across a range of projects and issue types.
@@ -99,7 +94,7 @@ The person reporting this issue. Use the Jira username of the reporter, e.g. if 
 #### Description
 Description of the issue.
 
-#### Issue Priority
+#### Issue priority
 The priority of the issue. This list is retrieved as defined by the defined list of picklist values in Jira. Hence, the values may vary from the screenshot below.
 
 ![Issue priority](/assets/images/jira-docs/issue-priority.png)
