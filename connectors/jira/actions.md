@@ -62,7 +62,7 @@ This action creates an issue in Jira based on the specified project, issue type,
 </table>
 
 #### Project issue type
-Selecting a project issue type will retrieve the corresponding issue type's fields (as specified by your Jira issue type scheme) for you to populate with datapills
+Selecting a project issue type will retrieve the corresponding issue type's fields (as specified by your Jira issue type scheme) for you to populate with datapills.
 
 ![Project issue type picklist](/assets/images/jira-docs/project-issue-type-picklist.gif)
 *Specifying a project issue type using the picklist*
