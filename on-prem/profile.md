@@ -275,7 +275,7 @@ Active Directory connection profiles must be defined in the `ldap` section.  Exa
 ```YAML
 ldap:
   active_directory_main:
-    host: ldaps://acme.ldap.com:636
+    url: ldaps://acme.ldap.com:636
     username: cn=Administrator
     password: foobar
     base: dc=acme,dc=com
