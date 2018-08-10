@@ -7,7 +7,17 @@ date: 2018-07-17 06:15:00 Z
 
 The following Jira triggers can be used to kickstart workflows in your recipes.
 
-To simplify API responses, the Jira REST API uses resource expansion, which means that the API will only return parts of a resource when explicitly requested. Workato automatically fetches and expands all parameters. For more information, check out the Jira Cloud REST API documentation on [resource expansion](https://developer.atlassian.com/cloud/jira/platform/rest/#expansion).
+To simplify API responses, the Jira REST API uses resource expansion, which means that the API will only return parts of a resource when explicitly requested. Workato automatically fetches and expands all parameters. Learn more about [Jira's resource expansion](https://developer.atlassian.com/cloud/jira/platform/rest/#expansion).
+
+## How Jira real-time triggers work in Workato
+When you use Jira real-time triggers in your recipes, Workato automatically registers a webhook in your Jira instance **when the recipe is started**. When the recipe is stopped, **the webhook is removed**.
+
+![Jira webhook registration](/assets/images/jira-docs/jira-webhook-registration.png)
+*Jira webhooks registered by starting recipes*
+
+Registering & removing webhooks requires Jira administrator global permissions - if your Jira connection doesn't have it, use the [HTTP webhook trigger](https://resources.workato.com/http-connector/#/list/2?_k=5qaw2y) instead.
+
+Regardless of the state of the webhook, Workato continues to run a backup poll running every 6 hours, to pick up any events (related to the recipe trigger). Workato automatically removes any duplicates from the full list of events returned by Jira.
 
 ## New/updated issue (real-time)
 This trigger picks up issues as soon as they are created/updated. Only issues for which the linked Jira account has sufficient permissions will be retrieved.
@@ -16,7 +26,7 @@ This trigger picks up issues as soon as they are created/updated. Only issues fo
 *New/updated issue (real-time) trigger*
 
 ### Requirements
-The linked Jira account must have Jira administrators global permissions to use this real-time trigger. asdfFor more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](/connectors/jira.md#using-jira-real-time-triggers).
+The linked Jira account must have Jira administrators global permissions to use this real-time trigger. Learn more in our [Jira real-time triggers documentation](/connectors/jira.md#using-jira-real-time-triggers).
 
 ### Input fields
 <table class="unchanged rich-diff-level-one">
@@ -290,7 +300,7 @@ No input fields are required.
   </tbody>
 </table>
 
-Workato automatically fetches and expands all project parameters. For more information, check out the Jira Cloud REST API documentation on [resource expansion](https://developer.atlassian.com/cloud/jira/platform/rest/#expansion).
+Workato automatically fetches and expands all project parameters. Learn more about [Jira's resource expansion](https://developer.atlassian.com/cloud/jira/platform/rest/#expansion).
 
 ## New/updated comment (real-time)
 This trigger picks up comments as soon as they are created/updated. Only comments for which the linked Jira account has sufficient permissions will be retrieved.
@@ -299,7 +309,7 @@ This trigger picks up comments as soon as they are created/updated. Only comment
 *New/updated comment (real-time) trigger*
 
 ### Requirements
-The linked Jira account must have Jira administrators global permissions to use this real-time trigger. For more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
+The linked Jira account must have Jira administrators global permissions to use this real-time trigger. Learn more in our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
 
 ### Input fields
 No input fields are required.
@@ -415,7 +425,7 @@ This trigger picks up worklogs as soon as they are created/updated. Only worklog
 *New/updated worklog (real-time) trigger*
 
 ### Requirements
-The linked Jira account must have Jira administrators global permissions to use this real-time trigger. For more information on using Jira real-time triggers, head over to our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
+The linked Jira account must have Jira administrators global permissions to use this real-time trigger. Learn more in our [Jira real-time triggers documentation](https://docs.workato.com/connectors/jira.html#using-jira-real-time-triggers).
 
 ### Input fields
 No input fields are required.
