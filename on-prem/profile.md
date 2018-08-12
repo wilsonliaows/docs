@@ -274,22 +274,21 @@ Note that password-protected private keys cannot be inlined.
 Active Directory connection profiles must be defined in the `ldap` section.  Example profile:
 ```YAML
 ldap:
-  MyLdapProfile:
-    url: ldap://ldap.intra:389
-    base: DC=intra,DC=company,DC=co
-    username: CN=company,CN=Users,DC=intra,DC=company,DC=co
-    password: secret
+  active_directory_main:
+    url: ldaps://acme.ldap.com:636
+    username: cn=Administrator
+    password: foobar
+    base: dc=acme,dc=com
 ```
 
 where profile configuration properties are:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
-| url | Defines Active Directory server URL using `ldap://` schema with optional port number. |
-| base | Defines root (base) DN for LDAP binding. |
-| username or userDN | Defines user DN for LDAP binding. |
-| password | Password used for LDAP binding. |
-| timeout | Common LDAP operations timeout, in seconds. |
+| url | The URL of the LDAP server to use. The URL should be in the format `ldap://myserver.example.com:389`. For SSL access, use the ldaps protocol and the appropriate port, e.g. `ldaps://myserver.example.com:636`. If fail-over functionality is desired, more than one URL can be specified, separated using comma (,). |
+| username | The username (principal) to use when authenticating with the LDAP server. This will usually be the distinguished name of an admin user (e.g.cn=Administrator) |
+| password | The password (credentials) to use when authenticating with the LDAP server |
+| base | The base DN. When this attribute has been configured, all Distinguished Names supplied to and received from LDAP operations will be relative to the specified LDAP path. This can significantly simplify working against the LDAP tree; however there are several occasions when you will need to have access to the base path. For more information on this, please refer to Obtaining a reference to the base LDAP path |
 
 ## HTTP resources
 
