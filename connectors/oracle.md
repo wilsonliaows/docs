@@ -56,7 +56,7 @@ The Oracle connector uses basic authentication to authenticate with Oracle.
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-oracle-on-workato).
 
-If we are trying to connect to a Oracle instance to a named schema (`HR_PROD`), using a new database user `WORKATO`, the following example queries can be used.
+If we are trying to connect to a named schema (`HR_PROD`) in an Oracle instance, using a new database user `WORKATO`, the following example queries can be used.
 
 First, create a new user dedicated to integration use cases with Workato.
 ```sql

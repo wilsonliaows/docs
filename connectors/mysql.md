@@ -56,7 +56,7 @@ The MySQL connector uses basic authentication to authenticate with MySQL.
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-mysql-on-workato).
 
-If we are trying to connect to a MySQL instance to a named database (`HR_PROD`), using a new database user `workato`, the following example queries can be used.
+If we are trying to connect to a named database (`HR_PROD`) in a MySQL instance, using a new database user `workato`, the following example queries can be used.
 
 First, create a new user dedicated to integration use cases with Workato.
 ```sql

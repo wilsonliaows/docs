@@ -60,7 +60,7 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
 
 At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato).
 
-If we are trying to connect to a SQL Server instance to a named database (`HR_PROD`), using a new database user `workato`, the following example queries can be used.
+If we are trying to connect to a named database (`HR_PROD`) in a SQL Server instance, using a new database user `workato`, the following example queries can be used.
 
 First, create a new login and user dedicated to integration use cases with Workato.
 ```sql
@@ -71,7 +71,7 @@ CREATE USER workato FOR LOGIN workato;
 
 This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.
 
-The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest way is to grant access based on a **ROLE**.
+The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a **ROLE**.
 
 ```sql
 ALTER ROLE db_datareader ADD MEMBER workato;
