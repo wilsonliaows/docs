@@ -7,7 +7,7 @@ date: 2017-09-12 12:00:00 Z
 ## Requirements
 Before using Slack triggers, you'll first need to create a Slack app. The app also needs to be installed to your workspace. This should be your first step before building Slack recipes.
 
-Fortunately, Slack has made it really easy to create an app. Head over to https://api.slack.com/apps and click on Create New App. Choose a name for your Slack app and as well as your workspace, to create your app.
+Fortunately, Slack has made it really easy to create an app. Head over to https://api.slack.com/apps and click on **Create New App**. Choose a name for your Slack app and as well as your workspace, to create your app.
 
 ![Creating a Slack app](/assets/images/connectors/slack/create-slack-app.gif)
 *Creating a Slack app*
@@ -19,6 +19,8 @@ For the trigger to pick up events, your Slack app needs to know where to send th
 
 ![Target URL](/assets/images/connectors/slack/target-url.png)
 *Target URL for your app to send events to*
+
+Event names don't have to be unique in your Workato workspace &mdash; this means that you can use same event name in multiple Slack recipes. This allows you to trigger those recipes using a single event, if it suits your use case.
 
 To enable event subscriptions, go to your Slack app's page (it should look something like 'https://api.slack.com/apps/{your_app_id}' &mdash; your app ID is unique to your app). Under Event Subscriptions, turn on 'Enable Events', then paste the URL from your New event trigger into the Request URL field and click Save.
 
@@ -119,7 +121,7 @@ There are no input fields.
         <tr>
             <td colspan="2">Action ID</td>
             <td>
-              Internal value of the button. This needs to be unique. Not visible on Slack to anyone.
+              Internal value of the button.
             </td>
         </tr>
         <tr>

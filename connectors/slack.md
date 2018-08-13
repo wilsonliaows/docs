@@ -11,11 +11,11 @@ Workato allows you to connect Slack with the enterprise and productivity apps us
 ## Slack connector VS Workbot for Slack connector
 Workato supports both the Slack connector and the Workbot for Slack connector.
 
-If you're a Slack administrator (or part of an administrative team) that needs to automate workflows on a workspace-level, then the Slack connector is what you need. Using the Slack connector, you can subscribe to workspace-level events and and manage channels, groups and more. For example you can automate the creation, naming, purpose, and invitees of private Slack channels (typically between CS members and customers), triggered by a ticket escalation in Jira.
+If you're a Slack administrator (or part of an administrative team) that needs to automate workflows on a workspace-level, then the Slack connector is what you need. Using the Slack connector, you can subscribe to workspace-level events and and manage channels, groups and more. For example you can automate the creation, naming, purpose, and invitees of private Slack channels (typically between members from Customer Success and customers), triggered by a ticket escalation in Jira.
 
-Workbot is a bot user. Bot users, like human users, must be invited to the channels before it can respond to other users. Workbot is primarily used to automate workflows specifically for users who command it to do so. If you're envisioning a virtual assistant which your team can command to perform complex tasks specifically for them, go for Workbot.
+Workbot is a bot user. A bot user, like a human user, must be invited to channels before it can respond to other users. Workbot is primarily used to automate workflows specifically for users who command it to do so. If you envision a virtual assistant which your team can command to perform complex tasks specifically for them, go for Workbot.
 
-A function comparison table for both the Slack connector and the Workbot for Slack connector can be found [here](/workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector).
+A functional comparison table for both the Slack connector and the Workbot for Slack connector can be found [here](/workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector).
 
 ## API version
 The Slack connector uses the [Slack Web API](https://api.slack.com/web) with the endpoint URLs `https://slack.com/api/METHOD`.
