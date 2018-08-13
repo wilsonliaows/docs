@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>New/updated row trigger · Workato Docs</title>
+        <title>Triggers · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../salesforce.html" />
+    <link rel="next" href="triggers.html" />
     
     
-    <link rel="prev" href="new-row-trigger.html" />
+    <link rel="prev" href="../slack.html" />
     
 
     
@@ -122,7 +122,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="../..">New/updated row trigger</a>
+          <a href="../..">Triggers</a>
         </h1>
       </div>
     </div>
@@ -5281,11 +5281,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.22.2" data-path="select.html">
+    <li class="chapter " data-level="1.16.22.2" data-path="../redshift/select.html">
       
 
       
-        <a href="select.html">
+        <a href="../redshift/select.html">
       
         
         Select actions
@@ -5296,11 +5296,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.22.3" data-path="insert.html">
+    <li class="chapter " data-level="1.16.22.3" data-path="../redshift/insert.html">
       
 
       
-        <a href="insert.html">
+        <a href="../redshift/insert.html">
       
         
         Insert actions
@@ -5311,11 +5311,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.22.4" data-path="update.html">
+    <li class="chapter " data-level="1.16.22.4" data-path="../redshift/update.html">
       
 
       
-        <a href="update.html">
+        <a href="../redshift/update.html">
       
         
         Update actions
@@ -5326,11 +5326,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.22.5" data-path="upsert.html">
+    <li class="chapter " data-level="1.16.22.5" data-path="../redshift/upsert.html">
       
 
       
-        <a href="upsert.html">
+        <a href="../redshift/upsert.html">
       
         
         Upsert actions
@@ -5341,11 +5341,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.22.6" data-path="delete.html">
+    <li class="chapter " data-level="1.16.22.6" data-path="../redshift/delete.html">
       
 
       
-        <a href="delete.html">
+        <a href="../redshift/delete.html">
       
         
         Delete actions
@@ -5356,11 +5356,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.22.7" data-path="new-row-trigger.html">
+    <li class="chapter " data-level="1.16.22.7" data-path="../redshift/new-row-trigger.html">
       
 
       
-        <a href="new-row-trigger.html">
+        <a href="../redshift/new-row-trigger.html">
       
         
         New row trigger
@@ -5371,11 +5371,11 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.16.22.8" data-path="updated-row-trigger.html">
+    <li class="chapter " data-level="1.16.22.8" data-path="../redshift/updated-row-trigger.html">
       
 
       
-        <a href="updated-row-trigger.html">
+        <a href="../redshift/updated-row-trigger.html">
       
         
         New/updated row trigger
@@ -5635,13 +5635,13 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.16.25.1" data-path="../slack/triggers.html">
+    <li class="chapter active" data-level="1.16.25.1" data-path="triggers.html">
       
         <i class="fa fa-angle-right chapter__toggle"></i>
       
 
       
-        <a href="../slack/triggers.html">
+        <a href="triggers.html">
       
         
         Triggers
@@ -5653,11 +5653,11 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.16.25.1.1" data-path="../slack/triggers.html">
+    <li class="chapter " data-level="1.16.25.1.1" data-path="triggers.html">
       
 
       
-        <a href="../slack/triggers.html#new-event-trigger-real-time">
+        <a href="triggers.html#new-event-trigger-real-time">
       
         
         New event trigger (real-time)
@@ -5668,11 +5668,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.16.25.1.2" data-path="../slack/triggers.html">
+    <li class="chapter " data-level="1.16.25.1.2" data-path="triggers.html">
       
 
       
-        <a href="../slack/triggers.html#button-click-real-time">
+        <a href="triggers.html#button-click-real-time">
       
         
         Button click (real-time)
@@ -6885,151 +6885,163 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="redshift---newupdated-row-triggers">Redshift - New/updated row triggers</h1>
-<h2 id="newupdated-row">New/updated row</h2>
-<p>This trigger picks up rows that are inserted/updated in the selected table or view. Each row is processed as a separate job. It checks for new/updated rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> to find out more.</p>
-<p><img src="../../assets/images/redshift/new-updated-row-trigger.png" alt="New/updated row trigger">
-<em>New/updated row trigger</em></p>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width="25%">Input field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#table">Table</a></td>
-      <td>
-        Select a table/view to process rows from.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#unique-key">Unique key</a></td>
-      <td>
-        Select a unique key column to uniquely identify rows. This list of columns is generated from the selected table/view.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#sort-column">Sort column</a></td>
-      <td>
-        Select a column to identify updated rows. This list of columns is generated from custom SQL provided.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#where-condition">WHERE condition</a></td>
-      <td>
-        Provide an optional <code>WHERE</code> condition to filter rows.
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="newupdated-batch-of-rows">New/updated batch of rows</h2>
-<p>This trigger picks up rows that are inserted/updated in the selected table or view. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new/updated rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> to find out more.</p>
-<p><img src="../../assets/images/redshift/new-updated-batch-of-rows-trigger.png" alt="New/updated batch of rows trigger">
-<em>New/updated batch of rows trigger</em></p>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width="25%">Input field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#table">Table</a></td>
-      <td>
-        First, select a table/view to process rows from.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#unique-key">Unique key</a></td>
-      <td>
-        Select a unique key column to uniquely identify rows. This list of columns is generated from the selected table/view.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#sort-column">Sort column</a></td>
-      <td>
-        Select a column to identify updated rows. This list of columns is generated from custom SQL provided.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#batch-size">Batch size</a></td>
-      <td>
-        Configure the batch size to process in each individual job for this recipe.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#where-condition">WHERE condition</a></td>
-      <td>
-        Provide an optional <code>WHERE</code> condition to filter rows.
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="newupdated-batch-of-rows-via-custom-sql">New/updated batch of rows via custom SQL</h2>
-<p>This trigger picks up rows when any rows matching the custom SQL are inserted/updated. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> to find out more.</p>
-<p><img src="../../assets/images/redshift/new-updated-batch-of-rows-via-custom-sql-trigger.png" alt="New/updated batch of rows via custom SQL trigger">
-<em>New/updated batch of rows trigger via custom SQL</em></p>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width="25%">Input field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#sql">SQL</a></td>
-      <td>
-        Custom SQL query to be executed at each poll interval to pick up new rows.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#unique-key">Unique key</a></td>
-      <td>
-        Select a unique key column to uniquely identify rows. This list of columns is generated from custom SQL provided.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#sort-column">Sort column</a></td>
-      <td>
-        Select a column to identify updated rows. This list of columns is generated from custom SQL provided.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#batch-size">Batch size</a></td>
-      <td>
-        Configure the batch size to process in each individual job for this recipe. This defaults to 100.
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+                                <h1 id="slack-triggers">Slack triggers</h1>
+<h2 id="requirements">Requirements</h2>
+<p>Before using Slack triggers, you&apos;ll first need to create a Slack app. The app also needs to be installed to your workspace. This should be your first step before building Slack recipes.</p>
+<p>Fortunately, Slack has made it really easy to create an app. Head over to <a href="https://api.slack.com/apps" target="_blank">https://api.slack.com/apps</a> and click on <strong>Create New App</strong>. Choose a name for your Slack app and as well as your workspace, to create your app.</p>
+<p><img src="../../assets/images/connectors/slack/create-slack-app.gif" alt="Creating a Slack app">
+<em>Creating a Slack app</em></p>
+<p>Before you can install it to your workspace, you&apos;ll need to define at least 1 permission scope &#x2014; but we&apos;ll go through that later.</p>
+<h3 id="enabling-event-subscriptions">Enabling event subscriptions</h3>
+<p>For the trigger to pick up events, your Slack app needs to know where to send these events to. That&apos;s why the <strong>New event trigger</strong> comes with a target URL, generated once you&apos;ve entered an <strong>Event name</strong>. Once your app is sending events to your recipe&apos;s target URL, the recipe can take over and execute your recipe&apos;s actions.</p>
+<p><img src="../../assets/images/connectors/slack/target-url.png" alt="Target URL">
+<em>Target URL for your app to send events to</em></p>
+<p>Event names don&apos;t have to be unique in your Workato workspace &#x2014; this means that you can use same event name in multiple Slack recipes. This allows you to trigger those recipes using a single event, if it suits your use case.</p>
+<p>To enable event subscriptions, go to your Slack app&apos;s page (it should look something like &apos;<a href="https://api.slack.com/apps/{your_app_id}" target="_blank">https://api.slack.com/apps/{your_app_id}</a>&apos; &#x2014; your app ID is unique to your app). Under Event Subscriptions, turn on &apos;Enable Events&apos;, then paste the URL from your New event trigger into the Request URL field and click Save.</p>
+<p><img src="../../assets/images/connectors/slack/event-subscriptions.gif" alt="Event subscriptions">
+<em>Enabling event subscriptions</em></p>
+<h3 id="subscribing-to-workspace-events">Subscribing to workspace events</h3>
+<p>Slack provides an entire list of workspace events that you can subscribe to &#x2014; any of these events can kick-start your recipe.</p>
+<p>In this example, customer success users are given the option to create a private channel between themselves &amp; their customers whenever messages containing the word &apos;resolve&apos; are posted in certain channels and direct messages (DMs). Hence, the events <code>message.channels</code>, <code>message.groups</code> and <code>message.im</code> were chosen as triggers.</p>
+<p><img src="../../assets/images/connectors/slack/event-subscription-example.png" alt="Event subscription example">
+<em>Whenever a message is posted to a channel, a private channel, or a DM, an event is sent to the recipe</em></p>
+<p>Event subscriptions require permission scopes to be defined for your Slack app, but fret not &#x2014; once event(s) are subscribed, Slack automatically adds the required scopes.</p>
+<h3 id="installing-your-app">Installing your app</h3>
+<p>Once you&apos;ve subscribed to at least 1 workspace event, a permission scope is automatically added, allowing you to install the app to your workspace.</p>
+<h1 id="new-event-trigger-real-time">New event trigger (real-time)</h1>
+<p>The New event trigger picks up all workspace events in your connected Slack instance. Each new event trigger comes with a target URL, generated once you&apos;ve entered an <strong>Event name</strong>. As explained <a href="triggers.html#enabling-event-subscriptions">above</a>, this target URL is used to enable event subscriptions.</p>
 <h2 id="input-fields">Input fields</h2>
-<h3 id="table">Table</h3>
-<p>Select the table/view to process rows from. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.</p>
-<h3 id="unique-key">Unique key</h3>
-<p>Values from this selected column are used to deduplicate rows in the selected table.</p>
-<p>As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. <code>ID</code>). It should be incremental and sortable. This column can also be indexed for better performance.</p>
-<h3 id="sort-column">Sort column</h3>
-<p>Sort column is a column that is updated whenever a row in the table is updated. Typically, this is a timestamp column.</p>
-<p>When a row is updated, the Unique key value remains the same. However, it should have it&apos;s timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected <a href="#unique-key"><strong>Unique key</strong></a> column. When a change in the <strong>Sort column</strong> value is observed, an updated row event will be recorded and processed by the trigger.</p>
-<h3 id="batch-size">Batch size</h3>
-<p>Batch size of rows to return in each job. This can be any number between <strong>1</strong> and the maximum batch size. Maximum batch size is <strong>100</strong> and default is <strong>100</strong>.</p>
-<p>In any given poll, if there are less rows than the configured batch size, this trigger will deliver all rows as a smaller batch.</p>
-<h3 id="where-condition">WHERE condition</h3>
-<p>This condition is used to filter rows based on one or more column values.</p>
-<pre><code class="lang-sql">status = &apos;closed&apos; and priority &gt; 3
-</code></pre>
-<p>Leave blank to process all rows from the selected table.</p>
-<p>Complex <code>WHERE</code> conditions with subqueries can also be used. Refer to the <a href="../redshift.html#where-condition">WHERE condition</a> guide for more information.</p>
-<h3 id="sql">SQL</h3>
-<p>Provide the SQL to be executed to select rows. The SQL here will be used to generate the output datatree. To do this, the SQL will be executed once when you provide it. You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (<code>&apos;&apos;</code>).</p>
-<p>Avoid using limit clauses like <code>TOP</code> in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the <a href="#batch-size"><strong>Batch size</strong> input field</a>. Adding your own limit clause will cause the action to fail.</p>
+<h3 id="event-name">Event name</h3>
+<p>Key in an <strong>Event name</strong> to generate a unique target URL for subscribing to workspace events. This should be descriptive of the event(s) you&apos;re subscribing to.</p>
+<p><img src="../../assets/images/connectors/slack/event-name.gif" alt="Event name">
+<em>Keying in the event name generates the target URL used for subscribing to workspace events</em></p>
+<h2 id="output-fields">Output fields</h2>
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th colspan="2">Input fields</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td colspan="2">Team ID</td>
+          <td>ID of Slack workspace.</td>
+        </tr>
+        <tr>
+          <td colspan="2">API app ID</td>
+          <td>ID of your Slack app that&apos;s subscribed to the workspace event.</td>
+        </tr>
+        <tr>
+          <td colspan="2">Event ID</td>
+          <td>ID of event.</td>
+        </tr>
+        <tr>
+          <td colspan="2">Event time</td>
+          <td>Timestamp of event.</td>
+        </tr>
+        <tr>
+          <td rowspan="6">Event</td>
+          <td>Type</td>
+          <td>Type of event.</td>
+        </tr>
+        <tr>
+          <td>User</td>
+          <td>User ID of user who triggered the event.</td>
+        </tr>
+        <tr>
+          <td>Text</td>
+          <td>Message content of text.</td>
+        </tr>
+        <tr>
+          <td>Ts</td>
+          <td>Timestamp of event.</td>
+        </tr>
+        <tr>
+          <td>Channel</td>
+          <td>Channel ID where event occurred.</td>
+        </tr>
+        <tr>
+          <td>Event ts</td>
+          <td>Timestamp of event.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="button-click-real-time">Button click (real-time)</h2>
+<p>The button click trigger handles button clicks. These button clicks come from another recipe that posts a message with buttons to the user. Learn more about using buttons in our <a href="../slack.html#using-slack-message-buttons">Using Slack message buttons</a> document.</p>
+<h3 id="input-fields">Input fields</h3>
+<p>There are no input fields.</p>
+<h3 id="output-fields">Output fields</h3>
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th colspan="2">Output fields</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2">Action name</td>
+            <td>Button label visible to Slack user interacting with the buttons.</td>
+        </tr>
+        <tr>
+            <td colspan="2">Action ID</td>
+            <td>
+              Internal value of the button.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Channel</td>
+            <td>ID</td>
+            <td>ID of channel where button was clicked.</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+              Name of channel.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">User</td>
+            <td>ID</td>
+            <td>
+              User ID of user who clicked the button.
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+              Name of user who clicked the button.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Team</td>
+            <td>ID</td>
+            <td>ID of Slack workspace.</td>
+        </tr>
+        <tr>
+            <td>Domain</td>
+            <td>Domain of Slack workspace.</td>
+        </tr>
+        <tr>
+            <td colspan="2">Action timestamp</td>
+            <td>Timestamp when button was clicked. </td>
+        </tr>
+        <tr>
+            <td colspan="2">Message ID</td>
+            <td>ID of message that contained the button that was clicked.</td>
+        </tr>
+        <tr>
+            <td colspan="2">Attachment ID</td>
+            <td>ID of the button that was clicked. Buttons are a form of message attachments in the context of Slack.</td>
+        </tr>
+        <tr>
+            <td colspan="2">Response URL</td>
+            <td>URL for responding to button clicks, used in the <b>Respond to button click</b> action.</td>
+        </tr>
+    </tbody>
+</table>
 
                                 
                                 </section>
@@ -7112,7 +7124,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"New/updated row trigger","date":"2018-05-06T06:00:00.000Z","level":"1.16.22.8","depth":3,"next":{"title":"Salesforce","level":"1.16.23","depth":2,"path":"connectors/salesforce.md","ref":"connectors/salesforce.md","articles":[{"title":"Connection setup","level":"1.16.23.1","depth":3,"anchor":"#how-to-connect-to-salesforce-on-workato","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#how-to-connect-to-salesforce-on-workato","articles":[]},{"title":"Real-time trigger setup","level":"1.16.23.2","depth":3,"anchor":"#using-real-time-triggers","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#using-real-time-triggers","articles":[]},{"title":"Object triggers","level":"1.16.23.3","depth":3,"anchor":"#working-with-generic-triggers-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-generic-triggers-in-salesforce","articles":[]},{"title":"Handling attachments","level":"1.16.23.4","depth":3,"anchor":"#working-with-attachments-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-attachments-in-salesforce","articles":[]},{"title":"Using SOQL","level":"1.16.23.5","depth":3,"anchor":"#working-with-soql-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-soql-in-salesforce","articles":[]},{"title":"Bulk data imports","level":"1.16.23.6","depth":3,"anchor":"#working-with-bulk-data-load-jobs-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce","articles":[]}]},"previous":{"title":"New row trigger","level":"1.16.22.7","depth":3,"path":"connectors/redshift/new-row-trigger.md","ref":"connectors/redshift/new-row-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/redshift/updated-row-trigger.md","mtime":"2018-08-13T15:32:35.193Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-13T15:34:13.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Triggers","date":"2017-09-12T12:00:00.000Z","level":"1.16.25.1","depth":3,"next":{"title":"New event trigger (real-time)","level":"1.16.25.1.1","depth":4,"anchor":"#new-event-trigger-real-time","path":"connectors/slack/triggers.md","ref":"connectors/slack/triggers.md#new-event-trigger-real-time","articles":[]},"previous":{"title":"Slack","level":"1.16.25","depth":2,"path":"connectors/slack.md","ref":"connectors/slack.md","articles":[{"title":"Triggers","level":"1.16.25.1","depth":3,"path":"connectors/slack/triggers.md","ref":"connectors/slack/triggers.md","articles":[{"title":"New event trigger (real-time)","level":"1.16.25.1.1","depth":4,"anchor":"#new-event-trigger-real-time","path":"connectors/slack/triggers.md","ref":"connectors/slack/triggers.md#new-event-trigger-real-time","articles":[]},{"title":"Button click (real-time)","level":"1.16.25.1.2","depth":4,"anchor":"#button-click-real-time","path":"connectors/slack/triggers.md","ref":"connectors/slack/triggers.md#button-click-real-time","articles":[]}]},{"title":"Slack VS Workbot","level":"1.16.25.2","depth":3,"anchor":"#slack-connector-vs-workbot-for-slack-connector","path":"workbot/workbot.md","ref":"workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector","articles":[]},{"title":"Message buttons","level":"1.16.25.3","depth":3,"anchor":"#using-slack-message-buttons","path":"connectors/slack.md","ref":"connectors/slack.md#using-slack-message-buttons","articles":[]},{"title":"Message threads","level":"1.16.25.4","depth":3,"anchor":"#using-slack-threads","path":"connectors/slack.md","ref":"connectors/slack.md#using-slack-threads","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/slack/triggers.md","mtime":"2018-08-13T15:32:35.197Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-13T15:34:13.806Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
