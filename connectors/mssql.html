@@ -6882,7 +6882,43 @@
   </tbody>
 </table>
 
-<h2 id="working-with-the-sql-server-connector">Working with the SQL Server connector</h2>
+<h3 id="permissions-required-to-connect">Permissions required to connect</h3>
+<p>At minimum, the database user account must be granted <code>SELECT</code> permission to the database specified in the <a href="#how-to-connect-to-sql-server-on-workato">connection</a>.</p>
+<p>If we are trying to connect to a named database (<code>HR_PROD</code>) in a SQL Server instance, using a new database user <code>workato</code>, the following example queries can be used.</p>
+<p>First, create a new login and user dedicated to integration use cases with Workato.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> LOGIN workato <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">PASSWORD</span> = <span class="hljs-keyword">password</span>;
+<span class="hljs-keyword">USE</span> HR_PROD;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> workato <span class="hljs-keyword">FOR</span> LOGIN workato;
+</code></pre>
+<p>This allows the user to have login access to the SQL Server instance. However, this user will not have access to any tables.</p>
+<p>The next step is to grant permission to the necessary tables. There are a few ways to do this. One of the simplest ways is to grant access based on a <strong>ROLE</strong>.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">ROLE</span> db_datareader <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">MEMBER</span> workato;
+</code></pre>
+<p>Alternatively, we can grant access to all tables defined by a <strong>SCHEMA</strong>, <code>HR</code>.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">SELECT</span>,<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">SCHEMA</span> :: HR <span class="hljs-keyword">TO</span> workato;
+</code></pre>
+<p>Finally, check that this user has the necessary permissions. Run a query to see all permissions.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+  pr.<span class="hljs-keyword">name</span>,
+  pr.type_desc,
+  perm.permission_name,
+  perm.class_desc,
+  object_name(perm.major_id) <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;object&quot;</span>,
+  schema_name(perm.major_id) <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;schema&quot;</span>
+<span class="hljs-keyword">FROM</span> <span class="hljs-keyword">sys</span>.database_principals pr
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> <span class="hljs-keyword">sys</span>.database_permissions perm <span class="hljs-keyword">ON</span> perm.grantee_principal_id = pr.principal_id
+<span class="hljs-keyword">WHERE</span> p.<span class="hljs-keyword">name</span> = <span class="hljs-string">&apos;workato&apos;</span>;
+</code></pre>
+<p>This should return the following minimum permission to create a SQL Server connection on Workato.</p>
+<pre><code>+---------+-----------+-----------------+------------+--------+-------------+
+| name    | type_desc | permission_name | class_desc | object | schema      |
++---------+-----------+-----------------+------------+--------+-------------+
+| workato | SQL_USER  | CONNECT         | DATABASE   | NULL   | NULL        |
+| workato | SQL_USER  | INSERT          | SCHEMA     | NULL   | workatodemo |
+| workato | SQL_USER  | SELECT          | SCHEMA     | NULL   | workatodemo |
++---------+-----------+-----------------+------------+--------+-------------+
+3 rows in set (0.20 sec)
+</code></pre><h2 id="working-with-the-sql-server-connector">Working with the SQL Server connector</h2>
 <h3 id="table-view-and-stored-procedure">Table, view and stored procedure</h3>
 <p>The SQL Server connector works with all tables, views and stored procedures. These are available in pick lists in each trigger/action or you can provide the exact name.</p>
 <p><img src="../assets/images/mssql/table_pick_list.png" alt="Table selection from pick list">
@@ -7105,7 +7141,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SQL Server","date":"2018-02-02T06:10:00.000Z","level":"1.16.27","depth":2,"next":{"title":"Connection setup","level":"1.16.27.1","depth":3,"anchor":"#how-to-connect-to-mssql-on-workato","path":"connectors/mssql.md","ref":"connectors/mssql.md#how-to-connect-to-mssql-on-workato","articles":[]},"previous":{"title":"Splunk","level":"1.16.26","depth":2,"path":"connectors/splunk.md","ref":"connectors/splunk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/mssql.md","mtime":"2018-08-13T09:19:17.745Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-13T09:20:45.212Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SQL Server","date":"2018-02-02T06:10:00.000Z","level":"1.16.27","depth":2,"next":{"title":"Connection setup","level":"1.16.27.1","depth":3,"anchor":"#how-to-connect-to-mssql-on-workato","path":"connectors/mssql.md","ref":"connectors/mssql.md#how-to-connect-to-mssql-on-workato","articles":[]},"previous":{"title":"Splunk","level":"1.16.26","depth":2,"path":"connectors/splunk.md","ref":"connectors/splunk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/mssql.md","mtime":"2018-08-13T09:26:50.432Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-13T09:28:28.537Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
