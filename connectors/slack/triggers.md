@@ -57,6 +57,8 @@ Key in an **Event name** to generate a unique target URL for subscribing to work
             <th colspan="2">Input fields</th>
             <th>Description</th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
           <td colspan="2">Team ID</td>
           <td>ID of Slack workspace.</td>
@@ -92,7 +94,7 @@ Key in an **Event name** to generate a unique target URL for subscribing to work
         </tr>
         <tr>
           <td>Channel</td>
-          <td>Channel ID where event occurred./td>
+          <td>Channel ID where event occurred.</td>
         </tr>
         <tr>
           <td>Event ts</td>
@@ -114,6 +116,8 @@ There are no input fields.
             <th colspan="2">Output fields</th>
             <th>Description</th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
             <td colspan="2">Action name</td>
             <td>Button label visible to Slack user interacting with the buttons.</td>
