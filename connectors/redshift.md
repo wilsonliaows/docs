@@ -44,6 +44,52 @@ The Redshift connector uses basic authentication to authenticate with Redshift.
   </tbody>
 </table>
 
+### Permissions required to connect
+
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-redshift-on-workato).
+
+If we are trying to connect to a Redshift instance, using a new database user `workato`, the following example queries can be used.
+
+First, create a new user dedicated to integration use cases with Workato.
+```sql
+CREATE USER workato PASSWORD 'password';
+```
+
+The next step is to grant access to `customer` table in the schema. In this example, we only wish to grant `SELECT` and `INSERT` permissions.
+
+```sql
+GRANT SELECT,INSERT ON TABLE customer TO workato;
+```
+
+Finally, check that this user has the necessary permissions. Run a query to see all grants.
+
+```sql
+SELECT
+    u.usename,
+    t.schemaname||'.'||t.tablename AS "table",
+    has_table_privilege(u.usename,t.tablename,'select') AS "select",
+    has_table_privilege(u.usename,t.tablename,'insert') AS "insert",
+    has_table_privilege(u.usename,t.tablename,'update') AS "update",
+    has_table_privilege(u.usename,t.tablename,'delete') AS "delete"
+FROM
+    pg_user u
+CROSS JOIN
+    pg_tables t
+WHERE
+    u.usename = 'workato'
+```
+
+This should return the following minimum permission to create a Redshift connection on Workato.
+
+```
++---------+----------+--------+--------+--------+--------+
+| usename | table    | select | insert | update | delete |
++---------+----------+--------+--------+--------+--------+
+| workato | customer | true   | true   | false  | false  |
++---------+----------+--------+--------+--------+--------+
+2 rows in set (0.26 sec)
+```
+
 ## Working with the Redshift connector
 
 ### Table and view

@@ -52,6 +52,56 @@ The Oracle connector uses basic authentication to authenticate with Oracle.
   </tbody>
 </table>
 
+### Permissions required to connect
+
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-oracle-on-workato).
+
+If we are trying to connect to a named schema (`HR_PROD`) in an Oracle instance, using a new database user `WORKATO`, the following example queries can be used.
+
+First, create a new user dedicated to integration use cases with Workato.
+```sql
+CREATE USER WORKATO IDENTIFIED BY password;
+```
+
+Next, grant `CONNECT` to this user.
+
+```sql
+GRANT CONNECT TO WORKATO;
+```
+
+This allows the user to have login access to the Oracle instance. However, this user will not have access to any tables.
+
+The next step is to grant access to `SUPPLIER` table in the `HR_PROD` schema. In this example, we only wish to grant `SELECT` and `INSERT` permissions.
+
+```sql
+GRANT SELECT,INSERT ON HR_PROD.SUPPLIER TO WORKATO;
+```
+
+Finally, check that this user has the necessary permissions. Run a query to see all grants.
+
+```sql
+SELECT * FROM DBA_ROLE_PRIVS WHERE GRANTEE = 'WORKATO';
+SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE = 'WORKATO';
+```
+
+This should return the following minimum permission to create a Oracle connection on Workato.
+
+```
++---------+--------------+--------------+--------------+
+| GRANTEE | GRANTED_ROLE | ADMIN_OPTION | DEFAULT_ROLE |
++---------+--------------+--------------+--------------+
+| WORKATO | CONNECT      | NO           | YES          |
++---------+--------------+--------------+--------------+
+
++---------+---------+------------+---------+-----------+-----------+-----------+
+| GRANTEE | OWNER   | TABLE_NAME | GRANTOR | PRIVILEGE | GRANTABLE | HIERARCHY |
++---------+---------+------------+---------+-----------+-----------+-----------+
+| WORKATO | HR_PROD | SUPPLIER   | ROOT    | SELECT    | NO        | NO        |
+| WORKATO | HR_PROD | SUPPLIER   | ROOT    | INSERT    | NO        | NO        |
++---------+---------+------------+---------+-----------+-----------+-----------+
+3 rows in set (0.61 sec)
+```
+
 ## Working with the Oracle connector
 
 ### Table, view and stored procedure
