@@ -6,7 +6,7 @@ It is useful when there is a list of accepted values for a field or when the fie
 ## Defining a pick list
 There are 2 ways to define a pick list: dynamically or statically.
 
-Static example:
+### Static example:
 
 Pick list is defined as a array of selections. Each selection is an array made up of 2 elements.
 
@@ -23,7 +23,7 @@ pick_lists: {
 }
 ```
 
-Dynamic example:
+### Dynamic example:
 ```ruby
 pick_lists: {
   folder: lambda do |connection|
