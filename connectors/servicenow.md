@@ -263,6 +263,11 @@ Next, this role should be assigned the relevant access control to use the trigge
 
 *Additional Access Control required for specific table(s)*
 
+Remember to elevate to a privileged role (security_admin) to edit Access Control records.
+
+![Elevate to privilege role](/assets/images/connectors/servicenow/elevate_privilege_acl.gif)
+*Elevate to privilege role*
+
 ![Granting access control rule for `incident` table to custom role](/assets/images/connectors/servicenow/incident_table_access_control.png)
 *Granting access control rule for `incident` table to custom role*
 
