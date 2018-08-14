@@ -176,6 +176,7 @@ To use the ServiceNow connector, the connection must be established with a user 
       <th>Table</th>
       <th>Purpose</th>
       <th>Operation</th>
+      <th>Name</th>
     </tr>
   </thead>
   <tbody>
@@ -183,11 +184,19 @@ To use the ServiceNow connector, the connection must be established with a user 
       <td><a href='https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/table-administration/reference/r_TablesModule.html'>Tables</a> (sys_db_object)</td>
       <td><b>Tables</b> is a table that contains a row for each table in your ServiceNow instance. This table is used to generate a list of tables to perform an action or trigger events from.</td>
       <td>read</td>
+      <td>
+        sys_db_object<br>
+        sys_db_object.*
+      </td>
     </tr>
     <tr>
       <td><a href='https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/data-dictionary-tables/concept/c_SystemDictionary.html'>Dictionary Entry</a> (sys_dictionary)</td>
       <td>Contains details for each table and columns in each table in your ServiceNow instance. This table is used to generate input and/or output fields when you select a table to perform and action.</td>
       <td>read</td>
+      <td>
+        sys_dictionary<br>
+        sys_dictionary.*
+      </td>
     </tr>
   </tbody>
 </table>
@@ -218,7 +227,10 @@ Only a user with **security_admin** role has the ability to edit or create acces
       <td>Tables</td>
       <td>record</td>
       <td>read</td>
-      <td>sys_db_object</td>
+      <td>
+        sys_db_object<br>
+        sys_db_object.*
+      </td>
     </tr>
     <tr>
       <td>Dictionary Entry</td>
