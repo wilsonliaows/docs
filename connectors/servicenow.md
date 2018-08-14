@@ -75,7 +75,7 @@ Select **Username/Password** authentication type to connect to your ServiceNow i
     </tr>
     <tr>
       <td>Instance name</td>
-      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is **acme**</td>
+      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is <b>acme</b>.</td>
     </tr>
     <tr>
       <td>Username</td>
@@ -115,7 +115,7 @@ Only Istanbul (or later) versions of ServiceNow supports OAuth 2.0 connection wi
     </tr>
     <tr>
       <td>Instance name</td>
-      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is **acme**</td>
+      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is <b>acme</b>.</td>
     </tr>
     <tr>
       <td>Client ID</td>
