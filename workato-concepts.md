@@ -8,11 +8,11 @@ date: 2017-03-08 18:00:00 Z
 Here are the core concepts and terminology that you'd need to know in order to use Workato.
 
 ## Recipes
-Recipes are automated workflows built by users that can span multiple apps, e.g. moving new Salesforce accounts into Zendesk as new organizations. Each recipe comprises of a trigger and one or more actions that are carried out when a trigger event is picked up.
+Recipes are automated workflows built by users that can span multiple apps, e.g. moving new accounts from Salesforce into Zendesk as new organizations. Each recipe comprises of a trigger and one or more actions that are carried out when a trigger event is picked up.
 
-When recipes are started and become active, they will run automatically in the background to listen to trigger events and carry out recipe actions. When they are stopped and become inactive, they will cease listening to trigger events.
+When recipes are started, they will run automatically in the background to look for trigger events and carry out recipe actions. When they are stopped, they will cease to look for trigger events.
 
-However, when a recipe is started again, it will pick up all the trigger events that occurred since the recipe was stopped. i.e. stop functions like pause.
+However, when a recipe is started again, it will pick up all the trigger events that occurred since the recipe was stopped. In other words, stop functions like pause.
 
 You can set recipe visibility to be public or private. When they are set to be public, any Workato member can see this recipe, and make a copy for their own use.
 
@@ -24,11 +24,13 @@ All recipes have a unique ID that identifies them.
 The recipe above has a trigger and just one action. The trigger is **New Salesforce account** - this trigger will fire whenever a new account is created in Salesforce. The action **Create Zendesk organization** will create an organization in Zendesk each time the trigger event occurs (i.e. when a new account is created in Salesforce).
 
 ## Triggers
-Triggers determine what event to listen to in order to execute the actions described in a recipe
+Triggers determine what event to listen to in order to execute the actions described in a recipe.
 
-Trigger events can occur in apps (e.g. Salesforce, JIRA, etc.), can be a timer driven (fires at a certain time or interval), occur when a new line is added in a file, etc.
+Trigger events can be set off in apps (e.g. Salesforce, JIRA) when a certain event happens (e.g. new contact is created, existing ticket is updated), when a new line is added in a file, or according to a schedule (fires at a certain time or interval), etc.
 
-Depending on the available API, Workato can receive trigger events in real-time, or check for the occurence of an event periodically (i.e. polled).
+Depending on the available API, Workato can receive trigger events in real-time, or check for the occurrence of an event periodically by polling the app.
+
+You can learn more about triggers and how to use them [here](/recipes/triggers.md).
 
 ## Steps and actions
 Recipe steps are executed every time the trigger event occurs. Recipes are required to have at least one step. The most basic step for a recipe is an action e.g. an action to create an organization in Zendesk.
@@ -37,10 +39,10 @@ Workato steps can be actions, conditional actions, list actions, actions that ca
 
 You can read more about recipe steps [here](/recipes/steps.md) and actions [here](/recipes/actions.md).
 
-## Data tree and pills
-Every step including triggers brings data into the recipe. e.g. a new employee in Workday trigger would bring in employee data. This data is made available in the recipe via the 'data tree'.
+## Datatree and datapills
+Every step, including triggers, brings data into the recipe. e.g. a new employee in Workday trigger would bring in employee data. This data is made available in the recipe via the **datatree**.
 
-The individual data fields are called data pills. You can use the data pills in subsequent steps. You can read more about data pills [here](/recipes/data-pills-and-mapping.md).
+The individual data fields are called datapills. You can use the datapills in subsequent steps. You can read more about datapills [here](/recipes/data-pills-and-mapping.md).
 
 The following is the output datatree for the trigger **New Salesforce account**. This datatree contains all the variables known to us and available for use whenever a trigger event occurs.
 

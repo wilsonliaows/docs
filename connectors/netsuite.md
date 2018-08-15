@@ -1,53 +1,119 @@
 ---
-title: NetSuite
+title: Workato connectors - NetSuite
 date: 2017-04-28 06:15:00 Z
 ---
 
 # NetSuite
+[NetSuite](http://www.netsuite.com/) is a cloud business management suite that offers comprehensive software for an organization, with software products encompassing ERP/Financials, CRM, and ecommerce.
 
 ## How to connect to NetSuite on Workato
-In order to connect to NetSuite and allow for data to flow to and from NetSuite via Workato, the following needs to be done in NetSuite. In this section, we'll be going through how to set these up in detail.
+You can connect to NetSuite via token based authentication. In order to do so, we need to generate an application ID, consumer key and consumer secret as well as a token ID and token secret. 
 
-1. Enable Web Services access in your NetSuite instance
+In this section, we'll go through how to get these.
 
-2. Create an integration role with required permission levels for your integration
+1. [Enable Web Services and Token-based Authentication in your NetSuite instance](https://docs.workato.com/connectors/netsuite.html#1-enable-web-services-access-in-your-netsuite-instance)
 
-3. Assign the above integration role to the integration user
+2. [Create an integration record](https://docs.workato.com/connectors/netsuite.html#2-create-an-integration-record)
+
+3. [Create an integration role with required permission levels for your integration](https://docs.workato.com/connectors/netsuite.html#3-create-an-integration-role-with-required-permission-levels-for-your-integration)
+
+4. [Assign the integration role to the integration user](https://docs.workato.com/connectors/netsuite.html#4-set-up-an-integration-user)
+
+5. [Create access token for this integration user](https://docs.workato.com/connectors/netsuite.html#5-create-access-token)
 
 ### 1. Enable Web Services access in your NetSuite instance
-First, API Access needs to be enabled in NetSuite. Go to Setup>Company>Enable Features>SuiteCloud.
+First, API Access and Token-based Authentication needs to be enabled in NetSuite. Go to *Setup*>*Company*>*Enable Features*>*SuiteCloud*.
 
 ![Setup > Company > Enabled Features > SuiteCloud](/assets/images/connectors/netsuite/enable-web-services-1.png)
 *In NetSuite, go to Setup>Company>Enable Features>SuiteCloud*
 
-Check the Web Services checkbox, then save the settings.
+Under the SuiteScript section, check the Client SuiteScript and Server SuitScript checkboxes.
 
-![Check the SuiteTalk Web Services checkbox](/assets/images/connectors/netsuite/enable-web-services-2.png)
-*In the SuiteCloud tab, check the SuiteTalk Web Services checkbox*
+![Check the Client SuiteScript and Server SuitScript checkboxes](/assets/images/connectors/netsuite/netsuite-suitescript-setup.png)
+*In the SuiteCloud tab, check the Client SuiteScript and Server SuitScript checkboxes*
 
-Now that we've enabled Web Services, we need to set up a user with the proper set of permissions to read from or write to NetSuite via the API. We will use this user to connect to NetSuite from Workato. Typically, this user is a special integration user whose sole function is to enable the integration.
+Under the SuiteTalk (Web Services) section, check the **Web Services** checkbox. Under the Manage Authentication section, check the **Token-based Authentication** checkbox.
 
-### 2. Create an integration role with required permission levels for your integration
-We need to create a specialized role for our integration user. We need to enable Full Web Services permission level for our user, as well as add any further permissions the user needs to have for our integration to work.
+![Check the SuiteTalk Web Services and Token-based Authentication checkbox](/assets/images/connectors/netsuite/enable-web-services-2.png)
+*In the SuiteCloud tab, check the SuiteTalk Web Services and Token-based Authentication checkbox*
 
-In the example below, we're creating a new role and giving it the Full Web Services permission. However, if you wish to enable an existing role to be able to read from and write to NetSuite via the API, simply add the Full Web Services permission to the existing role.
+You can also refer to the [NetSuite documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html&whence=#bridgehead_4253254429) on enabling the Token-based Authentication feature.
 
-1. In NetSuite, go to Setup>Users/Roles>Manage Roles
+### 2. Create an integration record
+We need to create an [integration record](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4389727047.html#bridgehead_4430959588) to represent an external application connecting to NetSuite.
+
+Go to *Setup*>*Integration*>*Manage Integrations*>*New*.
+
+![Setup > Integration > Manage Integrations > New](/assets/images/connectors/netsuite/integration-record-1.png)
+*In NetSuite, go to Setup>Integration>Manage Integrations>New*
+
+Now, add a name for this integration. Make sure to select **Enabled** in the State pick list and check the Token-based Authentication checkbox, then save this integration.
+
+![Check the Token-based Authentication checkbox](/assets/images/connectors/netsuite/integration-record-2.png)
+*Check the Token-based Authentication checkbox*
+
+Now that we have created an integration record, save the consumer key and consumer secret. This will be used for connecting to NetSuite on Workato.
+
+You can also refer to the [NetSuite documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4393879073.html) on creating integration records.
+
+### 3. Create an integration role with required permission levels for your integration
+We recommend that you create a separate integration role just for your integrations. This integration role needs to have permissions to read and write to the records relevant for your integrations. This integration role also needs the ability to login through RESTlets or SuiteTalk (web services).
+
+The minimum set of permissions needed for this user are:
+A) Permissions to read/write to records required for integration
+B) Web Services (Full level)
+C) Log in using Access Tokens (Full level) or User Access Tokens (Full level) for more privileges to create and revoke own tokens
+D) Set Up Company (Full level)
+
+A) Assign integration specific read/write permissions
+We recommend that you make a copy of an existing role that already has the permissions required for the integrations to work and proceed to customize it further for your integration needs. This role can then be assigned to the integration user. Alternatively, you can create a new role and add the permissions required for the integrations to work.
+
+In NetSuite, go to your integration role via *Setup*>*Users/Roles*>*Manage Roles*.
+
 ![Setup > Users/Roles > Manage Roles](/assets/images/connectors/netsuite/setup-integration-role-1.png)
+*Setup > Users/Roles > Manage Roles*
 
-2. Check the Web Services Only Role checkbox if you don't want this role to have the ability to login to NetSuite (i.e. only the ability to connect to NetSuite via the API)
+Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the **Sales Order - Create** permission level, and if you wish to be able to create and update and read sales order data, select the Full permission level.
+
+![Set up integration specific permissions](/assets/images/connectors/netsuite/setup-integration-role-4.png)
+*Set up integration specific permissions*
+
+Refer to the [NetSuite documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N285937.html) for more details about customizing or creating roles and setting permissions.
+
+B. Assign Web Services permissions to integration role
+Check the **Web Services Only Role** checkbox if you don't want this role to have the ability to login to NetSuite (i.e. if you want this user to only have the ability to connect to NetSuite via the API).
+
 ![Check Web Services Only Role checkbox if relevant](/assets/images/connectors/netsuite/setup-integration-role-2.png)
+*Check Web Services Only Role checkbox if relevant*
 
-3. Under Permissions>Setup, this role needs to have the Web Services permissions with a Full level
-![Give Full level Web Services permissions](/assets/images/connectors/netsuite/setup-integration-role-3.png)
+Under *Permissions*>*Setup*, add the Web Services permissions with a Full level.
 
-4. Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the Sales Order - Create permission level, and if you wish to be able to create and update and read sales order data, select the Full permission level.
-![Set up other permissions and permission levels](/assets/images/connectors/netsuite/setup-integration-role-4.png)
+![Assign Full level Web Services permissions](/assets/images/connectors/netsuite/setup-integration-role-3.png)
+*Assign Full level Web Services permissions*
 
-### 3. Set up an integration user
-Once we've set up our integration role, we need to assign this role to our integration user.
+C. Assign token-based authentication permissions to integration role
+There are 3 types of [token-based authentication permissions](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html#bridgehead_4249074259):
+- Access Token Management
+- User Access Tokens
+- Log in using Access Tokens
 
-In NetSuite, go to Setup>Users/Roles>Manage Users to edit an existing user or create a new user
+We need the **Log in using Access Tokens** permission at a minimum to enable the user to authenticate via token-based authentication. If you would like the integration user to be able to create and revoke access tokens for their own use, you can give the role the **User Access Tokens** permissions. We recommend that the integration user not have the **Access Token Management** permissions for better security maintenance.
+
+Under *Permissions*>*Setup*, add the **Log in using Access Tokens** permission with a Full level.
+
+![Assign Login using access token permissions](/assets/images/connectors/netsuite/assign-login-using-access-token-permissions.png)
+*Assign Login using access token permissions*
+
+D. Assign Set Up Company (Full level) permissions to integration role
+Lastly, add the Set Up Company (Full level) permissions to the integration role.
+
+![Assign Set Up Company permissions](/assets/images/connectors/netsuite/assign-set-up-company-permissions.png)
+*Assign Set Up Company permissions*
+
+### 4. Set up an integration user
+Once we've set up our integration role, we need to assign this role to our integration user. We recommend creating a separate user for your integrations.
+
+In NetSuite, go to *Setup*>*Users/Roles*>*Manage Users* to edit an existing user or create a new user.
 
 ![Set up other permissions and permission levels](/assets/images/connectors/netsuite/setup-integration-user-1.png)
 *Navigate to Setup>Users/Roles>Manage Users*
@@ -57,39 +123,31 @@ When editing a user, under the Access tab, ensure you assign this user the integ
 ![Assign integration role](/assets/images/connectors/netsuite/setup-integration-user-2.png)
 *Assign integration role to user*
 
-Once you've set up your integration user, you're ready to connect to NetSuite on Workato!
+### 5. Create access token
+Finally, create an access token for the integration user. If the integration user has **User Access Tokens** permissions, they will be able to create and revoke their own tokens. If the integration user has only **Log in using Access Tokens** permissions, you will need to use a user with **Access Token Management** permissions to create an access token for the integration user.
 
-### 4. Connect to NetSuite on Workato
+Go to *Setup*>*Users/Roles*>*Access Tokens*>*New*.
+
+![Setup > Users/Roles > Access Tokens > New](/assets/images/connectors/netsuite/access-token.png)
+*In NetSuite, go to Setup>Users/Roles>Access Tokens>New*
+
+Select the integration record, integration user and role we created earlier, then click save. Record the token ID and token secret somewhere and keep it confidential - these will not be retrievable again from NetSuite. These will be used for connecting to NetSuite on Workato.
+
+### 6. Connect to NetSuite on Workato
 NetSuite asks for the following information to connect.
 
 ![Information to connect to NetSuite](/assets/images/connectors/netsuite/information-to-connect-to-netsuite.png)
+*Information to connect to NetSuite*
 
-The following details more information about each field.
-
-- Email and password
-
-This is the email and password of your integration user
-
-- Account ID
-
-Retrieve the account ID of your NetSuite instance from Integration>Web Services Preferences
-
-- Role
-
-Name of the role you've just created
-
-- Application ID
-
-Retrieve the application ID from Integration>Manage Integrations
-
-- Account timezone
-
-Select the timezone of your NetSuite instance in order to ensure that the dates in your NetSuite account are handled accurately. All datetime values used in actions/triggers for the NetSuite connection will be based on this timezone.
-
-
-- Sandbox
-
-Select True or False depending on whether the NetSuite instance you're trying to connect to is a sandbox or not
+| Field                   | Description                                                                                                                                                                                                                               |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Account ID              | Retrieve the account ID of your NetSuite instance from Integration>Web Services Preferences                                                                                                                                               |
+| Consumer key            | Consumer key from the integration record that you've just created                                                                                                                                                                         |
+| Consumer secret         | Consumer secret from the integration record that you've just created                                                                                                                                                                      |
+| Token ID                | Token ID from the access token that you've just created                                                                                                                                                                                   |
+| Token secret            | Token secret from the access token that you've just created                                                                                                                                                                               |
+| Account timezone        | Select the timezone of your NetSuite instance in order to ensure that the dates in your NetSuite account are handled accurately. All datetime values used in actions/triggers for the NetSuite connection will be based on this timezone. |
+| Ignore read-only fields | If set to Yes, read-only fields will be omitted from create and update actions. If set to No, read-only field will appear in create and update actions. Trying to create or update these read-only field will cause an error.             |
 
 ## Working with the NetSuite connector
 
@@ -120,7 +178,7 @@ This field is a standard field in NetSuite, but typically not visible by default
 
 - IDs
 
-When linking an object to another object via Workato (e.g. when creating a transaction and trying to link this transaction to a class, department or subsidiary), NetSuite usually asks for the IDs of the object you wish to link to. To find these IDs, you would typically need to search for these objects (e.g. in this case, to search for your class, department or subsidiary). Alternatively, you might want to store these values in a [lookup table](features/lookup-tables.md) for easy reference without having to execute a search in your NetSuite instance.
+When linking an object to another object via Workato (e.g. when creating a transaction and trying to link this transaction to a class, department or subsidiary), NetSuite usually asks for the IDs of the object you wish to link to. To find these IDs, you would typically need to search for these objects (e.g. in this case, to search for your class, department or subsidiary). Alternatively, you might want to store these values in a [lookup table](/features/lookup-tables.md) for easy reference without having to execute a search in your NetSuite instance.
 
 - Custom fields
 
@@ -170,6 +228,36 @@ When I first start my recipe all sales orders created from or after 1 Jan, 2017 
 #### Trigger behaviour when recipe is stopped and restarted
 Even if the recipe is stopped, when it's restarted again, all sales orders created in the time during which the recipe was stopped will be picked up by the recipe.
 
+#### Unsupported records
+There are certain records the trigger does not support, as they cannot be queried via the NetSuite API. Unsupported records are as follows:
+
+- Budget category
+- Campaign audience
+- Campaign category
+- Campaign channel
+- Campaign family
+- Campaign offer
+- Campaign response
+- Campaign search engine
+- Campaign subscription
+- Campaign vertical
+- Currency
+- Item revision
+- Landed cost
+- Lead source
+- Sales tax item
+- Support case issue
+- Support case origin
+- Support case priority
+- Support case status
+- Support case type
+- Tax account
+- Tax group
+- Tax type
+- Currency revaluation
+- Payroll adjustment
+- Inventory worksheet
+
 ### New/updated standard object and new/updated custom object trigger
 The new/updated standard object and new/updated custom object trigger are very similar, so this section will cover both.
 
@@ -190,6 +278,36 @@ When I first start my recipe all sales orders created or updated from or after 1
 
 #### Trigger behaviour when recipe is stopped and restarted
 Even if the recipe is stopped, when it's restarted again, all sales orders created or updated in the time during which the recipe was stopped will be picked up by the recipe. Do note, however, that the recipe will only pick up the last (most updated) version of search record. For example, if a record was newly created and had 3 updates made to it while the recipe was stopped, the recipe will only pick up the last updated version of the record when it's restarted again.
+
+#### Unsupported records
+There are certain records the trigger does not support, as they cannot be queried via the NetSuite API. Unsupported records are as follows:
+
+- Budget category
+- Campaign audience
+- Campaign category
+- Campaign channel
+- Campaign family
+- Campaign offer
+- Campaign response
+- Campaign search engine
+- Campaign subscription
+- Campaign vertical
+- Currency
+- Item revision
+- Landed cost
+- Lead source
+- Sales tax item
+- Support case issue
+- Support case origin
+- Support case priority
+- Support case status
+- Support case type
+- Tax account
+- Tax group
+- Tax type
+- Currency revaluation
+- Payroll adjustment
+- Inventory worksheet
 
 ### New saved search result for object trigger
 The **New saved search result for object** trigger retrieves new records that meet the saved search's criteria, e.g. for a saved search that fetches customer records of industry type **Hardware**, new customers created of the industry type **Hardware** will be picked up as a trigger event.

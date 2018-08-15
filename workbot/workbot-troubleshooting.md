@@ -1,9 +1,9 @@
 ---
-title: Troubleshooting Workbot
+title: Troubleshooting Workbot for Slack
 date: 2017-03-30 05:00:00 Z
 ---
 
-# Troubleshooting Workbot
+# Troubleshooting Workbot for Slack
 Sometimes when interacting with Workbot, he may raise some errors or issues. Here are some common errors and issues that Workbot might tell you about, and how to handle them.
 
 ## Recipe execution error

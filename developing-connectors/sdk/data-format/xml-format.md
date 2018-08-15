@@ -8,9 +8,9 @@ Method | Description
 `response_format_xml` | Expect response body in XML format
 `format_xml` | Convert request and expect response body in XML format
 
-## Example XML action
+## Forming XML payload in request
 
-Since custom adapter actions receive data in the form of ruby hashes, you will have to convert data into xml by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.
+Since custom adapter actions receive data in the form of ruby hashes, you will have to convert these hashes into an XML by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.
 
 According to the [Intacct documentation](https://developer.intacct.com/wiki/web-services-api-30-calls), all requests should be made to the same endpoint as a POST request: `https://api.intacct.com/ia/xml/xmlgw.phtml`
 
@@ -43,10 +43,10 @@ Authentication and payload are expected in the XML payload. Example:
 </request>
 ```
 
-Here is a sample action to retrieve GL Account information, **Get GL Account**.
+Here is a sample action to retrieve GL Account information, **Get GL account**.
 
 ```ruby
-get_gl_account: {
+get_GL_account: {
   input_fields: lambda do
     [
       {
@@ -106,9 +106,12 @@ get_gl_account: {
                         "data", 0,
                         "glaccount", 0) || {}
 
-    response.map do |key, value|
-      { key => value&.first&.[]("content!") }
-    end.inject(:merge)
+    response.inject({}) do |hash (key, value)|
+      hash.merge(
+        {
+          key => value.dig(0, "content!")
+        })
+    end
   end,
 
   output_fields: lambda do |object_definitions|
@@ -145,7 +148,7 @@ Next, we add a payload to the request in the form of a hash first:
                  }
                ]
              }
-           ]
+           ],
            "content": [
              {
                "function": [
@@ -153,8 +156,8 @@ Next, we add a payload to the request in the form of a hash first:
                    "@controlid": "testControlId",
                    "get_list": [
                      {
-                     "@object": "glaccount",
-                     "@maxitems": "1"
+                       "@object": "glaccount",
+                       "@maxitems": "1"
                      }
                    ]
                  }
@@ -164,19 +167,147 @@ Next, we add a payload to the request in the form of a hash first:
          }
        ])
 ```
+
 Elements are represented by arrays of hashes, since XML elements can repeat without any extra notation. Element data is defined using the `content!` key and attributes using `@` prefix (example: `@object` and `@maxitems`).
+
+The resultant XML body looks like this:
+```xml
+<control>
+  <senderid>SENDER_ID</senderid>
+  <password>PASSWORD</password>
+  <controlid>testControlId</controlid>
+  <uniqueid>false</uniqueid>
+  <dtdversion>3.0</dtdversion>
+</control>
+<operation>
+  <authentication>
+    <login>
+      <userid>USER_ID</userid>
+      <companyid>COMPANY_ID</companyid>
+      <password>PASSWORD</password>
+    </login>
+  </authentication>
+  <content>
+    <function controlid="testControlId">
+      <get_list object="glaccount" maxitems="1"/>
+    </function>
+  </content>
+</operation>
+```
+
+Defining value for an XML element is done using the `content!` key. For example, to assign password to the `<senderid>` element, the hash looks like this:
+
+```ruby
+{
+  "senderid": [{ "content!": connection["sender_id"] }]
+}
+```
+
+Next, how do we form a complex XML element? First, let's form an XML element that has a single occurrence (object type). For example, the `<control>` element in the request body is a complex element type with a number of elements nested within. The resultant partial XML should look like this:
+
+```xml
+<control>
+  <senderid>SENDER_ID</senderid>
+  <password>PASSWORD</password>
+  <controlid>testControlId</controlid>
+  <uniqueid>false</uniqueid>
+  <dtdversion>3.0</dtdversion>
+</control>
+```
+
+To form this, the equivalent hash should not have `content!` defined immediately in the `control` hash. Instead, defind an array of a single hash that contains nested keys, one for each element that belongs in the `<control>` element.
+
+```ruby
+"control": [
+  {
+    "senderid": [{ "content!": connection["sender_id"] }],
+    "password": [{ "content!": connection["sender_password"] }],
+    "controlid": [{ "content!": "testControlId" }],
+    "uniqueid": [{ "content!": false }],
+    "dtdversion": [{ "content!": 3.0 }]
+  }
+]
+```
+
+Notice that all elements immediately under the `<control>` element are primitive types. Each of these elements contain only a value and optionally, attributes.
+
+Now, we know how to define values for primitive XML elements. What about XML attributes? Let's look at the `<content>` element in the XML body to see how it's done.
+
+```xml
+<content>
+  <function controlid="testControlId">
+    <get_list object="glaccount" maxitems="1"/>
+  </function>
+</content>
+```
+
+This XML element has attributes defined in 2 elements. First, in a complex element `<function>` as well as a primitive element `<get_list>`. To form this XML, the equivalent hash structure looks like this:
+
+```ruby
+"content": [
+  {
+    "function": [
+      {
+        "@controlid": "testControlId",
+        "get_list": [
+          {
+            "@object": "glaccount",
+            "@maxitems": "1"
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+Attributes and nested elements in a complex XML element are defined with the same hierarchy, but with the `@` prefix to indicate an attribute. (`"get_list"` key for `<get_list>` element and `"@controlid"` key for `controlid` attribute)
+
+Similarly, element value and attributes in a primitive XML element are defined with the same hierarchy. (`"content!"` key for value of `<get_list>` element and `"@object"` key for `object` attribute)
+In this example, the `<get_list>` element is not assigned a value. If we were to assign one, the equivalent hash will look like this:
+
+```ruby
+"content": [
+  {
+    "function": [
+      {
+        "@controlid": "testControlId",
+        "get_list": [
+          {
+            "@object": "glaccount",
+            "@maxitems": "1",
+            "content!": input["key"]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+Which will be converted into this XML:
+
+```xml
+<content>
+  <function controlid="testControlId">
+    <get_list object="glaccount" maxitems="1">KEY_VALUE<get_list>
+  </function>
+</content>
+```
 
 Next, we add the necessary headers with the headers shorthand method:
 ```ruby
 .headers("Content-type": "x-intacct-xml-request")
 ```
 
-Finally, we use the `format_xml` method (since we require both request and response in XML) and pass it the root element name as an argument, `request` in this case.
+Finally, we use the `format_xml` method (since we require both request and response in XML) and pass it the root element name as an argument, `<request>`)
 ```ruby
 .format_xml("request")
 ```
 
-Now, the response will be in this form:
+## Handling XML from response
+
+Now, the response from the same request will be in this form:
 ```xml
 <response>
   <control>
@@ -227,7 +358,10 @@ Now, the response will be in this form:
 </response>
 ```
 
-Which will be returned to the connector as an equivalent hash (Similar to request, elements are represented by arrays of hashes, since XML elements can repeat without any extra notation).
+Because `format_xml` was called in the request, Workato SDK returns an equivalent hash. Similar to request:
+- elements are represented by arrays of hashes, since XML elements can repeat without any extra notation
+- elements attributes has `@` prefixed with the same heirarchy as nested elements and element values
+- element values are passed as values of the `"content!"` key
 ```ruby
 {
   "response"=>[
@@ -337,9 +471,12 @@ This returns us the hash:
 
 Lastly, we convert the hash here back to a recipe-friendly output schema:
 ```ruby
-response.map do |key, value|
-  { key => value&.first&.[]("content!") }
-end.inject(:merge)
+response.inject({}) do |hash, (key, value)|
+  hash.merge(
+    {
+      key => value.dig(0, "content!")
+    })
+end
 ```
 
 The output of this action is then:
