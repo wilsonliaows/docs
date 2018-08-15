@@ -336,6 +336,7 @@
     * [Update record actions](connectors/servicenow/update.md)
   * [Slack](connectors/slack.md)
     * [Triggers](connectors/slack/triggers.md)
+      * [Custom OAuth profiles](connectors/slack/custom-oauth.md)
       * [New event trigger (real-time)](connectors/slack/triggers.md#new-event-trigger-real-time)
       * [Button click (real-time)](connectors/slack/triggers.md#button-click-real-time)
     * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)

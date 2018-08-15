@@ -4,12 +4,12 @@ date: 2018-04-9 10:23:00 Z
 ---
 
 # What are custom OAuth profiles?
-In getting your Slack triggers up and running, you've created a Slack app (learn more in our [Slack trigger documentation](/connectors/slack/triggers.md#requirements). Suppose that in doing so, you've also spent considerable time customizing your app's name, icon, event subscriptions, and permission scopes, e.g. HelloBot that monitors when users are added to groups or public/private channels. You (or your team members) may want to use it in other recipes too &mdash; you can easily do so by using custom OAuth profiles in connections to those workspaces.
+In getting your [Slack triggers](/connectors/slack/triggers.md#requirements) up and running, you've created a Slack app. You've also spent considerable time customizing your app's name, icon, event subscriptions, and permission scopes, e.g. HelloBot that monitors when users are added to groups or public/private channels. Your team members may also want to use it in their recipes &mdash; they can easily do so by using a custom OAuth profile of your app.
 
 ### Creating a custom OAuth profile
 To get started, head to Tools ➤ View all tools. Under **Connect apps**, click on **Custom OAuth profiles**. Once there, click on **Create a new custom OAuth profile**.
 
-![Tools > Workbot](/assets/images/connectors/slack/custom-oauth-profile.png)
+![Custom OAuth profile](/assets/images/connectors/slack/custom-oauth-profile.png)
 *If you don't see Custom OAuth profile, make sure your Workato team or account has access to it*
 
 Next, choose **Slack** as your application.
@@ -31,11 +31,11 @@ Choose which Slack team this app belongs to, then click on **Create App**.
 
 ![Create new app in Slack](/assets/images/workbot/workbot-slash-commands/create-new-app-in-slack-2.png)
 
-Your app should now be created! You should be greeted with your new bot's **Basic Information** page. If not - don't sweat it. Just click on **Basic Information** from the left navigation menu.
+Your app should now be created. You should be greeted with your new app's **Basic Information** page. If not - don't sweat it. Just click on **Basic Information** from the left navigation menu.
 
 ![New app created](/assets/images/workbot/workbot-slash-commands/new-app-created.png)
 
-Scroll down to **App Credentials** you'll need this information back on your Workato tab. With this info handy, we can now head back to the Workato tab to complete Step 2.
+Scroll down to **App Credentials** you'll need this information back on your Workato tab. With this info handy, we can now head back to the Workato tab to complete Step 3.
 
 In Step 3, fill up:
 - **Name**: This should be the same name you used when creating the app e.g. HRBot
@@ -85,4 +85,4 @@ Once you've created a custom OAuth profile, anyone in your Workato workspace can
 ![Using custom OAuth profiles](/assets/images/connectors/slack/using-custom-oauth-profiles.png)
 *Using custom OAuth profiles in a new Slack connection*
 
-Note that custom OAuth profiles, by definition, can only connect to a single Slack workspace. This means that the same custom OAuth profile cannot be used across multiple Slack workspaces.
+Note that custom OAuth profiles, by definition, can only connect to a single Slack workspace, i.e. 1 custom OAuth profile cannot be used across multiple Slack workspaces.
