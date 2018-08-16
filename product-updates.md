@@ -14,6 +14,25 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - Database connectors (Oracle, Redshift, MySQL, SQL Server, PostgreSQL) changes to required fields pick lists in triggers. Read the article [here](https://support.workato.com/support/solutions/articles/1000267334-draft-update-to-database-connectors-trigger-pick-lists) for more information.
 - PostgreSQL: Select rows using custom SQL
 - Google Sheets: 150 new 2-min recipes has been published and are available for use. Find them [here](https://www.workato.com/recipes/19394-add-new-payments-in-quickbooks-to-google-sheets).
+- Workbot enhancements: 
+  - Custom help (on the connection level). You can now define what users see when they DM ‘help’ to Workbot.
+  - New post command reply & post message enhancements
+    - pretext
+    - author_name
+    - author_link
+    - author_icon
+    - footer
+    - footer_icon
+    - thumb_url
+  - Allow custom message color by supplying hex code 
+  - Allow message menus to be displayed before buttons
+  - Original_message added to trigger output
+
+Enhancements to post command reply only
+- Replace original
+- Delete original
+
+New custom HTTP action for Workbot
 
 ## July 19 - Aug 3 2018
 **Find more details on July's updates in our [blog post](https://product.workato.com/2018/08/02/august-2018-product-release/).**
