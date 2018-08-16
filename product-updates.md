@@ -27,10 +27,9 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
   - Allow custom message color by supplying hex code 
   - Allow message menus to be displayed before buttons
   - Original_message added to trigger output
-
-Enhancements to post command reply only
-- Replace original
-- Delete original
+  - Enhancements to post command reply only
+    - Replace original
+    - Delete original
 
 New custom HTTP action for Workbot
 
