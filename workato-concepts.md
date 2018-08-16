@@ -18,7 +18,7 @@ You can set recipe visibility to be public or private. When they are set to be p
 
 All recipes have a unique ID that identifies them.
 
-![Recipe ID](/assets/images/workato-concepts/recipe-id.png)
+![Recipe ID](/assets/images/workato-concepts/input-fields.png)
 *Recipe IDs can be viewed from the URL on the recipe page*
 
 The recipe above has a trigger and just one action. The trigger is **New Salesforce account** - this trigger will fire whenever a new account is created in Salesforce. The action **Create Zendesk organization** will create an organization in Zendesk each time the trigger event occurs (i.e. when a new account is created in Salesforce).
