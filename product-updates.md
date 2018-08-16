@@ -4,9 +4,16 @@ date: 2018-06-05 21:45:00 Z
 ---
 
 
-![Product Updates banner](/assets/images/product-updates-banner.png) 
+![Product Updates banner](/assets/images/product-updates-banner.png)
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.
+
+## Aug 4 - Aug 16 2018
+
+### Connector enhancements
+- Database connectors (Oracle, Redshift, MySQL, SQL Server, PostgreSQL) changes to required fields pick lists in triggers. Read the article [here](https://support.workato.com/support/solutions/articles/1000267334-draft-update-to-database-connectors-trigger-pick-lists) for more information.
+- PostgreSQL: Select rows using custom SQL
+- Google Sheets: 150 new 2-min recipes has been published and are available for use. Find them [here](https://www.workato.com/recipes/19394-add-new-payments-in-quickbooks-to-google-sheets).
 
 ## July 19 - Aug 3 2018
 **Find more details on July's updates in our [blog post](https://product.workato.com/2018/08/02/august-2018-product-release/).**
@@ -26,7 +33,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ### Platform enhancements
 - Recipe lifecycle management: Added support for shared schema import/export
-- New recipe editor toolbar: The new toolbar allows you to easily access the save and start buttons on screen when building and editing your recipes 
+- New recipe editor toolbar: The new toolbar allows you to easily access the save and start buttons on screen when building and editing your recipes
 - Files by Workato: New Transform image file action, allows the conversion of image files to .jpg and .png files and image resizing
 
 ### Connector enhancements
@@ -55,7 +62,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 ## June 08 - June 21 2018
 
 ### Platform enhancements
-- New recipe creation wizard 
+- New recipe creation wizard
 
 ### Connector enhancements
 
@@ -67,12 +74,12 @@ Added Propel as a new connector.
 - Daily object review
 - Object created/updated
 
-**Actions** 
+**Actions**
 - Custom action
 - Create object
 - Get related objects
 - Search objects
-- Update object 
+- Update object
 
 #### Netsuite
 - Added the ability to search custom records by custom fields
@@ -82,7 +89,7 @@ Added Propel as a new connector.
 - New action: Decrypt file with PGP
 
 #### Okta
-- New events action has been enhanced to allow "others" option in the Event type dropdown. This allows users to enter a specific Event name. 
+- New events action has been enhanced to allow "others" option in the Event type dropdown. This allows users to enter a specific Event name.
 
 #### Workday
 - The call operation action now includes 'get integration systems' as an operation.
@@ -145,7 +152,7 @@ Added Propel as a new connector.
 
 ### Platform enhancements
 #### GDPR compliance
-- Workato is now [GDPR compliant](https://www.workato.com/legal). 
+- Workato is now [GDPR compliant](https://www.workato.com/legal).
 
 #### SDK
 - [Error handling](/developing-connectors/sdk/error-handling.md) for custom adapters
