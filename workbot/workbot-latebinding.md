@@ -9,7 +9,7 @@ By default, recipes perform actions based on the identity & permissions of the c
 ![Connection credentials](/assets/images/workbot/workbot-latebinding/connection-credentials.png)
 *A sales manager's credentials used in Salesforce connection*
 
-In the example above, Workbot commands create opportunities in Salesforce &mdash; but solely as the sales manager, i.e. the Salesforce connection owner. This means that even though sales reps create opportunities, they would all be created under the name of the sales manager. This is also an issue for approvals workflows &mdash; approving users need to perform approvals as themselves, not as the connection owner.
+In the example above, Workbot commands create opportunities in Salesforce — but solely as the sales manager, i.e. the Salesforce connection owner. This means that even though sales reps are creating opportunities in Slack, they would all be reflected as creations of the sales manager in Salesforce. This is also an issue for approvals workflows — approving users need to perform approvals as themselves, not as the connection owner.
 
 Using personal connections, Workbot allows users to authenticate themselves before carrying out actions for them in other apps, e.g. asking sales reps to log in to Salesforce before dispatching Workbot to create the opportunity in Salesforce on their behalf. These personal connection persist, meaning that the user doesn't have to provide credentials every time they use a Workbot command.
 
