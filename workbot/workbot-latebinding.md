@@ -13,7 +13,7 @@ In the example above, Workbot commands create opportunities in Salesforce &mdash
 
 Using personal connections, Workbot allows users to authenticate themselves before carrying out actions for them in other apps, e.g. asking sales reps to log in to Salesforce before dispatching Workbot to create the opportunity in Salesforce on their behalf. These personal connection persist, meaning that the user doesn't have to provide credentials every time they use a Workbot command.
 
-To enable personal connections, go to **Recipe > Settings** page and enable **Verify user access at runtime**.
+To enable personal connections, go to **Recipe > Settings** page and enable **Verify user access at runtime**. Currently, Workbot supports personal connections to Salesforce only — we are working to support more applications in future.
 
 ![recipe-setting](/assets/images/workbot/workbot-latebinding/recipe-settings.png)
 
@@ -35,8 +35,8 @@ You can also type '*help*'' in the DM, followed by clicking on the *personal acc
 
 If Workbot has been invited to your channels, you can use '*@Workbot connections*'' or '*@Workbot help*' to view your personal connections in those channels.
 
-# Disconnecting your personal connection
-You can disconnect your personal connections anytime by viewing your personal connections and click 'Disconnect'.
+# Disconnecting your personal connections
+You can disconnect your personal connections anytime by viewing your personal connections and clicking 'Disconnect'.
 
 ![Disconnecting personal connections](/assets/images/workbot/workbot-latebinding/disconnect-personal-connections.gif)
 *Disconnecting a personal connection*
