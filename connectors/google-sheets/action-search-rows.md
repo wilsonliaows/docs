@@ -50,7 +50,7 @@ The common operators are equal to (=), greater than (>), greater than or equal t
 Only equal to (=) can be used for strings (e.g. comparing names and shirt sizes as in the example sheet). Only exact matches will be fetched in this case.
 
 - **AND and OR**
-Use ANDs as well as ORs for a variety of queries. You can combine them as well, using parentheses to signify order of operations (i.e. we evaluate whatever is within the parentheses first).
+Use `AND` as well as `OR` for a variety of queries. You can combine them as well, using parentheses to signify order of operations (i.e. we evaluate whatever is within the parentheses first).
 For example, `age < 35 or age > 50 and name = "jennifer avery"` will return nothing, but `age < 35 or (age > 50 and name = "jennifer avery")` will return you rows 3 and 5.
 
 #### Query errors
