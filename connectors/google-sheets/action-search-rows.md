@@ -3,7 +3,7 @@ title: Google Sheets' action - Search rows
 date: 2017-6-12 23:00:00 Z
 ---
 
-# Google Sheets' action - Search rows
+# Google Sheets action - Search rows
 
 The **Search rows** action allows you to get specific rows using a search query.
 
@@ -11,14 +11,14 @@ It's often used together with an [Update row](https://docs.workato.com/connector
 
 ## How to use this action
 ### Setting up the Google sheet
-First, in order for us to retrieve the custom data in a sheet, the sheet must contain, at a minimum, a header line for the first row and a data line for the second row, as in the following screenshot.
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least one header line for the first row and one data line for the second row, as in the following screenshot.
 
-![Sheet sample](/assets/images/connectors/google-sheets/five-row-sample.jpg)
-*Sample Google Sheets spreadsheet with a header row and 5 data rows*
+![Google sheet sample](/assets/images/connectors/google-sheets/sample-google-sheet.jpg)
+*Sample Google sheet with 1 header row and 1 data rows*
 
 ### Configuring the Search rows action
 
-To configure the action, we need to select the spreadsheet and the actual sheet to search within.
+To configure the action, we need to select the spreadsheet and the sheet to search within.
 
 ![unconfigured](/assets/images/connectors/google-sheets/unconfigured-search.jpg)
 *Unconfigured search action*
@@ -27,6 +27,10 @@ To configure the action, we need to select the spreadsheet and the actual sheet 
 *Configured search rows action with selected spreadsheet and sheet*
 
 #### Search query structure
+Assuming we are searching in this sheet:
+
+![Google sample sheet to search](/assets/images/connectors/google-sheets/sample-google-sheets.jpg)
+
 Search query has to be structured in a certain way for the API to process them. For example, if I want to search for an attendee with the name "Jennifer Avery", with an age older than 30, and shirt size "M", I'd input the following query:
 
 ```ruby
@@ -47,7 +51,7 @@ Only equal to (=) can be used for strings (e.g. comparing names and shirt sizes 
 
 - **AND and OR**
 Use ANDs as well as ORs for a variety of queries. You can combine them as well, using parentheses to signify order of operations (i.e. we evaluate whatever is within the parentheses first).
-For example, (age < 35 or age > 50) and name = "jennifer avery" will return nothing, but age < 35 or (age > 50 and name = "jennifer avery") will return you rows 3 and 5.
+For example, `age < 35 or age > 50 and name = "jennifer avery"` will return nothing, but `age < 35 or (age > 50 and name = "jennifer avery")` will return you rows 3 and 5.
 
 #### Query errors
 If your query has the wrong structure, or if your operators are incorrect (e.g. if you tried using unsupported operators such as LIKE or CONTAINS, the search rows action will fail with the following error message.
@@ -78,19 +82,13 @@ In this case, let's assume that we wish to move any new or updated contacts from
 ![Data Tree](/assets/images/connectors/google-sheets/data-treee.jpg)
 *Mapping data from the Salesforce new/updated contact datatree into the update row action.*
 
-Be careful to pull data from the right datatree! A common mistake is to use the pills from the search sheet action, which would take the existing data from your Google Sheets row and write that back into the exact same row. That's essentially doing nothing at all, so it's not very useful!
-
-![Incorrect mapping](/assets/images/connectors/google-sheets/incorrect-mapping.jpg)
-*Incorrect mapping of the update row action with pills from the wrong data tree*
+Be careful to pull data from the right datatree! A common mistake is to use the pills from the `Search rows` action, which would take the existing data from your Google Sheets row and write that back into the exact same row. That's essentially doing nothing at all, so it's not very useful!
 
 ### Running the recipe
 Now that we have the trigger and action configured, let's run our recipe!
 
 ![Configured recipe](/assets/images/connectors/google-sheets/configured-recipe-test.jpg)
 *Configured recipe for testing*
-
-![Job report customized](/assets/images/connectors/google-sheets/customize-jobs.jpg)
-*Customizing my job report to show data from salesforce*
 
 ![Customized report](/assets/images/connectors/google-sheets/new-updated-contact.jpg)
 *Customized job report with showing details of the job processed*

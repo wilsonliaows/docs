@@ -3,17 +3,17 @@ title: Google Sheets' trigger - New/updated row in sheet
 date: 2017-6-12 23:00:00 Z
 ---
 
-# Google Sheets' trigger - New/updated row in sheet
+# Google Sheets trigger - New/updated row in sheet
 The **New/updated row in sheet** trigger is able to pick up changes made to rows in your selected sheet, as well as new rows **added at the bottom** of your sheet.
 
 Note that at the moment, this trigger can monitor up to **1000 rows**. New or updated rows after row 1000 will not be picked up.
 
 ## How to use this trigger
-### Setting up the Google Sheet
-First, in order for us to retrieve the custom data in a sheet, the sheet must contain, at a minimum, a header line for the first row and a data line for the second row, as in the following screenshot.
+### Setting up the Google sheet
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least one header line for the first row and one data line for the second row, as in the following screenshot.
 
-![Google spreadsheet sample](/assets/images/connectors/google-sheets/sample-google-sheets.jpg)
-*Sample Google Sheets spreadsheet with a header row and 4 data rows*
+![Google sheet sample](/assets/images/connectors/google-sheets/sample-google-sheet.jpg)
+*Sample Google sheet with 1 header row and 1 data rows*
 
 ### Configuring the New/updated row in sheet trigger
 To configure the trigger, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet, while selecting the sheet would generate your list of columns within that sheet.

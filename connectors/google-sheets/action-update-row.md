@@ -3,17 +3,17 @@ title: Google Sheets' action - Update row
 date: 2017-6-12 23:00:00 Z
 ---
 
-# Google Sheets' action - Update row
+# Google Sheets action - Update row
 The **Update row** action allows you to change the values of any existing row.
 
 It's often used together with a [Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows.html) action. So that you will first search for the rows you want to update, then update those rows.
 
 ## How to use this action
 ### Setting up the Google sheet
-First, in order for us to retrieve the custom data in a sheet, the sheet must contain, at a minimum, a header line for the first row and a data line for the second row, as in the following screenshot.
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least one header line for the first row and one data line for the second row, as in the following screenshot.
 
-![Sheet sample](/assets/images/connectors/google-sheets/five-row-sample.jpg)
-*Sample Google Sheets spreadsheet with a header row and 5 data rows*
+![Google sheet sample](/assets/images/connectors/google-sheets/sample-google-sheet.jpg)
+*Sample Google sheet with 1 header row and 1 data rows*
 
 ### Configuring the Update row action
 We have to select our specific spreadsheet and sheet, then pass in the row ID from the search rows action's datatree. This ID will tell the recipe the exact row to update.
@@ -21,10 +21,7 @@ We have to select our specific spreadsheet and sheet, then pass in the row ID fr
 ![Unconfigured row](/assets/images/connectors/google-sheets/unconfigured-row-action.jpg)
 *Unconfigured update row action*
 
-![Configured row](/assets/images/connectors/google-sheets/configured-row-actions.jpg)
-*Unconfigured update row action*
-
-![Row-ID](/assets/images/connectors/google-sheets/configured-row-action.jpg)
+![Row-ID](/assets/images/connectors/google-sheets/row-id.jpg)
 *Provide row ID from the search rows action into the update row action. This lets the recipe know the row to update*
 
 ### Example Scenario
@@ -40,9 +37,6 @@ In this case, let's assume that we wish to move any new or updated contacts from
 *Mapping data from the Salesforce new/updated contact datatree into the update row action.*
 
 Be careful to pull data from the right datatree! A common mistake is to use the pills from the search sheet action, which would take the existing data from your Google Sheets row and write that back into the exact same row. That's essentially doing nothing at all, so it's not very useful!
-
-![Incorrect mapping](/assets/images/connectors/google-sheets/incorrect-mapping.jpg)
-*Incorrect mapping of the update row action with pills from the wrong data tree*
 
 ### Running the recipe
 Now that we have the trigger and action configured, let's run our recipe!

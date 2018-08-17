@@ -3,7 +3,7 @@ title: Workato connectors - On-premises files's trigger - New CSV file in folder
 date: 2018-05-15 06:00:00 Z
 ---
 
-# On-prem file's trigger: New CSV file in folder
+# On-prem file trigger - New CSV file in folder
 
 ![On-prem file's trigger: New CSV file in folder](/assets/images/connectors/on-prem-files/trigger-new-csv.png)
 
