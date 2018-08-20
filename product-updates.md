@@ -13,8 +13,9 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 ### Connector enhancements
 - Database connectors (Oracle, Redshift, MySQL, SQL Server, PostgreSQL) changes to required fields pick lists in triggers. Read the article [here](https://support.workato.com/support/solutions/articles/1000267334-draft-update-to-database-connectors-trigger-pick-lists) for more information.
 - PostgreSQL: Select rows using custom SQL
+  - This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action. Read the documentation [here](/connectors/postgresql/select.md#select-rows-using-custom-sql).
 - Google Sheets: 150 new 2-min recipes has been published and are available for use. Find them [here](https://www.workato.com/recipes/19394-add-new-payments-in-quickbooks-to-google-sheets).
-- Workbot enhancements: 
+- Workbot enhancements:
   - Custom help (on the connection level). You can now define what users see when they DM ‘help’ to Workbot.
   - New post command reply & post message enhancements
     - pretext
@@ -24,7 +25,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
     - footer
     - footer_icon
     - thumb_url
-  - Allow custom message color by supplying hex code 
+  - Allow custom message color by supplying hex code
   - Allow message menus to be displayed before buttons
   - Original_message added to trigger output
   - Enhancements to post command reply only
