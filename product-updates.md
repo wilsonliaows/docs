@@ -31,8 +31,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
   - Enhancements to post command reply only
     - Replace original
     - Delete original
-
-New custom HTTP action for Workbot
+  - New custom HTTP action for Workbot
 
 ## July 19 - Aug 3 2018
 **Find more details on July's updates in our [blog post](https://product.workato.com/2018/08/02/august-2018-product-release/).**
