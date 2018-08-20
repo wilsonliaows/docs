@@ -71,16 +71,19 @@ If configured correctly, the search rows action should return you a list of rows
 Okay, we know that our specific query works. Now, we don't want to search for someone called Jennifer Avery every single time a new contact comes into Salesforce, so we need to replace these hardcoded values with variables (AKA pills from the datatree, in Workato context). We'll be replacing these hardcoded values with pills in the following scenario.
 
 ### Example Scenario
-In this case, let's assume that we wish to move any new or updated contacts from Salesforce to a Google sheet. The following shows the recipe and data mappings I've done to ensure my search will find the right row in Google Sheets, and direct new data coming in from Salesforce to the matching fields in Google Sheets.
+In this case, let's assume that we wish to move any new or updated contacts from Salesforce into this Google sheet.
+![Sample Google sheet](/assets/images/connectors/google-sheets/sample-two-rows.png)
+
+The following pictures show the recipe and data mappings I've done to ensure my search will find the right row in Google Sheets, and direct new data coming in from Salesforce to the matching fields in Google Sheets.
 
 ![Complete recipe](/assets/images/connectors/google-sheets/completed-recipe.jpg)
 *Completed recipe to move new or updated Salesforce contacts to selected google sheet*
 
 ![Row searching](/assets/images/connectors/google-sheets/row-searching.jpg)
-*Searching for rows in my sheet with my query. Here, we search to see if the Salesforce contact already exists (assuming email is the unique ID).*
+*Using `Search rows` action to search for rows in my sheet with query. Here, we search for Google Sheet row that has `email` column matching the Salesforce Contact's `Email`.*
 
 ![Data Tree](/assets/images/connectors/google-sheets/data-treee.jpg)
-*Mapping data from the Salesforce new/updated contact datatree into the update row action.*
+*We pass `Row ID` from `Search rows` action's output to this `Update row` action, to indicate what row it should update. Then map data pill from the `Salesforce new/updated Contact` into the `Update row` action.*
 
 Be careful to pull data from the right datatree! A common mistake is to use the pills from the `Search rows` action, which would take the existing data from your Google Sheets row and write that back into the exact same row. That's essentially doing nothing at all, so it's not very useful!
 
@@ -93,13 +96,20 @@ Now that we have the trigger and action configured, let's run our recipe!
 ![Customized report](/assets/images/connectors/google-sheets/new-updated-contact.jpg)
 *Customized job report with showing details of the job processed*
 
-We'll take a quick look at the details of the job that was processed. In our sample sheet, it looks like there was a contact Anna Sharpay with a mismatched email address huilin@workato.com. It looked like the recipe managed to pick up an update made by a Salesforce user to edit the name of the contact to Huilin Yang instead, and it moved that update to our Google Sheets.
+Now we will update the name of a contact in Salesforce from `Anna Sharpay` to `Anna Mccoy`. Notice the email address is `anna@workato.com`.
+
+![Updated Salesforce contact](/assets/images/connectors/google-sheets/updated-salesforce-contact.png)
+
+Let's take a look at the job report to see how the recipe picks up this change:
 
 ![Trigger data](/assets/images/connectors/google-sheets/trigger-datas.jpg)
-*The trigger data retrieved for an updated contact, as viewed in the job details page's output tab*
+*The trigger did pick up the updated contact, as viewed in the job details page's output tab*
 
 ![Corresponding row](/assets/images/connectors/google-sheets/corresponding-row.jpg)
-*As we found a corresponding row in Step 1, we proceed to update the row containing the email hulin@workato.com. In Step 3, we pass the corresponding data from Salesforce into the update row action, sa viewed from the job details page.*
+*The `Search rows` action tries to find email `anna@workato.com`. It finds 1 row and passes the `Row ID` to the `Update row` action. `Update row` action then update the name to `Anna Mccoy`*
 
+And here is the result sheet after recipe has updated the row. Notice that the name has been changed from `Anna Sharpay` to `Anna Mccoy`.
+![Sample Google sheet](/assets/images/connectors/google-sheets/sample-two-rows.png)
+*Original sheet*
 ![Update row](/assets/images/connectors/google-sheets/updated-row.jpg)
-*Updated row in example sheet*
+*Updated sheet*
