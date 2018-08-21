@@ -139,7 +139,7 @@ When connecting to an Oracle **Service**, use the `url` property:
 ```YAML
 database:
   erp:
-    url: jdbc:oracle:thin:@localhost:1521/PROD
+    url: jdbc:oracle:thin:@localhost:1521:PROD
     username: admin
     password: xxx
 ```
