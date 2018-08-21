@@ -6966,7 +6966,7 @@
     </tr>
     <tr>
       <td>Instance name</td>
-      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is **acme**</td>
+      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is <b>acme</b>.</td>
     </tr>
     <tr>
       <td>Username</td>
@@ -7002,7 +7002,7 @@
     </tr>
     <tr>
       <td>Instance name</td>
-      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is **acme**</td>
+      <td>If your ServiceNow url is https://acme.service-now.com, then instance name is <b>acme</b>.</td>
     </tr>
     <tr>
       <td>Client ID</td>
@@ -7053,6 +7053,7 @@
       <th>Table</th>
       <th>Purpose</th>
       <th>Operation</th>
+      <th>Name</th>
     </tr>
   </thead>
   <tbody>
@@ -7060,11 +7061,19 @@
       <td><a href="https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/table-administration/reference/r_TablesModule.html" target="_blank">Tables</a> (sys_db_object)</td>
       <td><b>Tables</b> is a table that contains a row for each table in your ServiceNow instance. This table is used to generate a list of tables to perform an action or trigger events from.</td>
       <td>read</td>
+      <td>
+        sys_db_object<br>
+        sys_db_object.*
+      </td>
     </tr>
     <tr>
       <td><a href="https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/data-dictionary-tables/concept/c_SystemDictionary.html" target="_blank">Dictionary Entry</a> (sys_dictionary)</td>
       <td>Contains details for each table and columns in each table in your ServiceNow instance. This table is used to generate input and/or output fields when you select a table to perform and action.</td>
       <td>read</td>
+      <td>
+        sys_dictionary<br>
+        sys_dictionary.*
+      </td>
     </tr>
   </tbody>
 </table>
@@ -7089,7 +7098,10 @@
       <td>Tables</td>
       <td>record</td>
       <td>read</td>
-      <td>sys_db_object</td>
+      <td>
+        sys_db_object<br>
+        sys_db_object.*
+      </td>
     </tr>
     <tr>
       <td>Dictionary Entry</td>
@@ -7131,6 +7143,9 @@
 </table>
 
 <p><em>Additional Access Control required for specific table(s)</em></p>
+<p>Remember to elevate to a privileged role (security_admin) to edit Access Control records.</p>
+<p><img src="../assets/images/connectors/servicenow/elevate_privilege_acl.gif" alt="Elevate to privilege role">
+<em>Elevate to privilege role</em></p>
 <p><img src="../assets/images/connectors/servicenow/incident_table_access_control.png" alt="Granting access control rule for `incident` table to custom role">
 <em>Granting access control rule for <code>incident</code> table to custom role</em></p>
 <h3 id="real-time-trigger">Real-time trigger</h3>
@@ -7263,7 +7278,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ServiceNow","date":"2017-02-16T06:15:00.000Z","level":"1.16.25","depth":2,"next":{"title":"Connection setup","level":"1.16.25.1","depth":3,"anchor":"#how-to-connect-to-servicenow-on-workato","path":"connectors/servicenow.md","ref":"connectors/servicenow.md#how-to-connect-to-servicenow-on-workato","articles":[]},"previous":{"title":"Bulk data imports","level":"1.16.24.6","depth":3,"anchor":"#working-with-bulk-data-load-jobs-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/servicenow.md","mtime":"2018-08-20T16:17:51.365Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-20T16:19:06.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ServiceNow","date":"2017-02-16T06:15:00.000Z","level":"1.16.25","depth":2,"next":{"title":"Connection setup","level":"1.16.25.1","depth":3,"anchor":"#how-to-connect-to-servicenow-on-workato","path":"connectors/servicenow.md","ref":"connectors/servicenow.md#how-to-connect-to-servicenow-on-workato","articles":[]},"previous":{"title":"Bulk data imports","level":"1.16.24.6","depth":3,"anchor":"#working-with-bulk-data-load-jobs-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/servicenow.md","mtime":"2018-08-21T12:10:23.091Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-21T12:11:36.933Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
