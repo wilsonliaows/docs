@@ -208,7 +208,7 @@ For example, if I select departments as the object to trigger upon, all existing
 Even if the recipe is stopped, when it's restarted again, all departments created in the time during which the recipe was stopped will be picked up by the recipe.
 
 ### New standard object and new custom object trigger
-The new standard object and new custom object trigger are very similar, so this section will cover both. [Certain records are not supported](/connectors/netsuite.html#unsupported-records) in the trigger due to API limitations.
+The new standard object and new custom object trigger are very similar, so this section will cover both. [Certain records are not supported](/connectors/netsuite.md#unsupported-records) in the trigger due to API limitations.
 
 #### Configuring the trigger
 To use this trigger, we need to first select the standard object or the custom object to monitor. We also need to input the datetime in the **From** field to pinpoint the exact date from which the recipe should start processing records.
@@ -322,7 +322,7 @@ Take note that some NetSuite fields are displayed with their internal API names 
 If you can't find the field you're looking for, check with your NetSuite admin or with us!
 
 ### Search standard objects action
-The search standard objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array. [Certain records are not supported](/connectors/netsuite.html#unsupported-records) in the action due to API limitations.
+The search standard objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array. [Certain records are not supported](/connectors/netsuite.md#unsupported-records) in the action due to API limitations.
 
 #### Configuring the search standard objects action
 To carry out a search standard object action, we would first need to tell the recipe exactly what standard object category and what specific object we want to search for. The following displays an unconfigured search standard object action.
