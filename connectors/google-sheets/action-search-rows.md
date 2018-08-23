@@ -103,7 +103,7 @@ Now we will update the name of a contact in Salesforce from `Anna Sharpay` to `A
 Let's take a look at the job report to see how the recipe picks up this change:
 
 ![Trigger data](/assets/images/connectors/google-sheets/trigger-datas.jpg)
-*The trigger did pick up the updated contact, as viewed in the job details page's output tab*
+*The trigger picked up the updated contact, as viewed in the job details page's output tab*
 
 ![Corresponding row](/assets/images/connectors/google-sheets/corresponding-row.jpg)
 *The `Search rows` action tries to find email `anna@workato.com`. It finds 1 row and passes the `Row ID` to the `Update row` action. `Update row` action then update the name to `Anna Mccoy`*
