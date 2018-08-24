@@ -18,7 +18,7 @@ However, your organization may have pre-approved a specific set of permission sc
 ![Custom permission scopes](/assets/images/connectors/slack/custom-permission-scopes.png)
 *A custom set of permission scopes*
 
-Custom OAuth profiles are a way for you to 'share'' your Slack app (and its specific set of permission scopes) with your team members. Your team can connect your Slack app (using its custom OAuth profile) for use in their Slack recipes. This way, they don't have to create an app of their own from scratch. More importantly, you can enforce the approved permission scopes across your team.
+Custom OAuth profiles are a way for you to 'share' your Slack app (and its specific set of permission scopes) with your team members. Your team can connect your Slack app (using its custom OAuth profile) for use in their Slack recipes. This way, they don't have to create an app of their own from scratch. More importantly, you can enforce the approved permission scopes across your team.
 
 ### Creating a custom OAuth profile
 To get started, head to Tools ➤ View all tools. Under **Connect apps**, click on **Custom OAuth profiles**. Once there, click on **Create a new custom OAuth profile**.
