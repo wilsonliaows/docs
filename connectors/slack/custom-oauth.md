@@ -4,7 +4,21 @@ date: 2018-04-9 10:23:00 Z
 ---
 
 # What are custom OAuth profiles?
-In getting your [Slack triggers](/connectors/slack/triggers.md#requirements) up and running, you've created a Slack app. You've also spent considerable time customizing your app's name, icon, event subscriptions, and permission scopes, e.g. HelloBot that monitors when users are added to groups or public/private channels. Your team members may also want to use it in their recipes &mdash; they can easily do so by using a custom OAuth profile of your app.
+For your Slack app to perform actions, it requires certain permission scopes. At the minimum, Slack triggers & actions require the following permission scopes:
+- channels:read
+- channels:write
+- chat:write:bot
+- chat:write:user
+- groups:read
+- groups:write
+- users:read
+
+However, your organization may have pre-approved a specific set of permission scopes for use — and you need anyone creating Slack recipes to adhere to it.
+
+![Custom permission scopes](/assets/images/connectors/slack/custom-permission-scopes.png)
+*A custom set of permission scopes*
+
+Custom OAuth profiles are a way for you to 'share'' your Slack app (and its specific set of permission scopes) with your team members. Your team can connect your Slack app (using its custom OAuth profile) for use in their Slack recipes. This way, they don't have to create an app of their own from scratch. More importantly, you can enforce the approved permission scopes across your team.
 
 ### Creating a custom OAuth profile
 To get started, head to Tools ➤ View all tools. Under **Connect apps**, click on **Custom OAuth profiles**. Once there, click on **Create a new custom OAuth profile**.
@@ -35,7 +49,7 @@ Your app should now be created. You should be greeted with your new app's **Basi
 
 ![New app created](/assets/images/workbot/workbot-slash-commands/new-app-created.png)
 
-Scroll down to **App Credentials** you'll need this information back on your Workato tab. With this info handy, we can now head back to the Workato tab to complete Step 3.
+Scroll down to **App Credentials** you'll need this information back in your Workato tab. With this info handy, we can now head back to the Workato tab to complete Step 3.
 
 In Step 3, fill up:
 - **Name**: This should be the same name you used when creating the app e.g. HRBot
@@ -54,7 +68,7 @@ To enable event subscriptions, go to your Slack app's page (it should look somet
 ![Event subscriptions](/assets/images/connectors/slack/event-subscriptions.gif)
 *Enabling event subscriptions*
 
-For a [new event trigger](/connectors/slack/triggers.md#new-event-trigger-real-time) to pick up events, your app needs to know where to send these events to. That's why it comes with a target URL, generated once you've entered an **Event name**. Once your app is sending events to your recipe's target URL, the recipe can take over and execute your recipe's actions.
+For a [new event trigger](/connectors/slack/triggers.md#new-event-trigger-real-time) to pick up events, your app needs to know where to send these events to. That's why it comes with a target URL. This Target URL is generated once you've entered an **Event name**. Once your app is sending events to your recipe's target URL, the recipe can take over and execute your recipe's actions.
 
 ### Subscribing to workspace events
 Slack provides an entire list of workspace events that you can subscribe to &mdash; any of these events can kick-start your recipes.
@@ -64,13 +78,10 @@ In this example, customer success users are given the option to create a private
 ![Event subscription example](/assets/images/connectors/slack/event-subscription-example.png)
 *Whenever a message is posted to a channel, a private channel, or a DM, an event is sent to the recipe*
 
-Event subscriptions require permission scopes to be defined for your Slack app, but fret not &mdash; once event(s) are subscribed, Slack automatically adds the required scopes.
+Subscribing to events will automatically add scopes that your app does not already have. This may give your app unintended permissions from the additional scopes. After subscribing to events, we strongly recommend going to **OAuth & Permissions** → **Scopes** to confirm your app's permission scopes.
 
 ### Installing your app
-Once you've subscribed to at least 1 workspace event, a permission scope is automatically added, allowing you to install the app to your workspace.
-
-#### Installing your app to your Slack team
-Now that you've finished configuring your app, you can now install it to your Slack team. From the left navigation menu, under **Settings**, head over to **Install App**.
+Once you've subscribed to at least 1 workspace event, a permission scope is automatically added. This allows you to install the app to your workspace. From the left navigation menu, under **Settings**, head over to **Install App**.
 - Click on **Install App to Workspace**
 
 ![Install app](/assets/images/workbot/workbot-slash-commands/install-app.png)
