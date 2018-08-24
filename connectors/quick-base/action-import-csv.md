@@ -3,7 +3,7 @@ title: Workato connectors - Quick Base's action - Create and update records in b
 date: 2018-07-30 06:00:00 Z
 ---
 
-# Quick Base's action: Create and update records in bulk from CSV file
+# Quick Base action - Create and update records in bulk from CSV file
 ![Quick Base's action: Create and update records in bulk from CSV file](/assets/images/connectors/quick-base/action-import-csv.png)
 
 ## How it works
