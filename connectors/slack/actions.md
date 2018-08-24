@@ -183,90 +183,44 @@ When a valid image URL is provided, this field will display the image at the bot
 *How it will look like in Slack*
 
 ### Allow Slack formatting
-This field allows parsing of **URL link|title> <channel|name>** tags in the message.
+When enabled, this field allows you to tag users in the message by enclosing their user ID or user name with `<` `>`, e.g. **&lt;UA12345&gt;** or **&lt;@johndoe&gt;** for user ID and user name respectively.
 
-![Allow Slack formatting](/assets/images/connectors/slack/basic-text.png)
-*How it will look like in Slack*
+![Tagging users](/assets/images/connectors/slack/tagging-users.png)
+*Tagging users by allowing Slack formatting*
 
 ### Thread ID
-This is the most basic input for a post message.
+[Slack threads](https://api.slack.com/docs/message-threading) allow you to group related messages together, making it easier to follow conversations in Slack channels or groups.
 
-![Thread iD](/assets/images/connectors/slack/basic-text.png)
-*How it will look like in Slack*
+To post a message in an existing thread, use the <kbd>Thread ID</kbd> datapill in this field. Passing the <kbd>Message ID</kbd> of the parent message also works the same way.
+
+If a thread does not exist yet, but you want to post a message threaded under a parent message, supply the <kbd>Message ID</kbd> of the parent message.
+
+#### Example #1: Passing the message ID to start a thread
+![Notify BD thread example](/assets/images/connectors/slack/notify-bd-thread.png)
+*Thread created and message posted if parent message ID is supplied*
+
+![Notify BD thread configuration](/assets/images/connectors/slack/notify-bd-thread-config.png)
+*Example use of Message ID used in the* ***Thread ID*** *input field.*
+
+#### Example recipe #2: Passing a parent message's message ID to continue a thread
+Passing the parent message's message ID also works to post to an existing thread.
+
+![Notify BD thread configuration](/assets/images/connectors/slack/notify-bd-thread-config.png)
+*The parent message's Message ID is used in the **Thread ID** input field.*
+
+![Messages are posted under the same thread via parent message ID](/assets/images/connectors/slack/posting-to-existing-thread-via-parent-id.gif)
+*Messages are posted under the same thread via parent message ID*
+
+Check out the [Button action example recipe](https://www.workato.com/recipes/602058) if you want to explore how thread ID works.
 
 ### Post message as
-This is the most basic input for a post message.
+This field allows you to change the name of who the message is posted by. By default, messages will be posted as **Workato [app]**.
 
-![Post message as](/assets/images/connectors/slack/basic-text.png)
+![Post message as](/assets/images/connectors/slack/post-message-as.png)
 *How it will look like in Slack*
 
 ### Icon image URL
-This is the most basic input for a post message.
+This field allows you to change the icon of who the message is posted by. By default, the Workato icon will be used.
 
-![Icon image URL](/assets/images/connectors/slack/basic-text.png)
+![Post message as icon](/assets/images/connectors/slack/post-message-as-icon.png)
 *How it will look like in Slack*
-
-## Output fields
-<table class="unchanged rich-diff-level-one">
-    <thead>
-        <tr>
-            <th colspan="2">Input fields</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td colspan="2">Channel</td>
-          <td>ID of Slack workspace.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Basic text</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Attachment title</td>
-          <td>ID of event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Attachment title link</td>
-          <td>Timestamp of event.</td>
-        </tr>
-        <tr>
-          <td rowspan="2">Buttons</td>
-          <td>Button action handler recipe</td>
-          <td>Description</td>
-        </tr>
-        <tr>
-          <td>Button actions</td>
-          <td>Description</td>
-        </tr>
-        <tr>
-          <td colspan="2">Attachment color</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Thumb URL</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Image URL</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Allow Slack formatting</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Thread ID</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Post message as</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-        <tr>
-          <td colspan="2">Icon image URL</td>
-          <td>ID of your Slack app that's subscribed to the workspace event.</td>
-        </tr>
-    </tbody>
-</table>
