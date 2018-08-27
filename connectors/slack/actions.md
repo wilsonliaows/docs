@@ -30,7 +30,7 @@ To add/remove permission scopes for your app, go to your Slack app's page (it sh
 ### Event subscriptions & Permission scopes
 Subscribing to events will automatically add scopes that your app does not already have. This may give your app unintended permissions from the additional scopes. After subscribing to events, we strongly recommend going to **OAuth & Permissions** → **Scopes** to confirm your app's permission scopes.
 
-# Post message action
+# Post message actions
 The post message action posts a message to your specified channel or user. By default, messages are posted as bot user "Workato".
 
 ![Workato post message](/assets/images/connectors/slack/workato-post-message.png)
@@ -193,7 +193,7 @@ When enabled, this field allows you to tag users in the message by enclosing the
 
 To post a message in an existing thread, use the <kbd>Thread ID</kbd> datapill in this field. Passing the <kbd>Message ID</kbd> of the parent message also works the same way.
 
-#### Example recipe #1: Passing a parent message's message ID to continue a thread
+#### Example #1: Passing a parent message's message ID to continue a thread
 ![Notify BD thread configuration](/assets/images/connectors/slack/notify-bd-thread-config.png)
 *The parent message's Message ID is used in the **Thread ID** input field.*
 
@@ -204,7 +204,7 @@ Check out this [Button action example recipe](https://www.workato.com/recipes/60
 
 If a thread does not exist yet, but you want to post a message threaded under a parent message, supply the <kbd>Message ID</kbd> of the parent message.
 
-#### Example #1: Passing the message ID to start a thread
+#### Example #2: Passing the message ID to start a thread
 ![Notify BD thread example](/assets/images/connectors/slack/notify-bd-thread.png)
 *Thread created and message posted if parent message ID is supplied*
 
@@ -223,7 +223,7 @@ This field allows you to change the icon of who the message is posted by. By def
 ![Post message as icon](/assets/images/connectors/slack/post-message-as-icon.png)
 *How it will look like in Slack*
 
-# Respond to button click action
+# Respond to button click actions
 The **Respond to button click** action works together with the [button click (real-time) trigger](/connectors/slack/triggers.md#button-click-real-time) to post messages in response to the button click.
 
 ![Respond to button action example recipe](/assets/images/connectors/slack/respond-to-button-action-example-recipe.png)
@@ -277,7 +277,7 @@ The following are the additional input fields that the Slack action **Respond to
     </tbody>
 </table>
 
-# Invite user to channel action
+# Invite user to channel actions
 The **Invite user to channel** action invites a user to a public channel. To invite users to multiparty direct messages or private channels, use the [Invite user to group](#invite-user-to-group) action.
 
 ## Input fields
@@ -293,7 +293,7 @@ You can use either the channel ID/name or channel ID datapill. Prefix channel na
 To select available channels, switch to ‘Select channel’.
 ![select-channel](/assets/images/connectors/slack/select-channel-channel-invite.png)
 
-# Invite user to group action
+# Invite user to group actions
 The **Invite user to group** action invites a user to multiparty direct message group or private channels. To invite users to a public channel, use the [Invite user to channel](#invite-user-to-channel) action.
 
 ## Input fields
@@ -311,7 +311,7 @@ To select available groups, switch to ‘Select group'.
 ![select-channel](/assets/images/connectors/slack/select-group-group-invite.png)
 *Switching to 'Select group'*
 
-# Archive channel action
+# Archive channel actions
 The **Archive channel** action allows you to archive public channels only. Note that the **#general** channel of a Slack workspace cannot be archived.
 
 ## Input fields
@@ -322,7 +322,7 @@ To select available channels, switch to ‘Select channel’.
 ![select-channel](/assets/images/connectors/slack/select-channel-archive-channel.png)
 *Switching to 'Select channel'*
 
-# Unarchive channel action
+# Unarchive channel actions
 The **Unarchive channel** action allows you to unarchive a public channels only.
 
 ## Input fields
@@ -333,7 +333,7 @@ To select available channels, switch to ‘Select channel’.
 ![select-channel](/assets/images/connectors/slack/select-channel-unarchive-channel.png)
 *Switching to 'Select channel'*
 
-# Create channel action
+# Create channel actions
 The **Create channel** action creates a channel with a specified channel name. You can also create private channels. Names will be converted to lowercase, while the following characters will be replaced accordingly:
 - spaces replaced with hyphens,
 - periods replaced with underscores.
@@ -347,7 +347,7 @@ Set to 'Yes' to create a private channel. Defaults to 'No'.
 ### Return channel details if already exists?
 By default, if a channel already exists, action will return an error. Set this input to 'Yes' if to prevent this — action will return the existing channel's details instead.
 
-# Set channel purpose action
+# Set channel purpose actions
 The **Set channel purpose** action allows you to set the channel purpose of public channels only.
 
 ## Input fields
@@ -370,7 +370,7 @@ For example:
 
 Learn more about Slack's message formatting in their [documentation](https://api.slack.com/docs/message-formatting).
 
-# Set channel topic action
+# Set channel topic actions
 The **Set channel topic** action allows you to set the topic of public channels only. Slack formatting works in this field, including tagging of users.
 For example:
 
