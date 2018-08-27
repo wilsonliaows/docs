@@ -344,6 +344,7 @@
     * [Slack VS Workbot](workbot/workbot.md#slack-connector-vs-workbot-for-slack-connector)
     * [Message buttons](connectors/slack.md#using-slack-message-buttons)
     * [Message threads](/connectors/slack.md#using-slack-threads)
+    * [Custom OAuth profiles](connectors/slack/custom-oauth.md)
   * [Splunk](connectors/splunk.md)
   * [SQL Server](connectors/mssql.md)
     * [Connection setup](connectors/mssql.md#how-to-connect-to-mssql-on-workato)
