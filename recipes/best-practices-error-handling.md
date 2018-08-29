@@ -67,7 +67,7 @@ Carry out data validation (using conditional actions) as early as possible in th
 ![error monitor step3](/assets/images/building-best-practices/error-handling-eg3.png)
 
 
-4. Custom Error Emails
+**4. Custom Error Emails**
 
 When configuring the send email action in Workato to send custom error emails, please ensure that the errors are added as an attachment with a descriptive filename such as errors.txt. Also ensure that the email message contains the Job URL, Recipe URL and the time which the recipe ran. 
 
