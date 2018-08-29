@@ -32,6 +32,7 @@
     * [Preview data](recipes/data-pills-and-mapping.md#preview-data)
     * [Fields mapping](recipes/data-pills-and-mapping.md#fields-mapping)
     * [Data transformation](recipes/data-pills-and-mapping.md#data-transformation)
+  * [Error handling best practices](recipes/best-practices-error-handling.md)  
   * [Version management](recipes/version-management.md)
 * [Running recipes](recipes/running-recipes.md)
   * [Test, start and stop recipe](recipes/start-and-stop.md)
