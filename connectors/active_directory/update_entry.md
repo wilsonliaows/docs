@@ -6,7 +6,7 @@ date: 2018-02-02 06:10:00 Z
 # Active Directory - Update entry action
 
 ## Update entry
-This action updates a single entry into your Active Directory.
+This action updates an existing entry in your Active Directory.
 
 ![Update entry action](/assets/images/active_directory/update_entry.png)
 *Update entry action*
