@@ -24,7 +24,7 @@ This trigger picks up entries that match a specified search filter. Entries are 
       <td>Select the type of schedule - <b>Specific interval</b> or <b>Specific date/time</b></td>
     </tr>
     <tr>
-      <td rowspan=2>Schedule settings (<b>Specific interval</b>)</a></td>
+      <td rowspan=2>Schedule settings (<b>Specific interval</b>)</td>
       <td>Every</td>
       <td>
         Select the interval between each search. Select one of these options:<br>
@@ -45,7 +45,7 @@ This trigger picks up entries that match a specified search filter. Entries are 
       </td>
     </tr>
     <tr>
-      <td rowspan=4>Schedule settings (<b>Specific date/time</b>)</a></td>
+      <td rowspan=4>Schedule settings (<b>Specific date/time</b>)</td>
       <td>Timezone</td>
       <td>Choose the timezone for the schedule to be set in.</td>
     </tr>
@@ -67,11 +67,11 @@ This trigger picks up entries that match a specified search filter. Entries are 
         Used to introspect the attributes in your entry object. Give a distinguished name of an existing entry. Attributes of this object will be available in the output fields of this trigger.
       </td>
     </tr>
-    </tr>
     <tr>
       <td colspan=2>Search by</td>
-      <td>Provide values for each attribute you wish to filter. Only entries that match all of the values will be processed.</td>
-    </tr>
+      <td>
+        Provide values for each attribute you wish to filter. Only entries that match all of the values will be processed.
+      </td>
     </tr>
     <tr>
       <td colspan=2>Entry search filter</td>
@@ -79,7 +79,6 @@ This trigger picks up entries that match a specified search filter. Entries are 
         Use this to filter the entries to be processed by this trigger.<br>
         For example, use <code>&(ou=Dev)(objectClass=Person)</code> to pick up only <b>Person</b> entries from the <b>Dev</b> organization unit.
       </td>
-    </tr>
     </tr>
     <tr>
       <td colspan=2>Batch size</td>
