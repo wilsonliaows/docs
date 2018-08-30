@@ -36,12 +36,12 @@ This trigger picks up entries that are created/updated in your Active Directory 
     <tr>
       <td>Entry search filter</td>
       <td>
-      Use this to filter the entries to be processed by this trigger.<br>
-      For example, use <code>&(ou=Dev)(objectClass=Person)</code> to pick up only <b>Person</b> entries from the <b>Dev</b> organization unit.
+        Use this to filter the entries to be processed by this trigger.<br>
+        For example, use <code>&(ou=Dev)(objectClass=Person)</code> to pick up only <b>Person</b> entries from the <b>Dev</b> organization unit.
       </td>
     </tr>
   </tbody>
 </table>
 
 ## Output fields
-The output of this trigger is a single entry. The attributes of the entry is based on the Sample entry DN.
+The output of this trigger is a single entry. The attributes of each entry is based on the Sample entry DN provided in the trigger input.
