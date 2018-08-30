@@ -1,15 +1,15 @@
 ---
-title: Workato connectors - Active Directory new entry trigger
+title: Workato connectors - Active Directory new/updated entry trigger
 date: 2018-04-20 06:00:00 Z
 ---
 
 # Active Directory - New entry trigger
 
-## New entry
-This trigger picks up new entries that are created in your Active Directory instance. Each entry is processed as an individual job. It checks for new entries once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
+## New/updated entry
+This trigger picks up entries that are created/updated in your Active Directory instance. Each entry is processed as an individual job. It checks for new/updated entries once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
-![New entry trigger](/assets/images/active_directory/new_entry_trigger.png)
-*New entry trigger*
+![New/updated entry trigger](/assets/images/active_directory/updated_entry_trigger.png)
+*New/updated entry trigger*
 
 ## Input fields
 
@@ -30,7 +30,7 @@ This trigger picks up new entries that are created in your Active Directory inst
     <tr>
       <td>When first started, this recipe should pick up events from</td>
       <td>
-        Entries that are created after this date and time will be processed in the trigger. If left blank, the trigger will pick up entries <b>created 1 hour before</b> the first time this recipe is started.
+        Entries that are created/updated after this date and time will be processed in the trigger. If left blank, the trigger will pick up entries <b>created/updated 1 hour before</b> the first time this recipe is started.
       </td>
     </tr>
     <tr>
