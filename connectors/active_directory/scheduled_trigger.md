@@ -1,9 +1,9 @@
 ---
-title: Workato connectors - Active Directory Scheduled query trigger
+title: Workato connectors - Active Directory Scheduled entry search trigger
 date: 2018-05-08 06:00:00 Z
 ---
 
-# Active Directory - Scheduled query trigger
+# Active Directory - Scheduled entry search trigger
 
 ## Scheduled entry search using search filter
 This trigger picks up entries that match a specified search filter. Entries are processed as a list of a specified batch size. It checks for entries based on the specified schedule.
