@@ -91,4 +91,4 @@ This trigger picks up entries that match a specified search filter. Entries are 
 </table>
 
 ## Output fields
-The output of this trigger is a list of entries. The attributes of each entry is based on the Sample entry DN provided in the trigger input.
+The output of this trigger is a list of entries. The attributes of each entry is based on the **Sample entry DN** provided in the trigger input.
