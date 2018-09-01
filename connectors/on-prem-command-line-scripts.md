@@ -23,7 +23,7 @@ Workato's `On-prem command-line scripts` connector allows you to securely connec
 
 ![On-prem files connection setup](/assets/images/connectors/on-prem-command-line-scripts/on-prem-scripts-connection.png)
 
-5) Click `Connect`. If everything is setup correctly, you should see a `Connection success` message.
+5) Click on `Link your account`. If everything is setup correctly, you will see a `Connection success` message.
 
 ## Execute command-line script action
 
@@ -51,15 +51,15 @@ To escape parameter values, use an escape character when defining a profile in t
 ![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml.png)
 *Using an escape character*
 
-### Handling output
+### Output data
 
 The output of the execute command-line script includes:
 
 - **Process ID**
-An ID that is unique to the command-line script that was run.  
+<br>An ID that is unique to the command-line script that was run.  
 
 - **Exit code**
-Every command returns an exit code. A successful command returns a 0, while an unsuccessful one returns a non-zero value that is the error code.
+<br>Every command returns an exit code. A successful command returns a 0, while an unsuccessful one returns a non-zero value that is the error code.
 
 - **System out**
-System out shows the message that is returned after the command-line script has run. 
+<br>System out shows the message that is returned after the command-line script has run. 
