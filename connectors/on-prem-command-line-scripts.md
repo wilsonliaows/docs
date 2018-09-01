@@ -27,9 +27,6 @@ Workato's `On-prem command-line scripts` connector allows you to securely connec
 
 ## Execute command-line script action
 
-### Invocation styles (Synchronous/asynchronous)
-
-
 ### Input parameters
 
 The input parameters should be specified when creating your profile in the on-premises agent's `config.yml` file. In the example below, two parameters, `target_directory` and `source_file` were specified.
@@ -52,6 +49,12 @@ To escape parameter values, use an escape character when defining a profile in t
 *Using an escape character*
 
 In the example shown in the image above, values in the `target_file` name can be escaped with a backslash. 
+
+### Invocation styles (Synchronous/asynchronous)
+
+To invoke the command asynchronously, scroll to the 'Remove optional fields' dropdown and select the field 'Run script in background?'. Running the command in the background allows the rest of the recipe steps to continue without waiting for the command to complete (asynchronous). 
+
+Leave the option blank or select 'No' and the command will run in the foreground (synchronous). The recipe will wait for the command to complete its run before proceeding to the subsequent steps. 
 
 ### Output data
 
