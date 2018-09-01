@@ -7083,7 +7083,8 @@
 <li><a href="#apache-kafka-connection-profile">Apache Kafka</a></li>
 <li><a href="#active-directory-connection-profile">Active directory</a></li>
 <li><a href="#http-resources">HTTP resource</a></li>
-<li><p><a href="#ntlm-connection-profile">NTLM</a></p>
+<li><a href="#ntlm-connection-profile">NTLM</a></li>
+<li><p><a href="#command-line-scripts-profile">Command-line scripts</a></p>
 <p>Additionally, you can configure <a href="proxy.html">proxy servers</a> for on-premises agents installed in a server with limited internet connectivity.</p>
 <p>A typical config file will look something like this:</p>
 </li>
@@ -7441,6 +7442,191 @@ You need to specify the base folder for file access as it will be used for resol
 </tbody>
 </table>
 <p>HTTP methods supported for NTLM connections are <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code> and <code>HEAD</code>.</p>
+<h2 id="command-line-scripts-profile">Command-line scripts profile</h2>
+<p>This profile allows users to run arbitrary scripts or commands on OPA. The script definition in the config file can have parameters.
+When you declare an action, you need to specify the values of the parameters.</p>
+<p>An example profile on Unix can look like this:</p>
+<pre><code class="lang-YAML"><span class="hljs-attr">command_line_scripts:</span> 
+<span class="hljs-attr">  workday_reports:</span>
+<span class="hljs-attr">    concurrency_limit:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    timeout:</span> <span class="hljs-number">30</span>
+<span class="hljs-attr">    scripts:</span> 
+<span class="hljs-attr">     copy_file:</span>
+<span class="hljs-attr">       name:</span> Copy file
+<span class="hljs-attr">       command:</span>
+<span class="hljs-bullet">         -</span> /bin/cp <span class="hljs-string">&quot;<span class="hljs-template-variable">{{source_file}}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">{{target_directory}}</span>&quot;</span>
+<span class="hljs-attr">       parameters:</span>
+<span class="hljs-bullet">         -</span> { name: source_file }
+<span class="hljs-bullet">         -</span> { name: target_directory }           
+
+<span class="hljs-attr">     append_file_to_another:</span>
+<span class="hljs-attr">       name:</span> Append file to another
+<span class="hljs-attr">       command:</span>
+<span class="hljs-bullet">         -</span> cat {{source_file}} &gt;&gt; {{target_file}}
+<span class="hljs-attr">       parameters:</span>
+         <span class="hljs-comment"># Parameter quoting</span>
+<span class="hljs-bullet">         -</span> { name: source_file, quote: <span class="hljs-string">&apos;&quot;&apos;</span> }
+         <span class="hljs-comment"># Advanced parameter quoting</span>
+<span class="hljs-bullet">         -</span> { name: target_file, quote: { start: <span class="hljs-string">&apos;&quot;&apos;</span>, end: <span class="hljs-string">&apos;&quot;&apos;</span>, quote: <span class="hljs-string">&apos;&quot;&apos;</span>, escape_char: \ } }
+
+<span class="hljs-attr">     generate_report:</span>
+<span class="hljs-attr">       name:</span> Generate report
+<span class="hljs-attr">       command:</span>
+<span class="hljs-bullet">         -</span> python /home/user/script.py --from <span class="hljs-string">&quot;<span class="hljs-template-variable">{{from_date}}</span>&quot;</span>
+         <span class="hljs-comment"># Conditional fragment</span>
+<span class="hljs-bullet">         -</span> { value: <span class="hljs-string">&apos;--to &quot;<span class="hljs-template-variable">{{to_date}}</span>&quot;&apos;</span>, if: <span class="hljs-string">&quot;to_date&quot;</span> }
+<span class="hljs-attr">       parameters:</span>
+<span class="hljs-bullet">         -</span> { name: from_date }
+<span class="hljs-bullet">         -</span> { name: to_date, schema: { optional: <span class="hljs-literal">true</span>, control_type: select, pick_list: [<span class="hljs-number">01</span>/<span class="hljs-number">01</span>/<span class="hljs-number">2018</span>, <span class="hljs-number">02</span>/<span class="hljs-number">02</span>/<span class="hljs-number">2018</span>] } }
+</code></pre>
+<p>The command-line script profiles are placed in the <code>command_line_scripts</code> section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows: </p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scripts</td>
+<td>The scripts hash. The value for each key contains the script profile.</td>
+</tr>
+<tr>
+<td>concurrency_limit</td>
+<td><strong>Optional</strong>. Maximum number of concurrently executed scripts. Defaults to 10 when not provided. After reaching the limit, requests are queued.</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td><strong>Optional</strong>. Maximum duration(seconds) for each script execution. Defaults to 90 seconds when not provided.</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+The hash key is used as an unique identifier for a script profile. The script configuration properties are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>Friendly name for the script that will be displayed in the recipe UI.</td>
+</tr>
+<tr>
+<td>command</td>
+<td>The command invocation array. The value of each item can use <a href="https://mustache.github.io/mustache.5.html" target="_blank">Mustache</a> template variables to substitute the parameter values.</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td><strong>Optional</strong>. The parameter array (defaults to an empty array).</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+The command invocation element configuration can be just a string, but also can contain these properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>The command invocation element value.</td>
+</tr>
+<tr>
+<td>if</td>
+<td>The parameter name. If parameter value is empty, this command invocation element is not taken into account.</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+The parameter configuration properties are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The parameter name.</td>
+</tr>
+<tr>
+<td>quote</td>
+<td><strong>Optional</strong>. The rules of parameter quoting (defaults to no rules).</td>
+</tr>
+<tr>
+<td>schema</td>
+<td><strong>Optional</strong>. The parameter schema.</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+The quote configuration can just be a string or have properties. The properties are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>The opening quote character.</td>
+</tr>
+<tr>
+<td>end</td>
+<td>The closing quote character.</td>
+</tr>
+<tr>
+<td>quote</td>
+<td>The quote character in the parameter value to be escaped.</td>
+</tr>
+<tr>
+<td>escape_char</td>
+<td>The escape character.</td>
+</tr>
+</tbody>
+</table>
+<p>If the quote configuration is a string, its value is considered as the value of the <code>start</code>, <code>end</code> and <code>quote</code> properties, and the <code>escape_char</code> property value is set to &apos;\&apos; on Unix and &apos;&quot;&quot;&apos; on Windows.</p>
+<p><br>
+The parameter schema configuration can have properties as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>optional</td>
+<td><strong>Optional</strong>. The optional flag of the parameter (defaults to false).</td>
+</tr>
+<tr>
+<td>label</td>
+<td><strong>Optional</strong>. Friendly name for the script, that will be displayed in the recipe UI (defaults to the parameter name).</td>
+</tr>
+<tr>
+<td>control_type</td>
+<td><strong>Optional</strong>. Can be &apos;text&apos; or &apos;select&apos;. If it&apos;s &apos;select&apos;, property &apos;pick_list&apos; should also be defined. Defaults to &apos;text&apos;.</td>
+</tr>
+<tr>
+<td>pick_list</td>
+<td><strong>Optional</strong>.  Values for selecting the parameter value. This property should be defined if property &apos;control_type&apos; has value &apos;select&apos;.</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -7523,7 +7709,7 @@ You need to specify the base folder for file access as it will be used for resol
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.13.4","depth":2,"next":{"title":"On-premises connections","level":"1.13.5","depth":2,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.13.3","depth":2,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2018-08-31T08:41:35.906Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-31T08:43:07.241Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.13.4","depth":2,"next":{"title":"On-premises connections","level":"1.13.5","depth":2,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.13.3","depth":2,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2018-09-01T01:38:49.046Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-01T01:39:53.259Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
