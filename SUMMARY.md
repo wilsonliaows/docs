@@ -277,6 +277,7 @@
     * [Search standard records action](connectors/netsuite.md#search-standard-objects-action)
     * [Search custom records action](connectors/netsuite.md#search-custom-objects-action)
     * [Update record action](connectors/netsuite.md#update-standard-object-and-update-custom-object-action)
+  * [On-prem command-line scripts](connectors/on-prem-command-line-scripts.md)
   * [On-premises files](connectors/on-prem-files.md)
     * [Connection setup](connectors/on-prem-files.md#how-to-connect-to-on-premises-files)
     * [New file trigger](connectors/on-prem-files/trigger-new-file.md)
