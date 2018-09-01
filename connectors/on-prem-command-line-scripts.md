@@ -51,6 +51,8 @@ To escape parameter values, use an escape character when defining a profile in t
 ![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml.png)
 *Using an escape character*
 
+In the example shown in the image above, values in the `target_file` name can be escaped with a backslash. 
+
 ### Output data
 
 The output of the execute command-line script includes:
