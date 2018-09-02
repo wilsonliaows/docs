@@ -6,7 +6,7 @@ date: 2018-09-01 06:00:00 Z
 # On-premises command-line scripts
 Enterprises often have on-premises applications and databases that are deployed within their corporate datacenter.
 
-Workato's `On-prem command-line scripts` connector allows you to securely connect to your on-premises apps and run arbitrary scripts or commands on your on-premises agent using the action 'Execute command-line script'.
+Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network. The the command is executed by the on-premise agent. You can whitelist any command that can be run on the machine running the on-premise agent. 
 
 ![On-prem command-line scripts connector](/assets/images/connectors/on-prem-command-line-scripts/on-prem-scripts-action.png)
 
@@ -29,7 +29,7 @@ Workato's `On-prem command-line scripts` connector allows you to securely connec
 
 ### Input parameters
 
-The input parameters should be specified when creating your profile in the on-premises agent's `config.yml` file. In the example below, two parameters, `target_directory` and `source_file` were specified.
+The input parameters should be specified when creating your profile in the on-premises agent's `config.yml` file. In the example below, two parameters, `target_directory` and `source_file` were specified. See how to setup a connection profile [here](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
 
 ![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml2.png)
 *Input parameters in the agent's config.yml file*
@@ -40,6 +40,14 @@ Correspondingly, after selecting the command-line script 'Append file to another
 *Input parameters in the recipe*
 
 In the fields, you should provide data pills or static data that you wish to use in your command-line script.
+
+### Other parameters
+
+- **Timeout**
+<br>The `timeout` parameter is specified in the `config.yml` file. This property is the maximum duration (in seconds) for each script execution. The value of the timeout parameter defaults to 90 seconds when not provided. 
+
+- **Concurrency limit**
+<br> The `concurrency_limit` parameter is specified in the `config.yml` file. This value states the maximum number of concurrently executed scripts and defaults to 10 when not provided. After reaching the limit, requests will be queued until prior scripts are executed.
 
 ### Escaping parameter values
 
@@ -67,4 +75,4 @@ The output of the execute command-line script includes:
 <br>Every command returns an exit code. A successful command returns a 0, while an unsuccessful one returns a non-zero value that is the error code.
 
 - **System out**
-<br>System out shows the message that is returned after the command-line script has run. 
+<br>System out shows the message that is returned after the command-line script has run. The message is restricted by a 50k character limit.
