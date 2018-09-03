@@ -41,6 +41,9 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - **Active Directory actions and triggers**
 (Eeshan's section)
 
+- **Jira & Jira Service Desk (cloud-only)** 
+
+  **What's new:** Added support for basic authentication with API tokens, in anticipation for the upcoming [deprecation of basic authentication with password](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-basic-auth-and-cookie-based-auth/) by Atlassian. Read our [article](https://support.workato.com/support/solutions/articles/1000267662-jira-cloud-only-jira-service-desk-deprecation-of-basic-authentication-with-password) about this.
 
 ## Aug 4 - Aug 16 2018
 
