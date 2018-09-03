@@ -8,6 +8,40 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.
 
+## Aug 17 - Sept 3 2018
+
+**Find more details on August's updates in our [blog post](linktobeposted).**
+
+### Platform enhancements
+
+#### Stronger security with TLS 1.1 update
+
+**What's new:** Workato is [upgrading to TLS 1.1 or higher](https://product.workato.com/2018/08/07/stronger-security-with-tls-1-1-update/) in order to align with industry best practices for security and data integrity.
+
+**Note:** Please ensure you are using a compliant version of applications and browsers in order to avoid issues using Workato services. Recipes with connected applications that use TLS 1.0 will be affected or stopped.
+
+#### Compatible input/output schemas
+
+**Context:** Previously, all mapped fields in later recipe steps are cleared when the user changes the trigger or actions.
+
+**What's new:** All actions and triggers now have compatible input and output schemas. The user can change a trigger or action and all mappings will remain valid if the new trigger has the same fields/pills.
+
+#### Recipe IQ: Building recipe intelligently
+
+**Context:** The Workato platform uses sophisticated machine learning algorithms based on billions of integration events and hundreds of thousands of integration use cases to assist users in building effective integrations and automations.
+
+**What's new:** During recipe building, users may notice the `Powered by RecipeIQ` tag, which indicates that our algorithms are intelligently suggesting the best actions, data pills or fields for use.
+
+### Connector enhancements
+
+#### New connector: On-Prem Command-line Scripts
+
+**What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set this up and more details [here](link to be posted).
+
+#### Active Directory actions and triggers
+(Eeshan's section)
+
+
 ## Aug 4 - Aug 16 2018
 
 ### Connector enhancements
