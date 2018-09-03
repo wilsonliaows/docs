@@ -6,7 +6,7 @@ date: 2018-09-01 06:00:00 Z
 # On-premises command-line scripts
 Enterprises often have on-premises applications and databases that are deployed within their corporate datacenter.
 
-Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network. The the command is executed by the on-premise agent. You can whitelist any command that can be run on the machine running the on-premise agent. 
+Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network. The command is executed by the on-premise agent. You can whitelist any command that can be run on the machine with the on-premise agent. 
 
 ![On-prem command-line scripts connector](/assets/images/connectors/on-prem-command-line-scripts/on-prem-scripts-action.png)
 
