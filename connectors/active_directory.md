@@ -4,7 +4,7 @@ date: 2018-03-18 06:00:00 Z
 ---
 
 # Active Directory
-Active Directory is a directory service developed by Microsoft to run on a Windows Server to manage access to resources in a network.
+Active Directory is a directory service developed by Microsoft to manage access to resources in a network. The service runs on a Windows Server.
 
 ## How to connect to Active Directory on Workato
 The Active Directory connector authenticates with LDAP protocol, which is only available via the on-premise agent.
@@ -41,3 +41,9 @@ The Active Directory connector works with all types of objects.
 
 ### Sample entry DN
 Use this field to define the object that you want to work with. The value in this input field should be an actual entry in your Active Directory instance. This entry will be used to determine the input and/or output fields of the action/trigger.
+
+DN of a sample user entry will look like this:
+
+```
+CN=Workato Integrations,CN=Users,DC=workato,DC=local
+```

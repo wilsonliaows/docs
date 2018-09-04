@@ -44,3 +44,6 @@ This action updates an existing entry in your Active Directory.
 
 ### Output fields
 The output of this action is the full details of the updated entry. The attributes of this entry is based on the **Sample entry DN** provided in the action input.
+
+![Entry output fields](/assets/images/active_directory/entry_output_schema.png)
+*Entry output fields*

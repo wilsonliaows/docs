@@ -45,3 +45,6 @@ This trigger picks up entries that are created/updated in your Active Directory 
 
 ## Output fields
 The output of this trigger is a single entry. The attributes of each entry is based on the **Sample entry DN** provided in the trigger input.
+
+![Entry output fields](/assets/images/active_directory/entry_output_schema.png)
+*Entry output fields*
