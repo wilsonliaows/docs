@@ -81,6 +81,165 @@ To use real-time triggers in Salesforce, workflow rules have to be set up in you
 ### Can I connect more than one Salesforce account in a single recipe?
 Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more [here](http://http://docs.workato.com/features/secondary-connectors.html).
 
+### Working with generic triggers in Salesforce
+In Workato, you can set up triggers to monitor for events that happen in your Salesforce organization. When the event occurs, Workato picks it up and carries out the sequence of actions specified in your recipe.
+
+Most triggers in the Salesforce connector use a SOQL query to fetch trigger events. If you're familiar with SOQL, you can use the input fields in the trigger to describe the data to fetch from Salesforce in greater detail. This is how they correspond:
+
+| SOQL component | Workato input field it corresponds to | Description                                                                                                                                                       |
+|----------------|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| FROM           | [Object](#object-input-field)                                | The Salesforce object you wish to trigger upon, e.g. cases                                                                                                        |
+| WHERE          | [SOQL WHERE clause](https://docs.workato.com/connectors/salesforce.html#working-with-soql-in-salesforce)                     | WHERE conditions can be set to filter for Salesforce records you're interested in, e.g. only trigger on case records marked as "High" priority.                   |
+| JOIN           | [Related objects](#related-objects)                       | The records related to the Salesforce object that you want the data of, e.g. if you want the data of the account associated with the case, select "Account" here. |
+| SELECT         | [Fields](https://docs.workato.com/connectors/salesforce.html#fields-list)                                | The actual fields of the Salesforce object and related objects that you want to use in the recipe, e.g. "Case subject", "Account name"                            |
+
+You'll see these fields in most triggers.
+
+![Salesforce trigger input fields corresponding to SOQL query](/assets/images/salesforce-docs/unconfigured-trigger-soql.png)
+*Salesforce trigger input fields corresponding to SOQL query*
+
+#### Object input field
+Most triggers in Salesforce supports all standard and custom objects in your connected Salesforce organization. When setting up your trigger, you would need to select the specific object you wish to monitor in the **Object** picklist. E.g. if you selected **Lead**, your recipe will trigger every time a new lead is created, or updated.
+
+#### Working with SOQL in Salesforce
+[**Salesforce Object Query Language (SOQL)**](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) is a Salesforce query language supported by Workato in triggers and advanced search actions. It can be used to filter for specific Salesforce records. SOQL syntax is similar to Structured Query Language (SQL) and consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
+
+In Workato, whenever you're configuring a trigger or a search action, you're probably making a Salesforce query and specifying the SELECT (**Fields list**), FROM (**Salesforce Object**), JOIN (**Related object**) and WHERE (**SOQL WHERE clause**) clause of the SQOL query.
+
+##### Inputting SOQL WHERE Conditions (Syntax):
+In this section, we focus on the WHERE clause and syntax.
+
+The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: \<fieldName\> \<comparisonOperator\> \<value\>. Some examples are:
+
+- `StageName = 'Closed Lost'` 
+- `IsClosed = true`
+
+**Field names**
+Most standard field names are in camel case.
+
+For a list of fields for standard Salesforce objects, see [Salesforce Fields Reference](https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm).
+
+**Comparison operators:**
+Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
+
+![SOQL-1](/assets/images/salesforce-docs/salesforce-soql-example-1.png)
+
+For detailed information on how to use each comparison operator, see: [Comparison Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_comparisonoperators.htm).
+
+**Logical operators:**
+Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
+- fieldExpressionX **AND** fieldExpressionY
+- fieldExpressionX **OR** fieldExpressionY
+- **NOT** fieldExpressionX.
+
+Here is an example showing two fieldExpressions joined by a logical operator:
+
+![SOQL-2](/assets/images/salesforce-docs/salesforce-soql-example-2.png)
+
+For more information on logical operators, see: [Logical Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm).
+
+#### Related objects list
+The **Related objects** input field allows you to specify related records that you want the data of. For example, if you're triggering upon new opportunities, you might want Account data of this contact as well. Select all records you're interested in to tell Workato what data to retrieve from Salesforce. Doing this will populate the **Fields** input field with the list of fields available from this object, and you need to [select the fields you want using **Fields** list](#fields-list) as well.
+
+If you're familiar with SOQL, the **Related objects** field is essentially a JOIN, and therefore the need to fill in the SELECT component to actually retrieve the fields.
+
+If left blank, Workato will not fetch any related records.
+
+The list of available related objects changes with the base Salesforce object selected in the picklist.
+
+For example, when **Contact** is selected as the base object, **Account** and **Reports to** are available as related objects.
+
+![Salesforce objects related to contacts](/assets/images/salesforce-docs/objects-related-to-contact.png)
+*Salesforce objects related to contacts*
+
+And when **Case** is selected as the base object, there's a different list of related objects available.
+
+![Salesforce objects related to cases](/assets/images/salesforce-docs/objects-related-to-case.png)
+*Salesforce objects related to cases*
+
+You can select more than 1 related object to retrieve.
+
+![Selecting account and contact, 2 objects related to cases](/assets/images/salesforce-docs/using-related-objects-field.gif)
+*Selecting account and contact, 2 objects related to cases*
+
+Selecting related objects immediatelly populates the **Fields** list with the fields belonging to the selected objects. These fields are identified by the object name prepended to the field name, e.g. `Account.Account name` and `Contact.Full name`. Select the fields you're interested in using in the recipe.
+
+![Selecting account and contact related objects immediately populates Fields list with account and contact fields](/assets/images/salesforce-docs/related-objects-fields.gif)
+*Selecting account and contact related objects immediately populates Fields list with account and contact fields*
+
+#### Fields list
+The `Fields` list input field allows users to select the fields they wish to use in the recipe. This ensures that the recipe will be affected only by changes to these subset of fields, and therefore minimize impact on the recipe due to schema changes.
+
+The benefits of using the `Fields` list are:
+1. Minimizes impact on recipe by Salesforce object schema changes
+2. Improved recipe performance
+3. Improved recipe usability due to smaller datatree with only relevant datapills
+
+##### How to use Fields list
+Salesforce triggers and actions have an optional input field called `Fields`. This is a multiselect field for you to select the data fields you want to use in the recipe. If left blank, the Salesforce trigger/action will retrieve all data fields in the datatree by default.
+
+![Unconfigured fields selector](/assets/images/salesforce-docs/unconfigured-fields-selector.gif)
+*Unconfigured fields selector. All account data fields are retrieved in the datatree by default.*
+
+All data fields of your selected object will be available in the `Fields` list.
+
+![Available base object fields](/assets/images/salesforce-docs/available-base-object-fields.gif)
+*Fields selector displays all available data fields for your selected object by default*
+
+By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.
+
+![Configured base object fields selector](/assets/images/salesforce-docs/configured-fields-selector-base-object.gif)
+*Configuring the fields selector - the datatree is regenerated when any fields are selected*
+
+In Salesforce, you can choose to retrieve related objects' data as well, e.g. if your trigger is a new opportunity in Salesforce, we can retrieve data about the Salesforce account the opportunity is related to. If your trigger is a new case, we can retrieve data about the Salesforce contact, lead or account the opportunity is related to. To tell Workato the fields to select, first select the related objects you're interested in, then select the fields of this related obect you're interested in.
+
+In the following example, we first selected `account` as the primary base object, then `parent account` as the join object. The `Fields` multiselect list is promptly populated with fields belonging to the parent account as well. Similarly, if the `Fields` list is not configured, all `account` and `parent account`fields will be fetched from Salesforce.
+
+![Available join object fields](/assets/images/salesforce-docs/available-join-object-fields.gif)
+*Available join object fields will be shown when the related join objects is selected*
+
+All data fields of your selected base and related join objects will be available in the `Fields` list. By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.
+
+![Configured join object fields selector](/assets/images/salesforce-docs/configured-fields-selector-join-object.gif)
+*Configuring the fields selector containing base and related join object data fields - the datatree is regenerated when any fields are selected*
+
+By limiting the datatree to only the fields we're interested in using, we mitigate the effects of Salesforce schema changes on our recipe.
+
+##### Prevent schema errors with Fields list
+When using a Salesforce trigger/action in a recipe, all object fields (standard and custom fields) are requested from Salesforce by default, **even if these fields are not used in the recipe**.
+
+If a Salesforce admin changes the Salesforce object schema, e.g. deletes fields in the object, the recipe throws an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.
+
+Such schema differences between Salesforce and Workato can be resolved by a schema refresh. However, if frequent schema changes are expected, we can utilize the `Fields` input field to control the fields that we request from Salesforce. This will ensure that schema changes unrelated to the recipe will not cause the recipe to break or experience errors.
+
+#### New record trigger
+This trigger picks up new records in Salesforce. Records will be processed in chronological order, i.e. records created earlier will be processed first.
+
+##### Trigger behaviour when recipe is stopped and restarted
+Even if the recipe is stopped, when it's restarted again, all new records created during the time the recipe was stopped will be picked up by the recipe.
+
+#### New/updated record trigger
+This trigger picks up new and updated records in Salesforce as trigger events. Records will be processed in chronological order, i.e. records created or updated earlier will be processed first.
+
+##### Trigger behaviour when recipe is stopped and restarted
+If the recipe is stopped and restarted, it will pick up records created or updated during the time during the recipe was stopped. As the recipe is looking for records created/updated since the last time it checked Salesforce, only the latest version of the record will be picked up. For example, if a record was created and updated twice during the time the recipe was stopped, the recipe will only pick up the final version of the record and count it as 1 trigger event. The trigger output will retrieve the data from this final version of the record.
+
+#### Deleted record trigger
+
+### Working with batch triggers in Salesforce
+Workato supports batch reads from Salesforce. If you're looking to read or move high volumes of data from Salesforce efficiently, you probably want to move the records in batches instead of individually.
+
+#### New records (batch) trigger
+This trigger checks for new records in Salesforce at regular intervals and returns a list of new records. The core difference between this batch trigger and the **New records** trigger is that each trigger event holds a list of records, instead of a single record. Records will be processed in chronological order, i.e. records created earlier will be processed first.
+
+#### New/updated records (batch) trigger
+This trigger checks for new or updated records in Salesforce at regular intervals and returns a list of records. The core difference between this batch trigger and the **New/updated records** trigger is that each trigger event holds a list of records, instead of a single record. Records will be processed in chronological order, i.e. records created earlier will be processed first.
+
+#### Scheduled record search using SOQL trigger
+This trigger makes a SOQL query at scheduled times. You can set an hourly, daily, weekly or monthly schedule for the query to be made. The full results list will be retrieved from Salesforce and batched into smaller lists if applicable, e.g. a list of 4005 Salesforce records will be batched into 3 different trigger events, 2 with 2000 records and the 3rd with 5 records, assuming that the batch size per trigger has been set at 2000.
+
+#### Threshold met for new records created trigger
+
 ### Using real-time triggers
 Workato offers real-time capabilities for 2 Salesforce triggers: **New Object** and **New/Updated Object**. This allows Workato to detect records created/updated in Salesforce immediately. Salesforce real-time triggers is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
@@ -209,13 +368,63 @@ This endpoint URL is unique to the Salesforce organization connected to the trig
 
 If the trigger event is indeed picked up immediately, this means that your workflow rule and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created or updated records in Salesforce and process them as trigger events immediately. If your workflow requires additional logic to filter out certain records, add trigger conditions.
 
-### Working with generic triggers in Salesforce
-In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with **Objects**. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organisation. Simply click on the Object field's dropdown list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger **"New Object"** and select **Lead** as the object. Your recipe will trigger every time a new lead is created.
-
-
 ### Working with generic create/update/search actions in Salesforce
 When working with Salesforce Actions on Workato, you should find it extremely easy if you are familliar with the fields in the objects on your Salesforce account. When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose **Lead** you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action.
 
+#### Create record action
+This action creates a new record in Salesforce. Select the object to create a new record for, then provide the data to write to the record.
+
+#### Update record action
+This action updates an existing record in Salesforce. Identify the record to update via its Salesforce unique ID, then provide the data to write to the record.
+
+#### Upsert record action
+This action upserts a record in Salesforce.
+
+#### Delete record action
+This action deletes a record in Salesforce. Identify the record to delete via its Salesforce unique ID.
+
+#### Get record details action
+This action retrieves the data of a record in Salesforce. Identify the record to retrieve via its Salesforce ID. If the provided ID does not match any record in Salesforce, this action throws an error and the job fails.
+
+#### Get list of related records action
+
+
+#### Search records action
+This action retrieves a list of records which matches all your search criteria. First select the object you're interested in retrieving, then provide the search criteria. Only records matching all search criteria will be returned.
+
+This action returns a maximum of 150 records. Records in excess of 150 will not be returned. 
+
+If you're searching for records by unindexed fields and your Salesforce object have a large number of fields, your search action might experience timeouts. To mitigate this, try to search via indexed fields.
+
+#### Search records using SOQL action
+This action retrieves a list of records which matches your SOQL WHERE clause. First select the object you're interested in retrieving, then provide the SOQL WHERE clause. Only records matching the criteria will be returned.
+
+This action returns a maximum of 150 records. Records in excess of 150 will not be returned. 
+
+If you're searching for records by unindexed fields and your Salesforce object have a large number of fields, your search action might experience timeouts. To mitigate this, try to search via indexed fields.
+
+#### Search records using SOQL and return results as CSV action
+
+### Working with approval processess in Salesforce
+Workato supports approval process automation in Salesforce. You can mark records as pending approval, or approve/reject a record already in the approval process if they meet certain conditions.
+
+#### Submit record for approval action
+This action submits a record into an approval process.
+
+![Unconfigured action to submit record for approval](/assets/images/salesforce-docs/submit-record-for-approval-unconfigured.png)
+*Unconfigured action to submit record for approval*
+
+#### Approve record in approval process action
+This action approves a record currently in an approval process.
+
+![Approve record in approval process](/assets/images/salesforce-docs/approve-record-in-approval-process.png)
+*Approve record in approval process*
+
+#### Reject record in approval process action
+This action rejects a record currently in an approval process.
+
+![Reject record in approval process](/assets/images/salesforce-docs/reject-record-in-approval-process.png)
+*Reject record in approval process*
 
 ### Working with attachments in Salesforce
 
@@ -225,43 +434,19 @@ To upload an attachment **to** Salesforce using Workato, you can use the **Creat
 #### Downloading
 To download an attachment **from** Salesforce, you can use the **Download file** Action.  The **file ID** must be obtained from a previous step, usually from the **Get object details** step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use the **Upload file** action in the **Box** connector.
 
-### Working with SOQL in Salesforce
-**Salesforce Object Query Language (SOQL)** is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
-
-In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting).
-
-The recipe will automatically handle the SELECT FROM portion of your query. It will SELECT all fields FROM the object you choose from the pick list. For optional clauses, the trigger currently only supports WHERE conditions.
-
-For a list of standard fields for major Salesforce objects, see: [Salesforce Fields Reference](https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef/salesforce_field_reference.htm).
-
-#### Inputting SOQL WHERE Conditions (Syntax):
-The WHERE clause follows field expression syntax. A **fieldExpression** is defined as follows: \<fieldName\> \<comparisonOperator\> \<value\>.
-
-**Comparison operators:**
-Comparison operators include the following: =, !=, <, <=, >, >=, LIKE, IN, NOT IN, INCLUDES, and EXCLUDES. Here is a simple example following fieldExpression syntax:
-
-![SOQL-1](/assets/images/salesforce-docs/salesforce-soql-example-1.png)
-
-For detailed information on how to use each comparison operator, see: [Comparison Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_comparisonoperators.htm).
-
-**Logical operators:**
-Multiple field expressions can be joined using logical operators. These include: AND, OR, and NOT. The basic syntax is as follows:
-- fieldExpressionX **AND** fieldExpressionY
-- fieldExpressionX **OR** fieldExpressionY
-- **NOT** fieldExpressionX.
-
-Here is an example showing two fieldExpressions joined by a logical operator:
-
-![SOQL-2](/assets/images/salesforce-docs/salesforce-soql-example-2.png)
-
-For more information on logical operators, see: [Logical Operators](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_logicaloperators.htm).
-
 ### Working with bulk data load jobs in Salesforce
-Salesforce supports capabilities for bulk data load. Workato uses the [bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/introduction_bulk_api_2.htm) to support the loading of data in bulk from a CSV file into Salesforce. Supported operations are:
-- Create objects in bulk via CSV file
-- Update objects in bulk via CSV file
-- Upsert objects in bulk via CSV file
-- Retry objects bulk job in Salesforce via CSV file
+Salesforce supports capabilities for bulk data load. Workato uses the bulk API 1.0 to support loading of data in bulk using a list of data, and the [bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/introduction_bulk_api_2.htm) to support the loading of data in bulk from a CSV file into Salesforce. 
+
+Supported operations using bulk API 1.0 are:
+- Create records in bulk
+- Update records in bulk
+- Upsert records in bulk
+
+Supported operations using bulk API 2.0 are:
+- Create records in bulk from CSV file
+- Update records in bulk from CSV file
+- Upsert records in bulk from CSV file
+- Retry bulk job for failed records from CSV file
 
 The difference between bulk load via CSV file actions and non-CSV file bulk actions are as follows.
 
@@ -270,6 +455,8 @@ The difference between bulk load via CSV file actions and non-CSV file bulk acti
 | Can process millions of records                      | Limited to 2k records per action                   |
 | Does not support data transformation                 | Supports data transformation                       |
 | Data is streamed only from CSV file into bulk action | Data can be from multiple sources into bulk action |
+
+#### Create/update/upsert records in bulk
 
 #### Create/update/upsert objects in bulk via CSV file
 There are 4 main sections/components in these bulk actions.
@@ -480,50 +667,11 @@ For additional help, see Salesforce documentation
 * [SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm)
 * [WHERE Clause Syntax](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_conditionexpression.htm)
 
-### Prevent schema errors with Fields list
-When using a Salesforce trigger/action in a recipe, all object fields (standard and custom fields) are requested from Salesforce by default, **even if these fields are not used in the recipe**.
+### Working with platform events on Salesforce
 
-If a Salesforce admin changes the Salesforce object schema, e.g. deletes fields in the object, the recipe throws an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.
+#### New platform event trigger
 
-Such schema differences between Salesforce and Workato can be resolved by a schema refresh. However, if frequent schema changes are expected, we can utilize the `Fields` input field to control the fields that we request from Salesforce. This will ensure that schema changes unrelated to the recipe will not cause the recipe to break or experience errors.
-
-## Fields list
-The `Fields` list input field allows users to select the fields they wish to use in the recipe. This ensures that the recipe will be affected only by changes to these subset of fields, and therefore minimize impact on the recipe due to schema changes.
-
-The benefits of using the `Fields` list are:
-1. Improved recipe performance
-2. Improved recipe usability due to smaller datatree with only relevant datapills
-2. Minimizes impact on recipe by Salesforce object schema changes
-
-### How to use Fields list
-Salesforce triggers and actions have an optional input field called `Fields`. This is a multiselect field for you to select the data fields you want to use in the recipe. If left blank, the Salesforce trigger/action will retrieve all data fields in the datatree by default.
-
-![Unconfigured fields selector](/assets/images/salesforce-docs/unconfigured-fields-selector.gif)
-*Unconfigured fields selector. All account data fields are retrieved in the datatree by default.*
-
-All data fields of your selected object will be available in the `Fields` list.
-
-![Available base object fields](/assets/images/salesforce-docs/available-base-object-fields.gif)
-*Fields selector displays all available data fields for your selected object by default*
-
-By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.
-
-![Configured base object fields selector](/assets/images/salesforce-docs/configured-fields-selector-base-object.gif)
-*Configuring the fields selector - the datatree is regenerated when any fields are selected*
-
-In Salesforce, you can choose to retrieve related objects' data as well, e.g. if your trigger is a new opportunity in Salesforce, we can retrieve data about the Salesforce account the opportunity is related to. If your trigger is a new case, we can retrieve data about the Salesforce contact, lead or account the opportunity is related to. To tell Workato the fields to select, first select the related objects you're interested in, then select the fields of this related obect you're interested in.
-
-In the following example, we first selected `account` as the primary base object, then `parent account` as the join object. The `Fields` multiselect list is promptly populated with fields belonging to the parent account as well. Similarly, if the `Fields` list is not configured, all `account` and `parent account`fields will be fetched from Salesforce.
-
-![Available join object fields](/assets/images/salesforce-docs/available-join-object-fields.gif)
-*Available join object fields will be shown when the related join objects is selected*
-
-All data fields of your selected base and related join objects will be available in the `Fields` list. By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.
-
-![Configured join object fields selector](/assets/images/salesforce-docs/configured-fields-selector-join-object.gif)
-*Configuring the fields selector containing base and related join object data fields - the datatree is regenerated when any fields are selected*
-
-By limiting the datatree to only the fields we're interested in using, we mitigate the effects of Salesforce schema changes on our recipe.
+#### Publish platform event action
 
 ## Best practices
 When starting to use Workato with your Salesforce account, we reccomend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone.
