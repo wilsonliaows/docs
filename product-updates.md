@@ -14,36 +14,33 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ### Platform enhancements
 
-- **Stronger security with TLS 1.1 update**
-
-  **What's new:** Workato is [upgrading to TLS 1.1 or higher](https://product.workato.com/2018/08/07/stronger-security-with-tls-1-1-update/) in order to align with industry best practices for security and data integrity.
-
-  **Note:** Please ensure you are using a compliant version of applications and browsers in order to avoid issues using Workato services. Recipes with connected applications that use TLS 1.0 will be affected or stopped.
-
 - **Compatible input/output schemas**
 
   **Context:** Previously, all mapped fields in later recipe steps are cleared when the user changes the trigger or actions.
 
   **What's new:** All actions and triggers now have compatible input and output schemas. The user can change a trigger or action and all mappings will remain valid if the new trigger has the same fields/pills.
 
-- **Recipe IQ: Building recipe intelligently**
+ - **Recipe IQ: Powering intelligent recipe building**
 
   **Context:** The Workato platform uses sophisticated machine learning algorithms based on billions of integration events and hundreds of thousands of integration use cases to assist users in building effective integrations and automations.
 
-  **What's new:** During recipe building, users may notice the `Powered by RecipeIQ` tag, which indicates that our algorithms are intelligently suggesting the best actions, data pills or fields for use.
+  **What's new:** During recipe building, users may notice the `Powered by RecipeIQ` tag, which indicates that our AI algorithms are intelligently suggesting the best actions, data pills or fields for use.
+  
+- **Job report: Timing tab**
+  
+  **What's new:** The timing tab for every step in a recipe has been exposed. Users can find it next to the 'input' and 'output' tabs in the individual job reports. This tab shows the time taken for every action and can be used in debugging recipes. 
 
 ### Connector enhancements
 
 - **New connector: On-Prem Command-line Scripts**
 
   **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set this up and more details [here](link to be posted).
-
-- **Active Directory actions and triggers**
-(Eeshan's section)
+  
 
 - **Jira & Jira Service Desk (cloud-only)** 
 
   **What's new:** Added support for basic authentication with API tokens, in anticipation for the upcoming [deprecation of basic authentication with password](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-basic-auth-and-cookie-based-auth/) by Atlassian. Read our [article](https://support.workato.com/support/solutions/articles/1000267662-jira-cloud-only-jira-service-desk-deprecation-of-basic-authentication-with-password) about this.
+
 
 ## Aug 4 - Aug 16 2018
 
