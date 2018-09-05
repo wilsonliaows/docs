@@ -347,7 +347,9 @@ command_line_scripts:
      copy_file:
        name: Copy file
        command:
-         - /bin/cp "{{source_file}}" "{{target_directory}}"
+         - /bin/cp
+         - '{{source_file}}'
+         - '{{target_directory}}'
        parameters:
          - { name: source_file }
          - { name: target_directory }           
@@ -355,6 +357,8 @@ command_line_scripts:
      append_file_to_another:
        name: Append file to another
        command:
+         - bash
+         - -c
          - cat {{source_file}} >> {{target_file}}
        parameters:
          # Parameter quoting
@@ -365,9 +369,14 @@ command_line_scripts:
      generate_report:
        name: Generate report
        command:
-         - python /home/user/script.py --from "{{from_date}}"
+         - python
+         - /home/user/script.py
+         - --from
+         - '{{from_date}}'
          # Conditional fragment
-         - { value: '--to "{{to_date}}"', if: "to_date" }
+         - { value: --to, if: to_date }
+         # Conditional fragment
+         - { value: '{{to_date}}', if: to_date }
        parameters:
          - { name: from_date }
          - { name: to_date, schema: { optional: true, control_type: select, pick_list: [01/01/2018, 02/02/2018] } }
