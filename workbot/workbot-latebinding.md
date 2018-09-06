@@ -4,11 +4,16 @@ date: 2017-05-15 05:00:00 Z
 ---
 
 # Workbot personal connections
-In some cases, Workbot commands should be carried out based on the permissions and identity of the individual user and not on the permissions of the admin user who installed Workbot, e.g. when sales reps creates or edits an opportunity, they wants the creator to be identified as them instead of as the admin user, and when a user approves a workflow, they want the approver to be listed as them and not the admin user.
+By default, recipes perform actions based on the identity & permissions of the credentials used to connect the application.
 
-Most recipes have a single connection defined in its setup, and uses that connection, e.g. a Workbot recipe to Salesforce will use the connection of the user who installed Workbot, and accordingly rely on this connected user's permission set to retrieve data from Salesforce or write data to Salesforce. In Workbot recipes, however, there is the concept of Workbot personal connections, which asks individual users for their credentials to verify identity before carrying out their actions in other apps, e.g. asking sales reps to log in to Salesforce via Slack before creating the opportunity in Salesforce for them. This connection persists for users, meaning that the user doesn't have to provide credentials everytime they use a Workbot command.
+![Connection credentials](/assets/images/workbot/workbot-latebinding/connection-credentials.png)
+*A sales manager's credentials used in Salesforce connection*
 
-To enable personal connections, go to **Recipe > Settings** page and enable Runtime connection binding.
+In the example above, Workbot commands create opportunities in Salesforce — but solely as the sales manager, i.e. the Salesforce connection owner. This means that even though sales reps are creating opportunities in Slack, they would all be reflected as creations of the sales manager in Salesforce. This is also an issue for approvals workflows — approving users need to perform approvals as themselves, not as the connection owner.
+
+Using personal connections, Workbot allows users to authenticate themselves before carrying out actions for them in other apps, e.g. asking sales reps to log in to Salesforce before dispatching Workbot to create the opportunity in Salesforce on their behalf. These personal connection persist, meaning that the user doesn't have to provide credentials every time they use a Workbot command.
+
+To enable personal connections, go to **Recipe > Settings** page and enable **Verify user access at runtime**. Currently, Workbot supports personal connections to Salesforce only — we are working to support more applications in future.
 
 ![recipe-setting](/assets/images/workbot/workbot-latebinding/recipe-settings.png)
 
@@ -17,9 +22,21 @@ When this feature is enabled, Workbot recipes will request individual users to a
 ![personal-connection-flow](/assets/images/workbot/workbot-latebinding/slack-flow.gif)
 *Personal connection setup for Salesforce Approval flow*
 
-Users can view their personal connections by typing *connections* in the Workbot DM. Alternatively, they can type *help* in the Workbot DM, and click on the *personal accounts* button. It is possible to disconnect personal connections or connect them again. Note, if not in the Workbot DM, you can type the same commands, but add the @Workbot mention, e.g. *@Workbot connections* or *@Workbot help*.
+# Viewing personal connections
+You can view your personal connections sending '*connections*' in a DM to Workbot.
+
+![Personal connections - DM 'connections'](/assets/images/workbot/workbot-latebinding/dm-connections.gif)
+*Sending a 'connections' DM to Workbot to view personal connections*
+
+You can also type '*help*'' in the DM, followed by clicking on the *personal accounts* button.
 
 ![personal-connection-control](/assets/images/workbot/workbot-latebinding/manage.gif)
-*Personal connections management*
+*Viewing personal connections*
 
-If the command is ran by the Workbot admin (user who installed Workbot into Slack team), recipe will automatically be executed with the default recipe connection. Therefore, Workbot admins will not have personal connections.
+If Workbot has been invited to your channels, you can use '*@Workbot connections*'' or '*@Workbot help*' to view your personal connections in those channels.
+
+# Disconnecting your personal connections
+You can disconnect your personal connections anytime by viewing your personal connections and clicking 'Disconnect'.
+
+![Disconnecting personal connections](/assets/images/workbot/workbot-latebinding/disconnect-personal-connections.gif)
+*Disconnecting a personal connection*
