@@ -19,11 +19,14 @@ The connector must have the official logo of the app it connects to.
 ## Triggers
 In this section, we discuss triggers in Workato. We cover:
 
-- trigger components: the pieces that form a trigger
-- trigger types: the common triggers you tend to see in Workato
+- [Trigger components](#trigger-components)
+The pieces that form a trigger.
 
-### Trigger components
-There are some common components that appear in all triggers. The following table details these components.
+- [Trigger types](#trigger-types)
+The common triggers you tend to see in Workato.
+
+### Trigger descriptive components
+There are some common descriptive components that appear in all triggers. The following table details these components.
 
 | Trigger component | Description                                                                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,7 +34,6 @@ There are some common components that appear in all triggers. The following tabl
 | [Title](#trigger-component-title)             | Title that shows up in the app's trigger picklist to help you make a selection between triggers.                                             |
 | [Subtitle](#trigger-component-subtitle)          | Subtitle that shows up in the app's trigger picklist. Further elaborates what the trigger does to help you make a selection between triggers. |
 | [Help](#trigger-component-help)              | Trigger-level help that elaborates how the trigger works. Usually also comprises of the subtitle.                                                    |
-| [Since/from](#trigger-component-sincefrom)        | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                   |
 
 Here is how `description`, `title` and `help` show up in the trigger.
 
@@ -43,15 +45,10 @@ The `title`, `subtitle` and `description` are often very similar in values.
 ![Title, subtitle, description components](/assets/images/connectors-design-guide/trigger-components-2.png)
 *Title, subtitle, description components*
 
-And almost every trigger should have a `Since` field with the label `When first started, this recipe should pick up events from`.
-
-![Trigger since field](/assets/images/connectors-design-guide/trigger-since-field.png)
-*Trigger since field*
-
 This is the SDK code that corresponds to the above components.
 
-![Trigger code corresponding to trigger components](/assets/images/connectors-design-guide/trigger-full-components-code.png)
-*Trigger code corresponding to trigger components*
+![Trigger code corresponding to trigger descriptive components](/assets/images/connectors-design-guide/trigger-descriptive-components-code.png)
+*Trigger code corresponding to trigger descriptive components*
 
 #### Trigger component - description
 The description is a quick summary of what each recipe line does in which app. The app and business object should be highlighted. When looking at a recipe, the trigger and action descriptions should be able to provide a good idea of what the recipe is doing.
@@ -62,7 +59,7 @@ The description is a quick summary of what each recipe line does in which app. T
 Here's an example of a description definition where we highlight the business object `candidate` and app `Greenhouse`.
 
 ```
-description: "New or updated <span class='provider'>candidate</span> in <span class='provider'>Greenhouse</span>"
+description: "New/updated <span class='provider'>candidate</span> in <span class='provider'>Greenhouse</span>"
 ```
 
 This results in the trigger description below.
@@ -79,7 +76,7 @@ The title shows up in the app's trigger picklist to help you make a selection be
 Here's an example of a trigger title definition.
 
 ```
-title: "New or updated candidate"
+title: "New/updated candidate"
 ```
 
 This results in the trigger title below.
@@ -101,7 +98,7 @@ The subtitle complements the title by elaborating on what the trigger does, to h
 Here's an example of a trigger subtitle definition.
 
 ```
-subtitle: "New or updated candidate in Greenhouse"
+subtitle: "Triggers when a candidate is created or updated in Greenhouse"
 ```
 
 This results in the trigger subtitle below.
@@ -109,7 +106,7 @@ This results in the trigger subtitle below.
 ![Subtitle for the trigger](/assets/images/connectors-design-guide/trigger-subtitle.png)
 *Subtitle for the trigger*
 
-If undefined, the subtitle defaults to the trigger description. For example, the following code will result in a trigger subtitle of `New or updated candidate in Greenhouse`.
+If undefined, the subtitle defaults to the trigger description. For example, the following code will result in a trigger subtitle of `New/updated candidate in Greenhouse`.
 
 ![Trigger code without title defined](/assets/images/connectors-design-guide/trigger-components-code.png)
 *Trigger code without title defined*
@@ -120,13 +117,20 @@ The trigger help is trigger-level text that elaborates how the trigger works. Th
 Here's an example of a help text definition.
 
 ```
-help: "Triggers when candidates is created/updated"
+help: "Triggers when a candidate is created or updated."
 ```
 
 ![Additional help text for the trigger](/assets/images/connectors-design-guide/trigger-help.png)
 *Additional help text for the trigger*
 
-#### Trigger component - since/from
+### Trigger input
+
+
+
+| [Since/from](#trigger-component-sincefrom)        | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                   |
+
+
+#### Trigger input - since/from
 Almost every trigger has this since input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.
 
 This is useful for use cases such as initial bootstrapping when your company is moving to a new system and wishes to move all existing records from the old system into the new. Using the since field, you can choose to pick records created from exact date times. You can read more about the since input field's function in [this article](/recipes/triggers#sincefrom).
@@ -135,6 +139,9 @@ Some key design points to note about the since field:
 - It should only allow users to input an exact date time. We are no longer supporting picklists.
 - It should be an optional field.
 - It should default to a week ago if left blank.
+- The label should be `When first started, this recipe should pick up events from`.
+- The hint should be `When you start recipe for the first time, it picks up trigger events from this specified date and time. Defaults to fetching trigger events from a week ago if left blank. Once recipe has been run or tested, value cannot be changed. Learn more`
+- The learn more link should point to [this article](https://docs.workato.com/recipes/triggers.html#sincefrom).
 
 Here's an example of how the since field should look like.
 
@@ -142,19 +149,33 @@ Here's an example of how the since field should look like.
 *Trigger since field allowing users to fetch historical records*
 
 ### Trigger types
-Triggers are conventionally of the type:
-New record
-New/updated record
-New records (batch)
-New/updated records (batch)
-Scheduled search for records (batch)
+Triggers are commonly of the following types.
 
-### Since/from
-The 
+| Trigger type                   | Description                                                                                                                                                               | Example                                                    |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| [New record](#trigger-type-new-record)                     | Trigger checks app regularly for new records and picks up newly created records.                                                                                          | `OneDrive` - New file                                      |
+| [New/updated record](#trigger-type-newupdated-record)             | Trigger checks app regularly for new or updated records and picks up records when they are newly created or when they get updated.                                        | `OneDrive` - New/updated file                              |
+| [New record (real-time)](#trigger-type-new-record-real-time)         | Trigger picks up records instantly when they are created.                                                                                                                 | `Google Sheets` - New row in sheet (real-time)             |
+| [New/updated record (real-time)](#trigger-type-newupdated-record-real-time) | Trigger picks up records instantly when they are created or when they get updated.                                                                                        | `Google Sheets` - New/updated row in sheet (real-time)     |
+| [New records (batch)](#trigger-type-new-records-batch)            | Trigger picks up newly created records when they are created. Records are grouped together such that each trigger event contains a list of records.                       | `Salesforce` - New leads (batch)                           |
+| [New/updated records (batch)](#trigger-type-newupdated-records-batch)    | Trigger picks up records when they are newly created or when they get updated. Records are grouped together such that each trigger event contains a list of records.      | `Salesforce` - New/updated leads (batch)                   |
+| [Scheduled records search](#trigger-type-scheduled-records-search-batch)       | Trigger executes a search at scheduled intervals and retrieves a list of results. Records are grouped together such that each trigger event contains a list of records.   | `Quick Base` - Scheduled record search using query (batch) |
 
-### Hint
-The trigger-level hints provide an elaboration of how the trigger works.
+#### Trigger type - new record
+This is a [polling trigger] where trigger checks app regularly for new records and picks up newly created records.
 
+
+#### Trigger type - new/updated record
+
+#### Trigger type - new record (real-time)
+
+#### Trigger type - new/updated record (real-time)
+
+#### Trigger type - new records (batch)
+
+#### Trigger type - new/updated records (batch)
+
+#### Trigger type - scheduled records search (batch)
 
 
 
