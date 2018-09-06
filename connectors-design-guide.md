@@ -19,10 +19,20 @@ The connector must have the official logo of the app it connects to.
 ## Triggers
 In this section, we discuss triggers in Workato. We cover:
 
-- [Trigger components](#trigger-components)
-The pieces that form a trigger.
+- [Trigger descriptive components](#trigger-descriptive-components)
+
+The components of a trigger that allows you to describe and elaborate what it does for a user.
+
+- [Trigger input](#trigger-input)
+
+The input fields to include in triggers.
+
+- [Trigger output](#trigger-output)
+
+The output fields to include in trigger datatrees.
 
 - [Trigger types](#trigger-types)
+
 The common triggers you tend to see in Workato.
 
 ### Trigger descriptive components
@@ -30,10 +40,10 @@ There are some common descriptive components that appear in all triggers. The fo
 
 | Trigger component | Description                                                                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Description](#trigger-component-description)       | A short line that shows up at the recipe level to describe what the trigger does.                                                                   |
-| [Title](#trigger-component-title)             | Title that shows up in the app's trigger picklist to help you make a selection between triggers.                                             |
-| [Subtitle](#trigger-component-subtitle)          | Subtitle that shows up in the app's trigger picklist. Further elaborates what the trigger does to help you make a selection between triggers. |
-| [Help](#trigger-component-help)              | Trigger-level help that elaborates how the trigger works. Usually also comprises of the subtitle.                                                    |
+| [Description](#trigger-component---description)       | A short line that shows up at the recipe level to describe what the trigger does.                                                                   |
+| [Title](#trigger-component---title)             | Title that shows up in the app's trigger picklist to help you make a selection between triggers.                                             |
+| [Subtitle](#trigger-component---subtitle)          | Subtitle that shows up in the app's trigger picklist. Further elaborates what the trigger does to help you make a selection between triggers. |
+| [Help](#trigger-component---help)              | Trigger-level help that elaborates how the trigger works. Usually also comprises of the subtitle.                                                    |
 
 Here is how `description`, `title` and `help` show up in the trigger.
 
@@ -127,7 +137,7 @@ help: "Triggers when a candidate is created or updated."
 
 
 
-| [Since/from](#trigger-component-sincefrom)        | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                   |
+| [Since/from](#trigger-input---sincefrom)        | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                   |
 
 
 #### Trigger input - since/from
@@ -153,13 +163,13 @@ Triggers are commonly of the following types.
 
 | Trigger type                   | Description                                                                                                                                                               | Example                                                    |
 |--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| [New record](#trigger-type-new-record)                     | Trigger checks app regularly for new records and picks up newly created records.                                                                                          | `OneDrive` - New file                                      |
-| [New/updated record](#trigger-type-newupdated-record)             | Trigger checks app regularly for new or updated records and picks up records when they are newly created or when they get updated.                                        | `OneDrive` - New/updated file                              |
-| [New record (real-time)](#trigger-type-new-record-real-time)         | Trigger picks up records instantly when they are created.                                                                                                                 | `Google Sheets` - New row in sheet (real-time)             |
-| [New/updated record (real-time)](#trigger-type-newupdated-record-real-time) | Trigger picks up records instantly when they are created or when they get updated.                                                                                        | `Google Sheets` - New/updated row in sheet (real-time)     |
-| [New records (batch)](#trigger-type-new-records-batch)            | Trigger picks up newly created records when they are created. Records are grouped together such that each trigger event contains a list of records.                       | `Salesforce` - New leads (batch)                           |
-| [New/updated records (batch)](#trigger-type-newupdated-records-batch)    | Trigger picks up records when they are newly created or when they get updated. Records are grouped together such that each trigger event contains a list of records.      | `Salesforce` - New/updated leads (batch)                   |
-| [Scheduled records search](#trigger-type-scheduled-records-search-batch)       | Trigger executes a search at scheduled intervals and retrieves a list of results. Records are grouped together such that each trigger event contains a list of records.   | `Quick Base` - Scheduled record search using query (batch) |
+| [New record](#trigger-type---new-record)                     | Trigger checks app regularly for new records and picks up newly created records.                                                                                          | `OneDrive` - New file                                      |
+| [New/updated record](#trigger-type---newupdated-record)             | Trigger checks app regularly for new or updated records and picks up records when they are newly created or when they get updated.                                        | `OneDrive` - New/updated file                              |
+| [New record (real-time)](#trigger-type---new-record-real-time)         | Trigger picks up records instantly when they are created.                                                                                                                 | `Google Sheets` - New row in sheet (real-time)             |
+| [New/updated record (real-time)](#trigger-type---newupdated-record-real-time) | Trigger picks up records instantly when they are created or when they get updated.                                                                                        | `Google Sheets` - New/updated row in sheet (real-time)     |
+| [New records (batch)](#trigger-type---new-records-batch)            | Trigger picks up newly created records when they are created. Records are grouped together such that each trigger event contains a list of records.                       | `Salesforce` - New leads (batch)                           |
+| [New/updated records (batch)](#trigger-type---newupdated-records-batch)    | Trigger picks up records when they are newly created or when they get updated. Records are grouped together such that each trigger event contains a list of records.      | `Salesforce` - New/updated leads (batch)                   |
+| [Scheduled records search](#trigger-type---scheduled-records-search-batch)       | Trigger executes a search at scheduled intervals and retrieves a list of results. Records are grouped together such that each trigger event contains a list of records.   | `Quick Base` - Scheduled record search using query (batch) |
 
 #### Trigger type - new record
 This is a [polling trigger] where trigger checks app regularly for new records and picks up newly created records.
