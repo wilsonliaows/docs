@@ -6,7 +6,7 @@ date: 2018-06-05 21:45:00 Z
 
 ![Product Updates banner](/assets/images/product-updates-banner.png)
 
-Our engineers are hard at work daily to make Workato better! View the latest updates to our platform here.
+Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
 ## Aug 17 - Sept 3 2018
 
@@ -37,9 +37,14 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 
 - **New connector: On-Prem Command-line Scripts**
 
-  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set a profile up [here](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
+  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set a profile up on the [on-premises profile documentation](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
   
+- **HTTP & Custom HTTP connectors**
 
+  **Context:** reviously, users had to parse the HTTP response as text, then use the JSON parser as the next action to parse out the response. 
+  
+  **What's new:** The HTTP adapter now supports JSON arrays and objects. 
+ 
 - **On-premises files connector major update**
 
   **What's new:**  Several new triggers and actions have been added to the connector and the old versions of those triggers and actions have been deprecated. This update will not affect your current running recipes. We will continue to support the deprecated triggers and actions, and your current recipes will keep running as normal.
@@ -49,6 +54,11 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 - **Jira & Jira Service Desk (cloud-only)** 
 
   **What's new:** Added support for basic authentication with API tokens, in anticipation for the upcoming [deprecation of basic authentication with password](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-basic-auth-and-cookie-based-auth/) by Atlassian. Read about this in [our recent announcement](https://support.workato.com/support/solutions/articles/1000267662-jira-cloud-only-jira-service-desk-deprecation-of-basic-authentication-with-password).
+  
+- **Bill.com connector**
+  
+  **What's new:** Added support for new/updated vendor trigger.
+  
 
 
 ## Aug 4 - Aug 16 2018
