@@ -6,7 +6,7 @@ date: 2018-05-21 10:23:00 Z
 # Workbot buttons
 Buttons are important building blocks in designing conversational interfaces that simplify complex workflows.
 
-WWorkbot commands require specific keywords to trigger. This unique language needs to be communicated and picked up by users in order to execute Workbot commands successfully. Buttons allow a call to action to be performed in one click, allowing the user to quickly decide what they want, without having to remember additional Workbot commands.
+Workbot commands require specific keywords to trigger. This unique language needs to be communicated and picked up by users in order to execute Workbot commands successfully. Buttons allow a call to action to be performed in one click, allowing the user to quickly decide what they want, without having to remember additional Workbot commands.
 
 ![Buttons](/assets/images/workbot/workbot-buttons/buttons.png)*Buttons use button clicks to trigger another recipe or workflow*
 
