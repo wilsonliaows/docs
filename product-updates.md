@@ -25,9 +25,9 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 
  - **Recipe IQ: Powering intelligent recipe building**
 
-  **Context:** The Workato platform uses sophisticated machine learning algorithms based on billions of integration events and hundreds of thousands of integration use cases to assist users in building effective integrations and automations.
+   **Context:** The Workato platform uses sophisticated machine learning algorithms based on billions of integration events and hundreds of thousands of integration use cases to assist users in building effective integrations and automations.
 
-  **What's new:** During recipe building, users may notice the `Powered by RecipeIQ` tag, which indicates that our AI algorithms are intelligently suggesting the best actions, data pills or fields for use.
+   **What's new:** During recipe building, users may notice the `Powered by RecipeIQ` tag, which indicates that our AI algorithms are intelligently suggesting the best actions, data pills or fields for use.
   
 - **Job report: Timing tab**
   
@@ -42,7 +42,7 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 
 - **On-premises files connector major update**
 
-**What's new:**  Several new triggers and actions have been added to the connector and the old versions of those triggers and actions have been deprecated. This update will not affect your current running recipes. We will continue to support the deprecated triggers and actions, and your current recipes will keep running as normal.
+ **What's new:**  Several new triggers and actions have been added to the connector and the old versions of those triggers and actions have been deprecated. This update will not affect your current running recipes. We will continue to support the deprecated triggers and actions, and your current recipes will keep running as normal.
 
 Please read this article for more information: [On-prem file connector major update - Sep 2018](https://support.workato.com/support/solutions/articles/1000267630-on-prem-file-connector-major-update-sep-2018).
 
