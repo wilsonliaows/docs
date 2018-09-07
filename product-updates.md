@@ -41,7 +41,7 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
   
 - **HTTP & Custom HTTP connectors**
 
-  **Context:** reviously, users had to parse the HTTP response as text, then use the JSON parser as the next action to parse out the response. 
+  **Context:** Previously, users had to parse the HTTP response as text, then use the JSON parser as the next action to parse out the response. 
   
   **What's new:** The HTTP adapter now supports JSON arrays and objects. 
  
