@@ -10,7 +10,10 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ## Aug 17 - Sept 3 2018
 
-**Find more details on August's updates in our [blog post](linktobeposted).**
+**Find more details on August's updates in our [blog post](https://product.workato.com/2018/09/06/sept-2018-product-release/).**
+
+Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. Please view this article for more details: [Stronger security with TLS 1.1 update](https://product.workato.com/2018/08/07/stronger-security-with-tls-1-1-update/).
+
 
 ### Platform enhancements
 
@@ -34,8 +37,14 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 - **New connector: On-Prem Command-line Scripts**
 
-  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set this up and more details [here](link to be posted).
+  **What's new:** Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network with an on-premises agent. Find out how to set a profile up [here](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
   
+
+- **On-premises files connector major update**
+
+**What's new:**  Several new triggers and actions have been added to the connector and the old versions of those triggers and actions have been deprecated. This update will not affect your current running recipes. We will continue to support the deprecated triggers and actions, and your current recipes will keep running as normal.
+
+Please read this article for more information: [On-prem file connector major update - Sep 2018](https://support.workato.com/support/solutions/articles/1000267630-on-prem-file-connector-major-update-sep-2018).
 
 - **Jira & Jira Service Desk (cloud-only)** 
 
