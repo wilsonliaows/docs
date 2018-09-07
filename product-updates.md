@@ -44,7 +44,7 @@ Note: We have upgraded our services to TLS 1.1 or higher as of August 21, 2018. 
 
   **What's new:**  Several new triggers and actions have been added to the connector and the old versions of those triggers and actions have been deprecated. This update will not affect your current running recipes. We will continue to support the deprecated triggers and actions, and your current recipes will keep running as normal.
 
-Please read this article for more information: [On-prem file connector major update - Sep 2018](https://support.workato.com/support/solutions/articles/1000267630-on-prem-file-connector-major-update-sep-2018).
+  Please read this article for more information: [On-prem file connector major update - Sep 2018](https://support.workato.com/support/solutions/articles/1000267630-on-prem-file-connector-major-update-sep-2018).
 
 - **Jira & Jira Service Desk (cloud-only)** 
 
