@@ -61,12 +61,14 @@ This is the SDK code that corresponds to the above components.
 *Trigger code corresponding to trigger descriptive components*
 
 #### Trigger component - description
-The description is a quick summary of what each recipe line does in which app. The app and business object should be highlighted. When looking at a recipe, the trigger and action descriptions should be able to provide a good idea of what the recipe is doing.
+The description is a quick summary of what each recipe line does in which app. When looking at a recipe, the trigger and action descriptions should be able to provide a good idea of what the recipe is doing.
+
+We adopt the convention: `New <record> in <app>` and `New/updated <record> in <app>.` where the app and business object should be highlighted. 
 
 ![Apps and business objects for triggers and actions](/assets/images/connectors-design-guide/trigger-action-descriptions.png)
 *Apps and business objects for triggers and actions*
 
-Here's an example of a description definition where we highlight the business object `candidate` and app `Greenhouse`.
+Here's an example of a typical description definition where the business object `candidate` and app `Greenhouse` are highlighted.
 
 ```
 description: "New/updated <span class='provider'>candidate</span> in <span class='provider'>Greenhouse</span>"
@@ -77,13 +79,27 @@ This results in the trigger description below.
 ![Description for the trigger](/assets/images/connectors-design-guide/trigger-description.png)
 *Description for the trigger*
 
+Some additional examples of trigger descriptions:
+
+- New/updated **opportunities** in **Salesforce** (batch)
+- New **vendor** in **NetSuite**
+- New **file** in **Box**
+
 #### Trigger component - title
 The title shows up in the app's trigger picklist to help you make a selection between triggers.
 
 ![Picklist of available triggers for an app](/assets/images/connectors-design-guide/trigger-picklist-titles.png)
 *Picklist of available triggers for an app*
 
-Here's an example of a trigger title definition.
+We adopt the following conventions:
+- `New record`
+- `New/updated record`
+- `New record (real-time)`
+- `New/updated record (real-time)`
+- `New records (batch)`
+- `New/updated records (batch)`
+
+Here's an example of a typical trigger title definition.
 
 ```
 title: "New/updated candidate"
@@ -105,6 +121,8 @@ The subtitle complements the title by elaborating on what the trigger does, to h
 ![Picklist of available triggers for an app](/assets/images/connectors-design-guide/trigger-picklist-subtitles.png)
 *Picklist of available triggers for an app*
 
+We adopt the convention: `Triggers when <description>`, e.g. `Triggers when a new email is received in Outlook`. This format isn't grammatically correct everytime, so we can adjust it accordingly.
+
 Here's an example of a trigger subtitle definition.
 
 ```
@@ -118,11 +136,19 @@ This results in the trigger subtitle below.
 
 If undefined, the subtitle defaults to the trigger description. For example, the following code will result in a trigger subtitle of `New/updated candidate in Greenhouse`.
 
-![Trigger code without title defined](/assets/images/connectors-design-guide/trigger-components-code.png)
-*Trigger code without title defined*
+![Trigger code without subtitle defined](/assets/images/connectors-design-guide/trigger-components-code.png)
+*Trigger code without subtitle defined*
 
 #### Trigger component - help
-The trigger help is trigger-level text that elaborates how the trigger works. This usually comprises of the subtitle.
+The trigger help is trigger-level text that elaborates how the trigger works.
+
+This usually comprises of:
+
+- Subtitle, e.g. "Triggers when a new email is received in Outlook."
+- Limitations of the trigger/action, if any, e.g. "This search action will retrieve a maximum of 200 records.", "This upload action can handle a maximum of 25GB."
+- Common edge cases, e.g. "This Salesforce search action may time out if you're searching by non-indexed fields."
+- Complementary actions, if any, e.g. "To retrieve email attachments, use the **Download attachments** action."
+- Link to a relevant [documentation article](/) or [solution article](https://support.workato.com/support/solutions) for additional information
 
 Here's an example of a help text definition.
 
@@ -134,11 +160,12 @@ help: "Triggers when a candidate is created or updated."
 *Additional help text for the trigger*
 
 ### Trigger input
+There are 2 common trigger inputs as detailed in the following table.
 
-
-
-| [Since/from](#trigger-input---sincefrom)        | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                   |
-
+| Trigger input                            | Description                                                                                                                                                               |
+|------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Since/from](#trigger-input---sincefrom) | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                                          |
+| API-based filters                        | Filters for triggers to pick only events that user is interested in, e.g. pick up only emails with `Important` label, or pick up only leads marked `Hot`                  |
 
 #### Trigger input - since/from
 Almost every trigger has this since input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.
