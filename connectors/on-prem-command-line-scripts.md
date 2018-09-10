@@ -27,9 +27,13 @@ Workato's `On-prem command-line scripts` connector allows you to run whitelisted
 
 ## Execute command-line script action
 
+### Command
+
+The commands listed in the on-premises agent's `config.yml` file are the only ones that can be invoked with this connector. The commands are whitelisted when you include them in this file. View how to setup a connection profile [here](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
+
 ### Input parameters
 
-The input parameters should be specified when creating your profile in the on-premises agent's `config.yml` file. In the example below, two parameters, `target_directory` and `source_file` were specified. See how to setup a connection profile [here](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
+The input parameters should be specified when creating your profile in the on-premises agent's `config.yml` file. In the example below, two parameters, `target_directory` and `source_file` were specified. View how to setup a connection profile [here](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
 
 ![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml2.png)
 *Input parameters in the agent's config.yml file*
