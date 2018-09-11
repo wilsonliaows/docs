@@ -52,7 +52,7 @@ API tokens are the primary method to authenticate with Jira. For on-premise Jira
 Basic authentication with password can be used to authenticate with Jira.
 >**From 1 December 2018, Atlassian is deprecating basic authentication with password for Jira (cloud only) in favor of [API tokens](#api-tokens). On-premise Jira will not be affected. Read more about this in our [announcement](https://support.workato.com/support/solutions/articles/1000267662-jira-cloud-only-jira-service-desk-deprecation-of-basic-authentication-with-password).**
 
-![Configured Jira connection](/assets/images/jira-docs/configured_jira_connection.png)
+![Configured Jira connection](/assets/images/jira-docs/api-token-auth.png)
 
 - **Connection name**
   Give this Jira connection a unique name that identifies which Jira instance it is connected to.
