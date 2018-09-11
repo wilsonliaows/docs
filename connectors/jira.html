@@ -7367,32 +7367,67 @@
 <h2 id="supported-editions-and-versions">Supported editions and versions</h2>
 <p>The Jira connector works with Jira cloud instances and Jira on-premise instances from 7.x onwards.</p>
 <h2 id="how-to-connect-to-jira-on-workato">How to connect to Jira on Workato</h2>
-<p>The Jira connector uses basic authentication to authenticate with Jira.
-<img src="../assets/images/jira-docs/configured_jira_connection.png" alt="Configured Jira connection"></p>
+<p>There are 2 ways to connect to Jira &#x2014; <a href="#api-tokens">API tokens</a> and <a href="#basic-authenticaiton-with-password">basic authentication with password</a>.</p>
+<blockquote>
+<p><strong>From 1 December 2018, Atlassian is deprecating basic authentication with password for Jira (cloud only) in favor of <a href="#api-tokens">API tokens</a>. On-premise Jira will not be affected. Read more about this in our <a href="https://support.workato.com/support/solutions/articles/1000267662-jira-cloud-only-jira-service-desk-deprecation-of-basic-authentication-with-password" target="_blank">announcement</a>.</strong></p>
+</blockquote>
+<p>We strongly recommend using API tokens to connect to Workato.</p>
+<h3 id="api-tokens">API tokens</h3>
+<p>API tokens are the primary method to authenticate with Jira. For on-premise Jira, you can also use basic authentication with password.</p>
+<p><img src="../assets/images/jira-docs/api-token-auth.png" alt="API token auth"></p>
 <ul>
-<li><strong>Connection name</strong></li>
-</ul>
-<p>Give this Jira connection a unique name that identifies which Jira instance it is connected to.</p>
+<li><p><strong>Connection name</strong>
+Give this Jira connection a unique name that identifies which Jira instance it is connected to.</p>
+</li>
+<li><p><strong>Host name</strong>
+Complete Jira instance URL used to login to Jira.</p>
+</li>
+<li><p><strong>API token authentication?</strong>
+Set this to &apos;Yes&apos; to authenticate using API tokens. You must then provide an e-mail and API token. Set this to &apos;No&apos; to authenticate using basic authentication with password.</p>
+</li>
+<li><p><strong>Email</strong>
+Email of Jira account to link to Workato.</p>
+</li>
+<li><p><strong>API token</strong>
+To create an API token from your Atlassian account:</p>
 <ul>
-<li><strong>On-prem secure agent</strong></li>
+<li>Log in to <a href="https://id.atlassian.com" target="_blank">https://id.atlassian.com</a>.</li>
+<li>Click API tokens, then Create API token
+<img src="../assets/images/jira-docs/generate-api-token.png" alt="Generate API token"></li>
+<li>Use Copy to clipboard, then return to your Jira connection in Workato and paste your API token into this field</li>
 </ul>
-<p>To connect to on-premise Jira instances, set up the <a href="https://www.workato.com/secure_agents" target="_blank">on-premise agent</a>. Ability to use the on-premise access functionality depends on the Workato plan subscribed to.</p>
+</li>
+</ul>
 <ul>
-<li><strong>Host name</strong></li>
+<li><strong>Is this app in a private network?</strong>
+To connect to on-premise Jira instances, set up the <a href="https://www.workato.com/secure_agents" target="_blank">on-premise agent</a>. Ability to use the on-premise access functionality depends on the Workato plan subscribed to.</li>
 </ul>
-<p>Complete Jira instance URL used to login to Jira.</p>
+<h3 id="basic-authentication-with-password">Basic authentication with password</h3>
+<p>Basic authentication with password can be used to authenticate with Jira.</p>
+<blockquote>
+<p><strong>From 1 December 2018, Atlassian is deprecating basic authentication with password for Jira (cloud only) in favor of <a href="#api-tokens">API tokens</a>. On-premise Jira will not be affected. Read more about this in our <a href="https://support.workato.com/support/solutions/articles/1000267662-jira-cloud-only-jira-service-desk-deprecation-of-basic-authentication-with-password" target="_blank">announcement</a>.</strong></p>
+</blockquote>
+<p><img src="../assets/images/jira-docs/basic-password-auth.png" alt="Configured Jira connection"></p>
 <ul>
-<li><strong>Username</strong></li>
+<li><p><strong>Connection name</strong>
+Give this Jira connection a unique name that identifies which Jira instance it is connected to.</p>
+</li>
+<li><p><strong>Host name</strong>
+Complete Jira instance URL used to login to Jira.</p>
+</li>
+<li><p><strong>API token authentication?</strong>
+  Set this to &apos;No&apos; to authenticate using basic authentication with password. You must then provide a username and password. Set this to &apos;Yes&apos; to authenticate using an API token.</p>
+</li>
+<li><p><strong>Username</strong>
+Username to connect to Jira.</p>
+</li>
+<li><p><strong>Password</strong>
+Password to connect to Jira.</p>
+</li>
+<li><p><strong>Is this app in a private network?</strong>
+To connect to on-premise Jira instances, set up the <a href="https://www.workato.com/secure_agents" target="_blank">on-premise agent</a>. Ability to use the on-premise access functionality depends on the Workato plan subscribed to.</p>
+</li>
 </ul>
-<p>Username to connect to Jira.</p>
-<ul>
-<li><strong>Password</strong></li>
-</ul>
-<p>Password to connect to Jira.</p>
-<ul>
-<li><strong>Enable firewall-friendly IP</strong></li>
-</ul>
-<p>Relevant for organizations with IP whitelisting. Select <em>yes</em> to have all requests from Workato originate from a consistent, known IP address.</p>
 <h2 id="roles-and-permissions-required-to-connect">Roles and permissions required to connect</h2>
 <p>Jira users who have login access to their Jira instance can connect to Workato using their credentials. However, we recommend that a separate user (with Jira Administrator global permissions) be created for integration purposes.</p>
 <h3 id="project-permissions">Project permissions</h3>
@@ -7591,7 +7626,7 @@ For a full list of events and how to configure them, check out the Jira document
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Jira","date":"2017-02-16T06:15:00.000Z","level":"1.16.11","depth":2,"next":{"title":"Connection setup","level":"1.16.11.1","depth":3,"anchor":"#how-to-connect-to-jira-on-workato","path":"connectors/jira.md","ref":"connectors/jira.md#how-to-connect-to-jira-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.16.10.7","depth":3,"path":"connectors/jdbc/scheduled-query-trigger.md","ref":"connectors/jdbc/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/jira.md","mtime":"2018-09-07T10:08:11.608Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-07T10:09:18.675Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Jira","date":"2017-02-16T06:15:00.000Z","level":"1.16.11","depth":2,"next":{"title":"Connection setup","level":"1.16.11.1","depth":3,"anchor":"#how-to-connect-to-jira-on-workato","path":"connectors/jira.md","ref":"connectors/jira.md#how-to-connect-to-jira-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.16.10.7","depth":3,"path":"connectors/jdbc/scheduled-query-trigger.md","ref":"connectors/jdbc/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/jira.md","mtime":"2018-09-11T09:26:07.842Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-11T09:27:37.950Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
