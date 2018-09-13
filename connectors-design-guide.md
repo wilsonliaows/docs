@@ -4,7 +4,7 @@ date: 2018-09-05 15:30:00 Z
 ---
 
 # Connectors design guide
-This guide is meant for citizen developers who are building SDK connectors on the Workato platform, and guides the design of connectors, triggers and actions. This guide is meant to maintain consistency in the style and behaviour of triggers and actions on the Workato platform, so as to provide a consistent experience for the user building Workato recipes.
+This guide is meant for developers building SDK connectors on the Workato platform, and guides the design of connectors, triggers and actions. This guide is meant to maintain consistency in the style and behaviour of triggers and actions on the Workato platform, so as to provide a consistent experience for users building Workato recipes.
 
 We recommend that you adopt these design patterns in SDK connectors that you're submitting for certification. This will help shorten the approval turnaround time and get your connector published on the Workato platform sooner.
 
@@ -47,13 +47,13 @@ There are some common descriptive components that appear in all triggers. The fo
 
 Here is how `description`, `title` and `help` show up in the trigger.
 
-![Components found in triggers](/assets/images/connectors-design-guide/trigger-components.png)
-*Components found in triggers*
+![Description, title and help components in the trigger](/assets/images/connectors-design-guide/trigger-components.png)
+*Description, title and help components in the trigger*
 
 The `title`, `subtitle` and `description` are often very similar in values.
 
 ![Title, subtitle, description components](/assets/images/connectors-design-guide/trigger-components-2.png)
-*Title, subtitle, description components*
+*Title, subtitle, description components in the trigger*
 
 This is the SDK code that corresponds to the above components.
 
@@ -63,7 +63,7 @@ This is the SDK code that corresponds to the above components.
 #### Trigger component - description
 The description is a quick summary of what each recipe line does in which app. When looking at a recipe, the trigger and action descriptions should be able to provide a good idea of what the recipe is doing.
 
-We adopt the convention: `New <record> in <app>` and `New/updated <record> in <app>.` where the app and business object should be highlighted. 
+We adopt the convention: `New <record> in <app>` and `New/updated <record> in <app>` where the app and business object should be highlighted. 
 
 ![Apps and business objects for triggers and actions](/assets/images/connectors-design-guide/trigger-action-descriptions.png)
 *Apps and business objects for triggers and actions*
@@ -81,7 +81,9 @@ This results in the trigger description below.
 
 Some additional examples of trigger descriptions:
 
+- New **rows** in **SQL Server** (batch)
 - New/updated **opportunities** in **Salesforce** (batch)
+- New **email** in **Outlook** (real-time)
 - New **vendor** in **NetSuite**
 - New **file** in **Box**
 
@@ -107,7 +109,7 @@ title: "New/updated candidate"
 
 This results in the trigger title below.
 
-![Title for the trigger](/assets/images/connectors-design-guide/trigger-help.png)
+![Title for the trigger](/assets/images/connectors-design-guide/trigger-title.png)
 *Title for the trigger*
 
 If undefined, the trigger defaults to the action's internal name. For example, the following code will result in a trigger title of `New updated candidate`
@@ -139,6 +141,12 @@ If undefined, the subtitle defaults to the trigger description. For example, the
 ![Trigger code without subtitle defined](/assets/images/connectors-design-guide/trigger-components-code.png)
 *Trigger code without subtitle defined*
 
+Some additional examples of trigger descriptions:
+
+- Triggers immediately when a new company is created in Intercom
+- Triggers when an order is created or updated in SAP
+- Triggers when a lead is created in Marketo
+
 #### Trigger component - help
 The trigger help is trigger-level text that elaborates how the trigger works.
 
@@ -156,16 +164,19 @@ Here's an example of a help text definition.
 help: "Triggers when a candidate is created or updated."
 ```
 
+This results in the trigger help text below.
+
 ![Additional help text for the trigger](/assets/images/connectors-design-guide/trigger-help.png)
 *Additional help text for the trigger*
 
 ### Trigger input
-There are 2 common trigger inputs as detailed in the following table.
+There are some common trigger inputs as detailed in the following table.
 
-| Trigger input                            | Description                                                                                                                                                               |
-|------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Since/from](#trigger-input---sincefrom) | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                                          |
-| API-based filters                        | Filters for triggers to pick only events that user is interested in, e.g. pick up only emails with `Important` label, or pick up only leads marked `Hot`                  |
+| Trigger input                                                 | Description                                                                                                                                                                              |
+|---------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Since/from](#trigger-input---sincefrom)                      | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                                                         |
+| [API-based filters](#trigger-input---api-based-filters)       | Filters for triggers to pick only events that user is interested in, e.g. pick up only emails with `Important` label, or pick up only leads marked `Hot`                                 |
+| [Batch configuration](#trigger-input---batch-configuration)   | Specific for batch triggers. Collection of fields that allow user to define the batches of data returned, e.g. batch size, type of records and specific fields in the records to return. |
 
 #### Trigger input - since/from
 Almost every trigger has this since input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.
@@ -199,8 +210,11 @@ We recommend adding API-based filters for triggers where there are common use ca
 | Feature     | API-based filters                                                                                                                                                                                                                                               | Trigger condition filters                                                                                                                                                                                                                                                                                                                                   |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Performance | Better performance as your app sends only relevant data to Workato for processing. This reduces the amount of traffic from your app, which makes it more efficient and cheaper if the app charges for API calls.                                                | Less efficient as your app sends the delta to Workato, i.e. all records which have been created or updated since the last time Workato polled the app, and Workato filters the relevant records. There is additional API traffic for the records which gets filtered out. This makes it less efficient and more expensive if the app charges for API calls. |
+| Flexibility | Less flexibility as the connector developer decides what are the fields a user can filter on, and exposes them as input fields, e.g. lead scores or lead ratings for lead records. Users wishing to add additional filters will need to use trigger conditions. | More flexibility as the user can decide which fields to filter on, as well as use formula mode in their conditions.                                                                                                                                                                                                                                         |
 
-For example, the Gmail connector's new email trigger has an optional filter to pick up only emails with a particular label. If no label is set, the trigger picks up all emails received - which can be a significant number a day. But if we set the label to **INBOX** or **STARRED**, Gmail will send us only the emails that meet this criteria, hence reducing unnecessary traffic. If this API-based was not provided, the user would need to use trigger conditions, which means that Gmail will send Workato all the emails received, and Workato will have to filter for the **INBOX** or **STARRED** emails to process.
+For example, the Gmail connector's new email trigger has an optional filter to pick up only emails with a particular label. If no label is set, the trigger picks up all emails received - which can be a significant number a day. But if we set the label to **INBOX** or **STARRED**, Gmail will send us only the emails that meet this criteria, hence reducing unnecessary traffic.
+
+If this API-based was not provided, the user would need to use trigger conditions, which means that Gmail will send Workato all the emails received, and Workato will have to filter for the **INBOX** or **STARRED** emails to process.
 
 ![Gmail new email trigger has an optional filter to pick up only emails with certain labels](/assets/images/connectors-design-guide/api-filters-gmail.png)
 *Gmail new email trigger has an optional filter to pick up only emails with certain labels*
@@ -211,12 +225,37 @@ In another example, Google Sheets have a filter for the user to define which she
 *Google Sheets new/updated row trigger has required filters to pick up only rows in a specific sheet*
 
 #### Trigger input - batch configuration
-For batch triggers where each trigger event returns a list of records instead of a single record, users should have the ability to configure batch settings. 
+For batch triggers where each trigger event returns a list of records instead of a single record, users should have the ability to configure batch settings.
 
-- Datatree output/fields returned
-- Page size
+- Datatree output: the fields returned by the trigger, e.g. only return the ID and name of customer records and exclude their addresses. This is useful for optimizing API requests to retrieve only needed data from the app.
+- Batch size: the number of records to return per trigger event. This is useful for users designing recipes to work in batches, e.g. fetch a list of 2000 records from one app for batch insert into another app.
 
 ### Trigger output
+There are some common trigger outputs as detailed in the following table.
+
+| Trigger output                                                | Description                                                                                                                                                                                  |
+|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Record fields](#trigger-output---record-fields)              | All the data fields of the record that the trigger is fetching as a trigger event. E.g. if the trigger event is **New lead**, then the record fields would be lead name, email, mobile, etc. |
+| [Batch metafields](#trigger-output---batch-metafields)        | Specific for batch triggers. Metafields such as boolean fields `First batch?`, 'Last batch?`, `ID of first record in batch`, `ID of first record in batch`, etc.                             |
+
+#### Trigger output - record fields
+We usually return the full API response back to the user in the trigger datatree. In the following, we see that the **New/updated Salesforce lead** trigger has all the data fields of the lead available.
+
+![Trigger output datatree for new/updated Salesforce lead trigger](/assets/images/connectors-design-guide/trigger-output-single-record.gif)
+*Trigger output datatree for new/updated Salesforce lead trigger*
+
+For batch triggers that return a list, we correspondingly return a list in the trigger datatree. In the following, we see that the **New/updated Salesforce lead (batch)** trigger has a list of leads.
+
+![Trigger output datatree for new/updated Salesforce lead (batch) trigger](/assets/images/connectors-design-guide/trigger-output-batch-records.gif)
+*Trigger output datatree for new/updated Salesforce lead (batch) trigger*
+
+If we expand this list, we see all the data fields of the lead available for use in our recipe.
+
+![Trigger output datatree for new/updated Salesforce lead (batch) trigger](/assets/images/connectors-design-guide/trigger-output-batch-records.png)
+*Trigger output datatree for new/updated Salesforce lead (batch) trigger*
+
+#### Trigger output - batch metafields
+
 
 ### Trigger types
 Triggers are commonly of the following types.
@@ -326,28 +365,37 @@ There are some common descriptive components that appear in all actions. The fol
 
 Here is how `description`, `title` and `help` show up in the action.
 
+![Description, title and help components in the trigger](/assets/images/connectors-design-guide/action-components.png)
+*Description, title and help components in the trigger*
+
 The `title`, `subtitle` and `description` are often very similar in values.
 
+![Title, subtitle, description components](/assets/images/connectors-design-guide/action-components-2.png)
+*Title, subtitle, description components*
+
 This is the SDK code that corresponds to the above components.
+
+![Action code corresponding to action descriptive components](/assets/images/connectors-design-guide/action-descriptive-components-code.png)
+*Action code corresponding to action descriptive components*
 
 #### Action component - description
 The description is a quick summary of what each recipe line does in which app. When looking at a recipe, the trigger and action descriptions should be able to provide a good idea of what the recipe is doing.
 
-We adopt the convention: `New <record> in <app>` and `New/updated <record> in <app>.` where the app and business object should be highlighted. 
+We adopt the convention: `Create <record> in <app>`, `Update <record> in <app>`, `Search <records> in <app>` where the app and business object should be highlighted. 
 
 ![Apps and business objects for triggers and actions](/assets/images/connectors-design-guide/trigger-action-descriptions.png)
 *Apps and business objects for triggers and actions*
 
-Here's an example of a typical description definition where the business object `candidate` and app `Greenhouse` are highlighted.
+Here's an example of a typical description definition where the business object `prospect` and app `Greenhouse` are highlighted.
 
 ```
-description: "New/updated <span class='provider'>candidate</span> in <span class='provider'>Greenhouse</span>"
+description: "Create <span class='provider'>prospect</span> in <span class='provider'>Greenhouse</span>"
 ```
 
 This results in the action description below.
 
-![Description for the trigger](/assets/images/connectors-design-guide/trigger-description.png)
-*Description for the trigger*
+![Description for the action](/assets/images/connectors-design-guide/action-description.png)
+*Description for the action*
 
 Some additional examples of action descriptions:
 
@@ -356,65 +404,67 @@ Some additional examples of action descriptions:
 - Upsert opportunity in Salesforce
 
 #### Action component - title
-The title shows up in the app's trigger picklist to help you make a selection between triggers.
+The title shows up in the app's action picklist to help you make a selection between actions.
 
-![Picklist of available triggers for an app](/assets/images/connectors-design-guide/trigger-picklist-titles.png)
-*Picklist of available triggers for an app*
+![Picklist of available actions for an app](/assets/images/connectors-design-guide/action-picklist-titles.png)
+*Picklist of available actions for an app*
 
 We adopt the following conventions:
-- `New record`
-- `New/updated record`
-- `New record (real-time)`
-- `New/updated record (real-time)`
-- `New records (batch)`
-- `New/updated records (batch)`
+- `Create record`
+- `Update record`
+- `Upsert record`
+- `Search records`
+- `Get record by ID`
+- `Create records (batch)`
+- `Update records (batch)`
+- `Upsert records (batch)`
+- `Download file/attachment`
+- `Upload file/attachment`
 
-Here's an example of a typical trigger title definition.
+Here's an example of a typical action title definition.
 
 ```
-title: "New/updated candidate"
+title: "Create prospect"
 ```
 
-This results in the trigger title below.
+This results in the action title below.
 
-![Title for the trigger](/assets/images/connectors-design-guide/trigger-help.png)
-*Title for the trigger*
+![Title for the action](/assets/images/connectors-design-guide/action-title.png)
+*Title for the action*
 
-If undefined, the trigger defaults to the action's internal name. For example, the following code will result in a trigger title of `New updated candidate`
+If undefined, the trigger defaults to the action's internal name. For example, the following code will result in a action title of `Add prospect`
 
-![Trigger code without title defined](/assets/images/connectors-design-guide/trigger-components-code.png)
-*Trigger code without title defined*
+![Action code without title defined](/assets/images/connectors-design-guide/action-components-code.png)
+*Action code without title defined*
 
 #### Action component - subtitle
-The subtitle complements the title by elaborating on what the trigger does, to help you make a decision between triggers.
+The subtitle complements the title by elaborating on what the action does, to help you make a decision between actions. Most subtitles read like a more specific version of its associated description.
 
-![Picklist of available triggers for an app](/assets/images/connectors-design-guide/trigger-picklist-subtitles.png)
-*Picklist of available triggers for an app*
+![Picklist of available actions for an app](/assets/images/connectors-design-guide/action-picklist-subtitles.png)
+*Picklist of available actions for an app*
 
-We adopt the convention: `Triggers when <description>`, e.g. `Triggers when a new email is received in Outlook`. This format isn't grammatically correct everytime, so we can adjust it accordingly.
+If undefined, the subtitle defaults to the action description. For example, the following code will result in a trigger subtitle of `Create prospect in Greenhouse`.
 
-Here's an example of a trigger subtitle definition.
+![Action code without subtitle defined](/assets/images/connectors-design-guide/action-components-code.png)
+*Action code without subtitle defined*
+
+Here's an example of an action subtitle definition.
 
 ```
-subtitle: "Triggers when a candidate is created or updated in Greenhouse"
+subtitle: "Create a new prospect in Greenhouse"
 ```
 
-This results in the trigger subtitle below.
+This results in the action subtitle below.
 
-![Subtitle for the trigger](/assets/images/connectors-design-guide/trigger-subtitle.png)
-*Subtitle for the trigger*
-
-If undefined, the subtitle defaults to the trigger description. For example, the following code will result in a trigger subtitle of `New/updated candidate in Greenhouse`.
-
-![Trigger code without subtitle defined](/assets/images/connectors-design-guide/trigger-components-code.png)
-*Trigger code without subtitle defined*
+![Subtitle for the action](/assets/images/connectors-design-guide/action-subtitle.png)
+*Subtitle for the action*
 
 #### Action component - help
-The trigger help is trigger-level text that elaborates how the trigger works.
+The trigger help is action-level text that elaborates how the action works.
 
 This usually comprises of:
 
-- Subtitle, e.g. "Triggers when a new email is received in Outlook."
+- Subtitle, e.g. "Download email attachments from email in Outlook"
 - Limitations of the trigger/action, if any, e.g. "This search action will retrieve a maximum of 200 records.", "This upload action can handle a maximum of 25GB."
 - Common edge cases, e.g. "This Salesforce search action may time out if you're searching by non-indexed fields."
 - Complementary actions, if any, e.g. "To retrieve email attachments, use the **Download attachments** action."
@@ -423,38 +473,62 @@ This usually comprises of:
 Here's an example of a help text definition.
 
 ```
-help: "Triggers when a candidate is created or updated."
+help: "Creates a new prospect. A prospect can be on no jobs or many jobs. " \
+	  "A prospect application cannot be added to a job stage. " \
+      "When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse."
 ```
 
-![Additional help text for the trigger](/assets/images/connectors-design-guide/trigger-help.png)
-*Additional help text for the trigger*
+This results in the action help text below.
 
-### Action input
-
-### Action output
+![Additional help text for the action](/assets/images/connectors-design-guide/action-help.png)
+*Additional help text for the action*
 
 ### Action types
-Actions are commonly of the following types.
+Actions are commonly of the following types:
+
+- [Create record](#action-type---create-record)
+- [Update record](#action-type---update-record)
+- [Upsert record](#action-type---upsert-record)
+- [Search records](#action-type---search-records)
+- [Get record by ID](#action-type---get-record)
 
 #### Action type - create record
+This action uses the data input to create a new record. It should return the internal ID of the record created, at a minimum.
+
+Behavior:
+- New record should be created with the provided data.
+- Add an input field hint to the unique key to highlight to the user that it should be a disinct value, e.g. email of a contact should be unique.
+- If the new record was not successfully created, action should throw an error with an explanatory error message, e.g. "Record with duplicate email exists".
+- If the API allows for duplicate records to be created, i.e. record does not need any unique keys, highlight this in the help text.
 
 #### Action type - update record
+This action uses the data input to update an existing record. The record to update should be identified using a unique key, e.g. internal ID or external ID.
+
+Behavior: 
+- The input data provided should be written to the existing record.
+- If an input field doesn't have data inputs provided by the user, it should not erase existing values in the app by passing in a `null` value, unless the user explicitly uses the `clear` formula. Fields without data inputs should be stripped from the API request so that a null value is not sent.
+- For records with lists, e.g. invoice with invoice line items, include an option to append to/overwrite the existing list with the new list input. If the API only allows for a certain behavior, highlight this behaviour in the input list section's hint.
 
 #### Action type - upsert record
+This action uses the data input to update an existing record, or create a new record if no existing record is found. The record to update should be identified using a unique key, e.g. internal ID or external ID.
 
-#### Action type - search record
-The action 
+Behavior: 
+- The input data provided should be written to the existing record.
+- If an input field doesn't have data inputs provided by the user, it should not erase existing values in the app by passing in a `null` value, unless the user explicitly uses the `clear` formula. Fields without data inputs should be stripped from the API request so that a null value is not sent.
+- For records with lists, e.g. invoice with invoice line items, include an option to append to/overwrite the existing list with the new list input. If the API only allows for a certain behavior, highlight this behaviour in the input list section's hint.
+
+#### Action type - search records
+This action takes in one or more parameters as search criteria, and returns only records matching all the search criteria.
+
+Behavior of get record actions:
+- Takes in one or more inputs as search criteria.
+- Only records matching all search criteria should be returned.
+- Search should return only exact matches. If API can only return records which does a partial match, highlight this behavior in the help text.
+- Possible to return a list of records. Highlight the maximum number of records which can be returned in the help hint.
 
 #### Action type - get record
-The action typically returns one record that matches the record ID or key provided. 
+This action returns one record that matches the record ID or key provided. 
 
-Behaviour of get record actions:
+Behavior of get record actions:
 - Takes in a unique record ID or key as input.
 - Action fails if no record that matches the ID is found.
-
-#### Action type - create record (batch)
-
-#### Action type - update record (batch)
-
-#### Action type - upsert record (batch)
-
