@@ -94,12 +94,12 @@ The title shows up in the app's trigger picklist to help you make a selection be
 *Picklist of available triggers for an app*
 
 We adopt the following conventions:
-- `New record`
-- `New/updated record`
-- `New record (real-time)`
-- `New/updated record (real-time)`
-- `New records (batch)`
-- `New/updated records (batch)`
+- New record
+- New/updated record
+- New record (real-time)
+- New/updated record (real-time)
+- New records (batch)
+- New/updated records (batch)
 
 Here's an example of a typical trigger title definition.
 
@@ -188,8 +188,8 @@ Some key design points to note about the since field:
 - It should be an optional field.
 - It should default to a week ago if left blank.
 - The label should be `When first started, this recipe should pick up events from`.
-- The hint should be `When you start recipe for the first time, it picks up trigger events from this specified date and time. Defaults to fetching trigger events from a week ago if left blank. Once recipe has been run or tested, value cannot be changed. Learn more`
-- The learn more link should point to [this article](https://docs.workato.com/recipes/triggers.html#sincefrom).
+- The hint should be `When you start recipe for the first time, it picks up trigger events from this specified date and time. Defaults to fetching trigger events from a week ago if left blank.`
+- This will be appended automatically to every since input field: "**Once recipe has been run or tested, value cannot be changed.** [Learn more](https://docs.workato.com/recipes/triggers.html#sincefrom)" 
 
 Here's an example of how the since field should look like.
 
@@ -410,16 +410,16 @@ The title shows up in the app's action picklist to help you make a selection bet
 *Picklist of available actions for an app*
 
 We adopt the following conventions:
-- `Create record`
-- `Update record`
-- `Upsert record`
-- `Search records`
-- `Get record by ID`
-- `Create records (batch)`
-- `Update records (batch)`
-- `Upsert records (batch)`
-- `Download file/attachment`
-- `Upload file/attachment`
+- Create record
+- Update record
+- Upsert record
+- Search records
+- Get record by ID
+- Create records (batch)
+- Update records (batch)
+- Upsert records (batch)
+- Download file/attachment
+- Upload file/attachment
 
 Here's an example of a typical action title definition.
 
@@ -482,6 +482,9 @@ This results in the action help text below.
 
 ![Additional help text for the action](/assets/images/connectors-design-guide/action-help.png)
 *Additional help text for the action*
+
+### Action input
+[Points from Connectors Checklist]
 
 ### Action types
 Actions are commonly of the following types:
