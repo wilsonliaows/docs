@@ -75,11 +75,15 @@ There are several components of an input field, as detailed below.
     </tr>
     <tr>
       <td><a href='#input-field-component---optional-flag' target'_blank'></a>Optional flag</td>
-      <td>Boolean that decides whether the input field is marked `(Required)` or `(Optional)`</td>
+      <td>Boolean that decides whether the input field is marked `(Required)` or `(Optional)`. Required fields will always show up by default in the input form.</td>
     </tr>
     <tr>
       <td><a href='#input-field-component---default' target'_blank'></a>Default</td>
       <td>Provides a default value for the input field. Set a default if the field is commonly used and there is a common value for most use cases.</td>
+    </tr>
+    <tr>
+      <td><a href='#input-field-component---sticky-flag' target'_blank'></a>Sticky flag</td>
+      <td>Boolean that decides whether a field shows up by default in the form or not. `sticky:true` means that the field shows up by default. Only applicable for optional fields as required fields always show up by default.</td>
     </tr>
   </tbody>
 </table>
@@ -87,7 +91,7 @@ There are several components of an input field, as detailed below.
 ## Input field component - name
 This needs to be the exact API name of the field, as specified in the API documentation.
 
-Taking the Greenhouse Harvest API's add prospect endpoint as example, the first name and last name API names are `first_name` and `last_name`.
+Taking the [Greenhouse Harvest API's add prospect endpoint](https://developers.greenhouse.io/harvest.html?ruby#post-add-prospect) as example, the first name and last name API names are `first_name` and `last_name`.
 
 ![Greenhouse add prospect API endpoint](/assets/images/connectors-design-guide/greenhouse-add-prospect-api.png)
 *Greenhouse add prospect API endpoint*
@@ -104,7 +108,7 @@ Labels for input fields default to the API name if undefined. Workato titleizes 
 ![Input fields first name and last name with Workato generated labels](/assets/images/connectors-design-guide/input-fields-names.png)
 *Input fields first name and last name with Workato generated labels*
 
-The icon on the leftmost side of the field ("ABC") signifies that this field has a control type `string`. If undefined, the data type defaults to `string` and the control type defaults to `text`, as that is the most common input field definition.
+The icon on the leftmost side of the field ("ABC") signifies that this field has a control type `text`. If undefined, the data type defaults to `string` and the control type defaults to `text`, as that is the most common input field definition.
 
 ## Input field component - label
 This should be the name that an app user sees when logged into their application. This defaults to the API name if undefined. Workato titleizes API names and converts underscores to spaces.
@@ -129,7 +133,7 @@ The above definition will generate the following input fields.
 ## Input field component - type
 This needs to be the data type of the field, as specified in the API documentation.
 
-Taking the Greenhouse Harvest API's add prospect endpoint as example, the first name and last name are of type `string`.
+Taking the [Greenhouse Harvest API's add prospect endpoint](https://developers.greenhouse.io/harvest.html?ruby#post-add-prospect) as example, the first name and last name are of type `string`.
 
 ![Greenhouse add prospect API endpoint](/assets/images/connectors-design-guide/greenhouse-add-prospect-api.png)
 *Greenhouse add prospect API endpoint*
@@ -205,9 +209,7 @@ The following lists the typical control type for each data type. You can find fu
   </tbody>
 </table>
 
-The control types select, multiselect and static lists can be used for all data types. These control types generate a picklist. However, we recommend that a text control type toggle be added to these picklist control types, so that a user is able to use a datapill if needed. This is because, in a recipe, data tends to be variable instead of hardcoded, e.g. a **Create issue** action usually creates issues with a priority that depends on the source, not a hardcoded priority of **Low** every time.
-
-Taking the Greenhouse Harvest API's add prospect endpoint as example, the first name and last name are of type `string`.
+Taking the [Greenhouse Harvest API's add prospect endpoint](https://developers.greenhouse.io/harvest.html?ruby#post-add-prospect) as example, the first name and last name are of type `string`.
 
 ![Greenhouse add prospect API endpoint](/assets/images/connectors-design-guide/greenhouse-add-prospect-api.png)
 *Greenhouse add prospect API endpoint*
@@ -221,11 +223,19 @@ As we won't expect the names to be too long, we can use the `text` control type 
 
 The above definition will generate the following fields.
 
-![Input fields first name and last name as text control types](/assets/images/connectors-design-guide/input-fields-control-types.png)
-*Input fields first name and last name as text control types*
+![Input fields first name and last name with text control types](/assets/images/connectors-design-guide/input-fields-control-types.png)
+*Input fields first name and last name with text control types*
+
+### Toggles for picklist control types - select, multiselect, static-list
+The control types select, multiselect and static lists can be used for all data types. These control types generate a picklist. However, we recommend that a text control type toggle be added to these picklist control types, so that a user is able to use a datapill if needed.
+
+![Switching to text control type toggle from static list control type](/assets/images/connectors-design-guide/text-control-type-toggle.gif)
+*Switching to text control type toggle from static list control type*
+
+We recommend this because data tends to be variable instead of hardcoded in a recipe, e.g. the **Create prospect** action usually creates prospects with different types of phone numbers. Variable data comes from datapills, and not from picklists. If we only allow picklists to be the input field, the recipe will be hardcoding 1 type of phone number in the action, and every prospect created by that action will have the same type of phone number.
 
 ## Input field component - hint
-Elaboration on the input field. Typically a maximum of 2 lines per input field. If more help is needed, provide a link to a documentation article, support article, or to the API documentation.
+Elaboration of the input field. Typically a maximum of 2 lines per input field. If more help is needed, provide a link to a documentation article, support article, or to the API documentation.
 
 Some common hints:
 - Description of the field from the API documentation
@@ -236,12 +246,12 @@ Some common hints:
 - Default values, e.g. "If left blank, filename defaults to the uploaded document name"
 - A how-to example, e.g. "Use a SOQL query like **StageName = 'Closed Won'**"
 
-Taking the Greenhouse Harvest API's add prospect endpoint as example, there is not much limitations or complexity with the first name and last name fields.
+Taking the Greenhouse Harvest API's add prospect endpoint as example.
 
 ![Greenhouse add prospect API endpoint](/assets/images/connectors-design-guide/greenhouse-add-prospect-api.png)
 *Greenhouse add prospect API endpoint*
 
-We can take the API description to be the hint.
+As there is not much limitations or complexity with the first name and last name fields, we can take the API description to be the hint.
 
 ```
 { name: "first_name", hint: "The prospect’s first name" },
@@ -254,16 +264,16 @@ The above definition will generate the following fields.
 *Input fields first name and last name with hints*
 
 ## Input field component - optional flag
-The optional flag allows you to mark input fields as optional or required. This should correspond with the API documentation, and required fields in the API request should be marked as `optional:false`. If this flag is undefined, field will be marked optional.
+The optional flag allows you to mark input fields as optional or required. If this flag is undefined, field will be marked optional. This should correspond with the API documentation, and required fields in the API request should be marked as `optional:false`. 
 
 Users will not be able to start a recipe if a required field has no data or value at design-time. If a field is marked optional but is actually required, the request will throw an error at run-time if no value is provided.
 
-Taking the Greenhouse Harvest API's add prospect endpoint as example, we see that first and last name are required fields.
+Taking the [Greenhouse Harvest API's add prospect endpoint](https://developers.greenhouse.io/harvest.html?ruby#post-add-prospect) as example, we see that first and last name are required fields.
 
 ![Greenhouse add prospect API endpoint](/assets/images/connectors-design-guide/greenhouse-add-prospect-api.png)
 *Greenhouse add prospect API endpoint*
 
-We can mark them as `optional: false`.
+We should mark them as `optional: false`.
 
 ```
 { name: "first_name", optional: false },
@@ -303,7 +313,23 @@ Taking the Greenhouse example of adding a prospect, we see that there are 2 fiel
   ] },
 ```
 
-The above definition will generate the following fields.
+The above definition will generate the following fields. Note that they show up by default on the form even though they are optional fields, behaving as if they have the `sticky:true` flag.
 
 ![Input fields with default values](/assets/images/connectors-design-guide/input-fields-default.png)
 *Input fields with default values*
+
+## Input field component - sticky flag
+This flag decides whether an optional field shows up in the form by default or not. If the `sticky:true` flag is set for a field, it will show up in the form. This is relevant only for optional fields, because required fields always show up by default.
+
+If an input field has a default value defined, the sticky flag is also not relevant as fields with defaults will automatically show up in the form.
+
+Taking the [Greenhouse Harvest API's add prospect endpoint](https://developers.greenhouse.io/harvest.html?ruby#post-add-prospect) as example, we know that company is not a required field. If we wish to have it show up in the Create prospect input form by default, we can define the field as such.
+
+```
+{ name: "company", sticky: true, hint: "The company where the prospect currently works" }
+```
+
+The above definition will generate the **Company** field in the input form by default.
+
+![Optional input fields with sticky flag shows up by default in the input form](/assets/images/connectors-design-guide/input-fields-sticky.png)
+*Optional input fields with sticky flag shows up by default in the input form*
