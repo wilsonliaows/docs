@@ -9,11 +9,11 @@ Triggers are commonly of the following types.
 | Trigger type                   | Description                                                                                                                                                               | Example                                                    |
 |--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | [New record](#trigger-type---new-record)                     | Trigger checks app regularly for new records and picks up newly created records.                                                                                          | `OneDrive` - New file                                      |
-| [New/updated record](#trigger-type---newupdated-record)             | Trigger checks app regularly for new or updated records and picks up records when they are newly created or when they get updated.                                        | `OneDrive` - New/updated file                              |
+| [New/updated record](#trigger-type---newupdated-record)             | Trigger checks app regularly for new or updated records and picks up records when they are created or updated.                                        | `OneDrive` - New/updated file                              |
 | [New record (real-time)](#trigger-type---new-record-real-time)         | Trigger picks up records instantly when they are created.                                                                                                                 | `Google Sheets` - New row in sheet (real-time)             |
-| [New/updated record (real-time)](#trigger-type---newupdated-record-real-time) | Trigger picks up records instantly when they are created or when they get updated.                                                                                        | `Google Sheets` - New/updated row in sheet (real-time)     |
-| [New records (batch)](#trigger-type---new-records-batch)            | Trigger picks up newly created records when they are created. Records are grouped together such that each trigger event contains a list of records.                       | `Salesforce` - New leads (batch)                           |
-| [New/updated records (batch)](#trigger-type---newupdated-records-batch)    | Trigger picks up records when they are newly created or when they get updated. Records are grouped together such that each trigger event contains a list of records.      | `Salesforce` - New/updated leads (batch)                   |
+| [New/updated record (real-time)](#trigger-type---newupdated-record-real-time) | Trigger picks up records instantly when they are created or updated.                                                                                        | `Google Sheets` - New/updated row in sheet (real-time)     |
+| [New records (batch)](#trigger-type---new-records-batch)            | Trigger checks app regularly for new records and picks up newly created records. Records are grouped together such that each trigger event contains a list of records.                       | `Salesforce` - New leads (batch)                           |
+| [New/updated records (batch)](#trigger-type---newupdated-records-batch)    | Trigger checks app regularly and picks up records when they are created or updated. Records are grouped together such that each trigger event contains a list of records.      | `Salesforce` - New/updated leads (batch)                   |
 | [Scheduled records search](#trigger-type---scheduled-records-search-batch)       | Trigger executes a search at scheduled intervals and retrieves a list of results. Records are grouped together such that each trigger event contains a list of records.   | `Quick Base` - Scheduled record search using query (batch) |
 
 ## Trigger type - new record
@@ -63,7 +63,7 @@ Behavior of new records (batch) triggers:
 ## Trigger type - new/updated records (batch)
 This is a [polling trigger](/recipes/triggers.md#polling-triggers) where trigger checks app regularly for new or updated records and picks up any records that has changed since the last time the trigger checked the app. Results are returned as a list of record (in batches) instead of as single records.
 
-As this is a batch trigger, it should have [batch configuration input](#trigger-input---batch-configuration).
+As this is a batch trigger, it should have [batch configuration input](/developing-connectors/connectors-design-guide/trigger-input.md#trigger-input---batch-configuration).
 
 Behavior of new/updated records (batch) triggers:
 - Each trigger event in the recipe correspond to a list of newly created records.
@@ -74,7 +74,7 @@ Behavior of new/updated records (batch) triggers:
 ## Trigger type - scheduled records search (batch)
 This is a [polling trigger](/recipes/triggers.md#polling-triggers) where trigger checks app on scheduled intervals for records that matches the specified search criteria. Results are returned as a list of record (in batches) instead of as single records. As the search criteria is the same every time the search is conducted (unless the recipe was changed in between intervals), a similar set of records might be returned with this trigger across searches.
 
-As this is a batch trigger, it should have [batch configuration input](#trigger-input---batch-configuration).
+As this is a batch trigger, it should have [batch configuration input](/developing-connectors/connectors-design-guide/trigger-input.md#trigger-input---batch-configuration).
 
 Behavior of scheduled records search (batch) triggers:
 - Each trigger event in the recipe correspond to a list of newly created records.

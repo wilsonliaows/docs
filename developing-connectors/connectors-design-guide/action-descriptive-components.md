@@ -49,9 +49,10 @@ This results in the action description below.
 
 Some additional examples of action descriptions:
 
-- Create new row in Google Sheets
+- Create row in Google Sheets
 - Update vendor in NetSuite
 - Upsert opportunity in Salesforce
+- Search orders in SAP
 
 ## Action component - title
 The title shows up in the app's action picklist to help you make a selection between actions.
@@ -82,7 +83,7 @@ This results in the action title below.
 ![Title for the action](/assets/images/connectors-design-guide/action-title.png)
 *Title for the action*
 
-If undefined, the trigger defaults to the action's internal name. For example, the following code will result in a action title of `Add prospect`
+If undefined, the trigger defaults to the action's internal name. For example, the following code will result in an action title of `Add prospect`
 
 ![Action code without title defined](/assets/images/connectors-design-guide/action-components-code.png)
 *Action code without title defined*
@@ -124,7 +125,7 @@ Here's an example of a help text definition.
 
 ```
 help: "Creates a new prospect. A prospect can be on no jobs or many jobs. " \
-	  "A prospect application cannot be added to a job stage. " \
+      "A prospect application cannot be added to a job stage. " \
       "When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse."
 ```
 

@@ -18,14 +18,27 @@ Almost every trigger has this since input field that allows you to pick up recor
 This is useful for use cases such as initial bootstrapping when your company is moving to a new system and wishes to move all existing records from the old system into the new. Using the since field, you can choose to pick records created from exact date times. You can read more about the since input field's function in [this article](/recipes/triggers#sincefrom).
 
 Some key design points to note about the since field:
-- It should only allow users to input an exact date time. We are no longer supporting picklists.
+- It should only allow users to input an exact date time via a date_time data type and date_time control type. This field should not support toggles or other data types, such as picklists.
 - It should be an optional field.
 - It should default to a week ago if left blank.
 - The label should be `When first started, this recipe should pick up events from`.
 - The hint should be `When you start recipe for the first time, it picks up trigger events from this specified date and time. Defaults to fetching trigger events from a week ago if left blank.`
 - This will be appended automatically to every since input field: "**Once recipe has been run or tested, value cannot be changed.** [Learn more](https://docs.workato.com/recipes/triggers.html#sincefrom)" 
 
-Here's an example of how the since field should look like.
+Here's an example of how the since field should be defined.
+
+```
+  {
+    name: "since",
+    label: "When first started, this recipe should pick up events from",
+    type: :date_time,
+    optional: true,
+    sticky: true,
+    hint: "When you start recipe for the first time, it picks up new or updated candidates from this specified date and time. Defaults to fetching records created or updated from a week ago if left blank."
+  }
+```
+
+This definition will generate the following since field.
 
 ![Trigger since field allowing users to fetch historical records](/assets/images/connectors-design-guide/trigger-since-field.png)
 *Trigger since field allowing users to fetch historical records*

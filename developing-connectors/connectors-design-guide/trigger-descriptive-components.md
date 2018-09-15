@@ -4,7 +4,7 @@ date: 2018-09-05 15:30:00 Z
 ---
 
 # Trigger descriptive components
-There are some common descriptive components that appear in all triggers. The following table details these components.
+There are some common descriptive components for all triggers. The following table details these components.
 
 | Trigger component | Description                                                                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
