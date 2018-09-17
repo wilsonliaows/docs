@@ -7415,7 +7415,7 @@
                                 <h1 id="workday-connection">Workday Connection</h1>
 <h2 id="how-to-connect-to-workday-on-workato">How to connect to Workday on Workato</h2>
 <p>The Workday connector uses the <a href="https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html" target="_blank">Workday Web Services</a>, <a href="workday_raas.html">RaaS</a> and <a href="https://doc.workday.com/reader/wsiU0cnNjCc_k7shLNxLEA/HvgwLwxCHVdBlZUTNd9s7A" target="_blank">REST API</a>. Workday recommends using an <a href="#register-integration-system-user">Integration System User (ISU)</a> for integration using third party services like Workato.</p>
-<p>Both the Web Services and RaaS requires basic authentication. This should use credentials of the ISU. REST API is used to work with custom objects. This requires a separate <a href="#register-api-client">OAuth client setup</a>.</p>
+<p>Both the Workday Web Services and RaaS requires basic authentication. REST API is used to work with custom objects. This requires a separate <a href="#register-api-client">OAuth client setup</a>.</p>
 <h3 id="connect-to-workday-on-workato">Connect to Workday on Workato</h3>
 <p>Workday asks for the following information to connect.</p>
 <p><img src="../../assets/images/workday/workday-connection-1.png" alt="Information to connect to Workday">
@@ -7495,49 +7495,112 @@
 </table>
 
 <h3 id="register-integration-system-user">Register Integration System User</h3>
-<p>We do not recommend using a user account of a worker to run integrations. There are a few reasons for this. Firstly, if this worker security profile changes, or if the worker is terminated, integrations that rely on this worker&apos;s user account will no longer work. Furthermore, all operations performed by the integration will be logged under this worker.</p>
-<p>The recommended approach to access web services is through an Integration System User (ISU) account. For security reasons, each ISU is restricted to a single integration system (like Workato).</p>
+<p>We do not recommend using a user account of a worker to run integrations. There are a few reasons for this.</p>
+<p>Firstly, all operations performed by the integration will be logged under this worker instead of one dedicated for integration and workflow processes.</p>
+<p>Furthermore, if this worker security profile changes, or if the worker is terminated, integrations that rely on this worker&apos;s user account will no longer work.</p>
+<p>The recommended approach to access web services is through an Integration System User (ISU) account. For security reasons, each ISU should restricted to a single integration system (like Workato).</p>
 <p>The ISU should have all permissions needed to perform the required actions for your integration scenario. When building recipes, you may encounter a <code>403</code> error, it means that the ISU does not have sufficient permission for the action.</p>
 <p><img src="../../assets/images/workday/permission-error.png" alt="403 error">
 <em>Error message when ISU does not have enough permission</em></p>
-<p> Here are the steps to create an ISU.</p>
-<ol>
-<li>Access the <strong>Create Security Group</strong> task and create an Integration System Security Group.</li>
-</ol>
-<p><img src="../../assets/images/workday/add-security-group.png" alt="Add Security Group"></p>
-<ol>
-<li>To grant the security group access to the domains required by your integration, follow these steps for each domain:<ul>
-<li>Access the <strong>View Domain</strong> report and find the domain.</li>
-<li>As a related action on the domain, select <strong>Domain</strong> &gt; <strong>Edit Security Policy Permissions</strong>.</li>
-<li>Add the security group that you created in Step 1 to the <strong>Integration Permissions</strong> and select <strong>GET</strong>, <strong>POST</strong> and <strong>PUT</strong>.</li>
-</ul>
-</li>
-<li>Access the <strong>Activate Pending Security Policy Changes</strong> task and activate the changes that you made in Step 2.</li>
-</ol>
-<p><img src="../../assets/images/workday/edit-permission-security-policy.png" alt="Edit Permissions for Security Policy"></p>
-<ol>
-<li>Access the <strong>Create Integration System User</strong> task and configure a Workday user account for the integration.<ul>
-<li>Keep the <strong>Session Timeout Minutes</strong> default value of 0 to prevent session expiration. An expired session can cause the integration to time out before it successfully completes.</li>
-<li>Select the <strong>Do Not Allow UI Sessions</strong> check box if you wish to prevent the integration system user from signing in to Workday through the UI.</li>
-</ul>
-</li>
-</ol>
-<p><img src="../../assets/images/workday/integration-system-user.png" alt="Integration System User"></p>
-<ol>
-<li>As a related action on the Workday user, select <strong>Security Profile</strong> &gt; <strong>Assign Integration System Security Groups</strong>.</li>
-<li>At the <strong>Integration System Security Group to Assign</strong> prompt, select the security group that you created in Step 1.</li>
-<li>Access the <strong>View Integration System</strong> report and access the <strong>Connector or Studio integration</strong>.</li>
-<li>Select <strong>Workday Account</strong> &gt; <strong>Edit</strong> as a related action on the integration system.</li>
-<li>On the <strong>Edit Account for Integration System</strong> task, select the <strong>Workday Account</strong> that you created in Step 4.</li>
-<li>This step is optional. In the <strong>Global Preferences</strong> area, select a preferred locale and display language for the integration system user. These settings control what language Workday uses for the integration data. An outbound integration sends data in the preferred language and an inbound integration saves data in the preferred language.<ul>
-<li>If you leave these fields blank, Workday uses the default locale and display language for integration data.</li>
-</ul>
-</li>
-<li>If the integration system user will authenticate using user name and password, access the <strong>Maintain Password Rules</strong> task and add the integration system user to the <strong>System Users exempt from password expiration</strong> field.<ul>
-<li>To avoid integration errors caused by expired passwords, Workday recommends that you prevent Workday user passwords from expiring.</li>
-</ul>
-</li>
-</ol>
+<h3 id="create-an-isu">Create an ISU</h3>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width="20%">Step</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create Security Group</td>
+      <td>
+        <p>
+          Access the <b>Create Security Group</b> task and create an Integration System Security Group.
+        </p>
+        <img src="../../assets/images/workday/add-security-group.png" alt="Add Security Group">
+        <i>Add Security Group</i>
+      </td>
+    </tr>
+    <tr>
+      <td>Grant Domain access  to Security Group</td>
+      <td>
+        <p>To grant the security group access to the domains required by your integration, follow these steps for each domain:</p>
+        <ul>
+          <li>
+            Access the <b>View Domain</b> report and find the domain
+          </li>
+          <li>
+            As a related action on the domain, select <b>Domain</b> &gt; <b>Edit Security Policy Permissions</b>
+          </li>
+          <li>
+            Add the Security Group that you created in the previous step to the <b>Integration Permissions</b> and select <b>GET</b>, <b>POST</b> and <b>PUT</b> operations.
+          </li>
+        </ul>
+        Additionally, grant <b>GET</b> operation for the following <b>Domain Security Policies</b>:
+        <ul>
+          <li>Integration Build</li>
+          <li>Integration Process</li>
+          <li>Integration Debug</li>
+          <li>Integration Event</li>
+        </ul>
+        <p>
+          Next, access the <b>Activate Pending Security Policy Changes</b> task and activate these changes.
+        </p>
+        <img src="../../assets/images/workday/edit-permission-security-policy.png" alt="Edit Permissions for Security Policy">
+        <i>Edit Permissions for Security Policy</i>
+      </td>
+    </tr>
+    <tr>
+      <td>Create ISU account</td>
+      <td>
+        <p>
+          Access the <b>Create Integration System User</b> task and configure a Workday user account for the integration.
+        </p>
+        <img src="../../assets/images/workday/integration-system-user.png" alt="Create Integration System User">
+        <i>Create Integration System User</i>
+        <p>
+          Keep the <b>Session Timeout Minutes</b> default value of 0 to prevent session expiration. An expired session can cause the integration to time out before it successfully completes.
+        </p>
+        <p>
+          Select the <b>Do Not Allow UI Sessions</b> check box if you wish to prevent the integration system user from signing in to Workday through the UI.
+        </p>
+        <p>
+          To avoid integration errors caused by expired passwords, Workday recommends that you prevent Workday user passwords from expiring.
+          Access the <b>Maintain Password Rules</b> task and add the integration system user to the <b>System Users exempt from password expiration</b> field.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Assign Security Group to ISU</td>
+      <td>
+        <p>
+          As a related action on the Workday user, select <b>Security Profile</b> &gt; <b>Assign Integration System Security Groups</b>.
+        </p>
+        <p>
+          At the <b>Integration System Security Group to Assign</b> prompt, select the security group that you created. Access the <b>View Integration System</b> report and access the <b>Connector or Studio integration</b>.
+        </p>
+        <p>
+          Select <b>Workday Account</b> &gt; <b>Edit</b> as a related action on the integration system.
+        </p>
+        <p>
+          On the <b>Edit Account for Integration System</b> task, select the ISU account that you created.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Optional</td>
+      <td>
+        <p>
+          In the <b>Global Preferences</b> area, select a preferred locale and display language for the integration system user. These settings control what language Workday uses for the integration data. An outbound integration sends data in the preferred language and an inbound integration saves data in the preferred language.
+        </p><p>
+        </p>
+          If you leave these fields blank, Workday uses the default locale and display language for integration data.
+        <p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <p>Find out more about setting up an ISU <a href="https://doc.workday.com/reader/Z9lz_01hqDMDg6NSf7wCBQ/esBDCh5D66sgBhIxmQ5U5g" target="_blank">here</a>.</p>
 <h3 id="register-api-client">Register API Client</h3>
 <p>This step is required only if you wish to work with custom objects in Workday. The Workday connector uses the Workday REST API, which uses an OAuth 2.0 for authentication. You need to register an API Client to allow connection to the REST API.</p>
@@ -7634,7 +7697,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Connection setup","date":"2017-11-17T09:00:00.000Z","level":"1.16.33.1","depth":3,"next":{"title":"Get report","level":"1.16.33.2","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},"previous":{"title":"Workday","level":"1.16.33","depth":2,"path":"connectors/workday.md","ref":"connectors/workday.md","articles":[{"title":"Connection setup","level":"1.16.33.1","depth":3,"path":"connectors/workday/connection_setup.md","ref":"connectors/workday/connection_setup.md","articles":[]},{"title":"Get report","level":"1.16.33.2","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},{"title":"Scheduled report","level":"1.16.33.3","depth":3,"path":"connectors/workday/scheduled_report.md","ref":"connectors/workday/scheduled_report.md","articles":[]},{"title":"Call operation","level":"1.16.33.4","depth":3,"path":"connectors/workday/call_operation.md","ref":"connectors/workday/call_operation.md","articles":[]},{"title":"Report-as-a-Service","level":"1.16.33.5","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/connection_setup.md","mtime":"2018-09-11T15:40:27.063Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-11T15:42:16.729Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Connection setup","date":"2017-11-17T09:00:00.000Z","level":"1.16.33.1","depth":3,"next":{"title":"Get report","level":"1.16.33.2","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},"previous":{"title":"Workday","level":"1.16.33","depth":2,"path":"connectors/workday.md","ref":"connectors/workday.md","articles":[{"title":"Connection setup","level":"1.16.33.1","depth":3,"path":"connectors/workday/connection_setup.md","ref":"connectors/workday/connection_setup.md","articles":[]},{"title":"Get report","level":"1.16.33.2","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},{"title":"Scheduled report","level":"1.16.33.3","depth":3,"path":"connectors/workday/scheduled_report.md","ref":"connectors/workday/scheduled_report.md","articles":[]},{"title":"Call operation","level":"1.16.33.4","depth":3,"path":"connectors/workday/call_operation.md","ref":"connectors/workday/call_operation.md","articles":[]},{"title":"Report-as-a-Service","level":"1.16.33.5","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/connection_setup.md","mtime":"2018-09-17T10:38:34.181Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-17T10:40:07.639Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
