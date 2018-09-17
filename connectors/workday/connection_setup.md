@@ -159,14 +159,18 @@ The ISU should have all permissions needed to perform the required actions for y
         <p>
           Access the <b>Create Integration System User</b> task and configure a Workday user account for the integration.
         </p>
+        <img src="/assets/images/workday/integration-system-user.png" alt="Create Integration System User">
+        <i>Create Integration System User</i>
         <p>
           Keep the <b>Session Timeout Minutes</b> default value of 0 to prevent session expiration. An expired session can cause the integration to time out before it successfully completes.
         </p>
         <p>
           Select the <b>Do Not Allow UI Sessions</b> check box if you wish to prevent the integration system user from signing in to Workday through the UI.
         </p>
-        <img src="/assets/images/workday/integration-system-user.png" alt="Create Integration System User">
-        <i>Create Integration System User</i>
+        <p>
+          To avoid integration errors caused by expired passwords, Workday recommends that you prevent Workday user passwords from expiring.
+          Access the <b>Maintain Password Rules</b> task and add the integration system user to the <b>System Users exempt from password expiration</b> field.
+        </p>
       </td>
     </tr>
     <tr>
@@ -191,13 +195,9 @@ The ISU should have all permissions needed to perform the required actions for y
       <td>
         <p>
           In the <b>Global Preferences</b> area, select a preferred locale and display language for the integration system user. These settings control what language Workday uses for the integration data. An outbound integration sends data in the preferred language and an inbound integration saves data in the preferred language.
+        <p>
+        </p>
           If you leave these fields blank, Workday uses the default locale and display language for integration data.
-        </p>
-        <p>
-          If the integration system user will authenticate using user name and password, access the <b>Maintain Password Rules</b> task and add the integration system user to the <b>System Users exempt from password expiration</b> field.
-        </p>
-        <p>
-          To avoid integration errors caused by expired passwords, Workday recommends that you prevent Workday user passwords from expiring.
         </p>
       </td>
     </tr>
