@@ -72,7 +72,43 @@ In another example, Google Sheets have a filter for the user to define which she
 *Google Sheets new/updated row trigger has required filters to pick up only rows in a specific sheet*
 
 ## Trigger input - batch configuration
-For batch triggers where each trigger event returns a list of records instead of a single record, users should have the ability to configure batch settings.
+For batch triggers where each trigger event returns a list of records instead of a single record, users should have the ability to configure batch sizes, which determines the number of records to return per trigger event. This is useful for users designing recipes to work in batches, e.g. fetch a list of 2000 records from one app for batch insert into another app.
 
-- Datatree output: the fields returned by the trigger, e.g. only return the ID and name of customer records and exclude their addresses. This is useful for optimizing API requests to retrieve only needed data from the app.
-- Batch size: the number of records to return per trigger event. This is useful for users designing recipes to work in batches, e.g. fetch a list of 2000 records from one app for batch insert into another app.
+![Batch size input field](/assets/images/connectors-design-guide/batch-size-field.png)
+*Batch size input field*
+
+## Trigger input - output configuration
+For apps which enable users to define specifically the data fields to return for an object, you can implement the output configuration fields that allow users to optimize their request to retrieve only data they're interested in using in their recipes. These fields are particularly important for batch operations where we expect lots of records, or for apps which we expect lots of fields per record.
+
+![Output configuration fields](/assets/images/connectors-design-guide/output-configuration-fields.png)
+*Output configuration fields*
+
+These fields have a multiselect control type, and should give the user the full list of record fields to choose from.
+
+![Record fields available for user to select in the picklist](/assets/images/connectors-design-guide/fields-list.png)
+*Record fields available for user to select in the picklist*
+
+They typically have the following definition:
+
+Label: `Fields`
+Hint: `Select only the <app> record fields you wish to use in the recipe. Recommended for better recipe performance and management. All fields will be returned if left blank.`
+
+For triggers and actions which support joins, e.g. Salesforce, NetSuite and database connectors where you can retrieve elated records/tables with a JOIN clause, you can support an additional `Related objects` field that allows users to decide which join records to retrieve, before deciding which fields from the base object and join object to retrieve.
+
+![Output configuration fields with related objects](/assets/images/connectors-design-guide/output-configuration-fields-with-related-objects.png)
+*Output configuration fields with related objects*
+
+The `Related objects` field should have a list of related object that can be fetched together with the base object with a JOIN.
+
+![Related objects available for user to select in the picklist](/assets/images/connectors-design-guide/related-objects-list.png)
+*Related objects available for user to select in the picklist*
+
+They typically have the following definition: 
+
+Label: `Related objects` or `Related records`
+Hint: `Select the related join objects wanted. Then, select the fields you're interested in using in the recipe via the Fields input field.`
+
+These output configuration fields should be grouped together in an object schema with the following label and hint text.
+
+Object label: `Output configuration`
+Hint: `Select fields you wish to use in the recipe. Selected fields show up in the output datatree.`
