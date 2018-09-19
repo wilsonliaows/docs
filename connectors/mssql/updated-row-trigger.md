@@ -96,6 +96,9 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
 ## New/updated batch of rows via custom SQL
 This trigger picks up rows when any rows matching the custom SQL are inserted/updated. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
+## Supported versions
+This trigger is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.
+
 ![New/updated batch of rows via custom SQL trigger](/assets/images/mssql/new-updated-batch-of-rows-via-custom-sql-trigger.png)
 *New/updated batch of rows trigger via custom SQL*
 

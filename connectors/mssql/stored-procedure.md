@@ -8,6 +8,9 @@ date: 2018-03-19 06:00:00 Z
 ## Execute stored procedure
 This action lets you execute any stored procedure or functions saved in your database instance.
 
+## Supported versions
+This action is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.
+
 ![Execute stored procedure rows action](/assets/images/mssql/stored-procedure.png)
 *Execute stored procedure rows action*
 

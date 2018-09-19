@@ -47,6 +47,9 @@ This input field gives you the option to fetch only a page of results from the e
 ## Select rows using custom SQL
 This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action.
 
+## Supported versions
+This action is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.
+
 ![Select rows using custom SQL action](/assets/images/mssql/custom-sql-action.png)
 *Select rows using custom SQL action*
 
