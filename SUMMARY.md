@@ -223,7 +223,7 @@
     * [Add row action](connectors/google-sheets/action-add-row.md)
     * [Search rows action](connectors/google-sheets/action-search-rows.md)
     * [Update row action](connectors/google-sheets/action-update-row.md)
-  * [HTTP](developing-connectors/http-v2.html)
+  * [HTTP](developing-connectors/http-v2.md)
   * [JDBC](connectors/jdbc.md)
     * [Connection setup](connectors/jdbc.md#how-to-connect-to-jdbc-on-workato)
     * [Select actions](connectors/jdbc/select.md)
