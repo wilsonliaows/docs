@@ -30,7 +30,7 @@ Unlike [Select rows using custom SQL](/connectors/oracle/select.md#select-rows-u
       <td>SQL</td>
       <td>
         <p><b>This field is required</b>. Provide a valid SQL string to be executed. This SQL string will be executed in  your Oracle database.</p>
-        <p>If multiple SQL statements are provided, all of them will be executed. However, only results from the first statement will be returned. Make sure each statement is separated by a <code>;</code> character.</p>
+        <p>If multiple SQL statements are provided, all of them will be executed. However, only results from the last statement will be returned. Make sure each statement is separated by a <code>;</code> character.</p>
       </td>
     </tr>
     <tr>
