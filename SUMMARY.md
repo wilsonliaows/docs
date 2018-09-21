@@ -264,6 +264,7 @@
   * [Microsoft Dynamics CRM](connectors/dynamics-crm.md)
     * [Cloud connection setup](connectors/dynamics-crm.md#how-to-connect-to-a-cloud-microsoft-dynamics-crm-instance)
     * [On-premise connection setup](/connectors/dynamics-crm.md#how-to-connect-to-an-on-premise-microsoft-dynamics-crm-instance)
+    * [Cached picklist lookups](connectors/dynamics-crm/picklist-lookups.md)
   * [MySQL](connectors/mysql.md)
     * [Connection setup](connectors/mysql.md#how-to-connect-to-mysql-on-workato)
     * [Select actions](connectors/mysql/select.md)
