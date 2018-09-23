@@ -54,7 +54,7 @@ This action lets you send a SQL string to the MySQL instance to be executed. It 
     <tr>
       <td>Rows</td>
       <td>
-        <p>List of rows returned from the SQL execution. The fields in this list is defined by the <b>Output fields</b> input field.</p>
+        <p>List of rows returned from the SQL execution. The fields in this list are defined by the <b>Output fields</b> input field.</p>
         <p>If left blank, this row will be available in the datatree as an array datapill.</p>
       </td>
     </tr>
