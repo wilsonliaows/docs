@@ -56,7 +56,7 @@ Unlike [Select rows using custom SQL](/connectors/oracle/select.md#select-rows-u
     <tr>
       <td>Rows</td>
       <td>
-        <p>List of rows returned from the SQL execution. The fields in this list is defined by the <b>Output fields</b> input field.</p>
+        <p>List of rows returned from the SQL execution. The fields in this list are defined by the <b>Output fields</b> input field.</p>
         <p>If left blank, this row will be available in the datatree as an array datapill.</p>
       </td>
     </tr>
