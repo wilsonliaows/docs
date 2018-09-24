@@ -29,6 +29,7 @@ This action lets you send a SQL string to the MySQL instance to be executed. It 
       <td>
         <p><b>This field is required</b>. Provide a valid SQL string to be executed. This SQL string will be executed in your MySQL instance.</p>
         <p>If multiple SQL statements are provided, all of them will be executed. However, only results from the last statement will be returned. Make sure each statement is separated by a <code>;</code> character.</p>
+        <p>You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (<code>''</code>).</p>
       </td>
     </tr>
     <tr>
