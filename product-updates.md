@@ -32,6 +32,14 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
   **Context:** Previously, large worker objects in Workday caused jobs to timeout.
 
   **What's new:** A new option under _Advanced configuration_ called 'Return reference only' available in Workday triggers allows the job to return only references and transaction logs, minimising the trigger data size to prevent timeouts
+  
+- **HTTP connector: Secondary connector**
+
+  **What's new:** Previously, only 1 HTTP connection was allowed per recipe. The new secondary connector is useful when users need to connect to multiple REST endpoints. To use the HTTP secondary connector, access the adapter dropdown menu and click on the 'HTTP secondary' option.  
+  
+- **Salesforce new action: Salesforce bulk query using SOQL**
+
+  **What's new:** The new action allows a bulk search for records in Salesforce with a SOQL query. Learn more about [using SOQL queries](https://support.workato.com/support/solutions/articles/1000236426-salesforce-object-query-language-soql-basic-syntax-and-common-search-terms) and about [Salesforce bulk API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm).
 
 
 ## Aug 17 - Sept 3 2018
