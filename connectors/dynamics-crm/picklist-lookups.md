@@ -4,11 +4,11 @@ date: 2018-09-21 06:00:00 Z
 ---
 
 # Cached picklist lookups
-In Microsoft Dynamics CRM, picklist fields are returned with only the internal value of the picklist selection, e.g. for the picklist "Contact industry" describing the industry that a contact works in, the internal value of "100000000" is returned, instead of the contextual value of "Retail", "Energy", or "Education".
+In Microsoft Dynamics CRM, picklist fields are returned with only the internal value of the picklist selection. For example, for the picklist "Contact industry" describing the industry that a contact works in, the internal value of "100000000" is returned representing the picklist option selected, instead of the contextual value of "Retail", "Energy", or "Education".
 
-As these contextual picklist labels are important for integrations where we want to move app-agnostic values (i.e. "100000000" does not mean anything to another app without these exact same picklists), we have implemented inherent picklist lookup support into the connector.
+As these contextual picklist labels are important for integrations, where we're typically moving app-agnostic values (i.e. "100000000" does not mean anything to another app without these exact same picklists), we have implemented cached picklist lookup support into the connector.
 
-These lookups act like an external lookup table stored in Workato, and are efficient as you're not making API lookup calls against Dynamics CRM when using this feature. The first time you interact with a specific record in Workato, we remember your picklists and picklist option sets for that record, and save it. Subsequently, whenever you're working with the same record, you obtain these picklist values from Workato's cache, not from making a lookup call to Dynamics CRM.
+These lookups act like an external lookup table stored in Workato, and are efficient as you're not making API lookup calls against Dynamics CRM when using this feature. The first time you interact with a specific record in Workato, e.g. Opportunity record or Customer record, we remember your picklists and picklist option sets for that record, and save it. Subsequently, whenever you're working with the same record, you obtain these picklist values from Workato's cache, not from making a lookup call to Dynamics CRM.
 
 ## Single-select picklists
 For single-select picklists, they show up as datapills in an object. The datapills that you might have been using are still available for use, so your recipes will not break as a result of this new feature. However, they have been marked (deprecated), and we highly recommend that you switch to using the new datapills.
