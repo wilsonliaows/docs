@@ -4,7 +4,7 @@ date: 2018-09-21 06:00:00 Z
 ---
 
 # Cached picklist lookups
-In Microsoft Dynamics CRM, picklist fields are returned with only the internal value of the picklist selection. For example, for the picklist "Contact industry" describing the industry that a contact works in, the internal value of "100000000" is returned representing the picklist option selected, instead of the contextual value of "Retail", "Energy", or "Education".
+In Microsoft Dynamics CRM API, picklist fields are returned with only the internal value of the picklist selection. For example, for the picklist "Contact industry" describing the industry that a contact works in, the internal value of "100000000" is returned representing the picklist option selected, instead of the contextual value of "Retail", "Energy", or "Education".
 
 As these contextual picklist labels are important for integrations, where we're typically moving app-agnostic values (i.e. "100000000" does not mean anything to another app without the exact same picklist), we have implemented cached picklist lookup support into the connector.
 
