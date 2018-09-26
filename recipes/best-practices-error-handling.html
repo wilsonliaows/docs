@@ -64,7 +64,7 @@
     <link rel="next" href="version-management.html" />
     
     
-    <link rel="prev" href="data-pills-and-mapping.html" />
+    <link rel="prev" href="best-practices-building.html" />
     
 
     
@@ -659,7 +659,22 @@
       
     </li>
   
-    <li class="chapter " data-level="1.4.5.5" data-path="data-pills-and-mapping.html">
+    <li class="chapter " data-level="1.4.5.5" data-path="group-data-mapping.html">
+      
+
+      
+        <a href="group-data-mapping.html">
+      
+        
+        Group data mapping
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.4.5.6" data-path="data-pills-and-mapping.html">
       
 
       
@@ -679,7 +694,22 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.4.6" data-path="best-practices-error-handling.html">
+    <li class="chapter " data-level="1.4.6" data-path="best-practices-building.html">
+      
+
+      
+        <a href="best-practices-building.html">
+      
+        
+        Recipe building best practices
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter active" data-level="1.4.7" data-path="best-practices-error-handling.html">
       
 
       
@@ -694,7 +724,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.4.7" data-path="version-management.html">
+    <li class="chapter " data-level="1.4.8" data-path="version-management.html">
       
 
       
@@ -7540,41 +7570,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="recipe-building-best-practices">Recipe building best practices</h1>
-<h2 id="recipe-naming-and-management">Recipe naming and management</h2>
-<p>Proper recipe naming and arrangement is especially critical when there are many recipes in your Workato instance or if you are working with recipes in different phases of development, testing and production. </p>
-<h3 id="naming">Naming</h3>
-<p>Recipe names can be changed by simply clicking on the pencil icon next to them in the recipe builder. You can only change a recipe&apos;s name when the recipe is not running. </p>
-<p><img src="../assets/images/building-best-practices/recipe-renaming.png" alt="Recipe Naming"></p>
-<p>You should give the recipe a name that is descriptive to what it does. For example, the recipe above mentions the app it is connected to, Google Maps and what it does: Geolocation. It also has &apos;[Prod]&apos; at the beginning of its name, showing that it is the final production recipe that is in use. Proper naming of recipes is important to allow them to be easily searchable in your main recipe page. </p>
-<p>Note that recipe names are not unique to a recipe&#x2014; the unique identifier for a recipe is the recipe number. You can see the recipe number in the recipe URL. Hence, you can always get to a recipe by entering the URL as www.workato.com/recipes/recipe_number. This works if you are searching for a public recipe, but not a private one.</p>
-<h3 id="recipe-descriptions-and-comments">Recipe descriptions and comments</h3>
-<p>Editing and adding recipe descriptions and comments are useful to communicate recipe details to other members in your team and so you can easily keep track of all your recipes. Recipe descriptions are located in the &apos;Settings&apos; tab and can be used to specify what a recipe is for. </p>
-<p>Comments can be used to specify what actions are for. You can add and edit the comments by clicking on the speech bubble icon on the right of every action. You can also choose to hide the input and output data associated with this step in job history like sensitive information by checking the &apos;Enable data masking&apos; box.</p>
-<p><img src="../assets/images/building-best-practices/recipe-comments.png" alt="Recipe Comments"></p>
-<h2 id="deduplication">Deduplication</h2>
-<p>Removing duplicates, or deduplication, is an important part of maintaining a good record of your data in the apps you use. When using Workato to move data from one app to another, this involves taking steps to check for existing records and ensuring that duplicate records are not created. </p>
-<p>View this <a href="deduplication.html">article</a> that details how deduplication is done.</p>
-<h2 id="error-handling-and-monitoring">Error handling and monitoring</h2>
+                                <h1 id="error-handling-and-monitoring">Error handling and monitoring</h1>
 <p>This section covers the best practices for recipe building for handling errors. View this <a href="https://www.workato.com/recipes/696621" target="_blank">recipe</a> that showcases all the best practices.</p>
 <p><img src="../assets/images/building-best-practices/error-handling-eg1.png" alt="Error Handling Recipe"></p>
 <p><strong>1. Error monitor step</strong></p>
-<p>To monitor specific steps for errors, wrap all the actions within your recipe within an error monitoring step. This allows Workato to monitor all errors, whether user created or system generated, so that they can be universally caught and handled. To do this, click on &apos;Add a new step&apos;, then on &apos;Action with error monitor&apos;. </p>
+<p>To monitor specific steps for errors, wrap all the actions within your recipe within an error monitoring step. This allows Workato to monitor all errors, whether user created or system generated, so that they can be universally caught and handled. To do this, click on &apos;Add a new step&apos;, then on &apos;Action with error monitor&apos;.</p>
 <p><img src="../assets/images/building-best-practices/error-handling-error-monitor.png" alt="error monitor step"></p>
-<p>As in the example recipe, you should nest all your recipe steps in &apos;Monitor actions for error&apos;. This will allow Workato to watch these actions for errors. Once any of the steps within the nest throws an error, you can configure the recipe to retry the monitored steps once, twice or thrice, or to skip to the next steps immediately. </p>
+<p>As in the example recipe, you should nest all your recipe steps in &apos;Monitor actions for error&apos;. This will allow Workato to watch these actions for errors. Once any of the steps within the nest throws an error, you can configure the recipe to retry the monitored steps once, twice or thrice, or to skip to the next steps immediately.</p>
 <p><img src="../assets/images/building-best-practices/error-handling-error-monitor2.png" alt="error monitor step2"></p>
-<p>If the recipe still fails after the retries, the recipe will perform the steps nested in &apos;On error&apos;. In the example, the recipe will send out an email via Workato to the administrator&apos;s email address when the actions have been retried three times 
+<p>If the recipe still fails after the retries, the recipe will perform the steps nested in &apos;On error&apos;. In the example, the recipe will send out an email via Workato to the administrator&apos;s email address when the actions have been retried three times
 and failed. Do note that as the errors are handled according to the logic specified in your error monitoring step, the job will <strong>not</strong> stop running when they occur.</p>
 <p><img src="../assets/images/building-best-practices/error-handling-eg2.png" alt="error monitor step3"></p>
 <p><strong>2. Conditional actions</strong></p>
 <p>Try as much as possible to prevent errors by checking the input values to key actions in your recipe, i.e. when you are writing to a destination system. Use conditional actions to validate the incoming data and stop actions to end or fail a recipe job early to reduce unnecessary processing time and API calls. This will speed up the time taken for all your jobs. You can add conditional actions by clicking on &apos;Add a new step&apos;, then on &apos;Conditional Action&apos;.</p>
 <p><img src="../assets/images/building-best-practices/error-handling-eg4.png" alt="error monitor step4"></p>
 <p><strong>3. Stop action</strong></p>
-<p>Carry out data validation (using conditional actions) as early as possible in the recipe and stop the recipe using the stop action the moment something is amiss. This will make the recipe more efficient and minimize unwanted processing or excess API calls. This is done in steps 4 and 6 of the recipe. The stop reason can also be changed so that a personalized error message will appear in your job report and in the error emails. The example below stops the recipe when the search object step does not yield any results. </p>
+<p>Carry out data validation (using conditional actions) as early as possible in the recipe and stop the recipe using the stop action the moment something is amiss. This will make the recipe more efficient and minimize unwanted processing or excess API calls. This is done in steps 4 and 6 of the recipe. The stop reason can also be changed so that a personalized error message will appear in your job report and in the error emails. The example below stops the recipe when the search object step does not yield any results.</p>
 <p><img src="../assets/images/building-best-practices/error-handling-eg3.png" alt="error monitor step3"></p>
 <p><strong>4. Custom Error Emails</strong></p>
-<p>When configuring the send email action in Workato to send custom error emails, please ensure that the errors are added as an attachment with a descriptive filename such as errors.txt. Also ensure that the email message contains the Job URL, Recipe URL and the time which the recipe ran. </p>
-<p>The pills for <code>Recipe URL</code>, <code>Job URL</code> and <code>Job created at</code> can be found in the &apos;Properties&apos; tab in the data tree. </p>
+<p>When configuring the send email action in Workato to send custom error emails, please ensure that the errors are added as an attachment with a descriptive filename such as errors.txt. Also ensure that the email message contains the Job URL, Recipe URL and the time which the recipe ran.</p>
+<p>The pills for <code>Recipe URL</code>, <code>Job URL</code> and <code>Job created at</code> can be found in the &apos;Properties&apos; tab in the data tree.</p>
 <p><img src="../assets/images/building-best-practices/error-handling-eg5.png" alt="error monitor step5"></p>
 
                                 
@@ -7658,7 +7673,7 @@ and failed. Do note that as the errors are handled according to the logic specif
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Error handling best practices","date":"2018-06-11T10:00:00.000Z","level":"1.4.6","depth":2,"next":{"title":"Version management","level":"1.4.7","depth":2,"path":"recipes/version-management.md","ref":"recipes/version-management.md","articles":[]},"previous":{"title":"Data transformation","level":"1.4.5.5","depth":3,"anchor":"#data-transformation","path":"recipes/data-pills-and-mapping.md","ref":"recipes/data-pills-and-mapping.md#data-transformation","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"recipes/best-practices-error-handling.md","mtime":"2018-09-26T06:34:20.925Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-26T06:35:54.933Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Error handling best practices","date":"2018-06-11T10:00:00.000Z","level":"1.4.7","depth":2,"next":{"title":"Version management","level":"1.4.8","depth":2,"path":"recipes/version-management.md","ref":"recipes/version-management.md","articles":[]},"previous":{"title":"Recipe building best practices","level":"1.4.6","depth":2,"path":"recipes/best-practices-building.md","ref":"recipes/best-practices-building.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"recipes/best-practices-error-handling.md","mtime":"2018-09-26T13:54:27.476Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-26T13:56:39.816Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
