@@ -18,6 +18,8 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
   **What's new:** Map fields automatically with the new group data mapping tool in every action. Click on the icon next to the 'comment', 'clone' and 'delete' icons on the right hand side on every recipe line to bring up the group mapping wizard. Simply choose the fields to map and the data source to get started.
 
+  Read the documentation on [group data mapping](/recipes/group-data-mapping.md) to learn more.
+
 - **New control for date/time picker**
 
   **What's new:** A new grid icon is available on the right of all date/time fields. Clicking on this icon will bring up a calendar date picker followed by a drop-down list of times. Use this new function to quickly configure dates and times. After selecting your chosen date or time, you may still edit this by typing in the field directly.
@@ -32,11 +34,11 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
   **Context:** Previously, large worker objects in Workday caused jobs to timeout.
 
   **What's new:** A new option under _Advanced configuration_ called 'Return reference only' available in Workday triggers allows the job to return only references and transaction logs, minimising the trigger data size to prevent timeouts
-  
+
 - **HTTP connector: Secondary connector**
 
   **What's new:** Previously, only 1 HTTP connection was allowed per recipe. The new secondary connector is useful when users need to connect to multiple REST endpoints. To use the HTTP secondary connector, access the adapter dropdown menu and click on the 'HTTP secondary' option.  
-  
+
 - **Salesforce new action: Salesforce bulk query using SOQL**
 
   **What's new:** The new action allows a bulk search for records in Salesforce with a SOQL query. Learn more about [using SOQL queries](https://support.workato.com/support/solutions/articles/1000236426-salesforce-object-query-language-soql-basic-syntax-and-common-search-terms) and about [Salesforce bulk API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm).
