@@ -66,7 +66,7 @@ These changes are completely backward compatible will not require you to take an
 
 We recommend that users subscribe to the blog by entering their email address in the 'Get the Latest Product Updates' dialog box on the right as shown below.
 
-![Status.workato.com](/assets/images/product-notifications/status-workato-subscribe.png)
+![Status.workato.com](/assets/images/product-notifications/product-blog-subscribe.png)
 *Subscribe to updates on product.workato.com*
 
 ## Having trouble receiving emails?
