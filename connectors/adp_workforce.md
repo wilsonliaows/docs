@@ -40,7 +40,7 @@ ADP Workforce Now is an HCM solution for midsized companies. It includes solutio
     </tr>
     <tr>
       <td>Custom CA certificate</td>
-      <td>This is the key passphrase for SSL. It will be the string used to generate the SSL key.</td>
+      <td>Key passphrase for SSL. It should be the same string used to generate the SSL key.</td>
     </tr>
   </tbody>
 </table>
