@@ -28,7 +28,7 @@ ADP Workforce Now is a HCM solution for midsized companies. It includes solution
     </tr>
     <tr>
       <td>Client secret</td>
-      <td>API client ID used to interact with the API.</td>
+      <td>API client secret used to interact with the API.</td>
     </tr>
     <tr>
       <td>SSL client certificate</td>
@@ -40,7 +40,7 @@ ADP Workforce Now is a HCM solution for midsized companies. It includes solution
     </tr>
     <tr>
       <td>Custom CA certificate</td>
-      <td>This is the key passphrase for SSL. This is the string used to generate the SSL key.</td>
+      <td>Key passphrase for SSL. It should be the same string used to generate the SSL key.</td>
     </tr>
   </tbody>
 </table>
