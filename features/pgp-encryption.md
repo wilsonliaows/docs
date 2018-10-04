@@ -19,7 +19,7 @@ Follow the instruction below to generate PGP key.
 
 3. Use the command below to generate a PGP key pair:
 
-`gpg --generate-key`
+    `gpg --generate-key`
 
 4. Enter your user ID information. Make sure to enter a valid name and email address.
 
@@ -27,14 +27,14 @@ Follow the instruction below to generate PGP key.
 
 6. Use the command below to list PGP keys for which you have both a public and private key.
 
-`gpg --list-secret-keys --keyid-format LONG`
+    `gpg --list-secret-keys --keyid-format LONG`
 
 7. From the list of PGP keys, copy the PGP key ID you'd like to use. In this example, the PGP key ID is `7F87F1F21EEAAAB9`:
 
-![PGP key ID](/assets/images/features/files-and-attachments/gpg-key-id.png)
+    ![PGP key ID](/assets/images/features/files-and-attachments/gpg-key-id.png)
 
 8. Use the commands below to print out Public Key and Private Key, substituting in the PGP key ID you'd like to use. In this example, the PGP key ID is `7F87F1F21EEAAAB9`:
 
-`gpg --armor --export 7F87F1F21EEAAAB9`
+    `gpg --armor --export 7F87F1F21EEAAAB9`
 
-`gpg --armor --export-secret-key 7F87F1F21EEAAAB9`
+    `gpg --armor --export-secret-key 7F87F1F21EEAAAB9`
