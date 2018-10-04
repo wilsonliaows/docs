@@ -30,6 +30,7 @@ Follow the instruction below to generate GPG key.
 `gpg --list-secret-keys --keyid-format LONG`
 
 7. From the list of GPG keys, copy the GPG key ID you'd like to use. In this example, the GPG key ID is `7F87F1F21EEAAAB9`:
+
 ![GPG key ID](/assets/images/features/files-and-attachments/gpg-key-id.png)
 
 8. Use the commands below to print out Public Key and Private Key, substituting in the GPG key ID you'd like to use. In this example, the GPG key ID is `7F87F1F21EEAAAB9`:
