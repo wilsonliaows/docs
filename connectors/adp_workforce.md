@@ -4,7 +4,7 @@ date: 2018-10-4 06:00:00 Z
 ---
 
 # ADP Workforce Now
-ADP Workforce Now is a HCM solution for midsized companies. It includes solutions for HR management, payroll, benefits, talent management, compliance, time and labor management and analytics and benchmarking.
+ADP Workforce Now is an HCM solution for midsized companies. It includes solutions for HR management, payroll, benefits, talent management, compliance, time and labor management and analytics and benchmarking.
 
 ## How to connect to ADP Workforce Now on Workato
 
@@ -40,7 +40,7 @@ ADP Workforce Now is a HCM solution for midsized companies. It includes solution
     </tr>
     <tr>
       <td>Custom CA certificate</td>
-      <td>This is the key passphrase for SSL. This is the string used to generate the SSL key.</td>
+      <td>This is the key passphrase for SSL. It will be the string used to generate the SSL key.</td>
     </tr>
   </tbody>
 </table>
