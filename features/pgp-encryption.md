@@ -36,4 +36,5 @@ Follow the instruction below to generate PGP key.
 8. Use the commands below to print out Public Key and Private Key, substituting in the PGP key ID you'd like to use. In this example, the PGP key ID is `7F87F1F21EEAAAB9`:
 
 `gpg --armor --export 7F87F1F21EEAAAB9`
+
 `gpg --armor --export-secret-key 7F87F1F21EEAAAB9`
