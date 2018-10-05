@@ -12,9 +12,9 @@ Depending on what operation you wish to perform, you may need to provide the pub
 
 ![PGP Authentication](/assets/images/features/files-and-attachments/pgp-authentication.png)
 
-Follow the instruction below to generate new PGP key if you do not have a set already.
+Follow the instruction below to generate new PGP keys if you do not have a set already.
 
-## Generating PGP key
+## Generating PGP keys
 1. Download and install the most recent version of [the GPG command line tools](https://www.gnupg.org/download/) for your operating system.
 
 2. Open Terminal or Command Prompt.
