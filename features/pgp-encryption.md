@@ -4,15 +4,15 @@ date: 2018-10-04 23:00:00 Z
 ---
 
 # Encrypt file with PGP
-Workato allows you to encrypt and decrypt files using PGP encryption tool.
+Using PGP encryption tool in Workato recipe, you can perform common cryptographic functions like encrypting and decrypting files, based on the common PGP standard.
 
 ![PGP Connector](/assets/images/features/files-and-attachments/pgp-connector.png)
 
-In order to use PGP encryption tool, you will need to provide a pair of PGP Public key and Private key.
+Depending on what operation you wish to perform, you may need to provide the public key, private key, or both keys to setup the PGP encryption tool.
 
 ![PGP Authentication](/assets/images/features/files-and-attachments/pgp-authentication.png)
 
-Follow the instruction below to generate PGP key.
+Follow the instruction below to generate new PGP key if you do not have a set already.
 
 ## Generating PGP key
 1. Download and install the most recent version of [the GPG command line tools](https://www.gnupg.org/download/) for your operating system.
