@@ -11,19 +11,19 @@ We recommend that you adopt these design patterns in SDK connectors that you're 
 In this guide we cover:
 
 Connectors
-- Descriptive components
+- [Descriptive components](/developing-connectors/connectors-design-guide/connectors-design-guide.md)
 
 Triggers
-- Descriptive components
-- Input
-- Output
-- Types
+- [Descriptive components](/developing-connectors/connectors-design-guide/trigger-descriptive-components.md)
+- [Input](/developing-connectors/connectors-design-guide/trigger-input.md)
+- [Output](/developing-connectors/connectors-design-guide/trigger-output.md)
+- [Types](/developing-connectors/connectors-design-guide/trigger-types.md)
 
 Actions
-- Descriptive components
-- Input
-- Output
-- Types
+- [Descriptive components](/developing-connectors/connectors-design-guide/action-descriptive-components.md)
+- [Input](/developing-connectors/connectors-design-guide/action-input.md)
+- [Output](/developing-connectors/connectors-design-guide/action-output.md)
+- [Types](/developing-connectors/connectors-design-guide/action-types.md)
 
-Input fields
-Output fields
+[Input fields](/developing-connectors/connectors-design-guide/input-fields-design-guide.md)
+[Output fields](/developing-connectors/connectors-design-guide/output-fields-design-guide.md)
