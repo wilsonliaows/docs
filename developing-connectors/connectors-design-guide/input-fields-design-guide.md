@@ -4,6 +4,13 @@ date: 2018-09-05 15:30:00 Z
 ---
 
 # Input fields
+Input fields have several components, most of which corresponds directly to visual components on Workato.
+
+![Input field components](/assets/images/connectors-design-guide/input-field-component.png)
+*Input field components*
+
+Input field components are a superset of output field components. If you understand how `name`, `label`, `type` and `control type` work for output fields, you will see that they have similar functions in input fields.
+
 There are several components of an input field, as detailed below.
 
 <table class="unchanged rich-diff-level-one">
@@ -145,7 +152,9 @@ We can therefore define the fields as:
 { name: "last_name", type: "string" }
 ```
 
-This won't affect how the input fields show up in Workato, but it affects how the values in these fields are processed and handled by Workato and the app, so they should be defined correctly.
+This affects how the values in these fields are processed and handled by Workato and the app, so they should be defined correctly.
+
+If the control type is not specified, it defaults to the right control type for the data type defined. For strings, it defaults to `text`.
 
 ## Input field component - control type
 The control type defines the Workato UI controls and affects how a user can interact with the field.
