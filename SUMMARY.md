@@ -111,6 +111,7 @@
   * [File streaming](features/file-streaming.md)
   * [Search files using wildcard](features/wildcard.md)
   * [Compress files](features/compress-files.md)
+  * [Encrypt & decrypt files](features/pgp-encryption.md)
 * [Batch processing](features/batch-processing.md)
   * [Batch triggers](features/batch-processing.md#batch-triggers)
   * [Batch actions](features/batch-processing.md#batch-actions)
