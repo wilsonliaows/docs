@@ -4,7 +4,11 @@ date: 2018-09-05 15:30:00 Z
 ---
 
 # Trigger descriptive components
-There are some common descriptive components for all triggers. The following table details these components.
+There are some common descriptive components that appear in all triggers, corresponding to visual components in Workato.
+
+Actions and trigger descriptive components are largely similar. If you understand `description`, `title`, `subtitle` and `help` components in actions, you will see that they have similar functions in triggers. The main difference is the adopted product copy conventions.
+
+The following table details these trigger components.
 
 | Trigger component | Description                                                                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
