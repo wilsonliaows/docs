@@ -10,7 +10,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ## Sept 25 - Oct 05 2018
 
-**Find more details on Septembers's updates in our [blog post](https://product.workato.com/2018/10/04/october-2018-product-release/).**
+**Find more details on this month's updates in our [blog post](https://product.workato.com/2018/10/04/october-2018-product-release/).**
 
 ### Platform enhancements
 
@@ -22,7 +22,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 - **Added delete functionality for lookup tables**
 
-  **What's new:** We have added the ability to delete **all data from lookup tables** without the need to delete the table entirely. Access this by clicking on the three-dot menu icon on the last column of your lookup table.
+  **What's new:** We have added the ability to delete **all data from lookup tables** without the need to delete the table entirely. Access this by clicking on the `...` menu icon on the last column of your lookup table.
 
 - **Added delete functionality for custom adapters_schema**
 
@@ -36,7 +36,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 - **Microsoft Dynamics CRM: Picklist lookup support**
 
-    **Context:** Tt can be hard to retrieve the lookup values of picklists in Microsoft Dynamics CRM. In the API response, typically only the internal values of the picklist selection are returned.
+    **Context:** It can be hard to retrieve the lookup values of picklists in Microsoft Dynamics CRM. In the API response, typically only the internal values of the picklist selection are returned.
 
     **What's new:** The [new feature](https://product.workato.com/2018/09/26/2053-picklist-lookups-for-dynamics-crm/) in our Microsoft Dynamics CRM connector that gives you both the picklist option labels as well as the internal values for your selected picklist option. These fields show up as additional fields for you to use in the datatree.
     
