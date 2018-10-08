@@ -38,7 +38,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
     **Context:** It can be hard to retrieve the lookup values of picklists in Microsoft Dynamics CRM. In the API response, typically only the internal values of the picklist selection are returned.
 
-    **What's new:** The [new feature](https://product.workato.com/2018/09/26/2053-picklist-lookups-for-dynamics-crm/) in our Microsoft Dynamics CRM connector that gives you both the picklist option labels as well as the internal values for your selected picklist option. These fields show up as additional fields for you to use in the datatree.
+    **What's new:** The [new feature](https://product.workato.com/2018/09/26/2053-picklist-lookups-for-dynamics-crm/) in our Microsoft Dynamics CRM connector now gives you both the picklist option labels as well as the internal values for your selected picklist option. These fields show up as additional fields for you to use in the datatree.
     
 
 ## Sept 4 - Sept 24 2018
