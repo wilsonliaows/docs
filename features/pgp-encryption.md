@@ -4,7 +4,7 @@ date: 2018-10-04 23:00:00 Z
 ---
 
 # Encrypt file with PGP
-Using PGP encryption tool in Workato recipe, you can perform common cryptographic functions like encrypting and decrypting files, based on the common PGP standard. Under the hood, we use AES256 cipher algorithm and SHA256 digest algorithm.
+Using the PGP encryption tool in Workato recipe, you can perform common cryptographic functions like encrypting and decrypting files, based on the common PGP standard. Under the hood, we use AES256 cipher algorithm and SHA256 digest algorithm.
 
 ![PGP Connector](/assets/images/features/files-and-attachments/pgp-connector.png)
 
