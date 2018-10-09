@@ -8,7 +8,11 @@ Workbot for Slack allows you to send commands to Workbot on Slack. Workbot will 
 
 Each Workbot command is processed using a Workato recipe. The recipe trigger picks up the Workbot command as a trigger event, and the recipe determines the actions to carry out. With Workbot, you can create custom workflows that execute via your Slack commands, and optionally retrieve relevant data for you back to Slack.
 
-The Workbot for Slack connector has 2 triggers:
+The Workbot for Slack connector has 3 triggers:
+
+- [New message action](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
+
+This trigger allows you to perform message actions onto existing Slack messages in your Slack team. When you trigger a message action, the recipe will trigger, launching a dialog to get command input . To find out how to create a simple command, check out [this guide](/workbot/workbot-commands.md).
 
 - [New command](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
 
