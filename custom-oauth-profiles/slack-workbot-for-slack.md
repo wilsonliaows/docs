@@ -1,5 +1,5 @@
 ---
-title: Custom OAuth profiles for Slack & Workbot
+title: Custom OAuth profiles for Slack & Workbot for Slack
 date: 2018-04-9 10:23:00 Z
 ---
 
