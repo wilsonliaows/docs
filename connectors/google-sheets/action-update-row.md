@@ -9,6 +9,8 @@ date: 2017-10-04 23:00:00 Z
 ## How it works
 This action allows you to update a row in a sheet. It is often used together with action [Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows.html), so you will first search for the rows you want then update them.
 
+For this action to work, your sheet needs to have at least 1 header row and 1 data row.
+
 ## Input
 | Input field | Description |
 |---|---|

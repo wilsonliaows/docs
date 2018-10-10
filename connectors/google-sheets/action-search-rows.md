@@ -7,16 +7,16 @@ date: 2017-10-04 23:00:00 Z
 ![Action Search rows](/assets/images/connectors/google-sheets/action-search-rows.png)
 
 ## How it works
-This action allows you to search for rows in a sheet, using search values.
+This action allows you to search for rows in a sheet using search values in each individual column. The action will search for **exact matches** of the search values you provide.
 
-The matching rule is `exact match`, which means this action will search for rows matching exactly the search values you provided.
+For this action to work, your sheet needs to have at least 1 header row and 1 data row.
 
 ## Input
 | Input field | Description |
 |---|---|
 | Spreadsheet | You can either select a spreadsheet from the dropdown, or use `Spreadsheet ID` data pill from the output of other Google Sheets triggers & actions. |
 | Sheet | You can either select a sheet from the dropdown, or use `Sheet name` data pill from the output of other Google Sheets triggers & actions. |
-| Columns | ![CSV columns](/assets/images/connectors/google-sheets/search-columns.png)<br>After you select a spreadsheet and a sheet, the columns in that sheet will be displayed here. Enter the values you want to search and Workato will search for exact matches of all those values.<br><br>For example, in the screenshot above, Workato will return all rows that satisfy this condition:<br>`Region` = `"Asia"` AND `Country` = `"Vietnam"` AND `Item` = `"Rice"` |
+| Columns | ![CSV columns](/assets/images/connectors/google-sheets/search-columns.png)<br>After you select a spreadsheet and a sheet, the columns in that sheet will be displayed here. Enter the values you want to search and Workato will search for **exact matches** of all those values.<br><br>For example, in the screenshot above, Workato will return all rows that satisfy this condition:<br>`Region` = `"Asia"` AND `Country` = `"Vietnam"` AND `Item` = `"Rice"` |
 
 ## Output
 | Output pill | Description |
