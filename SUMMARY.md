@@ -453,6 +453,7 @@
   * [Pick lists](developing-connectors/sdk/pick-list.md)
   * [Dependent pick lists](developing-connectors/sdk/dependent-pick-list.md)
   * [Configuration fields](developing-connectors/sdk/config-fields.md)
+  * [Secure connection](developing-connectors/sdk/secure_connection.md)
   * [Examples](developing-connectors/sdk/examples.md)
 * [Custom OAuth profiles](custom-oauth-profiles.md)
   * [Slack & Workbot for Slack](custom-oauth-profiles/slack-workbot-for-slack.md)
