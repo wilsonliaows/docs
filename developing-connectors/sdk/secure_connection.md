@@ -15,7 +15,7 @@ By default, a custom adapter does not provide an option to connect through an on
 To enable the option for connecting through an OPA, all you have to do is add the `secure_tunnel` property in your custom adapter code. This should be set to `true` and be defined as a top level property.
 ```ruby
 {
-  title: "Wrike",
+  title: "Mandrill",
 
   secure_tunnel: true,
 
