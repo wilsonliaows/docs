@@ -306,7 +306,7 @@
     * [Connection setup](connectors/oracle-ebs.md#how-to-connect-to-oracle-e-business-suite-on-workato)
   * [Outlook](connectors/outlook/outlook.md)
     * [Connection setup](connectors/outlook/outlook.md#how-to-connect-to-outlook)
-    * [New email trigger](connectors/outlook/new-email-trigger.md)
+    * [New email trigger](connectors/outlook/trigger-new-email.md)
   * [People Task by Workato](workflow.md)
     * [Admin setup](workflow.md#using-people-task-as-an-admin)
     * [Recipe configuration](workflow.md#people-task-example-scenario)
