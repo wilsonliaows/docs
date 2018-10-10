@@ -12,6 +12,8 @@ Actions are commonly of the following types:
 - [Search records](#action-type---search-records)
 - [Get record by ID](#action-type---get-record)
 
+In Workato, each action typically corresponds to a single API call.
+
 ## Action type - create record
 This action uses the data input to create a new record. It should return the internal ID of the record created, at a minimum.
 

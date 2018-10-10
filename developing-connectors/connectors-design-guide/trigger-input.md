@@ -4,7 +4,7 @@ date: 2018-09-05 15:30:00 Z
 ---
 
 # Trigger input
-There are some common trigger input fields as detailed in the following table. Input fields should generally follow the input fields design guide.
+There are some common trigger input fields as detailed in the following table. Input fields should generally follow the [input fields design guide](/developing-connectors/connectors-design-guide/input-fields-design-guide.md).
 
 | Trigger input                                                 | Description                                                                                                                                                                              |
 |---------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
