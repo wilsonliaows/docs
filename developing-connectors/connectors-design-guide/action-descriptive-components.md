@@ -10,12 +10,33 @@ Actions and trigger descriptive components are largely similar. If you understan
 
 The following table details these action components.
 
-| Action component | Description                                                                                                                                        |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Description](#action-component---description)       | A short line that shows up at the recipe level to describe what the action does.                                                                   |
-| [Title](#action-component---title)             | Title that shows up in the app's action picklist to help you make a selection between actions.                                             |
-| [Subtitle](#action-component---subtitle)          | Subtitle that shows up in the app's action picklist. Further elaborates what the action does to help you make a selection between actions. |
-| [Help](#action-component---help)              | Action-level help that elaborates how the action works. Usually also comprises of the subtitle.                                                    |
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Action component</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td><a href="#action-component---description">Description</a></td>
+        <td>A short line that shows up at the recipe level to describe what the action does.</td>
+    </tr>
+    <tr>
+        <td><a href="#action-component---title">Title</a></td>
+        <td>Title that shows up in the app's action picklist to help you make a selection between actions.</td>
+    </tr>
+    <tr>
+    	<td><a href="#action-component---subtitle">Subtitle</a></td>
+    	<td>Subtitle that shows up in the app's action picklist. Further elaborates what the action does to help you make a selection between actions.</td>
+    </tr>
+    <tr>
+    	<td><a href="#action-component---help">Help</a></td>
+    	<td>Action-level help that elaborates how the action works. Usually also comprises of the subtitle.</td>
+    </tr>
+  </tbody>
+</table>
 
 Here is how `description`, `title` and `help` show up in the action.
 
@@ -118,7 +139,7 @@ This usually comprises of:
 - Limitations of the trigger/action, if any, e.g. "This search action will retrieve a maximum of 200 records.", "This upload action can handle a maximum of 25GB."
 - Common edge cases, e.g. "This Salesforce search action may time out if you're searching by non-indexed fields."
 - Complementary actions, if any, e.g. "To retrieve email attachments, use the **Download attachments** action."
-- Link to a relevant [documentation article](/) or [solution article](https://support.workato.com/support/solutions) for additional information
+- Link to a relevant [documentation article](/README.md) or [solution article](https://support.workato.com/support/solutions) for additional information
 
 Here's an example of a help text definition.
 

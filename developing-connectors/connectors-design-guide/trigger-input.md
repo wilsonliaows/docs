@@ -16,38 +16,30 @@ There are some common trigger input fields as detailed in the following table. I
   </thead>
   <tbody>
     <tr>
-      <td><a href="#trigger-input---sincefrom" target="_blank">Since/from</a></td>
+      <td><a href="#trigger-input---sincefrom">Since/from</a></td>
       <td>
       	Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.
       </td>
     </tr>
     <tr>
-    	<td><a href="#trigger-input---api-based-filters" target="_blank">API-based filters</td>
+    	<td><a href="#trigger-input---api-based-filters">API-based filters</td>
     	<td>Filters for triggers to pick only events that user is interested in, e.g. pick up only emails with `Important` label, or pick up only leads marked `Hot`</td>
     </tr>
     <tr>
-    	<td><<a href="#trigger-input---batch-configuration" target="_blank">Batch configuration</td>
+    	<td><a href="#trigger-input---batch-configuration">Batch configuration</td>
     	<td>Specific for batch triggers. Collection of fields that allow user to define the batches of data returned, e.g. batch size, type of records and specific fields in the records to return.</td>
     </tr>
     <tr>
-    	<td><a href="trigger-input---output-configuration" target="_blank">Output configuration</a></td>
+    	<td><a href="#trigger-input---output-configuration">Output configuration</a></td>
     	<td>Fields that allow users to optimize their requests to retrieve only data they're interested in using. These fields are particularly important for batch operations where we expect lots of records, or for apps which we expect lots of fields per record.</td>
     </tr>
   </tbody>
 </table>
 
-
-
-| Trigger input                                                 | Description                                                                                                                                                                              |
-|---------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                       |                                                          |
-|        |                                  |
-|    |  |
-
 ## Trigger input - since/from
 Almost every trigger has this since input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.
 
-This is useful for use cases such as initial bootstrapping when your company is moving to a new system and wishes to move all existing records from the old system into the new. Using the since field, you can choose to pick records created from exact date times. You can read more about the since input field's function in [this article](/recipes/triggers#sincefrom).
+This is useful for use cases such as initial bootstrapping when your company is moving to a new system and wishes to move all existing records from the old system into the new. Using the since field, you can choose to pick records created from exact date times. You can read more about the since input field's function in [this article](/recipes/triggers.md#sincefrom).
 
 Some key design points to note about the since field:
 - It should only allow users to input an exact date time via a date_time data type and date_time control type. This field should not support toggles or other data types, such as picklists.
@@ -117,7 +109,7 @@ For apps which enable users to define specifically the data fields to return for
 
 These fields have a multiselect control type, and should give the user the full list of record fields to choose from.
 
-![Record fields available for user to select in the picklist](/assets/images/connectors-design-guide/fields-list.png)
+![Record fields available for user to select in the picklist](/assets/images/connectors-design-guide/fields-list.gif)
 *Record fields available for user to select in the picklist*
 
 They typically have the following definition:
@@ -132,7 +124,7 @@ For triggers and actions which support joins, e.g. Salesforce, NetSuite and data
 
 The `Related objects` field should have a list of related object that can be fetched together with the base object with a JOIN.
 
-![Related objects available for user to select in the picklist](/assets/images/connectors-design-guide/related-objects-list.png)
+![Related objects available for user to select in the picklist](/assets/images/connectors-design-guide/related-objects-list.gif)
 *Related objects available for user to select in the picklist*
 
 They typically have the following definition: 

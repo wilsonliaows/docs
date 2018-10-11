@@ -22,15 +22,15 @@ We detail the components of an output field below.
   </thead>
   <tbody>
     <tr>
-      <td><a href='#input-field-component---name' target'_blank'>Name</a></td>
+      <td><a href='#input-field-component---name'>Name</a></td>
       <td>API name of the field. Datapill label also defaults to this name if undefined.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---label' target'_blank'>Label</a></td>
+      <td><a href='#input-field-component---label'>Label</a></td>
       <td>The name of the datapill that user sees on Workato. Label should match the name of the field that user sees in their app. If undefined, label defaults to the internal API name of the field.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---type' target'_blank'>Type</a></td>
+      <td><a href='#input-field-component---type'>Type</a></td>
       <td>Data type of the field. Valid types are: 
       	<ul>
 	        <li>string</li>
@@ -46,7 +46,7 @@ We detail the components of an output field below.
       </td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---control-type' target'_blank'>Control type</a></td>
+      <td><a href='#input-field-component---control-type'>Control type</a></td>
       <td>The UI icon that is used by the datapill. Valid control types are:
       	<ul>
       		<li>text</li>

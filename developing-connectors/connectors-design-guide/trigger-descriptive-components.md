@@ -10,12 +10,32 @@ Actions and trigger descriptive components are largely similar. If you understan
 
 The following table details these components.
 
-| Trigger component | Description                                                                                                                                        |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Description](#trigger-component---description)       | A short line that shows up at the recipe level to describe what the trigger does.                                                                   |
-| [Title](#trigger-component---title)             | Title that shows up in the app's trigger picklist to help you make a selection between triggers.                                             |
-| [Subtitle](#trigger-component---subtitle)          | Subtitle that shows up in the app's trigger picklist. Further elaborates what the trigger does to help you make a selection between triggers. |
-| [Help](#trigger-component---help)              | Trigger-level help that elaborates how the trigger works. Usually also comprises of the subtitle.                                                    |
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Trigger component</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td><a href="#trigger-component---description">Description</a></td>
+        <td>A short line that shows up at the recipe level to describe what the trigger does.</td>
+    </tr>
+    <tr>
+    	<td><a href="#trigger-component---title">Title</a></td>
+    	<td>Title that shows up in the app's trigger picklist to help you make a selection between triggers.</td>
+    </tr>
+    <tr>
+    	<td><a href="#trigger-component---subtitle">Subtitle</a></td>
+    	<td>Subtitle that shows up in the app's trigger picklist. Further elaborates what the trigger does to help you make a selection between triggers.</td>
+    </tr>
+    <tr>
+    	<td><a href="#trigger-component---help">Help</a></td>
+    	<td>Trigger-level help that elaborates how the trigger works. Usually also comprises of the subtitle.</td>
+    </tr>
+  </tbody>
+</table>
 
 Here is how `description`, `title` and `help` show up in the trigger.
 

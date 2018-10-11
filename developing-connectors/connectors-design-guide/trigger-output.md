@@ -6,10 +6,26 @@ date: 2018-09-05 15:30:00 Z
 # Trigger output
 There are some common trigger outputs as detailed in the following table.
 
-| Trigger output                                                | Description                                                                                                                                                                                  |
-|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Record fields](#trigger-output---record-fields)              | All the data fields of the record that the trigger is fetching as a trigger event. E.g. if the trigger event is **New lead**, then the record fields would be lead name, email, mobile, etc. |
-| [Batch metafields](#trigger-output---batch-metafields)        | Specific for batch triggers. Metafields such as boolean fields `First batch?`, `Last batch?`, `ID of first record in batch`, `ID of first record in batch`, etc.                             |
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Trigger output</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#trigger-output---record-fields">Record fields</a></td>
+      <td>
+      	All the data fields of the record that the trigger is fetching as a trigger event. E.g. if the trigger event is **New lead**, then the record fields would be lead name, email, mobile, etc.
+      </td>
+    </tr>
+    <tr>
+    	<td><a href="#trigger-output---batch-metafields">Batch metafields</a></td>
+    	<td>Specific for batch triggers. Metafields such as boolean fields `First batch?`, `Last batch?`, `ID of first record in batch`, `ID of first record in batch`, etc.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Trigger output - record fields
 We usually return the full API response back to the user in the trigger datatree. In the following, we see that the **New/updated Salesforce lead** trigger has all the data fields of the lead available.

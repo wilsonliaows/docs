@@ -22,15 +22,15 @@ There are several components of an input field, as detailed below.
   </thead>
   <tbody>
     <tr>
-      <td><a href='#input-field-component---name' target'_blank'>Name</a></td>
+      <td><a href='#input-field-component---name'>Name</a></td>
       <td>API name of the field. Field label also defaults to this name if undefined.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---label' target'_blank'>Label</a></td>
+      <td><a href='#input-field-component---label'>Label</a></td>
       <td>The name of the field that user sees on Workato. Label should match the name of the field that user sees in their app. If undefined, label defaults to the internal API name of the field.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---type' target'_blank'>Type</a></td>
+      <td><a href='#input-field-component---type'>Type</a></td>
       <td>Data type of the field. Valid types are: 
       	<ul>
 	        <li>string</li>
@@ -46,7 +46,7 @@ There are several components of an input field, as detailed below.
       </td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---control-type' target'_blank'>Control type</a></td>
+      <td><a href='#input-field-component---control-type'>Control type</a></td>
       <td>The UI component that is used by the field. Valid control types are:
       	<ul>
       		<li>text</li>
@@ -67,7 +67,7 @@ There are several components of an input field, as detailed below.
       </td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---hint' target'_blank'>Hint</a></td>
+      <td><a href='#input-field-component---hint'>Hint</a></td>
       <td>Elaboration on the input field. Some common hints:
       	<ul>
       		<li>Description of the field from the API documentation</li>
@@ -81,15 +81,15 @@ There are several components of an input field, as detailed below.
       </td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---optional-flag' target'_blank'></a>Optional flag</td>
+      <td><a href='#input-field-component---optional-flag'></a>Optional flag</td>
       <td>Boolean that decides whether the input field is marked `(Required)` or `(Optional)`. Required fields will always show up by default in the input form.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---default' target'_blank'></a>Default</td>
+      <td><a href='#input-field-component---default'></a>Default</td>
       <td>Provides a default value for the input field. Set a default if the field is commonly used and there is a common value for most use cases.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---sticky-flag' target'_blank'></a>Sticky flag</td>
+      <td><a href='#input-field-component---sticky-flag'></a>Sticky flag</td>
       <td>Boolean that decides whether a field shows up by default in the form or not. `sticky:true` means that the field shows up by default. Only applicable for optional fields as required fields always show up by default.</td>
     </tr>
   </tbody>

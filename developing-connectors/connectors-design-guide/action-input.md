@@ -18,32 +18,28 @@ Actions take in data inputs via input fields. There are some common types of act
   </thead>
   <tbody>
     <tr>
-      <td>Value fields</td>
+      <td><a href="#action-input---value-fields">Value fields</a></td>
       <td>
       	These are the fields that write values into the app, and are the most basic input fields for an action.
       </td>
     </tr>
     <tr>
-      <td>Action metafields</td>
+      <td><a href="#action-input---metafields">Action metafields</a></td>
       <td>These fields affect how the action behaves in Workato, and does not directly translate into values written into the app. These are typically for complex actions like bulk actions, asynchronous actions, actions that involve CSV files, etc.
       </td>
     </tr>
     <tr>
-      <td>Action input/output definition fields</td>
+      <td><a href="#action-input---inputoutput-definition-fields">Action input/output definition fields</a></td>
       <td>
       	Some APIs allow you to define the fields you wish to use as well as the response that comes back. In cases where your records are large and have many fields typically not used in the recipe, you can give users the option to optimize their responses to a subset of output fields. This helps in API performance and efficiency.
       	<br>
       	In addition, you can also employ these output definition fields to enable users to retrieve join records for advanced use cases.
-      	<br><br>
-      	E.g. Salesforce actions have a <b>Fields</b> input field that allow you to specify which fields you wish to use in the input and output of that action.
-      	<br><br>
-      	E.g. NetSuite's <b>Execute saved search</b> action have a <b>Fields</b> input field that allow users to specify which fields to retrieve for the search.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Value fields
+## Action input - value fields
 Value fields pass values into the app, and are the most basic input fields for an action.
 
 For example, when creating or updating a case record in Salesforce, you will need to pass in values for the case subject, description, associated account tied to the case, etc. These values get written into Salesforce.
@@ -56,10 +52,10 @@ Apart from creating or updating new records, users are also passing values into 
 ![Value fields in the Salesforce search record action will search for cases with a specific account ID](/assets/images/connectors-design-guide/action-input-value-fields-search.png)
 *Value fields in the Salesforce search record action will search for cases with a specific account ID*
 
-## Action metafields
+## Action input - metafields
 These fields affect how the action behaves in Workato, and does not directly translate into values written into the app. These are typically for complex actions like bulk actions, asynchronous actions, actions that involve files, etc.
 
-### Metafields for CSV actions
+### Action input - metafields for CSV actions
 For CSV file import actions, these fields enable you to describe your file so that Workato understands your CSV file schema and can parse it correctly.
 
 <table class="unchanged rich-diff-level-one">
@@ -105,6 +101,8 @@ For CSV file import actions, these fields enable you to describe your file so th
   </tbody>
 </table>
 
+These fields should be grouped into a logical section as shown below.
+
 ![CSV import metafields that describes the CSV file to import](/assets/images/connectors-design-guide/csv-import-action-metafields.png)
 *CSV import metafields that describes the CSV file to import*
 
@@ -141,10 +139,12 @@ For CSV file export actions, these fields allow you to define the format you wan
   </tbody>
 </table>
 
+These fields should be grouped into a logical section as shown below.
+
 ![CSV export metafields that describes the CSV file to export](/assets/images/connectors-design-guide/csv-export-action-metafields.png)
 *CSV export metafields that describes the CSV file to export*
 
-### Metafields for asynchronous actions
+### Action input - metafields for asynchronous actions
 Most actions in Workato are synchronous, i.e. the recipe waits for the action to complete in the app and return with a response before moving on to the next recipe step.
 
 For asynchronous actions, there should be metafields to enable users to specify whether the action should behave asynchronously (moving on to the next action as soon as all data have been sent to the app) or synchronously (moving on to the next action only when the app has processed all the data and responded with the status).
@@ -152,7 +152,7 @@ For asynchronous actions, there should be metafields to enable users to specify 
 ![Metafields for asynchronous actions enabling user to define action behavior](/assets/images/connectors-design-guide/metafields-for-bulk-actions.png)
 *Metafields for asynchronous actions enabling user to define action behavior*
 
-## Action input/output definition fields
+## Action input - input/output definition fields
 In Workato, most actions return the full record, with all fields of the record. However, for some apps where users might have hundreds to thousands of standard and custom fields, we can allow users the option of optimizing their API traffic by fetching only the fields they want to use in their integration.
 
 ![User can select the fields they're interested in using from a multiselect picklist](/assets/images/connectors-design-guide/output-fields-definition.gif)
