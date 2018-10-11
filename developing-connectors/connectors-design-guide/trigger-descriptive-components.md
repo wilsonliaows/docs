@@ -8,7 +8,7 @@ There are some common descriptive components that appear in all triggers, corres
 
 Actions and trigger descriptive components are largely similar. If you understand `description`, `title`, `subtitle` and `help` components in actions, you will see that they have similar functions in triggers. The main difference is the adopted product copy conventions.
 
-The following table details these trigger components.
+The following table details these components.
 
 | Trigger component | Description                                                                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -84,10 +84,7 @@ This results in the trigger title below.
 ![Title for the trigger](/assets/images/connectors-design-guide/trigger-title.png)
 *Title for the trigger*
 
-If undefined, the trigger defaults to the action's internal name. For example, the following code will result in a trigger title of `New updated candidate`
-
-![Trigger code without title defined](/assets/images/connectors-design-guide/trigger-components-code.png)
-*Trigger code without title defined*
+If undefined, the trigger defaults to the action's internal name.
 
 ## Trigger component - subtitle
 The subtitle complements the title by elaborating on what the trigger does, to help you make a decision between triggers.
@@ -108,10 +105,7 @@ This results in the trigger subtitle below.
 ![Subtitle for the trigger](/assets/images/connectors-design-guide/trigger-subtitle.png)
 *Subtitle for the trigger*
 
-If undefined, the subtitle defaults to the trigger description. For example, the following code will result in a trigger subtitle of `New/updated candidate in Greenhouse`.
-
-![Trigger code without subtitle defined](/assets/images/connectors-design-guide/trigger-components-code.png)
-*Trigger code without subtitle defined*
+If undefined, the subtitle defaults to the trigger description.
 
 Some additional examples of trigger descriptions:
 

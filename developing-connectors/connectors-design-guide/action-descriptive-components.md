@@ -93,15 +93,10 @@ If undefined, the trigger defaults to the action's internal name. For example, t
 *Action code without title defined*
 
 ## Action component - subtitle
-The subtitle complements the title by elaborating on what the action does, to help you make a decision between actions. Most subtitles read like a more specific version of its associated description.
+The subtitle complements the title by elaborating on what the action does, to help you make a decision between actions. Most subtitles read like a more specific version of its associated description. If undefined, the subtitle defaults to the action description.
 
 ![Picklist of available actions for an app](/assets/images/connectors-design-guide/action-picklist-subtitles.png)
 *Picklist of available actions for an app*
-
-If undefined, the subtitle defaults to the action description. For example, the following code will result in a trigger subtitle of `Create prospect in Greenhouse`.
-
-![Action code without subtitle defined](/assets/images/connectors-design-guide/action-components-code.png)
-*Action code without subtitle defined*
 
 Here's an example of an action subtitle definition.
 
