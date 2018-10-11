@@ -122,7 +122,7 @@ This usually comprises of:
 - Limitations of the trigger/action, if any, e.g. "This search action will retrieve a maximum of 200 records.", "This upload action can handle a maximum of 25GB."
 - Common edge cases, e.g. "This Salesforce search action may time out if you're searching by non-indexed fields."
 - Complementary actions, if any, e.g. "To retrieve email attachments, use the **Download attachments** action."
-- Link to a relevant [documentation article](/) or [solution article](https://support.workato.com/support/solutions) for additional information
+- Link to a relevant [documentation article](/README.md) or [solution article](https://support.workato.com/support/solutions) for additional information
 
 Here's an example of a help text definition.
 

@@ -34,7 +34,7 @@ Expected behavior of new/updated records triggers:
 - The latest version of the record will be picked up when the trigger polls the app, e.g. if a record was updated 3 times between polls, the poll will pick up only the 3rd update as a trigger event.
 
 ## Trigger type - new record (real-time)
-This is a [real-time trigger](/recipes/triggers.html#real-time-triggers) where the app sends a webhook about newly created records to the trigger as soon as the record is created.
+This is a [real-time trigger](/recipes/triggers.md#real-time-triggers) where the app sends a webhook about newly created records to the trigger as soon as the record is created.
 
 Expected behavior of new records (real-time) triggers:
 - Each trigger event in the recipe corresponds to one new record.
@@ -42,7 +42,7 @@ Expected behavior of new records (real-time) triggers:
 - When recipe is stopped, it stops listening to webhook events. If possible, the app should try to resend webhook events until it receives a 200 OK from Workato that the trigger has received the webhook. If not possible, a note about webhook events being missed when the recipe is stopped should be included in the trigger's help text, so as to inform users about the limitation.
 
 ## Trigger type - new/updated record (real-time)
-This is a [real-time trigger](/recipes/triggers.html#real-time-triggers) where the app sends a webhook about newly created or updated records to the trigger as soon as the record is created or updated.
+This is a [real-time trigger](/recipes/triggers.md#real-time-triggers) where the app sends a webhook about newly created or updated records to the trigger as soon as the record is created or updated.
 
 Expected behavior of new/updated records (real-time) triggers:
 - Each trigger event in the recipe corresponds to one new or one updated record.
@@ -52,7 +52,7 @@ Expected behavior of new/updated records (real-time) triggers:
 ## Trigger type - new records (batch)
 This is a [polling trigger](/recipes/triggers.md#polling-triggers) where trigger checks app regularly for new records and picks up newly created records since the last time the trigger checked the app. Results are returned as a list of record (in batches) instead of as single records.
 
-As this is a batch trigger, it should have [batch configuration input](#trigger-input---batch-configuration).
+As this is a batch trigger, it should have [batch configuration input](/developing-connectors/connectors-design-guide/trigger-input.md#trigger-input---batch-configuration).
 
 Expected behavior of new records (batch) triggers:
 - Each trigger event in the recipe correspond to a list of newly created records.
