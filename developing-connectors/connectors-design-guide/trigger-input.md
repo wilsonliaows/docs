@@ -6,11 +6,43 @@ date: 2018-09-05 15:30:00 Z
 # Trigger input
 There are some common trigger input fields as detailed in the following table. Input fields should generally follow the [input fields design guide](/developing-connectors/connectors-design-guide/input-fields-design-guide.md).
 
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Trigger input</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#trigger-input---sincefrom" target="_blank">Since/from</a></td>
+      <td>
+      	Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.
+      </td>
+    </tr>
+    <tr>
+    	<td><a href="#trigger-input---api-based-filters" target="_blank">API-based filters</td>
+    	<td>Filters for triggers to pick only events that user is interested in, e.g. pick up only emails with `Important` label, or pick up only leads marked `Hot`</td>
+    </tr>
+    <tr>
+    	<td><<a href="#trigger-input---batch-configuration" target="_blank">Batch configuration</td>
+    	<td>Specific for batch triggers. Collection of fields that allow user to define the batches of data returned, e.g. batch size, type of records and specific fields in the records to return.</td>
+    </tr>
+    <tr>
+    	<td><a href="trigger-input---output-configuration" target="_blank">Output configuration</a></td>
+    	<td>Fields that allow users to optimize their requests to retrieve only data they're interested in using. These fields are particularly important for batch operations where we expect lots of records, or for apps which we expect lots of fields per record.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 | Trigger input                                                 | Description                                                                                                                                                                              |
 |---------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Since/from](#trigger-input---sincefrom)                      | Input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.                                                         |
-| [API-based filters](#trigger-input---api-based-filters)       | Filters for triggers to pick only events that user is interested in, e.g. pick up only emails with `Important` label, or pick up only leads marked `Hot`                                 |
-| [Batch configuration](#trigger-input---batch-configuration)   | Specific for batch triggers. Collection of fields that allow user to define the batches of data returned, e.g. batch size, type of records and specific fields in the records to return. |
+|                       |                                                          |
+|        |                                  |
+|    |  |
 
 ## Trigger input - since/from
 Almost every trigger has this since input field that allows you to pick up records created or updated some time ago, e.g. process new candidates created a week ago.
