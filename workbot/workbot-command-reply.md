@@ -15,7 +15,7 @@ If you're here after just [completing your first command](/workbot/workbot-comma
 ![Workbot Command trigger and the Command response diagram](/assets/images/workbot/workbot-actions/anatomy-of-a-command-reply-1.gif)
 *Anatomy of a Command reply*
 
-The [recipe](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) we're working with creates an issue in Gtihub based on inputs provided to Workbot in the command. Here's how they're mapped:
+The [recipe](https://www.workato.com/recipes/663926-create-an-issue-on-github-from-slack-using-workbot#recipe) we're working with creates an issue in Github based on inputs provided to Workbot in the command. Here's how they're mapped:
 
 ![Creating an issue in Github](/assets/images/workbot/workbot-actions/create-issue-github-1.png)
 *We've used the user input datapills to form the Issue title, Body, and Assignee of the issue. More on this [here.](/workbot/workbot-commands.md#user-input-fields)*
