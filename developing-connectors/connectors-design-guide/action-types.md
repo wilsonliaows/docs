@@ -6,11 +6,13 @@ date: 2018-09-05 15:30:00 Z
 # Action types
 Actions are commonly of the following types:
 
-- [Create record](#action-type---create-record)
-- [Update record](#action-type---update-record)
-- [Upsert record](#action-type---upsert-record)
-- [Search records](#action-type---search-records)
-- [Get record by ID](#action-type---get-record)
+| Action type                                                   | Description                                                                                                                                                                                                         | Example                       |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| [Create record](#action-type---create-record)                 | This action uses the data input to create a new record.                                                                                                                                                             | `Marketo` - Create lead       |
+| [Update record](#action-type---update-record)                 | This action uses the data input to update an existing record. The record to update should be identified using a unique key, e.g. internal ID or external ID.                                                        | `ServiceNow` - Update record  |
+| [Upsert record](#action-type---upsert-record)                 | This action uses the data input to update an existing record, or create a new record if no existing record is found. The record to update should be identified using a unique key, e.g. internal ID or external ID. | `Salesforce` - Upsert record  |
+| [Search records](#action-type---search-records)               | This action takes in one or more parameters as search criteria, and returns only records matching all the search criteria.                                                                                          | `Google Sheets` - Search rows |
+| [Get record by ID](#action-type---get-record)                 | This action returns one record that matches the record ID or key provided.                                                                                                                                          | `NetSuite` - Get file by ID   |
 
 In Workato, each action typically corresponds to a single API call.
 
