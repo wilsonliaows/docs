@@ -6,7 +6,7 @@ date: 2018-09-05 15:30:00 Z
 # Input fields
 Input fields have several components, most of which corresponds directly to visual components on Workato.
 
-![Input field components](/assets/images/connectors-design-guide/input-field-component.png)
+![Input field components](/assets/images/connectors-design-guide/input-field-components.png)
 *Input field components*
 
 Input field components are a superset of output field components. If you understand how `name`, `label`, `type` and `control type` work for output fields, you will see that they have similar functions in input fields.
@@ -81,15 +81,15 @@ There are several components of an input field, as detailed below.
       </td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---optional-flag'></a>Optional flag</td>
+      <td><a href='#input-field-component---optional-flag'>Optional flag</a></td>
       <td>Boolean that decides whether the input field is marked `(Required)` or `(Optional)`. Required fields will always show up by default in the input form.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---default'></a>Default</td>
+      <td><a href='#input-field-component---default'>Default</a></td>
       <td>Provides a default value for the input field. Set a default if the field is commonly used and there is a common value for most use cases.</td>
     </tr>
     <tr>
-      <td><a href='#input-field-component---sticky-flag'></a>Sticky flag</td>
+      <td><a href='#input-field-component---sticky-flag'>Sticky flag</a></td>
       <td>Boolean that decides whether a field shows up by default in the form or not. `sticky:true` means that the field shows up by default. Only applicable for optional fields as required fields always show up by default.</td>
     </tr>
   </tbody>
@@ -122,7 +122,7 @@ This should be the name that an app user sees when logged into their application
 
 Taking the Greenhouse example of adding a prospect, we see that the fields are named exactly like their API names.
 
-![Greenhouse input fields when adding prospect](/assets/images/connectors-design-guide/greenhouse-add-prospect-screen.png)
+![Greenhouse input fields when adding prospect](/assets/images/connectors-design-guide/greenhouse-add-prospect-api.png)
 *Greenhouse input fields when adding prospect*
 
 In this case, we technically don't have to define the labels as they default to the right labels, but we can go ahead and add labels to the fields definition anyway.
@@ -159,7 +159,7 @@ If the control type is not specified, it defaults to the right control type for 
 ## Input field component - control type
 The control type defines the Workato UI controls and affects how a user can interact with the field.
 
-The following lists the typical control type for each data type. You can find further elaboration about control types [here](/developing-connectors/sdk/object-definition.html#control-types).
+The following lists the typical control type for each data type. You can find further elaboration about control types [here](/developing-connectors/sdk/object-definition.md#control-types).
 
 <table class="unchanged rich-diff-level-one">
   <thead>
