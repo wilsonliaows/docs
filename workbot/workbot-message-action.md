@@ -91,31 +91,82 @@ When message actions are triggered from Slack, the **Callback ID** is used to ma
 **Callback ID** is required to configure your message actions in Slack. More on this in a [later section](#creating-the-message-action-on-your-custom-bot-in-slack).
 
 ### Dialog for command input fields
-If you've defined any command input fields, a dialog is automatically launched to collect values for each of them from the user.
+If you've defined any command input fields, a dialog is automatically launched to collect values for each of them from the user. Up to 5 command input fields can be defined for each message actions trigger.
 
-#### Defining command input fields
-You can control how each command input field shows in the dialog.
+![Adding command input fields](/assets/images/workbot/workbot-message-actions/message-actions-dialog.png)
+*Message action dialog in Slack, with 5 different fields*
 
-Under **Dialog control type**,
-- choose **text** to display a text field. Text fields are capped at 150 characters.
-- choose **text area** to display a text area field. Text area fields are capped at 3,000 characters. If you're expecting your message actions to be applied to long messages, choose **text area** as your control type.
-- choose **select** to display a picklist with menu options. This enables a new setting called **Select menu options type**, where you can choose from 3 different types of menu options:
-  - **channels** displays the list of all public channels in your Slack workspace. When a channel is selected, the channel ID is returned, e.g. **CA83MDSK0**.
-  - **users** displays the list of all users (including bots) in your Slack workspace. When a user is selected, the user ID is returned, e.g. **UBTDVPFMM**.
+Each time you add a command input field, you can control how it shows up in the dialog.
 
+![Adding command input fields](/assets/images/workbot/workbot-message-actions/add-command-input-field.png)
+*Adding a command input field*
 
-You can also choose to copy the original message into one of the defined command input fields. Note that only fields of type `string` is selectable.
+#### Display text field in dialog
+Under **Dialog control type**, choose **text** to display a text field.
 
-You can also optionally define the title of the dialog. A maximum of 24 characters is allowed for the dialog title.
+![Text field config](/assets/images/workbot/workbot-message-actions/text-config.png)
+*Text control type in command input field*
 
-![Copy original field example](/assets/images/workbot/workbot-message-actions/copy-original-field-example.png)
+![Text field](/assets/images/workbot/workbot-message-actions/text-field-dialog.png)
+*Example text field in a Slack dialog*
+
+Text fields are capped at 150 characters. If you're copying original messages into this input field, the original field cannot be longer than 150 characters. To avoid this issue, choose **text area** as your control type.
+
+#### Display textarea field in dialog
+Under **Dialog control type**, choose **text area** to display a text area field. Text area fields are capped at 3,000 characters. This control type is useful when copying original messages that are up to 3,000 characters long into this input field.
+
+![Text area field config](/assets/images/workbot/workbot-message-actions/text-area-config.png)
+*Text area control type in command input field*
+
+![Text area field](/assets/images/workbot/workbot-message-actions/text-area-dialog.png)
+*Example text area field in a Slack dialog*
+
+#### Display a select menu in dialog
+Under **Dialog control type**, choose **select** to display a select menu with menu options. This enables a new setting called **Select menu options type**.
+
+![Select control type](/assets/images/workbot/workbot-message-actions/select-control-type.png)
+
+You can choose from 3 different types of select menus. Each differ by the type of menu options displayed:
+  - **Channels** displays the list of all public channels in your Slack workspace.
+
+  ![Channel menu options](/assets/images/workbot/workbot-message-actions/channels-select.gif)
+  *Example of a channels menu in a Slack dialog*
+
+  When a channel is selected, the channel ID is returned, e.g. **CA83MDSK0**.
+
+  - **users** displays the list of all users (including bots) in your Slack workspace.
+
+    ![Users menu options](/assets/images/workbot/workbot-message-actions/users-select.gif)
+    *Example of a users menu in a Slack dialog*
+
+    When a user is selected, the user ID is returned, e.g. **UBTDVPFMM**.
+
+  - **Custom** allows you to define a list of comma-separated menu options in the **Options** field.
+
+    ![Custom menu config](/assets/images/workbot/workbot-message-actions/custom-select.png)
+    *Custom menu config*
+
+    ![Custom menu dialog](/assets/images/workbot/workbot-message-actions/custom-select.gif)
+    *Example of a custom menu in a Slack dialog*
+
+#### Copy original text into dialog field
+You can also choose to copy the original message into a defined command input field, so that it shows up in the dialog. You can do so by selecting a command input field from the picklist in the **Copy original text into dialog** field.
+
+![Copy original field config](/assets/images/workbot/workbot-message-actions/copy-original-field-example.png)
+*Copying original message into the 'description' command input field*
+
+![Copy original field example](/assets/images/workbot/workbot-message-actions/copy-original-message.gif)
+*Original text copied onto 'description' field in dialog*
+
+Note that only fields of type `string` are selectable.
 
 After configuring your message action trigger, you'll need to create the message action in Slack.
 
 ## Creating the message action on your custom bot in Slack
 Head to https://api.slack.com/apps and go to your custom bot.
 
-![Custom bot](/assets/images/workbot/workbot-slash-commands/custom-bot.png)*Click on your custom bot*
+![Custom bot](/assets/images/workbot/workbot-slash-commands/custom-bot.png)
+*Click on your custom bot*
 
 Under **Interactive components**, click on **Create New Action**.
 
@@ -137,10 +188,12 @@ If this error occurs, ensure that your custom bot is added to the relevant chann
 ### Too many characters in text field
 This error occurs when the original text fails to copy into the command input field in the dialog because it exceeds the allowed number of characters.
 
-By default, command input fields of type `string` default to control type 'text', which supports up to 150 characters. To allow up to 3,000 characters, update the control type of the field to 'text-area'. This can be done using the modify schema function, and updating the `control_type` field to 'text-area'.
+By default, command input fields of type `string` default to control type 'text', which supports up to 150 characters.
 
-![Changing text to text-area](/assets/images/workbot/workbot-message-actions/text-to-text-area.gif)
-*Changing the control_type of a field to 'text-area'*
+To allow up to 3,000 characters, update the control type of the field to 'text-area'. Under **Dialog control type**, choose **text area**. This control type is useful when copying original messages that are up to 3,000 characters long.
+
+![Text area field](/assets/images/workbot/workbot-message-actions/text-area-config.png)
+*Text area control type in command input field*
 
 ![Text area in dialog](/assets/images/workbot/workbot-message-actions/copy-original-message.gif)
 *Text area in dialog*
