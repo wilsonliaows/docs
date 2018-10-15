@@ -7,13 +7,14 @@ date: 2018-10-09 10:23:00 Z
 The Message actions trigger is a powerful way to kickstart your workflows. Turn any Slack message into tasks, tickets, leads and more — without leaving your Slack workspace.
 
 ![Message action gif](/assets/images/workbot/workbot-message-actions/message-actions-example.gif)
+*Message actions in action*
 
 Similar to the <b>[Post command](/workbot/workbot-commands.md)</b> trigger, command input fields can be defined if you need user input for follow-up actions. If command input fields are specified, message actions will launch a dialog to get user input.
 
 ## How message actions work
 Message actions can be triggered on any message in any channel, direct message, or multi-party message that your custom bot is a member of.
 
-Hover on a message, and click on the horizontal ellipsis to bring up a list of actions. If configured correctly, your message action(s) can be found at the bottom of the list.
+Hover on a message, and click on the horizontal ellipsis menu to bring up a list of actions. If configured correctly, your message action(s) can be found at the bottom of the list.
 
 ![Message action list](/assets/images/workbot/workbot-message-actions/message-actions-list.gif)
 
@@ -90,7 +91,18 @@ When message actions are triggered from Slack, the **Callback ID** is used to ma
 **Callback ID** is required to configure your message actions in Slack. More on this in a [later section](#creating-the-message-action-on-your-custom-bot-in-slack).
 
 ### Dialog for command input fields
-If you've defined any command input fields, a dialog is automatically launched to collect them from the user.
+If you've defined any command input fields, a dialog is automatically launched to collect values for each of them from the user.
+
+#### Defining command input fields
+You can control how each command input field shows in the dialog.
+
+Under **Dialog control type**,
+- choose **text** to display a text field. Text fields are capped at 150 characters.
+- choose **text area** to display a text area field. Text area fields are capped at 3,000 characters. If you're expecting your message actions to be applied to long messages, choose **text area** as your control type.
+- choose **select** to display a picklist with menu options. This enables a new setting called **Select menu options type**, where you can choose from 3 different types of menu options:
+  - **channels** displays the list of all public channels in your Slack workspace. When a channel is selected, the channel ID is returned, e.g. **CA83MDSK0**.
+  - **users** displays the list of all users (including bots) in your Slack workspace. When a user is selected, the user ID is returned, e.g. **UBTDVPFMM**.
+
 
 You can also choose to copy the original message into one of the defined command input fields. Note that only fields of type `string` is selectable.
 
