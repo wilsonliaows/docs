@@ -103,10 +103,43 @@ Values from this selected column is used to deduplicate rows in the selected tab
 
 As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`). It should be incremental and sortable. This column can also be indexed for better performance.
 
+Only columns that have **primary key ('P')** or **unique ('U')** constraints can be used. Run this SQL query to find out which columns fulfill this requirement.
+
+```sql
+SELECT c.column_name
+FROM all_indexes i, all_ind_columns c
+WHERE
+  i.table_owner = 'TABLE_OWNER' AND
+  i.table_name = 'TABLE_NAME' AND
+  i.uniqueness = 'UNIQUE' AND
+  i.table_name = c.table_name AND
+  i.index_name = c.index_name
+UNION
+SELECT cc.column_name
+FROM all_constraints con, all_cons_columns cc
+WHERE
+  con.table_owner = 'TABLE_OWNER' AND
+  con.table_name = 'TABLE_NAME' AND
+  con.constraint_type in ('U', 'P') AND
+  con.table_name = cc.table_name AND
+  con.constraint_name = cc.constraint_name
+```
+
 ### Sort column
 Sort column is a column that is updated whenever a row in the table is updated. Typically, this is a timestamp column.
 
 When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected [**Unique key**](#unique-key) column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
+
+Only **date**, **timestamp**, **timestamp with time zone** and **timestamp with local time zone** column types can be used. Run this SQL query to find out which columns fulfill this requirement.
+
+```sql
+SELECT column_name
+FROM all_tab_columns
+WHERE
+  owner = 'WORKATO' AND
+  table_name = 'ORACLE_STRING' AND
+  (data_type LIKE 'TIMESTAMP%' OR data_type LIKE 'DATE%')
+```
 
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.

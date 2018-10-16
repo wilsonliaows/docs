@@ -144,10 +144,33 @@ Values from this selected column are used to deduplicate rows in the selected ta
 
 As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`). It should be incremental and sortable. This column can also be indexed for better performance.
 
+Only columns that has **key column usage** defined can be used. Run this SQL query to find out which columns fulfill this requirement.
+
+```sql
+SELECT kc.column_name
+FROM information_schema.table_constraints tc
+JOIN information_schema.key_column_usage kc
+ON kc.table_name = tc.table_name AND
+   kc.table_schema = tc.table_schema AND
+   kc.constraint_name = tc.constraint_name
+WHERE tc.table_schema = 'schema_name' AND tc.table_name = 'table_name'
+```
+
 ### Sort column
 Sort column is a column that is updated whenever a row in the table is updated. Typically, this is a timestamp column.
 
 When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected [**Unique key**](#unique-key) column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
+
+Only **timestamp** and **timestamptz** column types can be used. Run this SQL query to find out which columns fulfill this requirement.
+
+```sql
+SELECT column_name
+FROM svv_columns
+WHERE
+  table_schema = 'schema_name' AND
+  table_name = 'table_name' AND
+  date_type like 'timestamp%'
+```
 
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.

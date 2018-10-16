@@ -131,6 +131,18 @@ Values from this selected column is used to deduplicate rows in the selected tab
 
 As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`). It should be incremental and sortable. This column can also be indexed for better performance.
 
+Only columns that have **PRIMARY KEY** or **UNIQUE** constraints can be used. Run this SQL query to find out which columns fulfill this requirement.
+
+```sql
+SELECT col.column_name
+FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE col
+JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS c ON c.constraint_name = col.constraint_name
+WHERE
+  c.constraint_type IN ('PRIMARY KEY','UNIQUE') AND
+  c.table_schema='schema_name' AND
+  c.table_name='table_name'
+```
+
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.
 

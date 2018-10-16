@@ -276,4 +276,4 @@ Let's use a simple example to illustrate this behavior. We have a **New/updated 
 1. `UPDATED_AT > '2018-05-09 16:00:00.000000'`
 2. `ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
 
-For Oracle database, only **timestamp**, **timestamp with time zone** and **timestamp with local time zone** column types can be used.
+For Oracle database, only **date**, **timestamp**, **timestamp with time zone** and **timestamp with local time zone** column types can be used.
