@@ -24,6 +24,9 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
   **What's new:** In Active Directory, some object classes may have statically linked auxiliary classes with their own attributes. With this enhancement, Workato supports all auxiliary class attributes and object class attributes.
 
+- **Salesforce: Support for OAuth scope selection**
+
+  **What's new:** When creating a Salesforce connection, you can now select the OAuth scopes to request for. This enables you to limit your connection's permissions to only relevant permissions for your integrations.
 
 ## Sept 25 - Oct 05 2018
 
