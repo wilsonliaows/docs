@@ -14,23 +14,30 @@ Similar to the <b>[Post command](/workbot/workbot-commands.md)</b> trigger, comm
 ## How message actions work
 Message actions can be triggered on any message in any channel, direct message, or multi-party message that your custom bot is a member of.
 
-Hover on a message, and click on the horizontal ellipsis menu to bring up a list of actions. If configured correctly, your message action(s) can be found at the bottom of the list.
+Hover on a message, and click on the horizontal ellipsis menu to bring up a list of actions. Message actions that you've created can be found at the bottom of the list.
+
+If you don't see your message action, click on **More message actions** from the same menu to view all message menus in your Slack team.
 
 ![Message action list](/assets/images/workbot/workbot-message-actions/message-actions-list.gif)
+*Accessing message actions from Slack*
 
 What's unique about message actions is that the content of the message (which the message action was performed on) can be used in follow-up actions. Combined with the dialog (for collecting structured user input), you can transform any conversation into tasks, tickets, and more.
 
 ## Requirements: Custom bot
-To use message actions, you first need to create a [custom bot](/workbot/workbot-custom-bots.md).
+To use message actions, you first need to create a custom bot. If you haven't done so already, head over to our [custom bot documentation](/workbot/workbot-custom-bots.md) to learn how to do it.
 
 The message action must be added and configured under a custom bot in Slack before they can be used in Workato.
 
-If you already have a custom Workbot, proceed on to learn how to use message actions with your custom bot.
+![Creating message actions in Slack](/assets/images/workbot/workbot-message-actions/message-actions-slack.png)
+*Message actions created under Interactive Components*
+
+If you already have a custom bot, proceed on to learn how to use message actions with your custom bot.
 
 ## Configuring the message action
 In this section, we will go through how to configure a message action.
 
 ![Message actions trigger](/assets/images/workbot/workbot-message-actions/message-actions-trigger.png)
+*Message actions trigger fields*
 
 The table below shows the input schema for the message actions trigger.
 
@@ -126,7 +133,7 @@ Under **Dialog control type**, choose **select** to display a select menu with m
 
 ![Select control type](/assets/images/workbot/workbot-message-actions/select-control-type.png)
 
-You can choose from 3 different types of select menus. Each differ by the type of menu options displayed:
+You can choose from 3 different types of select menus. Each differ by the menu options displayed:
   - **Channels** displays the list of all public channels in your Slack workspace.
 
   ![Channel menu options](/assets/images/workbot/workbot-message-actions/channels-select.gif)
@@ -141,7 +148,7 @@ You can choose from 3 different types of select menus. Each differ by the type o
 
     When a user is selected, the user ID is returned, e.g. **UBTDVPFMM**.
 
-  - **Custom** allows you to define a list of comma-separated menu options in the **Options** field.
+  - **Custom** allows you to define a list of comma-separated menu options in the **Options** field. The menu option themselves cannot contain commas.
 
     ![Custom menu config](/assets/images/workbot/workbot-message-actions/custom-select.png)
     *Custom menu config*
@@ -175,9 +182,13 @@ Under **Interactive components**, click on **Create New Action**.
 
 In the message action configuration, choose a descriptive name for your message action, a short description of its function, followed by the **Callback ID**.
 
+![Message actions config](/assets/images/workbot/workbot-message-actions/message-actions-config.png)
+*Message actions in Slack*
+
 As mentioned above, the **Callback ID** used here must be identical to the **Callback ID** in the message actions trigger.
 
-![Message actions config](/assets/images/workbot/workbot-message-actions/message-actions-config.png)
+![Callback ID](/assets/images/workbot/workbot-message-actions/callback-id.png)
+*Callback ID generated from Message action name*
 
 Click **Create** to finish setting up the message action on Slack. You can test it out by performing a message action on any message in the #general channel (bots are automatically added to the #general channel by default).
 
@@ -190,10 +201,12 @@ This error occurs when the original text fails to copy into the command input fi
 
 By default, command input fields of type `string` default to control type 'text', which supports up to 150 characters.
 
-To allow up to 3,000 characters, update the control type of the field to 'text-area'. Under **Dialog control type**, choose **text area**. This control type is useful when copying original messages that are up to 3,000 characters long.
+To allow up to 3,000 characters, update the control type of the field to 'text-area'. Under **Dialog control type**, choose **text area**.
 
 ![Text area field](/assets/images/workbot/workbot-message-actions/text-area-config.png)
 *Text area control type in command input field*
 
 ![Text area in dialog](/assets/images/workbot/workbot-message-actions/copy-original-message.gif)
 *Text area in dialog*
+
+Currently, the maximum number of characters allowed in a dialog field is 3,000 characters.
