@@ -33,3 +33,28 @@ Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE
 
 ### Columns
 Lastly, map the datapills from your previous triggers or actions into their respective columns. The columns in the selected table are presented as input fields here for you to insert datapills.
+
+## Update batch of rows
+This action allows you to update multiple rows in a single action instead of one row at a time. This provides higher throughput when you are moving a large number of records from one app to Redshift. Depending on the structure of your recipe and volume of data, this action can reduce integration time by a factor of 100.
+
+![Update batch of rows action](/assets/images/redshift/update_rows_batch_action.png)
+*Update batch of rows action*
+
+### Table
+Just like with the single row update action, you need to select the target table first.
+
+### Rows source list
+Unlike the **Update row** action (where we deal with a single row), we are now dealing with a batch of rows. Hence, the next datapill to input is the *source* of the batch of rows to insert to the table. This can come from any trigger or action that outputs a list datapill.
+
+![A list datapill from the datatree](/assets/images/redshift/list_datapill_in_output_tree.png)
+*A list datapill from the datatree*
+
+If you do not map a list datapill to this field, this action will update only 1 row and will behave like the **Update row** action.
+
+### Columns
+Finally, you will need to map the required fields from the output datatree here to update rows with data from preceding trigger or actions. Take note that datapills mapped to each column here should be from the source list datapill you used earlier. Datapills that are mapped outside the source list datapill will not be iterated.
+
+### Unique key
+Use this input field to determine which field to use to identify unique rows. This is an optional field. If left blank, primary keys in the selected table will be used to match. If you with to use columns other than the primary key, or inclusive of it, select all relevant columns in this input field.
+
+Refer to the [List management](/features/list-management.md) guide for more information about working with batches.
