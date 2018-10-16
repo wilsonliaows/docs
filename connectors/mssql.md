@@ -6,8 +6,8 @@ date: 2018-02-02 06:10:00 Z
 # SQL Server
 [SQL Server](https://www.microsoft.com/en-us/sql-server/) is a relational database management system by Microsoft. It supports transactional processes, business intelligence and analytics applications for enterprises.
 
-## Supported editions
-All editions of SQL Server are supported.
+## Supported versions
+All versions of SQL Server are supported. However, some triggers/actions are restricted to newer versions. Refer to individual trigger/action documentation to find out.
 
 ## How to connect to SQL Server on Workato
 The SQL Server connector uses basic authentication to authenticate with SQL Server.

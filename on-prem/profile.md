@@ -14,6 +14,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  - [Active directory](#active-directory-connection-profile)
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
+ - [Command-line scripts](#command-line-scripts-profile)
 
  Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premises agents installed in a server with limited internet connectivity.
 
@@ -331,3 +332,108 @@ The following profile properties are supported:
 | trustAll | **Optional**. Specifies whether trust all certificates for SSL/TLS connections (default false) |
 
 HTTP methods supported for NTLM connections are `GET`, `POST`, `PUT`, `PATCH`, `DELETE` and `HEAD`.
+
+## Command-line scripts profile
+This profile allows users to run arbitrary scripts or commands on OPA. The script definition in the config file can have parameters.
+When you declare an action, you need to specify the values of the parameters.
+
+An example profile on Unix can look like this:
+```YAML
+command_line_scripts: 
+  workday_reports:
+    concurrency_limit: 3
+    timeout: 30
+    scripts: 
+     copy_file:
+       name: Copy file
+       command:
+         - /bin/cp
+         - '{{source_file}}'
+         - '{{target_directory}}'
+       parameters:
+         - { name: source_file }
+         - { name: target_directory }           
+     
+     append_file_to_another:
+       name: Append file to another
+       command:
+         - bash
+         - -c
+         - cat {{source_file}} >> {{target_file}}
+       parameters:
+         # Parameter quoting
+         - { name: source_file, quote: '"' }
+         # Advanced parameter quoting
+         - { name: target_file, quote: { start: '"', end: '"', quote: '"', escape_char: \ } }
+             
+     generate_report:
+       name: Generate report
+       command:
+         - python
+         - /home/user/script.py
+         - --from
+         - '{{from_date}}'
+         # Conditional fragment
+         - { value: --to, if: to_date }
+         # Conditional fragment
+         - { value: '{{to_date}}', if: to_date }
+       parameters:
+         - { name: from_date }
+         - { name: to_date, schema: { optional: true, control_type: select, pick_list: [01/01/2018, 02/02/2018] } }
+```
+The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows: 
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| scripts | The scripts hash. The value for each key contains the script profile. |
+| concurrency_limit | **Optional**. Maximum number of concurrently executed scripts. Defaults to 10 when not provided. After reaching the limit, requests are queued. |
+| timeout | **Optional**. Maximum duration(seconds) for each script execution. Defaults to 90 seconds when not provided. |
+
+<br>
+The hash key is used as an unique identifier for a script profile. The script configuration properties are as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| name |  Friendly name for the script that will be displayed in the recipe UI. |
+| command | The command invocation array. The value of each item can use [Mustache](https://mustache.github.io/mustache.5.html) template variables to substitute the parameter values. |
+| parameters | **Optional**. The parameter array (defaults to an empty array). |
+
+<br>
+The command invocation element configuration can be just a string, but also can contain these properties:
+ 
+| Property name | Description |
+|------------------|-------------------------------------------|
+| value | The command invocation element value. |
+| if | The parameter name. If parameter value is empty, this command invocation element is not taken into account. |
+
+<br>
+The parameter configuration properties are as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| name | The parameter name. |
+| quote | **Optional**. The rules of parameter quoting (defaults to no rules). |
+| schema | **Optional**. The parameter schema. |
+
+<br>
+The quote configuration can just be a string or have properties. The properties are as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| start | The opening quote character. |
+| end | The closing quote character. |
+| quote | The quote character in the parameter value to be escaped. |
+| escape_char | The escape character. |
+
+
+If the quote configuration is a string, its value is considered as the value of the `start`, `end` and `quote` properties, and the `escape_char` property value is set to '\\' on Unix and '""' on Windows.
+
+<br>
+The parameter schema configuration can have properties as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| optional | **Optional**. The optional flag of the parameter (defaults to false). |
+| label | **Optional**. Friendly name for the script, that will be displayed in the recipe UI (defaults to the parameter name). |
+| control_type | **Optional**. Can be 'text' or 'select'. If it's 'select', property 'pick_list' should also be defined. Defaults to 'text'. |
+| pick_list | **Optional**.  Values for selecting the parameter value. This property should be defined if property 'control_type' has value 'select'. |
