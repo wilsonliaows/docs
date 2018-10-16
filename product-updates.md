@@ -8,6 +8,26 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## Oct 06 - Oct 15 2018
+
+### Connector enhancements
+
+- **Oracle DB: Execute stored procedure action**
+
+  **What's new:** The Oracle [Execute stored procedure](/connectors/oracle/stored-procedure.md) action now supports stored procedures nested in packages.
+
+- **Redshift: Batch actions**
+
+  **What's new:** Insert and Upsert row actions in the Redshift connector will now allow [increased speed and data throughput](/features/batch-processing.md) when moving a large number of records to Redshift.
+
+- **Active Directory: Support for auxiliary class attributes**
+
+  **What's new:** In Active Directory, some object classes may have statically linked auxiliary classes with their own attributes. With this enhancement, Workato supports all auxiliary class attributes and object class attributes.
+
+- **Salesforce: Support for OAuth scope selection**
+
+  **What's new:** When creating a Salesforce connection, you can now select the OAuth scopes to request for. This enables you to limit your connection's permissions to only relevant permissions for your integrations.
+
 ## Sept 25 - Oct 05 2018
 
 **Find more details on this month's updates in our [blog post](https://product.workato.com/2018/10/04/october-2018-product-release/).**
@@ -39,7 +59,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
     **Context:** It can be hard to retrieve the lookup values of picklists in Microsoft Dynamics CRM. In the API response, typically only the internal values of the picklist selection are returned.
 
     **What's new:** The [new feature](https://product.workato.com/2018/09/26/2053-picklist-lookups-for-dynamics-crm/) in our Microsoft Dynamics CRM connector now gives you both the picklist option labels as well as the internal values for your selected picklist option. These fields show up as additional fields for you to use in the datatree.
-    
+
 - **Wrike: New/updated task trigger can now filter by task status**
 
   **What's new:** You can now filter new/updated task trigger events by task status. This allows you to trigger recipe actions only on specific task statuses.
@@ -47,11 +67,11 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - **Wrike: Secondary connector**
 
   **What's new:** You can now connect a secondary Wrike connector in your recipes. This makes it possible to sync folders, tasks and projects across 2 different Wrike accounts.
-  
+
 - **Wrike: Seach folders/projects action can now filter by custom field**
 
   **What's new:** You can now filter search results of a <b>Search folders/projects</b> action by using custom fields. To use this filter, add the optional field 'Custom field list' in a <b>Search folders/projects</b> action.
-    
+
 
 ## Sept 4 - Sept 24 2018
 
