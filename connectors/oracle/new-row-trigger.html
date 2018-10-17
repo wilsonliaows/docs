@@ -7853,6 +7853,25 @@
 <h3 id="unique-key">Unique key</h3>
 <p>Values from this selected column is used to deduplicate rows in the selected table, making sure that the same row is not processed twice in the same recipe.</p>
 <p>As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. <code>ID</code>). It should be incremental and sortable. This column can also be indexed for better performance.</p>
+<p>Only columns that have <strong>primary key (&apos;P&apos;)</strong> or <strong>unique (&apos;U&apos;)</strong> constraints can be used. Run this SQL query to find out which columns fulfill this requirement.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> c.column_name
+<span class="hljs-keyword">FROM</span> all_indexes i, all_ind_columns c
+<span class="hljs-keyword">WHERE</span>
+  i.table_owner = <span class="hljs-string">&apos;TABLE_OWNER&apos;</span> <span class="hljs-keyword">AND</span>
+  i.table_name = <span class="hljs-string">&apos;TABLE_NAME&apos;</span> <span class="hljs-keyword">AND</span>
+  i.uniqueness = <span class="hljs-string">&apos;UNIQUE&apos;</span> <span class="hljs-keyword">AND</span>
+  i.table_name = c.table_name <span class="hljs-keyword">AND</span>
+  i.index_name = c.index_name
+<span class="hljs-keyword">UNION</span>
+<span class="hljs-keyword">SELECT</span> cc.column_name
+<span class="hljs-keyword">FROM</span> all_constraints con, all_cons_columns cc
+<span class="hljs-keyword">WHERE</span>
+  con.table_owner = <span class="hljs-string">&apos;TABLE_OWNER&apos;</span> <span class="hljs-keyword">AND</span>
+  con.table_name = <span class="hljs-string">&apos;TABLE_NAME&apos;</span> <span class="hljs-keyword">AND</span>
+  con.constraint_type <span class="hljs-keyword">in</span> (<span class="hljs-string">&apos;U&apos;</span>, <span class="hljs-string">&apos;P&apos;</span>) <span class="hljs-keyword">AND</span>
+  con.table_name = cc.table_name <span class="hljs-keyword">AND</span>
+  con.constraint_name = cc.constraint_name
+</code></pre>
 <h3 id="batch-size">Batch size</h3>
 <p>Batch size of rows to return in each job. This can be any number between <strong>1</strong> and the maximum batch size. Maximum batch size is <strong>100</strong> and default is <strong>100</strong>.</p>
 <p>In any given poll, if there are less rows than the configured batch size, this trigger will deliver all rows as a smaller batch.</p>
@@ -7944,7 +7963,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"New row trigger","date":"2018-03-23T06:00:00.000Z","level":"1.17.20.9","depth":3,"next":{"title":"New/updated row trigger","level":"1.17.20.10","depth":3,"path":"connectors/oracle/updated-row-trigger.md","ref":"connectors/oracle/updated-row-trigger.md","articles":[]},"previous":{"title":"Execute stored procedure","level":"1.17.20.8","depth":3,"path":"connectors/oracle/stored-procedure.md","ref":"connectors/oracle/stored-procedure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/oracle/new-row-trigger.md","mtime":"2018-10-16T15:58:44.390Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-16T16:00:05.207Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"New row trigger","date":"2018-03-23T06:00:00.000Z","level":"1.17.20.9","depth":3,"next":{"title":"New/updated row trigger","level":"1.17.20.10","depth":3,"path":"connectors/oracle/updated-row-trigger.md","ref":"connectors/oracle/updated-row-trigger.md","articles":[]},"previous":{"title":"Execute stored procedure","level":"1.17.20.8","depth":3,"path":"connectors/oracle/stored-procedure.md","ref":"connectors/oracle/stored-procedure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/oracle/new-row-trigger.md","mtime":"2018-10-17T00:12:07.548Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-17T00:14:01.815Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
