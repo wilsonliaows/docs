@@ -31,9 +31,6 @@ Click on the [Audit log replication](https://workato.com/users/current/edit#audi
 
 ### Replication events
 
-![Job history replication setup](/assets/images/job-history-replication/job-history-rep-settings.png)
-*Audit log replication setup.*
-
 After connecting your log provided, choose the type of events that need to be logged. You may replicate the following by switching the individual toggles to 'Yes':
 
 1. Job history data
