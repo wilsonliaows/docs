@@ -11,28 +11,28 @@ You can connect to NetSuite via token based authentication. In order to do so, w
 
 In this section, we'll go through how to get these.
 
-1. [Enable Web Services and Token-based Authentication in your NetSuite instance](https://docs.workato.com/connectors/netsuite.html#1-enable-web-services-access-in-your-netsuite-instance)
+1. Enable Web Services and Token-based Authentication in your NetSuite instance
 
-2. [Create an integration record](https://docs.workato.com/connectors/netsuite.html#2-create-an-integration-record)
+2. Create an integration record
 
-3. [Create an integration role with required permission levels for your integration](https://docs.workato.com/connectors/netsuite.html#3-create-an-integration-role-with-required-permission-levels-for-your-integration)
+3. Create an integration role with required permission levels for your integration
 
-4. [Assign the integration role to the integration user](https://docs.workato.com/connectors/netsuite.html#4-set-up-an-integration-user)
+4. Assign the integration role to the integration user
 
-5. [Create access token for this integration user](https://docs.workato.com/connectors/netsuite.html#5-create-access-token)
+5. Create access token for this integration user
 
 ### 1. Enable Web Services access in your NetSuite instance
-First, API Access and Token-based Authentication needs to be enabled in NetSuite. Go to *Setup*>*Company*>*Enable Features*>*SuiteCloud*.
+First, API Access and Token-based Authentication needs to be enabled in NetSuite. Go to *Setup* > *Company* > *Enable Features* > *SuiteCloud*.
 
 ![Setup > Company > Enabled Features > SuiteCloud](/assets/images/connectors/netsuite/enable-web-services-1.png)
-*In NetSuite, go to Setup>Company>Enable Features>SuiteCloud*
+*In NetSuite, go to Setup > Company > Enable Features > SuiteCloud*
 
-Under the SuiteScript section, check the Client SuiteScript and Server SuitScript checkboxes.
+Under the SuiteCloud tab, check the **Client SuiteScript** and **Server SuitScript** checkboxes.
 
 ![Check the Client SuiteScript and Server SuitScript checkboxes](/assets/images/connectors/netsuite/netsuite-suitescript-setup.png)
 *In the SuiteCloud tab, check the Client SuiteScript and Server SuitScript checkboxes*
 
-Under the SuiteTalk (Web Services) section, check the **Web Services** checkbox. Under the Manage Authentication section, check the **Token-based Authentication** checkbox.
+Under the SuiteTalk (Web Services) section, check the **Web Services** checkbox. Under the **Manage Authentication** section, check the **Token-based Authentication** checkbox.
 
 ![Check the SuiteTalk Web Services and Token-based Authentication checkbox](/assets/images/connectors/netsuite/enable-web-services-2.png)
 *In the SuiteCloud tab, check the SuiteTalk Web Services and Token-based Authentication checkbox*
@@ -42,12 +42,12 @@ You can also refer to the [NetSuite documentation](https://system.netsuite.com/a
 ### 2. Create an integration record
 We need to create an [integration record](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4389727047.html#bridgehead_4430959588) to represent an external application connecting to NetSuite.
 
-Go to *Setup*>*Integration*>*Manage Integrations*>*New*.
+Go to *Setup* > *Integration* > *Manage Integrations* > *New*.
 
 ![Setup > Integration > Manage Integrations > New](/assets/images/connectors/netsuite/integration-record-1.png)
-*In NetSuite, go to Setup>Integration>Manage Integrations>New*
+*In NetSuite, go to Setup > Integration > Manage Integrations > New*
 
-Now, add a name for this integration. Make sure to select **Enabled** in the State pick list and check the Token-based Authentication checkbox, then save this integration.
+Now, add a name for this integration. Make sure to select **Enabled** in the State pick list and check the **Token-based Authentication** checkbox, then save this integration.
 
 ![Check the Token-based Authentication checkbox](/assets/images/connectors/netsuite/integration-record-2.png)
 *Check the Token-based Authentication checkbox*
@@ -66,14 +66,15 @@ C) Log in using Access Tokens (Full level) or User Access Tokens (Full level) fo
 D) Set Up Company (Full level)
 
 A) Assign integration specific read/write permissions
+
 We recommend that you make a copy of an existing role that already has the permissions required for the integrations to work and proceed to customize it further for your integration needs. This role can then be assigned to the integration user. Alternatively, you can create a new role and add the permissions required for the integrations to work.
 
-In NetSuite, go to your integration role via *Setup*>*Users/Roles*>*Manage Roles*.
+In NetSuite, go to your integration role via *Setup* > *Users/Roles* > *Manage Roles*.
 
 ![Setup > Users/Roles > Manage Roles](/assets/images/connectors/netsuite/setup-integration-role-1.png)
 *Setup > Users/Roles > Manage Roles*
 
-Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the **Sales Order - Create** permission level, and if you wish to be able to create and update and read sales order data, select the Full permission level.
+Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the **Sales Order - Create** permission level, and if you wish to be able to create and update and read sales order data, select the **Full** permission level.
 
 ![Set up integration specific permissions](/assets/images/connectors/netsuite/setup-integration-role-4.png)
 *Set up integration specific permissions*
@@ -81,17 +82,19 @@ Under the other tabs in Permissions, set up the permissions and permission level
 Refer to the [NetSuite documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N285937.html) for more details about customizing or creating roles and setting permissions.
 
 B. Assign Web Services permissions to integration role
+
 Check the **Web Services Only Role** checkbox if you don't want this role to have the ability to login to NetSuite (i.e. if you want this user to only have the ability to connect to NetSuite via the API).
 
 ![Check Web Services Only Role checkbox if relevant](/assets/images/connectors/netsuite/setup-integration-role-2.png)
 *Check Web Services Only Role checkbox if relevant*
 
-Under *Permissions*>*Setup*, add the Web Services permissions with a Full level.
+Under *Permissions* > *Setup*, add the Web Services permissions with a **Full** level.
 
 ![Assign Full level Web Services permissions](/assets/images/connectors/netsuite/setup-integration-role-3.png)
 *Assign Full level Web Services permissions*
 
 C. Assign token-based authentication permissions to integration role
+
 There are 3 types of [token-based authentication permissions](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html#bridgehead_4249074259):
 - Access Token Management
 - User Access Tokens
@@ -99,12 +102,13 @@ There are 3 types of [token-based authentication permissions](https://system.net
 
 We need the **Log in using Access Tokens** permission at a minimum to enable the user to authenticate via token-based authentication. If you would like the integration user to be able to create and revoke access tokens for their own use, you can give the role the **User Access Tokens** permissions. We recommend that the integration user not have the **Access Token Management** permissions for better security maintenance.
 
-Under *Permissions*>*Setup*, add the **Log in using Access Tokens** permission with a Full level.
+Under *Permissions* > *Setup*, add the **Log in using Access Tokens** permission with a **Full** level.
 
 ![Assign Login using access token permissions](/assets/images/connectors/netsuite/assign-login-using-access-token-permissions.png)
 *Assign Login using access token permissions*
 
 D. Assign Set Up Company (Full level) permissions to integration role
+
 Lastly, add the Set Up Company (Full level) permissions to the integration role.
 
 ![Assign Set Up Company permissions](/assets/images/connectors/netsuite/assign-set-up-company-permissions.png)
@@ -113,10 +117,10 @@ Lastly, add the Set Up Company (Full level) permissions to the integration role.
 ### 4. Set up an integration user
 Once we've set up our integration role, we need to assign this role to our integration user. We recommend creating a separate user for your integrations.
 
-In NetSuite, go to *Setup*>*Users/Roles*>*Manage Users* to edit an existing user or create a new user.
+In NetSuite, go to *Setup* > *Users/Roles* > *Manage Users* to edit an existing user or create a new user.
 
 ![Set up other permissions and permission levels](/assets/images/connectors/netsuite/setup-integration-user-1.png)
-*Navigate to Setup>Users/Roles>Manage Users*
+*Navigate to Setup > Users/Roles > Manage Users*
 
 When editing a user, under the Access tab, ensure you assign this user the integration role you've just created/edited above.
 
@@ -126,7 +130,7 @@ When editing a user, under the Access tab, ensure you assign this user the integ
 ### 5. Create access token
 Finally, create an access token for the integration user. If the integration user has **User Access Tokens** permissions, they will be able to create and revoke their own tokens. If the integration user has only **Log in using Access Tokens** permissions, you will need to use a user with **Access Token Management** permissions to create an access token for the integration user.
 
-Go to *Setup*>*Users/Roles*>*Access Tokens*>*New*.
+Go to *Setup* > *Users/Roles* > *Access Tokens* > *New*.
 
 ![Setup > Users/Roles > Access Tokens > New](/assets/images/connectors/netsuite/access-token.png)
 *In NetSuite, go to Setup>Users/Roles>Access Tokens>New*
