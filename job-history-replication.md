@@ -11,7 +11,7 @@ This is an add-on feature. Please reach out to us at +1 (844) 469-6752 or talk t
 ## Replication setup
 Click on the [Audit log replication](https://workato.com/users/current/edit#audit_log_replication) tab in your `Account Settings`.
 
-![Job history replication setup](/assets/images/job-history-replication/settings.png)
+![Job history replication setup](/assets/images/job-history-replication/job-history-rep-settings.png)
 *Audit log replication setup.*
 
 
