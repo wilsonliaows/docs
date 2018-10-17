@@ -7780,34 +7780,34 @@
 <p>You can connect to NetSuite via token based authentication. In order to do so, we need to generate an application ID, consumer key and consumer secret as well as a token ID and token secret. </p>
 <p>In this section, we&apos;ll go through how to get these.</p>
 <ol>
-<li><p>Enable Web Services and Token-based Authentication in your NetSuite instance</p>
+<li><p><a href="https://docs.workato.com/connectors/netsuite.html#1-enable-web-services-access-in-your-netsuite-instance" target="_blank">Enable Web Services and Token-based Authentication in your NetSuite instance</a></p>
 </li>
-<li><p>Create an integration record</p>
+<li><p><a href="https://docs.workato.com/connectors/netsuite.html#2-create-an-integration-record" target="_blank">Create an integration record</a></p>
 </li>
-<li><p>Create an integration role with required permission levels for your integration</p>
+<li><p><a href="https://docs.workato.com/connectors/netsuite.html#3-create-an-integration-role-with-required-permission-levels-for-your-integration" target="_blank">Create an integration role with required permission levels for your integration</a></p>
 </li>
-<li><p>Assign the integration role to the integration user</p>
+<li><p><a href="https://docs.workato.com/connectors/netsuite.html#4-set-up-an-integration-user" target="_blank">Assign the integration role to the integration user</a></p>
 </li>
-<li><p>Create access token for this integration user</p>
+<li><p><a href="https://docs.workato.com/connectors/netsuite.html#5-create-access-token" target="_blank">Create access token for this integration user</a></p>
 </li>
 </ol>
 <h3 id="1-enable-web-services-access-in-your-netsuite-instance">1. Enable Web Services access in your NetSuite instance</h3>
-<p>First, API Access and Token-based Authentication needs to be enabled in NetSuite. Go to <em>Setup</em> &gt; <em>Company</em> &gt; <em>Enable Features</em> &gt; <em>SuiteCloud</em>.</p>
+<p>First, API Access and Token-based Authentication needs to be enabled in NetSuite. Go to <em>Setup</em>&gt;<em>Company</em>&gt;<em>Enable Features</em>&gt;<em>SuiteCloud</em>.</p>
 <p><img src="../assets/images/connectors/netsuite/enable-web-services-1.png" alt="Setup &gt; Company &gt; Enabled Features &gt; SuiteCloud">
-<em>In NetSuite, go to Setup &gt; Company &gt; Enable Features &gt; SuiteCloud</em></p>
-<p>Under the SuiteCloud tab, check the <strong>Client SuiteScript</strong> and <strong>Server SuitScript</strong> checkboxes.</p>
+<em>In NetSuite, go to Setup&gt;Company&gt;Enable Features&gt;SuiteCloud</em></p>
+<p>Under the SuiteScript section, check the Client SuiteScript and Server SuitScript checkboxes.</p>
 <p><img src="../assets/images/connectors/netsuite/netsuite-suitescript-setup.png" alt="Check the Client SuiteScript and Server SuitScript checkboxes">
 <em>In the SuiteCloud tab, check the Client SuiteScript and Server SuitScript checkboxes</em></p>
-<p>Under the SuiteTalk (Web Services) section, check the <strong>Web Services</strong> checkbox. Under the <strong>Manage Authentication</strong> section, check the <strong>Token-based Authentication</strong> checkbox.</p>
+<p>Under the SuiteTalk (Web Services) section, check the <strong>Web Services</strong> checkbox. Under the Manage Authentication section, check the <strong>Token-based Authentication</strong> checkbox.</p>
 <p><img src="../assets/images/connectors/netsuite/enable-web-services-2.png" alt="Check the SuiteTalk Web Services and Token-based Authentication checkbox">
 <em>In the SuiteCloud tab, check the SuiteTalk Web Services and Token-based Authentication checkbox</em></p>
 <p>You can also refer to the <a href="https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html&amp;whence=#bridgehead_4253254429" target="_blank">NetSuite documentation</a> on enabling the Token-based Authentication feature.</p>
 <h3 id="2-create-an-integration-record">2. Create an integration record</h3>
 <p>We need to create an <a href="https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4389727047.html#bridgehead_4430959588" target="_blank">integration record</a> to represent an external application connecting to NetSuite.</p>
-<p>Go to <em>Setup</em> &gt; <em>Integration</em> &gt; <em>Manage Integrations</em> &gt; <em>New</em>.</p>
+<p>Go to <em>Setup</em>&gt;<em>Integration</em>&gt;<em>Manage Integrations</em>&gt;<em>New</em>.</p>
 <p><img src="../assets/images/connectors/netsuite/integration-record-1.png" alt="Setup &gt; Integration &gt; Manage Integrations &gt; New">
-<em>In NetSuite, go to Setup &gt; Integration &gt; Manage Integrations &gt; New</em></p>
-<p>Now, add a name for this integration. Make sure to select <strong>Enabled</strong> in the State pick list and check the <strong>Token-based Authentication</strong> checkbox, then save this integration.</p>
+<em>In NetSuite, go to Setup&gt;Integration&gt;Manage Integrations&gt;New</em></p>
+<p>Now, add a name for this integration. Make sure to select <strong>Enabled</strong> in the State pick list and check the Token-based Authentication checkbox, then save this integration.</p>
 <p><img src="../assets/images/connectors/netsuite/integration-record-2.png" alt="Check the Token-based Authentication checkbox">
 <em>Check the Token-based Authentication checkbox</em></p>
 <p>Now that we have created an integration record, save the consumer key and consumer secret. This will be used for connecting to NetSuite on Workato.</p>
@@ -7819,48 +7819,48 @@ A) Permissions to read/write to records required for integration
 B) Web Services (Full level)
 C) Log in using Access Tokens (Full level) or User Access Tokens (Full level) for more privileges to create and revoke own tokens
 D) Set Up Company (Full level)</p>
-<p>A) Assign integration specific read/write permissions</p>
-<p>We recommend that you make a copy of an existing role that already has the permissions required for the integrations to work and proceed to customize it further for your integration needs. This role can then be assigned to the integration user. Alternatively, you can create a new role and add the permissions required for the integrations to work.</p>
-<p>In NetSuite, go to your integration role via <em>Setup</em> &gt; <em>Users/Roles</em> &gt; <em>Manage Roles</em>.</p>
+<p>A) Assign integration specific read/write permissions
+We recommend that you make a copy of an existing role that already has the permissions required for the integrations to work and proceed to customize it further for your integration needs. This role can then be assigned to the integration user. Alternatively, you can create a new role and add the permissions required for the integrations to work.</p>
+<p>In NetSuite, go to your integration role via <em>Setup</em>&gt;<em>Users/Roles</em>&gt;<em>Manage Roles</em>.</p>
 <p><img src="../assets/images/connectors/netsuite/setup-integration-role-1.png" alt="Setup &gt; Users/Roles &gt; Manage Roles">
 <em>Setup &gt; Users/Roles &gt; Manage Roles</em></p>
-<p>Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the <strong>Sales Order - Create</strong> permission level, and if you wish to be able to create and update and read sales order data, select the <strong>Full</strong> permission level.</p>
+<p>Under the other tabs in Permissions, set up the permissions and permission levels you wish this role to have. This should correspond with what you wish to do with your Workato integration, e.g. if you wish to create sales orders in NetSuite, you should have the <strong>Sales Order - Create</strong> permission level, and if you wish to be able to create and update and read sales order data, select the Full permission level.</p>
 <p><img src="../assets/images/connectors/netsuite/setup-integration-role-4.png" alt="Set up integration specific permissions">
 <em>Set up integration specific permissions</em></p>
 <p>Refer to the <a href="https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N285937.html" target="_blank">NetSuite documentation</a> for more details about customizing or creating roles and setting permissions.</p>
-<p>B. Assign Web Services permissions to integration role</p>
-<p>Check the <strong>Web Services Only Role</strong> checkbox if you don&apos;t want this role to have the ability to login to NetSuite (i.e. if you want this user to only have the ability to connect to NetSuite via the API).</p>
+<p>B. Assign Web Services permissions to integration role
+Check the <strong>Web Services Only Role</strong> checkbox if you don&apos;t want this role to have the ability to login to NetSuite (i.e. if you want this user to only have the ability to connect to NetSuite via the API).</p>
 <p><img src="../assets/images/connectors/netsuite/setup-integration-role-2.png" alt="Check Web Services Only Role checkbox if relevant">
 <em>Check Web Services Only Role checkbox if relevant</em></p>
-<p>Under <em>Permissions</em> &gt; <em>Setup</em>, add the Web Services permissions with a <strong>Full</strong> level.</p>
+<p>Under <em>Permissions</em>&gt;<em>Setup</em>, add the Web Services permissions with a Full level.</p>
 <p><img src="../assets/images/connectors/netsuite/setup-integration-role-3.png" alt="Assign Full level Web Services permissions">
 <em>Assign Full level Web Services permissions</em></p>
-<p>C. Assign token-based authentication permissions to integration role</p>
-<p>There are 3 types of <a href="https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html#bridgehead_4249074259" target="_blank">token-based authentication permissions</a>:</p>
+<p>C. Assign token-based authentication permissions to integration role
+There are 3 types of <a href="https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html#bridgehead_4249074259" target="_blank">token-based authentication permissions</a>:</p>
 <ul>
 <li>Access Token Management</li>
 <li>User Access Tokens</li>
 <li>Log in using Access Tokens</li>
 </ul>
 <p>We need the <strong>Log in using Access Tokens</strong> permission at a minimum to enable the user to authenticate via token-based authentication. If you would like the integration user to be able to create and revoke access tokens for their own use, you can give the role the <strong>User Access Tokens</strong> permissions. We recommend that the integration user not have the <strong>Access Token Management</strong> permissions for better security maintenance.</p>
-<p>Under <em>Permissions</em> &gt; <em>Setup</em>, add the <strong>Log in using Access Tokens</strong> permission with a <strong>Full</strong> level.</p>
+<p>Under <em>Permissions</em>&gt;<em>Setup</em>, add the <strong>Log in using Access Tokens</strong> permission with a Full level.</p>
 <p><img src="../assets/images/connectors/netsuite/assign-login-using-access-token-permissions.png" alt="Assign Login using access token permissions">
 <em>Assign Login using access token permissions</em></p>
-<p>D. Assign Set Up Company (Full level) permissions to integration role</p>
-<p>Lastly, add the Set Up Company (Full level) permissions to the integration role.</p>
+<p>D. Assign Set Up Company (Full level) permissions to integration role
+Lastly, add the Set Up Company (Full level) permissions to the integration role.</p>
 <p><img src="../assets/images/connectors/netsuite/assign-set-up-company-permissions.png" alt="Assign Set Up Company permissions">
 <em>Assign Set Up Company permissions</em></p>
 <h3 id="4-set-up-an-integration-user">4. Set up an integration user</h3>
 <p>Once we&apos;ve set up our integration role, we need to assign this role to our integration user. We recommend creating a separate user for your integrations.</p>
-<p>In NetSuite, go to <em>Setup</em> &gt; <em>Users/Roles</em> &gt; <em>Manage Users</em> to edit an existing user or create a new user.</p>
+<p>In NetSuite, go to <em>Setup</em>&gt;<em>Users/Roles</em>&gt;<em>Manage Users</em> to edit an existing user or create a new user.</p>
 <p><img src="../assets/images/connectors/netsuite/setup-integration-user-1.png" alt="Set up other permissions and permission levels">
-<em>Navigate to Setup &gt; Users/Roles &gt; Manage Users</em></p>
+<em>Navigate to Setup&gt;Users/Roles&gt;Manage Users</em></p>
 <p>When editing a user, under the Access tab, ensure you assign this user the integration role you&apos;ve just created/edited above.</p>
 <p><img src="../assets/images/connectors/netsuite/setup-integration-user-2.png" alt="Assign integration role">
 <em>Assign integration role to user</em></p>
 <h3 id="5-create-access-token">5. Create access token</h3>
 <p>Finally, create an access token for the integration user. If the integration user has <strong>User Access Tokens</strong> permissions, they will be able to create and revoke their own tokens. If the integration user has only <strong>Log in using Access Tokens</strong> permissions, you will need to use a user with <strong>Access Token Management</strong> permissions to create an access token for the integration user.</p>
-<p>Go to <em>Setup</em> &gt; <em>Users/Roles</em> &gt; <em>Access Tokens</em> &gt; <em>New</em>.</p>
+<p>Go to <em>Setup</em>&gt;<em>Users/Roles</em>&gt;<em>Access Tokens</em>&gt;<em>New</em>.</p>
 <p><img src="../assets/images/connectors/netsuite/access-token.png" alt="Setup &gt; Users/Roles &gt; Access Tokens &gt; New">
 <em>In NetSuite, go to Setup&gt;Users/Roles&gt;Access Tokens&gt;New</em></p>
 <p>Select the integration record, integration user and role we created earlier, then click save. Record the token ID and token secret somewhere and keep it confidential - these will not be retrievable again from NetSuite. These will be used for connecting to NetSuite on Workato.</p>
@@ -8217,7 +8217,7 @@ To update your NetSuite record, you first need to specify which record to update
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"NetSuite","date":"2017-04-28T06:15:00.000Z","level":"1.17.17","depth":2,"next":{"title":"Connection setup","level":"1.17.17.1","depth":3,"anchor":"#how-to-connect-to-netsuite-on-workato","path":"connectors/netsuite.md","ref":"connectors/netsuite.md#how-to-connect-to-netsuite-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.17.16.10","depth":3,"path":"connectors/mysql/scheduled-query-trigger.md","ref":"connectors/mysql/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/netsuite.md","mtime":"2018-10-17T00:22:48.710Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-17T00:24:02.171Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"NetSuite","date":"2017-04-28T06:15:00.000Z","level":"1.17.17","depth":2,"next":{"title":"Connection setup","level":"1.17.17.1","depth":3,"anchor":"#how-to-connect-to-netsuite-on-workato","path":"connectors/netsuite.md","ref":"connectors/netsuite.md#how-to-connect-to-netsuite-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.17.16.10","depth":3,"path":"connectors/mysql/scheduled-query-trigger.md","ref":"connectors/mysql/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/netsuite.md","mtime":"2018-10-17T00:33:33.575Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-17T00:35:28.177Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
