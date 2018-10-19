@@ -14,13 +14,13 @@ Scheduler triggers allows you to schedule when exactly your recipe will run. The
 This trigger allows you to specify the time the recipe should first trigger, and subsequently, the time intervals to continue triggering on.
 
 ![Basic scheduler trigger](/assets/images/recipes/triggers/basic-scheduler-trigger.png)
-*Basic scheduler trigger that triggers the first time when recipe is started, then subsequently every hour after that*
+*Basic scheduler trigger that triggers the first time when recipe is started, then subsequently every 5 minutes after that*
 
 - New scheduled event (advanced)
 
-This trigger allows you to specify the days of the week the recipe should trigger on, as well as the times it should trigger on. If you specify only the minutes, e.g. 30, the recipe will trigger 24 times in a day, every 30 minutes past the hour. If both hour and minute inpur fields are filled, the recipe will trigger once a day.
+This trigger allows you to specify the days of the week the recipe should trigger on, as well as the times it should trigger on. If you specify only the minutes, e.g. 30, the recipe will trigger 24 times in a day, every 30 minutes past the hour. If both hour and minute input fields are filled, the recipe will trigger once a day.
 
-![Advanced scheduler trigger](/assets/images/recipes/triggers/advanced-scheduler-trigger.gif) *Advanced scheduler trigger that triggers every Monday at midnight 0000*
+![Advanced scheduler trigger](/assets/images/recipes/triggers/advanced-scheduler-trigger.gif) *Advanced scheduler trigger that triggers every Sunday at midnight 0000*
 
 Note that all times set using Scheduler are in the user's time zone, which can be viewed and edited in the user's account settings.
 
