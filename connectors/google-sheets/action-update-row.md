@@ -10,7 +10,7 @@ date: 2017-10-04 23:00:00 Z
 This action allows you to update a row in a sheet. It is often used together with action [Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows.html), so you will first search for the rows you want then update them.
 
 ## How to use it
-The following example will demonstrate how to use actions `Search rows` and `Update rows` together.
+The following example will demonstrate how to use the `Update row` action in conjunction with `Search rows`.
 
 Our sample sheet is a list of items from different countries. For Google Sheets connector to work, the sheet needs to have at least 1 header row and 1 data row.
 

@@ -10,7 +10,7 @@ date: 2017-10-04 23:00:00 Z
 This action allows you to search for rows in a sheet using search values in each individual column. The action will search for **exact matches** of the search values you provide.
 
 ## How to use it
-The following example will demonstrate how to use actions `Search rows` and `Update rows` together.
+The following example will demonstrate how to use the `Search rows` action in conjunction with `Update row`.
 
 Our sample sheet is a list of items from different countries. For Google Sheets connector to work, the sheet needs to have at least 1 header row and 1 data row.
 
