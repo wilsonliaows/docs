@@ -6,9 +6,10 @@ date: 2018-09-01 06:00:00 Z
 # On-premises command-line scripts
 Enterprises often have on-premises applications and databases that are deployed within their corporate datacenter.
 
-Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network. The command is executed by the on-premise agent. You can whitelist any command that can be run on the machine with the on-premise agent. 
+Workato's `On-prem command-line scripts` connector allows you to run whitelisted command line scripts in your private network. The command is executed by the on-premise agent. You can whitelist any command that can be run on the machine with the on-premise agent.
 
 ![On-prem command-line scripts connector](/assets/images/connectors/on-prem-command-line-scripts/on-prem-scripts-action.png)
+
 
 ## Setup and connection
 1. First, follow the instructions to [setup an on-prem agent](https://docs.workato.com/on-prem/setup.html).
@@ -24,6 +25,7 @@ Workato's `On-prem command-line scripts` connector allows you to run whitelisted
 ![On-prem files connection setup](/assets/images/connectors/on-prem-command-line-scripts/on-prem-scripts-connection.png)
 
 5) Click on `Link your account`. If everything is setup correctly, you will see a `Connection success` message.
+
 
 ## Execute command-line script action
 
@@ -48,7 +50,7 @@ In the fields, you should provide data pills or static data that you wish to use
 ### Other parameters
 
 - **Timeout**
-<br>The `timeout` parameter is specified in the `config.yml` file. This property is the maximum duration (in seconds) for each script execution. The value of the timeout parameter defaults to 90 seconds when not provided. 
+<br>The `timeout` parameter is specified in the `config.yml` file. This property is the maximum duration (in seconds) for each script execution. The value of the timeout parameter defaults to 90 seconds when not provided.
 
 - **Concurrency limit**
 <br> The `concurrency_limit` parameter is specified in the `config.yml` file. This value states the maximum number of concurrently executed scripts and defaults to 10 when not provided. After reaching the limit, requests will be queued until prior scripts are executed.
@@ -60,13 +62,15 @@ To escape parameter values, use an escape character when defining a profile in t
 ![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml.png)
 *Using an escape character*
 
-In the example shown in the image above, values in the `target_file` name can be escaped with a backslash. 
+In the example shown in the image above, values in the `target_file` name can be escaped with a backslash.
+
 
 ### Invocation styles (Synchronous/asynchronous)
 
-To invoke the command asynchronously, scroll to the 'Remove optional fields' dropdown and select the field 'Run script in background?'. Running the command in the background allows the rest of the recipe steps to continue without waiting for the command to complete (asynchronous). 
+To invoke the command asynchronously, scroll to the 'Remove optional fields' dropdown and select the field 'Run script in background?'. Running the command in the background allows the rest of the recipe steps to continue without waiting for the command to complete (asynchronous).
 
-Leave the option blank or select 'No' and the command will run in the foreground (synchronous). The recipe will wait for the command to complete its run before proceeding to the subsequent steps. 
+Leave the option blank or select 'No' and the command will run in the foreground (synchronous). The recipe will wait for the command to complete its run before proceeding to the subsequent steps.
+
 
 ### Output data
 
