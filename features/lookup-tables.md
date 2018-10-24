@@ -75,7 +75,7 @@ In the following gif, we configure the lookup entry table to search for a specif
 The following gif walks you through the flow of configuring the lookup entry action to retrieve a matching entry.
 
 ![Lookup6](/assets/images/features/lookup-tables/lookup-tables-6.gif)
-*Configuring the action to lookup entries with the matching department ID and job code*
+*Configuring the action to lookup entries with the matching job title and job code*
 
 ### Search entries action
 The search entries action works similarly to the lookup action. The main difference between them is that lookup action returns a single entry whereas the search entries action returns a list of entries.
@@ -91,7 +91,7 @@ lookup(`table name`,`column name for search`: `data pill`)[`column name for resu
 
 ### Performing lookup on in memory table
 
-Output of search entries can be used as in memory lookup table. In memory lookup function is useful when a recipe invokes the `lookup` function on the same lookup table 1000s of times. 
+Output of search entries can be used as in memory lookup table. In memory lookup function is useful when a recipe invokes the `lookup` function on the same lookup table 1000s of times.
 
 To use the lookup formula on a in memory table, set the input field to formula mode, and enter the formula in this format:
 
@@ -99,7 +99,7 @@ lookup(`entries pill from search entries action`,`column name for search`: `data
 
 
 ![lookup formula](/assets/images/features/lookup-tables/lookup-formula.gif)
-*Using the lookup table formula to lookup entries in table Test*
+*Using the lookup table formula to lookup days of the week entry in table Weekday*
 
 ## Limits
 Each lookup table supports up to 5 columns of data. Each column can be used as a key to lookup the entry.
