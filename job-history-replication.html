@@ -7774,17 +7774,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="job-history-replication">Job history replication</h1>
-<p>Workato can store the job history of all your recipes to an S3 bucket. 
-When enabled, we will create a JSON file for each job. This file will 
-contain job summary, job report, and details of all executed recipe steps. 
-The file size varies from 1kB to 1MB based on the details present in the line 
-execution logs.</p>
+                                <h1 id="audit-log-replication">Audit log replication</h1>
+<p>Workato can store the job history of all your recipes to an <strong>Amazon S3 bucket</strong> or a <strong>Sumo Logic HTTP Source</strong>. When enabled, we will create a JSON file for each job. This file will contain the job summary, job report, and details of all executed recipe steps. The file size varies from 1kB to 1MB based on the details present in the line execution logs.</p>
 <p>This is an add-on feature. Please reach out to us at +1 (844) 469-6752 or talk to your account representative to enable job history replication in your account.</p>
 <h2 id="replication-setup">Replication setup</h2>
-<p>Click on the <code>Job history replication</code> tab in your <code>Account Settings</code>.</p>
-<p><img src="assets/images/job-history-replication/settings.png" alt="Job history replication setup">
-<em>Job history replication setup.</em></p>
+<p>Click on the <a href="https://workato.com/users/current/edit#audit_log_replication" target="_blank">Audit log replication</a> tab in your <code>Account Settings</code>.</p>
+<p><img src="assets/images/job-history-replication/job-history-rep-settings.png" alt="Job history replication setup">
+<em>Audit log replication setup.</em></p>
+<h3 id="amazon-s3">Amazon S3</h3>
 <table>
 <thead>
 <tr>
@@ -7794,21 +7791,43 @@ execution logs.</p>
 </thead>
 <tbody>
 <tr>
-<td>Enable S3 replication</td>
-<td>Choose &apos;yes&apos; to replicate job history data in Amazon S3.</td>
+<td>Audit log destination</td>
+<td>Select Amazon S3 bucket in the dropdown.</td>
 </tr>
 <tr>
 <td>S3 connection</td>
 <td>Choose an Amazon S3 connection that has region and bucket. The connection should have read/write access to the bucket.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="sumo-logic">Sumo Logic</h3>
+<table>
+<thead>
 <tr>
-<td>Store line by line execution logs</td>
-<td>Store input, output and error details of all executed lines.</td>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audit log destination</td>
+<td>Select Sumologic HTTP source in the dropdown.</td>
+</tr>
+<tr>
+<td>Sumo Logic HTTP source URL</td>
+<td>Enter the Sumo Logic HTTP source URL. Learn more about <a href="https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/HTTP-Source" target="_blank">configuring a HTTP Log</a>.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="replication-events">Replication events</h3>
+<p>After connecting your log provided, choose the type of events that need to be logged. You may replicate the following by switching the individual toggles to &apos;Yes&apos;:</p>
+<ol>
+<li>Job history data</li>
+<li>Input, output and error details of all executed lines.</li>
+<li>Admin events</li>
+</ol>
 <h2 id="job-history-file">Job history file</h2>
-<p>Workato creates a JSON file for each completed or failed job in your account. </p>
+<p>Workato creates a JSON file for each completed or failed job in your account.</p>
 <h3 id="file-name">File name</h3>
 <p>The file path and name format is as follows:</p>
 <table>
@@ -7956,7 +7975,7 @@ execution logs.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Job history replication","date":"2017-05-22T03:15:00.000Z","level":"1.15.12","depth":2,"next":{"title":"Common data model","level":"1.15.13","depth":2,"path":"features/common-data-model.md","ref":"features/common-data-model.md","articles":[]},"previous":{"title":"Data retention","level":"1.15.11","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"job-history-replication.md","mtime":"2018-10-25T18:22:29.654Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-25T18:24:15.666Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Job history replication","date":"2017-05-22T03:15:00.000Z","level":"1.15.12","depth":2,"next":{"title":"Common data model","level":"1.15.13","depth":2,"path":"features/common-data-model.md","ref":"features/common-data-model.md","articles":[]},"previous":{"title":"Data retention","level":"1.15.11","depth":2,"path":"data-retention.md","ref":"data-retention.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"job-history-replication.md","mtime":"2018-10-25T18:24:01.717Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-25T18:25:39.388Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
