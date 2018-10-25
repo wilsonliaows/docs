@@ -7774,92 +7774,50 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="google-sheets-action---update-row">Google Sheets action - Update row</h1>
-<p><img src="../../assets/images/connectors/google-sheets/action-update-row.png" alt="Action Update row"></p>
-<h2 id="how-it-works">How it works</h2>
-<p>This action allows you to update a row in a sheet. It is often used together with action <a href="https://docs.workato.com/connectors/google-sheets/action-search-rows.html" target="_blank">Search rows</a>, so you will first search for the rows you want then update them.</p>
-<h2 id="how-to-use-it">How to use it</h2>
-<p>The following example will demonstrate how to use the <code>Update row</code> action in conjunction with <code>Search rows</code>.</p>
-<p>Our sample sheet is a list of items from different countries. For Google Sheets connector to work, the sheet needs to have at least 1 header row and 1 data row.</p>
-<p><img src="../../assets/images/connectors/google-sheets/sample-sheet.png" alt="Sample sheet"></p>
-<p>We realise there is an error in rows 3 &amp; 4: <code>Region</code> of &quot;Australia&quot; should be &quot;Australia and Oceania&quot;, not &quot;Asia&quot;. Let&apos;s use the following Workato recipe to correct that. It will search for rows with <code>Country</code> = &quot;Australia&quot; and <code>Region</code> = &quot;Asia&quot;, then update the <code>Region</code> to &quot;Australia and Oceania&quot; instead.</p>
-<p><img src="../../assets/images/connectors/google-sheets/sample-search-update-recipe.png" alt="Sample recipe of Google Sheets Search &amp; Update "></p>
-<p>This is how we setup the Search &amp; Update actions:</p>
-<ul>
-<li><p><strong>Step 1 - Search rows</strong>: We set <code>Region</code> = &quot;Asia&quot; and <code>Country</code> = &quot;Australia&quot;. The action will search for rows matching those conditions.</p>
-<p> <img src="../../assets/images/connectors/google-sheets/sample-search-rows.png" alt="Search rows"></p>
-</li>
-<li><p><strong>Step 2 - Repeat action</strong>: Loop through the rows from <code>Search rows</code> result, using the <code>Rows</code> data pill.</p>
-<p>  <img src="../../assets/images/connectors/google-sheets/sample-loop-rows.png" alt="Search rows"></p>
-</li>
-<li><p><strong>Step 3 - Update row</strong>: Use <code>Row number</code> data pill from the the <code>Foreach</code> loop to tell the action which row to update. We set the new <code>Region</code> value to &quot;Australia and Oceania&quot;.</p>
-<p>  <img src="../../assets/images/connectors/google-sheets/sample-update-row.png" alt="Search rows"></p>
-</li>
-</ul>
-<p>After we run the recipe, rows 3 &amp; 4 are correctly updated:</p>
-<p><img src="../../assets/images/connectors/google-sheets/sample-sheet-updated.png" alt="Sample sheet"></p>
-<h2 id="input">Input</h2>
-<table>
-<thead>
-<tr>
-<th>Input field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Spreadsheet</td>
-<td>You can either select a spreadsheet from the dropdown, or use <code>Spreadsheet ID</code> data pill from the output of other Google Sheets triggers &amp; actions.</td>
-</tr>
-<tr>
-<td>Sheet</td>
-<td>You can either select a sheet from the dropdown, or use <code>Sheet name</code> data pill from the output of other Google Sheets triggers &amp; actions.</td>
-</tr>
-<tr>
-<td>Row number</td>
-<td>Indicate which row you want to update.</td>
-</tr>
-<tr>
-<td>Columns</td>
-<td><img src="../../assets/images/connectors/google-sheets/update-columns.png" alt="CSV columns"><br>After you select a spreadsheet, a sheet and a row in the sheet, the columns in that row will be displayed here. Enter the new values for Workato to update those columns.<br><br>For example, in the screenshot above, Workato will update the selected row with new values: <br><code>Region</code> = <code>&quot;Europe&quot;</code> AND <code>Country</code> = <code>&quot;Sweden&quot;</code> AND <code>Item</code> = <code>&quot;Car&quot;</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="output">Output</h2>
-<table>
-<thead>
-<tr>
-<th>Output pill</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Spreadsheet ID</td>
-<td>ID of the spreadsheet. You can map this into <code>Spreadsheet</code> input field of other Google Sheets actions, instead of selecting the spreadsheet from the dropdown.</td>
-</tr>
-<tr>
-<td>Spreadsheet name</td>
-<td>Name of the spreadsheet.</td>
-</tr>
-<tr>
-<td>Sheet name</td>
-<td>Name of the sheet. You can map this into <code>Sheet</code> input field of other Google Sheets actions, instead of selecting the sheet from the dropdown.</td>
-</tr>
-<tr>
-<td>Updated range</td>
-<td>The range in the sheet that this action have updated.</td>
-</tr>
-<tr>
-<td>Updated columns count</td>
-<td>The number of columns this action has updated.</td>
-</tr>
-<tr>
-<td>Columns</td>
-<td><img src="../../assets/images/connectors/google-sheets/output-columns.png" alt="CSV columns"><br>This contains the values of all updated columns in the selected row.</td>
-</tr>
-</tbody>
-</table>
+                                <h1 id="google-sheets-action---update-row-old-version">Google Sheets action - Update row (old version)</h1>
+<p><strong>Note</strong>: This article is about action Update row (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this <a href="https://docs.workato.com/connectors/google-sheets/action-update-row-v4.html" target="_blank">new action Update row</a> instead (will be released soon).</p>
+<p>The <strong>Update row</strong> action allows you to change the values of any existing row.</p>
+<p>It&apos;s often used together with a <a href="https://docs.workato.com/connectors/google-sheets/action-search-rows.html" target="_blank">Search rows</a> action. So that you will first search for the rows you want to update, then update those rows.</p>
+<h2 id="how-to-use-this-action">How to use this action</h2>
+<h3 id="setting-up-the-google-sheet">Setting up the Google sheet</h3>
+<p>First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least one header line for the first row and one data line for the second row, as in the following screenshot.</p>
+<p><img src="../../assets/images/connectors/google-sheets/sample-google-sheet.jpg" alt="Google sheet sample">
+<em>Sample Google sheet with 1 header row and 1 data rows</em></p>
+<h3 id="configuring-the-update-row-action">Configuring the Update row action</h3>
+<p>We have to select our specific spreadsheet and sheet, then pass in the row ID from the search rows action&apos;s datatree. This ID will tell the recipe the exact row to update.</p>
+<p><img src="../../assets/images/connectors/google-sheets/unconfigured-row-action.jpg" alt="Unconfigured row">
+<em>Unconfigured update row action</em></p>
+<p><img src="../../assets/images/connectors/google-sheets/row-id.jpg" alt="Row-ID">
+<em>Provide row ID from the search rows action into the update row action. This lets the recipe know the row to update</em></p>
+<h3 id="example-scenario">Example Scenario</h3>
+<p>In this case, let&apos;s assume that we wish to move any new or updated contacts from Salesforce into this Google sheet.
+<img src="../../assets/images/connectors/google-sheets/sample-two-rows.png" alt="Sample Google sheet"></p>
+<p>The following pictures show the recipe and data mappings I&apos;ve done to ensure my search will find the right row in Google Sheets, and direct new data coming in from Salesforce to the matching fields in Google Sheets.</p>
+<p><img src="../../assets/images/connectors/google-sheets/completed-recipe.jpg" alt="Complete recipe">
+<em>Completed recipe to move new or updated Salesforce contacts to selected google sheet</em></p>
+<p><img src="../../assets/images/connectors/google-sheets/row-searching.jpg" alt="Row searching">
+<em>Using <code>Search rows</code> action to search for rows in my sheet with query. Here, we search for Google Sheet row that has <code>email</code> column matching the Salesforce Contact&apos;s <code>Email</code>.</em></p>
+<p><img src="../../assets/images/connectors/google-sheets/data-treee.jpg" alt="Data Tree">
+<em>We pass <code>Row ID</code> from <code>Search rows</code> action&apos;s output to this <code>Update row</code> action, to indicate what row it should update. Then map data pill from the <code>Salesforce new/updated Contact</code> into the <code>Update row</code> action.</em></p>
+<p>Be careful to pull data from the right datatree! A common mistake is to use the pills from the <code>Search rows</code> action, which would take the existing data from your Google Sheets row and write that back into the exact same row. That&apos;s essentially doing nothing at all, so it&apos;s not very useful!</p>
+<h3 id="running-the-recipe">Running the recipe</h3>
+<p>Now that we have the trigger and action configured, let&apos;s run our recipe!</p>
+<p><img src="../../assets/images/connectors/google-sheets/configured-recipe-test.jpg" alt="Configured recipe">
+<em>Configured recipe for testing</em></p>
+<p><img src="../../assets/images/connectors/google-sheets/new-updated-contact.jpg" alt="Customized report">
+<em>Customized job report with showing details of the job processed</em></p>
+<p>Now we will update the name of a contact in Salesforce from <code>Anna Sharpay</code> to <code>Anna Mccoy</code>. Notice the email address is <code>anna@workato.com</code>.</p>
+<p><img src="../../assets/images/connectors/google-sheets/updated-salesforce-contact.png" alt="Updated Salesforce contact"></p>
+<p>Let&apos;s take a look at the job report to see how the recipe picks up this change:</p>
+<p><img src="../../assets/images/connectors/google-sheets/trigger-datas.jpg" alt="Trigger data">
+<em>The trigger did pick up the updated contact, as viewed in the job details page&apos;s output tab</em></p>
+<p><img src="../../assets/images/connectors/google-sheets/corresponding-row.jpg" alt="Corresponding row">
+<em>The <code>Search rows</code> action tries to find email <code>anna@workato.com</code>. It finds 1 row and passes the <code>Row ID</code> to the <code>Update row</code> action. <code>Update row</code> action then update the name to <code>Anna Mccoy</code></em></p>
+<p>And here is the result sheet after recipe has updated the row. Notice that the name has been changed from <code>Anna Sharpay</code> to <code>Anna Mccoy</code>.
+<img src="../../assets/images/connectors/google-sheets/sample-two-rows.png" alt="Sample Google sheet">
+<em>Original sheet</em>
+<img src="../../assets/images/connectors/google-sheets/updated-row.jpg" alt="Update row">
+<em>Updated sheet</em></p>
 
                                 
                                 </section>
@@ -7942,7 +7900,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Update row action","date":"2017-10-04T23:00:00.000Z","level":"1.17.9.6","depth":3,"next":{"title":"HTTP","level":"1.17.10","depth":2,"path":"developing-connectors/http-v2.md","ref":"developing-connectors/http-v2.md","articles":[]},"previous":{"title":"Search rows action","level":"1.17.9.5","depth":3,"path":"connectors/google-sheets/action-search-rows.md","ref":"connectors/google-sheets/action-search-rows.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/google-sheets/action-update-row.md","mtime":"2018-10-24T20:04:16.818Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-24T20:06:21.900Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Update row action","date":"2017-06-12T23:00:00.000Z","level":"1.17.9.6","depth":3,"next":{"title":"HTTP","level":"1.17.10","depth":2,"path":"developing-connectors/http-v2.md","ref":"developing-connectors/http-v2.md","articles":[]},"previous":{"title":"Search rows action","level":"1.17.9.5","depth":3,"path":"connectors/google-sheets/action-search-rows.md","ref":"connectors/google-sheets/action-search-rows.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/google-sheets/action-update-row.md","mtime":"2018-10-25T18:22:29.173Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-25T18:24:15.666Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
