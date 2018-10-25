@@ -3,31 +3,44 @@ title: Job history replication
 date: 2017-05-22 03:15:00 Z
 ---
 
-# Job history replication
-Workato can store the job history of all your recipes to an S3 bucket. 
-When enabled, we will create a JSON file for each job. This file will 
-contain job summary, job report, and details of all executed recipe steps. 
-The file size varies from 1kB to 1MB based on the details present in the line 
-execution logs.
+# Audit log replication
+Workato can store the job history of all your recipes to an **Amazon S3 bucket** or a **Sumo Logic HTTP Source**. When enabled, we will create a JSON file for each job. This file will contain the job summary, job report, and details of all executed recipe steps. The file size varies from 1kB to 1MB based on the details present in the line execution logs.
 
 This is an add-on feature. Please reach out to us at +1 (844) 469-6752 or talk to your account representative to enable job history replication in your account.
 
 ## Replication setup
-Click on the `Job history replication` tab in your `Account Settings`.
+Click on the [Audit log replication](https://workato.com/users/current/edit#audit_log_replication) tab in your `Account Settings`.
 
-![Job history replication setup](/assets/images/job-history-replication/settings.png)
-*Job history replication setup.*
+![Job history replication setup](/assets/images/job-history-replication/job-history-rep-settings.png)
+*Audit log replication setup.*
 
+
+### Amazon S3
 
 | Name             | Description           |
 |------------------|-----------------------|
-| Enable S3 replication   | Choose 'yes' to replicate job history data in Amazon S3. |
+| Audit log destination   | Select Amazon S3 bucket in the dropdown. |
 | S3 connection | Choose an Amazon S3 connection that has region and bucket. The connection should have read/write access to the bucket.                    |
-| Store line by line execution logs     | Store input, output and error details of all executed lines.                    |
+
+### Sumo Logic
+
+| Name             | Description           |
+|------------------|-----------------------|
+| Audit log destination   | Select Sumologic HTTP source in the dropdown. |
+| Sumo Logic HTTP source URL | Enter the Sumo Logic HTTP source URL. Learn more about [configuring a HTTP Log](https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/HTTP-Source). 				|
+
+### Replication events
+
+After connecting your log provided, choose the type of events that need to be logged. You may replicate the following by switching the individual toggles to 'Yes':
+
+1. Job history data
+2. Input, output and error details of all executed lines.
+3. Admin events
+
 
 ## Job history file
 
-Workato creates a JSON file for each completed or failed job in your account. 
+Workato creates a JSON file for each completed or failed job in your account.
 
 ### File name
 
