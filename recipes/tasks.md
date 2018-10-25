@@ -31,41 +31,48 @@ Tasks are counted as follows:
 The examples for how tasks may be counted in recipes are as follows:
 
 **Example 1**
+
 ![Task counting simple](/assets/images/recipes/task-counting/task-counting-eg1.png)
 *Simple recipe with one trigger and three actions*
 
-Total Tasks per job = **4**  (Trigger + Step 1 + Step 2 + Step 3)
+**Total Tasks per job =** 4  (Trigger + Step 1 + Step 2 + Step 3)
 
 **Example 2**
+
 ![Task counting with IF](/assets/images/recipes/task-counting/task-counting-eg2.png)
 *Recipe with conditional actions*
 
-Total Tasks per job = **3**  (Trigger + Step 1 + Step 3) _OR_
-**4** (Trigger + Step 1 + Step 5 + Step 6) depending on the steps it executes based on the condition.
+**Total Tasks per job =** 3  (Trigger + Step 1 + Step 3) _OR_
+4 (Trigger + Step 1 + Step 5 + Step 6) depending on the steps it executes based on the condition.
 
 Besides conditional actions, all other control statements: Conditional action with else, Action with error monitor, Call recipe, Stop, Repeat action will **not** be counted as tasks.
 
 **Example 3**
+
 ![Task counting with list](/assets/images/recipes/task-counting/task-counting-eg3.png)
 *Recipe logic with repeated actions*
 
 Actions within a Repeat action are executed multiple times according to the number of items/rows present in the list. Thus, the number of tasks is multiplied by the number of items/rows. In the image above, the 2 steps 'Create Case in Salesforce' and 'Create Case Comment in Salesforce' are the actions to be multiplied by the number of rows in the Google Sheet specified in step 1.  
 
-Total Tasks per Job = **2 + (2 x no. of rows)**. If the number of rows in the array is 5 then 12 tasks.
+**Total Tasks per job =** 2 + (2 x no. of rows). If the number of rows in the array is 5 then 12 tasks are counted.
 
 **Example 4**
+
 ![Task counting with batch](/assets/images/recipes/task-counting/task-counting-eg4.png)
 *Recipe logic with a batch action*
 
 Every batch action is considered a single task even though multiple calls or requests may be sent/received by Workato.  
 
-Total Tasks per Job = **2**
+**Total Tasks per job =** 2
 
 **Example 5**
+
 ![Task counting with batch](/assets/images/recipes/task-counting/task-counting-eg5.png)
 *Callable recipes*
 
-The recipe step that calls another recipe is not included in the total task count. In the example above,
+The recipe step that calls another recipe is not included in the total task count. In the example above, step 2, which calls another recipe, is not included in the task count.
+
+**Total Tasks per job =** 3
 
 ## Job errors and reruns
 
