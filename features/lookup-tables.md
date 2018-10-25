@@ -82,6 +82,14 @@ The search entries action works similarly to the lookup action. The main differe
 
 Use this if you expect a list of matching entries to be returned, and wish to process the list accordingly.
 
+### Truncate table
+Instead of deleting all entries one by one in the lookup table, the truncate table action deletes all entries from the specified lookup table. Using this action cannot be undone.
+
+In the example below, we are deleting all entries in the table **Weekday**
+
+![Truncate table](/assets/images/features/lookup-tables/truncate-table.gif)
+*Using truncate table action to delete all 7 entries in the table Weekday*
+
 ## Lookup table formulas
 Instead of using an action step to carry out the entry lookup, you can also use a formula to lookup entries in your lookup table. This is as efficient as the lookup action and can be done within the input field without requiring additional actions.
 
