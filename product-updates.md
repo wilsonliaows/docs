@@ -8,6 +8,25 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## Oct 16 - Oct 25 2018
+
+### Platform enhancements
+
+- **Audit log replication**
+
+  **What's new:** [Audit log replication](/job-history-replication.md) can now be done with a Sumo Logic HTTP Source. Admin events such as user login/logout, recipe start/stop, connections made/disconnected are enabled as events that can be logged.
+
+### Connector enhancements
+
+- **New adapter: Anaplan**
+
+  **What's new:** The Anaplan adapter is now released in beta. Anaplan is a cloud-based business planning and performance management platform, used by many enterprises. With this connector, you can download/upload files and import/export data in Anaplan.
+
+- **Salesforce: Search records in bulk using SOQL (Batch)**
+
+  **What's new:** Related objects can now be used in searches with the Search records in bulk using SOQL (Batch) action. Simply select the related join objects wanted. Then, select the fields you're interested in using in the recipe via the Fields input field.
+
+
 ## Oct 06 - Oct 15 2018
 
 ### Connector enhancements
