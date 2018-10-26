@@ -49,6 +49,7 @@
     * [Job details screen](recipes/jobs.md#job-details)
     * [Rerun jobs](recipes/jobs.md#rerun-jobs)
   * [Tasks](recipes/tasks.md)
+    * [Task counters](recipes/task-counters.md)
   * [Rerun job](recipes/rerun-job.md)
     * [Cached trigger data](recipes/rerun-job.md#cached-trigger-data-in-job-reruns)
     * [Job rerun history](recipes/rerun-job.md#job-rerun-history)

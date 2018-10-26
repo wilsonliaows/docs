@@ -6,7 +6,7 @@ date: 2018-10-24 14:15:00 Z
 # Tasks
 A Task is a usage metric that is counted every time Workato requests a piece of data from another platform/software or performs an action.
 
-Every recipe [job](/recipes/jobs.md) may consist of multiple tasks. The number of tasks executed in a job depends on the data of the specific trigger event and the recipe logic.
+A recipe [job](/recipes/jobs.md) may consist of multiple tasks. The number of tasks executed in a job depends on the data of the specific trigger event and the recipe logic.
 
 ## Task counting
 
@@ -87,22 +87,3 @@ In the example above, the recipe failed at step 8, 'Create comment for issue in 
 *Recipe is rerun successfully*
 
 After the error is resolved and the job is rerun, all the successfully run actions are counted as tasks. In this case, a total of 7 tasks were run in this job.
-
-## Task information
-
-The number of tasks run in a Workato account can be found in several places.
-
-For information on how many tasks are run per job, click on a job to view the total number of tasks used. Individual breakdowns per recipe line is also available in the `Statistics` tab on every action.
-
-![Task count job](/assets/images/recipes/task-counting/task-counting-ui-job-report.png)
-*Task information available on job report page*
-
-The total number of tasks run per recipe is available in the `About` tab.
-
-![Task count recipe](/assets/images/recipes/task-counting/task-counting-ui-about.png)
-*Task count by recipe in About tab*
-
-The monthly account usage is available in the [`Subscription` tab](https://www.workato.com/users/current/edit#subscription) in your Account settings.
-
-![Task count account](/assets/images/recipes/task-counting/task-count-account.png)
-*Monthly task count against total number of tasks in subscription*
