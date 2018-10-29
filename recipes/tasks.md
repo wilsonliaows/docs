@@ -74,6 +74,18 @@ The recipe step that calls another recipe is not included in the total task coun
 
 **Total Tasks per job =** 3
 
+**Example 6**
+
+![Task counting with batch](/assets/images/recipes/task-counting/task-retries.png)
+*Error monitor*
+
+In the example above, the recipe fails on the 3rd step 'Get details of a specific Account in Salesforce'. There are 2 possible scenarios when this happens: all the retries fail, or at least one of the retries are successful. 
+
+If all the retries fail, then only step 1 and the 'On error' step, 'Send email via Workato' are considered Tasks. If one retry is successful, steps 2, 3 and 4 are counted as Tasks.
+
+**Total Tasks per job =** 2 if all the retries fail and 3 if the retries succeed. 
+
+
 ## Job errors and reruns
 
 When the job results in an error, all actions that were successfully executed are counted as tasks.
