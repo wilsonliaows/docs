@@ -82,6 +82,21 @@ The search entries action works similarly to the lookup action. The main differe
 
 Use this if you expect a list of matching entries to be returned, and wish to process the list accordingly.
 
+### Update entry action
+Updates an entry to an existing lookup table. This action requires the Entry ID to be mapped. You can retrieve the Entry ID from actions such as "Search Entries", "Add entry" and "Lookup Entry" action.
+
+![Lookup8](/assets/images/features/lookup-tables/lookup-tables-8.gif)
+*Using the Update entry action to update Jean's account status to closed*
+
+### Delete entry action
+Deletes an entry in the specified lookup table by using the Entry ID.
+
+For this example, the Entry ID is being retrieved from the Search action.
+
+![Lookup9](/assets/images/features/lookup-tables/lookup-tables-9.gif)
+*Using the delete entry action to delete Jeans data in the table Account*
+
+
 ### Truncate table
 Instead of deleting all entries one by one in the lookup table, the truncate table action deletes all entries from the specified lookup table. Using this action cannot be undone.
 
