@@ -21,6 +21,14 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
   **What's new:** When creating a Box connection, users can now select the OAuth scopes to request for. This enables limiting the connection's permissions to only the relevant ones for recipes connected to Box.
 
+- **Box: New permission scopes**
+
+  **What's new:** When creating a Box connection, users can request for 2 addtional permission scopes: `Manage enterprise properties` and `Manage retention policies`. This allows buildings more powerful custom actions!
+
+- **Box: Upload large file**
+
+  **What's new:** `Upload file` action now allows large file of Gigabyte size. Previously it was limited at about 20Mb.
+
 - **Workbot: Message actions**
 
   **What's new:**: Message actions on Slack allow users to perform actions on any existing Slack messages. The [new message actions](https://product.workato.com/2018/11/05/workbot-message-actions-2/) capabilities on Workato allows users to make use of this new feature to build even more powerful Slack workflows. 
