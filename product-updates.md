@@ -29,13 +29,9 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
   **What's new:** Add custom fields that are returned in the output datatree in the 'Custom fields' textbox. This is enabled on both journal entries and journal entry line items.
 
-- **Box: Support for OAuth scope selection**
+- **Box: Support for OAuth scope selection & new scopes**
 
-  **What's new:** When creating a Box connection, users can now select the OAuth scopes to request for. This enables limiting the connection's permissions to only the relevant ones for recipes connected to Box.
-
-- **Box: New permission scopes**
-
-  **What's new:** When creating a Box connection, users can request for 2 addtional permission scopes: `Manage enterprise properties` and `Manage retention policies`. This allows buildings more powerful custom actions!
+  **What's new:** When creating a Box connection, users can now select the OAuth scopes to request for. This enables limiting the connection's permissions to only the relevant ones for recipes connected to Box. We also added 2 new scopes: `Manage enterprise properties` and `Manage retention policies`. This allows buildings more powerful custom actions!
 
 - **Box: Upload large file**
 
