@@ -8,6 +8,23 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+
+## Oct 25 - Nov 10 2018
+
+### Connector enhancements
+
+- **Microsoft Dynamics CRM: Deleted object trigger**
+
+  **What's new:** The new trigger checks for deleted objects, e.g. deleted leads, every 5 minutes. Visit the object view page -> Customize Entity -> Enable Auditing to use this trigger.
+
+- **Box: Support for OAuth scope selection**
+
+  **What's new:** When creating a Box connection, users can now select the OAuth scopes to request for. This enables limiting the connection's permissions to only the relevant ones for recipes connected to Box.
+
+- **Workbot: Message actions**
+
+  **What's new:**: Message actions on Slack allow users to perform actions on any existing Slack messages. The [new message actions](https://product.workato.com/2018/11/05/workbot-message-actions-2/) capabilities on Workato allows users to make use of this new feature to build even more powerful Slack workflows. 
+
 ## Oct 16 - Oct 25 2018
 
 ### Platform enhancements
