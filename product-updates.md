@@ -8,6 +8,39 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+
+## Oct 25 - Nov 10 2018
+
+### Connector enhancements
+
+- **Microsoft Dynamics CRM: Deleted object trigger**
+
+  **What's new:** The new trigger checks for deleted objects, e.g. deleted leads, every 5 minutes. Visit the object view page -> Customize Entity -> Enable Auditing to use this trigger.
+  
+- **ADP: Support for custom actions**
+  
+  **What's new:** The ADP adapter now allows custom actions. Select the 'Custom action' option on the action dropdown to build one with a HTTP request. 
+  
+- **ADP: Unmask sensitive data**
+
+  **What's new:** All data is masked by default with ADP. The new toggle allows users to unmask sensitive information, which will be returned in the response.
+  
+- **Netsuite: Custom fields for journal entries and line items**
+
+  **What's new:** Add custom fields that are returned in the output datatree in the 'Custom fields' textbox. This is enabled on both journal entries and journal entry line items.
+
+- **Box: Support for OAuth scope selection & new scopes**
+
+  **What's new:** When creating a Box connection, users can now select the OAuth scopes to request for. This enables limiting the connection's permissions to only the relevant ones for recipes connected to Box. We also added 2 new scopes: `Manage enterprise properties` and `Manage retention policies`. This allows buildings more powerful custom actions!
+
+- **Box: Upload large file**
+
+  **What's new:** `Upload file` action now allows large file of Gigabyte size. Previously it was limited at about 20Mb.
+
+- **Workbot: Message actions**
+
+  **What's new:**: Message actions on Slack allow users to perform actions on any existing Slack messages. The [new message actions](https://product.workato.com/2018/11/05/workbot-message-actions-2/) capabilities on Workato allows users to make use of this new feature to build even more powerful Slack workflows. 
+
 ## Oct 16 - Oct 25 2018
 
 ### Platform enhancements
