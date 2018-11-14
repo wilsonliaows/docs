@@ -254,7 +254,7 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 ![Using datapills in WHERE condition with subquery](/assets/images/oracle/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
 
-#### Unique key
+### Unique key
 
 In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
 
@@ -266,7 +266,7 @@ Let's use a simple example to illustrate this behavior. We have a **New row trig
 
 Performance of a trigger can be improved if the column selected to be used as the **unique key** is indexed.
 
-#### Sort column
+### Sort column
 
 This is required for **New/updated row triggers**. Values in this selected column are used to identify updated rows.
 
@@ -277,3 +277,16 @@ Let's use a simple example to illustrate this behavior. We have a **New/updated 
 2. `ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
 
 For Oracle database, only **date**, **timestamp**, **timestamp with time zone** and **timestamp with local time zone** column types can be used.
+
+### Smart boolean conversion
+
+Oracle does not have a built-in boolean column type. A popular workaround is to use a `NUMBER(1,0)` column with a `CHECK (COLUMN_NAME IN(1,0))` constraint. Because of this, standard values from other applications will not map well to this column and may cause unexpected values or errors.
+
+This checkbox allows you to enable automatic smart conversion. If this is set to **Yes**, the conversion will be applied to all columns with `NUMBER` type and precision of `1`. This reduces the amount of configuration needed to transform datapills in a recipe. The following table describes the logic for the boolean conversion.
+
+|Input value|Converted value|
+|-|-|
+|`true`|`1`|
+|`false`|`0`|
+|`"true"`|`1`|
+|`"false"`|`0`|
