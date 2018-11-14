@@ -7,7 +7,7 @@ date: 2018-09-25 10:00:00 Z
 
 Group data mapping is a useful feature that enables the automatic mapping of fields based on matches between the field name and data pill name. This is especially helpful when there are a large number of fields that need to be mapped (eg. in database applications).
 
-The feature allows a 1-1 mapping of the fields in 1 recipe step (action) from 1 data source.
+The feature allows a 1-to-1 mapping of fields in a recipe step from a selected data source.
 
 ## Activate the group mapping wizard
 
@@ -37,7 +37,7 @@ In the current iteration, the matches between data sources and fields are based 
 
 - Matches are case-insensitive
 - Matches ignore underscores and spaces
-- All data types (eg. string, integer, boolean etc.) can be matched to each other but array types cannot be mapped to non-arrays
+- All data types (eg. string, integer, boolean etc.) can be matched to each other but arrays cannot be mapped to non-arrays
 - The pill label and API name will be matched to the field label or API name
 - The match has to be an exact match minus underscores, spaces and case
 
