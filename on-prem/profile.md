@@ -509,8 +509,8 @@ The parameter configuration properties are as follows:
 | secret | Optional environment property that is used in the Java class. Multiple properties can be added. |
 
 #### Build SDK
-In order to use the extension in a recipe, we need a custom adapter (SDK) in Workato.
-You can install the pre-built adapter for this example here: (https://github.com/workato/connector_sdk/blob/master/basic_auth/onprem_security.rb)
+In order to use the extension in a recipe, we need a custom connector (SDK) in Workato.
+Create an custom connector in the [Connectors page](https://www.workato.com/custom_adapters) with the following code:
 ```ruby
 {
   title: 'On-prem security',
