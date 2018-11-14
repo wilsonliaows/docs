@@ -31,7 +31,7 @@ It is very useful to be able to query resources instead of locating them based o
 There are 3 modes of using a custom SDK based connector
 
 1. Private connector
-2. Shared connector 
+2. Shared connector
 3. Public connector
 
 ## Build a private custom connector
@@ -45,7 +45,7 @@ Custom connectors can be shared with other Workato accounts. As owner of the cus
 Sharing is achieved by copying. Each Workato account you share the connector with will have the ability to make a copy of your custom connector code at that point in time. Subsequently, these Workato accounts can make modifications on their copy of the custom connector.
 
 ### Install someone else's connector
-When users try to copy a recipe that uses a custom connector, they will be asked if they wish to request a **share link** for the custom connector. If they request for it, as the custom connector owner, you will be notified via email, and you can choose to share this link with them. Workato will send the requester a **share link**. The requester can click through this link to install the connector in their account. 
+When users try to copy a recipe that uses a custom connector, they will be asked if they wish to request a **share link** for the custom connector. If they request for it, as the custom connector owner, you will be notified via email, and you can choose to share this link with them. Workato will send the requester a **share link**. The requester can click through this link to install the connector in their account.
 
 This creates a copy of the connector in their account.
 
@@ -55,6 +55,6 @@ When the custom connector owner makes a change to the custom connector code, all
 The upgrade function will overwrite the copy of the custom connector code with the latest version of the master copy of the custom connector. This means that any changes to the custom connector code made by the requester will be overwritten. Do take note that this upgrade link appears whenever there is any change to the master copy of the custom connector, not necessarily when the custom connector owner has made a curated change.
 
 ## Public connector
-To enable global scope for your private connector, and make it such that all Workato users will be able to view and use your custo connector, you have to submit your code to Workato for review. Our team will approve or request for modifications within a few days.
+To enable global scope for your private connector, and make it such that all Workato users will be able to view and use your custom connector, you have to submit your code to Workato for review. Our team will approve or request for modifications within a few days.
 
-You can begin this process by submitting a pull request to our [custom connectors repository](https://github.com/workato/connector_sdk).
+You can begin this process by submitting a pull request to our [custom connectors repository](https://github.com/workato/custom_connector_docs).

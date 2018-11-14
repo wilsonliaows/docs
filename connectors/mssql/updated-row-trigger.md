@@ -96,6 +96,9 @@ This trigger picks up rows that are inserted/updated in the selected table or vi
 ## New/updated batch of rows via custom SQL
 This trigger picks up rows when any rows matching the custom SQL are inserted/updated. These rows are processed as a batch of rows for each job. This batch size can be configured in the trigger input. It checks for new rows once every poll interval. The poll interval can be 10 mins or 5 mins, depending on your plan. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) to find out more.
 
+## Supported versions
+This trigger is only supported for SQL Server 2012 or newer. It uses a default stored procedure `sp_describe_first_result_set` that is only available from SQL Server 2012 onwards.
+
 ![New/updated batch of rows via custom SQL trigger](/assets/images/mssql/new-updated-batch-of-rows-via-custom-sql-trigger.png)
 *New/updated batch of rows trigger via custom SQL*
 
@@ -146,10 +149,33 @@ Values from this selected column is used to deduplicate rows in the selected tab
 
 As such, the values in the selected column should not be repeated in your table. Typically, this column is the primary key of the table (e.g. `ID`). It should be incremental and sortable. This column can also be indexed for better performance.
 
+Only columns that have **PRIMARY KEY** or **UNIQUE** constraints can be used. Run this SQL query to find out which columns fulfill this requirement.
+
+```sql
+SELECT col.column_name
+FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE col
+JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS c ON c.constraint_name = col.constraint_name
+WHERE
+  c.constraint_type IN ('PRIMARY KEY','UNIQUE') AND
+  c.table_schema='schema_name' AND
+  c.table_name='table_name'
+```
+
 ### Sort column
 Sort column is a column that is updated whenever a row in the table is updated. Typically, this is a timestamp column.
 
 When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected [**Unique key**](#unique-key) column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
+
+Only **datetime2** and **datetime** column types can be used. Run this SQL query to find out which columns fulfill this requirement.
+
+```sql
+SELECT column_name
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE
+  table_schema='table_schema' AND
+  table_name='table_name' AND
+  data_type in('datetime', 'datetime2')
+```
 
 ### Batch size
 Batch size of rows to return in each job. This can be any number between **1** and the maximum batch size. Maximum batch size is **100** and default is **100**.

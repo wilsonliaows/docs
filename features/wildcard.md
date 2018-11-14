@@ -31,4 +31,6 @@ Whether the search key is case-insensitive or not (i.e. returns both “report2.
 ## Currently supported triggers & actions
 Wildcards are currently supported in the following triggers and actions. The list will be updated as we add more support in the future:
 
+* On-prem file's trigger "New file in folder"
+* On-prem file's trigger "New CSV file in folder"
 * On-prem file's action "List files in folder"

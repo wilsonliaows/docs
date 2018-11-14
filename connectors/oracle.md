@@ -52,6 +52,56 @@ The Oracle connector uses basic authentication to authenticate with Oracle.
   </tbody>
 </table>
 
+### Permissions required to connect
+
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-oracle-on-workato).
+
+If we are trying to connect to a named schema (`HR_PROD`) in an Oracle instance, using a new database user `WORKATO`, the following example queries can be used.
+
+First, create a new user dedicated to integration use cases with Workato.
+```sql
+CREATE USER WORKATO IDENTIFIED BY password;
+```
+
+Next, grant `CONNECT` to this user.
+
+```sql
+GRANT CONNECT TO WORKATO;
+```
+
+This allows the user to have login access to the Oracle instance. However, this user will not have access to any tables.
+
+The next step is to grant access to `SUPPLIER` table in the `HR_PROD` schema. In this example, we only wish to grant `SELECT` and `INSERT` permissions.
+
+```sql
+GRANT SELECT,INSERT ON HR_PROD.SUPPLIER TO WORKATO;
+```
+
+Finally, check that this user has the necessary permissions. Run a query to see all grants.
+
+```sql
+SELECT * FROM DBA_ROLE_PRIVS WHERE GRANTEE = 'WORKATO';
+SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE = 'WORKATO';
+```
+
+This should return the following minimum permission to create a Oracle connection on Workato.
+
+```
++---------+--------------+--------------+--------------+
+| GRANTEE | GRANTED_ROLE | ADMIN_OPTION | DEFAULT_ROLE |
++---------+--------------+--------------+--------------+
+| WORKATO | CONNECT      | NO           | YES          |
++---------+--------------+--------------+--------------+
+
++---------+---------+------------+---------+-----------+-----------+-----------+
+| GRANTEE | OWNER   | TABLE_NAME | GRANTOR | PRIVILEGE | GRANTABLE | HIERARCHY |
++---------+---------+------------+---------+-----------+-----------+-----------+
+| WORKATO | HR_PROD | SUPPLIER   | ROOT    | SELECT    | NO        | NO        |
+| WORKATO | HR_PROD | SUPPLIER   | ROOT    | INSERT    | NO        | NO        |
++---------+---------+------------+---------+-----------+-----------+-----------+
+3 rows in set (0.61 sec)
+```
+
 ## Working with the Oracle connector
 
 ### Table, view and stored procedure
@@ -92,7 +142,7 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [Oracle documentation](http://www.oracle.com/technetwork/issue-archive/2012/12-mar/o22sql-1494267.html) for a full list of rules for writing Oracle statements.
 
-#### WHERE operators
+#### Operators
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -146,6 +196,11 @@ This clause will be used as a `WHERE` statement in each request. This should fol
     <tr>
       <td>LIKE</td>
       <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
+      <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
+    </tr>
+    <tr>
+      <td>BETWEEN</td>
+      <td>Retrieve values with a range</td>
       <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
     </tr>
     <tr>
@@ -183,7 +238,7 @@ Column names that do not conform to standard rules (includes spaces, lower-case 
 "PUBLISHER NAME" = 'USD'
 ```
 
-![WHERE condition with enclosed identifier](/assets/images/oracle/where_condition_with_enclosed_idEntifier.png)
+![WHERE condition with enclosed identifier](/assets/images/oracle/where_condition_with_enclosed_identifier.png)
 *`WHERE` condition with enclosed identifier*
 
 #### Complex statements
@@ -198,3 +253,27 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ![Using datapills in WHERE condition with subquery](/assets/images/oracle/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
+
+#### Unique key
+
+In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
+
+As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
+
+When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
+
+Let's use a simple example to illustrate this behavior. We have a **New row trigger** that processed rows from a table. The **unique key** configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use `ID >= 101` as the condition to look for new rows.
+
+Performance of a trigger can be improved if the column selected to be used as the **unique key** is indexed.
+
+#### Sort column
+
+This is required for **New/updated row triggers**. Values in this selected column are used to identify updated rows.
+
+When a row is updated, the **Unique key** value remains the same. However, it should have it's **Sort column** updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected **Unique key** column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
+
+Let's use a simple example to illustrate this behavior. We have a **New/updated row trigger** that processed rows from a table. The **Unique key** and **Sort column** configured for this trigger is `ID` and `UPDATED_AT` respectively. The last row processed by the trigger has `ID` value of `100` and `UPDATED_AT` value of `2018-05-09 16:00:00.000000`. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
+1. `UPDATED_AT > '2018-05-09 16:00:00.000000'`
+2. `ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
+
+For Oracle database, only **date**, **timestamp**, **timestamp with time zone** and **timestamp with local time zone** column types can be used.

@@ -56,6 +56,44 @@ The PostgreSQL connector uses basic authentication to authenticate with PostgreS
   </tbody>
 </table>
 
+### Permissions required to connect
+
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-postgresql-on-workato).
+
+If we are trying to connect to a PostgreSQL instance, using a new database user `workato`, the following example queries can be used.
+
+First, create a new user dedicated to integration use cases with Workato.
+```sql
+CREATE USER workato WITH PASSWORD 'password';
+```
+
+The next step is to grant access to `customer` table in the schema. In this example, we only wish to grant `SELECT` and `INSERT` permissions.
+
+```sql
+GRANT SELECT,INSERT ON customer TO workato;
+```
+
+Finally, check that this user has the necessary permissions. Run a query to see all grants.
+
+```sql
+SELECT grantee, table_name, privilege_type
+FROM information_schema.role_table_grants
+WHERE grantee = 'workato';
+```
+
+This should return the following minimum permission to create a PostgreSQL connection on Workato.
+
+```
++---------+------------+----------------+
+| grantee | table_name | privilege_type |
++---------+------------+----------------+
+| workato | customer   | SELECT         |
++---------+------------+----------------+
+| workato | customer   | INSERT         |
++---------+------------+----------------+
+2 rows in set (0.26 sec)
+```
+
 ## Working with the PostgreSQL connector
 
 ### Table, view and stored procedure
@@ -120,7 +158,7 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [PostgreSQL documentation](https://dev.postgresql.com/doc/refman/5.7/en/language-structure.html) for a full list of rules for writing PostgreSQL statements.
 
-#### WHERE operators
+#### Operators
 
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -174,6 +212,11 @@ This clause will be used as a `WHERE` statement in each request. This should fol
     <tr>
       <td>LIKE</td>
       <td>Pattern matching with wildcard characters (<code>%</code> and <code>&#95</code>)</td>
+      <td><code>WHERE EMAIL LIKE '%@workato.com'</code></td>
+    </tr>
+    <tr>
+      <td>BETWEEN</td>
+      <td>Retrieve values with a range</td>
       <td><code>WHERE ID BETWEEN 445 AND 783</code></td>
     </tr>
     <tr>
@@ -228,3 +271,23 @@ When used in a **Delete rows** action, this will delete all rows in the `users` 
 
 ![Using datapills in WHERE condition with subquery](/assets/images/postgresql/use_datapill_in_where_complex.png)
 *Using datapills in `WHERE` condition with subquery*
+
+#### Unique key
+
+In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
+
+As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
+
+When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
+
+Let's use a simple example to illustrate this behavior. We have a **New row trigger** that processed rows from a table. The **unique key** configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use `ID >= 101` as the condition to look for new rows.
+
+Performance of a trigger can be improved if the column selected to be used as the **unique key** is indexed.
+
+#### Sort column
+
+This is required for **New/updated row triggers**. Values in this selected column are used to identify updated rows.
+
+When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected **Unique key** column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
+
+For PostgreSQL, only **timestamp** and **timestamp with time zone** column types can be used.
