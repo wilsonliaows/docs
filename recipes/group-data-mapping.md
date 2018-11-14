@@ -7,7 +7,7 @@ date: 2018-09-25 10:00:00 Z
 
 Group data mapping is a useful feature that enables the automatic mapping of fields based on matches between the field name and data pill name. This is especially helpful when there are a large number of fields that need to be mapped (eg. in database applications).
 
-The feature allows a 1-1 mapping of the fields in 1 recipe step from 1 data source based on field - pill name match (case insensitive) and data type.
+The feature allows a 1-to-1 mapping of fields in a recipe step from a selected data source.
 
 ## Activate the group mapping wizard
 
@@ -29,9 +29,28 @@ Field groups are fields that appear as nested fields in the recipe UI. They foll
 
 After selecting the fields to be mapped, select the data source the pills should come from. The data sources available are from your Account Properties, the trigger and all recipe steps prior to the one chosen. Similar to field groups, you can choose to map from the output of an entire step, or a nested array within. In the example above, you can see nested data 'Files' in the Salesforce output (highlighted in blue).
 
-In the current iteration, the matches are based on the **name** of the field to be mapped and the name of the data pill. The name matching is case-insensitive. The **data type** needed in the field and the data type of the pill also have to match.
-
 After selecting the fields and data source, the wizard will display the matches and will highlight them in bold on both the left and right. It will also show the number of matching fields below the 'Next' button. Click on it to continue.
+
+## How data sources and fields are matched
+
+In the current iteration, the matches between data sources and fields are based on the **name/label** and **API name** of both the field to be mapped and the data pills from the data source.
+
+- Matches are case-insensitive
+- Matches ignore underscores and spaces
+- All data types (eg. string, integer, boolean etc.) can be matched to each other but arrays cannot be mapped to non-arrays
+- The pill label and API name will be matched to the field label or API name
+- The match has to be an exact match minus underscores, spaces and case
+
+### Examples
+
+All examples below refer to the field and data pill labels.
+
+| **Field** | **Data pill** | **Match?**| **Explanation** |
+|-----------|---------------|-----------|-----------------|
+| Account name | Account name | Yes     | Exact match |
+| ACCOUNT NAME | account name | Yes     | Case is ignored |
+| account_name | accountname | Yes      | Underscores and spaces are ignored|
+| Account_name | accountname_c | No     | accountname_c has an extra character 'c' |
 
 ## Data mapping preview
 
