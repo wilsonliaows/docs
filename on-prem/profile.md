@@ -15,6 +15,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
  - [Command-line scripts](#command-line-scripts-profile)
+ - [Extensions](#extensions)
 
  Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premises agents installed in a server with limited internet connectivity.
 
@@ -339,11 +340,11 @@ When you declare an action, you need to specify the values of the parameters.
 
 An example profile on Unix can look like this:
 ```YAML
-command_line_scripts: 
+command_line_scripts:
   workday_reports:
     concurrency_limit: 3
     timeout: 30
-    scripts: 
+    scripts:
      copy_file:
        name: Copy file
        command:
@@ -353,7 +354,7 @@ command_line_scripts:
        parameters:
          - { name: source_file }
          - { name: target_directory }           
-     
+
      append_file_to_another:
        name: Append file to another
        command:
@@ -365,7 +366,7 @@ command_line_scripts:
          - { name: source_file, quote: '"' }
          # Advanced parameter quoting
          - { name: target_file, quote: { start: '"', end: '"', quote: '"', escape_char: \ } }
-             
+
      generate_report:
        name: Generate report
        command:
@@ -381,7 +382,7 @@ command_line_scripts:
          - { name: from_date }
          - { name: to_date, schema: { optional: true, control_type: select, pick_list: [01/01/2018, 02/02/2018] } }
 ```
-The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows: 
+The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
@@ -400,7 +401,7 @@ The hash key is used as an unique identifier for a script profile. The script co
 
 <br>
 The command invocation element configuration can be just a string, but also can contain these properties:
- 
+
 | Property name | Description |
 |------------------|-------------------------------------------|
 | value | The command invocation element value. |
@@ -437,3 +438,119 @@ The parameter schema configuration can have properties as follows:
 | label | **Optional**. Friendly name for the script, that will be displayed in the recipe UI (defaults to the parameter name). |
 | control_type | **Optional**. Can be 'text' or 'select'. If it's 'select', property 'pick_list' should also be defined. Defaults to 'text'. |
 | pick_list | **Optional**.  Values for selecting the parameter value. This property should be defined if property 'control_type' has value 'select'. |
+
+## Extensions
+Enterprises often have on-premises applications and databases that are deployed within their corporate datacenter.
+
+Workato’s On-prem extensions allows you to connect to legacy on-prem systems using Java within the Workato agent infrastructure. The extensions are registered as Servlets in the Workato On-Premise Agent, and expose a REST endpoint which can be used from within a recipe.
+
+When to use this:
+- Application does not have REST / SOAP APIs.
+- Application has a supported Java library.
+
+When not to use this:
+- Application has REST / SOAP APIs. Use the [HTTP Connector](/developing-connectors/http-v2.md) or build it with the [SDK](/developing-connectors/sdk.md).
+- You want to execute simple command-line scripts. Use [Command-line scripts](#command-line-scripts-profile) instead.
+
+### Pre-requisites:
+[Java 8 SDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+### Example
+To explain Extensions, we'll walkthrough how to create a simple extension that performs a SHA-256 message digest. This extension takes the request body and returns a SHA-256 encrypted version of it. We'll then enable it as a REST endpoint so that a recipe will be able to utilize this extension.
+
+#### Build Extension
+Download the [repository](https://github.com/workato/opa-extensions) for this extension. This is a Gradle project which will serve as a base template that you can leverage on to write your own extensions.
+
+The source file for the On-prem extension is located in
+`src/main/java/com/mycompany/onprem/SecurityExtension.java`
+
+Run `./gradlew jar` on the root folder to bootstrap Gradle and build the project. You will find the output in `build/libs/opa-extensions-0.1.jar`
+
+#### Install Extension
+To install the OPA extension, create a new directory called `ext` under the Workato agent directory and place `opa-extensions-0.1.jar` in the `ext` folder. Your directory should look like this:
+```
+Workato Agent/
+  ext/
+    opa-extensions-0.1.jar
+  bin/
+  conf/
+    config.yml
+    ...
+  ...
+```
+Update `conf/config.yml` with the classpath and newly added extension. This informs the OPA agent where to locate the jar files:
+```YAML
+server:
+    classpath: C:\\Program Files\\Workato Agent\\ext
+extensions:
+    security:
+        controllerClass: com.mycompany.onprem.SecurityExtension
+        secret: HA63A3043AMMMM
+```
+Note that the `classpath` value above should be set to the appropriate location, which may differ in your environment.
+
+If you have multiple extensions, place all jar files in the ext folder and add a new entry under extensions:
+```YAML
+server:
+    classpath: C:\\Program Files\\Workato Agent\\ext
+extensions:
+    security:
+        controllerClass: com.mycompany.onprem.SecurityExtension
+        secret: HA63A3043AMMMM
+    otherextension:
+        controllerClass: com.mycompany.onprem.OtherExtension
+```
+The parameter configuration properties are as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| security | This is the extension profile name that will be used in the SDK. Use a unique name for each extension. |
+| controllerClass | A required field to inform the OPA which Java class to map the extension to. |
+| secret | Optional environment property that is used in the Java class. Multiple properties can be added. |
+
+#### Build SDK
+In order to use the extension in a recipe, we need a custom adapter (SDK) in Workato.
+You can install the pre-built adapter for this example here: (https://github.com/workato/connector_sdk/blob/master/basic_auth/onprem_security.rb)
+```ruby
+{
+  title: 'On-prem security',
+  secure_tunnel: true,
+
+  connection: {
+    fields: [{ name: 'profile', hint: 'On-prem security connection profile' }],
+    authorization: { type: 'none'}
+  },
+
+  test: ->(connection) {
+    post("http://localhost/ext/#{connection['profile']}/computeDigest", { payload: 'test' }).headers('X-Workato-Connector': 'enforce')
+  },
+
+  actions: {
+    sha256_digest: {
+
+      title: 'Create SHA-256 digest',
+      description: 'Create <span class="provider">SHA-256</span> digest',
+
+      input_fields: ->(_) { [{ name: 'payload' }] },
+      output_fields: ->(_) { [{name: 'signature'}] },
+
+      execute: ->(connection, input) {
+        post("http://localhost/ext/#{connection['profile']}/computeDigest", input).headers('X-Workato-Connector': 'enforce')
+      }
+    }
+  }
+}
+```
+Take note of the following in the SDK code:
+- `secure_tunnel` is set to true which allows you to select an OPA when creating a connection. Make sure to select the OPA that has the extension.
+
+- Header `X-Workato-Connector: enforce` is used to inform the OPA that this is a request to communicate with the OPA extension
+
+- When connecting, `connection['profile']` should be set to `security`, as defined in `config.yml`
+
+- The path `http://localhost/ext/#{connection['profile']}/computeDigest` is defined in the Java class
+```java
+@RequestMapping(path = "/computeDigest", method = RequestMethod.POST)
+```
+
+Once configured, the SDK is ready to be used in your recipes and integrated with any other applications.
