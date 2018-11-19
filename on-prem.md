@@ -12,7 +12,7 @@ On-premises access is enabled only for certain plans. Check the [Pricing and Pla
 
 For Workato accounts with on-premises access, users are able to view the on-premises option in the Tools menu.
 
-![On-premises option](assets/images/on-prem/navigate-to-opa.png)
+![On-premises option](assets/images/on-prem/navigate-to-opa.gif)
 *On premise menu option*
 
 ## Overview

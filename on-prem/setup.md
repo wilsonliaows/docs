@@ -17,7 +17,7 @@ date: 2018-05-09 12:00:00 Z
 ### Windows
 1) On the top navigation bar, click `Tools` > `On-prem agent`. Alternatively, you can access the [On-premises agent page](https://www.workato.com/secure_agents) directly.
 
-![On-premises option](/assets/images/on-prem/navigate-to-opa.png)
+![On-premises option](/assets/images/on-prem/navigate-to-opa.gif)
 
 2) Click `Create a new agent`
 
@@ -32,8 +32,11 @@ date: 2018-05-09 12:00:00 Z
 ![On-premises option](/assets/images/on-prem/windows-os.png)
 
 5) Run the agent installer and follow the installation instructions.
+
 6) By default, the agent is installed into `C:\Program Files\Workato Agent` folder and a `Workato` group is created in the Start Menu.
+
 7) During the installation, you can choose to install a Windows service called `WorkatoAgent`.
+
 8) Unzip the `cert.zip` file and move the contents (`cert.key` and `cert.pem`) to `C:\Program Files\Workato Agent/conf` directory. It should be in the same folder as the sample `config.yml` file.
 
 An installation instruction video for Windows is also available [here](https://www.youtube.com/watch?v=Pu3GCk7OY6Q&feature=youtu.be).
@@ -41,7 +44,7 @@ An installation instruction video for Windows is also available [here](https://w
 ### Linux & Mac OS
 1) On the top navigation bar, click `Tools` > `On-premises agent`
 
-![On-premises option](/assets/images/on-prem/navigate-to-opa.png)
+![On-premises option](/assets/images/on-prem/navigate-to-opa.gif)
 
 2) Click `Create a new agent`
 
@@ -56,4 +59,5 @@ An installation instruction video for Windows is also available [here](https://w
 ![On-premises option](/assets/images/on-prem/mac-os.png)
 
 5) Unpack the agent package file into a folder of your choice, which we will refer to as `<INSTALL_HOME>` folder.
+
 6) Unzip the `cert.zip` file and move the contents (`cert.key` and `cert.pem`) to `<INSTALL_HOME>/conf` directory. It should be in the same folder as the sample `config.yml` file.
