@@ -11,7 +11,7 @@ The people task feature enables the addition of human approval steps within the 
 ## People Task setup
 People Task feature is enabled only for certain plans. Check the [Pricing and Plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
-For Workato accounts with People Task feature enabled, team owners are able to view the People Task option in their 'Tools' page. Click on 'View all Tools' and then on 'People Task'.
+For Workato accounts with People Task feature enabled, team owners are able to view the People Task option in their 'Tools' page. Click on 'All Tools' and then on 'People Task'.
 
 ![People Task option](assets/images/peopletask/people-task-nav.gif)
 *People Task Tool*
@@ -20,13 +20,13 @@ For Workato accounts with People Task feature enabled, team owners are able to v
 
 If accessing People Task for the first time, the People Task account needs to be configured. Provide a unique subdomain and customize the site for People Task approvers.
 
-The following portrays the configuration for Road Runner Inc. in the **People Task** setup screen. This configuration can be changed after the initial setup.
+The following portrays the configuration for Workato Demo Inc. in the **People Task** setup screen. This configuration can be changed after the initial setup.
 
 ![People Task configuration screen](/assets/images/peopletask/peopletask-config.gif)
 *Configure and customize People Task site*
 
 ### Adding People Task participants
-Task requesters and approvers should be added as People Task particpants. Provide their names, emails and optionally provide an avatar for them.
+Task requesters and approvers should be added as People Task participants. Provide their names, emails and optionally provide an avatar for them.
 
 
 ![Add People Task participant](/assets/images/peopletask/add-participant.gif)
@@ -80,9 +80,9 @@ Optionally used when the requester wishes the approver to provide additional dat
 
 ```
 [
-{"name":"ssn","control_type": "ssn","label": "SSN", "hint": "nnn-nn-nnnn"},
-{"name":"birth_date","type": "date_time", "control_type":"text","format":"MM-DD-YYYY", "hint":"MM-DD-YYYY"},
-{"name":"gender","control_type":"select","pick_list":[["Male", "M"],["Female", "F"]]}
+  {"control_type": "ssn","label": "SSN","name": "SSN","type": "string","hint": "nnn-nn-nnn"},
+  {"control_type": "text","label": "Birth date","name": "birth_date","type": "date_time","format": "MM-DD-YYYY","hint": "MM-DD-YYYY"},
+  {"control_type": "select","label": "Gender","name": "gender","type": "string","pick_list": [["Male","M"],["Female","F"]]}
 ]
 ```
 
@@ -111,4 +111,4 @@ As the approver, review the document sent and provide any data requested by fill
 Subsequently, approve or reject the task. The recipe will resume the job to carry out further recipe steps. Once a task has been approved or rejected, it can be found within the **Completed** tab.
 
 ![Approved People Task](/assets/images/peopletask/approved-peopletask.png)
-*Approved request moves to Completed tab*
+*Approved/Rejected request moves to Completed tab*
