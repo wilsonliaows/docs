@@ -38,19 +38,19 @@ After the retention period, detailed job logs will be erased. Job ID, job status
 Trigger event data is typically found in the job details section, within the trigger output tab as shown.
 
 ![Trigger output](/assets/images/data-retention/trigger-output.gif)
-*Trigger data for new Salesforce account Myers Brewery can be found in the trigger output.*
+*Trigger data for new Salesforce account Johnny can be found in the trigger output.*
 
 Trigger event data is typically reused to rerun a job without having to create a new trigger event.
 
 ![Rerun job](/assets/images/data-retention/rerun-job.gif)
-*Rerunning the trigger event for new Salesforce account Myers Brewery without having to create a new Salesforce account called Myers Brewery.*
+*Rerunning the trigger event for new Salesforce account Johnny without having to create a new Salesforce account called Johnny.*
 
 After the retention period, reruns for these jobs will be disabled.
 
 ## Customized job report
 Job reports can be customized to show jobs summary data that shows up on the jobs history.
 
-![Custom job report](/assets/images/data-retention/custom_job_report.png)
+![Custom job report](/assets/images/data-retention/custom_job_report.gif)
 *Custom job report showing the relevant data user defined*
 
 After the retention period, custom job reports will be erased. Job ID, job status and job timestamp will be retained.
