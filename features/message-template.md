@@ -6,11 +6,9 @@ date: 2017-12-09 18:00:00 Z
 # Message template
 Message templates enable you to create static templates for commonly used messages. Workato templates use [Mustache](https://mustache.github.io/mustache.5.html) as the templating language. Message templates can be used to generate HTML/text/JSON/XML messages. They also allow you to separate the message composition logic (what the message should look like) from the message generation logic (when the message should be sent). This separation enables the template developer to change the format of the message without making changes to the recipe that sends the message out.
 
-Workato templates are "logic-less" as there is no control flow logic in the template(if/else/looping etc). The 
-templates use tags for variable substitution, conditional blocks and list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. Tag syntax determines the tag behavior.
+Workato templates are "logic-less" as there is no control flow logic in the template(if/else/looping etc). The templates use tags for variable substitution, conditional blocks and list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. Tag syntax determines the tag behavior.
 
-Each message template has an associated input schema. The schema defines the variables that can be used in the 
-template. Schema supports both scalar data types (string, integer, date etc.) and complex data types (object, array). 
+Each message template has an associated input schema. The schema defines the variables that can be used in the template. Schema supports both scalar data types (string, integer, date etc.) and complex data types (object, array).
 
 The recipe developer has to supply the values for the template schema when creating messages from a template.
 
@@ -22,7 +20,7 @@ The UI developer builds a HTML template for outgoing emails about shipped produc
 
 The recipe developer generates the email message by selecting the template to use and providing the values for message variables.
 
-![Creating a message from a template](/assets/images/message-template/creating-message.jpg)
+![Creating a message from a template](/assets/images/message-template/creating-message.png)
 *Creating a message from a template*
 
 ## Variables
@@ -59,7 +57,7 @@ We would receive the following template output:
 ```
 
 ## Sections
-Sections render single or repeated blocks of text. Section begin with a `#` ( `{{#user}}` ) and ends with a `/` ( `{{/user}}` ). The value of the section variable determines behavior of the section. 
+Sections render single or repeated blocks of text. Section begin with a `#` ( `{{#user}}` ) and ends with a `/` ( `{{/user}}` ). The value of the section variable determines behavior of the section.
 
 ### Object section
 Section is rendered once when the value of section variable is an object. The block has access to all the keys declared in the object.
@@ -144,7 +142,7 @@ We would receive the following template output:
 Inverted section is rendered when a template variable is missing/false/empty list. Inverted section begin with a `^` ( `{{^order_lines}}` ) and ends with a `/` ( `{{/order_lines}}` ).
 
 #### Template definition with inverted section example
-We define the template below with an inverted section `order_lines` that displays an error message `No error lines!!` if the order_lines list is missing/false/empty. 
+We define the template below with an inverted section `order_lines` that displays an error message `No error lines!!` if the order_lines list is missing/false/empty.
 
 ![Template with list section](/assets/images/message-template/template-with-inverted-section.png)
 *Template with inverted section*
@@ -182,7 +180,7 @@ We define the template below with the comment `Render the management section for
 <html>
   <body>
     {{!
-      Render the management section for administrators 
+      Render the management section for administrators
     }}
     {{#admin}}
     <div class="user-management">
@@ -215,7 +213,7 @@ We would receive the following template output:
 
 ## Partials
 Partials begin with `>`(`{{> common_css }}`). Partials enables you to create reusable template snippets.
-Workato supports nested partials. Care must be taken to avoid infinitely recursive partials. 
+Workato supports nested partials. Care must be taken to avoid infinitely recursive partials.
 
 The partials inherit the calling context of the parent.
 
@@ -273,7 +271,7 @@ We would receive the following template output:
 ```
 
 ## Using templates in recipes
-Use the **Create message** action in **Message template by Workato** adapter to generate a message from 
+Use the **Create message** action in **Message template by Workato** adapter to generate a message from
 a message template.
 
 The action requires values for the template input while creating the recipe. You can either hardcode these values by typing in text, or pass in datapills from Workato datatrees, as seen below.
