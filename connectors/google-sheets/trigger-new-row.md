@@ -24,6 +24,7 @@ Select the **New row in sheet** trigger.
 To configure the trigger, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet.
 
 ![Blank Trigger](/assets/images/connectors/google-sheets/trigger-setup-blank.png)
+![Blank Trigger](/assets/images/connectors/google-sheets/trigger-setup2-blank.png)
 *Select the spreadsheet to monitor for new rows*
 
 Select the specific sheet to monitor for new rows.
