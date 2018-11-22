@@ -9,7 +9,7 @@ The HTTP connector enables integration with any cloud applications that has a HT
 This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the [V1 HTTP connector documentation](http.md).
 
 ## What is the HTTP connector and what is it useful for?
-The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes. 
+The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes.
 
 With the HTTP connector, it takes less than 20 minutes to build your own action on Workato. This article walks you through:
 
@@ -45,7 +45,7 @@ In order to interact with an API, we first need to set up our connection to the 
 ![Connection popup for HTTP connector](/assets/images/developing-connectors/http/connection-popup.png)
 *Connection popup for HTTP connector*
 
-Configure the following input fields to connect successfully. Apart from authentication type and fields subsequently generated when a type is selected, most fields can usually be left to their default values. 
+Configure the following input fields to connect successfully. Apart from authentication type and fields subsequently generated when a type is selected, most fields can usually be left to their default values.
 
 | Input field                       | Description                                                                                                                                                                                             |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -102,13 +102,21 @@ For applications where the authentication structure is based on validating an AP
 ### Authentication type: Custom
 Custom allows you to use a combination of input fields as needed.
 ![Custom http connector](/assets/images/developing-connectors/http/http-connector-auth-custom.png)
-*HTTP connector authentication type: Custom* 
+*HTTP connector authentication type: Custom*
 
-### Authentication type: OAuth2
+### Authentication type: OAuth2 (authorization code grant)
 OAuth2 is the authentication standard adopted by a number of cloud apps. It’s widely adopted because it allows you to give third parties access to your apps without having to disclose your username and password to the third party. In this case, Workato simply redirects you to your app, where you key in your login credentials, and that’s sufficient for the app to trust that Workato is acting on your behalf when it makes API requests.
 
-![HTTP (OAuth2) connector's connection fields](/assets/images/developing-connectors/http/http-connector-auth-oauth2.png)
-*HTTP (OAuth2) connector's connection fields*
+The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
+
+![HTTP (OAuth2 auth code grant) connector's connection fields](/assets/images/developing-connectors/http/http-connector-auth-oauth2-code-grant.png)
+*HTTP (OAuth2 authorization code grant) connector's connection fields*
+
+### Authentication type: OAuth2 (client credentials grant)
+The Client Credentials grant type is used by clients to obtain an access token outside of the context of a user.
+
+![HTTP (OAuth2 client cred grnat) connector's connection fields](/assets/images/developing-connectors/http/http-connector-auth-oauth2-cred-grant.png)
+*HTTP (OAuth2 client credentials grant) connector's connection fields*
 
 OAuth2 authentication type requires the following fields.
 
@@ -119,13 +127,15 @@ OAuth2 authentication type requires the following fields.
 | Client ID and client secret                         | The client ID identifies you as the user who’s sending these API calls, while the client secret authenticates that you as this user.,This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.                                                                                                              |
 
 In addition, it requires you to have the following information ready.
-| Information                                         | Description                                                                                                                                                                                                                                                                                          |
-|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Credentials                                         | A set of username and password for logging into your app to give permission for Workato to access the data in the app.This user (to whom the credentials belong) should have the correct permissions to read/write to the records (e.g. customer records, sales invoice records) you want to access. |
-| Redirect/callback URL (to be configured in the app) | The URL provided to the app for redirection back to Workato after going through the authentication flow and credentials/token exchange. Provide this URL `https://www.workato.com/oauth/callback` to the app if it asks for it in the Integration setup screen.                                      |                                                                                                        |
+
+| Information                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Credentials                                         | A set of username and password for logging into your app to give permission for Workato to access the data in the app. This user (to whom the credentials belong) should have the correct permissions to read/write to the records (e.g. customer records, sales invoice records) you want to access. |
+|  Redirect/callback URL (to be configured in the app) | The URL provided to the app for redirection back to Workato after going through the authentication flow and credentials/token exchange. Provide this URL `https://www.workato.com/oauth/callback` to the app if it asks for it in the Integration setup screen.                                                                                                              |
+
 
 #### Example - connecting to Eventbrite via OAuth2
-Let us run through an example of how we can connect to an OAuth2 application. In this case, we’ll use Eventbrite, an events management and ticketing application. 
+Let us run through an example of how we can connect to an OAuth2 application. In this case, we’ll use Eventbrite, an events management and ticketing application.
 
 ![Eventbrite OAuth2 authentication page](/assets/images/http/eventbrite-authentication.png)
 *Eventbrite OAuth2 authentication page*
@@ -143,7 +153,7 @@ Eventbrite access token URL:
 https://www.eventbrite.com/oauth/token
 ```
 
-In order to connect to your Eventbrite account successfully, you would also need a set of client ID and client secret. To obtain this, you will need to register an app with Eventbrite so that they can assign the app with a client ID and secret. Log into Eventbrite and navigate to Account Settings > App Management. 
+In order to connect to your Eventbrite account successfully, you would also need a set of client ID and client secret. To obtain this, you will need to register an app with Eventbrite so that they can assign the app with a client ID and secret. Log into Eventbrite and navigate to Account Settings > App Management.
 
 ![Eventbrite's App Management screen](/assets/images/http/eventbrite-app-management.png)
 *Eventbrite's app management screen*
@@ -224,7 +234,7 @@ With a successful request, we know that:
 
 We can choose to customize our request further by going back to Step 2 to configure our request and sending another sample request. When we're happy with the configuration, click `Apply configuration`. The request and response will be saved to the Workato HTTP action, and the HTTP wizard returns you to the recipe page.
 
-![Configuration applied for HTTP action](/assets/images/developing-connectors/http/configuration-applied.png)
+![Configuration applied for HTTP action](/assets/images/developing-connectors/http/configuration-applied.gif)
 *Configuration applied for HTTP action*
 
 ## Final HTTP configuration
@@ -235,5 +245,5 @@ We know that this configuration works - now it's time to replace the static valu
 
 This is what the HTTP configuration should look like after I've put in my relevant datapills. This HTTP action is now ready to be used!
 
-![Completed HTTP action](/assets/images/developing-connectors/http/completed-http-action.png)
+![Completed HTTP action](/assets/images/developing-connectors/http/completed-http-action.gif)
 *Completed HTTP action*
