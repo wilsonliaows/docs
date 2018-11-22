@@ -24,6 +24,7 @@ Select the **New row in sheet** trigger.
 To configure the trigger, we need to select the spreadsheet and the actual sheet to process. Selecting a specific spreadsheet would generate your list of sheets within that spreadsheet.
 
 ![Blank Trigger](/assets/images/connectors/google-sheets/trigger-setup-blank.png)
+![Blank Trigger](/assets/images/connectors/google-sheets/trigger-setup2-blank.png)
 *Select the spreadsheet to monitor for new rows*
 
 Select the specific sheet to monitor for new rows.
@@ -46,7 +47,7 @@ Let's start the below recipe. Your new recipe should look as follows:
 ![Google spreadsheet sample](/assets/images/connectors/google-sheets/configured-recipe.jpg)
 *configured recipe with scheduler action for testing*
 
-In this case, the trigger picks up all 4 data lines in my Google sheet.
+In this case, the trigger picks up all 6 data lines in my Google sheet.
 
 ![Customized job report](/assets/images/connectors/google-sheets/updated-job-report.jpg)
 *Customized job report displaying selected information about the trigger event processed*
