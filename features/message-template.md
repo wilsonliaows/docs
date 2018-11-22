@@ -6,9 +6,11 @@ date: 2017-12-09 18:00:00 Z
 # Message template
 Message templates enable you to create static templates for commonly used messages. Workato templates use [Mustache](https://mustache.github.io/mustache.5.html) as the templating language. Message templates can be used to generate HTML/text/JSON/XML messages. They also allow you to separate the message composition logic (what the message should look like) from the message generation logic (when the message should be sent). This separation enables the template developer to change the format of the message without making changes to the recipe that sends the message out.
 
-Workato templates are "logic-less" as there is no control flow logic in the template(if/else/looping etc). The templates use tags for variable substitution, conditional blocks and list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. Tag syntax determines the tag behavior.
+Workato templates are "logic-less" as there is no control flow logic in the template(if/else/looping etc). The
+templates use tags for variable substitution, conditional blocks and list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. `{{`email`}}`. Tag syntax determines the tag behavior.
 
-Each message template has an associated input schema. The schema defines the variables that can be used in the template. Schema supports both scalar data types (string, integer, date etc.) and complex data types (object, array).
+Each message template has an associated input schema. The schema defines the variables that can be used in the
+template. Schema supports both scalar data types (string, integer, date etc.) and complex data types (object, array).
 
 The recipe developer has to supply the values for the template schema when creating messages from a template.
 
@@ -276,7 +278,7 @@ a message template.
 
 The action requires values for the template input while creating the recipe. You can either hardcode these values by typing in text, or pass in datapills from Workato datatrees, as seen below.
 
-![Creating a message from a template](/assets/images/message-template/creating-message.jpg)
+![Creating a message from a template](/assets/images/message-template/creating-message.png)
 *Mapping datapills to template input fields when creating the recipe*
 
 The action generates a message conforming to the template while running a job.
