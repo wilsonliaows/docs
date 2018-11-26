@@ -7951,17 +7951,17 @@
                                 
                                 <h1 id="message-template">Message template</h1>
 <p>Message templates enable you to create static templates for commonly used messages. Workato templates use <a href="https://mustache.github.io/mustache.5.html" target="_blank">Mustache</a> as the templating language. Message templates can be used to generate HTML/text/JSON/XML messages. They also allow you to separate the message composition logic (what the message should look like) from the message generation logic (when the message should be sent). This separation enables the template developer to change the format of the message without making changes to the recipe that sends the message out.</p>
-<p>Workato templates are &quot;logic-less&quot; as there is no control flow logic in the template(if/else/looping etc). The 
+<p>Workato templates are &quot;logic-less&quot; as there is no control flow logic in the template(if/else/looping etc). The
 templates use tags for variable substitution, conditional blocks and list iteration. Tags are enclosed inside 2 opening and closing curly braces, e.g. <code>{{</code>email<code>}}</code>. Tag syntax determines the tag behavior.</p>
-<p>Each message template has an associated input schema. The schema defines the variables that can be used in the 
-template. Schema supports both scalar data types (string, integer, date etc.) and complex data types (object, array). </p>
+<p>Each message template has an associated input schema. The schema defines the variables that can be used in the
+template. Schema supports both scalar data types (string, integer, date etc.) and complex data types (object, array).</p>
 <p>The recipe developer has to supply the values for the template schema when creating messages from a template.</p>
 <h2 id="message-template-example">Message template example</h2>
 <p>The UI developer builds a HTML template for outgoing emails about shipped products in an order. The message template contains CSS and it uses template variables for dynamic content.</p>
 <p><img src="../assets/images/message-template/template-with-input.png" alt="HTML template with variable substitution ">
 <em>HTML template with variable substitution</em></p>
 <p>The recipe developer generates the email message by selecting the template to use and providing the values for message variables.</p>
-<p><img src="../assets/images/message-template/creating-message.jpg" alt="Creating a message from a template">
+<p><img src="../assets/images/message-template/creating-message.png" alt="Creating a message from a template">
 <em>Creating a message from a template</em></p>
 <h2 id="variables">Variables</h2>
 <p>The variable tag enables you to specify placeholders in a template. Variable tags are enclosed inside 2 opening and closing curly braces, e.g. <code>{{</code>email<code>}}</code>. The template engine will look for the variable <code>email</code> in the current context. If <code>email</code> is not present in the current context, then the parent contexts are traversed till the top context. An empty string is returned when the variable is not found.</p>
@@ -7987,7 +7987,7 @@ template. Schema supports both scalar data types (string, integer, date etc.) an
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <h2 id="sections">Sections</h2>
-<p>Sections render single or repeated blocks of text. Section begin with a <code>#</code> ( <code>{{#user}}</code> ) and ends with a <code>/</code> ( <code>{{/user}}</code> ). The value of the section variable determines behavior of the section. </p>
+<p>Sections render single or repeated blocks of text. Section begin with a <code>#</code> ( <code>{{#user}}</code> ) and ends with a <code>/</code> ( <code>{{/user}}</code> ). The value of the section variable determines behavior of the section.</p>
 <h3 id="object-section">Object section</h3>
 <p>Section is rendered once when the value of section variable is an object. The block has access to all the keys declared in the object.</p>
 <h4 id="template-definition-with-object-section-example">Template definition with object section example</h4>
@@ -8052,7 +8052,7 @@ template. Schema supports both scalar data types (string, integer, date etc.) an
 <h3 id="inverted-section">Inverted section</h3>
 <p>Inverted section is rendered when a template variable is missing/false/empty list. Inverted section begin with a <code>^</code> ( <code>{{^order_lines}}</code> ) and ends with a <code>/</code> ( <code>{{/order_lines}}</code> ).</p>
 <h4 id="template-definition-with-inverted-section-example">Template definition with inverted section example</h4>
-<p>We define the template below with an inverted section <code>order_lines</code> that displays an error message <code>No error lines!!</code> if the order_lines list is missing/false/empty. </p>
+<p>We define the template below with an inverted section <code>order_lines</code> that displays an error message <code>No error lines!!</code> if the order_lines list is missing/false/empty.</p>
 <p><img src="../assets/images/message-template/template-with-inverted-section.png" alt="Template with list section">
 <em>Template with inverted section</em></p>
 <p>If we pass in the following values into the template:</p>
@@ -8079,7 +8079,7 @@ template. Schema supports both scalar data types (string, integer, date etc.) an
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     {{!
-      Render the management section for administrators 
+      Render the management section for administrators
     }}
     {{#admin}}
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;user-management&quot;</span>&gt;</span>
@@ -8105,7 +8105,7 @@ template. Schema supports both scalar data types (string, integer, date etc.) an
 </code></pre>
 <h2 id="partials">Partials</h2>
 <p>Partials begin with <code>&gt;</code>(<code>{{&gt; common_css }}</code>). Partials enables you to create reusable template snippets.
-Workato supports nested partials. Care must be taken to avoid infinitely recursive partials. </p>
+Workato supports nested partials. Care must be taken to avoid infinitely recursive partials.</p>
 <p>The partials inherit the calling context of the parent.</p>
 <h3 id="templatepartial-definition-example">Template/partial definition example</h3>
 <p>We define the template below with the partial <code>user_name</code>.</p>
@@ -8148,10 +8148,10 @@ Workato supports nested partials. Care must be taken to avoid infinitely recursi
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <h2 id="using-templates-in-recipes">Using templates in recipes</h2>
-<p>Use the <strong>Create message</strong> action in <strong>Message template by Workato</strong> adapter to generate a message from 
+<p>Use the <strong>Create message</strong> action in <strong>Message template by Workato</strong> adapter to generate a message from
 a message template.</p>
 <p>The action requires values for the template input while creating the recipe. You can either hardcode these values by typing in text, or pass in datapills from Workato datatrees, as seen below.</p>
-<p><img src="../assets/images/message-template/creating-message.jpg" alt="Creating a message from a template">
+<p><img src="../assets/images/message-template/creating-message.png" alt="Creating a message from a template">
 <em>Mapping datapills to template input fields when creating the recipe</em></p>
 <p>The action generates a message conforming to the template while running a job.</p>
 
@@ -8236,7 +8236,7 @@ a message template.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Message template","date":"2017-12-09T18:00:00.000Z","level":"1.15.4","depth":2,"next":{"title":"Variables","level":"1.15.4.1","depth":3,"anchor":"#variables","path":"features/message-template.md","ref":"features/message-template.md#variables","articles":[]},"previous":{"title":"Table limits","level":"1.15.3.6","depth":3,"anchor":"#limits","path":"features/lookup-tables.md","ref":"features/lookup-tables.md#limits","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"features/message-template.md","mtime":"2018-11-26T04:36:04.970Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-11-26T04:38:01.173Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Message template","date":"2017-12-09T18:00:00.000Z","level":"1.15.4","depth":2,"next":{"title":"Variables","level":"1.15.4.1","depth":3,"anchor":"#variables","path":"features/message-template.md","ref":"features/message-template.md#variables","articles":[]},"previous":{"title":"Table limits","level":"1.15.3.6","depth":3,"anchor":"#limits","path":"features/lookup-tables.md","ref":"features/lookup-tables.md#limits","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"features/message-template.md","mtime":"2018-11-26T04:41:37.578Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-11-26T04:42:47.217Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
