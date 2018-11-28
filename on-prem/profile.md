@@ -443,16 +443,26 @@ The parameter schema configuration can have properties as follows:
 Working with Java extensions requires you to define an extensions profile. You need a `server` section to define where the `jar` files are located, and an `extensions` section to create individual profiles for the Java classes. A Java extension will be configured like this.
 ```YAML
 server:
-    classpath: C:\\Program Files\\Workato Agent\\ext
+  classpath: C:\\Program Files\\Workato Agent\\ext
 extensions:
-    security:
-        controllerClass: com.mycompany.onprem.SecurityExtension
-        secret: HA63A3043AMMMM
+  security:
+    controllerClass: com.mycompany.onprem.SecurityExtension
+    secret: HA63A3043AMMMM
 ```
+
+The **server** parameter configuration property is as follows:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
 | classpath | Specifies the location of user-defined class |
+
+<br>
+
+The **extensions** parameter configuration properties are as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| security | This is the extension profile name that will be used in the SDK. Use a unique name for each extension. |
 | controllerClass | A required field to inform the OPA which Java class to map the extension to. |
-| secret | **Optional**. Environment property that is used in the Java class. Multiple properties can be added. |
+| secret | Optional environment property that is used in the Java class. Multiple properties can be added. |
 Find out [how to create a Java extension](extension.md).
