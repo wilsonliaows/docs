@@ -15,6 +15,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
  - [Command-line scripts](#command-line-scripts-profile)
+ - [Extensions](#extensions)
 
  Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premises agents installed in a server with limited internet connectivity.
 
@@ -339,11 +340,11 @@ When you declare an action, you need to specify the values of the parameters.
 
 An example profile on Unix can look like this:
 ```YAML
-command_line_scripts: 
+command_line_scripts:
   workday_reports:
     concurrency_limit: 3
     timeout: 30
-    scripts: 
+    scripts:
      copy_file:
        name: Copy file
        command:
@@ -353,7 +354,7 @@ command_line_scripts:
        parameters:
          - { name: source_file }
          - { name: target_directory }           
-     
+
      append_file_to_another:
        name: Append file to another
        command:
@@ -365,7 +366,7 @@ command_line_scripts:
          - { name: source_file, quote: '"' }
          # Advanced parameter quoting
          - { name: target_file, quote: { start: '"', end: '"', quote: '"', escape_char: \ } }
-             
+
      generate_report:
        name: Generate report
        command:
@@ -381,7 +382,7 @@ command_line_scripts:
          - { name: from_date }
          - { name: to_date, schema: { optional: true, control_type: select, pick_list: [01/01/2018, 02/02/2018] } }
 ```
-The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows: 
+The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
@@ -400,7 +401,7 @@ The hash key is used as an unique identifier for a script profile. The script co
 
 <br>
 The command invocation element configuration can be just a string, but also can contain these properties:
- 
+
 | Property name | Description |
 |------------------|-------------------------------------------|
 | value | The command invocation element value. |
@@ -437,3 +438,31 @@ The parameter schema configuration can have properties as follows:
 | label | **Optional**. Friendly name for the script, that will be displayed in the recipe UI (defaults to the parameter name). |
 | control_type | **Optional**. Can be 'text' or 'select'. If it's 'select', property 'pick_list' should also be defined. Defaults to 'text'. |
 | pick_list | **Optional**.  Values for selecting the parameter value. This property should be defined if property 'control_type' has value 'select'. |
+
+## Extensions profile
+Working with Java extensions requires you to define an extensions profile. You need a `server` section to define where the `jar` files are located, and an `extensions` section to create individual profiles for the Java classes. A Java extension will be configured like this.
+```YAML
+server:
+  classpath: C:\\Program Files\\Workato Agent\\ext
+extensions:
+  security:
+    controllerClass: com.mycompany.onprem.SecurityExtension
+    secret: HA63A3043AMMMM
+```
+
+The **server** parameter configuration property is as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| classpath | Specifies the location of user-defined class |
+
+<br>
+
+The **extensions** parameter configuration properties are as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| security | This is the extension profile name that will be used in the SDK. Use a unique name for each extension. |
+| controllerClass | A required field to inform the OPA which Java class to map the extension to. |
+| secret | Optional environment property that is used in the Java class. Multiple properties can be added. |
+Find out [how to create a Java extension](extension.md).
