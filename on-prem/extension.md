@@ -1,3 +1,8 @@
+---
+title: On-premises Agent - Extensions
+date: 2018-11-29 12:00:00 Z
+---
+
 ## Extensions
 Enterprises often have on-premises applications and databases that are deployed behind a corporate firewall.
 
@@ -9,7 +14,7 @@ When to use this:
 
 When not to use this:
 - Application has REST / SOAP APIs. Use the [HTTP Connector](/developing-connectors/http-v2.md) or build a customer connection with the [Connector SDK](/developing-connectors/sdk.md).
-- You want to execute simple command-line scripts. Use [Command-line scripts](#command-line-scripts-profile) instead.
+- You want to execute simple command-line scripts. Use [Command-line scripts](/on-prem/profile.md#command-line-scripts-profile) instead.
 
 ### Pre-requisites:
 [Java 8 SDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
