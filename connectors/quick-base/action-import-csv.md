@@ -27,7 +27,9 @@ Since default `Record ID#` is auto-generated, you do not need to provide it when
 ![Blank Record ID](/assets/images/connectors/quick-base/csv-import-record-id-blank.png)
 
 #### Create & update records using default key field
-If you want to use default key field to create & update Quick Base records at the same time, first you need to include a column containing Quick Base record ID in your CSV file.
+You may want to use the default key field `Record ID#` to create & update Quick Base records at the same time.
+
+First you need to include a column containing Quick Base record ID in your CSV file.
 
 ![Record ID column in CSV file](/assets/images/connectors/quick-base/csv-record-id.png)
 
@@ -44,7 +46,9 @@ Based on the provided record IDs, Quick Base will decide whether to create or up
 - If record ID is present, search for the matching record ID in Quick Base then `update` that record. If no matching record ID is found in Quick Base, that CSV row will `fail`.
 
 #### Create & update records using custom merge field
-You may want to use an unique custom merge field like `Order ID` to create & update records, instead of the default key field `Record ID#`. In this case, you need to have `Order ID` column in your CSV file.
+You may want to use an unique custom merge field like `Order ID` to create & update records, instead of the default key field `Record ID#`. In this case, `Order ID` will be used to determine if a CSV record already exists in Quick Base.
+
+First, you need to have `Order ID` column in your CSV file.
 
 ![Custom ID column in CSV file](/assets/images/connectors/quick-base/csv-custom-id.png)
 
@@ -57,8 +61,8 @@ Then in the `Column mappings` section, map your table's `Order ID` column with y
 ![Custom Record ID](/assets/images/connectors/quick-base/csv-import-custom-id-mapped.png)
 
 Based on the provided IDs, Quick Base will decide whether to create or update records. The rule is that for each CSV row:
-- If ID is empty, `create` a new Quick Base record.
-- If ID is present, search for the matching record ID in Quick Base then `update` that record. If no matching record ID is found in Quick Base, that CSV row will `fail`.
+- If ID is empty or doesn't exist in Quick Base, `create` a new Quick Base record.
+- If ID is present and exists in Quick Base, `update` that record.
 
 ### If your Quick Base table uses custom key field
 ![Quick Base Custom Record ID](/assets/images/connectors/quick-base/qb-custom-record-id.png)
@@ -85,7 +89,7 @@ Based on the provided IDs, Quick Base will decide whether to create or update re
 - If ID is empty, that CSV row will `fail`.
 
 #### Update records using custom merge field
-You may want to use an unique custom merge field like `Item Type` to update records, instead of using the key field `Order ID`.
+You may want to use an unique custom merge field like `Item Type` to update records, instead of using the key field `Order ID`. In this case, `Item Type` will be used to determine if a CSV record already exists in Quick Base.
 
 In Workato's `Quick Base table settings`, select `Use custom merge field`, and then `Item Type`
 
