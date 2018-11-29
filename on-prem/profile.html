@@ -2549,6 +2549,21 @@
       
     </li>
   
+    <li class="chapter " data-level="1.14.8" data-path="extension.html">
+      
+
+      
+        <a href="extension.html">
+      
+        
+        Extensions
+      
+        </a>
+      
+
+      
+    </li>
+  
 
         </ul>
       
@@ -7961,7 +7976,7 @@
 <li><a href="#http-resources">HTTP resource</a></li>
 <li><a href="#ntlm-connection-profile">NTLM</a></li>
 <li><a href="#command-line-scripts-profile">Command-line scripts</a></li>
-<li><p><a href="#extensions">Extensions</a></p>
+<li><p><a href="#extensions-profile">Extensions</a></p>
 <p>Additionally, you can configure <a href="proxy.html">proxy servers</a> for on-premises agents installed in a server with limited internet connectivity.</p>
 <p>A typical config file will look something like this:</p>
 </li>
@@ -8517,6 +8532,7 @@ The parameter schema configuration can have properties as follows:</p>
 <p>Working with Java extensions requires you to define an extensions profile. You need a <code>server</code> section to define where the <code>jar</code> files are located, and an <code>extensions</code> section to create individual profiles for the Java classes. A Java extension will be configured like this.</p>
 <pre><code class="lang-YAML"><span class="hljs-attr">server:</span>
 <span class="hljs-attr">  classpath:</span> C:\\Program Files\\Workato Agent\\ext
+
 <span class="hljs-attr">extensions:</span>
 <span class="hljs-attr">  security:</span>
 <span class="hljs-attr">    controllerClass:</span> com.mycompany.onprem.SecurityExtension
@@ -8538,7 +8554,7 @@ The parameter schema configuration can have properties as follows:</p>
 </tbody>
 </table>
 <p><br></p>
-<p>The <strong>extensions</strong> parameter configuration properties are as follows:</p>
+<p>Each <strong>extensions</strong> profile configuration properties are as follows:</p>
 <table>
 <thead>
 <tr>
@@ -8547,10 +8563,6 @@ The parameter schema configuration can have properties as follows:</p>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>security</td>
-<td>This is the extension profile name that will be used in the SDK. Use a unique name for each extension.</td>
-</tr>
 <tr>
 <td>controllerClass</td>
 <td>A required field to inform the OPA which Java class to map the extension to.</td>
@@ -8561,7 +8573,7 @@ The parameter schema configuration can have properties as follows:</p>
 </tr>
 </tbody>
 </table>
-<p>Find out <a href="extension.md">how to create a Java extension</a>.</p>
+<p>Find out <a href="extension.html">how to create a Java extension</a>.</p>
 
                                 
                                 </section>
@@ -8644,7 +8656,7 @@ The parameter schema configuration can have properties as follows:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.14.4","depth":2,"next":{"title":"On-premises connections","level":"1.14.5","depth":2,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.14.3","depth":2,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2018-11-28T09:32:46.159Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-11-28T09:34:27.621Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.14.4","depth":2,"next":{"title":"On-premises connections","level":"1.14.5","depth":2,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.14.3","depth":2,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2018-11-29T10:04:38.887Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-11-29T10:06:07.997Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
