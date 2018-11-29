@@ -41,7 +41,7 @@ Then in the `Column mappings` section, map your table's `Record ID#` column with
 
 ![Mapped Record ID](/assets/images/connectors/quick-base/csv-import-record-id-mapped.png)
 
-Based on the provided record IDs, Quick Base will decide whether to create or update records. The rule is that for each CSV row:
+Based on the provided record IDs from the CSV file, Quick Base will decide whether to create or update records. The rule is that for each CSV row:
 - If record ID is empty, `create` a new Quick Base record.
 - If record ID is present, search for the matching record ID in Quick Base then `update` that record. If no matching record ID is found in Quick Base, that CSV row will `fail`.
 
@@ -60,7 +60,7 @@ Then in the `Column mappings` section, map your table's `Order ID` column with y
 
 ![Custom Record ID](/assets/images/connectors/quick-base/csv-import-custom-id-mapped.png)
 
-Based on the provided IDs, Quick Base will decide whether to create or update records. The rule is that for each CSV row:
+Based on the provided IDs from the CSV file, Quick Base will decide whether to create or update records. The rule is that for each CSV row:
 - If ID is empty or doesn't exist in Quick Base, `create` a new Quick Base record.
 - If ID is present and exists in Quick Base, `update` that record.
 
@@ -84,7 +84,7 @@ Then map the first field in `Column mappings` section with the appropriate key f
 
 ![Custom Record ID](/assets/images/connectors/quick-base/csv-import-custom-id-mapped.png)
 
-Based on the provided IDs, Quick Base will decide whether to create or update records. The rule is that for each CSV row:
+Based on the provided IDs from the CSV file, Quick Base will decide whether to create or update records. The rule is that for each CSV row:
 - If ID is present, search for the matching record ID in Quick Base then `update` that record. If no matching ID is found in Quick Base, `create` a new Quick Base record with that ID.
 - If ID is empty, that CSV row will `fail`.
 
@@ -99,7 +99,7 @@ Then map the first field in `Column mappings` section with the appropriate field
 
 ![Custom Record ID](/assets/images/connectors/quick-base/csv-import-custom-merge-field-map.png)
 
-Based on the provided IDs, Quick Base will update the records. The rule is that for each CSV row:
+Based on the provided IDs from the CSV file, Quick Base will update the records. The rule is that for each CSV row:
 - If ID is present, search for the matching record ID in Quick Base then `update` that record. If no matching ID is found in Quick Base, that CSV row will `fail`
 - If ID is empty, that CSV row will `fail`.
 
