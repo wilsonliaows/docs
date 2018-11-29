@@ -15,7 +15,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
  - [Command-line scripts](#command-line-scripts-profile)
- - [Extensions](#extensions)
+ - [Extensions](#extensions-profile)
 
  Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premises agents installed in a server with limited internet connectivity.
 
@@ -444,6 +444,7 @@ Working with Java extensions requires you to define an extensions profile. You n
 ```YAML
 server:
   classpath: C:\\Program Files\\Workato Agent\\ext
+
 extensions:
   security:
     controllerClass: com.mycompany.onprem.SecurityExtension
@@ -458,11 +459,11 @@ The **server** parameter configuration property is as follows:
 
 <br>
 
-The **extensions** parameter configuration properties are as follows:
+Each **extensions** profile configuration properties are as follows:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
-| security | This is the extension profile name that will be used in the SDK. Use a unique name for each extension. |
 | controllerClass | A required field to inform the OPA which Java class to map the extension to. |
 | secret | Optional environment property that is used in the Java class. Multiple properties can be added. |
-Find out [how to create a Java extension](extension.md).
+
+Find out [how to create a Java extension](/on-prem/extension.md).
