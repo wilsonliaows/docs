@@ -7969,16 +7969,16 @@
 <h1 id="using-people-task-as-an-admin">Using People Task as an admin</h1>
 <h2 id="people-task-setup">People Task setup</h2>
 <p>People Task feature is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
-<p>For Workato accounts with People Task feature enabled, team owners are able to view the People Task option in their &apos;Tools&apos; page. Click on &apos;View all Tools&apos; and then on &apos;People Task&apos;.</p>
+<p>For Workato accounts with People Task feature enabled, team owners are able to view the People Task option in their &apos;Tools&apos; page. Click on &apos;All Tools&apos; and then on &apos;People Task&apos;.</p>
 <p><img src="assets/images/peopletask/people-task-nav.gif" alt="People Task option">
 <em>People Task Tool</em></p>
 <h3 id="customize-people-task-subdomain">Customize People Task subdomain</h3>
 <p>If accessing People Task for the first time, the People Task account needs to be configured. Provide a unique subdomain and customize the site for People Task approvers.</p>
-<p>The following portrays the configuration for Road Runner Inc. in the <strong>People Task</strong> setup screen. This configuration can be changed after the initial setup.</p>
+<p>The following portrays the configuration for Workato Demo Inc. in the <strong>People Task</strong> setup screen. This configuration can be changed after the initial setup.</p>
 <p><img src="assets/images/peopletask/peopletask-config.gif" alt="People Task configuration screen">
 <em>Configure and customize People Task site</em></p>
 <h3 id="adding-people-task-participants">Adding People Task participants</h3>
-<p>Task requesters and approvers should be added as People Task particpants. Provide their names, emails and optionally provide an avatar for them.</p>
+<p>Task requesters and approvers should be added as People Task participants. Provide their names, emails and optionally provide an avatar for them.</p>
 <p><img src="assets/images/peopletask/add-participant.gif" alt="Add People Task participant">
 <em>Adding new People Task participant</em></p>
 <h1 id="people-task-example-scenario">People Task example scenario</h1>
@@ -8022,9 +8022,9 @@
 </ul>
 <p>Optionally used when the requester wishes the approver to provide additional data. Fields to collect should be defined in the following format.</p>
 <pre><code>[
-{&quot;name&quot;:&quot;ssn&quot;,&quot;control_type&quot;: &quot;ssn&quot;,&quot;label&quot;: &quot;SSN&quot;, &quot;hint&quot;: &quot;nnn-nn-nnnn&quot;},
-{&quot;name&quot;:&quot;birth_date&quot;,&quot;type&quot;: &quot;date_time&quot;, &quot;control_type&quot;:&quot;text&quot;,&quot;format&quot;:&quot;MM-DD-YYYY&quot;, &quot;hint&quot;:&quot;MM-DD-YYYY&quot;},
-{&quot;name&quot;:&quot;gender&quot;,&quot;control_type&quot;:&quot;select&quot;,&quot;pick_list&quot;:[[&quot;Male&quot;, &quot;M&quot;],[&quot;Female&quot;, &quot;F&quot;]]}
+  {&quot;control_type&quot;: &quot;ssn&quot;,&quot;label&quot;: &quot;SSN&quot;,&quot;name&quot;: &quot;SSN&quot;,&quot;type&quot;: &quot;string&quot;,&quot;hint&quot;: &quot;nnn-nn-nnn&quot;},
+  {&quot;control_type&quot;: &quot;text&quot;,&quot;label&quot;: &quot;Birth date&quot;,&quot;name&quot;: &quot;birth_date&quot;,&quot;type&quot;: &quot;date_time&quot;,&quot;format&quot;: &quot;MM-DD-YYYY&quot;,&quot;hint&quot;: &quot;MM-DD-YYYY&quot;},
+  {&quot;control_type&quot;: &quot;select&quot;,&quot;label&quot;: &quot;Gender&quot;,&quot;name&quot;: &quot;gender&quot;,&quot;type&quot;: &quot;string&quot;,&quot;pick_list&quot;: [[&quot;Male&quot;,&quot;M&quot;],[&quot;Female&quot;,&quot;F&quot;]]}
 ]
 </code></pre><h2 id="people-task-step-preview">People Task step preview</h2>
 <p>From the approver&apos;s view, these fields will show up in the task as follows.</p>
@@ -8042,7 +8042,7 @@
 <p>As the approver, review the document sent and provide any data requested by filling in the fields. Required fields would be marked as such. All tasks will provide the approver with the option of adding an <strong>Approver note</strong>.</p>
 <p>Subsequently, approve or reject the task. The recipe will resume the job to carry out further recipe steps. Once a task has been approved or rejected, it can be found within the <strong>Completed</strong> tab.</p>
 <p><img src="assets/images/peopletask/approved-peopletask.png" alt="Approved People Task">
-<em>Approved request moves to Completed tab</em></p>
+<em>Approved/Rejected request moves to Completed tab</em></p>
 
                                 
                                 </section>
@@ -8125,7 +8125,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"People Task by Workato","date":"2017-02-22T20:30:00.000Z","level":"1.12","depth":1,"next":{"title":"Administrators","level":"1.12.1","depth":2,"anchor":"#using-people-task-as-an-admin","path":"workflow.md","ref":"workflow.md#using-people-task-as-an-admin","articles":[{"title":"Customize subdomain","level":"1.12.1.1","depth":3,"anchor":"#customize-people-task-subdomain","path":"workflow.md","ref":"workflow.md#customize-people-task-subdomain","articles":[]},{"title":"Invite participants","level":"1.12.1.2","depth":3,"anchor":"#adding-people-task-participants","path":"workflow.md","ref":"workflow.md#adding-people-task-participants","articles":[]}]},"previous":{"title":"SAML Just-In-Time provisioning","level":"1.11.7","depth":2,"anchor":"#saml-just-in-time-provisioning","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#saml-just-in-time-provisioning","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workflow.md","mtime":"2018-12-02T05:39:59.465Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-02T05:41:05.455Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"People Task by Workato","date":"2017-02-22T20:30:00.000Z","level":"1.12","depth":1,"next":{"title":"Administrators","level":"1.12.1","depth":2,"anchor":"#using-people-task-as-an-admin","path":"workflow.md","ref":"workflow.md#using-people-task-as-an-admin","articles":[{"title":"Customize subdomain","level":"1.12.1.1","depth":3,"anchor":"#customize-people-task-subdomain","path":"workflow.md","ref":"workflow.md#customize-people-task-subdomain","articles":[]},{"title":"Invite participants","level":"1.12.1.2","depth":3,"anchor":"#adding-people-task-participants","path":"workflow.md","ref":"workflow.md#adding-people-task-participants","articles":[]}]},"previous":{"title":"SAML Just-In-Time provisioning","level":"1.11.7","depth":2,"anchor":"#saml-just-in-time-provisioning","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#saml-just-in-time-provisioning","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workflow.md","mtime":"2018-12-02T05:41:25.064Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-02T05:42:31.603Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
