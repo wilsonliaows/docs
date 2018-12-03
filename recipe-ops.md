@@ -82,17 +82,17 @@ Get key information about recipe including status, job account, current version,
 ![Available datapills for get recipe](/assets/images/recipe-ops/available-datatree-for-get-recipe.gif)
 *Available recipe details data pills for use*
 
-### List jobs created by recipe action
+### Search job history action
 Action lists the last 100 jobs by default.
 - Users can filter by job status e.g. show failed jobs only
 - Users can filter by date range as well
 
-The folowing lists the available fields to filter for jobs by.
+The following lists the available fields to filter for jobs by.
 
 ![Filters to retrieve jobs](/assets/images/recipe-ops/filters-to-retrieve-jobs.gif)
 *Filters to specify the jobs to retrieve*
 
-The **List jobs** action output datatree returns a list of jobs, with standard details about each job such as job ID and job status, as well as custom job report data.
+The **Search job history** action output datatree returns a list of jobs, with standard details about each job such as job ID and job status, as well as custom job report data.
 
 ![Available datatree for list jobs](/assets/images/recipe-ops/available-datatree-for-list-jobs.gif)
 *Available job details datapills for use*
@@ -100,7 +100,7 @@ The **List jobs** action output datatree returns a list of jobs, with standard d
 ### List recipes action
 Retrieves a list of up to 100 recipes.
 
-The folowing lists the available fields to filter for jobs by.
+The following lists the available fields to filter for jobs by.
 
 ![Filters for list recipes](/assets/images/recipe-ops/filters-for-list-recipes.gif)
 *Filters to specify the recipes to retrieve*
