@@ -3,7 +3,7 @@ title: On-premises Agent - Extensions
 date: 2018-11-29 12:00:00 Z
 ---
 
-## Extensions
+# Extensions
 Enterprises often have on-premises applications and databases that are deployed behind a corporate firewall.
 
 Workato’s On-prem extensions allows you to connect to legacy applications using Java. Extensions are registered as Servlets in the Workato On-Premise Agent, and expose as REST endpoints which can be used from within a recipe.
