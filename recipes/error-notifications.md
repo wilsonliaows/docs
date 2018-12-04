@@ -54,7 +54,7 @@ There are certain rules that determine when an email is sent:
 ### Customizing notification recipients
 By default, the error notification emails are always sent only to the Workato account owner. But if you have a team or consultants monitoring the integrations for you, you can always add their emails to be notified as well.
 
-You can do so by going to *Settings* > *Contact* and editing the **Error notifications** field.
+You can do so by going to *Account Settings* > *Notifications* and editing the **Error notifications** field.
 
 ![Error notification email configuration](/assets/images/recipes/errors/error-notification-email-config.png)
 *Configuring email addresses to send error notifications to*
