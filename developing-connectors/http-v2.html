@@ -7968,7 +7968,7 @@
 <p>The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.</p>
 <p>This article covers the V2 HTTP connector, which launched in July 2018. If you are using the V1 HTTP connector (which has been deprecated), refer to the <a href="http.html">V1 HTTP connector documentation</a>.</p>
 <h2 id="what-is-the-http-connector-and-what-is-it-useful-for">What is the HTTP connector and what is it useful for?</h2>
-<p>The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes. </p>
+<p>The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes.</p>
 <p>With the HTTP connector, it takes less than 20 minutes to build your own action on Workato. This article walks you through:</p>
 <ul>
 <li><p><a href="#setup-your-http-connection">Setting up a connection to your app</a></p>
@@ -7999,7 +7999,7 @@
 <p>In order to interact with an API, we first need to set up our connection to the app to interact with. Click the <code>Link your account</code> button and the connection popup appears.</p>
 <p><img src="../assets/images/developing-connectors/http/connection-popup.png" alt="Connection popup for HTTP connector">
 <em>Connection popup for HTTP connector</em></p>
-<p>Configure the following input fields to connect successfully. Apart from authentication type and fields subsequently generated when a type is selected, most fields can usually be left to their default values. </p>
+<p>Configure the following input fields to connect successfully. Apart from authentication type and fields subsequently generated when a type is selected, most fields can usually be left to their default values.</p>
 <table>
 <thead>
 <tr>
@@ -8062,12 +8062,7 @@
 <h3 id="authentication-type-custom">Authentication type: Custom</h3>
 <p>Custom allows you to use a combination of input fields as needed.
 <img src="../assets/images/developing-connectors/http/http-connector-auth-custom.png" alt="Custom http connector">
-<em>HTTP connector authentication type: Custom</em> </p>
-<h3 id="authentication-type-oauth2">Authentication type: OAuth2</h3>
-<p>OAuth2 is the authentication standard adopted by a number of cloud apps. It&#x2019;s widely adopted because it allows you to give third parties access to your apps without having to disclose your username and password to the third party. In this case, Workato simply redirects you to your app, where you key in your login credentials, and that&#x2019;s sufficient for the app to trust that Workato is acting on your behalf when it makes API requests.</p>
-<p><img src="../assets/images/developing-connectors/http/http-connector-auth-oauth2.png" alt="HTTP (OAuth2) connector&apos;s connection fields">
-<em>HTTP (OAuth2) connector&apos;s connection fields</em></p>
-<p>OAuth2 authentication type requires the following fields.</p>
+<em>HTTP connector authentication type: Custom</em></p>
 <table>
 <thead>
 <tr>
@@ -8086,17 +8081,42 @@
 </tr>
 <tr>
 <td>Client ID and client secret</td>
-<td>The client ID identifies you as the user who&#x2019;s sending these API calls, while the client secret authenticates that you as this user.,This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.</td>
+<td>The client ID identifies you as the user who&#x2019;s sending these API calls, while the client secret authenticates that you as this user. This is usually found in the Settings or Integrations page (or equivalent) of your logged in app account that you wish to connect to. This is specific to your account and should be kept secret.</td>
 </tr>
 </tbody>
 </table>
-<p>In addition, it requires you to have the following information ready.
-| Information                                         | Description                                                                                                                                                                                                                                                                                          |
-|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Credentials                                         | A set of username and password for logging into your app to give permission for Workato to access the data in the app.This user (to whom the credentials belong) should have the correct permissions to read/write to the records (e.g. customer records, sales invoice records) you want to access. |
-| Redirect/callback URL (to be configured in the app) | The URL provided to the app for redirection back to Workato after going through the authentication flow and credentials/token exchange. Provide this URL <code>https://www.workato.com/oauth/callback</code> to the app if it asks for it in the Integration setup screen.                                      |                                                                                                        |</p>
+<p>In addition, it requires you to have the following information ready.</p>
+<h3 id="authentication-type-oauth2-authorization-code-grant">Authentication type: OAuth2 (authorization code grant)</h3>
+<p>OAuth2 is the authentication standard adopted by a number of cloud apps. It&#x2019;s widely adopted because it allows you to give third parties access to your apps without having to disclose your username and password to the third party. In this case, Workato simply redirects you to your app, where you key in your login credentials, and that&#x2019;s sufficient for the app to trust that Workato is acting on your behalf when it makes API requests.</p>
+<p>The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.</p>
+<p><img src="../assets/images/developing-connectors/http/http-connector-auth-oauth2-code-grant.png" alt="HTTP (OAuth2 auth code grant) connector&apos;s connection fields">
+<em>HTTP (OAuth2 authorization code grant) connector&apos;s connection fields</em></p>
+<h3 id="authentication-type-oauth2-client-credentials-grant">Authentication type: OAuth2 (client credentials grant)</h3>
+<p>Using the client credentials grant, the client can request an access token using only its client credentials. This is usually used when the client is requesting access to the protected resources under its control or for machine-to-machine authentication where a specific user&#x2019;s permission to access data is not required.</p>
+<p>The client credentials grant type must only be used by confidential clients.</p>
+<p><img src="../assets/images/developing-connectors/http/http-connector-auth-oauth2-cred-grant.png" alt="HTTP (OAuth2 client cred grnat) connector&apos;s connection fields">
+<em>HTTP (OAuth2 client credentials grant) connector&apos;s connection fields</em></p>
+<p>OAuth2 authentication type requires the following fields.</p>
+<table>
+<thead>
+<tr>
+<th>Information</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Credentials</td>
+<td>A set of username and password for logging into your app to give permission for Workato to access the data in the app. This user (to whom the credentials belong) should have the correct permissions to read/write to the records (e.g. customer records, sales invoice records) you want to access.</td>
+</tr>
+<tr>
+<td>Redirect/callback URL (to be configured in the app)</td>
+<td>The URL provided to the app for redirection back to Workato after going through the authentication flow and credentials/token exchange. Provide this URL <code>https://www.workato.com/oauth/callback</code> to the app if it asks for it in the Integration setup screen.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="example---connecting-to-eventbrite-via-oauth2">Example - connecting to Eventbrite via OAuth2</h4>
-<p>Let us run through an example of how we can connect to an OAuth2 application. In this case, we&#x2019;ll use Eventbrite, an events management and ticketing application. </p>
+<p>Let us run through an example of how we can connect to an OAuth2 application. In this case, we&#x2019;ll use Eventbrite, an events management and ticketing application.</p>
 <p><img src="../assets/images/http/eventbrite-authentication.png" alt="Eventbrite OAuth2 authentication page">
 <em>Eventbrite OAuth2 authentication page</em></p>
 <p>From the documentation page, we can obtain 2 of the required fields for our connection - the authorization URL and the access token URL. We would need to append further parameters to the URL. Eventbrite&apos;s documentation mentions that we&apos;d need to post to this URL: <code>https://www.eventbrite.com/oauth/authorize?response_type=code&amp;client_id=YOUR_CLIENT_KEY</code></p>
@@ -8107,7 +8127,7 @@
 <p>Eventbrite access token URL:</p>
 <pre><code class="lang-ruby">https://www.eventbrite.com/oauth/token
 </code></pre>
-<p>In order to connect to your Eventbrite account successfully, you would also need a set of client ID and client secret. To obtain this, you will need to register an app with Eventbrite so that they can assign the app with a client ID and secret. Log into Eventbrite and navigate to Account Settings &gt; App Management. </p>
+<p>In order to connect to your Eventbrite account successfully, you would also need a set of client ID and client secret. To obtain this, you will need to register an app with Eventbrite so that they can assign the app with a client ID and secret. Log into Eventbrite and navigate to Account Settings &gt; App Management.</p>
 <p><img src="../assets/images/http/eventbrite-app-management.png" alt="Eventbrite&apos;s App Management screen">
 <em>Eventbrite&apos;s app management screen</em></p>
 <p>In the app management page, you will be able to find your client ID (also called key). Expand the Show Client Secret and OAuth Token section to retrieve the client secret, and navigate to the App Extension section to input the callback URL <code>https://www.workato.com/oauth/callback</code> into Eventbrite.</p>
@@ -8163,14 +8183,14 @@
 <li>we&apos;re sending the right set of request body fields e.g. all required fields with valid values</li>
 </ul>
 <p>We can choose to customize our request further by going back to Step 2 to configure our request and sending another sample request. When we&apos;re happy with the configuration, click <code>Apply configuration</code>. The request and response will be saved to the Workato HTTP action, and the HTTP wizard returns you to the recipe page.</p>
-<p><img src="../assets/images/developing-connectors/http/configuration-applied.png" alt="Configuration applied for HTTP action">
+<p><img src="../assets/images/developing-connectors/http/configuration-applied.gif" alt="Configuration applied for HTTP action">
 <em>Configuration applied for HTTP action</em></p>
 <h2 id="final-http-configuration">Final HTTP configuration</h2>
 <p>We know that this configuration works - now it&apos;s time to replace the static values with datapills that hold dynamic values. This is because we don&apos;t want every single job to create the venue Madison Square Garden - we want each job to automatically create the new venue that had been created in Salesforce. We should do the same for any values that should be dynamic instead of static.</p>
 <p><img src="../assets/images/developing-connectors/http/replace-static-values-with-datapills.gif" alt="Replace static values with datapills">
 <em>Replace static values with datapills</em></p>
 <p>This is what the HTTP configuration should look like after I&apos;ve put in my relevant datapills. This HTTP action is now ready to be used!</p>
-<p><img src="../assets/images/developing-connectors/http/completed-http-action.png" alt="Completed HTTP action">
+<p><img src="../assets/images/developing-connectors/http/completed-http-action.gif" alt="Completed HTTP action">
 <em>Completed HTTP action</em></p>
 
                                 
@@ -8254,7 +8274,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTTP","date":"2018-07-23T15:00:00.000Z","level":"1.17.10","depth":2,"next":{"title":"JDBC","level":"1.17.11","depth":2,"path":"connectors/jdbc.md","ref":"connectors/jdbc.md","articles":[{"title":"Connection setup","level":"1.17.11.1","depth":3,"anchor":"#how-to-connect-to-jdbc-on-workato","path":"connectors/jdbc.md","ref":"connectors/jdbc.md#how-to-connect-to-jdbc-on-workato","articles":[]},{"title":"Select actions","level":"1.17.11.2","depth":3,"path":"connectors/jdbc/select.md","ref":"connectors/jdbc/select.md","articles":[]},{"title":"Insert actions","level":"1.17.11.3","depth":3,"path":"connectors/jdbc/insert.md","ref":"connectors/jdbc/insert.md","articles":[]},{"title":"Update actions","level":"1.17.11.4","depth":3,"path":"connectors/jdbc/update.md","ref":"connectors/jdbc/update.md","articles":[]},{"title":"Delete actions","level":"1.17.11.5","depth":3,"path":"connectors/jdbc/delete.md","ref":"connectors/jdbc/delete.md","articles":[]},{"title":"Run custom SQL action","level":"1.17.11.6","depth":3,"path":"connectors/jdbc/run_sql.md","ref":"connectors/jdbc/run_sql.md","articles":[]},{"title":"New row trigger","level":"1.17.11.7","depth":3,"path":"connectors/jdbc/new-row-trigger.md","ref":"connectors/jdbc/new-row-trigger.md","articles":[]},{"title":"Scheduled query trigger","level":"1.17.11.8","depth":3,"path":"connectors/jdbc/scheduled-query-trigger.md","ref":"connectors/jdbc/scheduled-query-trigger.md","articles":[]}]},"previous":{"title":"Update row action","level":"1.17.9.6","depth":3,"path":"connectors/google-sheets/action-update-row.md","ref":"connectors/google-sheets/action-update-row.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/http-v2.md","mtime":"2018-12-04T17:48:28.925Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-04T17:50:18.701Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP","date":"2018-07-23T15:00:00.000Z","level":"1.17.10","depth":2,"next":{"title":"JDBC","level":"1.17.11","depth":2,"path":"connectors/jdbc.md","ref":"connectors/jdbc.md","articles":[{"title":"Connection setup","level":"1.17.11.1","depth":3,"anchor":"#how-to-connect-to-jdbc-on-workato","path":"connectors/jdbc.md","ref":"connectors/jdbc.md#how-to-connect-to-jdbc-on-workato","articles":[]},{"title":"Select actions","level":"1.17.11.2","depth":3,"path":"connectors/jdbc/select.md","ref":"connectors/jdbc/select.md","articles":[]},{"title":"Insert actions","level":"1.17.11.3","depth":3,"path":"connectors/jdbc/insert.md","ref":"connectors/jdbc/insert.md","articles":[]},{"title":"Update actions","level":"1.17.11.4","depth":3,"path":"connectors/jdbc/update.md","ref":"connectors/jdbc/update.md","articles":[]},{"title":"Delete actions","level":"1.17.11.5","depth":3,"path":"connectors/jdbc/delete.md","ref":"connectors/jdbc/delete.md","articles":[]},{"title":"Run custom SQL action","level":"1.17.11.6","depth":3,"path":"connectors/jdbc/run_sql.md","ref":"connectors/jdbc/run_sql.md","articles":[]},{"title":"New row trigger","level":"1.17.11.7","depth":3,"path":"connectors/jdbc/new-row-trigger.md","ref":"connectors/jdbc/new-row-trigger.md","articles":[]},{"title":"Scheduled query trigger","level":"1.17.11.8","depth":3,"path":"connectors/jdbc/scheduled-query-trigger.md","ref":"connectors/jdbc/scheduled-query-trigger.md","articles":[]}]},"previous":{"title":"Update row action","level":"1.17.9.6","depth":3,"path":"connectors/google-sheets/action-update-row.md","ref":"connectors/google-sheets/action-update-row.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/http-v2.md","mtime":"2018-12-04T18:01:48.979Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-04T18:03:10.764Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
