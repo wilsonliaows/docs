@@ -1,30 +1,116 @@
 ---
-title: Workato connectors - On-premises files
-date: 2018-05-15 06:00:00 Z
+title: Workato connectors - On-prem files
+date: 2018-12-04 06:00:00 Z
 ---
 
-# On-premises Files
-Enterprises often have files that are stored on premises. These files are within the corporate internal systems and behind the corporate firewalls.
+# On-prem Files
+This connector lets you integrate with files within a secure network. These files typically are behind a corporate firewall and cannot be accssed directly. To create a connection to on-prem files, you **must** use an [On-prem agent](/on-prem.md).
 
 Workato's `On-prem files` connector allows you to securely connect to those on-premises files and build automation around them.
 
-![On-prem files connector](/assets/images/connectors/on-prem-files/on-prem-files-connector.png)
+## How to connect to on-prem files on Workato
+Before creating a connection for this connector, make sure you go through an [on-prem agent setup](/on-prem/setup.md) and create a profile for [on-prem files](/on-prem/profile.md#on-premises-files-connection-profile).
 
-## How to connect to on-premises files
-1) First, follow the instructions to [setup an on-prem agent](https://docs.workato.com/on-prem/setup.html).
+![On-prem files connection](/assets/images/connectors/on-prem-files/connection.png)
+*On-prem files connection using on-prem agent*
 
-2) Next, in the agent's `config.yml` file, [setup a connection profile](https://docs.workato.com/on-prem/profile.html) for `On-premises file systems`.
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='25%'>Field</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Connection name</td>
+      <td>Give this On-prem files connection a unique name that identifies which On-prem files instance it is connected to.</td>
+    </tr>
+    <tr>
+      <td>On-prem connection profile</td>
+      <td>Name of the profile you wish to connect to. This should be defined in your <code>config.yml</code> file in your On-prem agent.</td>
+    </tr>
+    <tr>
+      <td>Is this app in a private network?</td>
+      <td>Select the on-prem agent that you setup earlier.
+    </tr>
+  </tbody>
+</table>
 
-In this example, we create a connection profile named `myfiles`. The address below that is the on-premises folder that we want Workato to monitor:
+## Working with the On-prem files connector
 
-![On-prem files connection profile](/assets/images/connectors/on-prem-files/connection-profile.png)
+### Relative path
+Relative path is a way to specify the location of a file or folder based on the location of another folder. This is different from absolute path where you specify the full location of a file.
 
-3) [Run the on-prem agent](https://docs.workato.com/on-prem/run.html). Then check your [on-prem agent management page](https://www.workato.com/secure_agents) and make sure your agent is `Active`.
+File or folder path in the on-prem files connector are all relative paths. It is relative to the base path you define in the connection [profile](/on-prem/profile.md#on-premises-files-connection-profile) of your `config.yml` file. Let's take a look at an example.
 
-![On-prem agent management page](/assets/images/connectors/on-prem-files/OPA-page.png)
+Here, we have a profile with the base path defined as the `/Users/admin/projects` folder using the `base` property.
+```yml
+files:
+  projects:
+    base: /Users/admin/projects
+```
 
-4) After the agent is active, you will be able to setup Workato's `On-prem files` connector. Input the connection profile name and select an On-prem agent, in this case, `myfiles` and `My agent @ personal Macbook Air`.
+Now, if you wish to point to a file in this subfolder `/Users/admin/projects/engineering/2018_roadmap.csv`, you will have to use the relative path `/engineering/2018_roadmap.csv`. When used in a download file action, it will look like this.
 
-![On-prem files connection setup](/assets/images/connectors/on-prem-files/connector-setup.png)
+![Download content from file path]()
+*Download content from file path*
 
-5) Click `Connect`. If everything is setup correctly, you should see `Connection success` as shown in the image above.
+Similarly, to point to a subfolder `/Users/admin/projects/marketing/campaigns`, use the relative path `/marketing/campaigns`.
+
+![Move file to a folder using folder path]()
+*Move file to a folder using folder path*
+
+### Naming pattern
+Frequently, you may have a log of multiple files with a naming convention. These names typically either includes an incremental count to represent the versions or timestamp to represent the effective date of the contents. Defining a naming pattern allows you to filter files based on these naming conventions. Workato uses the `?` and `*` symbols to represent any single character or multiple characters respectively.
+
+#### Single character wildcard `?`
+The `?` symbol is used to represent any character once. For example, `Report_draft_?.pdf` can be used to represent `Report_draft_1.pdf`, `Report_draft_2.pdf` and `Report_draft_3.pdf`.
+
+#### Multiple character wildcard `*`
+The `*` symbol is used to represent any zero or more characters. For example, `Report_draft*.pdf` can be used to represent `Report_draft.pdf`, `Report_draft_1.pdf`, `Report_draft_2.pdf` and `Report_draft_3.pdf`.
+
+#### Using naming pattern in a recipe
+
+Let's look at an example of a marketing manager who needs to work with a folder that contains a few type of information series of webinar.
+
+:open_file_folder: Marketing
+  - :open_file_folder:  ProductHour
+      - :page_facing_up: Attendees_2018_11_29.csv
+      - :page_facing_up: Attendees_2018_11_15.csv
+      - :page_facing_up: Attendees_2018_11_01.csv
+      - :clipboard: Poll_responses_2018_11_29.txt
+      - :clipboard: Poll_responses_2018_11_15.txt
+      - :clipboard: Poll_responses_2018_11_01.txt
+      - :bar_chart: Slides_2018_11_29.pptx
+      - :bar_chart: Slides_2018_11_15.pptx
+      - :bar_chart: Slides_2018_11_01.pptx
+
+Based on each use case, files from this folder can be filtered in a number of ways.
+
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width="25%">Use case</th>
+        <th width="15%">Naming pattern</th>
+        <th width="60%">Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Trigger on CSV lines in Attendees information</td>
+      <td><b>Attendees*.csv</b></td>
+      <td><img src="/assets/images/connectors/on-prem-files/attendees-filter.png"><i>Filter Attendees CSV files in a trigger</i></img></td>
+    </tr>
+    <tr>
+      <td>List only Poll responses files from November</td>
+      <td><b>Poll_reponses_2018_11_??.txt</b></td>
+      <td><img src="/assets/images/connectors/on-prem-files/november-filter.png"><i>Filter Poll responses from November</i></img></td>
+    </tr>
+      <tr>
+        <td>Trigger on new Presentation slides in 2018</td>
+        <td><b>Slides_2018*.pptx</b></td>
+        <td><img src="/assets/images/connectors/on-prem-files/slides-filter.png"><i>Filter Presentation slides</i></img></td>
+      </tr>
+  </tbody>
+</table>
