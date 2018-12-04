@@ -17,8 +17,8 @@ You can choose to include files in sub-folders. This action also allows you to f
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -46,8 +46,8 @@ You can choose to include files in sub-folders. This action also allows you to f
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th colspan=2>Output field</th>
-        <th>Description</th>
+      <th colspan=2>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>

@@ -15,8 +15,8 @@ This action moves an exsiting file to a different folder. The file and destinati
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th width='25%'>Input field</th>
-        <th>Description</th>
+      <th width='25%'>Input field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -40,8 +40,8 @@ This action moves an exsiting file to a different folder. The file and destinati
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
-        <th>Output field</th>
-        <th>Description</th>
+      <th>Output field</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
