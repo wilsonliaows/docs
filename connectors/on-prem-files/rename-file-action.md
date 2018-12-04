@@ -1,14 +1,14 @@
 ---
-title: Workato connectors - On-prem files move file action
+title: Workato connectors - On-prem files Rename file action
 date: 2018-12-04 06:00:00 Z
 ---
 
-# On-prem files - Move file
+# On-prem files - Rename file
 
 This action moves an exsiting file to a different folder. The file and destination folder must exist for this action to work.
 
-![Move file action](/assets/images/connectors/on-prem-files/move-file-action.png)
-*Move file action*
+![Rename file action](/assets/images/connectors/on-prem-files/rename-file-action.png)
+*Rename file action*
 
 ## Input fields
 
@@ -23,13 +23,13 @@ This action moves an exsiting file to a different folder. The file and destinati
     <tr>
       <td>File</td>
       <td>
-        Select the file to move. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the folder path. Only files can be moved.
+        Select the file to rename. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the folder path. Only files can be renamed.
       </td>
     </tr>
     <tr>
-      <td>Destination folder</td>
+      <td>New file name</td>
       <td>
-        Select the destination folder to move the selected file to. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.
+        Provide the new name of the file, including extension. This should only be the file name without any path.
       </td>
     </tr>
   </tbody>
@@ -50,12 +50,8 @@ This action moves an exsiting file to a different folder. The file and destinati
       <td>Name of the file, with extension.</td>
     </tr>
     <tr>
-      <td>File path (original)</td>
-      <td>This is the original path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
-    </tr>
-    <tr>
-      <td>File path (new)</td>
-      <td>This is the new path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
+      <td>File path</td>
+      <td>This is the path of the file. This path is relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
     </tr>
     <tr>
       <td>File size (bytes)</td>
