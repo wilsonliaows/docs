@@ -5,7 +5,7 @@ date: 2018-12-04 06:00:00 Z
 
 # On-prem files - Move file
 
-This action moves an exsiting file to a different folder. The file and destination folder must exist for this action to work.
+This action moves an existing file to a different folder. The file and destination folder must exist for this action to work.
 
 ![Move file action](/assets/images/connectors/on-prem-files/move-file-action.png)
 *Move file action*
