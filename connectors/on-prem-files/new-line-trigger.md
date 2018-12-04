@@ -1,6 +1,6 @@
 ---
 title: Workato connectors - On-prem files new line in CSV file trigger
-date: 2018-03-23 06:00:00 Z
+date: 2018-12-04 06:00:00 Z
 ---
 
 # On-prem files - New line in CSV file trigger

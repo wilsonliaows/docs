@@ -51,12 +51,12 @@ files:
     base: /Users/admin/projects
 ```
 
-Now, if you wish to point to a file in this subfolder `/Users/admin/projects/engineering/2018_roadmap.csv`, you will have to use the relative path `/engineering/2018_roadmap.csv`. When used in a download file action, it will look like this.
+Now, if you wish to point to a file in this sub-folder `/Users/admin/projects/engineering/2018_roadmap.csv`, you will have to use the relative path `/engineering/2018_roadmap.csv`. When used in a download file action, it will look like this.
 
 ![Download content from file path]()
 *Download content from file path*
 
-Similarly, to point to a subfolder `/Users/admin/projects/marketing/campaigns`, use the relative path `/marketing/campaigns`.
+Similarly, to point to a sub-folder `/Users/admin/projects/marketing/campaigns`, use the relative path `/marketing/campaigns`.
 
 ![Move file to a folder using folder path]()
 *Move file to a folder using folder path*
