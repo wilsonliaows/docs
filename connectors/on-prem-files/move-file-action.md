@@ -23,13 +23,13 @@ This action moves an exsiting file to a different folder. The file and destinati
     <tr>
       <td>File</td>
       <td>
-        Select the file to move. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the folder path. Only files can be moved.
+        Select the file to move. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the file path. Only files can be moved.
       </td>
     </tr>
     <tr>
       <td>Destination folder</td>
       <td>
-        Select the destination folder to move the selected file to. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.
+        Select the destination folder to move the selected file. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the destination folder path.
       </td>
     </tr>
   </tbody>

@@ -23,7 +23,7 @@ This action moves an exsiting file to a different folder. The file and destinati
     <tr>
       <td>File</td>
       <td>
-        Select the file to rename. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the folder path. Only files can be renamed.
+        Select the file to rename. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the file path. Only files can be renamed.
       </td>
     </tr>
     <tr>
