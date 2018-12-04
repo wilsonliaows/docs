@@ -18,7 +18,7 @@ The custom action will list the scopes available. Typically, you can only read o
 
 ```
 channels:read, channels:write, chat:write:bot, chat:write:user, groups:read, groups:write,
-identify, users:read
+users:read, users:read.email
 ```
 
 ![App scopes available for the custom action](/assets/images/developing-connectors/custom-actions/app-scopes.png)
@@ -177,7 +177,7 @@ For example, the above response body contains the member list, which we have exc
 
 We now have our completed Slack custom action - we should now test it. If you want to quickly test a custom action without a trigger, you can use the Scheduler `New scheduled event` trigger.
 
-![Completed Slack custom action to list channels](/assets/images/developing-connectors/custom-actions/full-slack-custom-action.png)
+![Completed Slack custom action to list channels](/assets/images/developing-connectors/custom-actions/full-slack-custom-action.gif)
 *Completed Slack custom action to list channels*
 
 When the above action was tested, we can see the input passed into the action in the detailed job history.
