@@ -7,8 +7,8 @@ date: 2018-12-04 06:00:00 Z
 
 This action downloads an existing file. The output of this action is the raw contents and it supports [streaming](/features/file-streaming.md) contents of large files.
 
-![download file action](/assets/images/connectors/on-prem-files/download-file-action.png)
-*download file action*
+![Download file action](/assets/images/connectors/on-prem-files/download-file-action.png)
+*Download file action*
 
 ## Input fields
 
@@ -23,7 +23,8 @@ This action downloads an existing file. The output of this action is the raw con
     <tr>
       <td>File</td>
       <td>
-        Select the file to download. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the file path. Only files can be downloaded.
+        Select the file to download. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the file path. Only files can be downloaded.<br>
+        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
       </td>
     </tr>
     <tr>

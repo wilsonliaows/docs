@@ -23,13 +23,14 @@ This action uploads a file to an existing folder. You can choose to overwrite co
     <tr>
       <td>Folder</td>
       <td>
-        Select the folder to upload the file to. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.
+        Select the folder to upload the file to. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.<br>
+        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
       </td>
     </tr>
     <tr>
       <td>File name</td>
       <td>
-        Name of the file to be uploaded.
+        Name of the file to be uploaded. This should only be the file name without any path.
       </td>
     </tr>
     <tr>

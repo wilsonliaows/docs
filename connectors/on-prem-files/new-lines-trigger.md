@@ -5,7 +5,7 @@ date: 2018-12-04 06:00:00 Z
 
 # On-prem files - New lines in CSV file trigger
 
-This trigger picks up new lines added to the end of a selected CSV file. Lines from the file will be processed un batches in each job.
+This trigger picks up new lines added to the end of a selected CSV file. Lines from the file will be processed in batches in each job.
 
 When the recipe is first started, the trigger will pick up all existing lines in the selected CSV file. Subsequently, new lines added to the end of the file will be processed as new job(s).
 
@@ -38,7 +38,8 @@ This trigger checks for new lines once every poll interval. The poll interval ca
     </tr>
     <tr>
       <td>Batch size</td>
-      <td>Determine the number of lines to process in each job. The default value is 100 and maximum is 2000.
+      <td>Determine the number of lines to process in each job. The default value is 100 and maximum is 2000.<br>
+      Select a batch size based on the limit of your destination application.
       </td>
     </tr>
   </tbody>

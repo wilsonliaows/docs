@@ -25,7 +25,8 @@ You can choose to include files in sub-folders. This action also allows you to f
     <tr>
       <td>Folder</td>
       <td>
-        Select the parent folder to list files from. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.
+        Select the parent folder to list files from. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the folder path.<br>
+        This should be relative to the base path you define in the connection profile. Learn about <a href="/connectors/on-prem-files.md#relative-path">relative path</a>.</td>
       </td>
     </tr>
     <tr>
