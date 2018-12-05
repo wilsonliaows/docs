@@ -34,11 +34,11 @@ In order to create a QBO invoice, you’ll need to create a new customer if the 
 
 Create a recipe as you normally would, and for the trigger, select **Callable Recipe** under the application picklist.
 
-![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Callable Recipe Trigger 0.gif)
+![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Callable_Recipe_Trigger_0.gif)
 *Select callable recipe connector and call recipe action*
 
 Fill in a Name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about JSON [here](https://support.workato.com/support/solutions/articles/1000234879-schema-definition).
-![CallableRecipeTrigger1](/assets/images/features/Callable Recipes/Callable Recipe Trigger 1.png)
+![CallableRecipeTrigger1](/assets/images/features/Callable Recipes/Callable_Recipe_Trigger_1.png)
 In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
 Lastly, you may choose to enable REST endpoint for your recipe. This defaults to No.
@@ -60,7 +60,7 @@ Create a recipe that requires the logic from the callable recipe we created earl
 
 Simply click on Add a new step, select **call recipe**, choose the recipe you created earlier, and you will see the fields from your **input schema** appear. Simply drag and drop the required pills and you'll be good to go!
 
-![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Call Recipe Action.png)
+![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Call_Recipe_Action.png)
 *Example of calling a recipe asynchronous*
 
 
