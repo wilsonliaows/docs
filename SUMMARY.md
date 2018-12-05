@@ -110,7 +110,6 @@
   * [XML contents](features/handling-xml.md)
   * [Move files between apps](handling-files-and-attachments.md#moving-textbinary-files-via-public-url)
   * [File streaming](features/file-streaming.md)
-  * [Search files using wildcard](features/wildcard.md)
   * [Compress files](features/compress-files.md)
   * [Encrypt & decrypt files](features/pgp-encryption.md)
 * [Batch processing](features/batch-processing.md)

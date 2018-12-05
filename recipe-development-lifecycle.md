@@ -12,7 +12,7 @@ On Workato, teams can move sets of recipes and their dependencies (e.g. connecti
 Users can export and import their recipes as packages. Here's a list of assets that are exported in a package:
 
 - recipes in a chosen folder
-- subfolders and recipes in those subfolders
+- sub-folders and recipes in those sub-folders
 - associated connections
 - associated custom connectors
 - associated callable recipes
