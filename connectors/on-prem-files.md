@@ -53,12 +53,12 @@ files:
 
 Now, if you wish to point to a file in this sub-folder `/Users/admin/projects/engineering/2018_roadmap.csv`, you will have to use the relative path `/engineering/2018_roadmap.csv`. When used in a download file action, it will look like this.
 
-![Download content from file path]()
+![Download content from file path](/assets/images/connectors/on-prem-files/download-file-action.png)
 *Download content from file path*
 
-Similarly, to point to a sub-folder `/Users/admin/projects/marketing/campaigns`, use the relative path `/marketing/campaigns`.
+Similarly, to point to a sub-folder `/Users/admin/projects/marketing/users`, use the relative path `/marketing/users`.
 
-![Move file to a folder using folder path]()
+![Move file to a folder using folder path](/assets/images/connectors/on-prem-files/move-file-action.png)
 *Move file to a folder using folder path*
 
 ### Naming pattern
