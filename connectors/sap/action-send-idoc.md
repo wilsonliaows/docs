@@ -7,12 +7,12 @@ date: 2018-12-06 06:00:00 Z
 
 ![Action Send IDoc](/assets/images/connectors/sap/action-send-idoc.png)
 
-This action allows you to send IDoc to your SAP system. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/on-prem/sap.html#create-partner-profile-for-workato) before using this action.
+This action allows you to send IDoc to your SAP system. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/sap.html#create-partner-profile-for-workato) before using this action.
 
 ## Input fields
 | Field name | Description |
 |---|---|
-| IDoc name | The IDoc to send. You can select an IDoc name from the picklist or enter IDoc name directly. Note that the picklist only displays [IDocs that are configured in the partner profile in your SAP system](https://docs.workato.com/on-prem/sap.html#create-partner-profile-for-workato). |
+| IDoc name | The IDoc to send. You can select an IDoc name from the picklist or enter IDoc name directly. Note that the picklist only displays [IDocs that are configured in the partner profile in your SAP system](https://docs.workato.com/sap.html#create-partner-profile-for-workato). |
 | Release number | Check with your SAP admin what IDoc release should be used. By default, Workato uses the earliest release of the selected IDoc. |
 | Wait for SAP to process the IDoc? | IDoc is processed asynchronously in SAP. So you can configure the recipe to wait for the processing to finish before moving on to the next recipe step. |
 | Check IDoc status every | This field will appear if `Wait for SAP to process the IDoc` is set to `Yes`. Select how often Workato should call SAP. This is useful when you want to control the workload of your SAP system. |
