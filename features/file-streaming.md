@@ -37,60 +37,52 @@ In either case, no additional configuration is required in the recipe.
     <tr>
       <td>Amazon S3</td>
       <td>
-        - New file trigger<br>
-        - Download file action<br>
+        <li>New file trigger</li>
+        <li>Download file action</li>
       </td>
-      <td>
-        - Upload file action<br>
-      </td>
+      <td><li>Upload file action</li></td>
     </tr>
     <tr>
       <td>Anaplan</td>
-      <td>- Download file action</td>
-      <td>- Upload file action</td>
+      <td><li>Download file action</li></td>
+      <td><li>Upload file action</li></td>
     </tr>
     <tr>
       <td>Box</td>
-      <td>
-        - Download file action<br>
-      </td>
-      <td>-</td>
+      <td><li>Download file action</li></td>
+      <td></td>
     </tr>
     <tr>
       <td>Microsoft Sharepoint</td>
-      <td>-</td>
-      <td>- Upload file to folder action</td>
+      <td></td>
+      <td><li>Upload file to folder action</li></td>
     </tr>
     <tr>
       <td>On-prem files</td>
       <td>
-        - New file in folder trigger<br>
-        - Download file action<br>
+        <li>New file in folder trigger</li>
+        <li>Download file action</li>
       </td>
-      <td>
-        - Upload file action<br>
-      </td>
+      <td><li>Upload file action</li></td>
     </tr>
     <tr>
       <td>Quickbase</td>
-      <td>- </td>
-      <td>- Create and update records in bulk from CSV file action</td>
+      <td></td>
+      <td><li>Create and update records in bulk from CSV file action</li></td>
     </tr>
     <tr>
       <td>Salesforce</td>
-      <td>-</td>
+      <td></td>
       <td>
-        - Insert object in bulk from CSV file action<br>
-        - Update object in bulk from CSV file action<br>
-        - Upsert object in bulk from CSV file action<br>
+        <li>Insert object in bulk from CSV file action</li>
+        <li>Update object in bulk from CSV file action</li>
+        <li>Upsert object in bulk from CSV file action</li>
       </td>
     </tr>
     <tr>
       <td>SFTP</td>
-      <td>-</td>
-      <td>
-        - Upload file action<br>
-      </td>
+      <td></td>
+      <td><li>Upload file action</li></td>
     </tr>
   </tbody>
 </table>
