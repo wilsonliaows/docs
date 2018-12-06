@@ -8,12 +8,12 @@ date: 2018-12-06 06:00:00 Z
 
 This action allows you to check if an IDoc is successfully processed in SAP, after being sent from Workato.
 
-When you use action [Send IDoc](https://docs.workato.com/sap/action-send-idoc.html), Workato automatically attaches an unique `Submission ID` to the IDoc. Use this `Submission ID` in the input field below.
+When you use action [Send IDoc](https://docs.workato.com/connectors/sap/action-send-idoc.html), Workato automatically attaches an unique `Submission ID` to the IDoc. Use this `Submission ID` in the input field below.
 
 ## Input fields
 | Field name | Description |
 |---|---|
-| Submission ID | When Workato sends an IDoc to SAP, we will attach a `Submission ID` to that IDoc. Find this `Submission ID` in the output of action [Send IDoc](https://docs.workato.com/sap/action-send-idoc.html). |
+| Submission ID | When Workato sends an IDoc to SAP, we will attach a `Submission ID` to that IDoc. Find this `Submission ID` in the output of action [Send IDoc](https://docs.workato.com/connectors/sap/action-send-idoc.html). |
 
 ## Output fields
 | Field name | Description |
