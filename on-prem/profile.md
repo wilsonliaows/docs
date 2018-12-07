@@ -299,15 +299,15 @@ These are required for SAP Outbound Connection properties:
 | progid | SAP Program ID configured for Workato> |
 | connection_count | Default to `2`. The number of parallel connection can be open for outbound sap connection. |
 
-These are optional for Workato Connection properties (with recommended default values):
+These are optional for Workato Connection properties (for advanced users):
 
 | Property name | Comment |
 |------------------|-------------------------------------------|
-| http_connect_timeout | 30000 |
-| http_connection_request_timeout | 30000 |
-| http_socket_timeout | 30000 |
-| cm_max_total | 20 |
-| cm_default_max_per_route | 20 |
+| http_connect_timeout | Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. |
+| http_connection_request_timeout | Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. |
+| http_socket_timeout | Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets. |
+| cm_max_total | Default 10. Total number of connections in the connection pool. |
+| cm_default_max_per_route | Default 5. Number of connections in the pool per route. |
 
 These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
 
