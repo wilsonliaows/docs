@@ -19,7 +19,7 @@ Such methods are declared using the `methods` block. This block is a top-level k
       else
         number
       end
-    end
+    end,
 
     hello: lambda do
       puts "Hello world"
