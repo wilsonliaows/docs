@@ -105,7 +105,7 @@ Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run th
 
 ![SAP connection](/assets/images/connectors/sap/sap-jco-connection.png)
 
-There are 2 ways to create a connection in Workato. Click on 'App Connections' on the navigation bar and then on 'Create a new connection'; or click on the connections tab in a recipe with SAP triggers/actions. Then, follow the steps below:
+There are 2 ways to create a connection in Workato. Click on `App Connections` on the navigation bar and then on `Create a new connection`; or click on the connections tab in a recipe with SAP triggers/actions. Then, follow the steps below:
 - Select the connector `SAP`
 - Input the OPA profile name for SAP you have created in previous step, in this case `Direct1`
 - Select the OPA name, in this case `OPA @ BCone SAP`
