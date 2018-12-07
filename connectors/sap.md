@@ -38,7 +38,7 @@ In the Technical Settings tab, select the `Registered Server Program` option and
 
 ![RFC destination](/assets/images/connectors/sap/rfc-destination.png)
 
-The RFC Connection can be tested once the Workato On-prem Agent (OPA) has been setup (instruction below).
+The RFC Connection can be tested once the Workato On-prem Agent (OPA) has been setup (instructions below).
 
 #### Step 2: Define a port for Workato
 Use the transaction WE21 to define a port for sending and receiving IDocs of type `Transactional RFC`.
