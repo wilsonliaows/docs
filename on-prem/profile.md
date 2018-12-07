@@ -9,6 +9,7 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  Profiles are configured in the `<INSTALL_HOME>/conf/config.yml`. A config file can contain profiles to a few types of systems:
  - [Databases](#database-connection-profile)
  - [On-premises file systems](#on-premises-files-connection-profile)
+ - [SAP](#sap-connection-profile)
  - [Java messaging service](#jms-connection-profile)
  - [Apache Kafka](#apache-kafka-connection-profile)
  - [Active directory](#active-directory-connection-profile)
@@ -179,6 +180,151 @@ files:
   hrfiles:
     base: "/Users/me/Desktop/employees"
 ```
+
+## SAP connection profile
+SAP connection profile must be defined in the `sap` section. There are two connection types that connector supports: `direct` and `messageserver`.
+
+Below is the example of `direct` connection type. Use this connection type if SAP system is directly exposed as an application server.
+
+```YAML
+sap:
+  Direct:
+  # sap inbound connection properties
+    connection_type: direct
+    ashost: 10.30.xx.xx
+    client: 800
+    user: OSA_DEV
+    password: ********
+    lang: en
+    sysnr: 00
+    pool_capacity: 3
+    peak_limit: 10
+  # Below are the sap outbound connection properties. These must be passed along with inbound properties
+    gwhost: 10.30.xx.xx
+    gwserv: 3300
+    progid: WORKATO
+    connection_count: 2
+    http_connect_timeout: 30000
+    preview: true
+    http_connection_request_timeout: 30000
+    http_socket_timeout: 30000
+    cm_max_total: 20
+    cm_default_max_per_route: 20
+    control_segment:
+    # Properties required for setting idoc segement fields  
+      SNDPOR: WORKATO
+      SNDPRT: LS
+      SNDPRN: WORKATO
+      RCVPOR: SAPEQ6
+      RCVPRT: LS
+      RCVPRN: T90CLNT090
+    # Below property required to get IDOC list configured on RCVPRN profile
+      OUT_RCVPRN: WORKATO
+```
+
+Below is the example of `messageserver` connection type. Use this connection type when SAO system is behind message server gateway.
+
+```YAML
+sap:
+  MessageServer:
+  # sap inbound connection properties
+    connection_type: messageserver
+    user: OSA_DEV
+    password: ********
+    lang: en
+    sysnr: 00
+    mshost: 10.30.xx.xx
+    msserv: 3600
+    r3name: R/3
+    client: 800
+    group:  PUBLIC
+    pool_capacity: 3
+    peak_limit: 10
+  # Below are the sap outbound connection properties. These must be passed along with inbound properties
+    gwhost: 10.30.xx.xx
+    gwserv: 3300
+    progid: WORKATO
+    connection_count: 2
+    http_connect_timeout: 30000
+    preview: true
+    http_connection_request_timeout: 30000
+    http_socket_timeout: 30000
+    cm_max_total: 20
+    cm_default_max_per_route: 20
+    control_segment:
+    # Properties required for setting idoc segement fields  
+      SNDPOR: WORKATO
+      SNDPRT: LS
+      SNDPRN: WORKATO
+      RCVPOR: SAPEQ6
+      RCVPRT: LS
+      RCVPRN: T90CLNT090
+    # Below property required to get IDOC list configured on RCVPRN profile
+      OUT_RCVPRN: WORKATO
+```
+
+The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| ashost | SAP host in the format of `xxx.xxx.xxx.xxx` |
+| client | Three digit sap client id |
+
+The below properties are mandatory and required if Messager Server is connected to the SAP JCO Connector. This will allow Load Balancer on the SAP side to be enabled and can be used for SAP Production server connection parameters:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| mshost | 10.30.32.80 |
+| msserv | 3601 |
+| r3name | R/3 |
+| group | PUBLIC |
+
+The below properties are required irrespective of the connection type. Be it either Message Server or Application server:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| user | SAP RFC user. Recommend using background user and disable dialog properties. |
+| password | SAP RFC user password |
+| lang | Logon language |
+| sysnr | Two digit sap system number |
+| pool_capacity | Default to `3`. Maximum number of idle connections that kept open for a SAP connection. |
+| peak_limit | Default to `10`. Maximum number of active connections that can be created for a sap connection simultaneously |
+
+These are required for SAP Outbound Connection properties:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| gwhost | SAP Gateway Host: `xxx.xxx.xxx.xxx` |
+| gwserv | Gateway server port |
+| progid | SAP Program ID configured for Workato> |
+| connection_count | Default to `2`. The number of parallel connection can be open for outbound sap connection. |
+
+These are optional for Workato Connection properties (for advanced users):
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| http_connect_timeout | Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. |
+| http_connection_request_timeout | Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. |
+| http_socket_timeout | Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets. |
+| cm_max_total | Default 10. Total number of connections in the connection pool. |
+| cm_default_max_per_route | Default 5. Number of connections in the pool per route. |
+
+These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| SNDPOR | Transactional RFC port configured in SAP for Workato |
+| SNDPRT | Partner profile type |
+| SNDPRN | Partner profile Name defined for Workato |
+| RCVPOR | SAP default Receiver Port |
+| RCVPRT | Receiver Partner profile type |
+| RCVPRN | Receiver Partner profile type defined for the SAP |
+
+The Below property required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| OUT_RCVPRN | Receiver Partner profile type defined for the SAP |
 
 ## JMS connection profile
 JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premises agent:
