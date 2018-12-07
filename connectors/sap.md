@@ -114,7 +114,7 @@ There are 2 ways to create a connection in Workato. Click on `App Connections` o
 ## Connect to SAP using OData
 ![SAP OData connector](/assets/images/connectors/sap/sap-odata.png)
 
-The SAP OData connector is currently in beta and can only provide `read` capability, but not `write`. Currently, we recommend using IDoc or RFC instead.
+The SAP OData connector is currently in early beta and can only provide `read` capability, but not `write`. Currently, we recommend using IDoc or RFC instead.
 
 Requirements to use the SAP OData connector:
 - Your SAP system needs to support creating OData services (only available in newer SAP versions such as SAP S/4HANA)
