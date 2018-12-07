@@ -14,7 +14,7 @@ There are 3 ways you can connect to SAP on Workato:
 ## Connect to SAP using IDoc
 ![SAP JCo connector](/assets/images/connectors/sap/sap-jco.png)
 
-The SAP connector can handle IDocs coming from SAP (Outbound IDoc) as well as when IDocs being sent to SAP (Inbound IDoc).
+The SAP On-premise connector can connect to both on-premise SAP system and SAP system on a server behind the corporate firewall. It can handle IDocs coming from SAP (Outbound IDoc) as well as when IDocs being sent to SAP (Inbound IDoc).
 
 ### Introduction to IDoc
 The term `IDoc` stands for intermediate document. It is simply a data container used to exchange information between SAP systems or between SAP and 3rd-party systems.

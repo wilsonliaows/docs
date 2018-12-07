@@ -7,7 +7,7 @@ date: 2018-12-06 06:00:00 Z
 
 ![Trigger New IDoc](/assets/images/connectors/sap/trigger-new-idoc.png)
 
-This trigger allows you to listen to and receive IDocs from SAP. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#configure-idoc-in-sap-to-work-with-workato) before using this trigger.
+This trigger allows you to listen to and receive IDocs from on-premise SAP system, or from SAP system on a server behind the corporate firewall. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#configure-idoc-in-sap-to-work-with-workato) before using this trigger.
 
 ## Input fields
 | Field name | Description |
