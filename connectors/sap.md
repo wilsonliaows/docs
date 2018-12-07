@@ -9,7 +9,7 @@ SAP is an enterprise resource planning software used by the largest corporations
 There are 3 ways you can connect to SAP on Workato:
 1. [Using IDoc](#connect-to-sap-using-idoc) (recommended)
 2. Using RFC (coming soon)
-3. [Using OData](#connect-to-sap-using-odata) (beta)
+3. [Using OData](#connect-to-sap-using-odata) (early beta)
 
 ## Connect to SAP using IDoc
 ![SAP JCo connector](/assets/images/connectors/sap/sap-jco.png)
