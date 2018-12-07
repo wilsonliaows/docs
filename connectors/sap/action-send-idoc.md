@@ -3,11 +3,11 @@ title: Workato connectors - SAP action - Send Idoc
 date: 2018-12-06 06:00:00 Z
 ---
 
-# SAP Action - Send IDOC
+# SAP Action - Send IDoc
 
 ![Action Send IDoc](/assets/images/connectors/sap/action-send-idoc.png)
 
-This action allows you to send IDoc to your SAP system. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#create-partner-profile-for-workato) before using this action.
+This action allows you to send IDoc to your SAP system. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#configure-idoc-in-sap-to-work-with-workato) before using this action.
 
 ## Input fields
 | Field name | Description |

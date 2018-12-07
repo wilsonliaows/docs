@@ -3,11 +3,11 @@ title: Workato connectors - SAP trigger - New Idoc
 date: 2018-12-06 06:00:00 Z
 ---
 
-# SAP Trigger - New IDOC
+# SAP Trigger - New IDoc
 
 ![Trigger New IDoc](/assets/images/connectors/sap/trigger-new-idoc.png)
 
-This trigger allows you to listen to and receive IDoc from SAP. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#create-partner-profile-for-workato) before using this trigger.
+This trigger allows you to listen to and receive IDocs from SAP. Note that you must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#configure-idoc-in-sap-to-work-with-workato) before using this trigger.
 
 ## Input fields
 | Field name | Description |
