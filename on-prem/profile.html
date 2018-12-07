@@ -8075,6 +8075,7 @@
 <ul>
 <li><a href="#database-connection-profile">Databases</a></li>
 <li><a href="#on-premises-files-connection-profile">On-premises file systems</a></li>
+<li><a href="#sap-connection-profile">SAP</a></li>
 <li><a href="#jms-connection-profile">Java messaging service</a></li>
 <li><a href="#apache-kafka-connection-profile">Apache Kafka</a></li>
 <li><a href="#active-directory-connection-profile">Active directory</a></li>
@@ -8213,6 +8214,270 @@ You need to specify the base folder for file access as it will be used for resol
 <span class="hljs-attr">  hrfiles:</span>
 <span class="hljs-attr">    base:</span> <span class="hljs-string">&quot;/Users/me/Desktop/employees&quot;</span>
 </code></pre>
+<h2 id="sap-connection-profile">SAP connection profile</h2>
+<p>SAP connection profile must be defined in the <code>sap</code> section. There are two connection types that connector supports: <code>direct</code> and <code>messageserver</code>.</p>
+<p>Below is the example of <code>direct</code> connection type. Use this connection type if SAP system is directly exposed as an application server.</p>
+<pre><code class="lang-YAML"><span class="hljs-attr">sap:</span>
+<span class="hljs-attr">  Direct:</span>
+  <span class="hljs-comment"># sap inbound connection properties</span>
+<span class="hljs-attr">    connection_type:</span> direct
+<span class="hljs-attr">    ashost:</span> <span class="hljs-number">10.30</span>.xx.xx
+<span class="hljs-attr">    client:</span> <span class="hljs-number">800</span>
+<span class="hljs-attr">    user:</span> OSA_DEV
+<span class="hljs-attr">    password:</span> ********
+<span class="hljs-attr">    lang:</span> en
+<span class="hljs-attr">    sysnr:</span> <span class="hljs-number">00</span>
+<span class="hljs-attr">    pool_capacity:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    peak_limit:</span> <span class="hljs-number">10</span>
+  <span class="hljs-comment"># Below are the sap outbound connection properties. These must be passed along with inbound properties</span>
+<span class="hljs-attr">    gwhost:</span> <span class="hljs-number">10.30</span>.xx.xx
+<span class="hljs-attr">    gwserv:</span> <span class="hljs-number">3300</span>
+<span class="hljs-attr">    progid:</span> WORKATO
+<span class="hljs-attr">    connection_count:</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">    http_connect_timeout:</span> <span class="hljs-number">30000</span>
+<span class="hljs-attr">    preview:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    http_connection_request_timeout:</span> <span class="hljs-number">30000</span>
+<span class="hljs-attr">    http_socket_timeout:</span> <span class="hljs-number">30000</span>
+<span class="hljs-attr">    cm_max_total:</span> <span class="hljs-number">20</span>
+<span class="hljs-attr">    cm_default_max_per_route:</span> <span class="hljs-number">20</span>
+<span class="hljs-attr">    control_segment:</span>
+    <span class="hljs-comment"># Properties required for setting idoc segement fields  </span>
+<span class="hljs-attr">      SNDPOR:</span> WORKATO
+<span class="hljs-attr">      SNDPRT:</span> LS
+<span class="hljs-attr">      SNDPRN:</span> WORKATO
+<span class="hljs-attr">      RCVPOR:</span> SAPEQ6
+<span class="hljs-attr">      RCVPRT:</span> LS
+<span class="hljs-attr">      RCVPRN:</span> T90CLNT090
+    <span class="hljs-comment"># Below property required to get IDOC list configured on RCVPRN profile</span>
+<span class="hljs-attr">      OUT_RCVPRN:</span> WORKATO
+</code></pre>
+<p>Below is the example of <code>messageserver</code> connection type. Use this connection type when SAO system is behind message server gateway.</p>
+<pre><code class="lang-YAML"><span class="hljs-attr">sap:</span>
+<span class="hljs-attr">  MessageServer:</span>
+  <span class="hljs-comment"># sap inbound connection properties</span>
+<span class="hljs-attr">    connection_type:</span> messageserver
+<span class="hljs-attr">    user:</span> OSA_DEV
+<span class="hljs-attr">    password:</span> ********
+<span class="hljs-attr">    lang:</span> en
+<span class="hljs-attr">    sysnr:</span> <span class="hljs-number">00</span>
+<span class="hljs-attr">    mshost:</span> <span class="hljs-number">10.30</span>.xx.xx
+<span class="hljs-attr">    msserv:</span> <span class="hljs-number">3600</span>
+<span class="hljs-attr">    r3name:</span> R/<span class="hljs-number">3</span>
+<span class="hljs-attr">    client:</span> <span class="hljs-number">800</span>
+<span class="hljs-attr">    group:</span>  PUBLIC
+<span class="hljs-attr">    pool_capacity:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    peak_limit:</span> <span class="hljs-number">10</span>
+  <span class="hljs-comment"># Below are the sap outbound connection properties. These must be passed along with inbound properties</span>
+<span class="hljs-attr">    gwhost:</span> <span class="hljs-number">10.30</span>.xx.xx
+<span class="hljs-attr">    gwserv:</span> <span class="hljs-number">3300</span>
+<span class="hljs-attr">    progid:</span> WORKATO
+<span class="hljs-attr">    connection_count:</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">    http_connect_timeout:</span> <span class="hljs-number">30000</span>
+<span class="hljs-attr">    preview:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    http_connection_request_timeout:</span> <span class="hljs-number">30000</span>
+<span class="hljs-attr">    http_socket_timeout:</span> <span class="hljs-number">30000</span>
+<span class="hljs-attr">    cm_max_total:</span> <span class="hljs-number">20</span>
+<span class="hljs-attr">    cm_default_max_per_route:</span> <span class="hljs-number">20</span>
+<span class="hljs-attr">    control_segment:</span>
+    <span class="hljs-comment"># Properties required for setting idoc segement fields  </span>
+<span class="hljs-attr">      SNDPOR:</span> WORKATO
+<span class="hljs-attr">      SNDPRT:</span> LS
+<span class="hljs-attr">      SNDPRN:</span> WORKATO
+<span class="hljs-attr">      RCVPOR:</span> SAPEQ6
+<span class="hljs-attr">      RCVPRT:</span> LS
+<span class="hljs-attr">      RCVPRN:</span> T90CLNT090
+    <span class="hljs-comment"># Below property required to get IDOC list configured on RCVPRN profile</span>
+<span class="hljs-attr">      OUT_RCVPRN:</span> WORKATO
+</code></pre>
+<p>The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ashost</td>
+<td>SAP host in the format of <code>xxx.xxx.xxx.xxx</code></td>
+</tr>
+<tr>
+<td>client</td>
+<td>Three digit sap client id</td>
+</tr>
+</tbody>
+</table>
+<p>The below properties are mandatory and required if Messager Server is connected to the SAP JCO Connector. This will allow Load Balancer on the SAP side to be enabled and can be used for SAP Production server connection parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mshost</td>
+<td>10.30.32.80</td>
+</tr>
+<tr>
+<td>msserv</td>
+<td>3601</td>
+</tr>
+<tr>
+<td>r3name</td>
+<td>R/3</td>
+</tr>
+<tr>
+<td>group</td>
+<td>PUBLIC</td>
+</tr>
+</tbody>
+</table>
+<p>The below properties are required irrespective of the connection type. Be it either Message Server or Application server:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>SAP RFC user. Recommend using background user and disable dialog properties.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>SAP RFC user password</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>Logon language</td>
+</tr>
+<tr>
+<td>sysnr</td>
+<td>Two digit sap system number</td>
+</tr>
+<tr>
+<td>pool_capacity</td>
+<td>Default to <code>3</code>. Maximum number of idle connections that kept open for a SAP connection.</td>
+</tr>
+<tr>
+<td>peak_limit</td>
+<td>Default to <code>10</code>. Maximum number of active connections that can be created for a sap connection simultaneously</td>
+</tr>
+</tbody>
+</table>
+<p>These are required for SAP Outbound Connection properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gwhost</td>
+<td>SAP Gateway Host: <code>xxx.xxx.xxx.xxx</code></td>
+</tr>
+<tr>
+<td>gwserv</td>
+<td>Gateway server port</td>
+</tr>
+<tr>
+<td>progid</td>
+<td>SAP Program ID configured for Workato&gt;</td>
+</tr>
+<tr>
+<td>connection_count</td>
+<td>Default to <code>2</code>. The number of parallel connection can be open for outbound sap connection.</td>
+</tr>
+</tbody>
+</table>
+<p>These are optional for Workato Connection properties (for advanced users):</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>http_connect_timeout</td>
+<td>Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout.</td>
+</tr>
+<tr>
+<td>http_connection_request_timeout</td>
+<td>Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout.</td>
+</tr>
+<tr>
+<td>http_socket_timeout</td>
+<td>Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets.</td>
+</tr>
+<tr>
+<td>cm_max_total</td>
+<td>Default 10. Total number of connections in the connection pool.</td>
+</tr>
+<tr>
+<td>cm_default_max_per_route</td>
+<td>Default 5. Number of connections in the pool per route.</td>
+</tr>
+</tbody>
+</table>
+<p>These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SNDPOR</td>
+<td>Transactional RFC port configured in SAP for Workato</td>
+</tr>
+<tr>
+<td>SNDPRT</td>
+<td>Partner profile type</td>
+</tr>
+<tr>
+<td>SNDPRN</td>
+<td>Partner profile Name defined for Workato</td>
+</tr>
+<tr>
+<td>RCVPOR</td>
+<td>SAP default Receiver Port</td>
+</tr>
+<tr>
+<td>RCVPRT</td>
+<td>Receiver Partner profile type</td>
+</tr>
+<tr>
+<td>RCVPRN</td>
+<td>Receiver Partner profile type defined for the SAP</td>
+</tr>
+</tbody>
+</table>
+<p>The Below property required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OUT_RCVPRN</td>
+<td>Receiver Partner profile type defined for the SAP</td>
+</tr>
+</tbody>
+</table>
 <h2 id="jms-connection-profile">JMS connection profile</h2>
 <p>JMS connection profiles must be defined in the <code>jms</code> section. A JMS provider is specified by <code>provider</code> property of a connection profile. The following JMS providers are supported by the on-premises agent:</p>
 <table class="unchanged rich-diff-level-one">
@@ -8761,7 +9026,7 @@ The parameter schema configuration can have properties as follows:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.14.4","depth":2,"next":{"title":"On-premises connections","level":"1.14.5","depth":2,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.14.3","depth":2,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2018-12-07T00:47:06.968Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-07T00:48:50.002Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.14.4","depth":2,"next":{"title":"On-premises connections","level":"1.14.5","depth":2,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.14.3","depth":2,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2018-12-07T05:45:26.560Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-07T05:46:50.517Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
