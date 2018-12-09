@@ -4,16 +4,16 @@ date: 2018-12-06 06:00:00 Z
 ---
 
 # File Streaming
-File streaming is the concept of reading and writing a file in smaller parts (chunks) in sequence. This allows us to transfer large files between apps or file systems without worrying about hitting size limit of the sending and receiving systems. A common example is transferring records from a shared file system (SFTP) to a file hosting platform for analysis (Amazon S3).
+File streaming is the concept of reading and writing a file in smaller parts (chunks) in sequence. This allows us to transfer large files between apps or file systems without worrying about hitting the size limit of the sending and receiving systems. A common example is transferring records from a shared file system (SFTP) to a file hosting platform for analysis (Amazon S3).
 
 ## How it works
 When transferring a file from a source app to a destination app, Workato splits the file into smaller chunks and downloads them. These chunks are then uploaded to the destination app in separate requests. This allows us to stay within the size limit of both apps, regardless of the total size of the original file.
 
-As a result, Workato is able to transfer files of any size between apps that support streaming.
-
 The following diagram illustrates how this works:
 
 ![File streaming](/assets/images/features/file-streaming/streaming-illustration.png)
+
+As a result, Workato is able to transfer files of any size between apps that support streaming.
 
 ## How to use it
 File streaming is supported only if both the source download and destination upload actions support this feature. It is automatically initiated when you map a <kbd>File contents</kbd> datapill (from the source app) to a **File contents** input field (of the destination app).
