@@ -20,8 +20,6 @@ File streaming is supported only if both the source download and destination upl
 
 If either the source datapill or the destination input field does not support streaming, then standard data mapping is performed, i.e. the entire file is downloaded and then uploaded without any chunking. In this case, the file transfer is limited by the size limit imposed by the respective apps. The smaller of the 2 will be the resultant limit.
 
-If either one of the datapill and input field is not streaming-enabled, a standard data mapping is performed - the entire file is downloaded and uploaded as a single string. In this case, the size limit for the action is limited by the respective app.
-
 In either case, no additional configuration is required in the recipe.
 
 <table class="unchanged rich-diff-level-one">
