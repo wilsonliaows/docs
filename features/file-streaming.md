@@ -4,21 +4,23 @@ date: 2018-12-06 06:00:00 Z
 ---
 
 # File Streaming
-File streaming is the concept of reading and writing a file in smaller parts (chunks) in a sequence. This allows us to transfer large files between applications or file systems without worrying about hitting size or memory limits of the sending and receiving system. A common example is transferring records from a shared file system (SFTP) to a file hosting platform to for analysis (Amazon S3).
+File streaming is the concept of reading and writing a file in smaller parts (chunks) in sequence. This allows us to transfer large files between apps or file systems without worrying about hitting size limit of the sending and receiving systems. A common example is transferring records from a shared file system (SFTP) to a file hosting platform for analysis (Amazon S3).
 
 ## How it works
-When transferring contents of a file (download then upload), Workato automatically splits the file into smaller chunks. These chunks are sent to the destination application in separate requests. This approach allows us to stay within the size or memory limit of the application, regardless of the total size of the file.
+When transferring a file from a source app to a destination app, Workato splits the file into smaller chunks and downloads them. These chunks are then uploaded to the destination app in separate requests. This allows us to stay within the size limit of both apps, regardless of the total size of the original file.
 
-As a result, Workato is able to transfer files of any size between applications that support streaming.
+As a result, Workato is able to transfer files of any size between apps that support streaming.
 
 The following diagram illustrates how this works:
 
 ![File streaming](/assets/images/features/file-streaming/streaming-illustration.png)
 
 ## How to use it
-File streaming is an automatic feature. It is initiated when you map a <kbd>File contents</kbd> datapill to a **File contents** input field that both supports streaming.
+File streaming is supported only if both the source download and destination upload actions support this feature. It is automatically initiated when you map a <kbd>File contents</kbd> datapill (from the source app) to a **File contents** input field (of the destination app).
 
-If either one of the datapill and input field is not streaming-enabled, a standard data mapping is performed - the entire file is downloaded and uploaded as a single string. In this case, the size limit for the action is limited by the respective application.
+If either the source datapill or the destination input field does not support streaming, then standard data mapping is performed, i.e. the entire file is downloaded and then uploaded without any chunking. In this case, the file transfer is limited by the size limit imposed by the respective apps. The smaller of the 2 will be the resultant limit.
+
+If either one of the datapill and input field is not streaming-enabled, a standard data mapping is performed - the entire file is downloaded and uploaded as a single string. In this case, the size limit for the action is limited by the respective app.
 
 In either case, no additional configuration is required in the recipe.
 
