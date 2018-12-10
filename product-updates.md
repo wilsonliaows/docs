@@ -21,16 +21,17 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ### Connector enhancements
 
-- **New Google connectors**
+- **New Google AI connectors**
 
-  **What's new:** New Google connectors have been added to the list of apps Workato supports. These new connectors enable a variety of content analysis capabilities that bring a new level of intelligence to recipes and automations.
+  **What's new:** New Google AI connectors have been added to the list of apps Workato supports. These new connectors enable a variety of content analysis capabilities that bring a new level of intelligence to recipes and automations.
 
-    - **Google Vision:** Read text from images and scanned documents
-      Example use case: Read text from an uploaded driver's license and create a contact in Salesforce
-    - **Google Speech-to-text:** Allows the conversion of a short speech-to-text transcript
-    - **Google Text-to-speech:** Allows conversion of text to synthetic voice audio
-    - **Google Translate:** Translate text between languages
-      Example use case: call recordings / voice messages from foreign customer --> use Speech-to-text to transcribe to text --> use Translate to translate to English --> use Text-to-Speech to convert to audio, which customer support reps can listen.
+    - **Google Vision:** Read text from images and scanned documents.
+      Example use case: Read text from an uploaded driver's license and create a contact in Salesforce. 
+    - **Google Speech-to-text:** Allows conversion of a short speech-to-text transcript.
+    - **Google Text-to-speech:** Allows conversion of text to synthetic voice audio.
+    - **Google Translate:** Translate text between languages.
+    
+      Example use case: call recordings / voice messages from foreign customer --> use Google Speech-to-text to transcribe to text --> use Google Translate to translate to English --> use Google Text-to-Speech to convert to audio, which customer support reps can listen to.
 
 - **ServiceNow: Subdomain routing**
 
