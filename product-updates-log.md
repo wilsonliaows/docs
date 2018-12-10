@@ -35,9 +35,11 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 - **ServiceNow: Subdomain routing**
 
   **Context**
+  
   In development lifecycles, teams typically clone their sandbox instances for deployment into production. In the process, webhooks in the sandbox instance also get copied over into production. As a result, webhook events in production gets sent to the sandbox recipes, causing an error.
 
   **What's new: Subdomain routing for webhooks**
+  
   To fix this, we’ve introduced subdomain routing. When an instance is cloned, the subdomain will change based on the instance it is in. This will ensure that webhooks in the cloned instance will be routed to the correct production recipe. To enable this behavior, simply stop and restart your ServiceNow recipes.
 
 
