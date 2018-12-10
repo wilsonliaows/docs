@@ -21,24 +21,25 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 ### Connector enhancements
 
-- **New Google AI connectors**
+- **New Google connectors**
 
-  **What's new:** New Google AI connectors have been added to the list of apps Workato supports. These new connectors enable a variety of content analysis capabilities that bring a new level of intelligence to recipes and automations.
+  **What's new:** New Google connectors have been added to the list of apps Workato supports. These new connectors enable a variety of content analysis capabilities that bring a new level of intelligence to recipes and automations.
 
-    - **Google Vision:** Read text from images and scanned documents.
-      Example use case: Read text from an uploaded driver's license and create a contact in Salesforce. 
-    - **Google Speech-to-text:** Allows conversion of a short speech-to-text transcript.
-    - **Google Text-to-speech:** Allows conversion of text to synthetic voice audio.
-    - **Google Translate:** Translate text between languages.
-    
-      Example use case: call recordings / voice messages from foreign customer --> use Google Speech-to-text to transcribe to text --> use Google Translate to translate to English --> use Google Text-to-Speech to convert to audio, which customer support reps can listen to.
+    - **Google Vision:** Read text from images and scanned documents
+      Example use case: Read text from an uploaded driver's license and create a contact in Salesforce
+    - **Google Speech-to-text:** Allows the conversion of a short speech-to-text transcript
+    - **Google Text-to-speech:** Allows conversion of text to synthetic voice audio
+    - **Google Translate:** Translate text between languages
+      Example use case: call recordings / voice messages from foreign customer --> use Speech-to-text to transcribe to text --> use Translate to translate to English --> use Text-to-Speech to convert to audio, which customer support reps can listen.
 
 - **ServiceNow: Subdomain routing**
 
   **Context**
+  
   In development lifecycles, teams typically clone their sandbox instances for deployment into production. In the process, webhooks in the sandbox instance also get copied over into production. As a result, webhook events in production gets sent to the sandbox recipes, causing an error.
 
   **What's new: Subdomain routing for webhooks**
+  
   To fix this, we’ve introduced subdomain routing. When an instance is cloned, the subdomain will change based on the instance it is in. This will ensure that webhooks in the cloned instance will be routed to the correct production recipe. To enable this behavior, simply stop and restart your ServiceNow recipes.
 
 
@@ -375,3 +376,53 @@ Added Propel as a new connector.
 
 #### Replicon
 - New Action: Get Eligible Project leaders from Replicon
+
+## May 2018
+**Find more details on May's updates in our [blog post](https://product.workato.com/2018/06/05/june-2018-product-release/).**
+
+### Usability enhancements
+
+- Data field auto-suggestions
+- Export lookup table with data in Recipe Lifecycle Management
+
+### Workbot upgrades
+
+- Ephemeral Messages
+- [Slash Commands](https://product.workato.com/2018/05/22/slash-commands-using-workbot-for-slack/)
+
+### Improvements to on-prem agents & gateways
+
+- Significant improvements to increase throughput
+- Upgrade to file tolerance protocol used in the gateway
+- Ability to delete agent
+- NTLM authentication
+- Configurable HTTP concurrency
+- Database updates (Database Matrix)
+
+### Connector enhancements
+
+#### Workday
+- Handle blank columns in reports
+- Increase threshold for summarised report output
+- Minor output schema fix
+
+#### Box
+- Download file action supports [file streaming](https://product.workato.com/2018/06/04/file-streaming-transferring-large-files-with-ease/).
+
+#### Databases
+- Added documentation for [SQL Server](/connectors/mssql.md), [Oracle](/connectors/oracle.md), [Redshift](/connectors/redshift.md), [PostgreSQL](/connectors/postgresql.md) and [MySQL](/connectors/mysql.md).
+- SQL Server sample output fix
+- Standardized empty and null values
+- Fixes for CLOB and NCLOB
+- Custom SQL select action
+- Stored procedure support
+
+### Platform enhancements
+#### GDPR compliance
+- Workato is now [GDPR compliant](https://www.workato.com/legal).
+
+#### SDK
+- [Error handling](/developing-connectors/sdk/error-handling.md) for custom adapters
+
+#### Job details logging
+- Ability to [log all jobs and job details](/job-history-replication.md) with Amazon S3
