@@ -9,7 +9,7 @@ SAP is an enterprise resource planning software used by the largest corporations
 There are 3 ways you can connect to SAP on Workato:
 1. [Using IDoc](#connect-to-sap-using-idoc) (recommended)
 2. Using RFC (coming soon)
-3. [Using OData](#connect-to-sap-using-odata) (beta)
+3. [Using OData](#connect-to-sap-using-odata) (early beta)
 
 ## Connect to SAP using IDoc
 ![SAP JCo connector](/assets/images/connectors/sap/sap-jco.png)
@@ -92,7 +92,7 @@ Download the SAP JCO connector libraries from the link below. Please ensure that
 
 https://support.sap.com/en/product/connectors/jco.html
 
-Once the libraries are downloaded, place them in the `/lib/` directory of the OPA.
+Once the downloaded libraries, place them in the `/lib/` directory of the OPA.
 
 #### Step 8: Create SAP profile in OPA
 Follow [these instructions](https://docs.workato.com/on-prem/profile.html#sap-connection-profile) to create a SAP profile in OPA.
@@ -106,7 +106,7 @@ Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run th
 ![SAP connection](/assets/images/connectors/sap/sap-jco-connection.png)
 
 There are 2 ways to create a connection in Workato. Click on `App Connections` on the navigation bar and then on `Create a new connection`; or click on the connections tab in a recipe with SAP triggers/actions. Then, follow the steps below:
-- Select the connector `SAP`
+- Select the connector `SAP On-premise`
 - Input the OPA profile name for SAP you have created in previous step, in this case `Direct1`
 - Select the OPA name, in this case `OPA @ BCone SAP`
 - Click `Link your account`. If the connection is successful, you can start building recipes in Workato to talk to SAP.
@@ -114,7 +114,7 @@ There are 2 ways to create a connection in Workato. Click on `App Connections` o
 ## Connect to SAP using OData
 ![SAP OData connector](/assets/images/connectors/sap/sap-odata.png)
 
-The SAP OData connector is currently in beta and can only provide `read` capability, but not `write`. Currently, we recommend using IDoc or RFC instead.
+The SAP OData connector is currently in early beta and can only provide `read` capability, but not `write`. Currently, we recommend using IDoc or RFC instead.
 
 Requirements to use the SAP OData connector:
 - Your SAP system needs to support creating OData services (only available in newer SAP versions such as SAP S/4HANA)
