@@ -92,13 +92,13 @@ Download the SAP JCO connector libraries from the link below. Please ensure that
 
 https://support.sap.com/en/product/connectors/jco.html
 
-Once the libraries are downloaded, place them in the `/lib/` directory of the OPA.
+Once the libraries are downloaded, place them in the `lib_ext/` directory of the OPA.
 
 #### Step 8: Create SAP profile in OPA
 Follow [these instructions](https://docs.workato.com/on-prem/profile.html#sap-connection-profile) to create a SAP profile in OPA.
 
 #### Step 9: Run OPA
-Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run the OPA. After it successfully runs, you can move on to set up the SAP connector on Workato.
+Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run the OPA. After it successfully runs, you can move on to set up the SAP connector in Workato.
 
 ### Configure SAP connector in Workato UI
 #### Step 10: Connect to SAP from Workato
