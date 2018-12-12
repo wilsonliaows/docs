@@ -15,10 +15,10 @@ Workato's Google Sheets connector currently uses both Google Sheets [API v4](htt
 Connecting to Google Sheets connector is as simple as signing in to the Google account.
 
 Click on `Link your account`:
-![Setup step 1](/assets/images/connectors/google-sheets/setup-1.png)
+![Setup step 1](/assets/images/connectors/google-vision/setup-1.png)
 
 Sign in with your Google account:
 ![Setup step 2](/assets/images/connectors/google-sheets/setup-2.png)
 
 And you are good to go:
-![Setup step 3](/assets/images/connectors/google-sheets/setup-3.png)
+![Setup step 3](/assets/images/connectors/google-vision/setup-3.png)
