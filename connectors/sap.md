@@ -23,6 +23,12 @@ IDoc is an open interface which is independent of the internal data structure st
 
 IDoc is independent of the direction of data exchange, having both Outbound and Inbound capabilities.
 
+### Supported SAP versions
+Workato's On-premise SAP connector supports SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
+
+It requires the SAP Java Connector (JCo) to work. Please refer to [SAP Note 107727 - SAP JCo 3.0 release and support strategy](https://launchpad.support.sap.com/#/notes/1077727) for details on JCo versions.
+
+### How to configure
 Follow the these steps to connect Workato with SAP using IDoc:
 - [Configure IDoc in SAP to work with Workato](#configure-idoc-in-sap-to-work-with-workato)
 - [Configure Workato On-prem agent on SAP server](#configure-workato-on-prem-agent-opa-on-sap-server)
@@ -92,13 +98,13 @@ Download the SAP JCO connector libraries from the link below. Please ensure that
 
 https://support.sap.com/en/product/connectors/jco.html
 
-Once the libraries are downloaded, place them in the `/lib/` directory of the OPA.
+Once the libraries are downloaded, place them in the `lib_ext/` directory of the OPA.
 
 #### Step 8: Create SAP profile in OPA
 Follow [these instructions](https://docs.workato.com/on-prem/profile.html#sap-connection-profile) to create a SAP profile in OPA.
 
 #### Step 9: Run OPA
-Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run the OPA. After it successfully runs, you can move on to set up the SAP connector on Workato.
+Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run the OPA. After it successfully runs, you can move on to set up the SAP connector in Workato.
 
 ### Configure SAP connector in Workato UI
 #### Step 10: Connect to SAP from Workato
