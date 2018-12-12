@@ -12,13 +12,4 @@ Workato's Google Vision connector allows you to build powerful automation and co
 The Google Vision connector uses [Google Cloud Vision API v1](https://cloud.google.com/vision/docs/reference/rest/).
 
 ## How to connect to Google Vision on Workato
-Google Vision uses OAuth 2.0 for authentication. Connecting to Google Vision connector is as simple as signing in to your Google account.
-
-Click on `Link your account`:
-![Setup step 1](/assets/images/connectors/google-vision/setup-1.png)
-
-Sign in with your Google account:
-![Setup step 2](/assets/images/connectors/google-vision/setup-2.png)
-
-And you are good to go:
-![Setup step 3](/assets/images/connectors/google-vision/setup-3.png)  
+Google Vision uses OAuth 2.0 for authentication. Follow the [connecting apps instructions](https://docs.workato.com/connections.html) and login to your Google account to connect.

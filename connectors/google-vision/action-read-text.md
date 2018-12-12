@@ -4,9 +4,6 @@ date: 2018-12-11 06:00:00 Z
 ---
 
 # Google Vision action - Read text from image
-
-![Read text from image](/assets/images/connectors/google-vision/action-read-text.png)
-
 This action allows you to read text from an image. Image can be one of these 2 types:
 
 - **A photo:** For example, a photograph might contain a street sign or traffic sign. Google Vision will return the extracted string, as well as individual words, and their bounding boxes.
