@@ -117,7 +117,7 @@ OAuth2 is the authentication standard adopted by a number of cloud apps. It’s 
 
 The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
 
-![HTTP (OAuth2 auth code grant) connector's connection fields](/assets/images/developing-connectors/http/http-connector-auth-oauth2-code-grant.png)
+![HTTP (OAuth2 auth code grant) connector's connection fields](/assets/images/developing-connectors/http/http-connector-auth-oauth2-code-grant.PNG)
 *HTTP (OAuth2 authorization code grant) connector's connection fields*
 
 ### Authentication type: OAuth2 (client credentials grant)
@@ -125,7 +125,7 @@ Using the client credentials grant, the client can request an access token using
 
 The client credentials grant type must only be used by confidential clients.
 
-![HTTP (OAuth2 client cred grnat) connector's connection fields](/assets/images/developing-connectors/http/http-connector-auth-oauth2-cred-grant.png)
+![HTTP (OAuth2 client cred grnat) connector's connection fields](/assets/images/developing-connectors/httphttp-connector-auth-oauth2-cred-grant.PNG)
 *HTTP (OAuth2 client credentials grant) connector's connection fields*
 
 OAuth2 authentication type requires the following fields.
