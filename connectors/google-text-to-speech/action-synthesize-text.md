@@ -11,7 +11,7 @@ This action allows you to convert a text into a synthetic voice audio, supportin
 | Field name | Description |
 |---|---|
 | Text | The text to convert into voice audio. Can accept a datapill or raw text. |
-| Voice language | The language code of the voice, as listed [here](https://cloud.google.com/speech-to-text/docs/languages). Note that the conversion accuracy differs across languages. |
+| Voice language | The language code of the voice, as listed [here](https://cloud.google.com/speech-to-text/docs/languages). Note that the conversion accuracy differs across languages. For certain languages, Google may not have full support for it. |
 | Voice gender | The gender of the voice. |
 | Audio encoding | The encoding of the output audio file. |
 
