@@ -19,4 +19,4 @@ This action allows you to convert a text into a synthetic voice audio, supportin
 
 | Field name | Description |
 |---|---|
-| Audio content | String content of the converted audio. |
+| Audio content | String content of the converted audio. You can input this to the `File contents` field of `Upload file` action from any file connector such as Box, Dropbox, etc., and create an audio file. |

@@ -18,7 +18,7 @@ This action allows you to read text from an image. Image can be one of these 2 t
 
 | Field name | Description |
 |---|---|
-| Image content | Can accept a file contents datapill, a string, a public URL or a Google Cloud Storage URI. |
+| Image content | Accepts a file contents datapill, a string, a public URL or a Google Cloud Storage URI. |
 | Image type | Based on the selected image type (photo or scanned document), Google Vision will optimize the output accordingly. |
 
 ## Output fields

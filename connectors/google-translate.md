@@ -12,4 +12,4 @@ Workato's Google Translate connector allows you to build powerful automation and
 The Google Translate connector uses [Google Translation API v2](https://cloud.google.com/translate/docs/reference/rest).
 
 ## How to connect to Google Translate on Workato
-Google Translate uses OAuth 2.0 for authentication. Follow the [connecting apps instructions](https://docs.workato.com/connections.html) and login to your Google account to connect.
+Google Translate uses OAuth 2.0 for authentication. When prompted, follow the on-screen [connection instructions](https://docs.workato.com/connections.html) and login to your Google account to connect.

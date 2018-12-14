@@ -12,4 +12,4 @@ Workato's Google Speech-to-Text connector allows you to build powerful automatio
 The Google Speech-to-Text connector uses [Cloud Text-to-Speech API v1](https://cloud.google.com/text-to-speech/docs/reference/rest/).
 
 ## How to connect to Google Text to Speech on Workato
-Google Speech-to-Text uses OAuth 2.0 for authentication. Follow the [connecting apps instructions](https://docs.workato.com/connections.html) and login to your Google account to connect.
+Google Speech-to-Text uses OAuth 2.0 for authentication. When prompted, follow the on-screen [connection instructions](https://docs.workato.com/connections.html) and login to your Google account to connect.
