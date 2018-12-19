@@ -3,8 +3,8 @@ title: Google Sheets' action - Search rows
 date: 2017-6-12 23:00:00 Z
 ---
 
-# Google Sheets action - Search rows (old version)
-**Note**: This article is about action Search rows (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows-v4.html) instead (will be released soon).
+# Google Sheets action - Search rows using query (old version)
+**Note**: This article is about action Search rows (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Search rows](https://docs.workato.com/connectors/google-sheets/action-search-rows-v4.html) instead.
 
 The **Search rows** action allows you to get specific rows using a search query.
 
