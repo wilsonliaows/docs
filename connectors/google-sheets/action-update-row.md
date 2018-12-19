@@ -3,8 +3,8 @@ title: Google Sheets' action - Update row
 date: 2017-6-12 23:00:00 Z
 ---
 
-# Google Sheets action - Update row (old version)
-**Note**: This article is about action Update row (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Update row](https://docs.workato.com/connectors/google-sheets/action-update-row-v4.html) instead (will be released soon).
+# Google Sheets action - Update row using row ID (old version)
+**Note**: This article is about action Update row (old version), using Google Sheets API v3 which will be deprecated in the near term. We recommend using this [new action Update row](https://docs.workato.com/connectors/google-sheets/action-update-row-v4.html) instead.
 
 The **Update row** action allows you to change the values of any existing row.
 
@@ -12,7 +12,7 @@ It's often used together with a [Search rows](https://docs.workato.com/connector
 
 ## How to use this action
 ### Setting up the Google sheet
-First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least one header line for the first row and one data line for the second row, as in the following screenshot.
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least 1 header row and 1 data row, as shown the following screenshot.
 
 ![Google sheet sample](/assets/images/connectors/google-sheets/sample-google-sheet.jpg)
 *Sample Google sheet with 1 header row and 1 data rows*
