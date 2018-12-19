@@ -12,7 +12,7 @@ It's often used together with a [Search rows](https://docs.workato.com/connector
 
 ## How to use this action
 ### Setting up the Google sheet
-First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least one header line for the first row and one data line for the second row, as in the following screenshot.
+First, in order for us to retrieve the custom data in a sheet, the sheet must contain at least 1 header row and 1 data row, as shown the following screenshot.
 
 ![Google sheet sample](/assets/images/connectors/google-sheets/sample-google-sheet.jpg)
 *Sample Google sheet with 1 header row and 1 data rows*
