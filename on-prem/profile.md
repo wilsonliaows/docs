@@ -182,11 +182,18 @@ files:
 ```
 
 ## SAP connection profile
-SAP connection profile must be defined in the `sap` section. There are two connection types that connector supports: `direct` and `messageserver`.
+SAP connection profile must be defined in the `server` and `sap` section.
+
+There are two connection types that connector supports: `direct` and `messageserver`.
 
 Below is the example of `direct` connection type. Use this connection type if SAP system is directly exposed as an application server.
 
 ```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+
 sap:
   Direct:
   # sap inbound connection properties
@@ -225,6 +232,11 @@ sap:
 Below is the example of `messageserver` connection type. Use this connection type when SAO system is behind message server gateway.
 
 ```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+
 sap:
   MessageServer:
   # sap inbound connection properties
@@ -262,7 +274,6 @@ sap:
     # Below property required to get IDOC list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
-
 The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
 
 | Property name | Comment |
