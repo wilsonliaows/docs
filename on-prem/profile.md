@@ -272,6 +272,7 @@ sap:
     # Below property required to get IDOC list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
+
 The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
 
 | Property name | Comment |
