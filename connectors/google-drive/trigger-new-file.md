@@ -14,15 +14,16 @@ Triggers immediately in real-time when new file or folder is created in specifie
 | When first started, this recipe should pick up events from | When you start recipe for the first time, it picks up new files or folders created from this specified date and time. If left blank, recipe will pick up files or folders created an hour ago. Once recipe has been run or tested, value cannot be changed. Refer to [this doc for more information](https://docs.workato.com/recipes/triggers.html#sincefrom). |
 
 ## Output fields
+Note that in Google Drive API, the terms `folder` and `file` are used interchangeably. A `folder` is technically a special `file`. So whenever the field name or field description mentions `file`, it also applies to `folder`.
 
 | Field name | Description |
 |---|---|
-| ID | ID of the file or folder. |
-| Name | Name of the file or folder |
-| Mime type | Mime type of this file or folder, as stated in [Google documentation](https://developers.google.com/drive/api/v3/mime-types). |
+| ID | ID of the file. |
+| Name | Name of the file  older |
+| Mime type | Mime type of this file, as stated in [Google documentation](https://developers.google.com/drive/api/v3/mime-types). |
 | Description | A short description of the file. |
-| Starred | Whether the user has starred the file/folder. |
-| Trashed | Whether the file/folder has been trashed, either explicitly or from a trashed parent folder. Only the owner may trash a file, and other users cannot see files in the owner's trash. |
+| Starred | Whether the user has starred the file. |
+| Trashed | Whether the file has been trashed, either explicitly or from a trashed parent folder. Only the owner may trash a file, and other users cannot see files in the owner's trash. |
 | Explicitly trashed | Whether the file has been explicitly trashed, as opposed to recursively trashed from a parent folder (e.g. when you trashed the whole parent folder) |
 | Parents | The list of the parent folders which contain the file. |
 | - ID | The ID of the parent folder which contain the file. |
@@ -43,7 +44,7 @@ Triggers immediately in real-time when new file or folder is created in specifie
 | - Permission ID | The user's ID as visible in Permission resources. |
 | - Photo link | A link to the user's profile photo, if available. |
 | - Me | Whether this user is the requesting user. |
-| Owners | The list of owners of the file/folder. Currently, only certain legacy files may have more than one owner. Not populated for Team Drive files. |
+| Owners | The list of owners of the file. Currently, only certain legacy files may have more than one owner. Not populated for Team Drive files. |
 | - Display name | A plain text displayable name for this user. |
 | - Email address | A link to the user's profile photo, if available. |
 | - Permission ID | The user's ID as visible in Permission resources. |
@@ -55,15 +56,15 @@ Triggers immediately in real-time when new file or folder is created in specifie
 | - Email address | The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester. |
 | - Permission ID | The user's ID as visible in Permission resources. |
 | - Photo link | A link to the user's profile photo, if available. |
-| - Me |  |
-| Shared |  |
-| Owned by me |  |
-| Viewers can copy content |  |
-| Writers can share |  |
-| Original filename |  |
-| Full file extension |  |
-| File extension |  |
-| Md 5 checksum |  |
-| Size |  |
-| Quota byte used |  |
-| Head revision ID |  |
+| - Me | 	Whether this user is the requesting user. |
+| Shared | Whether the file has been shared. Not populated for Team Drive files. |
+| Owned by me | Whether the user owns the file. Not populated for Team Drive files. |
+| Viewers can copy content | Deprecated. |
+| Writers can share | Whether users with only writer permission can modify the file's permissions. Not populated for Team Drive files. |
+| Original filename | The original filename of the uploaded content if available, or else the original value of the name field. This is only available for files with binary content in Drive. |
+| Full file extension | The full file extension extracted from the name field. May contain multiple concatenated extensions, such as "tar.gz". This is only available for files with binary content in Drive. This is automatically updated when the name field changes, however it is not cleared if the new name does not contain a valid extension. |
+| File extension | The final component of fullFileExtension. This is only available for files with binary content in Drive. |
+| MD5 checksum | The MD5 checksum for the content of the file. This is only applicable to files with binary content in Drive. |
+| Size | The size of the file's content in bytes. This is only applicable to files with binary content in Drive. |
+| Quota byte used | The number of storage quota bytes used by the file. This includes the head revision as well as previous revisions with keepForever enabled. |
+| Head revision ID | The ID of the file's head revision. This is currently only available for files with binary content in Drive. |
