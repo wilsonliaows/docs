@@ -65,7 +65,7 @@ Note that in Google Drive API, the terms `folder` and `file` are used interchang
 | -- Email address | The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester. |
 | -- Permission ID | The user's ID as visible in Permission resources. |
 | -- Photo link | A link to the user's profile photo, if available. |
-| -- Me | 	Whether this user is the requesting user. Boolean value. |
+| -- Me | Whether this user is the requesting user. Boolean value. |
 | - Shared | Whether the file has been shared. Not populated for Team Drive files. |
 | - Owned by me | Whether the user owns the file. Not populated for Team Drive files. |
 | - Viewers can copy content | Deprecated. |
