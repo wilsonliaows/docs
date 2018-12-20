@@ -182,7 +182,7 @@ files:
 ```
 
 ## SAP connection profile
-SAP connection profile must be defined in the `server` and `sap` section. The `server` section looks like this: 
+SAP connection profile must be defined in the `server` and `sap` section. The `server` section looks like this:
 
 ```YAML
 server:
@@ -191,7 +191,7 @@ server:
     - lib_ext
 ```
 
-Here, `lib_ext` is the folder where you put the SAP JCo connector libraries. If this folder is not already created, create this folder under the root directory of the OPA and put the SAP JCo connector libraries there.
+Here, `lib_ext` is the directory where you put the SAP JCo connector libraries. If this directory is not already created, create this directory under the root directory of the OPA and put the SAP JCo connector libraries there.
 
 There are two connection types that the connector supports: `direct` and `messageserver`. Below is the example of `direct` connection type. Use this connection type if SAP system is directly exposed as an application server.
 
