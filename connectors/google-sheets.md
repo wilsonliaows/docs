@@ -17,7 +17,7 @@ Connecting to Google Sheets connector is as simple as signing in to the Google a
 Click on `Link your account`:
 ![Setup step 1](/assets/images/connectors/google-sheets/setup-1.png)
 
-Sign in with your Google account:
+Sign in with your Google account. Your Google account should have `Edit` permission to all spreadsheets that you will use in Workato.
 ![Setup step 2](/assets/images/connectors/google-sheets/setup-2.png)
 
 And you are good to go:
