@@ -182,9 +182,7 @@ files:
 ```
 
 ## SAP connection profile
-SAP connection profile must be defined in the `server` and `sap` section.
-
-There are two connection types that connector supports: `direct` and `messageserver`.
+SAP connection profile must be defined in the `server` and `sap` section. There are two connection types that connector supports: `direct` and `messageserver`.
 
 Below is the example of `direct` connection type. Use this connection type if SAP system is directly exposed as an application server.
 
