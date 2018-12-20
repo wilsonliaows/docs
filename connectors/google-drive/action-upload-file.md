@@ -17,7 +17,7 @@ This action uploads a file to Google Drive.
 | Parent folder | The parent folder where the file will reside. Select a folder from the picklist or follow the hint to enter folder ID directly. |
 | Starred | Whether you want to star the file. |
 | Viewers can copy content | Deprecated. |
-| Writers can share | Whether users with only `writer` or `edit` permission can modify the file's permissions. Not populated for Team Drive files. |
+| Writers can share | Whether users with only `writer` or `edit` permissions can modify the file's permissions. Not populated for Team Drive files. |
 
 ## Output fields
 
