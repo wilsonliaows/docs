@@ -12,4 +12,4 @@ The Google Drive connector enables you to build powerful automations around Goog
 Workato's Google Drive connector currently uses Google Drive [API v3](https://developers.google.com/drive/api/v3/about-sdk).
 
 ## How to connect to Google Drive on Workato
-The Google Drive connector uses OAuth 2.0 for authentication. When prompted, follow the on-screen [connection instructions](https://docs.workato.com/connections.html) and login to your Google account to connect. Your Google account needs to have `Edit` permission to all files and folders that you will use in Workato recipe.
+The Google Drive connector uses OAuth 2.0 for authentication. When prompted, follow the on-screen [connection instructions](https://docs.workato.com/connections.html) and login to your Google account to connect. Your Google account needs to have `Edit` permission to all files and folders that you will use in Workato recipes.
