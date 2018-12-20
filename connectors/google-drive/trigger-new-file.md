@@ -4,13 +4,13 @@ date: 2018-12-20 06:00:00 Z
 ---
 
 # Google Drive trigger - New file or folder
-Triggers immediately in real-time when new file or folder is created in specified folder. Sub-folders will not be monitored.
+Triggers immediately in real-time when a new file or folder is created in a specified folder. Sub-folders will not be monitored.
 
 ## Input fields
 
 | Field name | Description |
 |---|---|
-| Folder | The folder to monitor for new files or folders. Sub-folders will not be monitored. Select a folder from the picklist or follow the hint to enter folder ID directly. |
+| Folder | The folder to monitor for new files or folders. Sub-folders will not be monitored. Select a folder from the picklist or enter the folder ID directly. |
 | When first started, this recipe should pick up events from | When you start recipe for the first time, it picks up new files or folders created from this specified date and time. If left blank, recipe will pick up files or folders created an hour ago. Once recipe has been run or tested, value cannot be changed. Refer to [this doc for more information](https://docs.workato.com/recipes/triggers.html#sincefrom). |
 
 ## Output fields
