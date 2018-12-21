@@ -21,13 +21,11 @@ When actions offer a list as input, the input modes allowed are `Fixed list` and
 
 ## Dynamic lists
 
-'Dynamic list' is the default option where a list input is required. Use a dynamic list if the number of items or their content is dependent on another list (for example, the items in an invoice and their prices).
+The 'Dynamic list' option requires a list input. Use a dynamic list if the number of items or their content is dependent on another list (for example, the items in an invoice and their prices). Use the 'Dynamic list' option when you want the action to **iterate through a list line by line**, using the values in each row in all the fields you map here.
 
-When this option is selected, the first field to map is the 'Source list' field, which only accepts a list data pill. Using the list data pill will read directly from the source application CSV file.
+When this option is selected, the first field to map is the 'Source list' field, which only accepts a list data pill. Using the list data pill will read directly from the source application's list of objects. Thereafter, map the fields below using the pills nested within the list pill. 
 
-Thereafter, map the fields below using the pills nested within the list pill. Use the 'Dynamic list' option when you want the action to iterate through the list line by line, using the values in each row in all the fields you map here.
-
-In the example below, the source list comes from a CSV file uploaded into Dropbox and will create Salesforce Opportunity records in bulk using the data in each line of the CSV file. Thus, each line in the CSV file will provide data per Opportunity record created. Each Salesforce field is mapped to a column in the CSV file.
+In the example below, the source list comes from a CSV file uploaded into Dropbox and will create Salesforce Opportunity records in bulk using the data in each line of the CSV file. It will loop through all CSV rows and read the column values from each row, such as Product code, Product description etc. Thus, each line in the CSV file will provide data per Opportunity record created in Salesforce. 
 
 ![Example input source list](/assets/images/features/list-management/example-input-source-list.png)
 *Rows list object is mapped into the Salesforce products input source list*
@@ -35,7 +33,7 @@ In the example below, the source list comes from a CSV file uploaded into Dropbo
 
 ## Fixed lists
 
-In contrast, using the fixed, or static list input requires either text input from the user or data pills from a source that is not a list.
+In contrast, using the fixed, or static list input requires either text input from the user or data pills from a source that is not a list. Instead of using a list and looping through it automatically, use a fixed list to add records one by one. 
 
 ![Dynamic or fixed](/assets/images/features/list-management/fixedlist.png)
 *Select the input mode*
