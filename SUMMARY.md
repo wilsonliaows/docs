@@ -310,8 +310,6 @@
     * [Connection setup](connectors/docusign.md#how-to-connect-to-docusign-on-workato)
   * [Freshdesk](connectors/freshdesk.md)
     * [Connection setup](connectors/freshdesk.md#how-to-connect-to-freshdesk-on-workato)
-  * [Google Drive](connectors/google-drive.md)
-    * [Connection setup](connectors/google-drive.md#how-to-connect-to-google-drive-on-workato)
   * [Google Sheets](connectors/google-sheets.md)
     * [Connection setup](connectors/google-sheets.md#how-to-connect-to-google-sheets-on-workato)
     * [New row trigger](connectors/google-sheets/trigger-new-row.md)
