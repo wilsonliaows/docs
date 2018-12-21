@@ -482,6 +482,8 @@
     * [New IDoc trigger](connectors/sap/trigger-new-idoc.md)
     * [Send IDoc action](connectors/sap/action-send-idoc.md)
     * [Check IDoc status action](connectors/sap/action-check-idoc.md)
+    * [Run BAPI action](connectors/sap/action-run-bapi.md)
+    * [Run RFM action](connectors/sap/action-run-rfm.md)
   * [Salesforce](connectors/salesforce.md)
     * [Connection setup](connectors/salesforce.md#how-to-connect-to-salesforce-on-workato)
     * [Real-time trigger setup](connectors/salesforce.md#using-real-time-triggers)
