@@ -30,7 +30,7 @@ IDoc is an open interface which is independent of the internal data structure st
 IDoc is independent of the direction of data exchange, having both Outbound and Inbound capabilities.
 
 #### Introduction to RFC
-`RFC` is a SAP protocol to handle communications between SAP systems and also with third party applications. It is the process of calling a function module which is residing on a different machine from the caller program.
+`RFC` is a SAP protocol that handles communications between SAP systems and third party applications. It is the process of calling a function module which is residing on a different machine from the caller program.
 
 Workato can call SAP RFCs in an SAP system to fetch the data returned or make synchronous updates to the SAP data.
 
