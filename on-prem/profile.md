@@ -211,14 +211,14 @@ sap:
     cm_max_total: 20
     cm_default_max_per_route: 20
     control_segment:
-    # Properties required for setting IDoc segment fields  
+    # Properties required for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section   
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Below property required to get IDOC list configured on RCVPRN profile
+    # Below property required to get IDOC list configured on RCVPRN profile. Leave blank values if you only use RFC, but do not delete this section
       OUT_RCVPRN: WORKATO
 ```
 
@@ -252,14 +252,14 @@ sap:
     cm_max_total: 20
     cm_default_max_per_route: 20
     control_segment:
-    # Properties required for setting IDoc segment fields  
+    # Properties required for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section   
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Below property required to get IDOC list configured on RCVPRN profile
+    # Below property required to get IDOC list configured on RCVPRN profile. Leave blank values if you only use RFC, but do not delete this section
       OUT_RCVPRN: WORKATO
 ```
 

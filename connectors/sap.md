@@ -8,7 +8,7 @@ date: 2018-12-06 06:00:00 Z
 
 SAP is an enterprise resource planning software used by the largest corporations in the world.
 
-Workato SAP On-premise connector allow you to connect with SAP system on-premise or on a server behind a corporate firewall. The connector supports using IDoc or RFC to communicate with SAP. Using Workato, you can build powerful automation around SAP and other applications, without writing a line of code.
+Workato SAP On-premise connector allows you to connect with SAP system on-premises or on a server behind a corporate firewall. The connector supports using IDoc or RFC to communicate with SAP. Using Workato, you can build powerful automation around SAP and other applications, without writing a line of code.
 
 ### Supported SAP versions
 Workato's On-premise SAP connector supports SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
@@ -20,7 +20,7 @@ The connector supports the following communication methods with SAP:
 
 - Inbound IDoc (send IDoc to SAP)
 - Outbound IDoc (receive IDoc from SAP)
-- Inbound synchronous RFC (invoke synchronous RFC and BAPI in SAP)
+- Transactional RFC (invoke synchronous RFC and BAPI in SAP)
 
 #### Introduction to IDoc
 The term `IDoc` stands for intermediate document. It is simply a data container used to exchange information between SAP systems or between SAP and 3rd-party systems.
@@ -30,7 +30,9 @@ IDoc is an open interface which is independent of the internal data structure st
 IDoc is independent of the direction of data exchange, having both Outbound and Inbound capabilities.
 
 #### Introduction to RFC
-ahahah
+`RFC` is a SAP protocol to handle communications between SAP systems and also with third party applications. It is the process of calling a function module which is residing on a different machine from the caller program.
+
+Workato can call SAP RFCs in an SAP system to fetch the data returned or make synchronous updates to the SAP data.
 
 ## How to connect to SAP On-premise on Workato
 
