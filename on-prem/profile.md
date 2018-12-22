@@ -225,14 +225,14 @@ sap:
     cm_max_total: 20
     cm_default_max_per_route: 20
     control_segment:
-    # Properties required for setting idoc segement fields  
+    # Properties required for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section   
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Below property required to get IDOC list configured on RCVPRN profile
+    # Property required to get IDOC list configured on RCVPRN profile. Leave blank values if you only use RFC, but do not delete this section
       OUT_RCVPRN: WORKATO
 ```
 
@@ -271,14 +271,14 @@ sap:
     cm_max_total: 20
     cm_default_max_per_route: 20
     control_segment:
-    # Properties required for setting idoc segement fields  
+    # Properties required for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section   
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Below property required to get IDOC list configured on RCVPRN profile
+    # Property required to get IDOC list configured on RCVPRN profile. Leave blank values if you only use RFC, but do not delete this section
       OUT_RCVPRN: WORKATO
 ```
 
@@ -339,7 +339,7 @@ These are required for SAP IDOC Connection properties (defined to send IDOCs to 
 | RCVPRT | Receiver Partner profile type |
 | RCVPRN | Receiver Partner profile type defined for the SAP |
 
-The Below property required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+The below property is required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
 
 | Property name | Comment |
 |------------------|-------------------------------------------|
