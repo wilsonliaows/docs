@@ -21,7 +21,7 @@ When actions offer a list as input, the input modes allowed are `Fixed list` and
 
 ## Dynamic lists
 
-The 'Dynamic list' option requires a list input. Use a dynamic list if the number of items or their content is dependent on another list (for example, the items in an invoice and their prices). Use the 'Dynamic list' option when you want the action to **iterate through a list line by line**, using the values in each row in all the fields you map here.
+Use the 'Dynamic list' option when you want the action to dynamically iterate through all items in a list, reading the values in every row. For example, if you have a CSV file with 10 rows, Dynamic list will iterate through all the rows, using the data in each row to create 10 new records in Salesforce.
 
 When this option is selected, the first field to map is the 'Source list' field, which only accepts a list data pill. Using the list data pill will read directly from the source application's list of objects. Thereafter, map the fields below using the pills nested within the list pill. 
 
@@ -33,7 +33,7 @@ In the example below, the source list comes from a CSV file uploaded into Dropbo
 
 ## Fixed lists
 
-In contrast, using the fixed, or static list input requires either text input from the user or data pills from a source that is not a list. Instead of using a list and looping through it automatically, use a fixed list to add records one by one. 
+In contrast, use the 'Fixed list' option when you want to input a list with a fixed number of items, without dynamically iterating through another list. In this case, each item is added one by one.
 
 ![Dynamic or fixed](/assets/images/features/list-management/fixedlist.png)
 *Select the input mode*
