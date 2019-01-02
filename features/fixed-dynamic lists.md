@@ -38,9 +38,9 @@ In contrast, use the 'Fixed list' option when you want to input a list with a fi
 ![Dynamic or fixed](/assets/images/features/list-management/fixedlist.png)
 *Select the input mode*
 
-Use this input mode if the total number of items in the list and their contents should be the same across recipe jobs.
+Use this input mode if the total number of items in the list and their contents should be the same across recipe jobs. When this option is selected, you need to add and map each item in the list one by one.
 
-The first example below uses text input to enter the First Name and Last Name of a Salesforce contact. In this case, the user knows the names and the number of contacts they wish to create in Salesforce. 
+The example below demonstrates using Fixed list to create a fixed number of Contacts in Salesforce. In this case, the user already knows the number of contacts he wishes to create in Salesforce, so he will add each item in the Contacts list one by one.
 
 ![Dynamic or fixed](/assets/images/features/list-management/item-fixed.gif)
 *Entering Contact names in a fixed list*
