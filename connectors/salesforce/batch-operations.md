@@ -29,7 +29,7 @@ The list input pill can come from various sources such as a new CSV file in a fi
 ![Select object](/assets/images/salesforce-docs/salesforce-batch-select-object.png)
 *Select list input pill*
 
-Thereafter, proceed to select the rest of the optional Salesforce fields that need to be mapped with data in the dropdown list at the end of the action and map the fields.
+Thereafter, in the `Add/remove optional fields` section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields. 
 
 ![Select optional fields](/assets/images/salesforce-docs/batch-select-optional-fields.png)
 *Select optional fields*
@@ -39,9 +39,11 @@ Thereafter, proceed to select the rest of the optional Salesforce fields that ne
 ![Advanced configuration](/assets/images/salesforce-docs/batch-advanced-config.png)
 *Advanced configuration*
 
-In the advanced configuration section, choose if the request should be rolled back if a record fails to be created. The **entire** request will be rolled back if the list has less than 200 lines (less than 200 records created in Salesforce). This means that if 1 of 200 records fail, all the records will not be created.
+In the advanced configuration section, choose if you want to roll back if the record creation fails. If **Yes**, this is how the roll-back works:
 
-However, if the batch is larger than 200 records, only the affected batch is rolled back. For example, if the list is 1,000 lines long, it is processed in 5 batches of 200. If the 1st line fails, only the 1st batch out of 5 is rolled back.
+Workato processes in batches of 200 records per batch. So when 1 record in a batch fails, that whole batch will be rolled back, but other batches will not be affected.
+
+For example, if 1000 records are being created, they will be divided into 5 batches of 200 records each. If a record in the 1st batch failed, that entire 1st batch of 200 records will be rolled back. The other 4 batches are not affected and will be processed as normal.
 
 The default, **No**, is the recommended setting. The records that are created successfully will remain created, and the failed records are handled by additional logic in the subsequent recipe steps.
 
@@ -84,7 +86,7 @@ The list input pill can come from various sources such as a new CSV file in a fi
 ![Select object](/assets/images/salesforce-docs/salesforce-batch-select-object.png)
 *Select list input pill*
 
-Thereafter, proceed to select the rest of the optional Salesforce fields that need to be mapped with data in the dropdown list at the end of the action and map the fields.
+Thereafter, in the `Add/remove optional fields` section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields. 
 
 ![Select optional fields](/assets/images/salesforce-docs/batch-select-optional-fields.png)
 *Select optional fields*
@@ -94,9 +96,11 @@ Thereafter, proceed to select the rest of the optional Salesforce fields that ne
 ![Advanced configuration](/assets/images/salesforce-docs/batch-advanced-config.png)
 *Advanced configuration*
 
-In the advanced configuration section, choose if the request should be rolled back if a record fails to be updated. The **entire** request will be rolled back if the list has less than 200 lines (less than 200 records created in Salesforce). This means that if 1 of 200 records fail, all the records will not be updated.
+In the advanced configuration section, choose if you want to roll back if the record creation fails. If **Yes**, this is how the roll-back works:
 
-However, if the batch is larger than 200 records, only the affected batch is rolled back. For example, if the list is 1,000 lines long, it is processed in 5 batches of 200. If the 1st line fails, only the 1st batch out of 5 is rolled back.
+Workato processes in batches of 200 records per batch. So when 1 record in a batch fails, that whole batch will be rolled back, but other batches will not be affected.
+
+For example, if 1000 records are being created, they will be divided into 5 batches of 200 records each. If a record in the 1st batch failed, that entire 1st batch of 200 records will be rolled back. The other 4 batches are not affected and will be processed as normal.
 
 The default, **No**, is the recommended setting. The records that are created successfully will remain created, and the failed records are handled by additional logic in the subsequent recipe steps.
 
