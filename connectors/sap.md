@@ -10,26 +10,26 @@ SAP is an enterprise resource planning software used by the largest corporations
 
 Workato SAP On-premise connector allows you to connect with SAP system on-premises or on a server behind a corporate firewall. The connector supports using IDoc or RFC to communicate with SAP. Using Workato, you can build powerful automation around SAP and other applications, without writing a line of code.
 
-### Supported SAP versions
+## Supported SAP versions
 Workato's On-premise SAP connector supports SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
 
 It requires the SAP Java Connector (JCo) to work. Please refer to [SAP Note 107727 - SAP JCo 3.0 release and support strategy](https://launchpad.support.sap.com/#/notes/1077727) for details on JCo versions.
 
-### Supported communication method
+## Supported communication method
 The connector supports the following communication methods with SAP:
 
 - Inbound IDoc (send IDoc to SAP)
 - Outbound IDoc (receive IDoc from SAP)
 - Transactional RFC (invoke synchronous RFC and BAPI in SAP)
 
-#### Introduction to IDoc
+### Introduction to IDoc
 The term `IDoc` stands for intermediate document. It is simply a data container used to exchange information between SAP systems or between SAP and 3rd-party systems.
 
 IDoc is an open interface which is independent of the internal data structure stored in SAP, and independent of sending or receiving applications. Any application can use IDoc by following the syntax and semantics of IDoc.
 
 IDoc is independent of the direction of data exchange, having both Outbound and Inbound capabilities.
 
-#### Introduction to RFC
+### Introduction to RFC
 `RFC` is a SAP protocol that handles communications between SAP systems and third party applications. It is the process of calling a function module which is residing on a different machine from the caller program.
 
 Workato can call SAP RFCs in an SAP system to fetch the data returned or make synchronous updates to the SAP data.
