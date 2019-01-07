@@ -492,7 +492,7 @@
     * [Handling attachments](connectors/salesforce.md#working-with-attachments-in-salesforce)
     * [Using SOQL](connectors/salesforce.md#working-with-soql-in-salesforce)
     * [Bulk data imports](connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce)
-    * [Batch create/update](connectors/salesforce/batch-operations)
+    * [Batch create/update](connectors/salesforce/batch-operations.md)
   * [ServiceNow](connectors/servicenow.md)
     * [Connection setup](connectors/servicenow.md#how-to-connect-to-servicenow-on-workato)
     * [New record trigger](connectors/servicenow/new-record-trigger.md)
