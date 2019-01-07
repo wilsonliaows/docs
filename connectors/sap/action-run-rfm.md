@@ -4,6 +4,8 @@ date: 2018-12-06 06:00:00 Z
 ---
 
 # SAP Action - Run RFM
+Note: This action is currently in private beta and not released to public yet. It is coming soon.
+
 Use this action to discover and run a Remote Function Method (RFM), using Remote Function Call (RFC) in a SAP system.
 
 ## Input fields
