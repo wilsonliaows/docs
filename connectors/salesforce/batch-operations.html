@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Search records action · Workato Docs</title>
+        <title>Batch create/update · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="create.html" />
+    <link rel="next" href="../servicenow.html" />
     
     
-    <link rel="prev" href="updated-record-trigger.html" />
+    <link rel="prev" href="../salesforce.html" />
     
 
     
@@ -122,7 +122,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="../..">Search records action</a>
+          <a href="../..">Batch create/update</a>
         </h1>
       </div>
     </div>
@@ -8198,11 +8198,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.36.7" data-path="../salesforce/batch-operations.html">
+    <li class="chapter active" data-level="1.18.36.7" data-path="batch-operations.html">
       
 
       
-        <a href="../salesforce/batch-operations.html">
+        <a href="batch-operations.html">
       
         
         Batch create/update
@@ -8251,11 +8251,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.37.2" data-path="new-record-trigger.html">
+    <li class="chapter " data-level="1.18.37.2" data-path="../servicenow/new-record-trigger.html">
       
 
       
-        <a href="new-record-trigger.html">
+        <a href="../servicenow/new-record-trigger.html">
       
         
         New record trigger
@@ -8266,11 +8266,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.37.3" data-path="updated-record-trigger.html">
+    <li class="chapter " data-level="1.18.37.3" data-path="../servicenow/updated-record-trigger.html">
       
 
       
-        <a href="updated-record-trigger.html">
+        <a href="../servicenow/updated-record-trigger.html">
       
         
         New/updated record trigger
@@ -8281,11 +8281,11 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.18.37.4" data-path="search.html">
+    <li class="chapter " data-level="1.18.37.4" data-path="../servicenow/search.html">
       
 
       
-        <a href="search.html">
+        <a href="../servicenow/search.html">
       
         
         Search records action
@@ -8296,11 +8296,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.37.5" data-path="create.html">
+    <li class="chapter " data-level="1.18.37.5" data-path="../servicenow/create.html">
       
 
       
-        <a href="create.html">
+        <a href="../servicenow/create.html">
       
         
         Create record actions
@@ -8311,11 +8311,11 @@
       
     </li>
   
-    <li class="chapter " data-level="1.18.37.6" data-path="update.html">
+    <li class="chapter " data-level="1.18.37.6" data-path="../servicenow/update.html">
       
 
       
-        <a href="update.html">
+        <a href="../servicenow/update.html">
       
         
         Update record actions
@@ -9840,46 +9840,153 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="servicenow---search-records-action">ServiceNow - Search records action</h1>
-<h2 id="search-records">Search records</h2>
-<p>This action lets you search for records from any table matching a search criteria. Records that match all your search criteria will be returned as a list of records.</p>
-<p><img src="../../assets/images/connectors/servicenow/search-records-action.png" alt="Search records action">
-<em>Search records action</em></p>
-<h3 id="input-fields">Input fields</h3>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width="25%">Input field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#table">Table</a></td>
-      <td>
-        Select a table to search records from.
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#search-by-column-values">Search by column values</a></td>
-      <td>
-        Provide data to match records. Only records that match all the search criteria will be returned in the output.
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+                                <h1 id="salesforce-batch-operations">Salesforce batch operations</h1>
+<p>Apart from support for Salesforce <a href="../salesforce.html#working-with-bulk-data-load-jobs-in-salesforce">bulk operations</a>, Workato has included support for Salesforce <strong>batch</strong> operations, which make use of Salesforce&apos;s <code>sObject Collections</code> <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobjects_collections.htm" target="_blank">API</a>.</p>
+<p>These operations allow the creation and update of up to <strong>2,000 records</strong> at a time. Users should make use of these operations when they are creating or updating smaller batches of Salesforce records, or if they wish to perform multiple operations without using Bulk API.  </p>
+<p>The supported operations are:</p>
+<ul>
+<li>Create records in batches</li>
+<li>Update records in batches</li>
+</ul>
+<h2 id="create-records-in-batches">Create records in batches</h2>
+<p><img src="../../assets/images/salesforce-docs/batch-create-action.png" alt="Create record in batch">
+<em>Create records in batches action</em></p>
+<p>The &apos;Create records in batches&apos; action allows the creation of up to 2,000 records in a single request. To begin using this action, select the Salesforce object to be created. As shown in the example below, when the &apos;Contact&apos; object is selected, the list input pill and all the required fields in the object is displayed.</p>
+<p><img src="../../assets/images/salesforce-docs/salesforce-batch-select-object.gif" alt="Select object">
+<em>Select Salesforce Contact object</em></p>
+<p>The list input pill can come from various sources such as a new CSV file in a file storage app (eg. Box, Amazon S3, On-prem files) or a list created with the Lists by Workato application. To learn more on how to use list inputs, refer to the <a href="../../features/list-management.html">List Management</a> documentation.</p>
+<p><img src="../../assets/images/salesforce-docs/salesforce-batch-select-object.png" alt="Select object">
+<em>Select list input pill</em></p>
+<p>Thereafter, in the <code>Add/remove optional fields</code> section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields. </p>
+<p><img src="../../assets/images/salesforce-docs/batch-select-optional-fields.png" alt="Select optional fields">
+<em>Select optional fields</em></p>
+<h3 id="advanced-configuration">Advanced configuration</h3>
+<p><img src="../../assets/images/salesforce-docs/batch-advanced-config.png" alt="Advanced configuration">
+<em>Advanced configuration</em></p>
+<p>In the advanced configuration section, choose if you want to roll back if the record creation fails. If <strong>Yes</strong>, this is how the roll-back works:</p>
+<p>Workato processes in batches of 200 records per batch. So when 1 record in a batch fails, that whole batch will be rolled back, but other batches will not be affected.</p>
+<p>For example, if 1000 records are being created, they will be divided into 5 batches of 200 records each. If a record in the 1st batch failed, that entire 1st batch of 200 records will be rolled back. The other 4 batches are not affected and will be processed as normal.</p>
+<p>The default, <strong>No</strong>, is the recommended setting. The records that are created successfully will remain created, and the failed records are handled by additional logic in the subsequent recipe steps.</p>
 <h3 id="output-fields">Output fields</h3>
-<p>The output of this action is a list of records that match your search criteria. The output datatree contains the full set of columns from the selected table. All default and custom columns are supported. The output fields will be displayed only after a table is provided, either by selecting a table from the pick list or by providing the full table name.</p>
-<p><img src="../../assets/images/connectors/servicenow/extended-output.gif" alt="Output fields">
-<em>Output fields</em></p>
-<h2 id="input-field-definitions">Input field definitions</h2>
-<h3 id="table">Table</h3>
-<p>Select the table to search records from. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.</p>
-<p>Make sure that the connected user has <a href="../servicenow.html#roles-and-permissions-required-to-connect">sufficient access control</a> to the selected table.</p>
-<h3 id="search-by-column-values">Search by column values</h3>
-<p>Search criteria to match records against in the selected table. This action will only return records that match all your search criteria. Maximum size of batch of records returned is <strong>100</strong>.</p>
-<p>You can search using all standard and custom columns in the selected table.</p>
+<p>The output fields for this action are split into 2 categories: <strong>Successful records</strong> for the records created in Salesforce and <strong>Failed records</strong> for those that were not created.</p>
+<p>Note that in <strong>Failed records</strong>, the Salesforce ID of the object will not be available as an output data pill as no record was created.</p>
+<h4 id="successful-records">Successful records</h4>
+<table>
+<thead>
+<tr>
+<th>Output data pill</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>Internal Salesforce ID of the record created</td>
+</tr>
+<tr>
+<td>Success</td>
+<td>In successful records, this value will always be &apos;true&apos;</td>
+</tr>
+<tr>
+<td>List size</td>
+<td>Corresponds to the number of successfully created records</td>
+</tr>
+</tbody>
+</table>
+<h4 id="failed-records">Failed records</h4>
+<table>
+<thead>
+<tr>
+<th>Output data pill</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Success</td>
+<td>In failed records, this value will always be &apos;false&apos;</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>An array that contains the <strong>Status code</strong>, <strong>Error message</strong> and <strong>Fields</strong>. Use the information here to determine why the records failed and in error emails.</td>
+</tr>
+<tr>
+<td>List size</td>
+<td>Corresponds to the number of records that failed to create</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update-records-in-batches">Update records in batches</h2>
+<p><img src="../../assets/images/salesforce-docs/batch-update-action.png" alt="Create record in batch">
+<em>Update records in batches action</em></p>
+<p>The &apos;Update records in batches&apos; action allows the update of up to 2,000 records in a single request. To begin using this action, select the Salesforce object to be updated. As shown in the example below, when the &apos;Contact&apos; object is selected, the list input pill and all the required fields in the object is displayed. In this case, one of the required fields will always be the ID of the Salesforce object to be updated. This means that one column in the list provided must contain the Salesforce ID.</p>
+<p><img src="../../assets/images/salesforce-docs/salesforce-batch-select-object.gif" alt="Select object">
+<em>Select Salesforce Contact object</em></p>
+<p>The list input pill can come from various sources such as a new CSV file in a file storage app (eg. Box, Amazon S3, On-prem files) or a list created with the Lists by Workato application. To learn more on how to use list inputs, refer to the <a href="../../features/list-management.html">List Management</a> documentation.</p>
+<p><img src="../../assets/images/salesforce-docs/salesforce-batch-select-object.png" alt="Select object">
+<em>Select list input pill</em></p>
+<p>Thereafter, in the <code>Add/remove optional fields</code> section at the end of the action, proceed to select any additional optional Salesforce fields and map those fields. </p>
+<p><img src="../../assets/images/salesforce-docs/batch-select-optional-fields.png" alt="Select optional fields">
+<em>Select optional fields</em></p>
+<h3 id="advanced-configuration">Advanced configuration</h3>
+<p><img src="../../assets/images/salesforce-docs/batch-advanced-config.png" alt="Advanced configuration">
+<em>Advanced configuration</em></p>
+<p>In the advanced configuration section, choose if you want to roll back if the record creation fails. If <strong>Yes</strong>, this is how the roll-back works:</p>
+<p>Workato processes in batches of 200 records per batch. So when 1 record in a batch fails, that whole batch will be rolled back, but other batches will not be affected.</p>
+<p>For example, if 1000 records are being created, they will be divided into 5 batches of 200 records each. If a record in the 1st batch failed, that entire 1st batch of 200 records will be rolled back. The other 4 batches are not affected and will be processed as normal.</p>
+<p>The default, <strong>No</strong>, is the recommended setting. The records that are created successfully will remain created, and the failed records are handled by additional logic in the subsequent recipe steps.</p>
+<h3 id="output-fields">Output fields</h3>
+<p>The output fields for this action are split into 2 categories: <strong>Successful records</strong> for the records updated in Salesforce and <strong>Failed records</strong> for those that were not updated.</p>
+<h4 id="successful-records">Successful records</h4>
+<table>
+<thead>
+<tr>
+<th>Output data pill</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>Internal Salesforce ID of the record updated</td>
+</tr>
+<tr>
+<td>Success</td>
+<td>In successful records, this value will always be &apos;true&apos;</td>
+</tr>
+<tr>
+<td>List size</td>
+<td>Corresponds to the number of successfully updated records</td>
+</tr>
+</tbody>
+</table>
+<h4 id="failed-records">Failed records</h4>
+<table>
+<thead>
+<tr>
+<th>Output data pill</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>Internal Salesforce ID of the record updated</td>
+</tr>
+<tr>
+<td>Success</td>
+<td>In failed records, this value will always be &apos;false&apos;</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>An array that contains the <strong>Status code</strong>, <strong>Error message</strong> and <strong>Fields</strong>. Use the information here to determine why the records failed and in error emails.</td>
+</tr>
+<tr>
+<td>List size</td>
+<td>Corresponds to the number of records that failed to update</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -9962,7 +10069,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Search records action","date":"2018-05-30T06:00:00.000Z","level":"1.18.37.4","depth":3,"next":{"title":"Create record actions","level":"1.18.37.5","depth":3,"path":"connectors/servicenow/create.md","ref":"connectors/servicenow/create.md","articles":[]},"previous":{"title":"New/updated record trigger","level":"1.18.37.3","depth":3,"path":"connectors/servicenow/updated-record-trigger.md","ref":"connectors/servicenow/updated-record-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/servicenow/search.md","mtime":"2019-01-08T06:16:16.680Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-08T06:17:17.804Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Batch create/update","date":"2018-01-04T06:15:00.000Z","level":"1.18.36.7","depth":3,"next":{"title":"ServiceNow","level":"1.18.37","depth":2,"path":"connectors/servicenow.md","ref":"connectors/servicenow.md","articles":[{"title":"Connection setup","level":"1.18.37.1","depth":3,"anchor":"#how-to-connect-to-servicenow-on-workato","path":"connectors/servicenow.md","ref":"connectors/servicenow.md#how-to-connect-to-servicenow-on-workato","articles":[]},{"title":"New record trigger","level":"1.18.37.2","depth":3,"path":"connectors/servicenow/new-record-trigger.md","ref":"connectors/servicenow/new-record-trigger.md","articles":[]},{"title":"New/updated record trigger","level":"1.18.37.3","depth":3,"path":"connectors/servicenow/updated-record-trigger.md","ref":"connectors/servicenow/updated-record-trigger.md","articles":[]},{"title":"Search records action","level":"1.18.37.4","depth":3,"path":"connectors/servicenow/search.md","ref":"connectors/servicenow/search.md","articles":[]},{"title":"Create record actions","level":"1.18.37.5","depth":3,"path":"connectors/servicenow/create.md","ref":"connectors/servicenow/create.md","articles":[]},{"title":"Update record actions","level":"1.18.37.6","depth":3,"path":"connectors/servicenow/update.md","ref":"connectors/servicenow/update.md","articles":[]}]},"previous":{"title":"Bulk data imports","level":"1.18.36.6","depth":3,"anchor":"#working-with-bulk-data-load-jobs-in-salesforce","path":"connectors/salesforce.md","ref":"connectors/salesforce.md#working-with-bulk-data-load-jobs-in-salesforce","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/salesforce/batch-operations.md","mtime":"2019-01-08T06:16:16.680Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-08T06:17:17.804Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
