@@ -19,6 +19,9 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
   This first release supports asynchronous IDoc. Support for synchronous RFC will be coming soon.
 
+- **Google Sheets: Search rows limit increases to 50,000 rows**
+Search rows action now can return up to 50,000 rows of result, up from the previous limit of 200 rows.
+
 - **Salesforce: Batch operations**
 
   Apart from support for Salesforce bulk operations, Workato has included support for [Salesforce batch operations](https://docs.workato.com/connectors/salesforce/batch-operations.html), which make use of Salesforce’s Collections API.
