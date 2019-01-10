@@ -34,13 +34,13 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
   **Search records using query:** New Search records using query action allows the use of ServiceNow queries to filter the records you want. Supports up to 50,000 records retrieved per batch.
 
-  **Scheduled record search trigger:** New Scheduled record search trigger allows execution of query on a specified schedule.Query results will be returned in batches of records. Also supports up to 50,000 records retrieved per batch.
+  **Scheduled record search trigger:** New Scheduled record search trigger allows execution of query on a specified schedule. Query results will be returned in batches of records. Also supports up to 50,000 records retrieved per batch.
 
-  **Increased search action limit:** The actions **Search records, Search records (User)** and **Search records using query** can now be configured to return up to 50,000 records (up from 100)
+  **Increased search action limit:** The actions **Search records, Search records (User)** and **Search records using query** can now be configured to return up to 50,000 records (up from 100).
 
 - **Okta: Scheduled trigger**
 
-  **What's new:** The new Okta Scheduled trigger allows a scheduled search instead of real-time exit
+  **What's new:** The new Okta Scheduled trigger allows a scheduled search instead of real-time exit.
 
 ## Dec 11 - Dec 22
 
