@@ -21,7 +21,7 @@ Our engineers are hard at work daily to make Workato better! View the latest upd
 
 - **Google Sheets: Search rows limit increases to 50,000 rows**
 
-Search rows action now can return up to 50,000 rows of result, up from the previous limit of 200 rows.
+  Search rows action now can return up to 50,000 rows of result, up from the previous limit of 200 rows.
 
 - **Salesforce: Batch operations**
 
