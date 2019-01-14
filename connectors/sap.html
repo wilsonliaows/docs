@@ -9844,21 +9844,21 @@
 <p><img src="../assets/images/connectors/sap/sap-jco.png" alt="SAP JCo connector"></p>
 <p>SAP is an enterprise resource planning software used by the largest corporations in the world.</p>
 <p>Workato SAP On-premise connector allows you to connect with SAP system on-premises or on a server behind a corporate firewall. The connector supports using IDoc or RFC to communicate with SAP. Using Workato, you can build powerful automation around SAP and other applications, without writing a line of code.</p>
-<h3 id="supported-sap-versions">Supported SAP versions</h3>
+<h2 id="supported-sap-versions">Supported SAP versions</h2>
 <p>Workato&apos;s On-premise SAP connector supports SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.</p>
 <p>It requires the SAP Java Connector (JCo) to work. Please refer to <a href="https://launchpad.support.sap.com/#/notes/1077727" target="_blank">SAP Note 107727 - SAP JCo 3.0 release and support strategy</a> for details on JCo versions.</p>
-<h3 id="supported-communication-method">Supported communication method</h3>
+<h2 id="supported-communication-method">Supported communication method</h2>
 <p>The connector supports the following communication methods with SAP:</p>
 <ul>
 <li>Inbound IDoc (send IDoc to SAP)</li>
 <li>Outbound IDoc (receive IDoc from SAP)</li>
 <li>Transactional RFC (invoke synchronous RFC and BAPI in SAP)</li>
 </ul>
-<h4 id="introduction-to-idoc">Introduction to IDoc</h4>
+<h3 id="introduction-to-idoc">Introduction to IDoc</h3>
 <p>The term <code>IDoc</code> stands for intermediate document. It is simply a data container used to exchange information between SAP systems or between SAP and 3rd-party systems.</p>
 <p>IDoc is an open interface which is independent of the internal data structure stored in SAP, and independent of sending or receiving applications. Any application can use IDoc by following the syntax and semantics of IDoc.</p>
 <p>IDoc is independent of the direction of data exchange, having both Outbound and Inbound capabilities.</p>
-<h4 id="introduction-to-rfc">Introduction to RFC</h4>
+<h3 id="introduction-to-rfc">Introduction to RFC</h3>
 <p><code>RFC</code> is a SAP protocol that handles communications between SAP systems and third party applications. It is the process of calling a function module which is residing on a different machine from the caller program.</p>
 <p>Workato can call SAP RFCs in an SAP system to fetch the data returned or make synchronous updates to the SAP data.</p>
 <h2 id="how-to-connect-to-sap-on-premise-on-workato">How to connect to SAP On-premise on Workato</h2>
@@ -10006,7 +10006,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SAP","date":"2018-12-06T06:00:00.000Z","level":"1.18.35","depth":2,"next":{"title":"Connection setup","level":"1.18.35.1","depth":3,"path":"connectors/sap.md","ref":"connectors/sap.md","articles":[]},"previous":{"title":"New/updated row trigger","level":"1.18.34.8","depth":3,"path":"connectors/redshift/updated-row-trigger.md","ref":"connectors/redshift/updated-row-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/sap.md","mtime":"2019-01-08T06:16:16.680Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-08T06:17:17.804Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SAP","date":"2018-12-06T06:00:00.000Z","level":"1.18.35","depth":2,"next":{"title":"Connection setup","level":"1.18.35.1","depth":3,"path":"connectors/sap.md","ref":"connectors/sap.md","articles":[]},"previous":{"title":"New/updated row trigger","level":"1.18.34.8","depth":3,"path":"connectors/redshift/updated-row-trigger.md","ref":"connectors/redshift/updated-row-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/sap.md","mtime":"2019-01-14T03:48:56.803Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-14T03:50:16.081Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
