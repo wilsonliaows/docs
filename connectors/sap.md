@@ -38,10 +38,12 @@ Workato can call SAP RFCs in an SAP system to fetch the data returned or make sy
 
 The SAP On-premise connector can connect to both on-premise SAP system and SAP system on a server behind the corporate firewall.
 
-Follow the these steps to configure the connection:
-- [Configure IDoc and RFC in SAP](#configure-idoc-and-rfc-in-sap)
-- [Configure Workato On-prem agent on SAP server](#configure-workato-on-prem-agent-opa-on-sap-server)
-- [Configure SAP connector in Workato UI](#configure-sap-connector-in-workato-ui)
+Please follow these steps **strictly in this sequence** to configure the connection:
+- [I/ Configure IDoc and RFC in SAP](#configure-idoc-and-rfc-in-sap)
+- [II/ Configure Workato On-prem agent on SAP server](#configure-workato-on-prem-agent-opa-on-sap-server)
+- [III/ Configure SAP connector in Workato UI](#configure-sap-connector-in-workato-ui)
+
+If you encounter error at any step, please review the [Troubleshooting](#) section.
 
 ### Configure IDoc and RFC in SAP
 #### Step 1: Register a Program ID for Workato in SAPGUI
@@ -103,6 +105,8 @@ For IDoc to work with Workato, you need to install a Workato On-prem Agent (OPA)
 Follow [these instructions](https://docs.workato.com/on-prem/setup.html) to download and setup Workato OPA on your SAP server.
 
 #### Step 7: Download the SAP JCO libraries
+If you do not already have a license to use SAP JCo libraries, please contact your SAP provider for license.
+
 Download the SAP JCO connector libraries from the link below. Please ensure that the correct Operating system is selected.
 
 https://support.sap.com/en/product/connectors/jco.html
@@ -120,8 +124,24 @@ Follow [these instructions](https://docs.workato.com/on-prem/run.html) to run th
 
 ![SAP connection](/assets/images/connectors/sap/sap-jco-connection.png)
 
-There are 2 ways to create a connection in Workato. Click on `App Connections` on the navigation bar and then on `Create a new connection`; or click on the connections tab in a recipe with SAP triggers/actions. Then, follow the steps below:
+There are 2 ways to create a connection in Workato. Click on `App Connections` on the navigation bar and then on `Create a new connection`; or click on the `Connections` tab in a recipe with SAP triggers/actions. Then, follow the steps below:
 - Select the connector `SAP On-premise`
 - Input the OPA profile name for SAP you have created in previous step, in this case `Direct1`
 - Select the OPA name, in this case `OPA @ BCone SAP`
 - Click `Link your account`. If the connection is successful, you can start building recipes in Workato to talk to SAP.
+
+### Troubleshooting
+The followings are issues you may encounter during your setup. This list is constantly being updated. If you don't find your issue listed here, please contact Workato Support.
+
+**After clicking `Link your account` in Workato, it fails to connect**
+  This is often due to incorrect OPA configuration. Please check the SAP profile in the OPA's `config.yml` file for these errors:
+
+  - `gwhost` is not accessible: In the machine that OPA is installed, use Terminal / Command Prompt to `ping` that `gwhost` and verify that it's accessible.
+
+  - `gwserv` is wrong: Please make sure you input the correct gateway server port number.
+
+  Also, if you install OPA on a separate server and try to connect to SAP in another server, it may result in unforeseen complications. We recommend installing OPA directly on the SAP server instead.
+
+**I don't see the needed IDocs in the dropdown list in Workato**
+
+You need to [configure the needed IDoc in your SAP](#configure-idoc-and-rfc-in-sap) first, before it can be displayed in the dropdown list in Workato.
