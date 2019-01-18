@@ -43,7 +43,7 @@ Please follow these steps **strictly in this sequence** to configure the connect
 - [II/ Configure Workato On-prem agent on SAP server](#configure-workato-on-prem-agent-opa-on-sap-server)
 - [III/ Configure SAP connector in Workato UI](#configure-sap-connector-in-workato-ui)
 
-If you encounter error at any step, please review the [Troubleshooting](#) section.
+If you encounter error at any step, please review the [Troubleshooting](#troubleshooting) section.
 
 ### Configure IDoc and RFC in SAP
 #### Step 1: Register a Program ID for Workato in SAPGUI
