@@ -142,7 +142,7 @@ In any given poll, if there are less rows than the configured batch size, this t
 This condition is used to filter rows based on one or more column values.
 
 ```sql
-status = 'closed' and priority > 3
+STATUS = 'closed' and PRIORITY > 3
 ```
 
 Leave blank to process all rows from the selected table.
