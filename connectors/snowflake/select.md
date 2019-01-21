@@ -15,7 +15,7 @@ This action lets you select rows based on certain criteria defined by a ` WHERE`
 First, select a table to work with. This can be done either by selecting a table from the pick list, or toggling the input to text mode and typing the full table name.
 
 ### WHERE condition
-Next, provide a `WHERE` condition to filter rows. This condition can be as simple as filtering a single record by it's `ID`.
+Next, provide a `WHERE` condition to filter rows. This condition can be as simple as filtering a single record by its `ID`.
 
 ```sql
 ID = 123
@@ -32,7 +32,7 @@ Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE
 ### Order by
 Rows returned from this action can be ordered based on the **Order by** input field. This field is used to change the default ordering of rows from your Snowflake database.
 
-You can also define the direction of order for each column you wish to order by. The following order by statement will order rows by `priority` in ascending order followed by `created_date` in descending order (latest first).
+You can also define the direction of order for each column you wish to order by. The following **Order by** statement will order rows by `priority` in ascending order followed by `created_date` in descending order (latest first).
 
 ```sql
 PRIORITY ASC, CREATED_DATE DESC

@@ -11,7 +11,7 @@ This action lets you send a SQL string to the Snowflake instance to be executed.
 
 Snowflake specific commands such as `COPY INTO` and `PUT` are also supported for data pipeline use cases. See the full list of [Snowflake SQL commands](https://docs.snowflake.net/manuals/sql-reference-commands.html).
 
-Unlike [Select rows using custom SQL](/connectors/snowflake/select.md#select-rows-using-custom-sql), this action is not optimized for easy configuration. For `SELECT` statements with large number of columns, use that action instead.
+This action is not optimized for easy configuration. For SELECT statements with a large number of columns, use the [Select rows using custom SQL](/connectors/snowflake/select.md#select-rows-using-custom-sql) action instead.
 
 ![Run custom SQL action](/assets/images/snowflake/run_sql.png)
 *Run custom SQL action*

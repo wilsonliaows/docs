@@ -4,7 +4,7 @@ date: 2019-01-10 06:10:00 Z
 ---
 
 # Snowflake
-Snowflake is a relational ANSI SQL data warehouse in the cloud. Due to it's unique architecture designed for the cloud, Snowflake offers a data warehouse that is faster, easier to use, and far more flexible than traditional data warehouse
+Snowflake is a relational ANSI SQL data warehouse in the cloud. Due to its unique architecture designed for the cloud, Snowflake offers a data warehouse that is faster, easier to use, and far more flexible than traditional data warehouse
 
 ## How to connect to Snowflake on Workato
 The Snowflake connector uses username and password to authenticate with Snowflake.
@@ -47,11 +47,9 @@ The Snowflake connector uses username and password to authenticate with Snowflak
             <td>AWS EU (Frankfurt)</td>
             <td>workatodemo.eu-central-1</td>
           </tr>
-          </tr>
           <tr>
             <td>AWS AP (Sydney)</td>
             <td>workatodemo.ap-southeast-2</td>
-          </tr>
           </tr>
           <tr>
             <td>Azure West Europe</td>
@@ -59,7 +57,7 @@ The Snowflake connector uses username and password to authenticate with Snowflak
           </tr>
         </tbody>
       </table>
-      <a href='https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url'>Find out more</a>  about Snowflake account naming.</td>
+      <a href='https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url'>Find out more</a> about Snowflake account naming.</td>
     </tr>
     <tr>
       <td>Warehouse</td>
@@ -137,7 +135,7 @@ currency = 'USD'
 If used in a **Select rows** action, this `WHERE` condition will return all rows that has the value 'USD' in the `currency` column. Just remember to wrap datapills with single quotes in your inputs.
 
 ![Using datapills in WHERE condition](/assets/images/snowflake/use_datapill_in_where.png)
-*Using datapills in `WHERE` condition*
+*Using datapills wrapped with single quotes in `WHERE` condition*
 
 Column identifiers with spaces must be enclosed in double quotes (`""`). For example, **currency code** must to enclosed in brackets to be used as an identifier.
 
@@ -146,7 +144,7 @@ Column identifiers with spaces must be enclosed in double quotes (`""`). For exa
 ```
 
 ![WHERE condition with enclosed identifier](/assets/images/snowflake/where-condition-with-enclosed-identifier.png)
-*`WHERE` condition with enclosed identifier*
+*`WHERE` condition with column identifier enclosed with double quotes*
 
 #### Complex statements
 
@@ -156,7 +154,7 @@ Your `WHERE` condition can also contain subqueries. The example below selects in
 ID IN(SELECT DISTRIBUTOR_ID FROM USERS WHERE ACTIVE = FALSE)
 ```
 
-When used in a **Select rows** action, this will select all rows in the `DISTRIBUTORS` table related to rows in the `USERS` table that not active (`ACTIVE = FALSE`).
+When used in a **Select rows** action, this will select all rows in the `DISTRIBUTORS` table related to rows in the `USERS` table that are not active (`ACTIVE = FALSE`).
 
 ![Using subquery in WHERE condition](/assets/images/snowflake/subquery-in-where-condition.png)
 *Using subquery in WHERE condition*

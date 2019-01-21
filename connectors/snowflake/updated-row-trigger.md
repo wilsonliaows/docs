@@ -120,7 +120,7 @@ ORDER BY c.ordinal_position;
 ### Sort column
 Sort column is a column that is updated whenever a row in the table is updated. Typically, this is a timestamp column.
 
-When a row is updated, the Unique key value remains the same. However, it should have it's timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected [**Unique key**](#unique-key) column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
+When a row is updated, the Unique key value remains the same. However, it should have its timestamp updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected [**Unique key**](#unique-key) column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
 
 Only **timestamp** and **timestamp with time zone** column types can be used. Run this SQL query to find out which columns fulfill this requirement.
 
