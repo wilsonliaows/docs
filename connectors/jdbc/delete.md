@@ -9,7 +9,7 @@ date: 2018-02-02 06:10:00 Z
 
 This action lets you delete rows based on certain criteria defined by a ` WHERE` condition.
 
-**This action should be tested and used with care, as it will PERMANENTLY delete rows in your table.**
+> **This action should be tested and used with care, as it will PERMANENTLY delete rows in your table.**
 
 ![Delete action](/assets/images/jdbc/delete-rows-action.png)
 *Delete rows action*

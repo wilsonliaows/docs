@@ -9,7 +9,7 @@ date: 2019-01-10 06:10:00 Z
 
 This action lets you delete rows based on certain criteria defined by a ` WHERE` condition.
 
-**This action should be tested and used with care, as it will PERMANENTLY delete rows in your table.**
+> **This action should be tested and used with care, as it will PERMANENTLY delete rows in your table.**
 
 ![Delete action](/assets/images/snowflake/delete-rows-action.png)
 *Delete rows action*

@@ -9,7 +9,7 @@ date: 2018-03-19 06:00:00 Z
 
 This action lets you delete rows based on certain criteria defined by a ` WHERE` condition.
 
-**Warning: This action should be tested and used with care as is it will PERMANENTLY delete rows in your table.**
+> **Warning: This action should be tested and used with care as is it will PERMANENTLY delete rows in your table.**
 
 ![Delete action](/assets/images/oracle/delete-rows-action.png)
 *Delete rows action*
