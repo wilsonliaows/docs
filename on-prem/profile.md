@@ -9,12 +9,14 @@ A single Workato on-premises agent can be used to connect with multiple on-premi
  Profiles are configured in the `<INSTALL_HOME>/conf/config.yml`. A config file can contain profiles to a few types of systems:
  - [Databases](#database-connection-profile)
  - [On-premises file systems](#on-premises-files-connection-profile)
+ - [SAP](#sap-connection-profile)
  - [Java messaging service](#jms-connection-profile)
  - [Apache Kafka](#apache-kafka-connection-profile)
  - [Active directory](#active-directory-connection-profile)
  - [HTTP resource](#http-resources)
  - [NTLM](#ntlm-connection-profile)
  - [Command-line scripts](#command-line-scripts-profile)
+ - [Extensions](#extensions-profile)
 
  Additionally, you can configure [proxy servers](/on-prem/proxy.md) for on-premises agents installed in a server with limited internet connectivity.
 
@@ -179,6 +181,170 @@ files:
     base: "/Users/me/Desktop/employees"
 ```
 
+## SAP connection profile
+SAP connection profile must be defined in the `server` and `sap` section. The `server` section looks like this:
+
+```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+```
+
+Here, `lib_ext` is the directory where you put the SAP JCo connector libraries. If this directory is not already created, create this directory under the root directory of the OPA and put the SAP JCo connector libraries there.
+
+There are two connection types that the connector supports: `direct` and `messageserver`. Below is the example of `direct` connection type. Use this connection type if SAP system is directly exposed as an application server.
+
+```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+
+sap:
+  Direct:
+  # Sap inbound connection properties
+    connection_type: direct
+    ashost: 10.30.xx.xx
+    client: 800
+    user: OSA_DEV
+    password: ********
+    lang: en
+    sysnr: 00
+    pool_capacity: 3
+    peak_limit: 10
+  # Sap outbound connection properties. These must be passed along with inbound properties
+    gwhost: 10.30.xx.xx
+    gwserv: 3300
+    progid: WORKATO
+    connection_count: 2
+  # Workato Connection properties for advanced users. Often don't need to be changed
+    http_connect_timeout: 30000
+    http_connection_request_timeout: 30000
+    http_socket_timeout: 30000
+    cm_max_total: 20
+    cm_default_max_per_route: 20
+  # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section
+    control_segment:
+      SNDPOR: WORKATO
+      SNDPRT: LS
+      SNDPRN: WORKATO
+      RCVPOR: SAPEQ6
+      RCVPRT: LS
+      RCVPRN: T90CLNT090
+    # Property to get IDOC list configured on RCVPRN profile
+      OUT_RCVPRN: WORKATO
+```
+
+Below is the example of `messageserver` connection type. Use this connection type when SAO system is behind message server gateway.
+
+```YAML
+server:
+  classpath:
+    - lib/SAPConnector.jar
+    - lib_ext
+
+sap:
+  MessageServer:
+  # Sap inbound connection properties
+    connection_type: messageserver
+    user: OSA_DEV
+    password: ********
+    lang: en
+    sysnr: 00
+    mshost: 10.30.xx.xx
+    msserv: 3600
+    r3name: R/3
+    client: 800
+    group:  PUBLIC
+    pool_capacity: 3
+    peak_limit: 10
+  # Sap outbound connection properties. These must be passed along with inbound properties
+    gwhost: 10.30.xx.xx
+    gwserv: 3300
+    progid: WORKATO
+    connection_count: 2
+  # Workato Connection properties for advanced users. Often don't need to be changed
+    http_connect_timeout: 30000
+    http_connection_request_timeout: 30000
+    http_socket_timeout: 30000
+    cm_max_total: 20
+    cm_default_max_per_route: 20
+  # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section  
+    control_segment:
+      SNDPOR: WORKATO
+      SNDPRT: LS
+      SNDPRN: WORKATO
+      RCVPOR: SAPEQ6
+      RCVPRT: LS
+      RCVPRN: T90CLNT090
+    # Property to get IDOC list configured on RCVPRN profile
+      OUT_RCVPRN: WORKATO
+```
+
+The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| ashost | SAP host in the format of `xxx.xxx.xxx.xxx` |
+| client | Three digit sap client id |
+
+The below properties are mandatory and required if Messager Server is connected to the SAP JCO Connector. This will allow Load Balancer on the SAP side to be enabled and can be used for SAP Production server connection parameters:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| mshost | 10.30.32.80 |
+| msserv | 3601 |
+| r3name | R/3 |
+| group | PUBLIC |
+
+The below properties are required irrespective of the connection type. Be it either Message Server or Application server:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| user | SAP RFC user. Recommend using background user and disable dialog properties. |
+| password | SAP RFC user password |
+| lang | Logon language |
+| sysnr | Two digit sap system number |
+| pool_capacity | Default to `3`. Maximum number of idle connections that kept open for a SAP connection. |
+| peak_limit | Default to `10`. Maximum number of active connections that can be created for a sap connection simultaneously |
+
+These are required for SAP Outbound Connection properties:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| gwhost | SAP Gateway Host, in the number format of `xxx.xxx.xxx.xxx` (e.g. 10.30.23.01) |
+| gwserv | Gateway server port, in the number format of `xxxx` (e.g. 3300)  |
+| progid | SAP Program ID configured for Workato> |
+| connection_count | Default to `2`. The number of parallel connection can be open for outbound sap connection. |
+
+These are optional for Workato Connection properties (for advanced users):
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| http_connect_timeout | Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. |
+| http_connection_request_timeout | Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. |
+| http_socket_timeout | Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets. |
+| cm_max_total | Default 10. Total number of connections in the connection pool. |
+| cm_default_max_per_route | Default 5. Number of connections in the pool per route. |
+
+These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| SNDPOR | Transactional RFC port configured in SAP for Workato |
+| SNDPRT | Partner profile type |
+| SNDPRN | Partner profile Name defined for Workato |
+| RCVPOR | SAP default Receiver Port |
+| RCVPRT | Receiver Partner profile type |
+| RCVPRN | Receiver Partner profile type defined for the SAP |
+
+The below property is required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+
+| Property name | Comment |
+|------------------|-------------------------------------------|
+| OUT_RCVPRN | Receiver Partner profile type defined for the SAP |
+
 ## JMS connection profile
 JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premises agent:
 
@@ -339,11 +505,11 @@ When you declare an action, you need to specify the values of the parameters.
 
 An example profile on Unix can look like this:
 ```YAML
-command_line_scripts: 
+command_line_scripts:
   workday_reports:
     concurrency_limit: 3
     timeout: 30
-    scripts: 
+    scripts:
      copy_file:
        name: Copy file
        command:
@@ -353,7 +519,7 @@ command_line_scripts:
        parameters:
          - { name: source_file }
          - { name: target_directory }           
-     
+
      append_file_to_another:
        name: Append file to another
        command:
@@ -365,7 +531,7 @@ command_line_scripts:
          - { name: source_file, quote: '"' }
          # Advanced parameter quoting
          - { name: target_file, quote: { start: '"', end: '"', quote: '"', escape_char: \ } }
-             
+
      generate_report:
        name: Generate report
        command:
@@ -381,7 +547,7 @@ command_line_scripts:
          - { name: from_date }
          - { name: to_date, schema: { optional: true, control_type: select, pick_list: [01/01/2018, 02/02/2018] } }
 ```
-The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows: 
+The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows:
 
 | Property name | Description |
 |------------------|-------------------------------------------|
@@ -400,7 +566,7 @@ The hash key is used as an unique identifier for a script profile. The script co
 
 <br>
 The command invocation element configuration can be just a string, but also can contain these properties:
- 
+
 | Property name | Description |
 |------------------|-------------------------------------------|
 | value | The command invocation element value. |
@@ -437,3 +603,32 @@ The parameter schema configuration can have properties as follows:
 | label | **Optional**. Friendly name for the script, that will be displayed in the recipe UI (defaults to the parameter name). |
 | control_type | **Optional**. Can be 'text' or 'select'. If it's 'select', property 'pick_list' should also be defined. Defaults to 'text'. |
 | pick_list | **Optional**.  Values for selecting the parameter value. This property should be defined if property 'control_type' has value 'select'. |
+
+## Extensions profile
+Working with Java extensions requires you to define an extensions profile. You need a `server` section to define where the `jar` files are located, and an `extensions` section to create individual profiles for the Java classes. A Java extension will be configured like this.
+```YAML
+server:
+  classpath: C:\\Program Files\\Workato Agent\\ext
+
+extensions:
+  security:
+    controllerClass: com.mycompany.onprem.SecurityExtension
+    secret: HA63A3043AMMMM
+```
+
+The **server** parameter configuration property is as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| classpath | Specifies the location of user-defined class |
+
+<br>
+
+Each **extensions** profile configuration properties are as follows:
+
+| Property name | Description |
+|------------------|-------------------------------------------|
+| controllerClass | A required field to inform the OPA which Java class to map the extension to. |
+| secret | Optional environment property that is used in the Java class. Multiple properties can be added. |
+
+Find out [how to create a Java extension](/on-prem/extension.md).

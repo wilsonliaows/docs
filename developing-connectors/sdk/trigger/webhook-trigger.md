@@ -26,7 +26,7 @@ triggers: {
       delete("https://api.ciscospark.com/v1/webhooks/#{webhook['id']}")
     end,
 
-    dedup: lambda do |message) {
+    dedup: lambda do |message|
       message["id"]
     end,
 

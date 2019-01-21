@@ -9,6 +9,7 @@ At present Workato supports secondary connectors for the following apps
 * [Salesforce](https://www.workato.com/integrations/salesforce)
 * [ServiceNow](https://www.workato.com/integrations/service_now)
 * [Slack](https://www.workato.com/integrations/slack) 
+* [Wrike](https://www.workato.com/integrations/wrike) 
 
 To use a secondary connector, select the secondary connector from the app picklist when choosing a trigger or action. The secondary connector has the same set of triggers and actions as the primary.
 

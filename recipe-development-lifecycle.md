@@ -12,7 +12,7 @@ On Workato, teams can move sets of recipes and their dependencies (e.g. connecti
 Users can export and import their recipes as packages. Here's a list of assets that are exported in a package:
 
 - recipes in a chosen folder
-- subfolders and recipes in those subfolders
+- sub-folders and recipes in those sub-folders
 - associated connections
 - associated custom connectors
 - associated callable recipes
@@ -27,7 +27,7 @@ Importing and exporting are useful when teams are collaborating across different
 
 The packages feature is enabled only for certain Workato plans. Check the [Pricing and plans page](https://www.workato.com/pricing?audience=general) or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.
 
-For Workato accounts with the recipe development lifcycle feature enabled, users will be able to see the option when they click on Tools > View all.
+For Workato accounts with the recipe development lifecycle feature enabled, users will be able to see the option when they click on Tools > All Tools > Recipe Lifecycle Management.
 
 ![RLM in tools gif](/assets/images/features/packages/navigate-to-recipelifecycle.gif)
 *Recipe lifecycle management in Tools*
@@ -67,7 +67,7 @@ The folder will be exported once **Next** has been clicked. Workato will generat
 
 To import a package, click on the 'Import' button on the Import/Export Feed. You will be brought to a wizard that will guide you through the import process.
 
-![Import packages - select destination folder](/assets/images/features/packages/import-packages-select-folder2.png)
+![Import packages - select destination folder](/assets/images/features/packages/import-packages-select-folder2.gif)
 *Select a destination folder to import your packages into*
 
 Find the package to upload from your computer and select a destination Workato folder to import these recipes into. You can also choose whether to import the content of lookup tables. Once a zip file has been uploaded, you will be able to preview the assets which will be imported into your Workato folder.

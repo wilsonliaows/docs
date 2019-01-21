@@ -8,6 +8,142 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+
+## Dec 23 - Jan 08
+
+### Connector enhancements
+
+- **SAP On-premise connector:**
+
+  **What's new:** The new [SAP On-premise connector](https://docs.workato.com/connectors/sap.html) that can connect to almost any SAP system on-premise or on a firewall protected server (including AWS, IBM, etc.). The supported SAP versions include SAP ERP ECC 6.0 and later, SAP CRM, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
+
+  This first release supports asynchronous IDoc. Support for synchronous RFC will be coming soon.
+
+- **Google Sheets: Search rows limit increases to 50,000 rows**
+
+  Search rows action now can return up to 50,000 rows of result, up from the previous limit of 200 rows.
+
+- **Salesforce: Batch operations**
+
+  Apart from support for Salesforce bulk operations, Workato has included support for [Salesforce batch operations](https://docs.workato.com/connectors/salesforce/batch-operations.html), which make use of Salesforce’s Collections API.
+
+  These actions allow the creation and update of up to 2,000 records at a time. Users should make use of these operations when they are creating or updating small batches of Salesforce records, or if they wish to perform multiple operations without using Bulk API.
+
+
+- **ServiceNow: New trigger and action**
+
+  **Search records using query:** New Search records using query action allows the use of ServiceNow queries to filter the records you want. Supports up to 50,000 records retrieved per batch.
+
+  **Scheduled record search trigger:** New Scheduled record search trigger allows execution of query on a specified schedule. Query results will be returned in batches of records. Also supports up to 50,000 records retrieved per batch.
+
+  **Increased search action limit:** The actions **Search records, Search records (User)** and **Search records using query** can now be configured to return up to 50,000 records (up from 100).
+
+- **Okta: Scheduled trigger**
+
+  **What's new:** The new Okta Scheduled trigger allows a scheduled search instead of real-time exit.
+
+## Dec 11 - Dec 22
+
+### Connector enhancements
+
+- **Google sheets: New actions**
+
+    - New `Search rows` and `Update row` actions based on new Google Sheets API v4. Enable searching by simple field mappings and update rows in a sheet by row number.
+    - `New/updated row` trigger now monitors up to 10,000 rows, increased from the previous limit of 1000 row.
+
+- **SQL Server: Automatic chunking for upsert action**
+
+- **Redshift: Escape special characters for connection**
+
+- **Anaplan: More output fields for import and export action**
+
+
+### Announcements
+
+**Wrike API migration**
+On 19th December 2018, Workato's Wrike connectors have been updated to use Wrike's API v4.
+
+This update will disconnect all your existing Wrike connections. All recipes using Wrike connections will be stopped on 19th December 2018.
+
+**What you need to do:**
+
+Reconnect all Wrike connections in your account to use the updated connector. You can complete this action on or after December 19th, 2018.
+
+
+## Nov 25 - Dec 10
+
+### Platform enhancements
+
+- **New Recipe UI**
+
+  **What's new**: The new recipe UI introduces a flowchart building interface that clearly displays the flow of logic through the entire recipe. Usability issues that have been raised have also been addressed in this design. Users should not only find this iteration of the recipe editor more user-friendly but also see new features that make their recipe building experience more efficient.
+
+  **Learn more:** Read more on Workato's New Era Update and upcoming features here: https://product.workato.com/2018/12/04/workato-new-era-update/
+
+### Connector enhancements
+
+- **New Google AI connectors**
+
+  **What's new:** New Google AI connectors have been added to the list of apps Workato supports. These new connectors enable a variety of content analysis capabilities that bring a new level of intelligence to recipes and automations.
+
+    - **Google Vision:** Read text from images and scanned documents.
+      Example use case: Read text from an uploaded driver's license and create a contact in Salesforce.
+    - **Google Speech-to-text:** Allows conversion of a short speech-to-text transcript.
+    - **Google Text-to-speech:** Allows conversion of text to synthetic voice audio.
+    - **Google Translate:** Translate text between languages.
+
+      Example use case: call recordings / voice messages from foreign customer --> use Google Speech-to-text to transcribe to text --> use Google Translate to translate to English --> use Google Text-to-Speech to convert to audio, which customer support reps can listen to.
+
+- **ServiceNow: Subdomain routing**
+
+  **Context**
+  In development lifecycles, teams typically clone their sandbox instances for deployment into production. In the process, webhooks in the sandbox instance also get copied over into production. As a result, webhook events in production gets sent to the sandbox recipes, causing an error.
+
+  **What's new: Subdomain routing for webhooks**
+  To fix this, we’ve introduced subdomain routing. When an instance is cloned, the subdomain will change based on the instance it is in. This will ensure that webhooks in the cloned instance will be routed to the correct production recipe. To enable this behavior, simply stop and restart your ServiceNow recipes.
+
+
+## Nov 11 - Nov 25
+
+### Connector enhancements
+
+- **HTTP: OAuth2 client credentials grant**
+
+  **What's new:** The HTTP connector now allows connections using the OAuth2 client credentials grant flow. Using the client credentials grant, the client can request an access token using only its client credentials. This is usually used when the client is requesting access to the protected resources under its control.
+
+
+## Oct 25 - Nov 10 2018
+
+### Connector enhancements
+
+- **Microsoft Dynamics CRM: Deleted object trigger**
+
+  **What's new:** The new trigger checks for deleted objects, e.g. deleted leads, every 5 minutes. Visit the object view page -> Customize Entity -> Enable Auditing to use this trigger.
+
+- **ADP: Support for custom actions**
+
+  **What's new:** The ADP adapter now allows custom actions. Select the 'Custom action' option on the action dropdown to build one with a HTTP request.
+
+- **ADP: Unmask sensitive data**
+
+  **What's new:** All data is masked by default with ADP. The new toggle allows users to unmask sensitive information, which will be returned in the response.
+
+- **Netsuite: Custom fields for journal entries and line items**
+
+  **What's new:** Add custom fields that are returned in the output datatree in the 'Custom fields' textbox. This is enabled on both journal entries and journal entry line items.
+
+- **Box: Support for OAuth scope selection & new scopes**
+
+  **What's new:** When creating a Box connection, users can now select the OAuth scopes to request for. This enables limiting the connection's permissions to only the relevant ones for recipes connected to Box. We also added 2 new scopes: `Manage enterprise properties` and `Manage retention policies`. This allows buildings more powerful custom actions!
+
+- **Box: Upload large file**
+
+  **What's new:** `Upload file` action now allows large file of Gigabyte size. Previously it was limited at about 20Mb.
+
+- **Workbot: Message actions**
+
+  **What's new:**: Message actions on Slack allow users to perform actions on any existing Slack messages. The [new message actions](https://product.workato.com/2018/11/05/workbot-message-actions-2/) capabilities on Workato allows users to make use of this new feature to build even more powerful Slack workflows.
+
 ## Oct 16 - Oct 25 2018
 
 ### Platform enhancements
@@ -300,53 +436,3 @@ Added Propel as a new connector.
 
 #### Replicon
 - New Action: Get Eligible Project leaders from Replicon
-
-## May 2018
-**Find more details on May's updates in our [blog post](https://product.workato.com/2018/06/05/june-2018-product-release/).**
-
-### Usability enhancements
-
-- Data field auto-suggestions
-- Export lookup table with data in Recipe Lifecycle Management
-
-### Workbot upgrades
-
-- Ephemeral Messages
-- [Slash Commands](https://product.workato.com/2018/05/22/slash-commands-using-workbot-for-slack/)
-
-### Improvements to on-prem agents & gateways
-
-- Significant improvements to increase throughput
-- Upgrade to file tolerance protocol used in the gateway
-- Ability to delete agent
-- NTLM authentication
-- Configurable HTTP concurrency
-- Database updates (Database Matrix)
-
-### Connector enhancements
-
-#### Workday
-- Handle blank columns in reports
-- Increase threshold for summarised report output
-- Minor output schema fix
-
-#### Box
-- Download file action supports [file streaming](https://product.workato.com/2018/06/04/file-streaming-transferring-large-files-with-ease/).
-
-#### Databases
-- Added documentation for [SQL Server](/connectors/mssql.md), [Oracle](/connectors/oracle.md), [Redshift](/connectors/redshift.md), [PostgreSQL](/connectors/postgresql.md) and [MySQL](/connectors/mysql.md).
-- SQL Server sample output fix
-- Standardized empty and null values
-- Fixes for CLOB and NCLOB
-- Custom SQL select action
-- Stored procedure support
-
-### Platform enhancements
-#### GDPR compliance
-- Workato is now [GDPR compliant](https://www.workato.com/legal).
-
-#### SDK
-- [Error handling](/developing-connectors/sdk/error-handling.md) for custom adapters
-
-#### Job details logging
-- Ability to [log all jobs and job details](/job-history-replication.md) with Amazon S3
