@@ -11,7 +11,7 @@ Note: this guide assumes that UI-related issues go to a Github repo called ‘UI
 Before starting, make sure to [create a Dialogflow account](https://console.dialogflow.com/api-client/#/login) - it's free!
 
 ## Import IssuesBot to your api.ai account
-Let's start by importing a pre-built DialogFlow bot called **IssueBot** (download the bot [here](/assets/dialogflow-bot/IssuesBot.zip)). This is a simple DialogFlow bot that works with this Workbot [recipe](https://www.workato.com/recipes/684354).
+Let's start by importing a pre-built DialogFlow agent called **IssueBot** (download the bot [here](/assets/dialogflow-bot/IssuesBot.zip)). This is a simple DialogFlow bot that works with this Workbot [recipe](https://www.workato.com/recipes/684354).
 
 In your Dialogflow console (URL should begin with https://console.dialogflow.com),
 - Click on create agent
@@ -79,18 +79,66 @@ If Workbot is successful in confirming all the intents, then you should see a po
 ### Intents
 
 ![Intents](/assets/images/workbot/workbot-dialogflow-nlu/intents.png)
-Intent is the mapping between what a user says and the corresponding actions to undertake. In this simple guide, we’ll be transforming a user reporting an issue conversationally, which then creates a ticket in Github. This example makes use of 5 intents:
-1. `ineedhelp`: This intent sparks off the user’s dialog flow with the NLU
-2. `ineedhelp-issue`: This intent tries to derive what category of issue the user is facing.
-3. `ineedhelp-issue-title`: This intent tries to derive the issue the user is facing.
-4. `ineedhelp-issue-title-description`: This intent tries to derive a more detailed description of the issue.
-5. `ineedhelp-issue-title-description-confirm`: This intent confirms with the user that the details of the issue are correct.
 
-Intents comprise of 4 parts:
-- **Training Phrases**
-- **Action & parameters**
-- **Response**
-- **Context**
+In Dialogflow, the basic flow of every conversation involves these steps:
+
+1. The user says something to your DialogFlow agent (in this case **IssueBot**)
+2. Agent parses that input
+3. Agent returns a response to the user
+
+To define how conversations flow, **Intents** are created in your agent, which map user input to responses. In each intent, you define:
+- examples of user utterances that can ***trigger*** the intent,
+- what to ***extract*** from the utterance, and
+- how to ***respond***.
+
+### Intents
+Intents consist of four main components that allow you to map what your user says to what your agent responds with. These components include the following:
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Component</th>
+            <th>Explanation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Intent name</td>
+            <td>The intent name is passed to your fulfillment and identifies the matched intent.
+            </td>
+        </tr>
+        <tr>
+            <td>Training phrases</td>
+            <td>
+              Examples of what users can say to match a particular intent.
+            </td>
+        </tr>
+        <tr>
+            <td>Actions & parameters</td>
+            <td>
+              Defines how relevant information (parameters) are extracted from user utterances. Examples of this kind of information include dates, times, names, places, and more. Once extracted, you can use parameter <i>values</i> look up information, carrying out a task, or return a response.
+            </td>
+        </tr>
+        <tr>
+            <td>Response</td>
+            <td>
+              An utterance that's spoken back to the user by the agent.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+Each intent tries to extract a parameter from what the user says. If successful, the intent responds in a way that guides the user along to the next intent.
+
+This carries on until all the necessary parameters have been extracted, and a pizza order can be made.
+
+### Intents in IssueBot
+**IssueBot** uses 5 intents to allow users to create a ticket in Github due to an issue. Just like the previous example, each intent tries to extract information about the issue, until all necessary parameters have been extracted, and an issue can be created in Github!
+Here are the intents defined in **IssueBot**:
+1. `ineedhelp`: This intent sparks off the user’s dialog flow with the NLU
+2. `ineedhelp-issue`: This intent tries to extract what category of issue the user is facing.
+3. `ineedhelp-issue-title`: This intent tries to extract the issue the user is facing.
+4. `ineedhelp-issue-title-description`: This intent tries to extract a more detailed description of the issue.
+5. `ineedhelp-issue-title-description-confirm`: This intent confirms with the user that the details of the issue are correct.
 
 #### Training Phrases
 Training phrases teach the bot to extract parameters based off of sample phrases a user may say.
@@ -111,31 +159,66 @@ Training phrases teach the bot to extract parameters based off of sample phrases
 Action & parameters define how to act on the values & parameters extracted from what the user says.
 
 ![Action & parameters](/assets/images/workbot/workbot-dialogflow-nlu/action-and-parameters.png)
+*Action and parameters in the 'ineedhelp-issue' intent*
 
-**Parameter name**: name of the parameter we’re trying to extract
-
-**Entity**: Variables we want to collect from the user.
-
-**Value**: The actual value we want to use for the parameter. Prepend with \$ to use the resolved value e.g. `$title`, or omit it to use constants e.g. `100`.  
-
-At times, we may want to use what the user said in full (without resolving it to a value). To do so, we just append a '.original’ to the value e.g. `$title.original`.
-
+The following table describes **Action & parameters** in greater detail.
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Component</th>
+            <th>Explanation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Parameter name</td>
+            <td>Name of the parameter we’re trying to extract
+            </td>
+        </tr>
+        <tr>
+            <td>Entity</td>
+            <td>
+              Entities define the type of information you want to extract from user utterances. For each entity, you can define several entity entries. Each entity entry provides a set of words or phrases that are considered equivalent. For example, if <b><i>size</i></b> is an entity, you could define 3 entity entries:<br>
+              <ul>
+                <li>S, small</li>
+                <li>M, medium</li>
+                <li>L, large</li>
+              </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>
+              The actual value we want to use for the parameter. Prepend with '$' to use the resolved value e.g. <code>$title</code>, or omit it to use constants e.g. <code>100</code>.<br><br>At times, we may want to use what the user said in full (without resolving it to a value from an entity entry). To do so, we just append <code>.original</code> to the value e.g. <code>$title.original</code>.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### Responses
-After every intent prompt, you can define a response that helps to collect information from the user in the follow-up intent. In this example, we reference previously resolved user parameter values as a positive feedback to the user that Workbot understood their input.
+Each intent's response to users should prompt them to provide input that will another intent (in other words, to keep the conversation going). To do this, we should provide users with prompt that guide them towards a specific answer. For example, a question like "Is it a UI issue?" is better than an open ended question like "What's your issue?".
+
+We can also specify that a parameter extracted from the user's input be used in a response. In this example, we reference previously resolved user parameter values as a subtle way to show the user that IssueBot understood their previous input.
 
 ![Response](/assets/images/workbot/workbot-dialogflow-nlu/response.png)
 
 This is done by in the following format: `#context_name.parameter_name` but more on context later.
 
 #### Context
-Contexts are designed for passing on parameter values from previous intents.
+Context allows us to pass on parameter values from previous intents, so that the next intent 'remembers' the context of the conversation. Below is a quick example to illustrate this:
 
-Input contexts act as a prerequisite for the intent to be matched; i.e. the intent will participate in matching only when *all* the contexts in the input context field are active.
+>*User: I wanna order a pizza
+Bot: Pizzas are great - I love pizzas. What flavor would you like?
+User: Margherita
+Bot: Margherita pizza, yum!*
 
-A good example would be in the final intent `ineedhelp-issue-title-description-confirm` where the bot asks for confirmation. The user need only reply with “ok”  - but the bot understands that its about creating the issue in Github. It knows this because the context from previous intents are being carried forward to this intent.
+In the example above, the bot knows that "Margherita" refers to the *pizza* (from the successful parameter extraction of the first user utterance 'I wanna order a pizza') as opposed to the cocktail of the same name.
+
+In IssueBot, you can see this at work in the final intent `ineedhelp-issue-title-description-confirm` where the bot asks for confirmation. The user need only reply with “ok”  - but the bot understands that its about creating the issue in Github. It knows this because the context from previous intents are being carried forward to this intent.
 
 ![Context](/assets/images/workbot/workbot-dialogflow-nlu/context.png)
+
+Input contexts act as the prerequisites for an intent to be matched; i.e. the intent participate in matching only when *all* the input context fields are active.
 
 #### The final intent
 The final intent, `ineedhelp-issue-title-description-confirm` has 5 important parameters - 4 of which are responsible for triggering the recipe in Workato.
