@@ -30,7 +30,7 @@ Unlike [Select rows using custom SQL](/connectors/snowflake/select.md#select-row
       <td>SQL</td>
       <td>
         <p><b>This field is required</b>. Provide a valid SQL string to be executed. This SQL string will be executed in your Snowflake instance.</p>
-        <p>If multiple SQL statements are provided, all of them will be executed. However, only results from the last statement will be returned. Make sure each statement is separated by a <code>;</code> character.</p>
+        <p>Snowflake does not support multiple statements in a single API call. Use one SQL statement per action.</p>
         <p>You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (<code>''</code>) when string values are expected.</p>
       </td>
     </tr>
