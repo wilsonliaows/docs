@@ -523,6 +523,7 @@
     * [Select actions](connectors/snowflake/select.md)
     * [Update actions](connectors/snowflake/update.md)
     * [Delete actions](connectors/snowflake/delete.md)
+    * [Run custom SQL action](connectors/snowflake/run_sql.md)
     * [New row trigger](connectors/snowflake/new-row-trigger.md)
     * [New/updated row trigger](connectors/snowflake/updated-row-trigger.md)
   * [Splunk](connectors/splunk.md)
