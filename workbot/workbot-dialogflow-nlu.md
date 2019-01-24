@@ -196,33 +196,15 @@ The following table describes **Action & parameters** in greater detail.
 </table>
 
 #### Responses
-Each intent's response should prompt users to provide input that match another intent (in other words, to keep the conversation going). To do this, we should provide users with prompt that guide them towards a specific answer. For example, a question like "Is it a UI issue?" is better than an open ended question like "What's your issue?".
+Each intent's response to users should prompt them to provide input that will another intent (in other words, to keep the conversation going). To do this, we should provide users with prompt that guide them towards a specific answer. For example, a question like "Is it a UI issue?" is better than an open ended question like "What's your issue?".
 
-We can also specify that a parameter extracted from the user's input be used in a response. In this example, we reference previously resolved user parameter values as a subtle way to show that IssueBot understood their previous input.
+We can also specify that a parameter extracted from the user's input be used in a response. In this example, we reference previously resolved user parameter values as a subtle way to show the user that IssueBot understood their previous input.
 
 ![Response](/assets/images/workbot/workbot-dialogflow-nlu/response.png)
 
-#### Contexts
-Contexts let us control conversation flows by letting us define specific states that a conversation must be in before an intent should be match. Normally, Dialogflow matches an intent if its training phrases closely resemble the user utterance. However, when contexts are applied to an intent, Dialogflow will only consider that intent for matching if the context is active.
+This is done by in the following format: `#context_name.parameter_name` but more on context later.
 
-There are two types of contexts that let you activate and deactivate contexts and can control the flow of your conversation.
-
-##### Input contexts
-![Context](/assets/images/workbot/workbot-dialogflow-nlu/context.png)
-*The `ineedhelp-issue` intent above is only matched when the `ineedhelp` context is active*
-
-Input contexts tells Dialogflow to match the intent only if:
-1. The user utterance is a close match and
-2. *All* input contexts are active.
-
-#### Output contexts
-![Context](/assets/images/workbot/workbot-dialogflow-nlu/context.png)
-*The `ineedhelp-issue` intent above is only matched when the `ineedhelp` context is active*
-
-Output contexts tells Dialogflow to:
-1. Activate a context (if it's not already active) or
-2. Maintain the context after the intent is matched.
-
+#### Context
 Context allows us to pass on parameter values from previous intents, so that the next intent 'remembers' the context of the conversation. Below is a quick example to illustrate this:
 
 >*User: I wanna order a pizza
@@ -232,79 +214,22 @@ Bot: Margherita pizza, yum!*
 
 In the example above, the bot knows that "Margherita" refers to the *pizza* (from the successful parameter extraction of the first user utterance 'I wanna order a pizza') as opposed to the cocktail of the same name.
 
-In IssueBot, you can see this at work in the `ineedhelp-issue-title-description` intent.
+In IssueBot, you can see this at work in the final intent `ineedhelp-issue-title-description-confirm` where the bot asks for confirmation. The user need only reply with “ok”  - but the bot understands that its about creating the issue in Github. It knows this because the context from previous intents are being carried forward to this intent.
 
-![Context 2](/assets/images/workbot/workbot-dialogflow-nlu/context2.png)
-*Input & output contexts of `ineedhelp-issue-title-description`*
+![Context](/assets/images/workbot/workbot-dialogflow-nlu/context.png)
 
-This intent is matched only if *all* input contexts 'Title', 'Issue', and 'ineedhelp' are active. This ensures that when users reach this point of the conversation, 'Description' is the final parameter to extract. It's worth noting that the extracted parameter 'Description' is activated in the output context, so that the follow-up intent `ineedhelp-issue-title-description-confirm` can be matched to confirm all the parameters with the user.
-
-![Context example](/assets/images/workbot/workbot-dialogflow-nlu/context-example.png)
-*`ineedhelp-issue-title-description` at work in Slack*
-
+Input contexts act as the prerequisites for an intent to be matched; i.e. the intent participate in matching only when *all* the input context fields are active.
 
 #### The final intent
-The final intent, `ineedhelp-issue-title-description-confirm` has 6 important parameters that ensure Workbot can parse all the extracted parameters from all previous intents.
->**All parameter names (including the value 'command' for the parameter `response_type`) must be fixed to enable Workbot to parse requests from DialogFlow.**
-
-
-
-<table class="unchanged rich-diff-level-one">
-    <thead>
-        <tr>
-            <th>Parameter name</th>
-            <th>Value</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>response_type</td>
-            <td>command</td>
-            <td>
-              Used by Workbot to identify requests from DialogFlow. Value must always be <code>command</code>.
-            </td>
-        </tr>
-            <tr>
-                <td>application</td>
-                <td>github</td>
-                <td>
-                  Used by Workbot to identify the <b>Application</b> part of the Workbot command.
-                  <img src="/assets/images/workbot/workbot-dialogflow-nlu/command-application.png"></img><br>You can change this to the name of the app that the Workbot recipe actually uses.
-                </td>
-            </tr>
-                <tr>
-                    <td>action</td>
-                    <td>add</td>
-                    <td>
-                      Used by Workbot to identify the <b>Command action</b> part of the Workbot command.
-                      <img src="/assets/images/workbot/workbot-dialogflow-nlu/command-command.png"></img><br>You can change this to the command action that the called Workbot recipe actually uses.
-                    </td>
-                </tr>
-                  <tr>
-                      <td>data</td>
-                      <td>issue</td>
-                      <td>
-                        Used by Workbot to identify the <b>Action data</b> part of the Workbot command.
-                        <img src="/assets/images/workbot/workbot-dialogflow-nlu/command-action-data.png"></img><br>You can change this to the action data that the called Workbot recipe actually uses.
-                      </td>
-                  </tr>
-                    <tr>
-                        <td>param_query</td>
-                        <td>
-                          <pre>#issue.issue, #title.title.original, #description.description.original<code>
-                        </td>
-                        <td>
-                          Used by Workbot to identify the <b>command input fields</b> part of the Workbot command.
-                          <img src="/assets/images/workbot/workbot-dialogflow-nlu/command-command-input-fields.png"></img><br>Workbot strings together all the extracted parameters into a string called <code>query</code>, allowing them to be used within a recipe.
-                        </td>
-                    </tr>
-      </tbody>
-    </table>
+The final intent, `ineedhelp-issue-title-description-confirm` has 5 important parameters - 4 of which are responsible for triggering the recipe in Workato.
+- `response_type`: **command**
+- `Application`: **GitHub**
+- `Data`: **add**
+- `Action`: **data**
 
 ![Final intent](/assets/images/workbot/workbot-dialogflow-nlu/final-intent.png)
 
-`Param_query` references all parameter values extracted from conversing with the user.
+`Param_query` is also an important parameter that references all parameter values resolved from the user in the current as well as previous intents.
 
 This is passed to Workbot in the `query` datapill. Examining the trigger output of a successful job shows that issue, title, and description collected from the user.
 
