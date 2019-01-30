@@ -6,14 +6,14 @@ date: 2019-01-25 06:00:00 Z
 # Box Action - Search files/folders
 This action searches for files or folders in Box.
 
-Searches may not return newly created files or folders in Box due to time delay for indexing files and folders.
+Searches may not return newly created files or folders in Box due to time delay for indexing files and folders. Learn more about [Box indexing time here](https://community.box.com/t5/Managing-Files-and-Folders/Search-for-Files-Folders-and-Content/ta-p/19269#search_hdsiw). Run the searches again after certain amount of time often solves the problem.
 
 ## Input fields
 | Field name | Description |
 |---|---|
 | Search text | Search against file name, description, contents. File name should include extension, e.g. File.csv |
-| Starting folder | Narrow down your search to this folder. |
 | Type | Whether you want to search files or folders. |
+| Starting folder | Narrow down your search to this folder. |
 | Exact match | Whether to search using exact match or partial match. |
 | File extensions | Comma separated list of file extensions to include. |
 

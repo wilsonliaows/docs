@@ -6,6 +6,10 @@ date: 2019-01-25 06:00:00 Z
 # Box Action - Download file
 Download contents of a file. File contents can be used in subsequent steps of the recipe to upload the file into other applications.
 
+In the example below, we use `File contents` data pill from Box's Download file action and provide that to Dropbox's Upload file action.
+
+![Upload file from Box to Dropbox](/assets/images/connectors/box/box-upload-dropbox.png)
+
 ## Input fields
 | Field name | Description |
 |---|---|

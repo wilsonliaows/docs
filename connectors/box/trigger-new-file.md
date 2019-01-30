@@ -12,7 +12,7 @@ Triggers when a new file is added to a specified folder. Trigger will pick up ne
 | Folder | Folder to monitor for new files. Select from the dropdown list or input folder ID. |
 | Include sub-folders | Whether the trigger will pick up files in sub-folders as well. |
 
-This trigger supports [Trigger condition](https://docs.workato.com/recipes/triggers.html#trigger-conditions), which can filter incoming trigger events.
+This trigger supports [Trigger conditions](https://docs.workato.com/recipes/triggers.html#trigger-conditions), which can filter incoming trigger events.
 
 ## Output fields
 | Field name | Description |
