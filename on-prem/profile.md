@@ -203,7 +203,7 @@ server:
 
 sap:
   Direct:
-  # sap inbound connection properties
+  # Sap inbound connection properties
     connection_type: direct
     ashost: 10.30.xx.xx
     client: 800
@@ -213,26 +213,26 @@ sap:
     sysnr: 00
     pool_capacity: 3
     peak_limit: 10
-  # Below are the sap outbound connection properties. These must be passed along with inbound properties
+  # Sap outbound connection properties. These must be passed along with inbound properties
     gwhost: 10.30.xx.xx
     gwserv: 3300
     progid: WORKATO
     connection_count: 2
+  # Workato Connection properties for advanced users. Often don't need to be changed
     http_connect_timeout: 30000
-    preview: true
     http_connection_request_timeout: 30000
     http_socket_timeout: 30000
     cm_max_total: 20
     cm_default_max_per_route: 20
+  # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section
     control_segment:
-    # Properties required for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section   
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Property required to get IDOC list configured on RCVPRN profile. Leave blank values if you only use RFC, but do not delete this section
+    # Property to get IDOC list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
@@ -246,7 +246,7 @@ server:
 
 sap:
   MessageServer:
-  # sap inbound connection properties
+  # Sap inbound connection properties
     connection_type: messageserver
     user: OSA_DEV
     password: ********
@@ -259,26 +259,26 @@ sap:
     group:  PUBLIC
     pool_capacity: 3
     peak_limit: 10
-  # Below are the sap outbound connection properties. These must be passed along with inbound properties
+  # Sap outbound connection properties. These must be passed along with inbound properties
     gwhost: 10.30.xx.xx
     gwserv: 3300
     progid: WORKATO
     connection_count: 2
+  # Workato Connection properties for advanced users. Often don't need to be changed
     http_connect_timeout: 30000
-    preview: true
     http_connection_request_timeout: 30000
     http_socket_timeout: 30000
     cm_max_total: 20
     cm_default_max_per_route: 20
+  # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section  
     control_segment:
-    # Properties required for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section   
       SNDPOR: WORKATO
       SNDPRT: LS
       SNDPRN: WORKATO
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Property required to get IDOC list configured on RCVPRN profile. Leave blank values if you only use RFC, but do not delete this section
+    # Property to get IDOC list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
@@ -313,8 +313,8 @@ These are required for SAP Outbound Connection properties:
 
 | Property name | Comment |
 |------------------|-------------------------------------------|
-| gwhost | SAP Gateway Host: `xxx.xxx.xxx.xxx` |
-| gwserv | Gateway server port |
+| gwhost | SAP Gateway Host, in the number format of `xxx.xxx.xxx.xxx` (e.g. 10.30.23.01) |
+| gwserv | Gateway server port, in the number format of `xxxx` (e.g. 3300)  |
 | progid | SAP Program ID configured for Workato> |
 | connection_count | Default to `2`. The number of parallel connection can be open for outbound sap connection. |
 
