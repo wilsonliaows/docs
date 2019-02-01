@@ -4,8 +4,6 @@ date: 2018-12-06 06:00:00 Z
 ---
 
 # SAP Action - Run RFC
-Note: This action is currently in private beta and not released to public yet. It is coming soon.
-
 Use this action to discover and run a Business Application Programming Interface (BAPI) or Remote Function Method (RFM), via Remote Function Call (RFC) in a SAP system.
 
 ## Input fields
