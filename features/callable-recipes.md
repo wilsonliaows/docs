@@ -39,9 +39,8 @@ Create a recipe as you normally would, and for the trigger, select **Callable Re
 
 Fill in a Name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format. You can find out more about JSON [here](https://support.workato.com/support/solutions/articles/1000234879-schema-definition).
 ![CallableRecipeTrigger1](/assets/images/features/Callable Recipes/Callable Recipe Trigger 1.png)
-In **simple terms**, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
-
-Lastly, you may choose to enable REST endpoint for your recipe. This defaults to No.
+In **simple terms**, the input schema determines what fields will be shown and n
+eed to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
 
 Next, create your set of actions for the recipe. For this example you would create a set of standard de-duplication steps, run a search, and if the search gives no results, create a customer. If an existing customer is found, update customer.
 
@@ -51,18 +50,7 @@ Create a recipe that requires the logic from the callable recipe we created earl
 
 ![CallableRecipeTrigger0](/assets/images/features/Callable Recipes/Call Recipe Action.png)
 
+## Calling Recipes using a REST API
 
+The [API Management](/api-management.md) features in Workato allow the owner of a callable recipe to permit calling that recipe from other accounts using a REST interface. See [Calling APIs](/api-mgmt/calling-apis.md) for how to make such calls as a client.
 
-## Calling Recipes from Other Apps with REST API
-
-Enabling a REST endpoint for recipes makes it available to be called by any application, internal or external, as long as they have the API token to do so. The token ensures the security of your API. Choosing to build simple web and mobile apps using Workato and a REST Endpoint takes out a majority of the custom coding that would be involved and ensures a fast turnaround. There are two ways you can use a REST Endpoint:
-
-1. Bring Information Into An App
-
-  You can connect any app that has an API available with a REST Endpoint even if Workato doesn’t have a connector for that app. For example, if you want to bring in information from Zillow.com so you know how much a real estate property is worth, you can create a REST Endpoint that will populate your fields in QuickBase every time an employee run the recipe.You can also create a button that will start the REST Endpoint recipe. You can place the button wherever you would like, for example inside of Salesforce, so employees can tell the recipe to run without logging into Workato.
-
-2. Send Information Out Of An App
-
-  Another scenario where this is useful is monitoring a supply chain – you could have a business partner call upon the REST endpoint you created to track shipping or generate a report via a link on your internal website. You can embed this anywhere you want.
-
-To manage the REST endpoints and the API tokens, go to “Service Catalog” under your username on the right hand corner of the screen. Here, you can easily test your REST endpoints and find the specific URL used to call the REST API. These screenshots will show you a more detailed view of REST API management:
