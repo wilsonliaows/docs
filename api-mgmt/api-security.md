@@ -12,7 +12,7 @@ Workato Callable recipes as APIs are a powerful feature that allows access to Wo
 
 3) Consider having a policy to periodically refresh API tokens. This is similar to expiring a password and ensures that any compromise of an API token does not provide very long-term access to systems.
 
-4) Use IP whitelisting (part of the [Access Profile](/api-mgmt/api-client-mgmt) for a client) to restrict the originating IPs that are allowed to have API access. A whitelist is a best practice from a security
+4) Use IP whitelisting (part of the [Access Profile](/api-mgmt/api-client-mgmt.md) for a client) to restrict the originating IPs that are allowed to have API access. A whitelist is a best practice from a security
 perspective. However, some clients may not have a fixed IP address
 (for example, clients connected from a home network may get varied IPs
 from their providers), or may connect from multiple IP addresss (for
