@@ -10,7 +10,7 @@ APIs that are exposed through the API Management console can be called from reci
 An API Endpoint can be called from a recipe using the HTTP Connector. Select the "Send request" action of the Connector. The following screen shows a typical configuration for this action (in this case a POST request):
 
 ![API Client Request](/assets/images/api-mgmt/api-client-request.png)
-*API Client Requset*
+*API Client Request*
 
 Make sure that the type of request (POST, PUT, GET) matches the API that you are calling. Any required fields need to be specified in the body (for POST and PUT) or as query parameters in the URL (for GET).
 

@@ -1,6 +1,6 @@
 ---
 title: API Management
-date: 2017-03-18 15:45:00 Z
+date: 2018-02-10 20:01:00 Z
 ---
 
 # API Management
@@ -41,13 +41,13 @@ An API token grants access to all the API Collections within an Access Profile. 
 
 See the following pages for more details on API management:
 
-* [API Collections and Endpoint Management](api-mgmt/api-collections.md)
+* [API Collections and Endpoint Management](/api-mgmt/api-collections.md)
 
-* [API Access Policies](api-mgmt/api-access-policies.md)
+* [API Access Policies](/api-mgmt/api-access-policies.md)
 
-* [Managing API Clients and Access Profiles](api-mgmt/api-client-mgmt.md)
+* [Managing API Clients and Access Profiles](/api-mgmt/api-client-mgmt.md)
 
-* [Calling APIs](api-mgmt/calling-apis.md)
+* [Calling APIs](/api-mgmt/calling-apis.md)
 
-* [Security Best Practices for APIs](api-mgmt/api-security.md)
+* [Security Best Practices for APIs](/api-mgmt/api-security.md)
 
