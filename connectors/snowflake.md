@@ -7,7 +7,7 @@ date: 2019-01-10 06:10:00 Z
 Snowflake is a relational ANSI SQL data warehouse in the cloud. Due to its unique architecture designed for the cloud, Snowflake offers a data warehouse that is faster, easier to use, and far more flexible than traditional data warehouse
 
 ## How to connect to Snowflake on Workato
-The Snowflake connector uses username and password to authenticate with Snowflake.
+The Snowflake connector uses username and password to authenticate with Snowflake. If your snowflake instance has network policies that restrict access based on IP address, you will need to whitelist [Workato IP addresses](/security.md#ip_whitelists) to successfully create a connection.
 
 ![Snowflake connection](/assets/images/snowflake/connection.png)
 *Snowflake connection*
@@ -60,8 +60,8 @@ The Snowflake connector uses username and password to authenticate with Snowflak
       <a href='https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url'>Find out more</a> about Snowflake account naming.</td>
     </tr>
     <tr>
-      <td>Warehouse</td>
-      <td>Name of the warehouse to use for loading and querying data. <b>X-Small</b> sized warehouse is sufficient in most cases. Use a multi-cluster warehouse if you expect concurrent jobs.</td>
+      <td><a href="#warehouse-considerations">Warehouse</a></td>
+      <td>Name of the warehouse to use for performing all compute for this connection. See <a href='#warehouse-considerations'>Warehouse considerations</a> for more information.</td>
     </tr>
     <tr>
       <td>Database</td>
@@ -83,6 +83,34 @@ The Snowflake connector uses username and password to authenticate with Snowflak
 </table>
 
 ## Working with the Snowflake connector
+
+### Warehouse considerations
+
+Snowflake utilizes per-second billing for all compute (loading, transforming and query). Here are some things to consider when setting up a warehouse for a Snowflake connection. There is a minimum 60-second minimum each time a warehouse starts, so there is no advantage of suspending a warehouse within the first 60 seconds of resuming.
+
+When choosing the following warehouse properties, consider the frequency and time between queries, number of concurrent active recipes and complexity of each of these queries.
+
+#### Warehouse size
+
+For most use cases, **X-Small** warehouse is sufficient. A larger warehouse has more servers and does more work proportional to the per-second cost. This means that a larger warehouse will complete a query faster while consuming the same number of credits consumed.
+
+If your use case involves long and complex queries it is recommended to use a larger warehouse to prevent timeouts.
+
+#### Multi-cluster warehouses
+
+A multi-cluster warehouse with auto-scale enabled is able to create multiple warehouses (of the same size) to meet temporary load fluctuation.
+
+Use a multi-cluster warehouse if you expect concurrent jobs or jobs with large queries. Learn more about [multi-cluster warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-multicluster.html).
+
+#### Auto-suspend and auto-resume
+
+Warehouses used for connection must have auto-resume enabled. Otherwise, manual resume will be required each time the recipe runs.
+
+Warehouses can be configured to auto-suspend after a period of inactivity. This specified period of time depends on your business process.
+
+A running warehouse maintains a cache of table data. This improves subsequent queries if the cached data can be used instead of reading from the table again. A larger warehouse has a larger cache capacity. This cache is dropped when the warehouse is suspended. As a result, performance for initial queries on a warehouse that was auto-resumed will be slower.
+
+Use cases with high frequency and low down time in between queries will benefit from a longer period of time before auto-suspend.
 
 ### Table and view
 The Snowflake connector works with all tables and views available to the username used to establish the connection. These are available in pick lists in each trigger/action, or you can provide the exact name.
