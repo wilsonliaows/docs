@@ -4,13 +4,18 @@ date: 2018-03-20 10:23:00 Z
 ---
 
 # Using Workbot for Teams
-## Carrying out Workbot commands
+## Workbot commands
 You can perform actions in your apps (e.g. creating new ServiceNow tickets, listing Salesforce opportunities) by sending Workbot commands from within Teams.
 
 ![Command example](/assets/images/workbot-for-teams/workbot-command-example.png)
-*Sending a 'newissue' command with additional parameters in Teams, then receiving a response*
+*Sending a 'newissue' command with additional parameters in Teams, then receiving a reply*
 
-A Workbot command is a special trigger you can define to run a specific recipe. Commands must be unique, one word, and contain no spaces. Commands can also take in additional parameters, but more on that later.
+A Workbot command is a trigger that allows you to run a Workbot command recipe.
+
+![New command](/assets/images/workbot-for-teams/new-command.png)
+*Example 'newissue' command in a recipe*
+
+To learn more about Workbot commands, go to [Workbot commands](/workbot-for-teams/workbot-triggers.md).
 
 ![Command recipe](/assets/images/workbot-for-teams/command-recipes.png)
 *A typical Workbot command recipe*

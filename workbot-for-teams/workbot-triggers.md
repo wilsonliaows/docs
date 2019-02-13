@@ -1,10 +1,25 @@
 ---
-title: Workbot triggers for Slack
+title: Workbot for Teams triggers
 date: 2017-03-30 05:00:00 Z
 ---
 
-# Workbot triggers for Slack
-Workbot for Slack allows you to send commands to Workbot on Slack. Workbot will handle these commands and interact with your connected apps to do things, such as display details of a customer account, close opportunities, display a list of invoices or tickets, or create/update existing tickets.
+# Workbot for Teams triggers
+## Workbot command trigger
+Workbot commands allow you to perform actions in your apps (e.g. creating new ServiceNow tickets, listing Salesforce opportunities) from within Teams.
+
+![Command example](/assets/images/workbot-for-teams/workbot-command-example.png)
+*Sending a 'newissue' command with additional parameters in Teams, then receiving a reply*
+
+In a recipe, a Workbot command is a trigger you can use to start your workflow.
+![Command recipe](/assets/images/workbot-for-teams/command-recipes.png)
+*A typical Workbot command recipe*
+
+When the command is sent to Workbot in Teams, it will trigger the recipe and execute its actions.
+
+
+### Configuring the command
+![New command](/assets/images/workbot-for-teams/new-command.png)
+*Example 'newissue' command*
 
 Each Workbot command is processed using a Workato recipe. The recipe trigger picks up the Workbot command as a trigger event, and the recipe determines the actions to carry out. With Workbot, you can create custom workflows that execute via your Slack commands, and optionally retrieve relevant data for you back to Slack.
 

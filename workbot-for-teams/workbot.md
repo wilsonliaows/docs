@@ -11,4 +11,4 @@ Your team can configure Workbot to post messages to Teams users and channels whe
 You can also retrieve, create and update data from your apps from within Teams, by sending commands to Workbot.
 
 ## Learn more
-- [Using Workbot for teams](/using-workbot-for-teams/)
+- [Using Workbot for teams](/workbot-for-teams/using-workbot-for-teams.md)
