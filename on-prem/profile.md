@@ -219,11 +219,11 @@ sap:
     progid: WORKATO
     connection_count: 2
   # Workato Connection properties for advanced users. Often don't need to be changed
-    http_connect_timeout: 30000
-    http_connection_request_timeout: 30000
-    http_socket_timeout: 30000
-    cm_max_total: 20
-    cm_default_max_per_route: 20
+    http_connect_timeout: 10000
+    http_connection_request_timeout: 10000
+    http_socket_timeout: 10000
+    cm_max_total: 10
+    cm_default_max_per_route: 5
   # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section
     control_segment:
       SNDPOR: WORKATO
@@ -265,11 +265,11 @@ sap:
     progid: WORKATO
     connection_count: 2
   # Workato Connection properties for advanced users. Often don't need to be changed
-    http_connect_timeout: 30000
-    http_connection_request_timeout: 30000
-    http_socket_timeout: 30000
-    cm_max_total: 20
-    cm_default_max_per_route: 20
+    http_connect_timeout: 10000
+    http_connection_request_timeout: 10000
+    http_socket_timeout: 10000
+    cm_max_total: 10
+    cm_default_max_per_route: 5
   # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section  
     control_segment:
       SNDPOR: WORKATO
