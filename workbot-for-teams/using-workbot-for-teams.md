@@ -5,13 +5,15 @@ date: 2018-03-20 10:23:00 Z
 
 # Using Workbot for Teams
 ## Carrying out Workbot commands
-You can perform actions in your apps (e.g. creating new ServiceNow tickets, listing Salesforce opportunities) by invoking Workbot commands from within Teams.
+You can perform actions in your apps (e.g. creating new ServiceNow tickets, listing Salesforce opportunities) by sending Workbot commands from within Teams.
 
-Generally, Workbot command recipes follow this structure:
+![Command example](/assets/images/workbot-for-teams/workbot-command-example.png)
+*Sending a 'newissue' command with additional parameters in Teams, then receiving a response*
 
-![Command recipes](/assets/images/workbot-for-teams/command-recipes.png)
+A Workbot command is a special trigger you can define to run a specific recipe. Commands must be unique, one word, and contain no spaces. Commands can also take in additional parameters, but more on that later.
 
-Workbot command is a special trigger you can define to run a specific recipe. Commands must be unique, one word, and contain no spaces.
+![Command recipe](/assets/images/workbot-for-teams/command-recipes.png)
+*A typical Workbot command recipe*
 
 In Teams, Workbot commands can be invoked in 3 distinct ways:
 1. Sending the command in a direct message to Workbot or in a channel (requires tagging Workbot i.e. `@workbot your_command`)<br>
@@ -27,6 +29,9 @@ In Teams, Workbot commands can be invoked in 3 distinct ways:
 >To learn more about how buttons & choices work, see [Buttons & choices](/workbot-for-teams/buttons-and-choices.md).
 
 Commands can also prompt users for additional parameters. For example, to create a new ServiceNow incident, the user should at least provide the summary and description of the incident. In this case, you can add 2 parameters; `summary` & `description`, and Workbot will prompt the user for them when the command is invoked.
+
+![Parameter prompts](/assets/images/workbot-for-teams/workbot-params-prompt.png)
+*Workbot can ask users for info if you specify additional parameters in your command*
 
 ## Posting notifications
 Workbot can also be used to notify you when an event occurs in your apps.
