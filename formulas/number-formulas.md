@@ -74,7 +74,7 @@ Divides left hand operand by right hand operand.
 
 ## The exponential (\*\*) operator
 
-Divides left hand operand by right hand operand.
+Right hand operand to the power of left hand operand.
 
 ### Example
 | Example      | Result      | Type     |
