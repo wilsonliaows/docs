@@ -86,13 +86,13 @@ The Snowflake connector uses username and password to authenticate with Snowflak
 
 ### Warehouse considerations
 
-Snowflake utilizes per-second billing for all compute (loading, transforming and query). Here are some things to consider when setting up a warehouse for a Snowflake connection. There is a minimum 60-second minimum each time a warehouse starts, so there is no advantage of suspending a warehouse within the first 60 seconds of resuming.
+Snowflake utilizes per-second billing for all compute (loading, transforming and query). Here are some things to consider when setting up a warehouse for a Snowflake connection. There is a 60-second minimum each time a warehouse starts, so there is no advantage of suspending a warehouse within the first 60 seconds of resuming
 
-When choosing the following warehouse properties, consider the frequency and time between queries, number of concurrent active recipes and complexity of each of these queries.
+When choosing the following warehouse properties, consider the frequency and time between queries, the number of concurrent active recipes and complexity of each query.
 
 #### Warehouse size
 
-For most use cases, **X-Small** warehouse is sufficient. A larger warehouse has more servers and does more work proportional to the per-second cost. This means that a larger warehouse will complete a query faster while consuming the same number of credits consumed.
+For most use cases, **X-Small** warehouse is sufficient. A larger warehouse has more servers and does more work proportional to the per-second cost. This means that a larger warehouse will complete a query faster while consuming the same number of credits.
 
 If your use case involves long and complex queries it is recommended to use a larger warehouse to prevent timeouts.
 
@@ -104,11 +104,11 @@ Use a multi-cluster warehouse if you expect concurrent jobs or jobs with large q
 
 #### Auto-suspend and auto-resume
 
-Warehouses used for connection must have auto-resume enabled. Otherwise, manual resume will be required each time the recipe runs.
+Warehouses used in the connection must have auto-resume enabled. Otherwise, recipe jobs will fail when trying to run on a suspended warehouse.
 
 Warehouses can be configured to auto-suspend after a period of inactivity. This specified period of time depends on your business process.
 
-A running warehouse maintains a cache of table data. This improves subsequent queries if the cached data can be used instead of reading from the table again. A larger warehouse has a larger cache capacity. This cache is dropped when the warehouse is suspended. As a result, performance for initial queries on a warehouse that was auto-resumed will be slower.
+A running warehouse maintains a cache of table data. This reduces the time taken for subsequent queries if the cached data can be used instead of reading from the table again. A larger warehouse has a larger cache capacity. This cache is dropped when the warehouse is suspended. As a result, performance for initial queries on a warehouse that was auto-resumed will be slower.
 
 Use cases with high frequency and low down time in between queries will benefit from a longer period of time before auto-suspend.
 
