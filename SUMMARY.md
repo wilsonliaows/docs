@@ -537,6 +537,7 @@
   * [Snowflake](connectors/snowflake.md)
     * [Connection setup](connectors/snowflake.md#how-to-connect-to-snowflake-on-workato)
     * [Select actions](connectors/snowflake/select.md)
+    * [Insert actions](connectors/snowflake/insert.md)
     * [Update actions](connectors/snowflake/update.md)
     * [Delete actions](connectors/snowflake/delete.md)
     * [Run custom SQL action](connectors/snowflake/run_sql.md)
