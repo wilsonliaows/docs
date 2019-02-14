@@ -547,6 +547,30 @@ command_line_scripts:
          - { name: from_date }
          - { name: to_date, schema: { optional: true, control_type: select, pick_list: [01/01/2018, 02/02/2018] } }
 ```
+
+An example profile on Windows can look like this
+
+```YAML
+command_line_scripts:
+  workday_reports:
+    concurrency_limit:
+    timeout: 90
+    scripts:
+      hello_world:
+        name: Hello world
+        command:
+          - C:\\wubdiws\\system32\\programs\\program\\powershell.exe
+          - -file
+          - C:\\Documents\\Rsam\create_hello_world.ps1
+
+      goodbye_world:
+        name: Goodbye World
+        command:
+          - cmd
+          - /c
+          - "C:\\wubdiws\\system32\\programs\\program\\powershell.exe -file C:\\Documents\\Rsam\\create_goodbye_world.ps1"
+```
+
 The command-line script profiles are placed in the `command_line_scripts` section in config.yml. Each profile can contain multiple scripts. The profile configuration properties are as follows:
 
 | Property name | Description |
