@@ -37,8 +37,13 @@ The commands listed in the on-prem agent's `config.yml` file are the only ones t
 
 The input parameters should be specified when creating your profile in the on-prem agent's `config.yml` file. In the example below, two parameters, `target_directory` and `source_file` were specified. View how to setup a connection profile [here](https://docs.workato.com/on-prem/profile.html#command-line-scripts-profile).
 
-![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml2.png)
-*Input parameters in the agent's config.yml file*
+For Mac OS users, a sample config file would look like this
+![Parameters specified in yml ](/assets/images/connectors/on-prem-command-line-scripts/input-parameters-yml2.png)
+*Mac - Input parameters in the agent's config.yml file*
+
+For Windows Users, a sample config file would look like this.
+![Parameters specified in yml](/assets/images/connectors/on-prem-command-line-scripts/onpremfiles-config-windows-sample.png)
+*Windows - input paramters in the agent's config.yml file*
 
 Correspondingly, after selecting the command-line script 'Append file to another' in your recipe, the 2 parameters appear in the script input as required values as shown below:
 
