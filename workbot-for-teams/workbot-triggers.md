@@ -16,67 +16,42 @@ In a recipe, a Workbot command is a trigger you can use to start your workflow.
 
 When the command is sent to Workbot in Teams, it will trigger the recipe and execute its actions.
 
-
 ### Configuring the command
 ![New command](/assets/images/workbot-for-teams/new-command.png)
 *Example 'newissue' command*
 
-Each Workbot command is processed using a Workato recipe. The recipe trigger picks up the Workbot command as a trigger event, and the recipe determines the actions to carry out. With Workbot, you can create custom workflows that execute via your Slack commands, and optionally retrieve relevant data for you back to Slack.
-
-The Workbot for Slack connector has 3 triggers:
-
-- [New message action trigger](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
-
-This trigger allows you to perform message actions onto existing Slack messages in your Slack team.
-
-![Message action gif](/assets/images/workbot/workbot-message-actions/message-actions-example.gif)
-
-When triggered, message actions launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using message actions, check out our [message actions documentation](/workbot/workbot-message-action.md).
-
-- [New command](/workbot/workbot-triggers.md#new-command-trigger-building-custom-commands)
-
-This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined. To find out how to create a simple command, check out [this guide](/workbot/workbot-commands.md).
-
-- [New URL mention](/workbot/workbot-triggers.md#new-url-mention)
-
-This trigger monitors certain types of URLs in Slack, and pulls pre-defined, formatted data into the channel when such an URL is mentioned. Currently, Salesforce and Github URLs are supported.
-
-## New command trigger (building custom commands)
-This trigger requires you to configure a custom Workbot command. When this recipe is started, Workbot will monitor for that command. Whenever the command is called, Workbot proceeds to carry out the recipe actions.
-
-### New command trigger input fields
-The following table lists the configurable input fields in the trigger, and what each field does.
+#### Input fields
+The table below lists the input fields in the trigger and what they do.
 
 <table class="unchanged rich-diff-level-one">
     <thead>
         <tr>
-            <th>New command trigger input field</th>
+            <th>Input field</th>
             <th>Description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>App</td>
+            <td>Command name</td>
             <td>
-              1st part of the Workbot command. The app that the Workbot command is working with e.g. <br><code>Salesforce</code>
+              Name of the command. Can be invoked by: <br>
+              <ol type="a">
+                <li>
+                  Sending the command name in a direct message to Workbot, e.g. <b>newissue</b>
+                </li>
+                <li>
+                  Sending the command name in a channel and tagging Workbot, e.g. <b>@workbot newissue</b>
+                </li>
+                <li>
+                  Submitting a button with the command name configured:<br><img src="/assets/images/workbot-for-teams/button-command.png"></img><br><i>Example button in post message action</i><br><br><img src="/assets/images/workbot-for-teams/button-submission.png"></img><br><i>Button posted in Teams</i></li>
+                <li>
+                  Submitting a choice with the command name configured:<br><img src="/assets/images/workbot-for-teams/choice-command.png"></img><br><i>Example choice in post message action</i><br><br><img src="/assets/images/workbot-for-teams/choice-submission.png"></img><br><i>Example choice in post message</i></li>
             </td>
         </tr>
         <tr>
-            <td>Action</td>
+            <td>Parameters</td>
             <td>
-              2nd part of the Workbot command. What the Workbot command is doing with the action data, e.g.<br><code>show</code>, <code>create</code>, <code>update</code>.
-            </td>
-        </tr>
-        <tr>
-            <td>Action data</td>
-            <td>
-              3rd part of the Workbot command. The record that the Workbot command works with, e.g.<br><code>invoice</code>, <code>customer</code>, <code>ticket</code>.
-            </td>
-        </tr>
-        <tr>
-            <td>Command input fields</td>
-            <td>
-              The input to ask from the user so as to successfully carry out recipe actions, defined in a specific format. Parameters may have the type <code>file</code>, which accepts file content (e.g. text, binary content) as input. This can be uploaded into Slack. You can use this file in subsequent operations using the Workbot action <a href="/workbot/workbot-actions.html">Download Attachment.</a>
+              Prompts the user for input for each parameter specified. These parameters can be used as pills in follow-up recipe actions. For example, to create an incident
             </td>
         </tr>
         <tr>
