@@ -10,11 +10,10 @@ Workbot commands allow you to trigger Workbot recipes from Teams. These recipes 
 ![Command example](/assets/images/workbot-for-teams/workbot-command-example.png)
 *Sending a 'newissue' command with additional parameters in Teams, then receiving a reply*
 
-In a recipe, a Workbot command is a trigger you can use to start your workflow.
-![Command recipe](/assets/images/workbot-for-teams/command-recipes.png)
-*A typical Workbot command recipe*
+When a command is sent to Workbot in Teams, it will invoke the Workbot recipe and execute its actions.
 
-When the command is sent to Workbot in Teams, it will trigger the recipe and execute its actions.
+![Command recipe](/assets/images/workbot-for-teams/command-recipes.png)
+*A Workbot recipe with a command trigger*
 
 ### Configuring the command
 ![New command](/assets/images/workbot-for-teams/new-command.png)
