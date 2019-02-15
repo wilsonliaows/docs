@@ -43,7 +43,7 @@ The table below lists the input fields in the trigger and what they do.
                   Sending the command name in a channel and tagging Workbot, e.g. <b>@workbot newissue</b>
                 </li>
                 <li>
-                  Submitting a button with the command name configured:<br><img src="/assets/images/workbot-for-teams/button-command.png"></img><br><i>Example button in post message action</i><br><br><img src="/assets/images/workbot-for-teams/button-submission.png"></img><br><i>Button posted in Teams</i></li>
+                  Submitting a button with the command name configured:<br><img src="/assets/images/workbot-for-teams/button-command.png"></img><br><i>Example button in post message action</i><br><br><img src="/assets/images/workbot-for-teams/button-submission.png"></img><br><i>Submitting this button invokes the 'newissue' command and executes the 'newissue' command recipe.</i></li>
                 <li>
                   Submitting a choice with the command name configured:<br><img src="/assets/images/workbot-for-teams/choice-command.png"></img><br><i>Example choice in post message action</i><br><br><img src="/assets/images/workbot-for-teams/choice-submission.png"></img><br><i>Example choice in post message</i></li>
             </td>
