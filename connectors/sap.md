@@ -100,7 +100,7 @@ The below configuration in the distribution model will enable SAP to send DEBMAS
 
 ### Configure Workato On-prem Agent (OPA) on SAP server
 #### Step 6: Download Workato On-prem Agent (OPA)
-For SAP connector to work with Workato, you need to install a Workato On-prem Agent (OPA) on your SAP server, or on a separate Virtual Machine that can reach your SAP server by being in the same domain and not outside of the firewall.
+For Workato to talk to SAP, you need to install a Workato On-prem Agent (OPA) on your SAP server, or on a separate Virtual Machine that can reach your SAP server. The Virtual Machine needs to be in the same domain with your SAP server and not outside of the firewall.
 
 Follow [these instructions](https://docs.workato.com/on-prem/setup.html) to download and setup Workato OPA.
 
