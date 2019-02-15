@@ -16,7 +16,7 @@ In the examples below, we will look at some of the methods that can be used to m
 
 # Conditionals
 
-This section will cover formulas which allow you to apply conditions (if-else) to your strings. Find out more about how to use conditionals [here](/formulas/formula-mode#conditionals).
+This section will cover formulas which allow you to apply conditions (if-else) to your strings. Find out more about how to use conditionals [here](/formulas/formula-mode.md#conditionals).
 
 ---
 
