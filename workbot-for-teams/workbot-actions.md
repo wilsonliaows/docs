@@ -187,3 +187,8 @@ Use post message if you:
 
   ![Message to update example](/assets/images/workbot-for-teams/message-to-update.png)
 *Message to update*
+
+# Learn more
+- [Using Workbot for MS Teams](/workbot-for-teams/using-workbot-for-teams.md)
+- [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
+- [Workbot buttons, pick lists, and task modules](/workbot-for-teams/buttons-choices-task-modules.md)

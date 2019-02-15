@@ -181,3 +181,8 @@ The following table shows what goes into the dynamic buttons fields:
         </tr>
       </tbody>
     </table>
+
+# Learn more
+- [Using Workbot for MS Teams](/workbot-for-teams/using-workbot-for-teams.md)
+- [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
+- [Workbot actions](/workbot-for-teams/workbot-actions.md)

@@ -3,7 +3,7 @@ title: Using Workbot for Teams
 date: 2018-03-20 10:23:00 Z
 ---
 
-# Using Workbot for Teams
+# Using Workbot for MS Teams
 ## Workbot commands
 You can perform actions in your apps (e.g. creating new ServiceNow tickets, listing Salesforce opportunities) by sending Workbot commands from within Teams.
 
@@ -46,3 +46,8 @@ The **Post message** action allows you to post a message to a user or in a chann
 *A recipe where a Post message action notifies the user when a ServiceNow incident is closed*
 
 >To learn more about how the Post message action works, see [Workbot actions](/workbot-for-teams/workbot-actions.md).
+
+# Learn more
+- [Workbot triggers](/workbot-for-teams/workbot-triggers.md)
+- [Workbot actions](/workbot-for-teams/workbot-actions.md)
+- [Workbot buttons, pick lists, and task modules](/workbot-for-teams/buttons-choices-task-modules.md)

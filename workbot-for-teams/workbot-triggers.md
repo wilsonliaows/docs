@@ -103,3 +103,8 @@ The choice parameter is passed when a button from the same message is submitted 
 
 ![Choice param](/assets/images/workbot-for-teams/choice-param.png)
 *The 'Next' button also passes the 'opportunity_id' of 'Google' onto the command recipe that it invokes*
+
+# Learn more
+- [Using Workbot for MS Teams](/workbot-for-teams/using-workbot-for-teams.md)
+- [Workbot actions](/workbot-for-teams/workbot-actions.md)
+- [Workbot buttons, pick lists, and task modules](/workbot-for-teams/buttons-choices-task-modules.md)
