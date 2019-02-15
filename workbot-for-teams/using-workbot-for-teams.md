@@ -24,12 +24,10 @@ Workbot commands can be invoked in 3 distinct ways:
 <br>
 2. Sending the command when a button is clicked<br>
 ![Command recipes](/assets/images/workbot-for-teams/create-ticket-button.png)
-<br>
-3. Sending the command when a choice is submitted<br>
-![Command recipes](/assets/images/workbot-for-teams/create-ticket-choice.png)
-<br>
 
->To learn more about how buttons & choices work, see [Buttons & choices](/workbot-for-teams/buttons-and-choices.md).
+3. Submitting a task module form.
+
+>To learn more about how buttons, choices and task modules work, see [Buttons, choices and task modules](/workbot-for-teams/buttons-choices-task-modules.md).
 
 Commands can also prompt users for additional parameters. For example, to create a new ServiceNow incident, the user should provide the urgency, summary and description of the incident. In this case, you can add 3 parameters; `urgency`, `summary` & `description`. When the command is invoked, Workbot will prompt the user for each parameter when the command is invoked.
 
