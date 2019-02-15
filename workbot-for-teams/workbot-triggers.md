@@ -59,7 +59,7 @@ The table below lists the input fields in the trigger and what they do.
 </table>
 
 ### Command name
-Workbot ommands can invoke their recipes by:
+Workbot commands can invoke their recipes by:
 1.  Sending the command name in a direct message to Workbot, e.g. **newissue**
 2. Sending the command name in a channel and tagging Workbot, e.g. **@workbot newissue**
 3. Submitting a button with the command name configured:

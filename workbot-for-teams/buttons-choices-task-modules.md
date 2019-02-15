@@ -1,32 +1,37 @@
 ---
-title: Buttons & choices
+title: Buttons, Task modules and Pick lists
 date: 2018-05-21 10:23:00 Z
 ---
 
-# Workbot buttons & choices
-Workbot commands are special triggers you can define to run specific recipes. In Teams, Workbot commands can be invoked in 3 distinct ways:
-1. Sending the command in a direct message to Workbot or in a channel (requires tagging Workbot i.e. `@workbot your_command`):<br>
-![Command recipes](/assets/images/workbot-for-teams/create-ticket-command.png)
-<br>
-2. Sending the command when a button is clicked:<br>
-![Command recipes](/assets/images/workbot-for-teams/create-ticket-button.png)
-<br>
-3. Sending the command when a choice is submitted:<br>
-![Command recipes](/assets/images/workbot-for-teams/create-ticket-choice.png)
-<br>
+# Workbot buttons, Task modules and Pick lists
+Workbot commands can be invoked via button or task module submissions.
 
-## Features
+![Command name in button example](/assets/images/workbot-for-teams/button-submission.png)
+*The 'Create issue' button invokes the 'newissue' command and executes the recipe when submitted*
 
-Button & choice submissions can:
+Additional parameters can also be passed by buttons and task modules as they invoke a Workbot command. Typically, you use parameters to pass context to the invoked Workbot recipe.
 
-1. Trigger another recipe that has a Workbot command trigger
+![Button with params example](/assets/images/workbot-for-teams/button-with-params.png)
+*The 'Re-open issue' button not only invokes the 'reopen_issue' command - it's also passing parameters!*
 
-2. Pass additional parameter values to that recipe
+![Button with params recipe](/assets/images/workbot-for-teams/button-with-params-recipe.png)
+*The 'Re-open issue' button is configured to pass the 'sys_id' so that the 'reopen_issue' recipe knows which issue to re-open*
 
-## Configuring buttons to show in a post message or post command reply
-Buttons can be used in either a [post command reply](/workbot-for-teams/workbot-command-reply.md) or a [post message action](/workbot-for-teams/workbot-actions.md#post-messages).
+While choices in a pick list cannot invoke Workbot commands, they can pass their choice parameter together with button or task module submissions in the same message.
 
-![Button fields](/assets/images/workbot-for-teams/buttons-fields.png)
+![Choice param recipe](/assets/images/workbot-for-teams/choice-param-recipe.png)
+*The choice parameter will take its value from a choice (if it's chosen)*
+
+The choice parameter is passed when a button from the same message is submitted (along with any other parameters the button may have).
+
+![Choice param](/assets/images/workbot-for-teams/choice-param.png)
+*The 'Next' button also passes the 'opportunity_id' of 'Google' onto the command recipe that it invokes*
+
+## Configuring buttons
+Buttons can be used in either a [post reply](/workbot-for-teams/workbot-actions.md#post-reply) or a [post message](/workbot-for-teams/workbot-actions.md#post-message) action.
+
+![Command name in button](/assets/images/workbot-for-teams/button-command.png)
+*A button can be configured to invoke a Workbot command of another recipe*
 
 The following table shows what goes into the button fields:
 
@@ -38,12 +43,12 @@ The following table shows what goes into the button fields:
             <th>Description</th>
         </tr>
         <tr>
-          <td>Button title</td>
+          <td>Title</td>
           <td>
-            Button title e.g. <kbd>Cancel</kbd>
+            Button title e.g. <kbd>Create ticket</kbd>
           </td>
           <td>
-            Key in the title of the button to be displayed.<br><br><img src="/assets/images/workbot-for-teams/create-ticket-button.png"></img><br><br>
+            Title of the button to be displayed.<br><br><img src="/assets/images/workbot-for-teams/create-ticket-button.png"></img><br><br>
           </td>
         </tr>
         <tr>
@@ -52,51 +57,80 @@ The following table shows what goes into the button fields:
           <pre>create_ticket</code>
           </td>
           <td>
-            Choose from a list of existing recipes that can be invoked by a Workbot post command. Clicking on this button at runtime will trigger the corresponding recipe.
+            Choose from a list of existing recipes that can be invoked by a Workbot command.
           </td>
         </tr>
         <tr>
           <td>Parameters</td>
           <td>
-          Parameter values to pass onto the next recipe when button is clicked, e.g.<br>
-          <b>summary</b>: <kbd>Summary</kbd>
-          <b>description</b>: <kbd>Description</kbd>
+          Parameter values to pass onto the next recipe when button is clicked, e.g.<br><br><pre>{<br>  "sys_id": "<kbd>sys_id</kbd>"<br>  "summary": "<kbd>Summary</kbd>",<br>  "description": "<kbd>Description</kbd>"<br>}
           </td>
           <td>
-          Key in name-value pairs to pass onto the next recipe as parameter values.
+          Key in name-value pairs to pass onto the next recipe as parameter values. Remember to wrap datapills with double quotes.
           </td>
         </tr>
       </tbody>
     </table>
 
-When a button is clicked, it triggers another recipe and passes onto it any parameter values you define in the button fields.
+## Configuring a pick list and choices
+While choices cannot invoke Workbot commands, they can pass their choice parameter together with button or task module submissions in the same message.
 
-For example, in the button fields below, where:
+![Choice param recipe](/assets/images/workbot-for-teams/choice-param-recipe.png)
+*The choice parameter will take its value from a choice (if it's chosen)*
 
-- **Summary**: ``Button not working``
-- **Description**: `Nothing happens when I click on the submit button.`
-- **Command input values**: ``project``, ``issue_type``, ``priority``
+The choice parameter is passed when a button from the same message is submitted (along with any other parameters the button may have).
 
-![Button 4 fields](/assets/images/workbot/workbot-buttons/button-4-fields.png)
+![Choice param](/assets/images/workbot-for-teams/choice-param.png)
+*The 'Next' button also passes the 'opportunity_id' of 'Google' onto the command recipe that it invokes*
 
-This posts the button (along with 3 other buttons 'High', 'Low' and 'Lowest') to the user like so:
+The following table shows what goes into the pick list and choice fields:
 
-![Button 4 Slack](/assets/images/workbot/workbot-buttons/button-4-slack.png)
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Input field</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+          <td>Pick list name</td>
+          <td>
+            Name of pick list. Displays before choices, and supports markdown.
+          </td>
+        </tr>
+        <tr>
+          <td>Pick list style</td>
+          <td>
+          <b>Compact</b> displays choices in a drop-down menu, while <b>Expanded</b> displays all choices with radio buttons.
+          </td>
+        </tr>
+        <tr>
+          <td>Choice parameter</td>
+          <td>
+          Parameter name to store the choice value. This name-value pair will be passed on as additional parameters.
+          </td>
+        </tr>
+        <tr>
+          <td>Title (choice)</td>
+          <td>
+            Title of the choice to be displayed.
+          </td>
+        </tr>
+        <tr>
+          <td>Value (choice)</td>
+          <td>
+            Value of the choice. If chosen, passes its value to the <b>Choice parameter</b>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-When clicked, the button triggers the following recipe:
+## Dynamic buttons & fact sets
 
-![Triggered recipe](/assets/images/workbot/workbot-buttons/triggered-recipe.png)
-*The recipe triggered by the button*
+Buttons and fact sets can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
 
-Notice that the command trigger ``ui_feature highest priority`` of the triggered recipe matches the **Submit button command** of the button.
+From the button (or fact set) fields, click on the horizontal ellipses on the top-right and choose 'Dynamic List'. This should bring up the dynamic list option.
 
-## Dynamic list of Buttons
-
-Buttons can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
-
-From the button fields, click on the horizontal ellipses on the top-right and choose 'Dynamic List'. This should bring up the dynamic buttons fields.
-
-![Dynamic buttons](/assets/images/workbot/workbot-buttons/dynamic-buttons.png)
+![Dynamic buttons](/assets/images/workbot-for-teams/dynamic-buttons.png)
 
 The following table shows what goes into the dynamic buttons fields:
 
@@ -110,54 +144,40 @@ The following table shows what goes into the dynamic buttons fields:
         <tr>
           <td>Button source list</td>
           <td>
-            Input a list datapill. <kbd>Accounts</kbd>
+            Input a list datapill, e.g. <kbd>Users</kbd>.
           </td>
           <td>
-            List datapills have a list icon next to them in the datatree, e.g. Salesforce Accounts, a list:
-            <img src="/assets/images/workbot/workbot-buttons/list-datapill.png"></img>
+            List datapills have a list icon next to them in the datatree, e.g. Salesforce users:<br>
+            <img src="/assets/images/workbot-for-teams/list-datapill.png"></img>
           </td>
         </tr>
         <tr>
-          <td>Button title</td>
+          <td>Title</td>
           <td>
-            Button title e.g. <kbd>Account Name</kbd>
+            Button title e.g. <kbd>Assign users</kbd>
           </td>
           <td>
-            The title of the button to be displayed. Typically, you want to use datapills from the list datapill, e.g. Salesforce Account name, a datapill from the Salesforce Accounts list:
-            <img src="/assets/images/workbot/workbot-buttons/create-ticket-button.png"></img>
+            The title of the button to be displayed. Typically, you want to use datapills from the list datapill, e.g. Salesforce user name, a datapill from the Salesforce users list:
+            <img src="/assets/images/workbot-for-teams/dynamic-button-title.png"></img>
           </td>
         </tr>
         <tr>
           <td>Submit button command</td>
           <td>Workbot command to execute when button is clicked, e.g.
-          <pre>salesforce update account</code>
+          <pre>assign_user</code>
           </td>
           <td>
-            Choose from a list of existing post command triggers (from different recipes), or key in your own 3-word command. Clicking on this button will trigger the recipe with the corresponding command trigger.
+            Choose from a list of existing Workbot command recipes or key in a new command. Clicking on this button will trigger the recipe with the corresponding command trigger.
           </td>
         </tr>
         <tr>
-          <td>Command input values</td>
+          <td>Additional parameters</td>
           <td>
-            Command input values to pass onto the next recipe when button is clicked, e.g.<br>
-            <b>account_id</b>: <kbd>Account ID</kbd>
-            <b>account_description</b>: <kbd>Account Description</kbd>
+            Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{<br>  "opportunity_id": "<kbd>Opportunity ID</kbd>",<br>  "stage": "<kbd>Stage</kbd>"<br>}<samp>
           </td>
           <td>
-          Key in name-value pairs to pass onto the next recipe as command input fields.
+          Key in name-value pairs to pass onto the next recipe as additional parameters.
           </td>
         </tr>
       </tbody>
     </table>
-
-In the example below, the user wants to update a Salesforce 'Direct Customer' account by clicking on a button associated with that account. As this list changes every day, a static list of buttons wouldn't work. In the dynamic button fields below, where:
-  - **Buttons source list**: ``Accounts``
-  - **Button Title**: ``Account Name``
-  - **Submit button command**: ``salesforce update account``
-  - **Command input values**: ``account_id``, ``account_description``
-
-![Dynamic buttons fields](/assets/images/workbot/workbot-buttons/dynamic-buttons-fields-example.png)
-
-This posts a dynamically generated list of buttons to the user like so:
-
-![Dynamic buttons slack example](/assets/images/workbot/workbot-buttons/dynamic-buttons-slack-example.png)

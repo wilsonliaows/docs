@@ -131,25 +131,7 @@ The table below lists the input fields in the post reply action.
   <tr>
     <td rowspan="2"></td>
     <td>Post as raw JSON</td>
-    <td>For advanced users to fully customize the message formatting. Should include <code>"type": "message"</code>, followed by <code>"attachments"</code>, e.g. <br><br><pre>{
-   "type":"message",
-   "attachments":[
-      {
-         "contentType":"application/vnd.microsoft.card.adaptive",
-         "content":{
-            "type":"AdaptiveCard",
-            "version":"1.0",
-            "body":[
-               {
-                  "type":"TextBlock",
-                  "text":"Hello World!",
-                  "size":"large"
-               }
-            ]
-         }
-      }
-   ]
-}<samp></td></td>
+    <td>For advanced users to fully customize the message formatting.</td></td>
   </tr>
   <tr>
     <td>Message to update</td>
@@ -169,26 +151,39 @@ Use post message if you:
 3. Want to use advanced features like updating a previous message.
 
 ### Message recipient
-**Message recipient** allows you post a message to directly to a user or to a channel you specify. Use the <kbd>ID</kbd> datapill (under **Conversation**) from a Post command trigger, or key in the channel name e.g. **#general** or username e.g. **\@john**.
+**Message recipient** allows you post a message to directly to a user or to a channel you specify. Use the <kbd>ID</kbd> datapill (under **Conversation**) from the output of a Workbot command. To pick a member or channel instead, toggle to "Select from list".
 
-![Message to update example](/assets/images/workbot-for-teams/message-recipient.png)
-*Message to update example*
+![Message recipient](/assets/images/workbot-for-teams/message-recipient.png)
+*Message recipient example*
 
 ### Advanced section
- The advanced section has 2 fields: <br>**Message to update** and **Thread ID**.
+ The advanced section has 2 fields: **Post as raw JSON** and **Message to update**.
 
+- #### Post as raw JSON
+  This field is for advanced users who want to fully customize the message formatting. When set to **Yes**, all other fields will be hidden. Should include <code>"type": "message"</code>, followed by <code>"attachments"</code>, e.g.
+```
+  {
+   "type":"message",
+   "attachments":[
+      {
+         "contentType":"application/vnd.microsoft.card.adaptive",
+         "content":{
+            "type":"AdaptiveCard",
+            "version":"1.0",
+            "body":[
+               {
+                  "type":"TextBlock",
+                  "text":"Hello World!",
+                  "size":"large"
+               }
+            ]
+         }
+      }
+   ]
+}
+```
 - #### Message to update
-  **Message to update** allows you to overwrite a previously posted message from an earlier action step. Simply use the <code>Message ID</code> datapill from a **Post command** trigger, **Post message** action or **Post notification** output datatrees.
+  **Message to update** allows you to overwrite a previously posted message from an earlier action step. Simply use the <code>Message ID</code> datapill from a Workbot command, **Post message** or **Post reply** action.
 
-  ![Message to update example](/assets/images/workbot/workbot-actions/message-to-update-example.png)
-*Message to update example*
-
-- #### Thread ID
-  **Thread ID** allows you to post a message within an existing thread in Slack. Simply use the <code>Thread ID</code> datapill from a **Post message** or **Post notification** output datatree.
-
-  ![Thread ID example](/assets/images/workbot/workbot-actions/thread-id-example.png)
-  *Thread ID example*
-
-  If you don't see **Thread ID**, make sure it's checked in the 'Add/remove optional fields' section at the bottom of the post message action step:
-
-  ![Thread ID example](/assets/images/workbot/workbot-actions/thread-id-optional.png)
+  ![Message to update example](/assets/images/workbot-for-teams/message-to-update.png)
+*Message to update*
