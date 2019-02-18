@@ -15,7 +15,7 @@ Select the `Standard record` or `Custom record` you want to update. In this exam
 
 ![Select Netsuite record](/assets/images/connectors/netsuite/standard-record.png)
 
-After that configure these sections:
+After that, you can proceed to configure the next sections.
 
 ### Field configuration
 This section allows you to shortlist which NetSuite fields you want to use. Only those shortlisted fields will be displayed in action's input and output. This makes it easier to work with complex NetSuite objects with hundreds of fields.
@@ -47,7 +47,7 @@ The followings are all input fields in this section:
 
 | Field name | Description |
 |---|---|
-| Record source list | You need to provide a [list data pill](https://docs.workato.com/features/list-management.html) here. For example, list of rows in a CSV file. The action will automatically iterate through all items in the list and map them to NetSuite records. |
+| Record source list | You need to provide a [list data pill](/features/list-management.md) here. For example, list of rows in a CSV file. The action will automatically iterate through all items in the list and map them to NetSuite records. |
 | Internal ID | ID of the NetSuite record. NetSuite uses this to determine which record to update. |
 | Record fields | Here you need to map the data pills under the list data pill provided above. For example, CSV column names under the `CSV Rows` list data pill. The action will automatically iterate through all items in the list and map them to NetSuite records. |
 
@@ -58,12 +58,12 @@ The followings are all input fields in this section:
 | Number of processed records | Total number of records processed. |
 | Number of successful records | Number of records successfully updated. |
 | Number of failed records | Number of records failed to be updated. |
-| Successful records | A list data pill containing all successful records. You can use this to [iterate through all records in the list](https://docs.workato.com/features/list-management.html). The data fields of each record is shown below: |
+| Successful records | A list data pill containing all successful records. You can use this to [iterate through all records in the list](/features/list-management.md). The data fields of each record is shown below: |
 | - Internal ID | Internal ID of this record. |
 | - External ID | External ID of this record. |
 | - Record | Contains all data fields of this record. |
 | - List size | Number of successful records in this list. |
-| Failed records | A list data pill containing all failed records. You can use this to [iterate through all records in the list](https://docs.workato.com/features/list-management.html). The data fields of each record is shown below: |
-| - Error | A list data pill containing all errors of this record. You can use this to [iterate through all errors in the list](https://docs.workato.com/features/list-management.html). |
+| Failed records | A list data pill containing all failed records. You can use this to [iterate through all records in the list](/features/list-management.md). The data fields of each record is shown below: |
+| - Error | A list data pill containing all errors of this record. You can use this to [iterate through all errors in the list](/features/list-management.md). |
 | - Record | Contains all data fields of this record.  |
 | - List size | Number of failed records in this list. |
