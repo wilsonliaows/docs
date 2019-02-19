@@ -341,6 +341,7 @@
     * [New row trigger](connectors/google-sheets/trigger-new-row.md)
     * [New/updated row trigger](connectors/google-sheets/trigger-new-updated-row.md)
     * [Add row action](connectors/google-sheets/action-add-row.md)
+    * [Add rows in bulk action](connectors/google-sheets/action-add-rows.md)
     * [Search rows action](connectors/google-sheets/action-search-rows-v4.md)
     * [Update row action](connectors/google-sheets/action-update-row-v4.md)
     * [Search rows using query action](connectors/google-sheets/action-search-rows.md)
