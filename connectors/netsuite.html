@@ -6999,7 +6999,7 @@
         <a href="netsuite.html#add-standard-object-and-add-custom-object-action">
       
         
-        Add record action
+        Create record action
       
         </a>
       
@@ -7007,7 +7007,22 @@
       
     </li>
   
-    <li class="chapter " data-level="1.19.23.8" data-path="netsuite.html">
+    <li class="chapter " data-level="1.19.23.8" data-path="netsuite/action-batch-create.html">
+      
+
+      
+        <a href="netsuite/action-batch-create.html">
+      
+        
+        Create records in bulk action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.19.23.9" data-path="netsuite.html">
       
 
       
@@ -7022,7 +7037,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.19.23.9" data-path="netsuite.html">
+    <li class="chapter " data-level="1.19.23.10" data-path="netsuite.html">
       
 
       
@@ -7037,7 +7052,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.19.23.10" data-path="netsuite.html">
+    <li class="chapter " data-level="1.19.23.11" data-path="netsuite.html">
       
 
       
@@ -7045,6 +7060,36 @@
       
         
         Update record action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.19.23.12" data-path="netsuite/action-batch-update.html">
+      
+
+      
+        <a href="netsuite/action-batch-update.html">
+      
+        
+        Update records in bulk action
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.19.23.13" data-path="netsuite/action-batch-upsert.html">
+      
+
+      
+        <a href="netsuite/action-batch-upsert.html">
+      
+        
+        Upsert records in bulk action
       
         </a>
       
@@ -10257,7 +10302,7 @@
                                 <h1 id="netsuite">NetSuite</h1>
 <p><a href="http://www.netsuite.com/" target="_blank">NetSuite</a> is a cloud business management suite that offers comprehensive software for an organization, with software products encompassing ERP/Financials, CRM, and ecommerce.</p>
 <h2 id="how-to-connect-to-netsuite-on-workato">How to connect to NetSuite on Workato</h2>
-<p>You can connect to NetSuite via token based authentication. In order to do so, we need to generate an application ID, consumer key and consumer secret as well as a token ID and token secret. </p>
+<p>You can connect to NetSuite via token based authentication. In order to do so, we need to generate an application ID, consumer key and consumer secret as well as a token ID and token secret.</p>
 <p>In this section, we&apos;ll go through how to get these.</p>
 <ol>
 <li><p>Enable Web Services and Token-based Authentication in your NetSuite instance</p>
@@ -10386,8 +10431,7 @@ D) Set Up Company (Full level)</p>
 </tr>
 </tbody>
 </table>
-<h2 id="working-with-the-netsuite-connector">Working with the NetSuite connector</h2>
-<h3 id="common-netsuite-fields-and-possible-disparity-between-objectfield-names-in-netsuite-and-workato">Common NetSuite fields and possible disparity between object/field names in NetSuite and Workato</h3>
+<h2 id="common-netsuite-fields-and-possible-disparity-between-objectfield-names-in-netsuite-and-workato">Common NetSuite fields and possible disparity between object/field names in NetSuite and Workato</h2>
 <p>The NetSuite connector is able to retrieve your standard or custom NetSuite objects and the associated set of standard and custom fields. Whenever you configure your trigger or action, you would first need to select the specific object you wish to interact with.</p>
 <p>Take note that objects in your NetSuite instance might have been renamed, in which case they would appear in Workato with the original name (instead of the new name). Do check with your NetSuite admin or reach out to us if it looks like you&apos;re not able to find your object on Workato!</p>
 <p>If you&apos;re configuring an action, you would see the fields selector pop up with a list of the standard and custom fields that belongs to the selected object. Simply select the fields you wish to interact with.</p>
@@ -10421,17 +10465,17 @@ D) Set Up Company (Full level)</p>
 <p>For transaction objects that contains line items, the available fields within each line item can be found grouped within the item list field.</p>
 <p><img src="../assets/images/connectors/netsuite/netsuite-item-list.png" alt="NetSuite item list">
 <em>Item list displayed in the create sales order action</em></p>
-<h3 id="new-classification-object-trigger">New classification object trigger</h3>
+<h2 id="new-classification-object-trigger">New classification object trigger</h2>
 <p>Certain objects in NetSuite are classification objects, such as departments, locations and classifications. Select the classification object to monitor.</p>
 <p>When the recipe is first started, all the existing instances of the selected object will be picked up by the recipe. Subsequently, only newly created instances will be processed by the recipe.</p>
 <p><img src="../assets/images/connectors/netsuite/new-classification-object-trigger.png" alt="New classification object trigger">
 <em>New classification object trigger</em></p>
 <p>For example, if I select departments as the object to trigger upon, all existing department objects will be picked up by the trigger when the recipe is first ran. Subsequently, if the recipe is kept running, only departments which have been newly created will be picked up by the recipe.</p>
-<h4 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h4>
+<h3 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h3>
 <p>Even if the recipe is stopped, when it&apos;s restarted again, all departments created in the time during which the recipe was stopped will be picked up by the recipe.</p>
-<h3 id="new-standard-object-and-new-custom-object-trigger">New standard object and new custom object trigger</h3>
+<h2 id="new-standard-object-and-new-custom-object-trigger">New standard object and new custom object trigger</h2>
 <p>The new standard object and new custom object trigger are very similar, so this section will cover both. <a href="netsuite.html#unsupported-records">Certain records are not supported</a> in the trigger due to API limitations.</p>
-<h4 id="configuring-the-trigger">Configuring the trigger</h4>
+<h3 id="configuring-the-trigger">Configuring the trigger</h3>
 <p>To use this trigger, we need to first select the standard object or the custom object to monitor. We also need to input the datetime in the <strong>From</strong> field to pinpoint the exact date from which the recipe should start processing records.</p>
 <p><img src="../assets/images/connectors/netsuite/unconfigured-netsuite-new-trigger.png" alt="Unconfigured NetSuite new object trigger">
 <em>NetSuite new object trigger - unconfigured. Select the object to monitor for newly created records.</em></p>
@@ -10440,11 +10484,11 @@ D) Set Up Company (Full level)</p>
 <p><img src="../assets/images/connectors/netsuite/configured-netsuite-new-trigger.png" alt="Configured NetSuite new object trigger">
 <em>NetSuite new object trigger - configured</em></p>
 <p>When I first start my recipe all sales orders created from or after 1 Jan, 2017 midnight, will be processed. Subsequently, if the recipe is kept running, only sales orders which have been newly created will be picked up by the recipe.</p>
-<h4 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h4>
+<h3 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h3>
 <p>Even if the recipe is stopped, when it&apos;s restarted again, all sales orders created in the time during which the recipe was stopped will be picked up by the recipe.</p>
-<h3 id="newupdated-standard-object-and-newupdated-custom-object-trigger">New/updated standard object and new/updated custom object trigger</h3>
+<h2 id="newupdated-standard-object-and-newupdated-custom-object-trigger">New/updated standard object and new/updated custom object trigger</h2>
 <p>The new/updated standard object and new/updated custom object trigger are very similar, so this section will cover both.</p>
-<h4 id="configuring-the-trigger">Configuring the trigger</h4>
+<h3 id="configuring-the-trigger">Configuring the trigger</h3>
 <p>To use this trigger, we need to first select the standard object or the custom object to monitor. We also need to input the datetime from the <strong>From</strong> field to pinpoint the exact date from which the recipe should start processing records.</p>
 <p><img src="../assets/images/connectors/netsuite/unconfigured-netsuite-new-updated-trigger.png" alt="Unconfigured NetSuite new/updated object trigger">
 <em>NetSuite new/updated object trigger - unconfigured. Select the object to monitor for newly created or updated records.</em></p>
@@ -10453,9 +10497,9 @@ D) Set Up Company (Full level)</p>
 <p><img src="../assets/images/connectors/netsuite/configured-netsuite-new-updated-trigger.png" alt="Configured NetSuite new/updated object trigger">
 <em>NetSuite new/updated object trigger - configured</em></p>
 <p>When I first start my recipe all sales orders created or updated from or after 1 Jan, 2017 midnight, will be processed. Subsequently, if the recipe is kept running, any sales orders which have been newly created or updated will be picked up by the recipe.</p>
-<h4 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h4>
+<h3 id="trigger-behaviour-when-recipe-is-stopped-and-restarted">Trigger behaviour when recipe is stopped and restarted</h3>
 <p>Even if the recipe is stopped, when it&apos;s restarted again, all sales orders created or updated in the time during which the recipe was stopped will be picked up by the recipe. Do note, however, that the recipe will only pick up the last (most updated) version of search record. For example, if a record was newly created and had 3 updates made to it while the recipe was stopped, the recipe will only pick up the last updated version of the record when it&apos;s restarted again.</p>
-<h3 id="new-saved-search-result-for-object-trigger">New saved search result for object trigger</h3>
+<h2 id="new-saved-search-result-for-object-trigger">New saved search result for object trigger</h2>
 <p>The <strong>New saved search result for object</strong> trigger retrieves new records that meet the saved search&apos;s criteria, e.g. for a saved search that fetches customer records of industry type <strong>Hardware</strong>, new customers created of the industry type <strong>Hardware</strong> will be picked up as a trigger event.</p>
 <p>Existing customers whose industry type is changed to <strong>Hardware</strong> will also be picked up as a trigger event if their <strong>Date created</strong> value is valid for the recipe (falls after the datetime in the <strong>From</strong> field specified in the trigger).</p>
 <p>To ensure the trigger works, we need to make sure that the columns <strong>Internal ID</strong> and <strong>Date created</strong> are configured as result columns in the saved search. To do this, navigate to the saved search page to edit it.</p>
@@ -10475,7 +10519,7 @@ D) Set Up Company (Full level)</p>
 </ol>
 <p><img src="../assets/images/connectors/netsuite/configure-new-saved-search-results-trigger.gif" alt="Configure new saved search results trigger">
 <em>Configure the new saved search results trigger</em></p>
-<h3 id="newupdated-saved-search-result-for-object-trigger">New/updated saved search result for object trigger</h3>
+<h2 id="newupdated-saved-search-result-for-object-trigger">New/updated saved search result for object trigger</h2>
 <p>The <strong>New/updated saved search result for object</strong> trigger retrieves new and updated records that meet the saved search&apos;s criteria, e.g. for a saved search that fetches customer records of industry type <strong>Hardware</strong>, new or updated customers of the industry type <strong>Hardware</strong> will be picked up as a trigger event.</p>
 <p>Existing customers whose industry type is changed to <strong>Hardware</strong> will also be picked up as a trigger event.</p>
 <p>To ensure the trigger works, we need to make sure that the columns <strong>Internal ID</strong> and <strong>Last modified</strong> are configured as result columns in the saved search. To do this, navigate to the saved search page to edit it.</p>
@@ -10492,22 +10536,22 @@ D) Set Up Company (Full level)</p>
 </ol>
 <p><img src="../assets/images/connectors/netsuite/configure-updated-saved-search-result-trigger.gif" alt="Configure new/updated saved search results trigger">
 <em>Configure the new/updated saved search results trigger</em></p>
-<h3 id="add-standard-object-and-add-custom-object-action">Add standard object and add custom object action</h3>
+<h2 id="add-standard-object-and-add-custom-object-action">Add standard object and add custom object action</h2>
 <p>The add standard object and add custom object actions are similar except that the former works with standard NetSuite objects, while the latter works with custom objects created by your organization.</p>
 <p>In this section, we&apos;ll be covering how to use the add standard object action, which will be applicable for the add custom object action as well.</p>
-<h4 id="configuring-your-add-object-action">Configuring your add object action</h4>
+<h3 id="configuring-your-add-object-action">Configuring your add object action</h3>
 <p>To configure your action, first select the object you would like to create. In this case, let&apos;s create a sales order. After you have selected the object you wish to create, the recipe will retrieve the fields of your selected NetSuite object.</p>
 <p><img src="../assets/images/connectors/netsuite/unconfigured-netsuite-add-action.png" alt="Unconfigured NetSuite add object action">
 <em>NetSuite add object action - unconfigured. Select the object to create.</em></p>
-<h4 id="selecting-and-mapping-your-fields">Selecting and mapping your fields</h4>
+<h3 id="selecting-and-mapping-your-fields">Selecting and mapping your fields</h3>
 <p>After selecting the object you wish to create, you&apos;d need to select the specific fields you wish to write to when creating your NetSuite record.</p>
 <p><img src="../assets/images/connectors/netsuite/netsuite-add-action-fields-selector.png" alt="Unconfigured NetSuite add object action">
 <em>After selecting your object, select the specific fields you wish to write to</em></p>
 <p>Take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
 <p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
-<h3 id="search-standard-objects-action">Search standard objects action</h3>
+<h2 id="search-standard-objects-action">Search standard objects action</h2>
 <p>The search standard objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array. <a href="netsuite.html#unsupported-records">Certain records are not supported</a> in the action due to API limitations.</p>
-<h4 id="configuring-the-search-standard-objects-action">Configuring the search standard objects action</h4>
+<h3 id="configuring-the-search-standard-objects-action">Configuring the search standard objects action</h3>
 <p>To carry out a search standard object action, we would first need to tell the recipe exactly what standard object category and what specific object we want to search for. The following displays an unconfigured search standard object action.</p>
 <p><img src="../assets/images/connectors/netsuite/unconfigured-search-action.png" alt="Unconfigured NetSuite search action">
 <em>Unconfigured search standard object action. Select the category and specific object to search for.</em></p>
@@ -10526,9 +10570,9 @@ D) Set Up Company (Full level)</p>
 <em>Available fields to search by for relationship category</em></p>
 <p>When selecting the fields to search by in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
 <p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
-<h3 id="search-custom-objects-action">Search custom objects action</h3>
+<h2 id="search-custom-objects-action">Search custom objects action</h2>
 <p>The search custom objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array.</p>
-<h4 id="configuring-the-search-custom-objects-action">Configuring the search custom objects action</h4>
+<h3 id="configuring-the-search-custom-objects-action">Configuring the search custom objects action</h3>
 <p>To carry out a search custom objects action, we would first need to tell the recipe exactly what specific custom object we want to search for. The following displays an unconfigured search custom objects action.</p>
 <p><img src="../assets/images/connectors/netsuite/unconfigured-search-custom-object-action.png" alt="Unconfigured search custom object action">
 <em>Unconfigured search custom object action. Select the the specific object to search for.</em></p>
@@ -10538,17 +10582,17 @@ D) Set Up Company (Full level)</p>
 <em>Available fields to search by for the custom object estimate</em></p>
 <p>When selecting the fields to search by in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
 <p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
-<h3 id="update-standard-object-and-update-custom-object-action">Update standard object and update custom object action</h3>
+<h2 id="update-standard-object-and-update-custom-object-action">Update standard object and update custom object action</h2>
 <p>The update standard object and update custom object actions are similar except that the former works with standard NetSuite objects, while the latter works with custom objects created by your organization.</p>
 <p>In this section, we&apos;ll be covering how to use the update standard object action, which will be applicable for the update custom object action as well.</p>
-<h4 id="functions-of-the-update-object-actions">Functions of the update object actions</h4>
+<h3 id="functions-of-the-update-object-actions">Functions of the update object actions</h3>
 <p>The following lists the various types of updates you can do with the update object action.</p>
 <ul>
 <li>Overwrite existing field values with new values (you can&apos;t delete an existing value of a field and change it to null/a blank value, however)</li>
 <li>Append new lines to records (e.g. add additional line items to your sales order)</li>
 <li>Replace all lines in records (e.g. overwrite all existing line items in your sales order with a new set of line items)</li>
 </ul>
-<h4 id="configuring-your-update-action">Configuring your update action</h4>
+<h3 id="configuring-your-update-action">Configuring your update action</h3>
 <ol>
 <li>First, specify the object to update via internal ID or external ID
 To update your NetSuite record, you first need to specify which record to update. You can use either the internal ID or the external ID to specify the record - all other fields with values passed into them will overwrite the original existing value in the NetSuite record.</li>
@@ -10585,7 +10629,7 @@ To update your NetSuite record, you first need to specify which record to update
 <em>Replace all picklist found at the end of NetSuite lists</em></p>
 <p>When selecting the fields to update in the NetSuite connector, take note that some NetSuite fields are displayed with their internal API names instead of their labels in NetSuite. For example, entity ID refers to the customer/vendor to attach a transaction document to, while internal ID refers to the NetSuite ID of any object.</p>
 <p>If you can&apos;t find the field you&apos;re looking for, check with your NetSuite admin or with us!</p>
-<h3 id="unsupported-records">Unsupported records</h3>
+<h2 id="unsupported-records">Unsupported records</h2>
 <p>There are certain records that triggers and search actions do not support, as they cannot be queried via the NetSuite API. Unsupported records are as follows:</p>
 <ul>
 <li>Budget category</li>
@@ -10697,7 +10741,7 @@ To update your NetSuite record, you first need to specify which record to update
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"NetSuite","date":"2017-04-28T06:15:00.000Z","level":"1.19.23","depth":2,"next":{"title":"Connection setup","level":"1.19.23.1","depth":3,"anchor":"#how-to-connect-to-netsuite-on-workato","path":"connectors/netsuite.md","ref":"connectors/netsuite.md#how-to-connect-to-netsuite-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.19.22.10","depth":3,"path":"connectors/mysql/scheduled-query-trigger.md","ref":"connectors/mysql/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/netsuite.md","mtime":"2019-02-16T01:29:02.539Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-02-16T01:30:33.289Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"NetSuite","date":"2017-04-28T06:15:00.000Z","level":"1.19.23","depth":2,"next":{"title":"Connection setup","level":"1.19.23.1","depth":3,"anchor":"#how-to-connect-to-netsuite-on-workato","path":"connectors/netsuite.md","ref":"connectors/netsuite.md#how-to-connect-to-netsuite-on-workato","articles":[]},"previous":{"title":"Scheduled query trigger","level":"1.19.22.10","depth":3,"path":"connectors/mysql/scheduled-query-trigger.md","ref":"connectors/mysql/scheduled-query-trigger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/netsuite.md","mtime":"2019-02-19T16:56:52.669Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-02-19T16:58:54.162Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
