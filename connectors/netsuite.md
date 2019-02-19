@@ -7,7 +7,7 @@ date: 2017-04-28 06:15:00 Z
 [NetSuite](http://www.netsuite.com/) is a cloud business management suite that offers comprehensive software for an organization, with software products encompassing ERP/Financials, CRM, and ecommerce.
 
 ## How to connect to NetSuite on Workato
-You can connect to NetSuite via token based authentication. In order to do so, we need to generate an application ID, consumer key and consumer secret as well as a token ID and token secret. 
+You can connect to NetSuite via token based authentication. In order to do so, we need to generate an application ID, consumer key and consumer secret as well as a token ID and token secret.
 
 In this section, we'll go through how to get these.
 
@@ -153,9 +153,7 @@ NetSuite asks for the following information to connect.
 | Account timezone        | Select the timezone of your NetSuite instance in order to ensure that the dates in your NetSuite account are handled accurately. All datetime values used in actions/triggers for the NetSuite connection will be based on this timezone. |
 | Ignore read-only fields | If set to Yes, read-only fields will be omitted from create and update actions. If set to No, read-only field will appear in create and update actions. Trying to create or update these read-only field will cause an error.             |
 
-## Working with the NetSuite connector
-
-### Common NetSuite fields and possible disparity between object/field names in NetSuite and Workato
+## Common NetSuite fields and possible disparity between object/field names in NetSuite and Workato
 The NetSuite connector is able to retrieve your standard or custom NetSuite objects and the associated set of standard and custom fields. Whenever you configure your trigger or action, you would first need to select the specific object you wish to interact with.
 
 Take note that objects in your NetSuite instance might have been renamed, in which case they would appear in Workato with the original name (instead of the new name). Do check with your NetSuite admin or reach out to us if it looks like you're not able to find your object on Workato!
@@ -198,7 +196,7 @@ For transaction objects that contains line items, the available fields within ea
 ![NetSuite item list](/assets/images/connectors/netsuite/netsuite-item-list.png)
 *Item list displayed in the create sales order action*
 
-### New classification object trigger
+## New classification object trigger
 Certain objects in NetSuite are classification objects, such as departments, locations and classifications. Select the classification object to monitor.
 
 When the recipe is first started, all the existing instances of the selected object will be picked up by the recipe. Subsequently, only newly created instances will be processed by the recipe.
@@ -208,13 +206,13 @@ When the recipe is first started, all the existing instances of the selected obj
 
 For example, if I select departments as the object to trigger upon, all existing department objects will be picked up by the trigger when the recipe is first ran. Subsequently, if the recipe is kept running, only departments which have been newly created will be picked up by the recipe.
 
-#### Trigger behaviour when recipe is stopped and restarted
+### Trigger behaviour when recipe is stopped and restarted
 Even if the recipe is stopped, when it's restarted again, all departments created in the time during which the recipe was stopped will be picked up by the recipe.
 
-### New standard object and new custom object trigger
+## New standard object and new custom object trigger
 The new standard object and new custom object trigger are very similar, so this section will cover both. [Certain records are not supported](/connectors/netsuite.md#unsupported-records) in the trigger due to API limitations.
 
-#### Configuring the trigger
+### Configuring the trigger
 To use this trigger, we need to first select the standard object or the custom object to monitor. We also need to input the datetime in the **From** field to pinpoint the exact date from which the recipe should start processing records.
 
 ![Unconfigured NetSuite new object trigger](/assets/images/connectors/netsuite/unconfigured-netsuite-new-trigger.png)
@@ -229,13 +227,13 @@ For example, I've selected sales order and 1 Jan, 2017 midnight for my trigger a
 
 When I first start my recipe all sales orders created from or after 1 Jan, 2017 midnight, will be processed. Subsequently, if the recipe is kept running, only sales orders which have been newly created will be picked up by the recipe.
 
-#### Trigger behaviour when recipe is stopped and restarted
+### Trigger behaviour when recipe is stopped and restarted
 Even if the recipe is stopped, when it's restarted again, all sales orders created in the time during which the recipe was stopped will be picked up by the recipe.
 
-### New/updated standard object and new/updated custom object trigger
+## New/updated standard object and new/updated custom object trigger
 The new/updated standard object and new/updated custom object trigger are very similar, so this section will cover both.
 
-#### Configuring the trigger
+### Configuring the trigger
 To use this trigger, we need to first select the standard object or the custom object to monitor. We also need to input the datetime from the **From** field to pinpoint the exact date from which the recipe should start processing records.
 
 ![Unconfigured NetSuite new/updated object trigger](/assets/images/connectors/netsuite/unconfigured-netsuite-new-updated-trigger.png)
@@ -250,10 +248,10 @@ For example, I've selected sales order and 1 Jan, 2017 midnight for my trigger a
 
 When I first start my recipe all sales orders created or updated from or after 1 Jan, 2017 midnight, will be processed. Subsequently, if the recipe is kept running, any sales orders which have been newly created or updated will be picked up by the recipe.
 
-#### Trigger behaviour when recipe is stopped and restarted
+### Trigger behaviour when recipe is stopped and restarted
 Even if the recipe is stopped, when it's restarted again, all sales orders created or updated in the time during which the recipe was stopped will be picked up by the recipe. Do note, however, that the recipe will only pick up the last (most updated) version of search record. For example, if a record was newly created and had 3 updates made to it while the recipe was stopped, the recipe will only pick up the last updated version of the record when it's restarted again.
 
-### New saved search result for object trigger
+## New saved search result for object trigger
 The **New saved search result for object** trigger retrieves new records that meet the saved search's criteria, e.g. for a saved search that fetches customer records of industry type **Hardware**, new customers created of the industry type **Hardware** will be picked up as a trigger event.
 
 Existing customers whose industry type is changed to **Hardware** will also be picked up as a trigger event if their **Date created** value is valid for the recipe (falls after the datetime in the **From** field specified in the trigger).
@@ -281,7 +279,7 @@ Once this setup has been done, we can proceed to configure the trigger. This con
 ![Configure new saved search results trigger](/assets/images/connectors/netsuite/configure-new-saved-search-results-trigger.gif)
 *Configure the new saved search results trigger*
 
-### New/updated saved search result for object trigger
+## New/updated saved search result for object trigger
 The **New/updated saved search result for object** trigger retrieves new and updated records that meet the saved search's criteria, e.g. for a saved search that fetches customer records of industry type **Hardware**, new or updated customers of the industry type **Hardware** will be picked up as a trigger event.
 
 Existing customers whose industry type is changed to **Hardware** will also be picked up as a trigger event.
@@ -304,18 +302,18 @@ Once this setup has been done, we can proceed to configure the trigger. This con
 ![Configure new/updated saved search results trigger](/assets/images/connectors/netsuite/configure-updated-saved-search-result-trigger.gif)
 *Configure the new/updated saved search results trigger*
 
-### Add standard object and add custom object action
+## Add standard object and add custom object action
 The add standard object and add custom object actions are similar except that the former works with standard NetSuite objects, while the latter works with custom objects created by your organization.
 
 In this section, we'll be covering how to use the add standard object action, which will be applicable for the add custom object action as well.
 
-#### Configuring your add object action
+### Configuring your add object action
 To configure your action, first select the object you would like to create. In this case, let's create a sales order. After you have selected the object you wish to create, the recipe will retrieve the fields of your selected NetSuite object.
 
 ![Unconfigured NetSuite add object action](/assets/images/connectors/netsuite/unconfigured-netsuite-add-action.png)
 *NetSuite add object action - unconfigured. Select the object to create.*
 
-#### Selecting and mapping your fields
+### Selecting and mapping your fields
 After selecting the object you wish to create, you'd need to select the specific fields you wish to write to when creating your NetSuite record.
 
 ![Unconfigured NetSuite add object action](/assets/images/connectors/netsuite/netsuite-add-action-fields-selector.png)
@@ -325,10 +323,10 @@ Take note that some NetSuite fields are displayed with their internal API names 
 
 If you can't find the field you're looking for, check with your NetSuite admin or with us!
 
-### Search standard objects action
+## Search standard objects action
 The search standard objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array. [Certain records are not supported](/connectors/netsuite.md#unsupported-records) in the action due to API limitations.
 
-#### Configuring the search standard objects action
+### Configuring the search standard objects action
 To carry out a search standard object action, we would first need to tell the recipe exactly what standard object category and what specific object we want to search for. The following displays an unconfigured search standard object action.
 
 ![Unconfigured NetSuite search action](/assets/images/connectors/netsuite/unconfigured-search-action.png)
@@ -360,10 +358,10 @@ When selecting the fields to search by in the NetSuite connector, take note that
 
 If you can't find the field you're looking for, check with your NetSuite admin or with us!
 
-### Search custom objects action
+## Search custom objects action
 The search custom objects action will return a list of records that match the criteria given. If no matching record is found, the action will simply return an empty array.
 
-#### Configuring the search custom objects action
+### Configuring the search custom objects action
 To carry out a search custom objects action, we would first need to tell the recipe exactly what specific custom object we want to search for. The following displays an unconfigured search custom objects action.
 
 ![Unconfigured search custom object action](/assets/images/connectors/netsuite/unconfigured-search-custom-object-action.png)
@@ -380,19 +378,19 @@ When selecting the fields to search by in the NetSuite connector, take note that
 
 If you can't find the field you're looking for, check with your NetSuite admin or with us!
 
-### Update standard object and update custom object action
+## Update standard object and update custom object action
 The update standard object and update custom object actions are similar except that the former works with standard NetSuite objects, while the latter works with custom objects created by your organization.
 
 In this section, we'll be covering how to use the update standard object action, which will be applicable for the update custom object action as well.
 
-#### Functions of the update object actions
+### Functions of the update object actions
 The following lists the various types of updates you can do with the update object action.
 
 - Overwrite existing field values with new values (you can't delete an existing value of a field and change it to null/a blank value, however)
 - Append new lines to records (e.g. add additional line items to your sales order)
 - Replace all lines in records (e.g. overwrite all existing line items in your sales order with a new set of line items)
 
-#### Configuring your update action
+### Configuring your update action
 1. First, specify the object to update via internal ID or external ID
 To update your NetSuite record, you first need to specify which record to update. You can use either the internal ID or the external ID to specify the record - all other fields with values passed into them will overwrite the original existing value in the NetSuite record.
 
@@ -442,7 +440,7 @@ When selecting the fields to update in the NetSuite connector, take note that so
 
 If you can't find the field you're looking for, check with your NetSuite admin or with us!
 
-### Unsupported records
+## Unsupported records
 There are certain records that triggers and search actions do not support, as they cannot be queried via the NetSuite API. Unsupported records are as follows:
 
 - Budget category
