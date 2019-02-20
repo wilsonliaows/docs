@@ -100,9 +100,9 @@ The below configuration in the distribution model will enable SAP to send DEBMAS
 
 ### Configure Workato On-prem Agent (OPA) on SAP server
 #### Step 6: Download Workato On-prem Agent (OPA)
-For IDoc to work with Workato, you need to install a Workato On-prem Agent (OPA) on your SAP server.
+For Workato to talk to SAP, you need to install a Workato On-prem Agent (OPA) on your SAP server, or on a separate Virtual Machine that can reach your SAP server. The Virtual Machine needs to be in the same domain with your SAP server and not outside of the firewall.
 
-Follow [these instructions](https://docs.workato.com/on-prem/setup.html) to download and setup Workato OPA on your SAP server.
+Follow [these instructions](https://docs.workato.com/on-prem/setup.html) to download and setup Workato OPA.
 
 #### Step 7: Download the SAP JCO libraries
 If you do not already have a license to use SAP JCo libraries, please contact your SAP provider for license.
