@@ -72,18 +72,98 @@ Workbot commands can invoke their recipes by:
 ### Parameters
 Each parameter can store additional data that can be used as datapills in follow-up recipe actions.
 
-For example, to create an incident in ServiceNow, you may want to prompt users for additional info like **Urgency**, **Summary** and **Description**. By adding **Urgency**, **Summary** and **Description** as parameters, Workbot can prompt users for each parameter value.
+For example, to create an incident in ServiceNow, you may want to prompt users for additional info like **Urgency**, **Summary** and **Description**. By adding **Urgency**, **Summary** and **Description** as parameters, Workbot will open a task module and prompt the user for each parameter.
 
-![Parameters](/assets/images/workbot-for-teams/parameters.png)
-*Parameters in the 'newissue' command*
-
-![Param prompt](/assets/images/workbot-for-teams/workbot-params-prompt.png)
-*Workbot prompting for parameter values*
+![Task module](/assets/images/workbot-for-teams/task-module.png)
+*Workbot can ask users for info if you specify additional parameters in your command*
 
 Users can also skip the prompts by supplying the parameters together with the command.
 
-![Button command](/assets/images/workbot-for-teams/workbot-command-example.png)
+![Command with in-line parameters](/assets/images/workbot-for-teams/workbot-command-example.png)
 *Sending a 'newissue' command with additional parameters Urgency, Summary and Description*
+
+#### Defining parameters
+![Parameters configured](/assets/images/workbot-for-teams/parameters-configured.png)
+*3 parameters configured for the 'newissue' command*
+
+When you define parameters, Workbot opens a task module to collect each parameter's value from the user.
+
+To add a parameter, click on the **+Add parameter** button under the **Parameters** section of a Workbot command trigger.
+
+![Adding a parameter](/assets/images/workbot-for-teams/adding-a-parameter.png)
+*Adding a new parameter*
+
+
+By configuring the parameter, you can control how the users interact with the parameter in the task module.
+
+![Parameter form empty](/assets/images/workbot-for-teams/parameter-form-filled.png)
+*Configuring a parameter*
+
+
+The table below describes in further detail what each parameter configuration field does.
+
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Input field</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>
+              Name of the parameter. This is the name you use to reference the parameter in:<br>
+              <ul>
+                <li>
+                  In-line commands</li><br><img src="/assets/images/workbot-for-teams/workbot-command-example.png"></img>
+                </li>
+                <li>
+                  Choice parameters<br><img src="/assets/images/workbot-for-teams/choice-param-recipe.png"></img>
+                </li>
+                <li>
+                  Additional parameters in buttons<br><img src="/assets/images/workbot-for-teams/button-command.png"></img>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <td>Data type</td>
+            <td>
+              Data type of the parameter. Currently only supports <code>string</code> and <code>date</code> data types. The data type will influence the input type used to collect this parameter in task modules. For example, if <code>Date</code> is chosen, a date picker will be used to collect the parameter in task modules.
+            </td>
+        </tr>
+        <tr>
+            <td>Optional?</td>
+            <td>
+              If set to <b>Yes</b>, users can skip this input. If set to <b>No</b>, users are required to provide this input.
+            </td>
+        </tr>
+        <tr>
+            <td>Hint</td>
+            <td>
+              Hints are displayed just below the input field  for users when filling in the input field.
+            </td>
+        </tr>
+        <tr>
+            <td>Example input value</td>
+            <td>
+              Displays the example input value when the field is empty in the task module. Useful in giving the user a sense of what the requested input should look like, as well as the desired format.
+            </td>
+        </tr>
+        <tr>
+            <td>Visible?</td>
+            <td>
+              If <b>Yes</b>, command will not show up in task modules. Useful if the parameter is a record ID that is not human-readable. Defaults to <b>No</b>.
+            </td>
+        </tr>
+        <tr>
+            <td>Options</td>
+            <td>
+              Comma-separated list of options, e.g. APPROVED, REJECTED, EXPIRED. If the display name and athe value are different, separate the two by a colon, e.g. <b>High:1,Medium:2,Low:3</b>.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### Advanced methods to pass parameter values
 Parameter values can also be passed by buttons and task modules as they invoke a Workbot command. Typically, you use parameters to pass context to the invoked Workbot recipe.

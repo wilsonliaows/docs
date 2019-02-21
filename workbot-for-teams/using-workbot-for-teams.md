@@ -17,6 +17,12 @@ A Workbot command is a trigger that allows you to run a Workbot command recipe.
 
 >To learn more about Workbot commands, see [Workbot commands](/workbot-for-teams/workbot-triggers.md).
 
+### Workbot 'help'
+If you get stuck, you can always send the **help** command to Workbot. Workbot will respond with the list of commands available to you.
+
+![Workbot help](/assets/images/workbot-for-teams/workbot-help.png)
+*Asking Workbot for help*
+
 ### Invoking Workbot commands in Teams
 Workbot commands can be invoked in 3 distinct ways:
 1. Sending the command in a direct message to Workbot or in a channel (in a channel, this requires tagging Workbot i.e. **@workbot your_command**)<br>
@@ -29,9 +35,9 @@ Workbot commands can be invoked in 3 distinct ways:
 
 >To learn more about how buttons, choices and task modules work, see [Buttons, choices and task modules](/workbot-for-teams/buttons-choices-task-modules.md).
 
-Commands can also prompt users for additional parameters. For example, to create a new ServiceNow incident, the user should provide the urgency, summary and description of the incident. In this case, you can add 3 parameters; `urgency`, `summary` & `description`. When the command is invoked, Workbot will prompt the user for each parameter when the command is invoked.
+Commands can also prompt users for additional parameters. For example, to create a new ServiceNow incident, the user should provide the urgency, summary and description of the incident. In this case, you can add 3 parameters; `urgency`, `summary` & `description`. When the command is invoked, Workbot will open a task module and prompt the user for each parameter.
 
-![Parameter prompts](/assets/images/workbot-for-teams/workbot-params-prompt.png)
+![Task module](/assets/images/workbot-for-teams/task-module.png)
 *Workbot can ask users for info if you specify additional parameters in your command*
 
 ## Event notifications using Post message action
