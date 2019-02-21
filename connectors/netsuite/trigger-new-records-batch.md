@@ -5,7 +5,7 @@ date: 2019-02-20 06:00:00 Z
 
 # NetSuite trigger - New/updated records (batch)
 
-Triggers every 5 minutes. Depend on the name of the trigger you selected, trigger will retrieve a list of NetSuite records' created or updated since the last time recipe triggered. Maximum batch size is 200 records.
+Triggers every 5 minutes. Depending on the name of the trigger you selected, the trigger will retrieve a list of NetSuite records created and/or updated since the last time the recipe was triggered. Maximum batch size is 200 records.
 
 ## Input fields
 Select the NetSuite object to monitor. In this example, we select `Customer`.
@@ -42,7 +42,7 @@ The followings are all input fields in this section:
 | Range | Trigger may detect many new NetSuite records and process the records in several smaller batches, based on the configured `Batch size`. This output field contains the first batch's job ID and last batch's job ID. |
 | First batch's job ID | Trigger may detect many new NetSuite records and process the records in several smaller batches, based on the configured `Batch size`. This output field is the job ID of the first batch. |
 | Last batch's job ID | Trigger may detect many new NetSuite records and process the records in several smaller batches, based on the configured `Batch size`. This output field is the job ID of the first batch. |
-| Records | A list data pill containing all NetSuite records retrieved by the trigger in this batch. You can use this to [iterate through all records in the list](/features/list-management.md).<br><br>Expand this data pill to find the NetSuite record's fields. Only fields shortlisted in the `Output field configuration` section will be displayed here. |
+| Records | A [list data pill](/features/list-management.md) containing all NetSuite records retrieved by the trigger in this batch. You can use this to [iterate through all records in the list](/features/list-management.md).<br><br>Expand this data pill to find the NetSuite record's fields. Only fields shortlisted in the `Output field configuration` section will be displayed here. |
 | Total number of record | Total number of records in this batch. |
 | First batch | Whether this is the first batch. |
 | Last batch | Whether this is the last batch. |
