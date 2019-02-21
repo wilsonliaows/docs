@@ -417,6 +417,8 @@
     * [Classification record trigger](connectors/netsuite.md#new-classification-object-trigger)
     * [New record trigger](connectors/netsuite.md#new-standard-object-and-new-custom-object-trigger)
     * [New/updated record trigger](connectors/netsuite.md#newupdated-standard-object-and-newupdated-custom-object-trigger)
+    * [New records batch trigger](connectors/netsuite/trigger-new-records-batch.md)
+    * [New/updated records batch trigger](connectors/netsuite/trigger-new-records-batch.md)
     * [New saved search trigger](connectors/netsuite.md#new-saved-search-result-for-object-trigger)
     * [New/updated saved search trigger](connectors/netsuite.md#newupdated-saved-search-result-for-object-trigger)
     * [Create record action](connectors/netsuite.md#add-standard-object-and-add-custom-object-action)
