@@ -29,7 +29,7 @@ The trigger will output all segments and data fields of the IDoc received from S
 
 ## Troubleshooting
 
-**I use multiple recipes to listen to the same IDoc and some recipes miss the IDoc**
+### I use multiple recipes to listen to the same IDoc and some recipes miss the IDoc
 
 Currently 1 IDoc can only be listened by 1 recipe. Using multiple recipes to listen to the same IDoc will result in lost IDoc.
 
