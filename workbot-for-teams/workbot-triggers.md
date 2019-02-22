@@ -159,7 +159,7 @@ The table below describes in further detail what each parameter configuration fi
         <tr>
             <td>Options</td>
             <td>
-              Comma-separated list of options, e.g. APPROVED, REJECTED, EXPIRED. If the display name and athe value are different, separate the two by a colon, e.g. <b>High:1,Medium:2,Low:3</b>.
+              Comma-separated list of options, e.g. <b>APPROVED, REJECTED, EXPIRED</b>. If the display name and athe value are different, separate the two by a colon, e.g. <b>High:1,Medium:2,Low:3</b>.
             </td>
         </tr>
     </tbody>
