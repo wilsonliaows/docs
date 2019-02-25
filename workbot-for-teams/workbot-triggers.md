@@ -14,7 +14,7 @@ This means you can from perform actions in your apps from within Teams!
 When a command is sent to Workbot in Teams, it will trigger the Workbot recipe and execute its actions.
 
 ![Command recipe](/assets/images/workbot-for-teams/command-recipes.png)
-*A Workbot recipe with a command trigger*
+*A Workbot recipe with a Workbot command trigger*
 
 ## Configuring the command
 ![New command](/assets/images/workbot-for-teams/new-command.png)
