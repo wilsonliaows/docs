@@ -8,7 +8,7 @@ date: 2019-02-25 23:00:00 Z
 
 Workato's SharePoint connector enables you to build even more integrations and automations around Sharepoint and other third-party applications.
 
-## API version
+## API
 The SharePoint connector uses [SharePoint REST API](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service).
 
 ## How to connect to SharePoint on Workato
