@@ -203,7 +203,7 @@ We can also specify that a parameter extracted from the user's input be used in 
 ![Response](/assets/images/workbot/workbot-dialogflow-nlu/response.png)
 
 #### Contexts
-Contexts let us control conversation flows by letting us define specific states that a conversation must be in before an intent should be match. Normally, Dialogflow matches an intent if its training phrases closely resemble the user utterance. However, when contexts are applied to an intent, Dialogflow will only consider that intent for matching if the context is active.
+Contexts let us control conversation flows by letting us define specific states that a conversation must be in before an intent should be matched. Normally, Dialogflow matches an intent if its training phrases closely resemble the user utterance. However, when contexts are applied to an intent, Dialogflow will only consider that intent for matching if the context is active.
 
 There are two types of contexts that let you activate and deactivate contexts and can control the flow of your conversation.
 
