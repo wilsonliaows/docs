@@ -4,9 +4,9 @@ date: 2019-02-25 23:00:00 Z
 ---
 
 # SharePoint
-[SharePoint](https://products.office.com/en-us/sharepoint/collaboration) is a web-based collaboration, document management and storage system, integrated with Microsoft Office.
+[SharePoint](https://products.office.com/en-us/sharepoint/collaboration) is a web-based collaboration, document management and storage system integrated with Microsoft Office.
 
-Workato's SharePoint connector enables you to build even more integration and automation around Sharepoint and other third-party applications.
+Workato's SharePoint connector enables you to build even more integrations and automations around Sharepoint and other third-party applications.
 
 ## API version
 The SharePoint connector uses [SharePoint REST API](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service).
