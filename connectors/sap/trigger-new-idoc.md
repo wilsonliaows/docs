@@ -13,7 +13,7 @@ A few things to take note:
 
 - You must [configure IDocs in your SAP system](https://docs.workato.com/connectors/sap.html#configure-idoc-in-sap-to-work-with-workato) before using this trigger.
 
-- Currently, 1 IDoc can only be listened by 1 recipe. Using multiple recipes to listen to the same IDoc will result in lost IDoc. We will make enhancement to improve this in the future, but for now a simple workaround is to use [Callable recipes](/features/callable-recipes.md). For details on how to do this, please see the [Troubleshooting section](#Troubleshooting) at the end of this doc.
+- Currently, 1 IDoc can only be listened by the trigger of 1 recipe. Using multiple recipes to listen to the same IDoc will result in some recipes missing the IDoc. Workato will make enhancement to improve this in the near future, but at present, a simple workaround is to use [Callable recipes](/features/callable-recipes.md). For details on how to do this, please see the [Troubleshooting section](#Troubleshooting) at the end of this doc.
 
 
 ## Input fields
@@ -31,7 +31,7 @@ The trigger will output all segments and data fields of the IDoc received from S
 
 ### I use multiple recipes to listen to the same IDoc and some recipes miss the IDoc
 
-Currently 1 IDoc can only be listened by 1 recipe. Using multiple recipes to listen to the same IDoc will result in lost IDoc.
+Currently, 1 IDoc can only be listened by the trigger of 1 recipe. Using multiple recipes to listen to the same IDoc will result in some recipes missing the IDoc.
 
 A simple workaround is to use [Callable recipes](/features/callable-recipes.md). You will create 1 recipe to listen to the IDOC, then call other recipes to execute different workflows. Here is an example:
 
