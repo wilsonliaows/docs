@@ -349,7 +349,7 @@
   * [Google Speech-to-Text](connectors/google-speech-to-text.md)
     * [Connection setup](connectors/google-speech-to-text.md#how-to-connect-to-google-speech-to-text-on-workato)
     * [Convert short speech to text action](connectors/google-speech-to-text/action-short-speech.md)
-  * [Google Text-to-Speech](connectors/text-to-speech.md)
+  * [Google Text-to-Speech](connectors/google-text-to-speech.md)
     * [Connection setup](connectors/google-text-to-speech.md#how-to-connect-to-google-text-to-speech-on-workato)
     * [Convert text to speech action](connectors/google-text-to-speech/action-synthesize-text.md)
   * [Google Translate](connectors/google-translate.md)
