@@ -286,7 +286,7 @@ sap:
 
 The below properties are required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
 
-- **ashost**: SAP host in the format of `xx.xx.xx.xx`. This is the IP Address of the SAP application server you are connecting directly. This can be seen on the SAP Logon Pad which is used to login to your On-Premise SAP Application server.
+- **ashost**: SAP host in the format of `xx.xx.xx.xx`. This is the IP Address of the SAP application server you are connecting directly. This can be seen on the SAP Logon Pad which is used to login to your on-premise SAP Application server.
 
     ![Host](/assets/images/connectors/sap/ashost.png)
 
@@ -294,12 +294,22 @@ The below properties are required if Application Server is connected directly to
 
     ![Client](/assets/images/connectors/sap/client.png)
 
-The below properties are required if Message Server is connected to the SAP JCO Connector. This will allow Load Balancer on the SAP side to be enabled and can be used for SAP Production server connection parameters:
+The below properties are required if Message Server is connected to the SAP JCO Connector. The Message Server is responsible for communication between SAP application servers. It passes requests from one application server to another within the system. This will allow Load Balancer on the SAP side to be enabled:
 
 - **mshost**: Message Server host in the format of `xx.xx.xx.xx`. This is the IP Address of the Message Server you are connecting.
-- **msserv**: Message Server client number.
-- **r3name**: R/3
-- **group**: PUBLIC
+- **msserv**: Message Server port.
+
+    `mhost` and `msserv` can be found in SAP Tcode SMMS as shown below:
+
+    ![Message Server Host](/assets/images/connectors/sap/mhost.png)
+
+- **r3name**: The system ID of the SAP system, e.g. R/3, SQ2. Can be found on the SAP Logon Pad which is used to login to your SAP Application server.
+
+    ![Message Server Host](/assets/images/connectors/sap/r3name.png)
+
+- **group**: Logical group name of the application servers. Can be found in SAP Tcode SMLG:
+
+    ![Group](/assets/images/connectors/sap/group.png)
 
 The below properties are required irrespective of the connection type, either Message Server or Application server:
 
@@ -328,7 +338,7 @@ These are required for SAP Outbound Connection properties:
 - **gwserv**: Gateway server port.
 - **progid**: SAP Program ID configured for Workato.
 
-    The 3 properties above can be found in the SM59 Tcode for the Workato RFC Destination created:
+    The 3 properties above can be found in the SM59 Tcode for the created Workato RFC Destination:
 
     ![Program ID](/assets/images/connectors/sap/program-id.png)
 
