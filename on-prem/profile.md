@@ -232,7 +232,7 @@ sap:
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Property to get IDOC list configured on RCVPRN profile
+    # Property to get IDoc list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
@@ -278,13 +278,13 @@ sap:
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Property to get IDOC list configured on RCVPRN profile
+    # Property to get IDoc list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
 ### How to configure SAP profile properties
 
-The below properties are required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
+The properties below are required if you are connecting directly to SAP Application Server. This will not allow Load Balancer on the SAP side to be enabled:
 
 - **ashost**: SAP host in the format of `xx.xx.xx.xx`. This is the IP Address of the SAP application server you are connecting directly. This can be seen on the SAP Logon Pad which is used to login to your on-premise SAP Application server.
 
@@ -294,7 +294,7 @@ The below properties are required if Application Server is connected directly to
 
     ![Client](/assets/images/connectors/sap/client.png)
 
-The below properties are required if Message Server is connected to the SAP JCO Connector. The Message Server is responsible for communication between SAP application servers. It passes requests from one application server to another within the system. This will allow Load Balancer on the SAP side to be enabled:
+The properties below are required if you are connecting to SAP Message Server. The Message Server is responsible for communication between SAP application servers. It passes requests from one application server to another within the system. This will allow Load Balancer on the SAP side to be enabled:
 
 - **mshost**: Message Server host in the format of `xx.xx.xx.xx`. This is the IP Address of the Message Server you are connecting.
 - **msserv**: Message Server port.
@@ -311,9 +311,9 @@ The below properties are required if Message Server is connected to the SAP JCO 
 
     ![Group](/assets/images/connectors/sap/group.png)
 
-The below properties are required irrespective of the connection type, either Message Server or Application server:
+The properties below are required irrespective of the connection type, either Message Server or Application server:
 
-- **user**: SAP RFC user. Recommend using background user and disabling dialog properties.
+- **user**: SAP RFC user. Using background user and disabling dialog properties are recommended.
 
     ![User](/assets/images/connectors/sap/user.png)
 
@@ -352,7 +352,7 @@ These are optional for Workato Connection properties (for advanced users):
 - **cm_max_total**: Default 10. Total number of connections in the connection pool.
 - **cm_default_max_per_route**: Default 5. Number of connections in the pool per route.
 
-These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
+These are required for SAP IDoc Connection properties (defined to send IDocs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
 
 - **SNDPOR**: Transactional RFC port configured in SAP for Workato.
 - **SNDPRT**: Partner profile type.
@@ -360,11 +360,11 @@ These are required for SAP IDOC Connection properties (defined to send IDOCs to 
 - **RCVPOR**: SAP default Receiver Port.
 - **RCVPRT**: Receiver Partner profile type.
 - **RCVPRN**: Receiver Partner profile type defined for the SAP.
-    To find the 6 properties above, send a sample IDOC to the created IDOC configuration in SAP. Proceed to Tcode WE19, open the IDOC number and its control record, then you can find all 6 properties in one place as shown below:
+    To find the 6 properties above, send a sample IDoc to the created IDoc configuration in SAP. Proceed to Tcode WE19, open the IDoc number and its control record, then you can find all 6 properties in one place as shown below:
 
     ![Control segment](/assets/images/connectors/sap/control-segment.png)
 
-The below property is required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+The below property is required to get IDoc dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
 
 - **OUT_RCVPRN**: Receiver Partner profile type defined for the SAP. Can be the same as **RCVPRN** above for ease of use.
 
