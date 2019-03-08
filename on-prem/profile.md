@@ -360,6 +360,7 @@ These are required for SAP IDoc Connection properties (defined to send IDocs to 
 - **RCVPOR**: SAP default Receiver Port.
 - **RCVPRT**: Receiver Partner profile type.
 - **RCVPRN**: Receiver Partner profile type defined for the SAP.
+
     To find the 6 properties above, send a sample IDoc to the created IDoc configuration in SAP. Proceed to Tcode WE19, open the IDoc number and its control record, then you can find all 6 properties in one place as shown below:
 
     ![Control segment](/assets/images/connectors/sap/control-segment.png)
