@@ -10572,10 +10572,10 @@ You need to specify the base folder for file access as it will be used for resol
 <span class="hljs-attr">      RCVPOR:</span> SAPEQ6
 <span class="hljs-attr">      RCVPRT:</span> LS
 <span class="hljs-attr">      RCVPRN:</span> T90CLNT090
-    <span class="hljs-comment"># Property to get IDOC list configured on RCVPRN profile</span>
+    <span class="hljs-comment"># Property to get IDoc list configured on RCVPRN profile</span>
 <span class="hljs-attr">      OUT_RCVPRN:</span> WORKATO
 </code></pre>
-<p>Below is the example of <code>messageserver</code> connection type. Use this connection type when SAO system is behind message server gateway.</p>
+<p>Below is the example of <code>messageserver</code> connection type. Use this connection type when SAP system is behind message server gateway.</p>
 <pre><code class="lang-YAML"><span class="hljs-attr">server:</span>
 <span class="hljs-attr">  classpath:</span>
 <span class="hljs-bullet">    -</span> lib/SAPConnector.jar
@@ -10615,198 +10615,86 @@ You need to specify the base folder for file access as it will be used for resol
 <span class="hljs-attr">      RCVPOR:</span> SAPEQ6
 <span class="hljs-attr">      RCVPRT:</span> LS
 <span class="hljs-attr">      RCVPRN:</span> T90CLNT090
-    <span class="hljs-comment"># Property to get IDOC list configured on RCVPRN profile</span>
+    <span class="hljs-comment"># Property to get IDoc list configured on RCVPRN profile</span>
 <span class="hljs-attr">      OUT_RCVPRN:</span> WORKATO
 </code></pre>
-<p>The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ashost</td>
-<td>SAP host in the format of <code>xxx.xxx.xxx.xxx</code></td>
-</tr>
-<tr>
-<td>client</td>
-<td>Three digit sap client id</td>
-</tr>
-</tbody>
-</table>
-<p>The below properties are mandatory and required if Messager Server is connected to the SAP JCO Connector. This will allow Load Balancer on the SAP side to be enabled and can be used for SAP Production server connection parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mshost</td>
-<td>10.30.32.80</td>
-</tr>
-<tr>
-<td>msserv</td>
-<td>3601</td>
-</tr>
-<tr>
-<td>r3name</td>
-<td>R/3</td>
-</tr>
-<tr>
-<td>group</td>
-<td>PUBLIC</td>
-</tr>
-</tbody>
-</table>
-<p>The below properties are required irrespective of the connection type. Be it either Message Server or Application server:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>user</td>
-<td>SAP RFC user. Recommend using background user and disable dialog properties.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>SAP RFC user password</td>
-</tr>
-<tr>
-<td>lang</td>
-<td>Logon language</td>
-</tr>
-<tr>
-<td>sysnr</td>
-<td>Two digit sap system number</td>
-</tr>
-<tr>
-<td>pool_capacity</td>
-<td>Default to <code>3</code>. Maximum number of idle connections that kept open for a SAP connection.</td>
-</tr>
-<tr>
-<td>peak_limit</td>
-<td>Default to <code>10</code>. Maximum number of active connections that can be created for a sap connection simultaneously</td>
-</tr>
-</tbody>
-</table>
+<h3 id="how-to-configure-sap-profile-properties">How to configure SAP profile properties</h3>
+<p>The properties below are required if you are connecting directly to SAP Application Server. This will not allow Load Balancer on the SAP side to be enabled:</p>
+<ul>
+<li><p><strong>ashost</strong>: SAP host in the format of <code>xx.xx.xx.xx</code>. This is the IP Address of the SAP application server you are connecting directly. This can be seen on the SAP Logon Pad which is used to login to your on-premise SAP Application server.</p>
+<p>  <img src="../assets/images/connectors/sap/ashost.png" alt="Host"></p>
+</li>
+<li><p><strong>client</strong>: The actual client number which is used for connecting to Workato. Use the same one you log into with your SAP Logon Pad. It&apos;s always a 3 digit integer.</p>
+<p>  <img src="../assets/images/connectors/sap/client.png" alt="Client"></p>
+</li>
+</ul>
+<p>The properties below are required if you are connecting to SAP Message Server. The Message Server is responsible for communication between SAP application servers. It passes requests from one application server to another within the system. This will allow Load Balancer on the SAP side to be enabled:</p>
+<ul>
+<li><strong>mshost</strong>: Message Server host in the format of <code>xx.xx.xx.xx</code>. This is the IP Address of the Message Server you are connecting.</li>
+<li><p><strong>msserv</strong>: Message Server port.</p>
+<p>  <code>mhost</code> and <code>msserv</code> can be found in SAP Tcode SMMS as shown below:</p>
+<p>  <img src="../assets/images/connectors/sap/mhost.png" alt="Message Server Host"></p>
+</li>
+<li><p><strong>r3name</strong>: The system ID of the SAP system, e.g. R/3, SQ2. Can be found on the SAP Logon Pad which is used to login to your SAP Application server.</p>
+<p>  <img src="../assets/images/connectors/sap/r3name.png" alt="Message Server Host"></p>
+</li>
+<li><p><strong>group</strong>: Logical group name of the application servers. Can be found in SAP Tcode SMLG:</p>
+<p>  <img src="../assets/images/connectors/sap/group.png" alt="Group"></p>
+</li>
+</ul>
+<p>The properties below are required irrespective of the connection type, either Message Server or Application server:</p>
+<ul>
+<li><p><strong>user</strong>: SAP RFC user. Using background user and disabling dialog properties are recommended.</p>
+<p>  <img src="../assets/images/connectors/sap/user.png" alt="User"></p>
+</li>
+<li><p><strong>password</strong>: SAP RFC user password.</p>
+<p>  <img src="../assets/images/connectors/sap/password.png" alt="Password"></p>
+</li>
+<li><p><strong>lang</strong>: Logon language.</p>
+<p>  <img src="../assets/images/connectors/sap/language.png" alt="Language"></p>
+</li>
+<li><p><strong>sysnr</strong>: Two digit SAP system number.</p>
+<p>  <img src="../assets/images/connectors/sap/system-number.png" alt="System number"></p>
+</li>
+<li><p><strong>pool_capacity</strong>: Default to <code>3</code>. Maximum number of idle connections that kept open for a SAP connection.</p>
+</li>
+<li><strong>peak_limit</strong>: Default to <code>10</code>. Maximum number of active connections that can be created for SAP simultaneously.</li>
+</ul>
 <p>These are required for SAP Outbound Connection properties:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>gwhost</td>
-<td>SAP Gateway Host, in the number format of <code>xxx.xxx.xxx.xxx</code> (e.g. 10.30.23.01)</td>
-</tr>
-<tr>
-<td>gwserv</td>
-<td>Gateway server port, in the number format of <code>xxxx</code> (e.g. 3300)</td>
-</tr>
-<tr>
-<td>progid</td>
-<td>SAP Program ID configured for Workato&gt;</td>
-</tr>
-<tr>
-<td>connection_count</td>
-<td>Default to <code>2</code>. The number of parallel connection can be open for outbound sap connection.</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><strong>gwhost</strong>: SAP Gateway Host, in the number format of <code>xx.xx.xx.xx</code>.</li>
+<li><strong>gwserv</strong>: Gateway server port.</li>
+<li><p><strong>progid</strong>: SAP Program ID configured for Workato.</p>
+<p>  The 3 properties above can be found in the SM59 Tcode for the created Workato RFC Destination:</p>
+<p>  <img src="../assets/images/connectors/sap/program-id.png" alt="Program ID"></p>
+</li>
+<li><p><strong>connection_count</strong>: Default to <code>2</code>. The number of parallel connection can be open for outbound sap connection.</p>
+</li>
+</ul>
 <p>These are optional for Workato Connection properties (for advanced users):</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>http_connect_timeout</td>
-<td>Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout.</td>
-</tr>
-<tr>
-<td>http_connection_request_timeout</td>
-<td>Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout.</td>
-</tr>
-<tr>
-<td>http_socket_timeout</td>
-<td>Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets.</td>
-</tr>
-<tr>
-<td>cm_max_total</td>
-<td>Default 10. Total number of connections in the connection pool.</td>
-</tr>
-<tr>
-<td>cm_default_max_per_route</td>
-<td>Default 5. Number of connections in the pool per route.</td>
-</tr>
-</tbody>
-</table>
-<p>These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SNDPOR</td>
-<td>Transactional RFC port configured in SAP for Workato</td>
-</tr>
-<tr>
-<td>SNDPRT</td>
-<td>Partner profile type</td>
-</tr>
-<tr>
-<td>SNDPRN</td>
-<td>Partner profile Name defined for Workato</td>
-</tr>
-<tr>
-<td>RCVPOR</td>
-<td>SAP default Receiver Port</td>
-</tr>
-<tr>
-<td>RCVPRT</td>
-<td>Receiver Partner profile type</td>
-</tr>
-<tr>
-<td>RCVPRN</td>
-<td>Receiver Partner profile type defined for the SAP</td>
-</tr>
-</tbody>
-</table>
-<p>The below property is required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:</p>
-<table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OUT_RCVPRN</td>
-<td>Receiver Partner profile type defined for the SAP</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><strong>http_connect_timeout</strong>: Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout.</li>
+<li><strong>http_connection_request_timeout</strong>: Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout.</li>
+<li><strong>http_socket_timeout</strong>: Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets.</li>
+<li><strong>cm_max_total</strong>: Default 10. Total number of connections in the connection pool.</li>
+<li><strong>cm_default_max_per_route</strong>: Default 5. Number of connections in the pool per route.</li>
+</ul>
+<p>These are required for SAP IDoc Connection properties (defined to send IDocs to SAP). These can be dynamically overridden with the Workato recipe/mapping:</p>
+<ul>
+<li><strong>SNDPOR</strong>: Transactional RFC port configured in SAP for Workato.</li>
+<li><strong>SNDPRT</strong>: Partner profile type.</li>
+<li><strong>SNDPRN</strong>: Partner profile Name defined for Workato.</li>
+<li><strong>RCVPOR</strong>: SAP default Receiver Port.</li>
+<li><strong>RCVPRT</strong>: Receiver Partner profile type.</li>
+<li><p><strong>RCVPRN</strong>: Receiver Partner profile type defined for the SAP.</p>
+<p>  To find the 6 properties above, send a sample IDoc to the created IDoc configuration in SAP. Proceed to Tcode WE19, open the IDoc number and its control record, then you can find all 6 properties in one place as shown below:</p>
+<p>  <img src="../assets/images/connectors/sap/control-segment.png" alt="Control segment"></p>
+</li>
+</ul>
+<p>The below property is required to get IDoc dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:</p>
+<ul>
+<li><strong>OUT_RCVPRN</strong>: Receiver Partner profile type defined for the SAP. Can be the same as <strong>RCVPRN</strong> above for ease of use.</li>
+</ul>
 <h2 id="jms-connection-profile">JMS connection profile</h2>
 <p>JMS connection profiles must be defined in the <code>jms</code> section. A JMS provider is specified by <code>provider</code> property of a connection profile. The following JMS providers are supported by the on-premises agent:</p>
 <table class="unchanged rich-diff-level-one">
@@ -11355,7 +11243,7 @@ The parameter schema configuration can have properties as follows:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.9.9.4","depth":3,"next":{"title":"On-premises connections","level":"1.9.9.5","depth":3,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.9.9.3","depth":3,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2019-03-06T02:29:18.270Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-06T02:30:44.799Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Profiles","date":"2017-02-22T12:00:00.000Z","level":"1.9.9.4","depth":3,"next":{"title":"On-premises connections","level":"1.9.9.5","depth":3,"path":"on-prem/connection.md","ref":"on-prem/connection.md","articles":[]},"previous":{"title":"Upgrade agent","level":"1.9.9.3","depth":3,"path":"on-prem/upgrade.md","ref":"on-prem/upgrade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/profile.md","mtime":"2019-03-11T16:46:58.574Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-11T16:48:11.603Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
