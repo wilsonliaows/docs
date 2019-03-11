@@ -12,7 +12,7 @@ Workato helps you automate business workflows across cloud apps, on-premise apps
 Workato combines enterprise-grade workflow automation with the ease-of-use expected from consumer apps, allowing business users and IT to quickly build workflow automations.
 
 ## Workbot for MS Teams, powered by Workato
->**If you're familiar with Workbot, or want to quickly get started, skip to [Setup Workbot](#setup-workbot).**
+>**If you're familiar with Workbot, skip to [Setup Workbot](#setup-workbot).**
 
 Workbot is a bot platform built on top of Workato. It helps you run these business workflows directly from Teams.
 
