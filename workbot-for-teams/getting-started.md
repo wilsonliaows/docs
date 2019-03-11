@@ -5,13 +5,15 @@ date: 2019-02-01 05:00:00 Z
 
 # Workbot for MS Teams by Workato
 ## What is Workato?
-Workato helps you automate business workflows across cloud apps, on-premise apps and employees, e.g. automate quote to cash business processes which may involve multiple apps such as Salesforce, ServiceNow, Workday, Jira, and more.
+>**If you're familiar with Workato, or want to quickly get started with Workbot, skip to [Setup Workbot](#setup-workbot).**
 
-Workato combines enterprise-grade workflow automation with the ease-of-use expected from consumer apps, enabling business users and IT to quickly build workflow automations.
+Workato helps you automate business workflows across cloud apps, on-premise apps and employees, e.g. New case in Salesforce will create issue in Jira & incident in ServiceNow, and more.
 
->If you're no stranger to Workato and would like to get started with Workbot immediately, skip to [Getting started](#getting-started).
+Workato combines enterprise-grade workflow automation with the ease-of-use expected from consumer apps, allowing business users and IT to quickly build workflow automations.
 
 ## Workbot for MS Teams, powered by Workato
+>**If you're familiar with Workbot, or want to quickly get started, skip to [Setup Workbot](#setup-workbot).**
+
 Workbot is a bot platform built on top of Workato. It helps you run these business workflows directly from Teams.
 
 These business workflows can be initiated from Teams by using [Workbot commands](/workbot-for-teams/workbot-triggers.md). When the command is sent to Workbot (via direct messages or channels), it will look for the corresponding workflow in Workato and execute the workflow steps.
@@ -38,7 +40,7 @@ Workbot commands allow you to trigger recipes from Teams. These recipes can then
 
 >**For more info, go to [Workbot commands](/workbot-for-teams/workbot-triggers.md)**.
 
-## Getting started
+## Setup Workbot
 In Teams, go to the Workbot welcome message and click on **Setup Workbot**.
 
 ![Setup Workbot](/workbot-for-teams/setup-workbot.png)
