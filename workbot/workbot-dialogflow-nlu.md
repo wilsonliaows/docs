@@ -292,7 +292,7 @@ The final intent, `ineedhelp-issue-title-description-confirm` has 6 important pa
                     <tr>
                         <td>param_query</td>
                         <td>
-                          <pre>#issue.issue, #title.title.original, #description.description.original<code>
+                          <code>#issue.issue</code>, <code>#title.title.original</code>, <code>#description.description.original</code>
                         </td>
                         <td>
                           Used by Workbot to identify the <b>command input fields</b> part of the Workbot command.
