@@ -9,9 +9,8 @@ date: 2018-05-09 12:00:00 Z
 If your on-premises agent is installed in a Linux or Mac OS, run the on-premises agent using the following bash script:
 
 ```
-<INSTALL_HOME>/bin/run.sh
+sh <INSTALL_HOME>/bin/run.sh
 ```
-
 ## Windows 64-bit
 For on-premises agents installed in Windows, run the agent as a Windows console application or as a [Windows Service](#using-windows-service).
 
