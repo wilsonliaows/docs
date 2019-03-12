@@ -46,7 +46,7 @@ ldap:
 
 **Do not use spaces or special characters in connection profile names.**
 
-## Running your agent configuring your agent
+## Running your agent
 After configuring your connection profiles, you will need to run your on-premises agent on your machine. [Check out how to do so on your operating system.](/on-prem/run.md)
 
 ## Applying a new configuration
