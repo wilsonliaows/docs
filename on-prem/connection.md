@@ -43,3 +43,9 @@ When configuring an on-premises files connection to this profile, we will need t
 
 ![On-premises file connection using on-premises agent](/assets/images/on-prem/files-opa-connection.png)
 *On-premises file connection using on-premises agent*
+
+## Further actions
+1) [Upgrade your On-premises Agent](https://docs.workato.com/on-prem/upgrade.html)
+2) [Avoid exposure of any sensitive data by using the encryptor tool provided](https://docs.workato.com/on-prem/password-encryption.html)
+3) [Run your On-Premises Agent in environments with limited internet connectivity](https://docs.workato.com/on-prem/proxy.html)
+4) [Connect to legacy applications using Java](https://docs.workato.com/on-prem/extension.html)
