@@ -36,4 +36,4 @@ If successful, you should see the following in the agent you have just created.
 
 Your On-premises Agent's status in the top left should be labelled green and `Active`
 
-After you've configured and secured a connection to Workato using your On-premises Agent, its time to [finally set up connections.](https://docs.workato.com/on-prem/connection.html)
+After you've configured and secured a connection to Workato using your On-premises Agent, its time to [finally set up connections.](/on-prem/connection.md)
