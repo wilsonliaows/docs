@@ -24,15 +24,17 @@ The installer automatically registers the agent as a Windows service called `Wor
 ### Browsing log files
 When the on-premises agent is running as a Windows service, log files can be found at: `%SYSTEMROOT%\System32\LogFiles\Workato`. There's also a shortcut to the Workato log directory in the `Workato` group found in the Start Menu.
 
-## Confirming your On-premises Agent is running and connected
+## Confirming your on-premises agent is running and connected
 
-To check if your On-premises Agent is running and connected, head back to the [On-premises agent page](https://www.workato.com/secure_agents). Alternatively, you can find it in the top navigation bar under `Tools` > `On-prem agent`.
+To check if your on-premises agent is running and connected, head back to the [on-premises agent page](https://www.workato.com/secure_agents). Alternatively, you can find it in the top navigation bar under `Tools` > `On-prem agent`.
 
 ![On-premises option](/assets/images/on-prem/navigate-to-opa.gif)
+*Navigating to the on-premises agent page*
 
 If successful, you should see the following in the agent you have just created.
 
 ![Confirmation of On-premises agent](/assets/images/on-prem/Confirmation-of-OPA.gif)
+*on-premises agent page when connected and running*
 
 Your On-premises Agent's status in the top left should be labelled green and `Active`
 
