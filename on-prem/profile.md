@@ -47,7 +47,7 @@ ldap:
 **Do not use spaces or special characters in connection profile names.**
 
 ## Running your agent configuring your agent
-After configuring your connection profiles, you will need to run your on-premises agent on your machine. [Check out how to do so on your operating system.](https://docs.workato.com/on-prem/run.html)
+After configuring your connection profiles, you will need to run your on-premises agent on your machine. [Check out how to do so on your operating system.](/on-prem/run.md)
 
 ## Applying a new configuration
 A running on-premises agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
