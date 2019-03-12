@@ -33,9 +33,9 @@ To check if your on-premises agent is running and connected, head back to the [o
 
 If successful, you should see the following in the agent you have just created.
 
-![Confirmation of On-premises agent](/assets/images/on-prem/Confirmation-of-OPA.gif)
+![Confirmation of on-premises agent](/assets/images/on-prem/Confirmation-of-OPA.gif)
 *on-premises agent page when connected and running*
 
-Your On-premises Agent's status in the top left should be labelled green and `Active`
+Your on-premises agent's status in the top left should be labelled green and `Active`
 
-After you've configured and secured a connection to Workato using your On-premises Agent, its time to [finally set up connections to your recipes in Workato.](/on-prem/connection.md)
+After you've configured and secured a connection to Workato using your on-premises agent, its time to [finally set up connections to your recipes in Workato.](/on-prem/connection.md)
