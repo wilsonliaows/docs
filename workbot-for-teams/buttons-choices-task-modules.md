@@ -124,8 +124,52 @@ The following table shows what goes into the pick list and choice fields:
       </tbody>
     </table>
 
-## Dynamic buttons & fact sets
+## Task modules
+When parameters are defined in the Workbot command, Workbot will launch a task module within Teams to collect parameter values from the user.
 
+![Parameters in recipe](/assets/images/workbot-for-teams/task-module-recipe.png)
+*Parameters in recipe*
+
+Here's how the task module looks like when prompting users for parameter values.
+
+![Task module in Teams](/assets/images/workbot-for-teams/task-module-teams.png)
+*Parameters in recipe*
+
+### Adding hints and example values in task modules
+Hints and example values can be configured for each parameter. Hints appear below the input field; example values will appear inside the input field.
+
+![Parameters schema](/assets/images/workbot-for-teams/task-module-recipe.png)
+*Parameters in recipe*
+
+Here's how the task module looks like when prompting users for parameter values.
+
+![Hints & examples in Teams](/assets/images/workbot-for-teams/task-module-teams.png)
+*Hints below input fields; example values inside input fields*
+
+### Hiding parameters
+Parameters can be hidden in task modules by setting **Optional** to **Yes**, and **Visible?** to **No**. This is useful when passing record IDs that are not human-readable.
+
+![Hidden parameter](/assets/images/workbot-for-teams/hidden-parameter.png)
+
+The parameter will be hidden from the task module.
+
+![Hidden parameter](/assets/images/workbot-for-teams/hidden-parameter-teams.png)
+
+## Adding picklist options in task modules
+Picklist options can be configured so that users can pick from a finite list of choices. This is useful when the available options are known, e.g. Urgency (High:1, Medium: 2, Low: 3), Priority (1,2,3,4,5), and so on.
+
+To add a picklist, simply add comma-separated options in the **Options** field. If the display name and the value are different, separate the two by a colon, e.g. **High:1, Medium:2, Low: 3**.
+
+![Picklist options in recipe](/assets/images/workbot-for-teams/parameter-picklist-1.png)
+*Options where display name and value are the same*
+
+![Picklist options in recipe](/assets/images/workbot-for-teams/parameter-picklist-1.png)
+*Options where display name and value are different*
+
+![Picklist in Teams](/assets/images/workbot-for-teams/parameter-picklist-teams.png)
+*Options displayed in a picklist in task module*
+
+## Dynamic buttons & fact sets
 Buttons and fact sets can also be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
 
 From the button (or fact set) fields, click on the horizontal ellipses on the top-right and choose 'Dynamic List'. This should bring up the dynamic list option.
