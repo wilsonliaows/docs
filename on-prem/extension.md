@@ -13,7 +13,7 @@ When to use this:
 - Application has a supported Java library.
 
 When not to use this:
-- Application has REST / SOAP APIs. Use the [HTTP Connector](/developing-connectors/http-v2.md) or build a customer connection with the [Connector SDK](/developing-connectors/sdk.md).
+- Application has REST / SOAP APIs. Use the [HTTP Connector](/developing-connectors/http-v2.md) or build a custom connection with the [Connector SDK](/developing-connectors/sdk.md).
 - You want to execute simple command-line scripts. Use [Command-line scripts](/on-prem/profile.md#command-line-scripts-profile) instead.
 
 ### Pre-requisites:
