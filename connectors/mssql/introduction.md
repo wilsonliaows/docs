@@ -299,26 +299,15 @@ SQL Server connector has triggers for both new and updated rows. For the trigger
 
 A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints.
 
-<details><summary><h4>Unique key</h4></summary>
+<details><summary><b>Unique key</b></summary>
 In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
 
 As such, the values in the selected column must be unique. Typically, this column is the <b>primary key</b> of the table (e.g. `ID`).
 
 
-
-
-
-</details>
-
-
-
-
-
-
-
 When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
 
-Let's use a simple example to illustrate this behavior. We have a **New row trigger** that processed rows from a table. The **unique key** configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use <var>>= 101</var> as the condition to look for new rows.
+Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use <var>>= 101</var> as the condition to look for new rows.
 
 Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed. 
 
@@ -326,14 +315,6 @@ Performance of a trigger can be improved if the column selected to be used as th
 
 
 
-
-
-<details>
-<summary>What is an index and how do I index a key?</summary>
-    <br>
-    All primary keys in SQL server are immediately defined as unique and are indexed by default. <b>Uniqueness</b> means there are no other records with the same primary key and <b>indexed</b> means these primary keys are sorted. This makes searching for rows very easy as the whole table needn't be scanned to find all relevant rows.
-    <br>
-    To index other keys that are not primary key's
 
 #### Sort column
 
