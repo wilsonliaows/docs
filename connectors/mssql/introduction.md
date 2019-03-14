@@ -124,7 +124,7 @@ This should return the following minimum permission to create a SQL Server conne
 
 ## Working with the SQL Server connector
 
-### Tables, views and stored procedures
+### Using tables, views and stored procedures
 
 #### Tables & Views
 The SQL Server connector works with all tables and views. These are available in pick lists in each trigger/action or you can provide the exact name. Views can be called using this as well and be used in the same way as a table.
@@ -151,28 +151,8 @@ If applicable, you will be prompted to enter in the parameters for your stored p
 *Select your stored procedure from the pick list*
 </details>
 
-### Single row vs batch of rows
-SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves tasks but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
+### Using `WHERE` conditions
 
-![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
-*Batch trigger inputs*
-
-Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
-
-![Single row output](/assets/images/mssql/single_row_trigger_output.png)
-*Single row output*
-
-However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
-
-![Batch trigger output](/assets/images/mssql/batch_trigger_output.png)
-*Batch trigger output*
-
-As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/666198) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
-
-![Using batch trigger output](/assets/images/mssql/using_batch_output.png)
-*Using batch trigger output*
-
-### WHERE condition
 This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:
 - filter rows to be picked up in triggers
 - filter rows in **Select rows** action
@@ -413,7 +393,7 @@ When used in a **Delete rows** action, this will delete all rows in the `compens
 ![Using subquery in WHERE condition](/assets/images/mssql/subquery-in-where-condition.png)
 *Using subquery in WHERE condition*
 
-### Trigger configuration
+### Configuring triggers
 
 SQL Server connector has triggers for both new and updated rows. For the trigger to work, both **Unique key** and **Sort column** must be configured.
 
@@ -441,3 +421,24 @@ Let's use a simple example to illustrate this behavior. We have a **New/updated 
 1. `UPDATED_AT > '2018-05-09 16:00:00.000000'`
 2. `ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
 </details>
+
+### Using single row actions/triggers vs batch of rows actions/triggers
+SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves tasks but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
+
+![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
+*Batch trigger inputs*
+
+Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
+
+![Single row output](/assets/images/mssql/single_row_trigger_output.png)
+*Single row output*
+
+However, a trigger that processes rows in batches will output them as an array of rows. The <kbd>Rows</kbd> datapill indicates that the output is a list containing data for each row in that batch.
+
+![Batch trigger output](/assets/images/mssql/batch_trigger_output.png)
+*Batch trigger output*
+
+As a result, the output of batch triggers/actions needs to be handled differently. This [recipe](https://www.workato.com/recipes/666198) uses a batch trigger for new rows in the `users` table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the <kbd>Rows</kbd> datapill into the source list.
+
+![Using batch trigger output](/assets/images/mssql/using_batch_output.png)
+*Using batch trigger output*
