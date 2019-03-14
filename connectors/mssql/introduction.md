@@ -395,6 +395,8 @@ When used in a **Delete rows** action, this will delete all rows in the `compens
 ![Using subquery in WHERE condition](/assets/images/mssql/subquery-in-where-condition.png)
 *Using subquery in WHERE condition*
 
+</details>
+
 ### Configuring triggers
 
 SQL Server connector has triggers for both new and updated rows. For the trigger to work, both **Unique key** and **Sort column** must be configured.
@@ -425,7 +427,7 @@ Let's use a simple example to illustrate this behavior. We have a **New/updated 
 </details>
 
 ### Using single row actions/triggers vs using batch of rows actions/triggers
-SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves tasks but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
+SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves operations but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
 
 ![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
 *Batch trigger inputs*
@@ -444,3 +446,100 @@ As a result, the output of batch triggers/actions needs to be handled differentl
 
 ![Using batch trigger output](/assets/images/mssql/using_batch_output.png)
 *Using batch trigger output*
+
+Outputs from batch triggers/actions can also be used outside of actions that work specifically with lists. By using Workato's repeat step, you'll be able to control batch outputs and [use them with any action built for single rows.](/features/list-management.md#using-datapills-in-an-action-with-a-repeat-step-action-does-not-handle-list-processing-list-processing-needs-to-be-done-explicitly-at-the-recipe-logic-level)
+
+### Best practices when using SQL server
+We compiled a few of our best practices that make your life easier when developing workflows with Workato. Read more to learn some crucial tips that result in less bugs and time wasted.
+
+#### When to use batch of rows triggers/actions vs single row triggers/actions
+While single row triggers/actions can almost always accomplish the same functionality as batch triggers/actions and vice versa, ultimately the decision to use one or the other becomes a matter of business requirements. Whilst batch actions offer the ability to improve time efficiency of recipe, reduce the number of operations required per run and load on servers, there exists a trade-off between the flexibility since batch actions that do fail, fail on a batch level. 
+
+When examined, most workflows with applicable batch triggers/actions can be accomplished in 3 ways:
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th width='30%'>Method</th>
+        <th width='70%'>Benefits/Drawbacks</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+      <td>The use of a batch trigger, followed by a batch action and using Workato's repeat step for any single row actions.</td>
+      <td>Using this method is the most efficient across all metrics. Since Workato employs a step-by-step (Synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed for the entire batch. In some cases, this could be useful behaviour where we would want to fix our recipe before letting it run on to further steps. To strike a balance between efficiency and stopping too many records from being process during a failed job run, toggle the batch size setting.
+        <details><summary><u>Business use case example</u></summary>
+        If we were to pull batchs of new leads from a SQL server for batch inserts into Salesforce, we could follow this up with emails to individuals on the sales team with links to the leads newly created on Saleforce directly. In cases where our information flowing in raised an error during the batch insert action, no email would be sent out to our sales team with links that didnt work! We can now safely make adjustments to our recipe to accomodate this error before repeating the job.
+        </details>
+     </td>
+    </tr>
+       <td>The use of a single row trigger, followed by a single row actions</td>
+      <td>Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (Synchronous) process within each job run so any error that causes the run to stop also prevents the following steps from being executed. In some cases, this could be useful behaviour where we would want to fix our recipe before letting it run on to further steps and yet remains different from the batch trigger version as it only stops the job runs for those that raise errors. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.
+        <details><summary><u>Business use case example</u></summary>
+        For time sensitive job runs such as new rows in a SQL server table indicating new orders, the following actions may be crucial in ensuring the timely delivery of your product to your customer. Having entire batches of orders be stopped due to a single failed record may result in lost revenue for you. In this scenario, single row triggers/actions may be the best way to minimise disruptions to your company's operations.
+        </details>
+     </td>
+    </tr>
+    </tr>
+       <td>The use of a batch trigger, followed by all required batch actions. A separate recipes can be used with a single row action and single row actions.</td>
+      <td>Using this method is allows records to be process concurrently. This allows errors to be contained at a recipe level and only affect the steps that follow after it. In cases where steps are independent of each other and one need not be completed before the other can begin, this might be the best solution.
+        <details><summary><u>Business use case example</u></summary>
+        New records in a table signify new customer sign ups for a free trial for your product. With this trigger in mind, you hope to add them in batches to a drip campaign as well as send their details individually over to your sales team for followups. As both cases need not be dependent on each other and both can be accomplished without diminishing the others effectiveness, this workflow could be accomplished as separate recipes.
+        </details>
+     </td>
+    </tr>
+  </tbody>
+</table>
+
+
+#### Using custom SQL in Workato
+Workato allows you to write your own custom SQL queries in 2 ways:
+1. [Using our `Select rows using custom SQL` action](/connectors/mssql/select.md#select-rows-using-custom-sql) (Recommended for **only** select queries)
+2. [Using our `Run custom SQL` action](/connectors/mssql/run_sql.md)
+
+With these custom SQL queries, you can do a wide range of create, read, update and delete actions on your SQL server. Since writing your own queries might get messy, remember manage your step output by giving your returned columns **meaningful aliases** and **only returning the columns that you need**. This makes maintaining your recipe easier and more readable for others as well.
+
+Also remember not to end your `Select rows using custom SQL` action with a `;` as this would cause it to error out.
+
+#### Preparing a table for use in Workato
+When looking to make triggers using our `New row` and `New/updated row` triggers, trigger configurations require either the use of a unique key or unique key and sorted column to enable Workato to ensure your trigger doesn't miss out on any records. Not all tables that you encounter may be ready to be used as a trigger so here are some best practices to prepare your table for use in Workato.
+
+**Unique keys**
+1. An auto incrementing unique integer key should be present in the table that can act as your unique key. In most cases where your table's `primary` key is set to be auto incrementing, this is usable. 
+2. When this is not the case, an auto incrementing unique integer key can be created to accomplish 
+  * Finding a proxy key that is an integer, unique and auto incrementing
+  * Creating a new auto incrementing unique integer key
+  <details><summary><b> How to create an auto incrementing key in SQL server</b> </summary>
+      1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique interger key
+      2. Enter the following commands to create an new `IDENTITY` column
+  ```sql
+ALTER TABLE yourTable
+ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
+```
+      3. After this, you should be able to use your new key as a unique column!
+      4. Creating a new `IDENTITY` column in SQL server backfills all your previous records. Take note of the initial recipe run!
+  </details>
+
+**Sort column**
+1. Tables that have `updated_at` columns within them should be suitable as the sort column. 
+2. Failing that, any column that can be sorted based on the time the record was updated can be used.
+3. If no column is suitable, an `updated_at` column can be created to fulfill this purpose.
+<details><summary><b> How to create an <code>updated_at</code> column</b> </summary>
+      1. Enter the following commands to create an <code>updated_at</code> column
+```sql
+ALTER TABLE yourTable
+add updatedAt datetime2
+CONSTRAINT DF_myTable_updatedAt DEFAULT GETDATE()
+```
+      2. After this, now we need to add this column to trigger and update whenever a record is changes
+```sql
+create trigger trg_myTable_update on yourTable for update as
+begin
+  update yourTable
+	set updatedAt = getDate()
+	from yourTable inner join deleted d
+	on yourTable.id=d.id
+end
+```
+      4. This new <code>updated_at</code> column in SQL server can now be used as an sort column
+  </details>
+
