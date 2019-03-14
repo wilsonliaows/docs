@@ -138,7 +138,9 @@ The SQL Server connector works with all tables and views. These are available in
 Case sensitivity of the name of a table/view depends on your database implementation. A default SQL Server is case insensitive. Databases or database objects with `CS` in the **COLLATION** indicates that it is case sensitive.
 
 #### Stored Procedures
-The SQL Server connector also works with all stored procedures in the connected database. Stored procedures can be triggered in recipes using our SQL Server `Execute stored procedure` action. All stored procedures in your database will be available in the pick lists the action.
+Stored procedures are custom written workflows that have to be written and saved within your SQL server. They are able to do a range of functionalities including creating, reading, updating and deleting rows. They can also accept parameters. Check out the details below if you want to know more about how Workato works with stored procedures.
+<details><summary>Executing stored procedures in Workato</summary>
+The SQL Server connector also works with all stored procedures in the connected database. Stored procedures can be triggered in recipes using our SQL Server `Execute stored procedure` action. All stored procedures in your database will be available in the pick lists the action. Stored procedures are written and stored within your SQL server
 
 ![Stored procedure selection from pick list](/assets/images/mssql/stored-procedure-view-1.png)
 *Select your stored procedure from the pick list*
@@ -147,6 +149,7 @@ If applicable, you will be prompted to enter in the parameters for your stored p
 
 ![Store procedure input fields for parameters](/assets/images/mssql/stored-procedure-view-2.png)
 *Select your stored procedure from the pick list*
+</details>
 
 ### Single row vs batch of rows
 SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves tasks but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
@@ -177,9 +180,9 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [SQL Server documentation](https://docs.microsoft.com/en-us/sql/t-sql/queries/where-transact-sql) for a comprehensive list of rules for constructing `WHERE` statements. Below, we go through some of the basics needed to form your `WHERE` statements.
 
-#### Operators and Data types
+#### Operators 
 
-At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in triggers and actions in Workato. By chaining operators in the same syntax one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. Check out the sections below on some of the supported operators and data types on Workato that'll help if you're not already familiar!
+At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in triggers and actions in Workato. By chaining operators in the same syntax one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. Check out the sections below on some of the supported operators on Workato that'll help if you're not already familiar with SQL.
 
 <details><summary><b>List of operators</b></summary>
   
@@ -276,6 +279,7 @@ At the foundation of any `WHERE` statement, we have operators that help us filte
 <br>
 </details>
 
+#### Data types
 
 The other component of a `WHERE` condition would be to properly use these operators in conjunction with the proper datatypes. This means making sure you compare an integer in your table with another integer instead of a string. Failing to do so would result in unexpected behaviour or failed jobs 
 
