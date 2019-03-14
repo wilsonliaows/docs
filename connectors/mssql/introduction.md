@@ -508,7 +508,7 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
 2. When this is not the case, an auto incrementing unique integer key can be created to accomplish 
   * Finding a proxy key that is an integer, unique and auto incrementing
   * Creating a new auto incrementing unique integer key
-  <details><summary><b> How to create an auto incrementing key in SQL server</b> </summary>
+**How to create an auto incrementing key in SQL server**
       1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique interger key
       2. Enter the following commands to create an new `IDENTITY` column
   ```sql
@@ -517,14 +517,14 @@ ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
 ```
       3. After this, you should be able to use your new key as a unique column!
       4. Creating a new `IDENTITY` column in SQL server backfills all your previous records. Take note of the initial recipe run!
-  </details>
+
 
 **Sort column**
 1. Tables that have `updated_at` columns within them should be suitable as the sort column. 
 2. Failing that, any column that can be sorted based on the time the record was updated can be used.
 3. If no column is suitable, an `updated_at` column can be created to fulfill this purpose.
-<details><summary><b> How to create an <code>updated_at</code> column</b> </summary>
-      1. Enter the following commands to create an <code>updated_at</code> column
+**How to create an `updated_at` column**
+      1. Enter the following commands to create an `updated_at` column
 ```sql
 ALTER TABLE yourTable
 add updatedAt datetime2
@@ -540,6 +540,6 @@ begin
 	on yourTable.id=d.id
 end
 ```
-      4. This new <code>updated_at</code> column in SQL server can now be used as an sort column
-  </details>
+      4. This new `updated_at` column in SQL server can now be used as an sort column
+
 
