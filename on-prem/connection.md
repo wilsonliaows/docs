@@ -43,3 +43,9 @@ When configuring an on-premises files connection to this profile, we will need t
 
 ![On-premises file connection using on-premises agent](/assets/images/on-prem/files-opa-connection.png)
 *On-premises file connection using on-premises agent*
+
+## Next Steps
+1) [Upgrade your on-premises agent](/on-prem/upgrade.md)
+2) [Avoid exposure of any sensitive data by using the encryptor tool provided](/on-prem/password-encryption.md)
+3) [Run your on-premises agent in environments with limited internet connectivity](/on-prem/proxy.md)
+4) [Connect to legacy applications using Java](/on-prem/extension.md)

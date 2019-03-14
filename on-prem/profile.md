@@ -46,8 +46,10 @@ ldap:
 
 **Do not use spaces or special characters in connection profile names.**
 
-## Applying a new configuration
+## Running your agent
+After configuring your connection profiles, you will need to run your on-premises agent on your machine. [Check out how to do so on your operating system.](/on-prem/run.md)
 
+## Applying a new configuration
 A running on-premises agent automatically applies any changes made to the configuration file. Changes to proxy server settings require you to restart the agent.
 
 ## Database connection profile
@@ -219,11 +221,11 @@ sap:
     progid: WORKATO
     connection_count: 2
   # Workato Connection properties for advanced users. Often don't need to be changed
-    http_connect_timeout: 30000
-    http_connection_request_timeout: 30000
-    http_socket_timeout: 30000
-    cm_max_total: 20
-    cm_default_max_per_route: 20
+    http_connect_timeout: 10000
+    http_connection_request_timeout: 10000
+    http_socket_timeout: 10000
+    cm_max_total: 10
+    cm_default_max_per_route: 5
   # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section
     control_segment:
       SNDPOR: WORKATO
@@ -232,11 +234,11 @@ sap:
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Property to get IDOC list configured on RCVPRN profile
+    # Property to get IDoc list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
-Below is the example of `messageserver` connection type. Use this connection type when SAO system is behind message server gateway.
+Below is the example of `messageserver` connection type. Use this connection type when SAP system is behind message server gateway.
 
 ```YAML
 server:
@@ -265,11 +267,11 @@ sap:
     progid: WORKATO
     connection_count: 2
   # Workato Connection properties for advanced users. Often don't need to be changed
-    http_connect_timeout: 30000
-    http_connection_request_timeout: 30000
-    http_socket_timeout: 30000
-    cm_max_total: 20
-    cm_default_max_per_route: 20
+    http_connect_timeout: 10000
+    http_connection_request_timeout: 10000
+    http_socket_timeout: 10000
+    cm_max_total: 10
+    cm_default_max_per_route: 5
   # Properties for setting IDoc segment fields. Leave blank values if you only use RFC, but do not delete this section  
     control_segment:
       SNDPOR: WORKATO
@@ -278,72 +280,96 @@ sap:
       RCVPOR: SAPEQ6
       RCVPRT: LS
       RCVPRN: T90CLNT090
-    # Property to get IDOC list configured on RCVPRN profile
+    # Property to get IDoc list configured on RCVPRN profile
       OUT_RCVPRN: WORKATO
 ```
 
-The below properties are mandatory and required if Application Server is connected directly to the SAP JCO Connector. This will not allow Load Balancer on the SAP side to be enabled:
+### How to configure SAP profile properties
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| ashost | SAP host in the format of `xxx.xxx.xxx.xxx` |
-| client | Three digit sap client id |
+The properties below are required if you are connecting directly to SAP Application Server. This will not allow Load Balancer on the SAP side to be enabled:
 
-The below properties are mandatory and required if Messager Server is connected to the SAP JCO Connector. This will allow Load Balancer on the SAP side to be enabled and can be used for SAP Production server connection parameters:
+- **ashost**: SAP host in the format of `xx.xx.xx.xx`. This is the IP Address of the SAP application server you are connecting directly. This can be seen on the SAP Logon Pad which is used to login to your on-premise SAP Application server.
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| mshost | 10.30.32.80 |
-| msserv | 3601 |
-| r3name | R/3 |
-| group | PUBLIC |
+    ![Host](/assets/images/connectors/sap/ashost.png)
 
-The below properties are required irrespective of the connection type. Be it either Message Server or Application server:
+- **client**: The actual client number which is used for connecting to Workato. Use the same one you log into with your SAP Logon Pad. It's always a 3 digit integer.
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| user | SAP RFC user. Recommend using background user and disable dialog properties. |
-| password | SAP RFC user password |
-| lang | Logon language |
-| sysnr | Two digit sap system number |
-| pool_capacity | Default to `3`. Maximum number of idle connections that kept open for a SAP connection. |
-| peak_limit | Default to `10`. Maximum number of active connections that can be created for a sap connection simultaneously |
+    ![Client](/assets/images/connectors/sap/client.png)
+
+The properties below are required if you are connecting to SAP Message Server. The Message Server is responsible for communication between SAP application servers. It passes requests from one application server to another within the system. This will allow Load Balancer on the SAP side to be enabled:
+
+- **mshost**: Message Server host in the format of `xx.xx.xx.xx`. This is the IP Address of the Message Server you are connecting.
+- **msserv**: Message Server port.
+
+    `mhost` and `msserv` can be found in SAP Tcode SMMS as shown below:
+
+    ![Message Server Host](/assets/images/connectors/sap/mhost.png)
+
+- **r3name**: The system ID of the SAP system, e.g. R/3, SQ2. Can be found on the SAP Logon Pad which is used to login to your SAP Application server.
+
+    ![Message Server Host](/assets/images/connectors/sap/r3name.png)
+
+- **group**: Logical group name of the application servers. Can be found in SAP Tcode SMLG:
+
+    ![Group](/assets/images/connectors/sap/group.png)
+
+The properties below are required irrespective of the connection type, either Message Server or Application server:
+
+- **user**: SAP RFC user. Using background user and disabling dialog properties are recommended.
+
+    ![User](/assets/images/connectors/sap/user.png)
+
+- **password**: SAP RFC user password.
+
+    ![Password](/assets/images/connectors/sap/password.png)
+
+- **lang**: Logon language.
+
+    ![Language](/assets/images/connectors/sap/language.png)
+
+- **sysnr**: Two digit SAP system number.
+
+    ![System number](/assets/images/connectors/sap/system-number.png)
+
+- **pool_capacity**: Default to `3`. Maximum number of idle connections that kept open for a SAP connection.
+- **peak_limit**: Default to `10`. Maximum number of active connections that can be created for SAP simultaneously.
 
 These are required for SAP Outbound Connection properties:
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| gwhost | SAP Gateway Host, in the number format of `xxx.xxx.xxx.xxx` (e.g. 10.30.23.01) |
-| gwserv | Gateway server port, in the number format of `xxxx` (e.g. 3300)  |
-| progid | SAP Program ID configured for Workato> |
-| connection_count | Default to `2`. The number of parallel connection can be open for outbound sap connection. |
+- **gwhost**: SAP Gateway Host, in the number format of `xx.xx.xx.xx`.
+- **gwserv**: Gateway server port.
+- **progid**: SAP Program ID configured for Workato.
+
+    The 3 properties above can be found in the SM59 Tcode for the created Workato RFC Destination:
+
+    ![Program ID](/assets/images/connectors/sap/program-id.png)
+
+- **connection_count**: Default to `2`. The number of parallel connection can be open for outbound sap connection.
 
 These are optional for Workato Connection properties (for advanced users):
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| http_connect_timeout | Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. |
-| http_connection_request_timeout | Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. |
-| http_socket_timeout | Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets. |
-| cm_max_total | Default 10. Total number of connections in the connection pool. |
-| cm_default_max_per_route | Default 5. Number of connections in the pool per route. |
+- **http_connect_timeout**: Default 10000. Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout.
+- **http_connection_request_timeout**: Default 10000. Returns the timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout.
+- **http_socket_timeout**: Default 10000. Defines the socket timeout in milliseconds, which is the timeout for waiting for data  or, put differently, a maximum period inactivity between two consecutive data packets.
+- **cm_max_total**: Default 10. Total number of connections in the connection pool.
+- **cm_default_max_per_route**: Default 5. Number of connections in the pool per route.
 
-These are required for SAP IDOC Connection properties (defined to send IDOCs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
+These are required for SAP IDoc Connection properties (defined to send IDocs to SAP). These can be dynamically overridden with the Workato recipe/mapping:
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| SNDPOR | Transactional RFC port configured in SAP for Workato |
-| SNDPRT | Partner profile type |
-| SNDPRN | Partner profile Name defined for Workato |
-| RCVPOR | SAP default Receiver Port |
-| RCVPRT | Receiver Partner profile type |
-| RCVPRN | Receiver Partner profile type defined for the SAP |
+- **SNDPOR**: Transactional RFC port configured in SAP for Workato.
+- **SNDPRT**: Partner profile type.
+- **SNDPRN**: Partner profile Name defined for Workato.
+- **RCVPOR**: SAP default Receiver Port.
+- **RCVPRT**: Receiver Partner profile type.
+- **RCVPRN**: Receiver Partner profile type defined for the SAP.
 
-The below property is required to get IDOC dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+    To find the 6 properties above, send a sample IDoc to the created IDoc configuration in SAP. Proceed to Tcode WE19, open the IDoc number and its control record, then you can find all 6 properties in one place as shown below:
 
-| Property name | Comment |
-|------------------|-------------------------------------------|
-| OUT_RCVPRN | Receiver Partner profile type defined for the SAP |
+    ![Control segment](/assets/images/connectors/sap/control-segment.png)
+
+The below property is required to get IDoc dropdown list populated in the Workato Recipe creation UI configured on Receiver partner profile:
+
+- **OUT_RCVPRN**: Receiver Partner profile type defined for the SAP. Can be the same as **RCVPRN** above for ease of use.
 
 ## JMS connection profile
 JMS connection profiles must be defined in the `jms` section. A JMS provider is specified by `provider` property of a connection profile. The following JMS providers are supported by the on-premises agent:
