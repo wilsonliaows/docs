@@ -4,11 +4,11 @@ date: 2019-01-31 06:00:00 Z
 ---
 
 # Dropbox action - Upload file using file contents
-Upload a file to Dropbox by providing the file contents.
+Upload a file to Dropbox by providing the file contents. If a file with the same name already exists in the folder, action will fail.
 
-File contents can be obtained using action `Download file from URL` from `Files by Workato` connector, or using `Download file` actions from other connectors.  
+The following is an example of uploading a file using `File contents` from the [Download file](/connectors/dropbox/action-download-file.md) action:
 
-If a file with the same name already exists in the folder, action will fail.
+![Download & upload file in Dropbox](/assets/images/connectors/dropbox/download-upload-file.png)
 
 ## Input fields
 
@@ -16,7 +16,7 @@ If a file with the same name already exists in the folder, action will fail.
 |---|---|
 | Folder | The folder where the new file will be uploaded |
 | File name | Name for the uploaded file. |
-| File contents | File contents can be obtained using action `Download file from URL` from `Files by Workato` connector, or using `Download file` actions from other connectors. |
+| File contents | File contents can be obtained using action [Download file](/connectors/dropbox/action-download-file.md) in Dropbox connector or other connectors. |
 | Obtain a direct URL to file | Whether to generate a public URL that lives for 4 hours. |
 
 ## Output fields
@@ -27,7 +27,7 @@ If a file with the same name already exists in the folder, action will fail.
 | Bytes | File size in bytes. |
 | Size | File size in string format. |
 | Mime type | The Mime type of this file. |
-| URL | File's public URL. Can be used to download file using [Workato Utility connector](https://docs.workato.com/features/utilities.html#download-file-from-url). |
+| URL | File's public URL. Can be used to download file using [Workato Utility connector](/features/utilities.md#download-file-from-url). |
 | URL expires | Date/time the file's public URL will expire. |
 | Rev | A unique identifier for the current revision of the file. |
 | Modified | Date/time the file was last modified. |
