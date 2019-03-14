@@ -57,7 +57,9 @@ The SQL Server connector uses basic authentication to authenticate with SQL Serv
 
 ### Permissions required to connect 
 
-At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato).
+At minimum, the database user account must be granted `SELECT` permission to the database specified in the [connection](#how-to-connect-to-sql-server-on-workato). Check out the example below to find out more about how to set permissions if you are the one setting up the SQL server connection for your business
+
+<details><summary><b>Detailed Example</b></summary>
 
 If we are trying to connect to a named database (`HR_PROD`) in a SQL Server instance, using a new database user `workato`, the following example queries can be used.
 
@@ -118,6 +120,8 @@ This should return the following minimum permission to create a SQL Server conne
 3 rows in set (0.20 sec)
 ```
 
+</details>
+
 ## Working with the SQL Server connector
 
 ### Tables, views and stored procedures
@@ -173,8 +177,12 @@ This input field is used to filter and identify rows to perform an action on. It
 
 This clause will be used as a `WHERE` statement in each request. This should follow basic SQL syntax. Refer to this [SQL Server documentation](https://docs.microsoft.com/en-us/sql/t-sql/queries/where-transact-sql) for a comprehensive list of rules for constructing `WHERE` statements. Below, we go through some of the basics needed to form your `WHERE` statements.
 
-#### Operators
+#### Operators and Data types
 
+At the foundation of any `WHERE` statement, we have operators that help us filter and identify what rows we want returned in triggers and actions in Workato. By chaining operators in the same syntax one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato. Check out the sections below on some of the supported operators and data types on Workato that'll help if you're not already familiar!
+
+<details><summary><b>List of operators</b></summary>
+  
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -245,12 +253,116 @@ This clause will be used as a `WHERE` statement in each request. This should fol
       </td>
       <td><code>WHERE NAME IS NOT NULL</code></td>
     </tr>
+    <tr>
+      <td>
+        AND
+      </td>
+      <td>
+        Requires both preceding and proceeding conditions to be fulfilled to be true
+      </td>
+      <td><code>WHERE ID = 445 AND NAME IS NOT NULL</code></td>
+    </tr>
+    <tr>
+      <td>
+        OR
+      </td>
+      <td>
+        Requires either the preceding and proceeding conditions to be fulfilled to be true
+      </td>
+      <td><code>WHERE ID = 445 OR NAME IS NOT NULL</code></td>
+    </tr>
   </tbody>
 </table>
+<br>
+</details>
 
-#### Simple statements
 
-String values must be enclosed in single quotes (`''`) and columns used must exist in the table/view.
+The other component of a `WHERE` condition would be to properly use these operators in conjunction with the proper datatypes. This means making sure you compare an integer in your table with another integer instead of a string. Failing to do so would result in unexpected behaviour or failed jobs 
+
+Workato also helps reveal the data types expected for each input field when you select 
+- **Select rows** actions
+- **Update rows** actions
+- **Upsert rows** actions
+
+They appear directly below the output field, allowing you to know the expected data type to be sent while building the recipe. Use these hints to send the proper data types over to your SQL server as failing to do so might lead to unexpected behaviour or failed jobs. 
+
+![input field hints](/assets/images/mssql/Mssql-input-field-date-type.png)
+*Hints below each input field inform you about the data type expected*
+
+Here are some of the common data types you can expect to see. A more comprehensive list can be found [here](https://www.w3schools.com/sql/sql_datatypes.asp)
+
+<details><summary><b>List of common data types</b></summary>
+<table class="unchanged rich-diff-level-one">
+  <thead>
+    <tr>
+        <th>Data type</th>
+        <th width='40%'>Description</th>
+        <th width='40%'>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>int</td>
+      <td>Allows whole numbers between -2,147,483,648 and 2,147,483,647</td>
+      <td><code>-100</code>,<code>1</code>,<code>30,000</code></td>
+    </tr>
+    <tr>
+      <td>decimal</td>
+      <td>Fixed precision and scale numbers that are exact. This is commonly used. Max length can be specified but defaults to </td>
+      <td><code>1.11</code>,<code>2.0761</code>,<code>1.61803398875</code></td>
+    </tr>
+    <tr>
+      <td>smallint</td>
+      <td>Allows whole numbers from 0 to 255</td>
+      <td><code>1</code>,<code>245</code>,<code>100</code></td>
+    </tr>
+    <tr>
+      <td>bigint</td>
+      <td>Allows whole numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807</td>
+      <td><code>10,000,000,000`</td>
+    </tr>
+    <tr>
+      <td>bit</td>
+      <td>Integer that can be 0, 1, or NULL</td>
+      <td><code>1</code>,<code>0</code>,<code>NULL</code></td>
+    </tr>
+    <tr>
+      <td>varchar(n)</td>
+      <td><b>Variable</b> width character string of length `n`</td>
+      <td><code>Foo_bar</code></td>
+    </tr>
+    <tr>
+      <td>nchar(n)</td>
+      <td><b>Fixed</b> width character string of length `n`</td>
+      <td><code>Foo</code> where n = 3</td>
+    </tr>
+    <tr>
+      <td>datetime</td>
+      <td>From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds</td>
+      <td><code>2011-09-16 13:23:18.767</code></td>
+    </tr>
+    <tr>
+      <td>datetime2</td>
+      <td>From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds</td>
+      <td><code>2011-09-16 13:23:18.7676720</code></td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>Store a date only. From January 1, 0001 to December 31, 9999</td>
+      <td><code>2012-10-11</code></td>
+    </tr>
+    <tr>
+      <td>time</td>
+      <td>Store a time only to an accuracy of 100 nanoseconds. Minimum length `hh:mm:ss` and maximum length `hh:mm:ss.nnnnnnnn`</td>
+      <td><code>08:30:12</code>,<code>09:12:20.12898400</code></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+#### Writing `WHERE` conditions
+
+Now that we've gone through operators and data types, we are ready to write our `WHERE` conditions. String values must be enclosed in single quotes (`''`) and columns used must exist in the table/view.
 
 A simple `WHERE` condition to filter rows based on values in a single column looks like this.
 
@@ -272,15 +384,19 @@ Column names with spaces must be enclosed in double quotes (`""`) or square brac
 ![WHERE condition with enclosed identifier](/assets/images/mssql/where-condition-with-enclosed-identifier.png)
 *`WHERE` condition with enclosed identifier*
 
-`WHERE` conditions can also be used in conjunction with basic SQL logical operators like `AND` and `OR` to add more filters on the rows you return.
+Check out the details below for more functionality you can explore with your `WHERE` conditions. 
+
+<details><summary>Using <code>AND</code> and <code>OR</code> in your <code>WHERE</code> conditions</summary>
+`WHERE` conditions can also be used in conjunction with basic SQL logical operators like <code>AND</code> and <code>OR</code> to add more filters on the rows you return.
 
 ```sql
 ([currency code] = 'USD' AND totalAmt >1000) OR totalAmt>2000
 ```
 
 When used together,  this `WHERE` condition will return all rows that either have the value 'USD' in the `currency code` column **AND** more than 1000 in the `totalAmt` column **OR** more than 2000 in the `totalAmt` column
+</details>
 
-#### Complex statements
+<details><summary>Using sub-queries in your <code>WHERE</code> conditions</summary>
 
 Your `WHERE` condition can also contain subqueries. The following query can be used on the `compensation` table.
 
@@ -299,31 +415,25 @@ SQL Server connector has triggers for both new and updated rows. For the trigger
 
 A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints.
 
-<details><summary><b>Unique key</b></summary>
-In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
-
-As such, the values in the selected column must be unique. Typically, this column is the <b>primary key</b> of the table (e.g. `ID`).
-
+#### Unique key
+In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table. As such, the values in the selected column must be unique. Typically, this column is the **primary key** of the table (e.g. `ID`).
 
 When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
 
-Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use <var>>= 101</var> as the condition to look for new rows.
-
+<details><summary><b>Example</b></summary>
+Let's use a simple example to illustrate this behavior. We have a <b>New row trigger</b> that processed rows from a table. The <b>unique key</b> configured for this trigger is `ID`. The last row processed has `100` as it's `ID` value. In the next poll, the trigger will use `>= 101` as the condition to look for new rows.
 Performance of a trigger can be improved if the column selected to be used as the <b>unique key</b> is indexed. 
-
 </details>
 
-
-
-
 #### Sort column
-
 This is required for **New/updated row triggers**. Values in this selected column are used to identify updated rows.
 
 When a row is updated, the **Unique key** value remains the same. However, it should have it's **Sort column** updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected **Unique key** column. When a change in the **Sort column** value is observed, an updated row event will be recorded and processed by the trigger.
 
+For SQL Server, only **datetime2** and **datetime** column types can be used.
+
+<details><summary><b>Detailed Example</b></summary>
 Let's use a simple example to illustrate this behavior. We have a **New/updated row trigger** that processed rows from a table. The **Unique key** and **Sort column** configured for this trigger is `ID` and `UPDATED_AT` respectively. The last row processed by the trigger has `ID` value of `100` and `UPDATED_AT` value of `2018-05-09 16:00:00.000000`. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
 1. `UPDATED_AT > '2018-05-09 16:00:00.000000'`
 2. `ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
-
-For SQL Server, only **datetime2** and **datetime** column types can be used.
+</details>
