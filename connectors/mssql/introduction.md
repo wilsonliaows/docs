@@ -126,6 +126,8 @@ This should return the following minimum permission to create a SQL Server conne
 
 ### Using tables, views and stored procedures
 
+After successfully connecting to your SQL Server and selecting an action/trigger in your recipe, you will often be prompted to select either a table, view or stored procedure. This tells Workato where to pull or send data to. 
+
 #### Tables & Views
 The SQL Server connector works with all tables and views. These are available in pick lists in each trigger/action or you can provide the exact name. Views can be called using this as well and be used in the same way as a table.
 
@@ -422,7 +424,7 @@ Let's use a simple example to illustrate this behavior. We have a **New/updated 
 2. `ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'`
 </details>
 
-### Using single row actions/triggers vs batch of rows actions/triggers
+### Using single row actions/triggers vs using batch of rows actions/triggers
 SQL Server connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size. Batch triggers and actions are great for jobs when you expect to read, create or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves tasks but [reduces recipe runtimes and decreases load on your servers](/features/batch-processing.md). 
 
 ![Batch trigger inputs](/assets/images/mssql/batch_trigger_input.png)
