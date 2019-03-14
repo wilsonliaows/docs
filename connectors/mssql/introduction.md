@@ -509,14 +509,14 @@ When looking to make triggers using our `New row` and `New/updated row` triggers
   * Finding a proxy key that is an integer, unique and auto incrementing
   * Creating a new auto incrementing unique integer key
 **How to create an auto incrementing key in SQL server**
-      1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique interger key
-      2. Enter the following commands to create an new `IDENTITY` column
-  ```sql
+1. Make sure no other column has been declared as an `IDENTITY` column in your table. (if this has been done so, you may use that directly as your unique interger key
+2. Enter the following commands to create an new `IDENTITY` column
+```sql
 ALTER TABLE yourTable
 ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
 ```
-      3. After this, you should be able to use your new key as a unique column!
-      4. Creating a new `IDENTITY` column in SQL server backfills all your previous records. Take note of the initial recipe run!
+3. After this, you should be able to use your new key as a unique column!
+4. Creating a new `IDENTITY` column in SQL server backfills all your previous records. Take note of the initial recipe run!
 
 
 **Sort column**
@@ -524,13 +524,16 @@ ADD yourAutoIncrementUniqueKey INT UNIQUE NOT NULL IDENTITY ;
 2. Failing that, any column that can be sorted based on the time the record was updated can be used.
 3. If no column is suitable, an `updated_at` column can be created to fulfill this purpose.
 **How to create an `updated_at` column**
-      1. Enter the following commands to create an `updated_at` column
+* Enter the following commands to create an `updated_at` column
+      
 ```sql
 ALTER TABLE yourTable
 add updatedAt datetime2
 CONSTRAINT DF_myTable_updatedAt DEFAULT GETDATE()
 ```
-      2. After this, now we need to add this column to trigger and update whenever a record is changes
+
+* After this, now we need to add this column to trigger and update whenever a record is changes
+      
 ```sql
 create trigger trg_myTable_update on yourTable for update as
 begin
@@ -540,6 +543,11 @@ begin
 	on yourTable.id=d.id
 end
 ```
-      4. This new `updated_at` column in SQL server can now be used as an sort column
+4. This new `updated_at` column in SQL server can now be used as an sort column
+
+
+
+
+
 
 
